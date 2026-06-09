@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Graph-Aware_Prompting_for_Reliable_Section_Generation.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Database file #1: refs.bib
+You've used 20 entries,
+            2118 wiz_defined-function locations,
+            584 strings with 8080 characters,
+and the built_in function-call counts, 6491 in all, are:
+= -- 595
+> -- 499
+< -- 0
++ -- 199
+- -- 176
+* -- 452
+:= -- 1239
+add.period$ -- 80
+call.type$ -- 20
+change.case$ -- 148
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 200
+empty$ -- 341
+format.name$ -- 176
+if$ -- 1239
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 20
+newline$ -- 123
+num.names$ -- 40
+pop$ -- 128
+preamble$ -- 1
+purify$ -- 128
+quote$ -- 0
+skip$ -- 140
+stack$ -- 0
+substring$ -- 103
+swap$ -- 20
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 80
+warning$ -- 0
+while$ -- 40
+width$ -- 22
+write$ -- 242

@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The second bullet under Beautiful.ai ('Doporučený rychlý workflow: vyberte šablonu ... upravte klíčové snímky rukou ...') makes concrete, non‑trivial procedural recommendations but is not marked as 'general background knowledge' and no KB excerpt/citation is provided to support these specific steps.",
+      "required_fix": "Either (a) add a supporting citation from the knowledge base that explicitly documents this suggested workflow for Beautiful.ai, or (b) mark the entire bullet as 'general background knowledge' (to indicate it is general advice rather than KB‑sourced fact), or (c) remove/soften the specifics so that only minimal, clearly non‑controversial background remains."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Beautiful.ai is elsewhere in the memory/outlines treated as a brief general mention. The section currently mixes an explicitly labeled 'general background knowledge' item (first bullet) with an unattributed specific workflow (second bullet), creating inconsistent treatment.",
+      "required_fix": "Make the treatment of Beautiful.ai consistent: either keep only a short, labeled general background note, or provide citations for all procedural claims about Beautiful.ai so they are clearly KB‑grounded."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The checklist itemize uses multiple \\item tokens on the same line; while LaTeX will usually parse them, this reduces readability and may cause formatting issues in some toolchains. Also ensure footnotes are attached to the intended \\item.",
+      "required_fix": "Place each \\item on its own line, move the footnote to the specific \\item it documents, and recompile to verify output. Example: put line breaks after each \\item and ensure the footnote command immediately follows the text it documents."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Brand a drobné úpravy' step recommends checking colors and fonts and gives the '1 věta + 2–3 podpůrné body' rule but lacks an inline citation. The checklist also mixes multiple short checklist questions on one line, reducing scannability.",
+      "required_fix": "Add an explicit footnote to the KB excerpt that supports the '1 věta + 2–3 body' recommendation (kb_ai_101_tipu_pdf_page_51_1 is appropriate) and reformat the checklist so each question/point is on its own bullet for readability."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The Microsoft Designer step‑by‑step is well grounded to KB excerpts, but the section lacks a short concrete example (e.g., a single concise prompt example or a tiny before/after note) that would make the practical steps easier to act on for teachers.",
+      "required_fix": "If a concrete example is to be added, provide it only if supported by a KB excerpt or by an included screenshot/artefact. Otherwise, add a short note directing readers to Microsoft Learn (kb_ai_101_tipu_pdf_page_54_1) for example prompts and tutorials."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Beautiful.ai second bullet (workflow)",
+      "edit_instruction": "Either add a KB citation that supports this specific workflow for Beautiful.ai, or prepend the bullet with '(general background knowledge)' and soften language (e.g., change 'Doporučený rychlý workflow:' to 'Obecné doporučení (general background knowledge):')."
+    },
+    {
+      "target": "Beautiful.ai first bullet",
+      "edit_instruction": "Keep as 'general background knowledge' but consider adding a short qualifier that this is general advice rather than KB‑sourced fact (already present — OK)."
+    },
+    {
+      "target": "Microsoft Designer — step 5 (Brand a drobné úpravy)",
+      "edit_instruction": "Add an explicit footnote reference to kb_ai_101_tipu_pdf_page_51_1 for the guideline '1 věta + 2–3 podpůrné body' (this rule appears elsewhere in the KB and should be cited here)."
+    },
+    {
+      "target": "Rychlý checklist před exportem",
+      "edit_instruction": "Put each \\item on its own line; attach the existing footnote (kb_ai_101_tipu_pdf_page_51_1) to the specific item 'Vizualizace: ověřte poměr stran a ořezy před vložením.' and ensure the export item is separate. Example: '\\item Je learning outcome jasně uveden na první snímku?' on its own line, etc."
+    },
+    {
+      "target": "Add a short pointer for examples",
+      "edit_instruction": "Add a brief sentence after the Designer steps: 'Pro konkrétní ukázky promptů a tutoriály viz Microsoft Learn.' and cite kb_ai_101_tipu_pdf_page_54_1. (This avoids inventing example prompts.)"
+    }
+  ],
+  "retrieval_queries": [
+    "Beautiful.ai workflow templates auto layout documentation citation",
+    "Beautiful.ai tutorial quick workflow teacher presentation templates",
+    "Beautiful.ai official features templates auto-alignment citation",
+    "Any KB or internal excerpt mentioning Beautiful.ai (features, workflows, or recommendations) to support procedural steps"
+  ]
+}

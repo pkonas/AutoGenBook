@@ -1,0 +1,67 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Typografická/lingvistická chyba: v položce Postup při podezření se používá slovo \"ústeční/digitální\", které zřejmě má být \"ústní/digitální\".",
+      "required_fix": "Opravte \"ústeční\" na \"ústní\"."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Hlavní tvrzení o nespolehlivosti detektorů (falešně pozitivní/negativní výsledky, právní/etické limity) je označeno jako \"general background knowledge\" a proto akceptovatelné, ale v textu by bylo vhodné uvést existenci konkrétních důkazů nebo odkazy v KB, pokud jsou dostupné.",
+      "required_fix": "Buď připojit konkrétní citaci z interní KB nebo externího zdroje opravňujícího tvrzení o limitech detektorů, nebo zachovat současné označení jako \"general background knowledge\" a případně zkrátit formulaci, aby nevyznívala jako empirické tvrzení s přesnými čísly."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Ne všechny doporučené postupy v sekci jsou explicitně cross‑referencovány na související části příručky (např. šablona do sylabu a implementační tipy pro technické obory jsou v předchozích oddílech).",
+      "required_fix": "Přidat odkazy na konkrétní části příručky (např. 'Vzorový text do sylabu' a 'Implementační tipy pro technické obory') aby čtenář mohl rychle najít související šablony a příklady."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce uvádí praktické alternativy (procesní artefakty, ověřovací rozhovor apod.) ale postrádá konkrétní krátké příklady nebo šablony (např. co přesně žádat jako 'procesní artefakt', otázky vhodné pro krátký ověřovací rozhovor).",
+      "required_fix": "Doplňte 2–3 krátké příklady: (a) konkrétní seznam procesních artefaktů (timestamped drafts, commit log + stručný changelog), (b) 3 vzorové otázky pro ověřovací rozhovor, (c) odkaz na šablonu do sylabu (pokud existuje v příručce). Pokud přímé citace nejsou dostupné v KB, označte tyto příklady jako 'general background knowledge'."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX obsahuje vícero odstavců a seznamů s citacemi \\cite{...}. Pokud sekce bude samostatně kompilována, je třeba zajistit, že v dokumentu existuje bibliografie obsahující citované klíče.",
+      "required_fix": "Zařídit, aby dokumentová sbírka bibliografie obsahovala citované položky nebo nahradit \\cite{...} křížovými odkazy na interní části příručky; případně přidat poznámku, že citace odkazují na interní KB (např. 'viz AI - 101 tipu.pdf, str. 8, 15, 36')."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Opravte překlep v kontrolním seznamu: změňte '(ústeční/digitální)' na '(ústní/digitální)'."
+    },
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Udržte formulaci o omezeních detektorů jako 'general background knowledge' nebo pokud máte v KB relevantní pasáž o limitech detektorů, doplňte ji jako citaci. Pokud žádný konkrétní důkaz v KB není, přidejte krátkou větu: 'Toto shrnutí je obecné odborné zhodnocení; viz doporučení níže k alternativám.'"
+    },
+    {
+      "target": "sekce '1) Požadavek na procesní artefakty'",
+      "edit_instruction": "Přidejte krátký příklad požadovaných artefaktů (např. 'timestamped draft v PDF, stručný changelog (max. 100 slov), commit history s veřejným repozitářem nebo privátním přístupem pro hodnotitele') a odkažte na stránku 8 KB pro podporu tvrzení (\\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1})."
+    },
+    {
+      "target": "sekce '3) Transparentní deklarace a reflexe použití AI'",
+      "edit_instruction": "Doporučte explicitní šablonu deklarace (1–2 věty) a připojte cross‑reference na 'Vzorový text do sylabu' v příručce (viz část v předchozích oddílech). Pokud šablona existuje v přílohách, uveďte kde ji najít."
+    },
+    {
+      "target": "Postup při podezření na nevhodné použití AI (praktický checklist)",
+      "edit_instruction": "Doplňte 2–3 vzorové otázky pro krátký ověřovací rozhovor (např. 'Popište, jak jste postupovali při řešení tohoto úkolu', 'Které konkrétní zdroje jste použil(a)?', 'Proč jste zvolil(a) tento přístup?') a označte je jako 'general background knowledge' pokud nejsou explicitně v KB."
+    },
+    {
+      "target": "závěrečná poznámka",
+      "edit_instruction": "Přidejte větu cross‑referující kapitolu s šablonami a checklisty (např. 'Pro hotové texty do sylabu a checklisty viz Přílohy kapitoly 9')."
+    }
+  ],
+  "retrieval_queries": [
+    "evidence KB about limitations and error rates of AI text detectors false positives false negatives 'detector' 'AI‑text' 'detektor' 'false positive' 'false negative' site:kb",
+    "examples in KB of concrete process‑artifact requirements for student submissions 'processní artefakty' 'commit history' 'meziverze' 'Pokrok v matematice' page 8",
+    "KB references or templates for declaration of AI use in syllabus 'Vzorový text do sylabu' 'deklarace použití AI'",
+    "KB examples or templates for verification interview / sample questions for assessing student understanding"
+  ]
+}

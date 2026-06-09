@@ -1,0 +1,65 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Text obsahuje několik netriviálních faktických tvrzení (přínosy AI, doporučené velikosti pilotní skupiny 5–30 osob, délka pilota 4–8 týdnů, metriky úspěchu apod.) bez jakýchkoli odkazů na zdroje nebo poznámky o povaze tvrzení.",
+      "required_fix": "Buď přidejte ověřitelné citace/podklady k těmto tvrzením, nebo explicitně označte tyto části jako \"obecné podkladové informace / obecné zkušenostní doporučení\" (tj. nejedná se o závěry z konkrétních studií). Konkrétní číselné doporučení (5–30 studentů, 4–8 týdnů) je netriviální a musí být buď podloženo zdrojem, nebo přeformulováno jako ilustrativní příklad (např. \"typicky se doporučuje malé skupině ~5–30 studentů; upravte podle lokálních podmínek\")."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "Oddíl deklaruje v outline, že Úvod bude obsahovat definici AI v kontextu vysoké školy, ale text takovou definici neobsahuje.",
+      "required_fix": "Doplňte krátkou, jasnou definici pojmu 'umělá inteligence' v kontextu výuky (může být stručná a označená jako obecné background knowledge pokud nemáte citační podporu)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Text slíbil, že v dalším textu budou konkrétní případy užití, šablony promptů a checklisty. Intro by bylo pedagogicky silnější, pokud by obsahovalo alespoň jedno krátké ilustrační mini‑příklad (1–2 věty) pilotu.",
+      "required_fix": "Přidejte krátký ilustrační příklad pilotu (např. \"pilot: automatizované předběžné hodnocení krátkých odpovědí v semináři – 10 studentů, 6 týdnů, kontrolní ruční hodnocení 10 % odpovědí\"). Označte tento příklad jako ilustraci, není-li podložen studií."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Poskytnutý latex_body je čistý text (česky), nikoli LaTeX mark‑up; při zpracování do dokumentu bude třeba převést seznamy a nadpisy do korektního LaTeX formátu.",
+      "required_fix": "Převeďte nadpis na \\section{Úvod} (nebo odpovídající úroveň) a seznamy do prostředí itemize/enumerate. Zajistěte, že diakritika a kódování souboru je UTF-8. Pokud chcete, mohu připravit hotový LaTeX výstup."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "V textu se používá termín 'obecné podkladové informace' ale tyto části nejsou vizuálně nebo textově jasně odděleny nebo opětovně označeny jako takové.",
+      "required_fix": "Přidejte explicitní větu nebo štítek před bloky, které mají být považovány za 'obecné podkladové informace' (např. tučně nebo v LaTeX poznámce), aby čtenář věděl, že se nejedná o podložené závěry."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Úvod – první odstavec",
+      "edit_instruction": "Přidejte krátkou definici 'umělé inteligence' v kontextu výuky (1–2 věty). Pokud nelze citovat zdroj, začněte větou: 'Následující tvrzení jsou obecné podkladové informace (obecné zkušenostní poznatky), nikoli výsledky konkrétních studií.'"
+    },
+    {
+      "target": "Sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce'",
+      "edit_instruction": "Přesně označte tento blok jako 'obecné podkladové informace / zkušenostní doporučení'. U každého bodu přidejte krátké upřesnění, např. 'Personalizace: (obecná poznámka) AI může... Pokud požadujete empirické podklady, doplňte odkaz.' Alternativně nahraďte číselné odhady výrazy jako 'typicky', 'může' apod."
+    },
+    {
+      "target": "Krok za krokem – body 1–6",
+      "edit_instruction": "U bodů obsahujících konkrétní čísla (5–30 studentů; 4–8 týdnů) uveďte, že jde o ilustrační doporučení a že je třeba upravit podle místních podmínek. Příklad formulace: 'Doporučení (ilustrační): 5–30 studentů — upravte podle dostupných zdrojů a cíle pilotu.'"
+    },
+    {
+      "target": "Checklist a pravidla pro ověřování výstupů",
+      "edit_instruction": "Přidejte větu vysvětlující, že konkrétní techniky detekce plagiátů a právní požadavky (např. GDPR) nejsou v tomto dokumentu podrobně rozebrány a je vhodné raději doplnit odkazy na institucionální směrnice nebo právní konzultaci. Pokud chcete, vložte placeholder 'viz sekce 5: Etika a ochrana soukromí' a odkazujte sem."
+    },
+    {
+      "target": "LaTeX převod",
+      "edit_instruction": "Přepište latex_body do korektního LaTeX: nahraďte nadpis řádkem '\\\\section{Úvod}', použijte 'enumerate' pro kroky a 'itemize' pro bullet‑listy. Zkontrolujte kódování UTF-8. Přidejte poznámku o tom, že číselné údaje jsou ilustrativní."
+    }
+  ],
+  "retrieval_queries": [
+    "empirické studie o dopadu AI nástrojů (LLM/automatizované hodnocení) na čas potřebný pro opravy a kvalitu hodnocení ve vysokoškolské výuce",
+    "doporučené metodiky a velikosti pilotů pro edukační technologie (počet studentů, délka pilotu) v univerzitním prostředí",
+    "best practices pro validaci automatizovaného hodnocení proti ručnímu hodnocení (metriky, statistické testy)",
+    "právní požadavky na zpracování osobních údajů studentů při použití cloudových AI služeb (EU GDPR guidance for educational institutions)",
+    "metody detekce AI‑generovaného textu a jejich spolehlivost v akademickém kontextu",
+    "příklady krátkých pilotních studií nasazení AI v kurzech (case studies) z akademické literatury nebo white paperů univerzit"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T152756Z",
+  "input": {
+    "section_title": "Generování výukových materiálů a testových otázek",
+    "node_key": "2-4",
+    "section_latex": "\\noindent\\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\\medskip\n\nKrátký přehled možných výstupů:\n\\begin{itemize}\n  \\item učební texty (kapitoly, osnovy),\n  \\item stručná shrnutí a „cheat sheety“,\n  \\item ilustrované příklady a průchodové řešení,\n  \\item testové položky (více možností: otevřené otázky, multiple‑choice, úlohy s krátkou odpovědí).\n\\end{itemize}\n\nOčekávané přínosy (shrnutí):\n\\begin{itemize}\n  \\item zrychlení tvorby návrhů a alternativních verzí materiálů,\n  \\item možnost rychlé adaptace na různé úrovně studentů nebo zaměření kurzu,\n  \\item snadné generování variant testů pro prevenci dohledatelného opisování.\n\\end{itemize}\n\nHlavní rizika a oblasti pozornosti:\n\\begin{itemize}\n  \\item chyby faktického obsahu a nevýslovné nepřesnosti,\n  \\item opomenutí kontextu oboru nebo kulturní/neutrální bias v příkladech,\n  \\item konzistence s učebními cíli a správné citování zdrojů.\n\\end{itemize}\n\nProces kontroly obsahu (praktický checklist):\n\\begin{enumerate}\n  \\item rychlá kontrola faktů a terminologie (ověření u učitele nebo odborníka),\n  \\item pedagogické sladění: odpovídá materiál formulovaným učebním cílům?,\n  \\item jazyková kontrola a úprava úrovně složitosti pro cílovou skupinu,\n  \\item kontrola autorských práv a uvedení zdrojů, pokud AI použila externí texty.\n\\end{enumerate}\n\nJednoduchý pilotní postup pro ověření použitelnosti:\n\\begin{enumerate}\n  \\item vymezit jasný cíl pilotu (např. „generovat 3 typy cvičných případů pro kapitolu X“),\n  \\item vybrat representativní modul a připravit kontrolní sadu (lidské reference),\n  \\item nechat AI vygenerovat několik variant materiálu (min. 2–3) podle šablony,\n  \\item provést revizi vyučujícím podle kontrolního checklistu; zaznamenat počet nutných oprav,\n  \\item krátký test s malou skupinou studentů a sběr zpětné vazby (srozumitelnost, užitečnost),\n  \\item rozhodnutí: upravit workflow, rozšířit pilot nebo nasadit omezeně.\n\\end{enumerate}\n\nŠablony promptů (ilustrativní příklady, přizpůsobit oboru a úrovni):\n\\begin{itemize}\n  \\item Shrnutí kapitoly: ``Stručně shrň klíčové body kapitoly o <téma> pro studenty 2.\\ ročníku, maximálně 200 slov, zvýrazni 3 pojmy, které by si měli zapamatovat.'' \n  \\item Příklad s řešením: ``Vytvoř pedagogický příklad vysvětlující <koncept>, krok za krokem řešení a krátké vysvětlení, jak jej zjednodušit pro začátečníky.'' \n  \\item MCQ otázka: ``Vygeneruj 4‑volitelnou otázku k tématu <téma>: jedna správná odpověď, tři realistické distraktory, krátké vysvětlení správné odpovědi pro učitele.'' \n\\end{itemize}\n\nKrátké doporučení na závěr: začněte s malým, dobře ohraničeným pilotem, měřte náklady na opravy versus čas ušetřený při tvorbě materiálu a vždy ponechte lidskou kontrolu nad fakty a pedagogikou.",
+    "context_memory_excerpt": "TERMS:\n- Cíle automatizovaného hodnocení kódu: Rychlá verifikace funkčnosti, konzistentní kontrola chyb a okamžitá zpětná vazba studentům, přičemž učitelé se mohou soustředit na design a komplikovanější hodnocení (z textu sekce 'Automatizované hodnocení kódu v technických kurzech'). (first: 2-3)\n- Klíčové komponenty hodnocení kódu: Testovací sada (unit/integrace, chybové stavy), statická analýza, metriky kvality a lidský dohled (z textu sekce 'Automatizované hodnocení kódu v technických kurzech'). (first: 2-3)\n- Návrh nasazení (kód): Jasná rubrika (co automaticky vs. ručně), validační anonymní vzorek, workflow odevzdání → automatické testy → učitelova kontrola a malý pilot (z textu sekce 'Automatizované hodnocení kódu v technických kurzech'). (first: 2-3)\n- Metriky a hodnocení systému (kód): Shoda s ručním hodnocením, flaky tests, pokrytí a míra nutného lidského zásahu jako doporučené metriky pro vyhodnocení kvality automatizovaného hodnocení kódu (z textu sekce 'Automatizované hodnocení kódu v technických kurzech'). (first: 2-3)\n- Tipy pro nasazení (kód): Používat automatiku pro repetitivní úlohy, dokumentovat hranice automatizace, řešit fluktuaci testů a zvážit nástroje pro detekci plagiátorství (z textu sekce 'Automatizované hodnocení kódu v technických kurzech'). (first: 2-3)\n- Rychlý checklist pro automatizované hodnocení kódu: Krátký seznam položek: rubrika, testy/lintery, validační vzorek, komunikace se studenty, plán auditu (z textu sekce 'Automatizované hodnocení kódu v technických kurzech'). (first: 2-3)\n\nCITATIONS:\n- 1 (node: 1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n\nOPEN THREADS:\n- Chybí konkrétní, ukázkové rubriky pro automatizované hodnocení kódu (včetně příkladů, co se hodnotí automaticky vs. ručně). (node: 2-3)\n- Potřeba ukázkových testovacích sad, linter konfigurací a konkrétních příkladů CI konfigurace pro řešení flaky tests a zajištění reprodukovatelnosti. (node: 2-3)\n- Chybějí konkrétní postupy a nástroje pro detekci plagiátorství v kódu a jejic...",
+    "previous_sections": "The title of part 1 sections ago is Automatizované hodnocení kódu v technických kurzech, and the content is as follows.\n\\noindent\\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\\medskip\nCíle automatizovaného hodnocení kódu: rychlá verifikace funkčnosti, konzistentní kontrola chyb a okamžitá zpětná vazba studentům, přičemž učitelé se mohou soustředit na design a komplikovanější hodnocení.\nKlíčové komponenty: testovací sada (unit/integrace, chybové stavy), statická analýza, metriky kvality a lidský dohled; návrh nasazení: jasná rubrika (co automaticky vs. ručně), validační anonymní vzorek, workflow odevzdání \\(\\to\\) automatické testy \\(\\to\\) učitelova kontrola a malý pilot.\nHodnocení systému: shoda s ručním hodnocením, flaky tests, pokrytí a míra nutného lidského zásahu; tipy: používat automatiku pro repetitivní úlohy, dokumentovat hranice, řešit fluktuaci testů a zvážit nástroje pro detekci plagiátorství; rychlý checklist: rubrika, testy/lintery, validační vzorek, komunikace se studenty, plán auditu.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "The section contains several non-trivial claims presented as recommendations (expected benefits, risks, checklist). These claims are already qualified by the opening note as \"general background knowledge\", but that qualification should be made more prominent and consistently applied to individual recommendation lists so readers are clearly aware these are not evidence-backed statements.",
+        "required_fix": "Make the 'general background knowledge' qualification visually or textually explicit for each major subsection (e.g., add a short parenthetical note at the start of 'Očekávané přínosy', 'Hlavní rizika', and 'Proces kontroly obsahu')."
+      },
+      {
+        "type": "consistency",
+        "severity": "major",
+        "description": "The section is high-level and lacks concrete, example artifacts (rubrics, sample validated questions, metrics) referenced elsewhere in the guide. The outline and previous sections indicate concrete rubrics and evaluation patterns will be provided (see sections 3.3 and parts of 2.3), but this section does not cross-reference them or provide minimal examples.",
+        "required_fix": "Either include at least one short example rubric skeleton and one concrete metric to collect in the pilot (both clearly labeled as illustrative), or add a clear cross-reference to the sections that will provide those artifacts (e.g., 'viz. sekce 3.3 Rubriky a pracovní postupy pro hodnocení') so readers know where to find concrete templates."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "Prompt examples currently include backticks (``...''), angle brackets and other raw characters. In LaTeX these are acceptable but may render inconsistently. Also the prompts would be clearer if formatted as monospaced/verbtext to preserve whitespace and special characters.",
+        "required_fix": "Format prompt examples using \\texttt{...} or a verbatim environment (e.g., \\begin{verbatim}...\\end{verbatim}) to ensure reliable rendering. Replace double backticks with proper LaTeX quoting or monospaced font."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Some checklist items and pilot steps are concise but could be ambiguous in practice (e.g., 'zaznamenat počet nutných oprav' — what counts as an 'oprav'?).",
+        "required_fix": "Clarify measurement definitions in the pilot procedure by giving short guidance on what to record (e.g., classify fixes as factual, pedagogical/alignment, language/formatting) and suggest simple metrics to report (number of fixes per document, time spent on fixes, student comprehension ratings). Label these suggestions as illustrative."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "The section recommends pedagogical alignment but does not suggest concrete checks (e.g., cognitive level alignment, formative vs summative suitability).",
+        "required_fix": "Add brief guidance on pedagogical checks (e.g., map each generated item to a learning objective and suggested cognitive level such as 'recall', 'apply', 'analyze') or point readers to section 3.2/3.3 for templates that include Bloom-like mappings."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "opening note",
+        "edit_instruction": "Expand the existing short note to a short paragraph stating explicitly that all lists below are illustrative 'general background knowledge' and must be validated locally; recommend that each subsection begins with '(ilustrativní doporučení — ověřit v pilotu)'."
+      },
+      {
+        "target": "Očekávané přínosy / Hlavní rizika",
+        "edit_instruction": "Prepend each list with a one-line qualifier such as '(ilustrativní — nezaručené přínosy/rizika; prověřit v pilotu)' to ensure readers do not treat them as evidence-backed claims."
+      },
+      {
+        "target": "Proces kontroly obsahu (praktický checklist)",
+        "edit_instruction": "Add brief examples for each checklist item: for fact-checking indicate 'ověření u učitele/subject-matter expert; záznam odkud byla informace ověřena', for pedagogické sladění add 'uveďte odpovídající učební cíl a preferovanou úroveň poznání (např. zapamatování/porozumění/aplikace)'."
+      },
+      {
+        "target": "Jednoduchý pilotní postup",
+        "edit_instruction": "Add a short table-like sentence (or bullet) describing minimal reporting: 'reportujte: počet vygenerovaných položek, počet nutných oprav (faktické/pedagogické/jazykové), čas potřebný na opravy, výsledky krátkého studentského testu (porozumění), závěr o použitelnosti.' Alternatively, add a cross-reference to section 3.3 for rubriky a metriky."
+      },
+      {
+        "target": "Šablony promptů",
+        "edit_instruction": "Format each prompt example using \\texttt{...} or a verbatim environment. Add one short illustrative filled example (e.g., a one-sentence sample summary prompt populated for a concrete topic) but label it explicitly as illustrative and 'general background knowledge'."
+      },
+      {
+        "target": "cross-references",
+        "edit_instruction": "Add explicit cross-references to related sections in the guide: mention that concrete rubriky and evaluation templates are available in section 3.3, and that pilot/metric guidance aligns with the approach in section 2.3 (automatizované hodnocení kódu) where validation samples and agreement metrics are discussed."
+      }
+    ],
+    "retrieval_queries": [
+      "examples of rubric templates for AI-generated teaching materials (rubric skeleton, what to mark automatically vs manually)",
+      "studies or guidelines measuring factual error rates in LLM-generated educational content or recommended validation metrics for AI-generated assessments",
+      "sample pilot evaluation templates for validating AI-created educational materials (what to record: error taxonomy, time to fix, student comprehension measures)"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 4042,
+      "completion_tokens": 2563,
+      "total_tokens": 6605
+    },
+    "cost_usd": 0.0061365,
+    "total_cost_usd": 0.10192775,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

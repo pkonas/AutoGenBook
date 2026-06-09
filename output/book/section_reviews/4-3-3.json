@@ -1,0 +1,61 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Text uvádí, že sokratovský přístup je preferovanou strategií (hintování místo hotových řešení). Toto je v souladu s obsahem příručky, ale v sekci chybí explicitní odkazy na odpovídající místo v příručce.",
+      "required_fix": "Přidejte krátké cross‑reference na relevantní část příručky (např. sekce 4.3.2 nebo 6.2), aby čtenář viděl, kde je strategie formálně doporučena."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Šablony jsou obecně dobře formulované, ale chybí alespoň jeden konkrétní vyplněný příklad (filled template), který by ukázal, jak šablonu adaptovat na reálné téma z příručky (např. Minecraft Education nebo 'Hour of Code').",
+      "required_fix": "Doplnit 1–2 ukázky vyplněných promptů (např. pro [TÉMA]=Minecraft Education — hodina kódu) včetně očekávaného krátkého formátu výstupu."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX používá v každém \\\\begin{quote}\\small\\texttt{...}\\end{quote} dlouhé bloky v \\texttt; to může způsobovat špatné zalamování řádků v českém textu a problémy při kompilaci, pokud se v textu vyskytují diakritické znaky nebo víceřádkové odstavce.",
+      "required_fix": "Použijte \\ttfamily v prostředí quote (\\begin{quote}\\small\\ttfamily ... \\end{quote}) nebo \\begin{verbatim} pro multi‑řádkové příklady promptů. Ověřte kompilaci s českou diakritikou (inputenc/fontenc nebo XeLaTeX/LuaLaTeX)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Praktická poznámka navrhuje workflow s kroky 5–10 minut. V předchozích částech příručky jsou uvedeny i delší časové odhady (např. 10–20 min demonstrace + 10–15 min reflexe). To není přímo v rozporu, ale může čtenáře zmást.",
+      "required_fix": "Uveďte, že 5–10 min se vztahuje k jednotlivým micro‑krokům v rámci aktivity a přidejte poznámku, že pro celý blok demonstrace + reflexe lze použít delší časy uvedené v checklistech (viz sekce s doporučením demo/reflexe)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce zmiňuje adaptaci pro pokročilé s 'uveď reference nebo odkazy na literaturu (pokud to AI umí)'. V příručce existují samostatné doporučení o transparentnosti a ověřování výstupů AI, které by měly být explicitně zmíněny zde.",
+      "required_fix": "Doporučit učiteli, aby v pokročilém režimu přidal požadavek na citace a krátké ověření zdrojů studentem, a odkazat na šablony pro transparentnost/označení AI v příloze (9.3)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "úvodní věta o sokratovském přístupu",
+      "edit_instruction": "Přidat krátké odkázání: 'Viz doporučení o sokratovském přístupu v sekci 4.3.2 (Role učitele a pravidla moderace) a v sekci 6.2 (Nastavení pravidel pro AI tutora).' Tím se explicitně ukotví tvrzení v příručce."
+    },
+    {
+      "target": "část 'Šablony promptů — obecné instrukce'",
+      "edit_instruction": "Doplnit jeden vyplněný příklad šablony. Např. vyplnit šablonu č.1 pro [TÉMA]=Minecraft Education (Hour of Code): uveďte konkrétní prompt a očekávaný stručný formát 3 bodů. To pomůže učiteli rychle ji nasadit."
+    },
+    {
+      "target": "LaTeX bloky s \\texttt",
+      "edit_instruction": "Upravte jednotlivé bloky \\begin{quote}\\small\\texttt{...}\\end{quote} na \\begin{quote}\\small\\ttfamily ...\\end{quote} nebo použijte \\begin{verbatim} pro víceřádkové prompty, aby byl text správně zalomen a kompilovatelný s diakritikou."
+    },
+    {
+      "target": "praktická poznámka pro učitele (implementace v hodině)",
+      "edit_instruction": "Upřesnit časování: vložit větu 'Každý sub‑krok lze cílit na 5–10 min; celkový blok demonstrace a reflexe obvykle zabere 10–20 min demonstrace + 10–15 min reflexe (viz checklist v sekci 4.3.2/3.1).'"
+    },
+    {
+      "target": "závaznost transparentnosti",
+      "edit_instruction": "Přidat krátký bod připomínající požadavek na transparentní označení částí generovaných AI a ověření klíčových tvrzení studenty, s odkazem na přílohu 'AI policy do sylabů' (sekce 9.3)."
+    }
+  ],
+  "retrieval_queries": [
+    "Ukázky v příručce, kde je explicitně uvedeno doporučení pro sokratovský přístup (konkrétní věty nebo odrážky) — pro přesné cross‑reference.",
+    "Doporučené časové rozdělení pro demonstraci a reflexi v příručce (konkrétní čísla), aby bylo možné sladit návrhy v této sekci s ostatními checklists."
+  ]
+}

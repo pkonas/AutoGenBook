@@ -1,0 +1,68 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Většina doporučení (datové zdroje, metriky, workflow, návrh dashboardu, plán zásahů, vyhodnocení efektivity) není podložena žádnými výňatky z KB v tomto uzlu. I když horní poznámka označuje text jako 'general background knowledge', konkrétní procedurální a metrické tvrzení jsou netriviální a podle pravidel musí být buď podpořena výňatky nebo jednoznačně označena jako obecné pozadí a zkrácena.",
+      "required_fix": "Buď připojit odpovídající KB výňatky/citace pro každé klíčové doporučení (datové zdroje, definice metrik, doporučené prahy, postupy A/B testů, zásady retence), nebo v textu explicitně označit jednotlivé položky jako 'general background knowledge' a zjednodušit je tak, aby neobsahovaly nereferencované faktické tvrzení. Preferované: načíst relevantní uzly (např. node_2-1..2-3, node_1) a vložit ověřitelné výňatky."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "Sekce neplní otevřené požadavky z kontextové paměti: chybí ukázkové intent‑slot šablony a konkrétní dialogové příklady (open thread), chybí konkrétní doporučení k technickým integracím a zásadám retence/anonymizace.",
+      "required_fix": "Dodat minimálně 3–5 ukázkových intent‑slot šablon a 2–3 konkrétní dialogové příklady pro intervence; přidat technické poznámky o integraci s LMS (požadované datové body, autentizační toky, fallback) a návrh zásad retence/anonymizace (nebo odkazy na KB s těmito pravidly). Pokud nejsou dostupné výňatky, jasně to označit a nechat jako action‑item pro získání důkazů."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce obecně koresponduje s předchozím oddílem o chatbotech, ale chybí explicitní vazba na již definované 'prahy nejistoty' a checklist pro pilot z paměti (které se v kontextu objevují).",
+      "required_fix": "Přidat explicitní cross‑reference k sekci 'Chatboti a virtuální asistenti' k prahům eskalace a checklistu pilotu, případně přidat krátkou větu, že prahy eskalace chatbota a prahy upozornění learning analytics by měly být sladěné."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX je v zásadě korektní, ale doporučení formálně označit část, která je 'general background knowledge', tak aby to bylo jasné i v samotném sazebním výstupu (např. zvýraznit poznámku nebo použít prostředí 'note').",
+      "required_fix": "Úvodní poznámku zapracovat do výraznějšího LaTeX prostředí (např. \\begin{quote} ... \\end{quote} nebo \\textbf{}), aby byl v tisku jasně viditelný a nešel přehlednout."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Některé metriky a kroky jsou formulovány obecně (např. 'Trend průběžného skóre', 'Prahové hodnoty pro upozornění', 'A/B piloty') bez definice časového okna, metody výpočtu nebo minimálního vzorku, což znesnadňuje opakovatelnost pilotu.",
+      "required_fix": "Doplnit krátká doporučení nebo šablony pro operacionalizaci (např. navrhnout výpočet 'trend' jako skluzný průměr za poslední 2–4 týdny a postup nastavení prahů na základě historické distribuce). Pokud tato doporučení nejsou podporována KB, označit je jako obecné návrhy k ověření."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening note",
+      "edit_instruction": "Zdůrazněte LaTeX formátováním, že celý scénář je 'general background knowledge' (např. \\begin{quote} ... \\end{quote}) a u každé klíčové sekce přidejte krátkou poznámku 'není podloženo výňatky z KB'."
+    },
+    {
+      "target": "Požadované datové zdroje",
+      "edit_instruction": "Uveďte konkrétní pole (např. timestamp přihlášení, user_id/pseudonym, course_id, activity_type, duration_seconds, assessment_score) nebo poznámku, že konkrétní schéma bude specifikováno po přístupu k LMS API. Pokud nejsou dostupné KB výňatky, označte tyto položky jako obecné příklady."
+    },
+    {
+      "target": "Doporučené metriky angažovanosti",
+      "edit_instruction": "Pro každou metriku přidejte krátkou definici (jak se počítá) a návrh časového okna (např. 'Frekvence přihlášení do LMS za týden — počet unikátních dnů v posledních 7 dnech'). Pokud tato operacionalizace není v KB, označte ji jako návrh k ověření."
+    },
+    {
+      "target": "Plán zásahů",
+      "edit_instruction": "Dodat jednu nebo dvě ukázkové šablony zpráv (automatický e‑mail) a alespoň 3 intent‑slot šablony pro dialogy (např. 'Nabídka konzultace' s intent=offer_consult, slots={course, week, availability}). Pokud nemáte KB ukázky, uveďte je jako 'navržené šablony (general background knowledge)'."
+    },
+    {
+      "target": "Vyhodnocení efektivity zásahů",
+      "edit_instruction": "Přesněji popsat, co měřit a jak (krátkodobé změny v metrikách, doba sledování, základní statistické porovnání) nebo připojit odkaz na KB/metodiku. Pokud takový materiál v KB není, uveďte tento bod jako doporučený plán sběru dat a analýzy, nikoli jako ověřený postup."
+    },
+    {
+      "target": "Kontrolní seznam pro pilot",
+      "edit_instruction": "Doplnit položky z kontextové paměti (scénáře a šablony dialogů, prahy nejistoty, technické požadavky) a uvést odpovědné role za každý bod (např. datový inženýr, pedagóg, zástupce ochrany dat)."
+    }
+  ],
+  "retrieval_queries": [
+    "Vyhledat v KB konkrétní ukázky learning analytics dashboardů a popisy použitých metrik (jak byly definovány a vypočítány) pro identifikaci 'at‑risk' studentů.",
+    "Získat z KB ukázkové intent‑slot šablony a dialogové scénáře (20–50) pro zásahy a komunikaci se studenty (node_2-3 nebo související uzly).",
+    "Poskytnout v KB doporučení nebo právní/technické zásady pro retenci, pseudonymizaci a zabezpečení studentských dat kompatibilní s GDPR.",
+    "Najít v KB příklady technické integrace learning analytics s běžnými LMS (požadovaná API pole, autentizační toky, role/opravení, fallback architektura).",
+    "Hledat v KB ověřené metodiky vyhodnocení efektivity zásahů (A/B designy, minimální velikost vzorku, metriky) pro vzdělávací intervence."
+  ]
+}

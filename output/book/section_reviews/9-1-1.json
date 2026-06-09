@@ -1,0 +1,51 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some practical recommendations in the section are labelled as \"general background knowledge\" (e.g. in step 2 and step 3), but other similar unsourced practical advice (e.g. the opening recommendation to start by choosing a template and adapt it) is presented without an explicit label or citation.",
+      "required_fix": "Either add supporting citations for those unsourced recommendations or explicitly mark them as \"general background knowledge\" to make the provenance clear and consistent."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The quick-start procedure omits an explicit reminder to check licensing, data‑handling (DPA/GDPR) and enterprise vs. personal feature availability before deploying prompts, which is emphasised elsewhere in the manual (checklists for guarantors / institutional deployment).",
+      "required_fix": "Add a brief pre-deployment step or inline note advising to verify license/features and data‑processing constraints and to consult the guarantor/IT checklist (reference the relevant sections/checklists). Provide citations to the guide's checklist / licensing notes."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 3‑step quick start is high-level and could be more actionable: e.g. it asks to 'adjust parameters' (tone, length, level) but gives no compact example of how to phrase such parameterization within a prompt.",
+      "required_fix": "Add a one‑line example showing how to specify tone, student level and output format in a prompt (this is a pedagogical clarity improvement; it can be left as general guidance or supported by an illustrative example)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "No LaTeX syntax errors detected, but the text mixes inline parenthetical labels \"(general background knowledge)\" inside enumerate items and paragraphs; this is acceptable but could interrupt rendering/flow in some stylesheets.",
+      "required_fix": "Consider moving provenance labels (e.g. 'general background knowledge') to footnotes or a short provenance legend for consistency in the LaTeX output."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Add an explicit short pre-deployment note (before the 3‑step list): 'Před nasazením ověřte dostupnost požadovaných funkcí v zvolené licenci a pravidla zpracování dat (DPA/GDPR); informujte studenty o způsobu použití AI a případně proveďte DPIA podle lokálních předpisů.' Add a footnote referencing the guide's checklist for guarantors / institutional deployment (sections on licensing and DPIA)."
+    },
+    {
+      "target": "Rychlý 3‑krokový postup nasazení",
+      "edit_instruction": "Expand step 2 with a short concrete example, e.g.: \"Přizpůsobte parametry (příklad: 'Tón: formální; Úroveň: bakalářské studium; Délka odpovědi: 150–200 slov; Formát: Moodle/Forms CSV').\" Mark this example as an illustrative snippet (general background knowledge) or cite a template example from the prompt library if available."
+    },
+    {
+      "target": "provenance labels",
+      "edit_instruction": "Ensure all advisory sentences that are not directly supported by KB excerpts are either (a) given a supporting citation from the manual, or (b) explicitly labelled 'general background knowledge'. Make the labelling consistent (prefer footnotes or a short parenthetical legend)."
+    },
+    {
+      "target": "cross-reference",
+      "edit_instruction": "Add a one‑line cross‑reference to the guarantor/IT checklists (e.g. 'Viz sekce Bezpečnostní opatření a Checklist pro garanty') immediately after the practical deployment examples to guide implementers to security/licensing guidance."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_51_1 (to fetch the guide excerpt about licensing / feature differences between enterprise and personal accounts)",
+    "kb_ai_101_tipu_pdf_page_3_1 (to fetch the guide excerpt about audit logs / export and related operational requirements to cite in the pre-deployment note)"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The practical-use bullet under Microsoft 365 / Copilot (\"Praktické využití: integrace do přípravy materiálů, rychlé sumarizace, generování kvízů...\") is a recommendation not directly supported by the three provided KB excerpts. While the document (outline) contains sections that discuss quiz generation and slide generation, the current citation (kb_ai_101_tipu_pdf_04e4a115_page_3_1) does not explicitly list those specific uses.",
+      "required_fix": "Either add an explicit supporting citation from the knowledge base that mentions these specific use-cases (summaries, quiz generation), or mark this bullet as 'general background knowledge' / cross-reference the internal sections where these uses are described (e.g., sekce 3.5, 3.6)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The top-level statement claims that some listed sources are 'přímo citovány z interního materiálu \"AI – 101 tipů\"' and then uses three \\cite keys. Ensure each cite key used in the LaTeX has a matching bibliography entry in the document's .bib or bibliography section.",
+      "required_fix": "Verify that the bibliography contains the keys kb_ai_101_tipu_pdf_04e4a115_page_3_1, kb_ai_101_tipu_pdf_04e4a115_page_8_1 and kb_ai_101_tipu_pdf_04e4a115_page_15_2, or replace the \\cite commands with internal cross-references if the items are being referenced from another appendix. If the .bib entries are missing, add them or replace \\cite with an explicit short parenthetical reference (e.g., 'viz AI – 101 tipů, str. 3')."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX fragment uses nested itemize and \\cite commands but does not show a surrounding bibliography environment. Also there is a trailing in-line comment (%) within the nested itemize which is acceptable but worth checking for unintended line breaks.",
+      "required_fix": "Ensure this fragment is compiled within the main document that includes a bibliography (e.g., \\bibliography{...} or thebibliography environment). Remove or review the inline percent-comment if it may truncate the intended text. Optionally add a subsection header matching node_key 9-8 (e.g., \\subsection{9.8 Bibliografie ...}) to keep numbering consistent."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The closing sentence (General background knowledge: references to UCL, TU Delft, Harvard CS50, Georgia Tech and ai.vut.cz) is currently labelled as general background knowledge, which is good. However, the section mixes cited KB items and uncited background recommendations without explicit separation.",
+      "required_fix": "Make the distinction explicit in the LaTeX: separate a short 'Anotace zdrojů (citované z AI – 101 tipů)' subsection with the three KB-cited items, and a separate 'Doplňující zdroje / weiter reading (general background)' subsection for the university examples and the living repository note."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Praktické využití' bullets are short; some teachers may benefit from a one-line mapping that indicates which course types or sections of the manual these practical uses align with (e.g., 'suitable for: 1st-year lectures / labs / formative quizzes').",
+      "required_fix": "Add a parenthetical short mapping for each practical-use bullet linking to relevant manual sections (for example: 'viz sekce 3.5 Generování kvízů' or 'viz 6.6 AI pro cvičení a procvičování') to help pedagogues find fuller guidance."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Praktické využití bullet under Microsoft 365 / Copilot",
+      "edit_instruction": "Either (A) replace the bullet with a neutral, clearly labelled background suggestion, e.g.: 'General background knowledge: možné praktické využití (např. integrace do přípravy materiálů, sumarizace textu, generování cvičných otázek) — viz také sekce 3.5, 3.6', OR (B) add an explicit supporting citation from the KB if an excerpt describing these concrete use-cases is available."
+    },
+    {
+      "target": "LaTeX citation usage",
+      "edit_instruction": "Confirm that the cite keys used (kb_ai_101_tipu_pdf_04e4a115_page_3_1, kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_15_2) have corresponding entries in the document bibliography. If not, add the bibliography entries or change \\cite{...} to an inline parenthetical reference referring to the source and page (for internal/manual consistency)."
+    },
+    {
+      "target": "Section structure",
+      "edit_instruction": "Split the content into two small subsections: '9.8.1 Citované interní zdroje (AI – 101 tipů)' containing the three KB-cited items with their \\cite keys and brief annotations, and '9.8.2 Doporučené externí guideliney (background)' containing the UCL/TU Delft/CS50/Georgia Tech examples and the note about the living repository (labelled explicitly as general background)."
+    },
+    {
+      "target": "Practical-use bullets",
+      "edit_instruction": "For each 'Praktické využití' bullet, add a one-line course-context hint, e.g.: 'Praktické využití: integrace do přípravy materiálů (vhodné pro 1.–2. ročník přednášky), rychlé sumarizace (semináře), generování kvízů (formativní assessment) — viz sekce 3.5 / 3.6 / 5.4.'"
+    },
+    {
+      "target": "Final general background sentence",
+      "edit_instruction": "Keep the existing '(general background knowledge)' label but rephrase to avoid an explicit URL claim unless the repo location is certain: e.g. '... jsou shromážděny a anotovány v online repozitáři příručky (viz interní living repository; odkaz doplnit, např. ai.vut.cz).' This preserves the background label and avoids asserting a public URL."
+    }
+  ],
+  "retrieval_queries": [
+    "AI - 101 tipů Copilot pedagogické použití sumarizace kvízy \"Copilot\" \"kvíz\" \"sumarizace\"",
+    "AI - 101 tipů Pokrok v matematice nastavení nahrání postupu 'Pokrok v matematice' postup nahrát stránka",
+    "AI - 101 tipů Minecraft Education 'Hour of Code' A3 A5 školní licence Minecraft Education A3 A5"
+  ]
+}

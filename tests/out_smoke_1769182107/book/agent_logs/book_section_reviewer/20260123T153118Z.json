@@ -1,0 +1,88 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T153118Z",
+  "input": {
+    "section_title": "Úvod",
+    "node_key": "1",
+    "section_latex": "Tento krátký průvodce je určen učitelům a administrátorům na vysokých školách, kteří chtějí rychle a prakticky začít využívat nástroje umělé inteligence ve výuce. Cílem je popsat konkrétní scénáře použití, ukázat fungující implementace z praxe, vysvětlit pedagogické přínosy a nabídnout kroky pro bezpečné a etické zavedení do kurzů. (General background knowledge)\n\nStručná orientace v pojmech a typech nástrojů:\n\\begin{itemize}\n  \\item Nástroje pro učitele: asistenti pro přípravu obsahu, autogradery pro automatické hodnocení, nástroje pro generování cvičení a multimédií. (General background knowledge)\n  \\item Nástroje pro studenty: adaptivní moduly a personalizované učební cesty, konverzační chatboty jako podpůrní asistenti, systémy pro průběžnou zpětnou vazbu. (General background knowledge)\n\\end{itemize}\n\nHlavní otázky, které průvodce klade:\n\\begin{itemize}\n  \\item Jak AI podporuje učení a zpětnou vazbu z pedagogického hlediska? (General background knowledge)\n  \\item Jak definovat výukové cíle a metriky úspěchu pro AI‑podporované aktivity? (General background knowledge)\n  \\item Jaké jsou požadavky na kvalitu a ochranu dat, souhlas studentů a zásady inkluze? (General background knowledge)\n  \\item Jak prakticky vyhodnocovat dopad (kvalita odpovědí, zapojení studentů, časová úspora pro vyučující)? (General background knowledge)\n\\end{itemize}\n\nKrátká ukázka fungujících příkladů z praxe (ilustrační):\n\\begin{itemize}\n  \\item Chatboti nasazení jako kurzoví asistenti pro FAQ a orientaci studentů v obsahu kurzu. (General background knowledge)\n  \\item Autogradery v kurzech programování pro rychlé vyhodnocení kódu a okamžitou zpětnou vazbu. (General background knowledge)\n  \\item Adaptivní moduly v blended learningu, které upravují obtížnost úloh podle výkonu studenta. (General background knowledge)\n\\end{itemize}\n\nCo najdete v praktických kapitolách:\n\\begin{itemize}\n  \\item Konkrétní scénáře nasazení: účel, požadované nástroje, krok‑za‑krokem postup implementace, integrace do LMS. (General background knowledge)\n  \\item Příklady ověřených řešení z univerzit a tipy pro pilotní zavedení a škálování. (General background knowledge)\n  \\item Doporučení pro měření účinnosti, řízení rizik, ochranu osobních údajů a etické zásady. (General background knowledge)\n\\end{itemize}\n\nKrátká ukázka struktury článku nebo kapitoly (pro rychlou orientaci):\n\\begin{enumerate}\n  \\item Kontext a pedagogický cíl\n  \\item Popis nástroje a technologické požadavky\n  \\item Postup nasazení krok po kroku\n  \\item Měření úspěchu a doporučené metriky\n  \\item Omezení, rizika a doporučení pro etiku a ochranu dat\n\\end{enumerate}\n\nTento úvod připravuje čtenáře na praktické kapitoly, kde najdete konkrétní návody, šablony pro piloty a doporučené pracovní postupy pro bezpečné a efektivní využití AI ve výuce. (General background knowledge)",
+    "context_memory_excerpt": "TERMS:\n(none)\n\nCITATIONS:\n(none)\n\nOPEN THREADS:\n(none)",
+    "previous_sections": "(none)",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "Many non‑trivial claims are presented (e.g., types of tools, pedagogical benefits, examples from practice) but are labeled as '(General background knowledge)' rather than supported by citations or concrete, verified case studies. This is allowed as background for a short introduction, but later practical chapters should replace these placeholders with evidence-backed references or run artifacts.",
+        "required_fix": "Keep the high-level background phrasing here, but add explicit placeholders/notes pointing authors to insert specific, cited case studies and evaluation data in the corresponding practical chapters. Example: after each illustrative bullet add '— viz. Kapitola 2.x pro ověřené případy a odkazy na literaturu'."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "The opening paragraph and lists are concise but somewhat generic; readers may benefit from a brief, one‑sentence definition of 'AI' as used in this guide (scope: generative models, adaptive systems, analytics), and a clear statement of intended reader roles (e.g., lecturers, course designers, IT administrators).",
+        "required_fix": "Add one short definitional sentence (labeled as 'General background knowledge') clarifying the scope of 'AI' in the guide and a short clarifier of the target audience roles."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "The section lists main questions and metrics to consider, but does not give any concrete example metrics or a short exemplar evaluation rubric (even at high level). This may make it harder for readers to translate 'Měření úspěchu' into immediate actions.",
+        "required_fix": "Include 2–3 example metrics as templates (e.g., 'čas na přípravu obsahu — % změna v hodinách', 'průměrná doba zpětné vazby pro studenty', 'míra zapojení: % aktivních studentů na týden'), labeled as general background examples to be refined with evidence in later chapters."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "LaTeX structure (itemize, enumerate) is valid. However, there are inline parenthetical labels '(General background knowledge)' appended to many list items which break visual flow and may be better placed as a single note or footnote.",
+        "required_fix": "Replace repeated inline labels with a single sentence or footnote at the start or end of the section stating that unlabeled claims are 'General background knowledge' and will be supported later; remove the per-item labels to improve readability."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "The section aligns with the provided outline, but it uses slightly different phrasing (e.g., 'krok‑za‑krokem' vs 'krok po kroku' in the outline). These differences are minor but could be harmonized for consistency across chapters.",
+        "required_fix": "Harmonize phrasing with the outline: use consistent terms such as 'krok po kroku' or 'krok‑za‑krokem' throughout the guide and ensure headings match the outline section titles."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "opening paragraph",
+        "edit_instruction": "Add one short sentence defining the scope of 'AI' as used in this guide (e.g., 'Ve tomto průvodci 'AI' zahrnuje nástroje jako generativní modely, adaptivní výukové moduly a analytiku učení (General background knowledge).') and explicitly list intended reader roles (lektori, pedagogičtí návrháři, IT administrátoři)."
+      },
+      {
+        "target": "labels '(General background knowledge)'",
+        "edit_instruction": "Remove repeated per-item labels. Instead add a single footnote or a sentence near the top: 'Pozn.: Body níže jsou shrnutím obecného kontextu (General background knowledge); konkrétní ověřené případy a citace jsou uvedeny v praktických kapitolách.'"
+      },
+      {
+        "target": "main questions / metrics list",
+        "edit_instruction": "Add 2–3 concrete example metrics (as templates) such as: 'Časová úspora pro vyučující (hodiny/termín), průměrná doba odpovědi chatbotu (sekundy/minuty), míra zapojení studentů (% aktivních v online modulu)'. Label them as illustrative examples (General background knowledge)."
+      },
+      {
+        "target": "illustrative examples list",
+        "edit_instruction": "After each illustrative item (chatboti, autogradery, adaptivní moduly) add a short placeholder pointing to the relevant practical chapter, e.g.: '— viz. Kapitola 2.3' so authors know where to insert evidence-backed case studies."
+      },
+      {
+        "target": "LaTeX formatting",
+        "edit_instruction": "Keep current itemize/enumerate structure but move the repeated labels into a single note. Optionally wrap the note in \\textit{...} or \\footnote{...} for typographic clarity."
+      }
+    ],
+    "retrieval_queries": [
+      "case studies of chatbots deployed as teaching assistants in higher education (example deployments, evaluation results)",
+      "evaluations of autograders in programming courses (effect on grading time and feedback quality)",
+      "example metrics and rubrics used to evaluate AI interventions in university teaching (engagement, learning gains, time savings)",
+      "best practices and governance frameworks for deployment of AI in higher education (data protection, consent, inclusivity)"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 2211,
+      "completion_tokens": 2032,
+      "total_tokens": 4243
+    },
+    "cost_usd": 0.00461675,
+    "total_cost_usd": 0.014665250000000001,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

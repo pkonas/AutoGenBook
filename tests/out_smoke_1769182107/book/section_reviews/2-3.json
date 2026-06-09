@@ -1,0 +1,73 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section recommends piloting and monitoring, but does not explicitly cross‑reference the adaptivní moduly section (2-2) where pilot design, metrics and risks are described (pilot small+control, pre/post, engagement, cold start). This misses an opportunity to align pilots and metrics across sections.",
+      "required_fix": "Add an explicit cross‑reference to section 2-2 and align the chatbot pilot metrics with the metrics named there (pre/post, retention, engagement, completion, quality of responses)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several recommended practices are high‑level (e.g., 'definujte prahová pravidla eskalace', 'šablony dialogů') but no concrete examples are provided (no sample dialog, no example escalation threshold, no fallback flow).",
+      "required_fix": "Include at least one short example dialog template (intent, slots, expected reply) and an example escalation rule (e.g., confidence threshold, keywords or intent types that trigger escalation) or explicitly mark these as open decisions to be defined in the pilot."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends metrics and monitoring but does not map chatbot outcomes to pedagogical goals from earlier parts (e.g., mastery criteria, when chatbots can support vs. when human intervention is needed).",
+      "required_fix": "Add a brief mapping showing which chatbot KPIs map to pedagogical objectives (e.g., reduced admin load for instructors, faster student access to deadlines, measurable improvement in time‑to‑answer) and note limits where human review is required for learning outcomes."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The draft contains several prescriptive numeric or procedural recommendations (e.g., 'sestavte 20–50 nejčastějších dotazů') that are presented as best practice. They are currently labeled as 'general background knowledge' but would benefit from attribution or justification.",
+      "required_fix": "Either (a) keep these as labeled general background recommendations but soften phrasing to indicate they are common practical targets (e.g., 'obvyklé doporučení: 20–50...'), or (b) add a note to pilot and adjust numbers based on local data."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses a flushleft environment around enumerate/itemize blocks. This is syntactically acceptable but unconventional for a section body (it may affect spacing). The section title is provided separately rather than via a LaTeX \\\\section command inside latex_body.",
+      "required_fix": "Either remove the outer flushleft environment or ensure the document class/layout expects content fragments in this form. Consider using a standard section/subsection command if latex_body will be compiled as a standalone section."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Technical integration points are high level (integration with LMS, authentication, anonymization) but lack implementation pointers or minimal required data fields (what LMS context fields are needed: course id, deadlines, enrollment status).",
+      "required_fix": "Add a short list of minimal contextual fields to request from an LMS (e.g., course identifier, assignment deadlines, user role/authorization) or flag as an implementation decision to be specified per LMS during pilot."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After 'Pilotní nasazení', add a short cross‑reference line: 'Viz sekce 2-2 (Adaptivní moduly) pro doporučený pilotní design a metriky: malá+kontrolní skupina, pre/post testy, udržení a engagement.'"
+    },
+    {
+      "target": "dialog example",
+      "edit_instruction": "Insert one concrete dialog template (3–6 turns) in Czech showing: user intent, extracted slots (course, deadline), system response, and an escalation example when confidence is low or a protected action is requested."
+    },
+    {
+      "target": "escalation rule",
+      "edit_instruction": "Add an example escalation rule such as: 'If model confidence < X% or intent == {grade_change, complaint, personal_data_request} -> show source + provide \"Kontaktujte učitele\" button and log for human review.' Phrase X as 'pilot to determine threshold (e.g., 70–90%)' to avoid asserting an unsupported fixed value."
+    },
+    {
+      "target": "metrics mapping",
+      "edit_instruction": "Add a short bullet mapping chatbot monitoring metrics to pedagogical/operational outcomes, e.g., 'míra eskalací -> potřeba školení/úpravy znalostní báze', 'spokojenost uživatelů -> přijetí služby', 'doba do vyřešení -> efektivita administrativní podpory'."
+    },
+    {
+      "target": "technical fields",
+      "edit_instruction": "Add a minimal suggested LMS context schema example (as a short list): course_id, user_id (anonymized/tokenized), user_role, current_assignment_deadlines, enrollment_status, preferred_language. Mark these as recommendations to adapt per LMS API."
+    },
+    {
+      "target": "latex note",
+      "edit_instruction": "If latex_body will be compiled into a larger document, consider removing the surrounding \\begin{flushleft} ... \\end{flushleft} and instead provide the section text directly or wrapped in a standard \\section/\\subsection if needed by the compiler."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices pilot metrics for educational chatbots pre/post retention engagement evaluation",
+    "example escalation threshold values (confidence) used in deployed chatbots in education",
+    "minimal LMS context fields required for chatbot integration (course id, deadlines, enrollment) best practices",
+    "example dialog templates (intent-slot) for academic FAQ chatbots"
+  ]
+}

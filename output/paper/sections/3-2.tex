@@ -1,0 +1,31 @@
+\textbf{Inputs and outputs.}
+The scheduler input is a document graph \(G=(V,E)\) whose nodes \(v\in V\) are planned sections (id, heading, target length, role) and edges \((u\rightarrow v)\) encode generation dependencies.
+Configurable constraints include traversal bias, maximum parallel batch size \(B\), and per-node resource limits (token budgets, retry caps).
+Output: an ordered sequence \(S=[S_1,\dots,S_T]\) of batches \(S_t\) (node ids plus scheduling metadata).
+
+\textbf{Design goals.}
+The scheduler (i) respects dependencies so generators have required context and evidence, (ii) enables parallelism where safe, (iii) prioritizes sections that constrain downstream content, and (iv) emits an auditable schedule.
+
+\textbf{Priority heuristics.}
+A modular priority function \(P(v)\) combines structural role weight, dependency centrality, evidence availability, and editor overrides via tunable aggregation so practitioners can bias traversal (leaf-first, top-down, hybrid).
+
+\textbf{Dependency-respecting traversal.}
+Iteratively select ready nodes—those whose predecessors are completed or marked skippable—and group them into batches up to \(B\).
+Ready set:
+\[
+R=\{v\in V\setminus C:\forall (u\rightarrow v)\in E,\ u\in C\ \lor\ u\text{ is skippable}\},
+\]
+select up to \(B\) nodes from \(R\) by descending \(P(v)\) to form \(S_t\), validate outputs, and update \(C\).
+
+\textbf{Batching strategy.}
+Balance throughput and coherence: prefer co-batching disjoint subgraphs, group by evidence-affinity to reuse retrievals, and limit batch heterogeneity (max \(K\) roles).
+Handle incompatible-batch constraints and use graph-reduction/grouping to reduce scheduling and retrieval complexity \cite{web_huertas_2024_parallel_batch_scheduling_with_incompatible_job_,web_mostafa_2024_intent_aware_drl_based_noma_uplink_dynamic_sched}.
+
+\textbf{Failure detection and retries.}
+Validate outputs against schema, citation slots, and upstream consistency. Remedies (in order): (1) local retry with adjusted prompts/evidence, (2) upstream regeneration, (3) human-in-the-loop. Retries are budgeted; exhausted budgets record failures and surface placeholders or human resolution.
+
+\textbf{Complexity and practical considerations.}
+Bookkeeping scales with nodes and edges; separate lightweight scheduling from heavyweight retrieval/inference and overlap them (prefetching) to contain latency \cite{web_sudarsan_2007_reshape_a_framework_for_dynamic_resizing_and_sch}.
+
+\textbf{Auditability, extensibility, and limitations.}
+Emit per-decision metadata (priorities, batches, retrieval snapshots, validations, retries). The scheduler is modular so new heuristics and failure rules can be plugged in. Behavior depends on retrieval quality and dependency fidelity; complex batching constraints can increase overhead and may require specialized solvers.

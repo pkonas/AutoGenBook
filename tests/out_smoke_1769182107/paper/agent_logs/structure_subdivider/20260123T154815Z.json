@@ -1,0 +1,59 @@
+{
+  "agent": "structure_subdivider",
+  "timestamp": "20260123T154815Z",
+  "input": {
+    "doc_kind": "paper",
+    "doc_title": "Mini průvodce AI ve výuce",
+    "doc_summary": "Tento mini průvodce poskytuje krátkou a praktickou ukázku struktury knihy nebo článku zaměřeného na využití umělé inteligence ve výuce. Cílem je nabídnout pedagogům, tvůrcům kurzů a zájemcům o vzdělávání stručný přehled zásadních témat: proč a jak AI integrovat do výuky, konkrétní scénáře použití a jednoduché doporučení pro implementaci. Text kombinuje teoretické vymezení a praktické příklady, které lze rychle adaptovat do školních i univerzitních podmínek. Zvláštní pozornost je věnována etickým a pedagogickým aspektům, ochraně osobních údajů a zajištění transparentnosti využití nástrojů AI. Průvodce nabízí také přehled možných aktivit, návrhy hodnocení výsledků a tipy na zdroje pro další studium. Dokument je navržen jako krátký, snadno čitelný a okamžitě použitelný materiál, vhodný pro rychlé seznámení i jako základ pro rozšíření do delší publikace nebo pracovního semináře. Cílem je usnadnit první kroky a podpořit informované rozhodování při zavádění AI do výukových procesů.",
+    "target_audience": "Krátký článek / pedagogický průvodce",
+    "parent_title": "Praktické příklady",
+    "parent_summary": "Konkrétní scénáře použití AI v hodině (příprava materiálů, interaktivní cvičení, automatické hodnocení, asistence studentům), včetně kroků implementace, očekávaných výsledků a tipů na nástroje. Obsahuje doporučení pro zajištění etiky a ochrany dat.",
+    "n_pages": 1.2,
+    "max_output_pages": 2.0,
+    "retrieved_context": "(none)"
+  },
+  "output": [
+    {
+      "title": "Rychlý přehled scénářů použití",
+      "summary": "Stručné vyjmenování konkrétních způsobů, jak může být AI využita v hodině (např. generování materiálů, adaptivní cvičení, automatická zpětná vazba, asistenční nástroje). Slouží jako orientační mapa pro učitele při výběru vhodného scénáře.",
+      "n_pages": 0.2,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Příprava výukových materiálů pomocí AI",
+      "summary": "Konkrétní kroky pro využití AI při tvorbě prezentací, pracovních listů a podkladů: vstupy, nastavení modelu, kontrola relevance a úpravy. Očekávané výsledky a tipy na nástroje a šablony vhodné pro rychlé nasazení.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Interaktivní cvičení a adaptivní úlohy",
+      "summary": "Návrhy interaktivních aktivit (dialogy s chatbotem, adaptivní testy, simulace) včetně kroků implementace ve třídě, doporučeného pracovního postupu a typických výsledků z hlediska zapojení studentů.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Automatické hodnocení a zpětná vazba",
+      "summary": "Postupy pro nastavení automatického hodnocení krátkých odpovědí, kódů nebo testů; jak navrhnout rubriky, ověřovat kvalitu hodnocení a doplnit lidskou kontrolu. Praktické tipy pro integraci do známkování a formativního hodnocení.",
+      "n_pages": 0.2,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Etika, ochrana dat a praktické doporučení pro spouštění",
+      "summary": "Konkrétní doporučení pro zajištění etiky používání AI ve výuce: informovaný souhlas studentů, anonymizace dat, transparentnost použitých nástrojů a jednoduchý check‑list před nasazením do praxe.",
+      "n_pages": 0.2,
+      "needsSubdivision": false
+    }
+  ],
+  "meta": {
+    "run_id": "20260123T164803Z",
+    "usage": {
+      "prompt_tokens": 852,
+      "completion_tokens": 940,
+      "total_tokens": 1792
+    },
+    "cost_usd": 0.002093,
+    "total_cost_usd": 0.00442275,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

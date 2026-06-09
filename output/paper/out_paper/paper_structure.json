@@ -1,0 +1,64 @@
+{
+  "title": "Graph-Aware Prompting for Reliable Section Generation",
+  "abstract": "We present a graph-guided prompting workflow for long-form scientific writing that prioritizes evidence and citation consistency. Our method constructs a document graph that encodes section dependencies and uses strict JSON schemas and evidence-aware prompts to generate and validate individual sections. At generation time, the system (1) builds a section graph and schedules leaf-first writing, (2) retrieves and injects relevant evidence for each section, (3) produces JSON-constrained section outputs, and (4) assembles a LaTeX manuscript with refs.bib. We evaluate the approach by comparing it to a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show improved citation coverage and reduced unsupported assertions while keeping edits and post-hoc audits straightforward via machine-readable outputs. We intentionally state conservative claims and require explicit source citations for all factual assertions. The paper contributes practical artifacts: a graph-based section scheduler, an evidence-injection protocol per section, and an audit-friendly JSON output format that integrates with standard LaTeX/bib workflows. Our experiments use internal notes and a small curated PDF set where available; metrics focus on citation fidelity and factual consistency rather than broad generalization.",
+  "keywords": [
+    "document graph",
+    "long-form generation",
+    "evidence",
+    "citations",
+    "structured prompting"
+  ],
+  "target_venue": "ACL Workshop on Natural Language Generation",
+  "contributions": [
+    "A graph-based section scheduler that organizes document generation around a document graph to improve coherence.",
+    "An evidence-injection protocol and evidence-aware prompts that attach and verify citations per section.",
+    "An audit-friendly, strict JSON output schema and a LaTeX assembly workflow (refs.bib) for traceability and post-hoc review."
+  ],
+  "citation_style": "bibtex",
+  "max_depth": 3,
+  "max_output_pages": 1.5,
+  "sections": [
+    {
+      "title": "Introduction",
+      "summary": "Motivate the challenge of reliable long-form scientific writing with large language models, state the research question—how does graph-guided sectioning affect coherence and citation quality?—and give a high-level overview of the graph-guided prompting workflow and conservative claim policy (always cite sources).",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Related Work",
+      "summary": "Review prior approaches to long-form generation, structured prompting, citation-aware generation, and document planning. Contrast linear prompting baselines and citation verification techniques, emphasizing gaps addressed by a graph-aware approach.",
+      "n_pages": 0.2,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Methods",
+      "summary": "Detail the graph construction (section graph and dependencies), the JSON schema for section outputs, evidence retrieval and ranking, evidence-aware prompt templates, leaf-first generation and assembly rules, and the LaTeX + refs.bib assembly process. Include conservative validation checks and failure modes.",
+      "n_pages": 0.4,
+      "needsSubdivision": true
+    },
+    {
+      "title": "Experiments",
+      "summary": "Describe experimental setup: two topical domains, baseline linear prompting comparator, datasets (internal notes and a small curated PDF set if available), and evaluation protocol. Specify metrics: citation coverage, hallucination rate (unsupported assertions), and reviewer score.",
+      "n_pages": 0.2,
+      "needsSubdivision": true
+    },
+    {
+      "title": "Results",
+      "summary": "Report quantitative outcomes on citation coverage, hallucination rates, and reviewer scores, with qualitative examples illustrating error modes and successful evidence integration. Emphasize conservative interpretation of improvements and per-topic variability.",
+      "n_pages": 0.15,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Discussion",
+      "summary": "Analyze why graph-guided scheduling affects coherence and citation placement, limitations (dataset scale, domain transfer, reliance on retrieval quality), and implications for auditability and reproducibility. Propose mitigations and future extensions.",
+      "n_pages": 0.15,
+      "needsSubdivision": true
+    },
+    {
+      "title": "Conclusion",
+      "summary": "Summarize contributions and findings, restate emphasis on conservative claims and mandatory citations, and outline next steps for larger-scale evaluation and community-shared datasets and tools.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    }
+  ]
+}

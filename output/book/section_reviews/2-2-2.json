@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Krok v datovém toku 'Předzpracování: automatická kontrola na PII + pseudonymizace/anonymizace' je praktické doporučení, ale v textu chybí explicitní citace k podpoře takového workflow (non-trivial doporučení). Sekce na začátku odkazuje na obecné principy (kb_ai_101_tipu_pdf_04e4a115_page_8_1), ale konkrétní bod v seznamu by měl mít jasnou vazbu na podkladový zdroj nebo být označen jako 'praktický návrh'.",
+      "required_fix": "Přidejte explicitní citaci (např. kb_ai_101_tipu_pdf_04e4a115_page_8_1 nebo odpovídající stránku v repozitáři VUT) u položky 'Předzpracování', nebo přidejte krátké vyjádření, že jde o doporučenou praxi (label 'general background knowledge')."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Položka o retenci a mazání (lhůty uchovávání a postupy mazání) je označena jako 'general background knowledge', ale text uvádí doporučení vložit konkrétní lhůty do sylabu/datového plánu bez odkazu na šablony/vzor DPIA.",
+      "required_fix": "Buď přiložte odkaz/citaci na vzory (repozitář VUT: ai.vut.cz nebo konkrétní příloha/soubor s šablonou VUT) nebo ponechte formulaci jako obecné doporučení (explicitně označit jako 'general background knowledge') a navrhnout, kam vložit vzory."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "V bulletu 'Programátorský projekt' je v textu '(repo link)' jako placeholder. To je nejasné a v rozporu s pravidlem, že nesmíme vymýšlet URL.",
+      "required_fix": "Nahradit placeholder jasnou instrukcí: buď vložit odkaz na existující repozitář v ai.vut.cz (pokud je k dispozici), nebo nahradit text neutrálním 'školní repozitář' bez konkrétní URL. Pokud máte v repozitáři VUT konkrétní soubor, použijte existující klíč/referenci."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX obsahuje víceméně korektní prostředí, ale section používá několik míst s nejednoznačným textem (např. 'Human‑in‑the‑loop' s neobvyklými nenarusitelnými pomlčkami) a existují odkazy přes \\cite{...} — nutno ověřit, že citace (kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_53_2, kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1) odpovídají položkám v bibliografii.",
+      "required_fix": "Zkontrolovat, že všechny \\cite klíče existují v .bib souboru. Doporučuji také použít běžné ASCII pomlčky v LaTeXu (--) nebo explicitně uvést nenarušitelné mezery, pokud je to záměr. Přidat volitelně \\label{sec:2-2-2} pro snadné křížové odkazy."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce je praktická, ale mohla by být o něco konkrétnější — např. vzorová pole, která by mělo obsahovat 'datový plán' (krátký checklist polí: popis účelu, kategorie dat, retence, přístupová práva, kontakt na data stewarda).",
+      "required_fix": "Doporučuji přidat krátký ukázkový seznam polí datového plánu (může být označeno jako 'general background knowledge' nebo odkazovat na šablonu v repozitáři VUT). Pokud je šablona v ai.vut.cz, uveďte odkaz/citaci."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce se zmiňuje o DPIA a pilotních checklistech, avšak neodkazuje explicitně na již existující 'Krátký checklist před pilotem' uvedený v kontextové paměti/předchozích sekcích.",
+      "required_fix": "Přidejte k jedné z poznámek (např. u položky 'DPIA a smlouvy' nebo na konci) explicitní křížový odkaz na příslušný checklist / repozitář (ai.vut.cz nebo sekce 9.2/9.4 v příručce)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Předzpracování bullet v datovém toku",
+      "edit_instruction": "Přidejte na konec tohoto bodu krátkou citaci: '...pseudonymizace/anonymizace \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}'. Pokud nemáte konkrétní zdroj, přidejte poznámku '(praktické doporučení)'."
+    },
+    {
+      "target": "Programátorský projekt bullet",
+      "edit_instruction": "Nahraďte '(repo link)' textem 'školní repozitář (interní VUT repo nebo ai.vut.cz)'. Pokud chcete uvést konkrétní interní odkaz, doplňte pouze existující URL z repozitáře VUT."
+    },
+    {
+      "target": "Retence & mazání bullet",
+      "edit_instruction": "Doplnit odkaz na šablonu datového plánu / vzor DPIA v repozitáři VUT nebo poznámku 'viz šablony v ai.vut.cz'. Pokud odkaz není k dispozici, ponechejte jako 'general background knowledge' a zkraťte doporučení na jednu větu."
+    },
+    {
+      "target": "Krátký doporučený datový tok (enumerate)",
+      "edit_instruction": "U každého kroku přidejte jedno-řádkovou poznámku s odkazy/citacemi tam, kde to podporují KB (např. krok 3: 'Uložení: šifrované interní úložiště nebo enterprise řešení s DPA' \\cite{kb_ai_101_tipu_pdf_04e4a115_page_53_2}; krok 4: uveďte odkaz na zásadu minimalizace \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1})."
+    },
+    {
+      "target": "Praktické mini‑příklady",
+      "edit_instruction": "Upravte text 'Formativní kvíz v LMS' a 'Programátorský projekt' tak, aby bylo jasné, které části jsou obecné doporučení ('general background knowledge') a které jsou podpořené citacemi. Např. přidejte 'viz šablony v ai.vut.cz' k doporučením pro archivaci/agregaci."
+    }
+  ],
+  "retrieval_queries": [
+    "VUT ai.vut.cz šablona datového plánu DPIA vzor 'DPIA pro AI ve výuce' (vzor DPIA, page in repo)",
+    "Guidance on retention and deletion of student data GDPR VUT or KB (retence mazání studentských dat template)",
+    "Preprocessing and automated PII detection recommendations for educational data (KB or VUT guide)",
+    "Confirm citation kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1 DPIA requirement text"
+  ]
+}

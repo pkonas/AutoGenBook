@@ -1,0 +1,44 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The inline note 'ověřte dostupnost licence (general background knowledge)' is labelled as general background knowledge rather than being explicitly grounded to the provided KB excerpt or context memory. Non‑trivial procedural instructions (check license availability) should either cite supporting KB/context or be phrased as a brief practical instruction without the parenthetical label.",
+      "required_fix": "Replace the parenthetical 'general background knowledge' with an explicit supporting reference (e.g. cite kb_ai_101_tipu_pdf_page_15_2 or the context memory guidance about licensing), or remove the parenthetical and keep the step as a plain practical checklist item. The KB supports that some content is free and that other content is part of Microsoft 365 A3/A5 (kb_ai_101_tipu_pdf_page_15_2)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The short checklist is presented as a single inline sentence rather than as a structured list; this reduces scannability for instructors preparing a syllabus. Also the recommended time allocation (10–20 min demo, 10–15 min reflection) is consistent with the organizational guidance (10–25 min total) but currently has no inline citation to that guidance.",
+      "required_fix": "Format the checklist as a bullet list (or LaTeX itemize/description) for clarity and add an explicit citation or footnote linking the time recommendations to the organizational guidance in the context memory (organizační rámec demonstrací: recommended 10–25 minutes)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The checklist is plain text in the LaTeX body rather than using an itemize/enumerate environment, which is inconsistent with the rest of the section that uses itemize. Footnote usage is otherwise acceptable but consistency is preferable.",
+      "required_fix": "Convert the plain checklist sentence into a LaTeX itemize (or enumerate) block and ensure each checklist item has its own \\footnote{Source: ...} where appropriate. Example: \\begin{itemize} \\item Vyberte lekci (free vs. placená)\\footnote{kb_ai_101_tipu_pdf_page_15_2} \\item Ověřte dostupnost licence (Microsoft 365 A3/A5)\\item Připravte 10--20 minut pro demonstraci\\item Připravte 10--15 minut pro reflexi \\end{itemize}."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The pedagogical recommendation to include a short reflection and discussion is appropriately supported by the KB (kb_ai_101_tipu_pdf_page_15_2), but the section could be improved with a brief example of 2–3 guided questions to use in that reflection (the previous section offers such general background examples).",
+      "required_fix": "Add 2–3 concrete, short sample reflexive questions (e.g. 'Co jste v chování agentů pozorovali?', 'Kde by takové chování v reálném světě nefungovalo?') and mark these as general background knowledge if they are not direct quotes from the KB. Alternatively, cite the context memory where such example questions are listed."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace the inline checklist sentence with a LaTeX itemize block. Add an explicit footnote for the time allocation pointing to the organizational guidance (recommended 10–25 min demo+discussion) from the context memory. Remove the parenthetical 'general background knowledge' or replace it with a citation to kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "target": "item 'Pedagogická doporučení'",
+      "edit_instruction": "After the sentence recommending a short reflection, add 2–3 sample reflection questions (either marked as 'general background knowledge' or cite the context memory). Example (brief): 'Např.: Co udělal agent v situaci X? Jak byste agenta vylepšili? Kde v reálném světě by takové chování fungovalo/ nefungovalo?'"
+    },
+    {
+      "target": "footnote usage",
+      "edit_instruction": "For consistency, use the same citation style in all footnotes (e.g. '\\footnote{Source: kb_ai_101_tipu_pdf_page_15_2}') and where you assert time recommendations or licensing checks, include the appropriate cite_key (kb_ai_101_tipu_pdf_page_15_2 or kb_ai_101_tipu_pdf_page_3_1) as supporting evidence."
+    }
+  ],
+  "retrieval_queries": []
+}

@@ -1,0 +1,59 @@
+{
+  "slides": [
+    {
+      "index": 1,
+      "title": "Kurz pedagogických dovedností",
+      "narration": "Tento krátký přehledný kurz je určen akademickým pracovníkům Vysokého učení technického v Brně a zaměřuje se na rozvoj pedagogických kompetencí. Pokrývá šest klíčových témat: vzdělávací cíle, plánování výuky, metody výuky, hodnocení a kritéria, zpětná vazba a reflexe. Kurz propojuje teoretické definice s praktickými doporučeními a aplikacemi v laboratořích a ateliérech, s cílem podpořit přechod od teorie ke konkrétním zlepšením ve výuce. Dorota Egerlová."
+    },
+    {
+      "index": 2,
+      "title": "Úvod",
+      "narration": "Tento samostudijní mikrokurz je určen pro začínající učitele a slouží ke stručnému rozvíjení základních pedagogických a didaktických dovedností. Kurz má 6 studijních slidů, doporučeně po 5 minutách, a 6 testovacích slidů po 2 minutách. Celkové doporučené trvání je 6×5 + 6×2 = 42 minut, maximálně 50 minut včetně rezervy. Pokrývá šest témat: vzdělávací cíle, plánování výuky, metody výuky, hodnocení a kritéria, zpětná vazba a reflexe. Po absolvování budete umět definovat základní didaktické pojmy, rozlišit a klasifikovat hlavní prvky výuky (cíle, metody, hodnocení, zpětná vazba) a analyzovat i reflektovat jejich uplatnění v konkrétní výukové situaci. Prakticky: studijní slidy jsou vratné, testy jsou typu SBA — vždy vyberte jednu nejlepší odpověď — a dodržujte doporučené časy pro optimální průběh."
+    },
+    {
+      "index": 3,
+      "title": "Kontext a obsah kurzu",
+      "narration": "Definuj měřitelné cíle — urč konkrétní výsledky a metriky úspěchu. Vyber obsah a metody, které tě k nim dovedou — zvol materiály a aktivity podporující cíle. Navrhni hodnocení, které ověří naplnění cílů — použij formativní i sumativní nástroje měření. Přizpůsob podle kontextu a zpětné vazby — iteruj plán na základě dat a potřeb účastníků, sleduj dlouhodobé dopady a upravuj průběžně."
+    },
+    {
+      "index": 4,
+      "title": "Téma 1",
+      "narration": "Vzdělávací cíle jsou očekávané výsledky učení a musí být studentům srozumitelně formulovány. Pište je jasně, běžným jazykem a sdílejte je hned na začátku kurzu. Formulujte měřitelné cíle — určete konkrétní výsledky a metriky úspěchu. Používejte akční slovesa jako „dokáže“, „vyjmenuje“, „analyzuje“, aby byl cíl konkrétní. Definujte indikátory úspěchu, například procento, kvalitu výstupu nebo konkrétní úroveň dovednosti. Zarovnejte obsah a metody s cíli a navrhněte hodnocení, které je ověří. Kombinujte přednášky, cvičení a praktika, a slaďte cíle s požadavky laboratoří či ateliérů a s hodnotícími kritérii. Vytvořte rubriky a zkušební úlohy přímo mapované na cíle. Doporučený čas pro tento slid: pět minut."
+    },
+    {
+      "index": 5,
+      "title": "Téma 2",
+      "narration": "V tomto bloku půjde o jasné nastavení cílů a konkrétní plán lekcí. Nejprve definujte dlouhodobé cíle kurzu – očekávané výsledky a klíčové kompetence – a upřesněte, jaké změny v dovednostech a znalostech mají účastníci dosáhnout. Tyto cíle rozdělte na krátkodobé, pro každou lekci a modul, a formulujte je tak, aby byly měřitelné a dosažitelné. Pro každou lekci vyberte obsah, výukové metody a časovou dotaci, naplánujte konkrétní aktivity, materiály a časový rozpis. Navrhněte hodnocení, které ověří krátkodobé i dlouhodobé cíle, a zahrňte formativní i sumativní nástroje pro kontrolu pokroku. Nakonec iterujte na základě zpětné vazby a reflexe účastníků i lektorů a podle získaných poznatků aktualizujte plán, metody a materiály."
+    },
+    {
+      "index": 6,
+      "title": "Téma 3",
+      "narration": "Metody výuky jsou způsoby, jak zprostředkovat učivo — od výkladu přes diskusi až po aktivizující přístupy. Při výběru metody použijte jednoduchý algoritmus: nejprve definujte výukové cíle pro danou lekci, pak zhodnoťte obsah a charakteristiky studentů. Následně zvolte a případně kombinujte metody tak, aby cíle, obsah a studenti byly sladěni, a nakonec ověřte účinnost a upravujte postup iterativně podle zpětné vazby. Kombinovat metody se vyplatí — umožní přizpůsobit výuku různým typům obsahu, zvýšit pozornost a zlepšit zapojení studentů. Aktivizující přístupy dávají studentům možnost aktivně pracovat s učivem a jsou obzvlášť vhodné pro praktické části. V laboratořích a ateliérech slučujte krátké instruktážní bloky s pracovním cvičením a stručnými diskusemi o postupu, a měřte pokrok formativně."
+    },
+    {
+      "index": 7,
+      "title": "Téma 4",
+      "narration": "Nejprve jasně určete, co budete hodnotit — zaměřte se na konkrétní dovednosti, znalosti a produkty. Před zadáním úkolu studentům sdělte kritéria a ujistěte se, že rozumějí očekáváním a stupnicím. Každé kritérium navážete na konkrétní výukový cíl, aby bylo zřejmé, co má student po výuce umět. Použijte jednoduchou hodnoticí rubriku nebo jasná pravidla, preferujte přehlednost a konzistenci a poskytněte příklady úspěšných prací."
+    },
+    {
+      "index": 8,
+      "title": "Téma 5",
+      "narration": "Hlavní rozdíl je jednoduchý: bodové nebo sumativní hodnocení shrne výkon na konci, formativní zpětná vazba podporuje průběžné učení a zlepšování. Buďte konkrétní, včasní a konstruktivní — popište pozorovatelné chování, nabídněte konkrétní návrh a uveďte očekávaný výsledek. Praktický 3‑krok: 1) popište výkon, 2) ukažte, co bylo dobré a navrhněte konkrétní zlepšení, 3) dejte okamžitou reakci a požádejte o úpravu. Vyžadujte reflexi nebo opravu, abyste sledovali pokrok. V laboratořích a ateliérech dejte krátké komentáře hned po výkonu, ukažte příklady úspěšných řešení a měřte pokrok formativně — krátké ukázky a rychlá zpětná vazba vedou k rychlejšímu zlepšení."
+    },
+    {
+      "index": 9,
+      "title": "Téma 6",
+      "narration": "Pojďme se zaměřit na reflexi výuky: zaznamenejte průběh hodiny, klíčové momenty, chování studentů a dosažené výsledky. Dokumentujte konkrétní příklady problémů, úspěchů a netypických situací a analyzujte, co fungovalo a proč, a co ne. Hledejte vzorce v chování a výsledcích napříč hodinami, využívejte zpětnou vazbu studentů jako podklad pro rozhodování a konzultujte poznatky s kolegy. Na základě analýzy upravte metody, tempo a zadání a naplánujte konkrétní kroky s termíny a kritérii úspěchu."
+    },
+    {
+      "index": 10,
+      "title": "Aplikace do praxe",
+      "narration": "Pro každou lekci projděte tento cyklus: naplánujte cíle, úkoly, kritéria a časový rámec; připravte materiály s diferenciací a pomůckami; realizujte pomocí vhodných metod a zapojte studenty; facilitujte diskusi a aktivity. Měřte průběžný progres formativně a výsledky sumativně, sbírejte data do portfolia, testy a pozorováním, a dávejte rychlou, konkrétní a motivační zpětnou vazbu. Na závěr reflektujte a upravte plán, metody a hodnocení a dokumentujte a sdílejte provedené změny."
+    },
+    {
+      "index": 11,
+      "title": "Závěr",
+      "narration": "Krátce: mikrokurz pokrývá šest klíčových témat — vzdělávací cíle, plánování, metody, hodnocení, zpětná vazba a reflexe. Cíl mikrokurzu je definovat základní didaktické pojmy, rozlišit hlavní prvky výuky a analyzovat jejich uplatnění v konkrétních výukových situacích. Doporučený časový rámec je 6×5 min studijně = 30 min a 6×2 min testově ≈ 12 min, celkem doporučeně do 50 min. Praktický 4‑krokový postup (pseudokód): planuj(cíle, úkoly, kritéria, čas) → realizuj(metody, zapojení_studentů) → měř(formativně/sumativně) → reflektuj_a_uprav(plán, metody, hodnocení). Krok 1 — plánuj: stanovte jasné cíle, konkrétní úkoly a hodnoticí kritéria spolu s časovým rozpisem. Krok 2 — realizuj: vyberte vhodné metody, aktivizujte studenty a zajistěte zapojení a průběžnou podporu. Krok 3 — měř: sbírejte data formativně i sumativně a hodnoťte naplnění cílů a průběh činností. Reflexe je klíč k profesnímu růstu — systematicky analyzujte průběh, posuďte naplnění cílů a plánujte změny."
+    }
+  ]
+}

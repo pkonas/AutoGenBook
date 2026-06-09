@@ -1,0 +1,61 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section asks for 'workload: [y] hodin (= ECTS zhruba z)' but does not state or cite a conversion rule between hours and ECTS (how many student-hours per ECTS). This is a non‑trivial factual/measurement point and currently lacks supporting reference in the provided excerpts.",
+      "required_fix": "Either (a) cite the local/EU guideline used to convert student workload hours to ECTS (e.g. number of student working hours per ECTS) or (b) remove the parenthetical conversion hint and instead instruct the user to consult local faculty regulations or the Appendix with ECTS guidance."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The text refers to checklists and templates (DPIA, AI Policy Template, Prompt Library, Přílohy) but does not point to a specific Appendix/section number for each. Readers may benefit from explicit cross-references to the exact annexes/checklists mentioned in the Outline/Context memory.",
+      "required_fix": "Add explicit references to the relevant Přílohy items (e.g. 'viz Příloha 9.3 AI Policy Template', 'viz Příloha 9.4 Vzor DPIA', 'Prompt Library v Příloha 9.1') so the reader can quickly find the templates/checklists referenced."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The workflow and prompt templates are practical but would be more actionable with a short concrete example: a filled prompt + a 1‑paragraph example of an AI‑generated mini‑sylabus to illustrate expected output quality and structure.",
+      "required_fix": "Add one short worked example: (1) a filled-in prompt based on template 1, and (2) a 4–6 sentence example of the kind of sylabus text (course description + 1 sample learning outcome + 1 week of topics + 1 assessment milestone) that instructors should expect and review."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section uses verbatim environments for prompt templates which is fine generally, but depending on the main document class and packages, verbatim inside section environments can cause formatting or compilation issues (and special characters in prompts may need escaping if not within verbatim).",
+      "required_fix": "Ensure the document includes the standard LaTeX support for verbatim (no special wrapping macros around it) or consider using the 'minted' or 'listings' package for prompt blocks. Also review prompts for any characters that require escaping outside verbatim."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist includes 'Ověření, že žádná citlivá data studentů nebyla použita v tréninkové fázi ani nahrána do externích služeb bez DPA/DPIA.' This is an important point but could be ambiguous for a busy instructor: it mixes historical training-data concerns (model training) with operational data‑sharing concerns (uploading class data).",
+      "required_fix": "Clarify the two separate checks: (a) verify you are not uploading identifiable student data to external services without an approved DPA/DPIA; and (b) note (as general background) that instructors cannot readily verify vendors' historical training data—refer readers to Chapter 2 and the DPA/DPIA templates for concrete steps and contacts."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace 'workload: [y] hodin (= ECTS zhruba z)' with either a concrete conversion guidance (and a citation) or: 'workload: [y] hodin (uvedení ECTS konzultujte místní pravidla; viz Příloha 9.3/9.4 pro doporučení)'"
+    },
+    {
+      "target": "Důležité body validace (kontrolní seznam)",
+      "edit_instruction": "Split the DPIA/DPA item into two bullets: one for operational uploads of student data (require DPA/DPIA before upload), and one as a note that model vendors' historical training data are generally not inspectable—refer to Chapter 2 and Appendix 9.4 (Vzor DPIA) for the step-by-step checklist."
+    },
+    {
+      "target": "Praktické prompt šablony",
+      "edit_instruction": "Add a short worked example after template 1: show a filled prompt for a fictitious course and a short sample AI output (1-paragraph course description + 1 example learning outcome + 1 sample week). This will help readers calibrate expectations and validation checks."
+    },
+    {
+      "target": "References/crossrefs",
+      "edit_instruction": "Where the section says 'viz Kapitola 2' or 'viz Přílohy', add precise appendix numbers from the Outline (e.g. 'viz Kapitola 2 a Příloha 9.3 AI Policy Template, Příloha 9.4 Vzor DPIA, Příloha 9.1 Prompt Library')."
+    },
+    {
+      "target": "LaTeX block with prompts",
+      "edit_instruction": "Confirm document class supports verbatim; if compilation issues are observed, switch to using 'verbatim' outside of floating/text styling or use 'listings'/'minted' for prompt blocks. Also ensure any Czech-specific characters are encoded correctly (UTF-8) and hyphenation in headings is correct."
+    }
+  ],
+  "retrieval_queries": [
+    "VUT / EU guideline: standardní počet studentských hodin na 1 ECTS (jaké pravidlo platí pro VUT nebo obecné doporučení pro ECTS conversion)",
+    "Locate exact Appendix numbers/names for 'AI Policy Template' and 'Vzor DPIA' in the source (to produce precise cross-reference)"
+  ]
+}

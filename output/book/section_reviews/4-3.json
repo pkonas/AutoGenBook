@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Title mixes Czech and English ('Live demonstrace ...'). This is stylistically inconsistent with the rest of the Czech text.",
+      "required_fix": "Change title to fully Czech (e.g. 'Živé demonstrace a simulace (včetně Minecraft Education)') or make language choice consistent across the document."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The recommendation to download and try a free Hour of Code lesson in Minecraft Education appears more than once (in the short summary and in the first practical scenario).",
+      "required_fix": "Remove the exact duplicate suggestion or merge the occurrences to avoid repetition (keep one clear pointer with the citation kb_ai_101_tipu_pdf_04e4a115_page_15_2)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section suggests formative checkpoints and reflection but does not explicitly point readers to the rubric/assessment guidance elsewhere in the manual.",
+      "required_fix": "Add an explicit cross-reference to the assessment/rubric guidance (chapter on hodnocení/formative assessment) so teachers can align the demo activity with existing rubrics and milestone‑based assessment templates."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX fragment is generally correct, but it is a standalone body without a section/header command. If this fragment will be inserted into the larger LaTeX document, confirm it is wrapped by an appropriate \\section or \\subsection and that bibliography keys used by \\cite{...} exist in the BibTeX file.",
+      "required_fix": "Ensure the fragment is enclosed by the correct sectioning command when integrated and verify the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_15_2, _page_8_1, _page_51_1) are present in the document bibliography."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "title",
+      "edit_instruction": "Replace 'Live demonstrace a simulace (včetně Minecraft Education)' with 'Živé demonstrace a simulace (včetně Minecraft Education)' for consistent Czech wording."
+    },
+    {
+      "target": "Krátké shrnutí přínosu / Practical scenario 1",
+      "edit_instruction": "Merge the repeated instruction to 'stáhnout Minecraft Education a vyzkoušet jednu z volně dostupných lekcí Hour of Code' into a single clear recommendation (keep citation \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}) and remove the duplicate sentence elsewhere."
+    },
+    {
+      "target": "Zhodnocení a reflexe",
+      "edit_instruction": "Add a sentence linking the suggested formative checkpoint to the manual's assessment guidance, e.g.: 'Viz kapitola o hodnocení (rubriky a milestone‑based assessment) pro šablony krátkých formativních check‑pointů a rubriky.' (ensure appropriate internal cross‑reference when integrating)."
+    },
+    {
+      "target": "Praktické scénáře / Rychlá tvorba vizuálů",
+      "edit_instruction": "Consider adding one short example prompt for Designer (e.g. 'vytvoř reklamní banner pro debriefing lekce: styl edukativní infographic, barvy univerzitní palety') to make the suggested live demo more actionable."
+    },
+    {
+      "target": "Před hodinou — kontrolní seznam přípravy",
+      "edit_instruction": "Add an explicit pre‑test step: 'Otestujte aktivitu na lokálním zařízení a ověřte, že nevyžaduje síť nebo že máte záložní offline variantu' to reduce risk from network outages (this complements existing 'záložní plán' item)."
+    }
+  ],
+  "retrieval_queries": []
+}

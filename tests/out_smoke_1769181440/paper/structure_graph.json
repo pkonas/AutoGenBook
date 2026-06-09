@@ -1,0 +1,113 @@
+{
+  "graph": {
+    "title": "Mini průvodce AI ve výuce",
+    "abstract": "Tento mini průvodce poskytuje kompaktní a praktickou ukázku struktury knihy či článku zaměřeného na použití umělé inteligence (AI) ve výuce. Cílem je nabídnout čtenáři rychlý přehled klíčových témat, konkrétní příklady aplikací v třídě a návrhy jednoduché implementace, které učitelé, školní vedení i tvůrci učebních materiálů mohou okamžitě využít. Text klade důraz na praktickou hodnotu: jak AI nástroje podpoří přípravu lekcí, diferencované učení, hodnocení a interakci se studenty, ale zároveň upozorňuje na důležité etické a organizační aspekty včetně ochrany osobních údajů, transparentnosti a digitální gramotnosti. Průvodce je navržen jako dvoustránkový formát vhodný pro rychlé seznámení, workshopové materiály nebo předmluvu k rozsáhlejšímu materiálu. Obsahuje stručný úvod k tématu a soustředěnou sekci praktických příkladů s konkrétními scénáři, doporučenými nástroji a tipy pro adaptaci podle věku a předmětu. Tento dokument usnadní učitelům první krok směrem k efektivnímu a odpovědnému využívání AI ve škole.",
+    "keywords": [
+      "AI ve výuce",
+      "praktické příklady",
+      "učitelé",
+      "implementace",
+      "etika v AI",
+      "učební scénáře"
+    ],
+    "target_venue": "krátký průvodce / pedagogický workshop",
+    "contributions": [
+      "Kompaktní návrh dvoustranné struktury knihy či článku o AI ve výuce",
+      "Sada praktických příkladů a scénářů pro okamžité nasazení v hodinách",
+      "Doporučení pro etické a organizační aspekty implementace AI ve škole"
+    ],
+    "citation_style": "bibtex",
+    "max_depth": 3,
+    "max_output_pages": 2.0
+  },
+  "nodes": {
+    "paper": {
+      "title": "Mini průvodce AI ve výuce",
+      "summary": "Tento mini průvodce poskytuje kompaktní a praktickou ukázku struktury knihy či článku zaměřeného na použití umělé inteligence (AI) ve výuce. Cílem je nabídnout čtenáři rychlý přehled klíčových témat, konkrétní příklady aplikací v třídě a návrhy jednoduché implementace, které učitelé, školní vedení i tvůrci učebních materiálů mohou okamžitě využít. Text klade důraz na praktickou hodnotu: jak AI nástroje podpoří přípravu lekcí, diferencované učení, hodnocení a interakci se studenty, ale zároveň upozorňuje na důležité etické a organizační aspekty včetně ochrany osobních údajů, transparentnosti a digitální gramotnosti. Průvodce je navržen jako dvoustránkový formát vhodný pro rychlé seznámení, workshopové materiály nebo předmluvu k rozsáhlejšímu materiálu. Obsahuje stručný úvod k tématu a soustředěnou sekci praktických příkladů s konkrétními scénáři, doporučenými nástroji a tipy pro adaptaci podle věku a předmětu. Tento dokument usnadní učitelům první krok směrem k efektivnímu a odpovědnému využívání AI ve škole.",
+      "n_pages": 0,
+      "needsSubdivision": true
+    },
+    "1": {
+      "title": "Úvod",
+      "summary": "Stručné představení role umělé inteligence ve vzdělávání, cíle průvodce, cílové publikum a stručný přehled obsahu. Vysvětlení, proč je kompaktní formát užitečný pro učitele a co mohou čtenáři očekávat od praktických příkladů.",
+      "n_pages": 0.6,
+      "needsSubdivision": false
+    },
+    "2": {
+      "title": "Related Work",
+      "summary": "Unable to confirm novelty due to missing related work.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    "3": {
+      "title": "Praktické příklady",
+      "summary": "Konkrétní, krátké scénáře použití AI v třídě: příprava lekcí, personalizované úkoly, automatizované hodnocení, podpora zpětné vazby a nápady pro projekty žáků. Pro každý scénář jsou uvedeny doporučené nástroje, kroky implementace, možné úpravy podle věku žáků a poznámky k etice a ochraně dat.",
+      "n_pages": 1.4,
+      "needsSubdivision": true
+    },
+    "3-1": {
+      "title": "Příprava lekcí s AI",
+      "summary": "Konkrétní scénáře, jak používat AI pro rychlou tvorbu osnov, materiálů a diferenciovaných pracovních listů; stručný návod krok‑za‑krokem (vstupy, kontrola výstupů, úpravy) a doporučené typy nástrojů. Uvede možnosti zjednodušení pro různé věkové skupiny a klíčové poznámky k ochraně osobních údajů a transparentnosti při použití v přípravě výuky.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    "3-2": {
+      "title": "Personalizované úkoly a diferenciace",
+      "summary": "Praktické příklady generování úkolů podle úrovně žáků, adaptivních cvičení a doporučení pro domácí učení; konkrétní implementační kroky a tipy, jak měřit a upravovat obtížnost. Součástí krátké poznámky o přizpůsobení podle předmětu a věku a rizika biasu a bezpečného nakládání s daty žáků.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    "3-3": {
+      "title": "Automatizované hodnocení a testy",
+      "summary": "Scénáře pro automatické vyhodnocování kvízů, rubriky pro psané práce a předvyplněnou zpětnou vazbu; doporučené nástroje, kroky zavedení a kontrolní mechanismy pro kvalitu výsledků. Součástí krátké úvahy o omezeních automatického hodnocení a soulad s pravidly ochrany osobních údajů.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    "3-4": {
+      "title": "Podpora zpětné vazby a interakce se studenty",
+      "summary": "Konkrétní příklady, jak AI pomůže poskytovat formativní zpětnou vazbu, vedené rozhovory se studenty a asistenci při doučování; doporučené postupy nasazení a ukázkové šablony interakcí. Zahrnuje rady pro etické použití (transparentnost, dohoda se žáky/rodiči) a minimalizaci rizik.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    },
+    "3-5": {
+      "title": "Nápady na žákovské projekty s AI",
+      "summary": "Krátké návrhy projektů (např. tvorba multimediálních prezentací, datová analýza, mini‑chatbot) v různých obtížnostních úrovních; kroky realizace, doporučené nástroje a metody hodnocení. Obsahuje tipy pro bezpečnou práci s daty žáků a rozvoj digitální gramotnosti.",
+      "n_pages": 0.3,
+      "needsSubdivision": false
+    }
+  },
+  "edges": [
+    [
+      "paper",
+      "1"
+    ],
+    [
+      "paper",
+      "2"
+    ],
+    [
+      "paper",
+      "3"
+    ],
+    [
+      "3",
+      "3-1"
+    ],
+    [
+      "3",
+      "3-2"
+    ],
+    [
+      "3",
+      "3-3"
+    ],
+    [
+      "3",
+      "3-4"
+    ],
+    [
+      "3",
+      "3-5"
+    ]
+  ]
+}

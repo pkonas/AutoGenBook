@@ -1,0 +1,79 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several non‑trivial assertions in the section (notably the bulleted 'Co v kapitole najdete' list and the first checklist items) state specific chapter contents and recommended practices but do not include explicit supporting citations or internal cross‑references. According to the grounding rules, non‑trivial factual statements must be supported by an excerpt or explicitly labeled as 'general background knowledge'.",
+      "required_fix": "Either add explicit citations / internal cross‑references to the relevant sub‑sections of the manual (e.g. 5.2, 5.3, 5.4, 9.1/9.2) for each listed item, or mark those list items as 'general background knowledge' where external support is not available. Ensure every specific claim about chapter contents or concrete recommendations is traceable to a section or retrieved excerpt."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Checklist item 1 mentions identification of 'unikátní artefakty (repo‑specifické, lokální data apod.)' but lacks an explicit pointer to the part of the handbook that discusses using repo/local artifacts as mitigation (5.3.4 / 5.6 in the outline).",
+      "required_fix": "Add an internal cross‑reference to the subsection that covers process‑oriented and local‑data tasks (e.g. 'viz 5.3.4 Procesně orientované a lokálně specifické úkoly') or add a citation/excerpt supporting the recommendation."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The checklist and 'Formalizujte změny' item recommend adding 'pole pro deklaraci použití AI' and 'spot‑checkové mechanismy', but these are not explicitly cited even though the handbook contains templates/checklists (sections 5.4, 2.6, 9.2/9.3).",
+      "required_fix": "Add internal cross‑references to the template/checklist subsections (e.g. 5.4, 9.2, 9.3) or include explicit citations to the retrieved content that documents these templates."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Some items in the body are labeled '(general background knowledge)' while other similar conceptual claims are not labeled. This inconsistent labeling makes it unclear which claims are asserted as book content vs. general background.",
+      "required_fix": "Make labeling consistent: either attach '(general background knowledge)' to all claims that are not supported by retrieved excerpts, or add supporting citations/internal cross‑references for those claims that are book content."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX uses \\\\cite keys that must exist in the bibliography (.bib). The section includes three citation keys: kb_ai_101_tipu_pdf_04e4a115_page_48_1, kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_8_1. The reviewer cannot verify the .bib here.",
+      "required_fix": "Ensure the referenced citation keys are present in the .bib file and match the document's bibliography. If these are internal KB keys, confirm they resolve correctly in the final build."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Doporučený pracovní postup' checklist is high‑level; readers might benefit from a very short concrete example (e.g. a 6–8 week pilot outline with milestones) or an explicit pointer to ready‑to‑use templates in the appendices.",
+      "required_fix": "Either add one brief, concrete illustrative pilot timeline (2–4 bullets) within the section, or add an internal cross‑reference to the Appendix/Prompt Library/Checklist (9.1–9.3) where full templates and pilot checklists are available."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends 'spot‑check' and 'rules of escalation' but does not give an illustrative example (e.g. recommended spot‑check sampling fraction: 5–10%), which exists elsewhere in the manual memory but is not cited here.",
+      "required_fix": "Add a short illustrative example (e.g. 'např. spot‑check 5–10 %') with an internal cross‑reference to the section that defines spot‑check and escalation rules, or include the supporting excerpt/citation."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Co v kapitole najdete (the bulleted list)",
+      "edit_instruction": "Add internal cross‑references to the specific sub‑sections that cover each bullet. For example: append '(viz 5.2)' to 'Šest principů AI‑aware assessment', '(viz 5.3)' to 'Katalog úloh ...', '(viz 5.4)' to rubriky and milestone‑based hodnocení, and '(viz 9.1–9.3)' to 'Šablony, checklisty a prompt‑knihovna'. If these cross‑references are not possible, mark these bullets as '(general background knowledge)'."
+    },
+    {
+      "target": "Checklist item 1",
+      "edit_instruction": "Add a pointer to the handbook subsection on local/repo‑specific artifacts (e.g. 'viz 5.3.4 Procesně orientované a lokálně specifické úkoly') or include a short parenthetical example of what counts as a provably unique artifact (e.g. 'repo‑specifické soubory, lokální senzory, laboratorní měření')."
+    },
+    {
+      "target": "Checklist item 4 and 'Formalizujte změny' paragraph",
+      "edit_instruction": "Explicitly cite the Copilot support excerpt for tooling (already present in text) and add an internal cross‑reference to templates for declaration fields and spot‑check protocols (e.g. 'viz 5.4, 9.2')."
+    },
+    {
+      "target": "Closing recommendation",
+      "edit_instruction": "Add a brief concrete pilot example (one short paragraph or 3 bullets), e.g.: 'Mini‑pilot: 1) vyberte seminář s ~20 studenty; 2) implementujte nové zadání + rubriku; 3) proveďte spot‑check 5–10 % a sepište lessons‑learned; 4) upravte sylabus.' Also add '(viz 9.2 checklist)' as cross‑reference."
+    },
+    {
+      "target": "General labeling",
+      "edit_instruction": "Ensure every statement that is not directly supported by the three retrieved excerpts is either: (a) labeled '(general background knowledge)', or (b) linked to an internal sub‑section or citation that supports it. Make labeling consistent across the section."
+    },
+    {
+      "target": "LaTeX citations",
+      "edit_instruction": "Verify that the \\\\cite keys used in this section exist in the document bibliography. If the document uses internal section cross‑references instead of external citations for in‑book claims, replace or augment \\\\cite with '\\\\ref{sec:...}' to point to the relevant numbered sections."
+    }
+  ],
+  "retrieval_queries": [
+    "passage describing spot‑check sample size and examples of spot‑check (e.g., 5–10%) in the handbook",
+    "section that discusses repo‑specific or local data artifacts as a mitigation for AI misuse in assessment (keywords: 'repo', 'lokální data', 'lokálně specifické úkoly')",
+    "text in the KB that gives a concrete mini‑pilot example or recommended pilot timeline for assessment redesign",
+    "section(s) that contain the templates/checklists for declaration of AI use, escalation rules and spot‑check protocols (9.2, 9.3 or similar)"
+  ]
+}

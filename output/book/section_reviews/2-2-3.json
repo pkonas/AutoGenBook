@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some citations (e.g. kb_ai_101_tipu_pdf_04e4a115_page_8_1 and _page_53_2) are used to support recommendations about anonymizace/pseudonymizace and 'nedoporučuje se nahrávat studentské fotografie do neověřených cloudů'. The provided retrieved excerpts for those pages in the INPUTS do not obviously contain explicit text matching these specific formulations. Previous sections in memory do contain the same recommendations, but the inline citations in this section should be checked to ensure they point to fragments that explicitly support each non‑trivial claim.",
+      "required_fix": "Verify that each inline citation points to a document fragment that explicitly supports the adjacent claim, or replace/augment citations with appropriate excerpts. If no supporting excerpt is available, either remove the unsupported phrasing or label it as 'general background knowledge' (as already done for definitions)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses inline markers '(general background knowledge)' both inside the bolded definition and repeated elsewhere. The bolding includes the label text, which is stylistically odd and may produce inconsistent formatting in the compiled document.",
+      "required_fix": "Move the 'general background knowledge' qualifier outside the \\\\textbf{} or use a small note environment (or a footnote) to mark background statements. Remove duplicate parenthetical labels to improve readability."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The practical workflow and checklist are concise but could benefit from one concrete, minimal example of pseudonymization/pseudonym mapping (e.g. how to map name/email to an internal ID and how to store mapping keys). Currently the text advises separation of mapping tables but gives no explicit minimal pattern.",
+      "required_fix": "Add a short, concrete example or template of a safe pseudonymization pattern (or, if no citation is available, add the example as 'general background knowledge' and mark it clearly). Alternatively, reference a specific guideline excerpt that shows an example."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "This section repeats content existing in 'Minimalizace dat a návrh datového toku v kurzech' (previous section). The overlap is consistent but redundant.",
+      "required_fix": "Either merge overlapping sentences with the earlier section (add a cross‑reference) or rephrase to avoid repetition and keep this section focused on methods/limits rather than restating the minimalization guidance verbatim."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Pedagogical value could be increased by adding one short in-class exercise (5–10 min) to illustrate residual re‑identification risk or a simple instructor checklist walkthrough using a sample dataset.",
+      "required_fix": "Add a 1‑paragraph exercise or worked example (labeled as practical exercise) that instructors can run quickly; if this includes procedural recommendations beyond general background, support them with a citation or mark them clearly as instructor practice."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Move the '(general background knowledge)' label out of the bolded definition and place it as an italicized note or footnote directly after the definition. Remove the duplicated '(general background knowledge)' markers elsewhere, keeping them only where claims lack explicit citations."
+    },
+    {
+      "target": "Praktická doporučení a postupy",
+      "edit_instruction": "Confirm that the cited kb_ai_101 and kb_malinka fragments explicitly support each recommendation. If not, replace the citation with the correct page/chunk or add a short qualifying sentence: '(viz DPIA doporučení v části X)' and provide the exact citation fragment."
+    },
+    {
+      "target": "Rychlý pracovní postup (prakticky)",
+      "edit_instruction": "Add one one‑line concrete example to step 2, e.g. 'Pseudonymizace — nahraďte e‑mail hashovaným ID a uložte mapovací tabulku šifrovaně na odděleném serveru s přístupem jen pro správce.' Mark this example as 'general background knowledge' unless you can attach a supporting excerpt."
+    },
+    {
+      "target": "Krátké příklady scénářů",
+      "edit_instruction": "For the 'Formativní kvíz' and 'Programátorský projekt' bullets, add an explicit note on metadata removal (e.g. strip EXIF from images and remove git author info or use anonymized commit author) and attach supporting citation or label as general background knowledge."
+    },
+    {
+      "target": "Limity a upozornění",
+      "edit_instruction": "Expand the bullet on re‑identification risk by adding one sentence about typical sources of residual risk (linkage attacks, unique combinations of quasi‑identifiers) and either cite a guideline or mark as general background knowledge."
+    }
+  ],
+  "retrieval_queries": [
+    "anonymizace pseudonymizace doporučení GDPR výuka DPIA DPA 'pseudonymizace' 'DPIA' 'pseudonymizace příklad' site:cz",
+    "kb_malinka_CHATGPT 'posouzení dopadu' 'DPIA' 'výuka' 'page 12' kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024",
+    "best practices pseudonymization mapping table separation 'hash+salt' guidance GDPR pseudonymization example",
+    "guidance 'remo ve metadata' 'EXIF' students photos upload cloud educational guidance"
+  ]
+}

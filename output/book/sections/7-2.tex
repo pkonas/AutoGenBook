@@ -1,0 +1,68 @@
+% Poznámka: popis této kazuistiky obsahuje obecné shrnutí případu 'Jill Watson' a praktická doporučení pro přenositelnost; konkrétní historické nebo kvantitativní údaje uvedené níže jsou označeny jako general background knowledge, pokud nejsou doloženy v repozitáři příručky.
+\medskip
+
+\textbf{Shrnutí případu (stručně)}\\
+Příklad „Jill Watson“ ilustruje nasazení AI jako virtuálního výukového asistenta v rozsáhlém online kurzu (general background knowledge). Takoví asistenti obvykle zpracovávají FAQ, nasměrovávají studenty na materiály a snižují administrativní zátěž učitelů, což zkracuje dobu odezvy (general background knowledge).
+
+\bigskip
+\textbf{Struktura kazuistiky (pole, která doporučujeme vždy zmapovat)}\\
+V souladu s metodikou zahrnuje analýza obvykle tato pole:
+\begin{itemize}
+  \item Instituce a kontext kurzu (velikost, formát: prezenčně/online/hybrid).
+  \item Cíl a pedagogické metriky (jaký konkrétní problém má AI řešit).
+  \item AI řešení (typ asistenta, omezení kompetencí, integrační body).
+  \item Implementace (fáze nasazení, role lidských aktérů, technická integrace s LMS/SSO).
+  \item Výsledky a evidence (měřené ukazatele úspěchu).
+  \item Lessons learned (klíčová opatření při provozu).
+\end{itemize}
+
+\bigskip
+\textbf{Konkrétní body k zamyšlení pro případ „Jill Watson“ (general background knowledge)}\\
+\begin{itemize}
+  \item Pedagogický cíl: zlepšit dostupnost podpory v asynchronních kurzech a snížit opakující se administrativní dotazy.
+  \item Role asistenta: FAQ, odkazy na materiály, eskalace složitých dotazů; nesmí samostatně hodnotit zkoušky ani uzavírat otázky integrity.
+  \item Technická integrace: připojení k LMS/diskuzím, logging konverzací pro audit, SSO a posouzení DPA/DPIA při zpracování osobních údajů.
+  \item Lidské procesy: plán lidské validace, mechanismus eskalace a proces aktualizace znalostní báze.
+\end{itemize}
+
+\bigskip
+\textbf{Doporučený postup pro pilotní nasazení na úrovni předmětu (general background knowledge)}\\
+Postup přizpůsobitelný pro pilot na VUT:
+\begin{enumerate}
+  \item Vymezit cíl pilotu a metriky (např. doba odpovědi, počet eskalací, spokojenost).
+  \item Definovat kompetence asistenta a scénáře použití; specifikovat otázky, které nesmí odpovídat automaticky.
+  \item Připravit znalostní bázi a proces její verze/aktualizací.
+  \item Implementovat technickou integraci s LMS/SSO, zajistit logging, přístupy a provést bezpečnostní/GDPR kontrolu.
+  \item Spustit pilot v omezeném rozsahu, sbírat data a zpětnou vazbu od studentů a vyučujících.
+  \item Pravidelně vyhodnocovat metriky, ladit odpovědi a dokumentovat lessons learned; podle kritérií rozhodnout o škálování.
+\end{enumerate}
+
+\bigskip
+\textbf{Kontrolní checklist pro garanta předmětu při zvažování replikace takového asistenta (general background knowledge)}\\
+\begin{itemize}
+  \item Je cíl asistenta kompatibilní s výstupy předmětu?
+  \item Jsou hranice kompetencí jasně definovány a sděleny studentům?
+  \item Jsou zajištěny právní a GDPR požadavky (DPIA, DPA)?
+  \item Existuje plán lidské validace, eskalace a nápravy chyb?
+  \item Je nastaven proces logování, auditu a aktualizace znalostní báze?
+  \item Má IT kapacity pro bezpečnou integraci a monitoring?
+\end{itemize}
+
+\bigskip
+\textbf{Klíčová „lessons learned“ k adaptaci pro VUT (general background knowledge)}\\
+\begin{itemize}
+  \item Jasně stanovte, co asistenta smí a nesmí dělat; uvádějte to v sylabu.
+  \item Začněte malým pilotem místo plného nasazení pro omezení rizik.
+  \item Buďte transparentní vůči studentům o tom, že komunikují s AI, a o logování dotazů.
+  \item Měřte technické i pedagogické metriky (odezva, spokojenost, dopad na zátěž vyučujících).
+  \item Pracujte s interními daty opatrně; preferujte anonymizaci nebo pseudonymizaci pro analýzy.
+\end{itemize}
+
+\bigskip
+\textbf{Krátké doporučení pro další kroky}\\
+Pro garanta, který uvažuje přenos řešení na VUT:
+\begin{itemize}
+  \item Konzultovat plán s místním IT a GDPR/právním oddělením (DPIA/DPA).
+  \item Naplánovat 6–8týdenní pilot v jedné sekci s jasnými metrikami.
+  \item Použít šablonu pro dokumentaci implementace a lessons learned z repozitáře příručky.
+\end{itemize}

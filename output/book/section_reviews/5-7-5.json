@@ -1,0 +1,73 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The recommendation \"přiřadit vybranému týmu garantů 1–2 moduly jako ‚povinné‘\" is a concrete, prescriptive action (including a numeric recommendation) that is not supported by the provided retrieved excerpts. The cited excerpt about Microsoft Learn (kb_ai_101_tipu_pdf_page_54_1) describes Microsoft Learn as a suitable platform and suggests focusing on an area, but does not state an exact staffing or module-count assignment for guarantors.",
+      "required_fix": "Either remove the numeric prescription (1–2 modules) or rephrase the sentence as a general suggestion (label it as general background knowledge). If the numeric assignment is important, obtain and cite an authoritative source that recommends this specific practice."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The practical recommendation to \"pilotovat jednu aktivitu v semestru (výběr oblasti → nastavení požadavku na postup → vyhodnocení výsledků učitelem)\" is a reasonable pedagogical workflow but the specific operational phrasing (pilot once per semester) is not explicitly supported by the retrieved excerpt on 'Pokrok v matematice' (kb_ai_101_tipu_pdf_page_8_1). The KB describes functionality but does not prescribe cadence.",
+      "required_fix": "Qualify this as a suggested pilot cadence based on local constraints and label as general background knowledge, or remove the specific cadence if a citation cannot be provided."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The suggested duration for Minecraft Education demonstrations (\"30–45 min\") is not present in the retrieved excerpt (kb_ai_101_tipu_pdf_page_15_2). The KB mentions trying a free Hour of Code lesson and discussing with students but does not provide a recommended exact duration.",
+      "required_fix": "Remove the exact duration or mark it explicitly as a rough guideline (general background knowledge). Alternatively, cite an explicit recommendation if available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section does not cross‑reference related operational checklists and pilot/evaluation guidance already present elsewhere in the document (e.g., the 'Checklist pro garanty' and 'Pilotní nasazení a metriky' in the context memory / outline). This reduces internal coherence with previous sections that define responsibilities and evaluation metrics.",
+      "required_fix": "Add explicit cross‑references to the relevant sections (e.g., 5-7-2 checklist for guarantors, 7.6.5 Pilotní nasazení a metriky) and/or briefly state how the proposed pilot aligns with the checklists and required artefacts from earlier sections."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure is generally correct (itemize, footnotes). However, one sentence is cut/truncated in the item describing math.microsoft.com (matches the retrieved excerpt truncation), which could create a dangling phrase in the compiled output.",
+      "required_fix": "Expand or complete the sentence about math.microsoft.com to avoid truncation and ensure the footnote placement matches the intended clause. Optionally ensure proper Czech diacritics and encoding are compatible with the LaTeX preamble used in the document."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section lacks explicit, measurable evaluation criteria for the proposed pilot (e.g., what success looks like, data to collect, duration of pilot cohort, roles/responsibilities for guarantors).",
+      "required_fix": "Add a short paragraph (or bullet points) listing suggested evaluation metrics (e.g., number of students participating, teacher time-to-grade, quality checks on submitted procedures, student learning indicators) but label them as general background knowledge unless supported by KB excerpts. Cross-reference the 'Pilotní nasazení a metriky' section (7.6.5) for recommended metrics."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Microsoft Learn recommendation paragraph",
+      "edit_instruction": "Replace 'Doporučený první krok: přiřadit vybranému týmu garantů 1–2 moduly jako „povinné“ a domluvit krátký interní workshop k praxi získaných poznatků.' with a qualified suggestion such as: 'Doporučení (general background knowledge): vybrat několik relevantních modulů na Microsoft Learn pro tým garantů a naplánovat krátký interní workshop pro sdílení získaných zkušeností.' Keep the footnote to kb_ai_101_tipu_pdf_page_54_1 for the Microsoft Learn claim."
+    },
+    {
+      "target": "Pokrok v matematice paragraph",
+      "edit_instruction": "Keep the functional description and the footnote to kb_ai_101_tipu_pdf_page_8_1. Modify the practical recommendation to: 'Praktické doporučení (general background knowledge): pilotovat jednu vybranou aktivitu s cílem ověřit workflow (výběr oblasti → nastavení požadavku na postup → vyhodnocení výsledků učitelem) a sbírat poznámky k hodnocení a integraci do LMS.' This avoids prescribing a fixed semester cadence without citation."
+    },
+    {
+      "target": "Minecraft Education paragraph",
+      "edit_instruction": "Remove the specific time range '(30–45 min)' or change to a non‑numeric phrasing labeled as general background knowledge: 'Doporučené použití (general background knowledge): krátká ukázka ve výuce následovaná diskusí o pedagogických cílech a etice.' Retain the footnote to kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "target": "Rychlý pilotní plán (3 kroky)",
+      "edit_instruction": "Add a short cross‑reference to the pilot metrics and responsibilities: append a sentence like 'U pilotu jasně definujte odpovědnosti garantů, dobu trvání pilotní fáze a měřítka úspěchu (viz sekce 7.6.5 Pilotní nasazení a metriky).' Mark this sentence as a link to internal section 7.6.5 and keep it as an internal consistency edit."
+    },
+    {
+      "target": "math.microsoft.com mention",
+      "edit_instruction": "Complete the truncated phrase so it reads coherently (no new factual claims). For example: '...a portál math.microsoft.com pro agregaci nástrojů.' Keep the supporting footnote to kb_ai_101_tipu_pdf_page_8_1."
+    },
+    {
+      "target": "Add brief evaluation checklist",
+      "edit_instruction": "Add 3–4 short bullet points (labelled as general background knowledge) suggesting what to monitor during the pilot: (a) počet zapojených studentů a skupin, (b) čas učitelů na vyhodnocení vs. očekávání, (c) kvalita nahraných postupů a jejich úplnost, (d) zpětná vazba od účastných učitelů. Also recommend recording artefacts referenced in earlier sections (repo commits, logs) and refer to 5-7-2 checklist for guarantors."
+    }
+  ],
+  "retrieval_queries": [
+    "Microsoft Learn guidance for faculty training: recommended scope and number of modules to assign to a teacher training team",
+    "Best practice recommendations or case studies that specify suggested duration for Minecraft Education demonstrations in classroom (e.g., 30–45 minutes)",
+    "Guidance or examples for pilot cadence when introducing 'Pokrok v matematice' or similar educational AI tools (how often to pilot, typical cohort sizes, evaluation metrics)",
+    "Documentation or guidance that links pilot activities to measurable evaluation metrics for educational AI pilots (e.g., templates for pilot evaluation)"
+  ]
+}

@@ -1,0 +1,31 @@
+The results reported in Section~5 are interpreted here with caution and an emphasis on reproducibility and auditability. Rather than restating numerical comparisons, we focus on the implications of the graph-guided workflow for practical use, the principal limitations that emerged during development and evaluation, and recommended directions for reducing risk in deployment.
+
+\paragraph{Conservative interpretation of empirical findings}
+The evaluation (see Section~5) was intended to measure citation coverage, factual consistency, and reviewer-style quality scores for graph-guided prompting versus a linear prompting baseline. The discussion below treats reported improvements as provisional and contingent on the experimental scope described in Section~4: in particular, the datasets and retrieval sources available to this study set the operating envelope for our conclusions. Where broader claims would require larger or more diverse benchmarks, we defer to future work.
+
+\paragraph{Strengths and practical benefits}
+The design goals of the proposed workflow—explicit document-graph structure, per-section evidence retrieval, and strict JSON-constrained section outputs—prioritize auditable artifacts and machine-parseable traces. Concretely, section-level outputs that include explicit citation slots and provenance metadata enable automated mapping from in-text claims to source pointers, which in turn facilitates downstream verification and selective human review. The assembly step that produces LaTeX plus a refs.bib file is intended to preserve these pointers in a standard bibliographic form (see Sections~3.3 and~3.6 for design details).
+
+\paragraph{Key limitations (caveats)}
+\begin{itemize}
+  \item Dependence on retrieval quality: The fidelity of citation alignment and factual grounding is fundamentally constrained by the coverage, quality, and relevance of the retrieved evidence; failures in retrieval can produce missed citations or permit unsupported assertions (general background knowledge).
+  \item Dataset size and domain scope: The experiments conducted in this work use a limited set of internal notes and curated PDFs (Section~4.1). As a result, observed gains may not generalize across all topical domains or to large-scale, heterogeneous corpora (general background knowledge).
+  \item Engineering and computational costs: Enforcing strict JSON outputs, running per-node retrieval, and validating structured responses impose additional engineering complexity and latency compared to simpler linear pipelines (general background knowledge).
+  \item Residual model errors and citation mismatches: Constraining generation reduces but does not eliminate hallucinations; mismatches between generated claims and cited sources remain a salient failure mode that requires human adjudication in high-stakes contexts (general background knowledge).
+\end{itemize}
+
+\paragraph{Ethical considerations}
+Incorrect or spurious citations can mislead readers and propagate false attributions; for this reason, deployments of automated section-generation systems should adopt conservative claim framing, require human-in-the-loop verification for substantive factual claims, and expose provenance metadata to reviewers. The present work was developed with an emphasis on auditability and conservative generation. We note that, during development, automated checks of the external literature did not return related-work matches for some claimed novelties; this limitation is recorded in our internal evidence pack\footnote{Source: provided Evidence Pack, field 'Literature.novelty_risks'.}. Such gaps reinforce the need for careful external review before public release of content produced by automated writing pipelines.
+
+\paragraph{Practical deployment recommendations}
+\begin{itemize}
+  \item Integrate provenance checks: Route section-level citation pointers through automated consistency checks that verify the presence and relevance of referenced passages before accepting substantive claims for publication.
+  \item Human oversight for high-stakes content: Require human verification of claims that affect safety, legal status, or public policy; treat generated citations as suggestions until validated.
+  \item Incremental rollout and monitoring: Deploy graph-guided prompting in staged environments (e.g., internal notes, controlled authoring) with instrumentation to log hallucination incidents, citation-acceptance rates, and reviewer feedback.
+  \item Improve retrieval and coverage: Invest in larger or domain-specific retrieval corpora and relevance-ranking models as a priority to reduce error propagation from missing or low-quality evidence (general background knowledge).
+\end{itemize}
+
+\paragraph{Broader implications and future directions}
+The audit-friendly artifacts produced by the workflow—structured section JSONs with explicit provenance—create opportunities for automated fact-checking, reproducibility audits, and more transparent peer review processes. Future work should prioritize (1) scaling retrieval to broader and higher-quality corpora, (2) integrating formal fact-checkers or model-based verifiers into the generation loop, and (3) evaluating the approach on larger, public benchmarks to better quantify generalization. These steps will help determine the extent to which the preliminary benefits of graph-aware prompting persist in wider deployment scenarios.
+
+In summary, the graph-guided prompting workflow advances an engineering and design posture that favors auditable, citation-aware outputs and conservative claims. The approach shows promise within the controlled settings evaluated here, but its practical impact will depend on retrieval coverage, larger-scale validation, and careful human oversight to manage residual risks.

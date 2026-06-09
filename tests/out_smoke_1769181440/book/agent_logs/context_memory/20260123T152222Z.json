@@ -1,0 +1,87 @@
+{
+  "agent": "context_memory",
+  "timestamp": "20260123T152222Z",
+  "input": {
+    "context_memory_json": "{\n  \"terms\": {\n    \"Personalizace\": {\n      \"definition\": \"Přizpůsobení úloh a nápovědy studentům jako jeden z klíčových přínosů AI ve výuce (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Škálovatelnost\": {\n      \"definition\": \"Možnost automatizace opakovaných úkonů za účelem zvýšení efektivity výuky (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Rychlejší tvorba materiálů\": {\n      \"definition\": \"Použití generátorů a šablon k urychlení přípravy osnov, příkladů a testů (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Podpora hodnocení\": {\n      \"definition\": \"Asistence u krátkých odpovědí a testů s cílem ušetřit čas hodnotitelů (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Malý pilot\": {\n      \"definition\": \"Pilotní nasazení s jasným cílem, úzkou oblastí a malou skupinou 5–30 studentů, trvající 4–8 týdnů, s průběžným sběrem dat a zpětné vazby (z textu sekce 'Jak začít s malým pilotem — krok za krokem').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Checklist pro posouzení vhodnosti nástroje\": {\n      \"definition\": \"Krátký seznam kritérií: vstupy/výstupy odpovídají výukovým cílům a lze je lidsky auditovat; splňuje ochranu osobních údajů a umožňuje verzování pro audit; je uživatelsky přívětivý (školení <= 2 hod) (z textu sekce 'Rychlý checklist pro posouzení vhodnosti nástroje').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Pravidla pro ověřování výstupů a akademickou integritu\": {\n      \"definition\": \"Soubor doporučení: ručně verifikovat náhodný vzorek generovaných odpovědí (zvážit stratifikaci podle obtížnosti); požadovat zdroje nebo krátké vysvětlení od AI; transparentně informovat studenty o použití AI; kombinovat detekci plagiátů s procesními stopami a dokumentovat postupy pro audit (z textu sekce 'Základní pravidla pro ověřování výstupů a akademickou integritu').\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Krátké doporučení pro první týden nasazení\": {\n      \"definition\": \"Konkrétní kroky pro počáteční týden: Den 0 informovat studenty a získat souhlas; Den 1–7 školení (30–60 min) a zkušební úkol; po týdnu vyhodnotit data a upravit nastavení (z textu sekce 'Krátké doporučení pro první týden nasazení').\",\n      \"first_seen_node\": \"1\"\n    }\n  },\n  \"citations\": [\n    {\n      \"source_id\": \"1\",\n      \"node\": \"1\",\n      \"section\": \"Úvod\"\n    }\n  ],\n  \"figures\": [],\n  \"tables\": [],\n  \"open_threads\": [\n    {\n      \"issue\": \"Sekce slibuje definici AI v kontextu vysokoškolské výuky, ale v předloženém textu tato definice chybí.\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Potřeba konkrétních, ověřených případových studií a příkladů implementace (slibováno v outline).\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Potřeba konkrétních šablon, promptů a technických integrací (slibováno v outline), které rozpracují obecná doporučení z úvodu.\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Detailní postupy pro zajištění etiky, ochrany osobních údajů a auditovatelnosti (úvod uvádí zásady, ale ne procedury).\",\n      \"node\": \"1\"\n    }\n  ]\n}",
+    "section_title": "Adaptivní úlohy v MOOC a LMS",
+    "node_key": "2-1",
+    "section_latex": "Krátký popis a účel: Adaptivní úlohy upravují obtížnost, počet nebo typ zpětné vazby podle výkonu studenta; níže tři stručné scénáře a praktické tipy pro malý pilot (doporučený přístup v úvodu průvodce \\cite{1}).  \nScénář A — doplňkové cvičení (pravidla): cílem doplnit cvičení podle diagnostiky (např. pravidla: <80\\% → 3 cvičení; <50\\% → přidat vysvětlení); měřte čas, zlepšení skóre a míru dokončení; pilot 5--30 studentů, 4--8 týdnů.  \nScénář B — personalizované hinty (pravidla + jednoduché statistiky): triggery na základě času/neúspěšných pokusů nebo chybového skóru; měřte počet hintů, změnu času do dokončení a spokojenost.  \nScénář C — adaptivní cesta (ML): ML predikuje riziko neúspěchu a přesměruje na remedial obsah; nejprve retrospektivní analýza a A/B pilot s validací; tipy: jasné metriky, začít s pravidly, transparentnost a ruční audit výstupů \\cite{1}.",
+    "book_outline_text": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "terms_added": [
+      {
+        "term": "Adaptivní úlohy",
+        "definition": "Úlohy, které upravují obtížnost, počet nebo typ zpětné vazby podle výkonu studenta (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+        "first_seen_node": "2-1"
+      },
+      {
+        "term": "Scénář A — doplňkové cvičení (pravidla)",
+        "definition": "Cíl: doplnit cvičení podle diagnostiky; příklad pravidel v textu: <80% → 3 cvičení; <50% → přidat vysvětlení. Doporučené metriky: měřte čas, zlepšení skóre a míru dokončení. Doporučený pilot: 5--30 studentů, 4--8 týdnů (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+        "first_seen_node": "2-1"
+      },
+      {
+        "term": "Scénář B — personalizované hinty (pravidla + jednoduché statistiky)",
+        "definition": "Triggery založené na čase, neúspěšných pokusech nebo chybovém skóru; doporučené metriky: počet hintů, změna času do dokončení a spokojenost (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+        "first_seen_node": "2-1"
+      },
+      {
+        "term": "Scénář C — adaptivní cesta (ML)",
+        "definition": "Použití ML k predikci rizika neúspěchu a přesměrování studentů na remedial obsah; doporučený postup: začít retrospektivní analýzou, provést A/B pilot s validací; tipy zahrnují jasné metriky, začít s pravidly, transparentnost a ruční audit výstupů (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+        "first_seen_node": "2-1"
+      }
+    ],
+    "terms_updated": [],
+    "citations_used": [
+      {
+        "cite_key_or_rid": "1",
+        "where": "Scénář C (tipy a doporučení v textu sekce)",
+        "type": "kb"
+      }
+    ],
+    "open_threads": [
+      {
+        "thread": "Potřeba konkrétních, ověřených případových studií adaptivních úloh (sekce obsahuje praktické scénáře, ale ne ověřené case studies).",
+        "suggested_future_node": "2.1.Adaptivní úlohy v MOOC a LMS (rozšířit o ověřené případové studie)"
+      },
+      {
+        "thread": "Potřeba konkrétních šablon a technických integrací pro nasazení adaptivity (sekce uvádí pravidla a tipy, ale ne šablony/promptů nebo integrace do LMS).",
+        "suggested_future_node": "3.2.Šablony promptů a vzory pro přípravu lekcí a úloh"
+      },
+      {
+        "thread": "Detailní postupy pro validaci a audit ML-driven adaptivity včetně metrik kvality a postupu ručního auditu (sekce doporučuje retrospektivní analýzu a A/B pilot, ale neuvádí detailní validační procedury).",
+        "suggested_future_node": "4.Implementace v kurzu: plánování a řízení rizik"
+      }
+    ],
+    "consistency_flags": [
+      {
+        "type": "terminology",
+        "description": "Termín 'Adaptivní úlohy' úzce souvisí s existujícím termínem 'Personalizace' — sledovat, aby byly používány konzistentně (personalizace = širší kontext; adaptivní úlohy = konkrétní implementace).",
+        "severity": "medium"
+      },
+      {
+        "type": "claim",
+        "description": "Sekce znovu uvádí doporučený rozsah pilotu (5--30 studentů, 4--8 týdnů), který shoduje s existujícím 'Malý pilot' — zkontrolovat, že definice pilotu v celém dokumentu zůstane jednotná.",
+        "severity": "low"
+      }
+    ],
+    "retrieval_queries": [
+      "ověřené případové studie adaptivních úloh v MOOC LMS pilot 5-30 studentů",
+      "šablony promptů a technická integrace adaptivních úloh do Moodle Canvas",
+      "validace ML modelů pro adaptivní učení metriky A/B pilot retrospektivní analýza ruční audit"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 3550,
+      "completion_tokens": 2815,
+      "total_tokens": 6365
+    },
+    "cost_usd": 0.0065175,
+    "total_cost_usd": 0.051142,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

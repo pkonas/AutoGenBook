@@ -1,0 +1,65 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "major",
+      "description": "LaTeX source is truncated mid‑sentence and mid‑enumerate (item 2 ends with 'minimaliz'). The enumerate environment is not closed and the section lacks the promised templates and checklist content.",
+      "required_fix": "Restore/replace the missing text, finish item 2, add the remaining 4 pilot steps (to reach 6 steps), insert the promised templates (text for syllabus, milestones, prompt‑log, rubric/checklist) and close the enumerate environment. Verify the document compiles (no unmatched environments or unterminated commands)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some actionable recommendations are referenced but the section does not include the concrete templates and example wording that are available elsewhere in the KB (e.g. syllabus text, milestone template, prompt‑log template, rubric/checklist). The section claims these can be 'okamžitě vložit do kurzu' but does not present them.",
+      "required_fix": "Embed the concrete templates from the existing KB excerpts: 'Krátký text do sylabu (vzor)', 'Milníky (TU Delft — template)', 'Prompt‑log (TU Delft — šablona)', and 'Rubrika a checklist (TU Delft — vzor)'. These exact templates are available in the memory/excerpts and should be pasted (or referenced verbatim) in this section to support the claim that they are ready to use."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The pilot steps promised ('Rychlý pilot (6 kroků)') are not present in full, so the section is inconsistent with the Outline/TOC and with other sections that specify milestones and checklist items.",
+      "required_fix": "Make the pilot steps explicit and align them with existing KB components: (1) Define scope/goal (supported by redesign guidance), (2) GDPR/legal check (supported by GDPR/DPIA guidance), (3) Update syllabus with AI declaration (use 'Krátký text do sylabu' template), (4) Design milestones & rubrics (use 'Milníky' and 'Rubrika' templates), (5) Run pilot and collect AI logs/prompt‑logs (use 'Prompt‑log' template), (6) Evaluate pilot, iterate and scale (refer to pilot/checklist guidance). For each step include short pointers to the relevant template or checklist excerpt."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section promises 'checklisty a šablony' but lacks explicit examples of roles, timelines, and verification steps (e.g. who consults GDPR, who runs verification, where to store logs).",
+      "required_fix": "Add short, concrete operational notes for each pilot step: responsible role (garant/IT/GDPR), timeline (map to M1–M4 weeks), verification methods (ústní kontrola/peer review/metadata/hash checks). Use wording and items present in the KB (e.g. 'naplánovat verifikaci (ústní kontroly/peer review)' from the 'Rychlý checklist pro garanta' excerpt and the M1–M4 milestone template)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Pedagogical usefulness would increase with one short, worked example of applying the templates to a single course (a minimal sample mapping of syllabus text, milestones, prompt‑log and rubric to a course).",
+      "required_fix": "Add a 1‑paragraph worked example (e.g. map the 'Krátký text do sylabu' to a project course and show how M1–M4 map onto weeks and which rubric weights apply). If the author prefers not to invent, at least include a brief template mapping and a pointer to the KB example repository for a concrete sample."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rychlý pilot (6 kroků) enumerate",
+      "edit_instruction": "Replace the truncated enumerate with a completed 6‑step pilot list. Use KB items to formulate steps, e.g.: 1) Definice cíle a rozsahu (vyberte 1 předmět/modul; jasně formulujte, co zlepšit). 2) Právní a GDPR check: konzultujte školní GDPR/PRIV kontakt; rozhodněte o minimalizaci dat, pseudonymizaci a zda je potřeba DPIA (see KB sections 2.2.*). 3) Aktualizace sylabu: vložte deklaraci o použití AI a požadavek na AI log (use 'Krátký text do sylabu' template). 4) Návrh milníků a rubrik: navrhněte 3–4 milníky a procesně orientovanou rubriku (use 'Milníky' and 'Rubrika a checklist' templates). 5) Pilotní běh: implementujte v 1–2 skupinách/studentech, sbírejte prompt‑logy a metadata (use 'Prompt‑log' template). 6) Vyhodnocení a škálování: vyhodnoťte výsledky, upravte šablony a naplánujte rozšíření. After inserting the list, close the enumerate environment properly."
+    },
+    {
+      "target": "Insert templates area after pilot",
+      "edit_instruction": "Directly paste the ready‑to‑use templates from the KB: (A) 'Krátký text do sylabu (vzor)' quote; (B) 'Milníky (template)' enumerated M1–M4; (C) 'Prompt‑log (šablona)' short fields; (D) 'Rubrika a checklist' with rubric weights and short checklist. Mark each template with a short header and keep them verbatim as in the KB to ensure they are immediately usable."
+    },
+    {
+      "target": "Add operational notes",
+      "edit_instruction": "For each pilot step add one line with recommended responsible role and artifact: e.g. GDPR check — responsible: fakultní PRIV/GDPR contact; artifact: DPIA or DPA decision. Milestones/rubric — responsible: garant + pedagogický tým; artifact: milestone schedule and rubric file. Pilot run — responsible: garant + IT; artifact: collected AI logs (prompt‑logs), metadata storage location. Link each line to the corresponding KB excerpt in editorial notes (no external links)."
+    },
+    {
+      "target": "Worked example (optional short paragraph)",
+      "edit_instruction": "Add a single worked example mapping the syllabus text, milestones and prompt‑log to a hypothetical project course (2–3 sentences). If no concrete example should be invented, instead add a pointer: 'See repository/example X' and embed the KB templates instead."
+    },
+    {
+      "target": "LaTeX cleanup",
+      "edit_instruction": "Ensure the LaTeX block contains matched begin/end commands, use quote or verbatim for pasted templates to preserve formatting, and run a compile check. Close the enumerate and section environments and remove any dangling hyphenated words from the truncation."
+    }
+  ],
+  "retrieval_queries": [
+    "Retrieve full text of 'Krátký text do sylabu (TU Delft — vzor)' template",
+    "Retrieve full 'Milníky (TU Delft — template)' with M1–M4 wording",
+    "Retrieve 'Prompt‑log (TU Delft — šablona)' full template fields and recommended length",
+    "Retrieve 'Rubrika a checklist (TU Delft — vzor)' including rubric weights and checklist items",
+    "Retrieve KB excerpts on GDPR/DPIA guidance for teaching (sections 2.2.1–2.2.4) to complete the 'Právní a GDPR check' step",
+    "Retrieve 'Rychlý checklist pro garanta — UCL design patterns' excerpt for verification steps (ústní kontroly/peer review) and technical requirements"
+  ]
+}

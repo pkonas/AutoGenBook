@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "The section discusses generating and storing embeddings for student documents and using them for search/clustering/RAG but does not explicitly mention privacy, GDPR/DPIA, anonymization/pseudonymization, data residency or institutional procurement requirements. Given that student texts may contain personal data, this is a substantive omission relative to the rest of the handbook (which contains DPIA and data‑protection guidance).",
+      "required_fix": "Add an explicit paragraph advising teachers to (a) avoid uploading personally identifiable information to third‑party services, (b) pseudonymize/anonymize student texts before creating embeddings when possible, (c) consult the DPIA template and GDPR guidance in the manual (see sections on DPIA / data protection), and (d) prefer enterprise/local hosting or approved services for student data. Cross‑reference the handbook sections on DPIA (2.2 and Appendix 9.4), RAG/architecture (8.5) and data residency/DPA guidance (8.x)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several functional statements about RAG and the use of embeddings (index + retrieve then generate) are presented as practical guidance but are not cross‑referenced to the handbook's existing RAG/architecture material.",
+      "required_fix": "Add an explicit internal cross‑reference to the handbook's RAG blueprint/architecture (section 8.5 and appendix 9.5) or qualify the RAG description as 'general background knowledge' and point readers to the detailed blueprint for implementation and security considerations."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The classroom activity suggestion (PCA/t‑SNE visualization and cluster interpretation) lacks concrete learning objectives, expected duration and expected student deliverables, which would help teachers adopt the activity.",
+      "required_fix": "Add a short line with a learning objective (e.g., 'Cíl: porozumět pojmu vektorové podobnosti a vizualizovat tématické shluky'), a suggested duration (e.g., 30–60 minut) and an expected student artifact (e.g., 1‑paragraph reflection or short group presentation interpreting clusters). Mark this as pedagogical suggestion."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses some unicode hyphenation characters (e.g. 't‑SNE' with a non‑ASCII hyphen) that may not compile depending on the document encoding/packages. There are repeated manual linebreaks (\\\\) after paragraphs which may affect spacing in the final layout.",
+      "required_fix": "Replace non‑ASCII hyphens with ASCII equivalents (e.g., 't-SNE' or use \\textendash{} if an en‑dash is intended), or ensure the document uses UTF‑8 and packages that accept these characters. Review and (optionally) remove redundant \\\\ paragraph breaks and rely on standard paragraph separation. Verify that special characters (e.g., nonbreaking spaces) are LaTeX‑safe."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section does not point readers to related items already present in the handbook: the glossary (appendix 9.6), RAG blueprint (8.5 / 9.5), DPIA template (9.4) and repository of examples/tutorials (9.9). Cross‑linking would improve navigability and consistency.",
+      "required_fix": "Add short cross‑references (e.g., 'Viz též příloha 9.6: slovník; sekce 8.5: RAG; příloha 9.4: DPIA; 9.9: repozitář a tutoriály') where relevant."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the paragraph starting 'Diskutujte omezení: embeddingy odrážejí data a model, se kterým byly vytvořeny — vždy ověřujte relevanci a přesnost návrhů.', insert a new paragraph (marked as important/pedagogical guidance) that states: 'Poznámka k ochraně osobních údajů: Před vytvořením embeddingů ze studentských textů odstraňte nebo pseudonymizujte identifikační údaje; nepoužívejte veřejné/nejisté služby pro zpracování PII. Konzultujte DPIA a interní pravidla VUT před hromadným zpracováním studentských dat a preferujte schválené enterprise či lokální řešení. (Viz sekce 2.2 a příloha 9.4 pro DPIA a sekci 8.5 / přílohu 9.5 pro RAG a data residency.)'"
+    },
+    {
+      "target": "Praktické scénáře použití ve výuce: RAG bullet",
+      "edit_instruction": "Add a short clause to the RAG bullet: '...indexace interních materiálů pomocí embeddingů (viz sekce 8.5: Architektura RAG) umožní modelu nejprve „vyhledat“ relevantní pasáže a teprve pak generovat odpověď; při použití interních materiálů dbejte na DPA/data residency a bezpečnostní opatření.'"
+    },
+    {
+      "target": "Pedagogická metafora a vizualizace",
+      "edit_instruction": "Amend this paragraph to include a brief, concrete classroom micro‑activity: add one sentence with 'Doporučená délka: 30–60 minut. Výsledek: studenti vytvoří 2D graf a krátce (1–2 věty) interpretují 2–3 vybrané shluky.' Mark as pedagogical suggestion."
+    },
+    {
+      "target": "LaTeX hygiene",
+      "edit_instruction": "Replace occurrences of non‑ASCII hyphenation in model/tool names (e.g., 't‑SNE') with 't-SNE' or explicit LaTeX markup. Remove excessive '\\\\' linebreaks between paragraphs and use standard paragraph breaks. Ensure encoding and packages support any remaining unicode characters."
+    },
+    {
+      "target": "Cross‑references",
+      "edit_instruction": "At the end of the section add a single line 'Související kapitoly/přílohy: RAG blueprint (sekce 8.5, příloha 9.5); DPIA a ochrana osobních údajů (sekce 2.2, příloha 9.4); slovník pojmů (příloha 9.6); repozitář s tutoriály (příloha 9.9).' Use these exact section numbers/names so readers can find further implementation and legal guidance."
+    }
+  ],
+  "retrieval_queries": [
+    "DPIA guidance VUT embeddings students data (DPIA, minimalizace, pseudonymizace) to cite in guidance",
+    "RAG blueprint/internals: indexace interních dokumentů pomocí embeddingů, security/data residency recommendations (section 8.5 / 9.5)",
+    "Recommended institutional practices for storing student-derived embeddings (enterprise vs public services, DPA/data residency) from handbook"
+  ]
+}

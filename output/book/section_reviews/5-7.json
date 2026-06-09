@@ -1,0 +1,74 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The opening claim that 'procesní důkazy snižují motivaci k neoprávněnému použití AI, protože hodnocení váží postup stejně nebo více než finální výsledek' is a non‑trivial causal statement that is not supported by any of the provided retrieved excerpts. While the KB contains material encouraging process artifacts (e.g. Pokrok v matematice), the causal claim about reduced motivation is not explicitly evidenced in the retrieved snippets.",
+      "required_fix": "Either (a) add a supporting citation from the KB or other provided run artifact that directly supports the causal claim, or (b) rephrase to a clearly qualified statement and mark it as 'general background knowledge' (as the rest of the document does for unsupported guidance)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several practical/legal claims (e.g. preference for enterprise/school licences because they 'often offer better control over data and settings', and the pointer to DPIA and appended DPIA template) are stated without explicit citations to the KB excerpts included in the review payload. The section references some kb_ai_101 citations, but not for the DPIA / AI policy template items.",
+      "required_fix": "Add explicit citations to KB locations that discuss enterprise solutions/DPA/data residency and to the DPIA/template (e.g. the appendix entries referenced in the outline), or label these lines as 'general background knowledge' where no direct KB excerpt is available. If evidence is needed, run retrievals for the KB pages describing DPIA and AI policy templates and cite them."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section content is generally consistent with the chapter outline and prior sections in memory, but it does not cross‑reference specific nearby sections (e.g. 5.3 'katalog úloh', 2.2 'GDPR‑kompatibilní postupy', 9.3/9.4 appendices) where fuller guidance and templates are available.",
+      "required_fix": "Add explicit intra‑document references (section numbers or appendix labels) so readers can find the extended guidance/templates (e.g. 'viz sekce 2.2, 5.3, Příloha 9.4'). Add citations to the KB where appropriate."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Document uses \\cite{...} keys. The provided LaTeX fragment relies on bibliography entries for keys like kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_15_2 and kb_ai_101_tipu_pdf_04e4a115_page_14_1; ensure these keys exist in the .bib and compile environment. Otherwise the LaTeX structure (itemize/enumerate/quote) is syntactically fine.",
+      "required_fix": "Verify that the .bib includes the cited keys or replace inline \\cite usages with explicit cross‑references to internal sections/appendices if a bibliography is not available in the target build."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some recommended procedures are concise but would benefit from short, concrete examples (e.g. a sample rubric showing how much weight is given to process artifacts vs final result; a brief template of the 3‑step investigation workflow for suspected misuse). The 'Vzorový text do sylabu' is useful but could be expanded with 1–2 short variants (strict / permissive) for different course types.",
+      "required_fix": "Add one sample rubric row (with numeric weights) and a strict/permissive variant of the sample syllabus text. Expand the investigation checklist into 3–4 explicit steps with example prompts/questions for the student interview (kept short)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends requiring process artifacts across disciplines but does not differentiate examples by discipline (humanities vs. programming vs. lab work). This may make immediate adaptation harder for non‑technical instructors.",
+      "required_fix": "Add 2–3 brief discipline‑specific examples of acceptable process artifacts (e.g. commit history for code, draft outlines and citations for essays, lab notebooks and intermediate data for experimental work) or point to the catalog of task types in section 5.3 for full examples."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Úvodní poznámka (first paragraph)",
+      "edit_instruction": "Either remove or soften the causal phrase about reduced motivation and mark it explicitly as 'general background knowledge', or add a citation if you can retrieve KB text that supports the claim (see retrieval queries). Suggested replacement: 'Procesní důkazy obvykle pomáhají při ověřování originality práce; doporučujeme vyžadovat je tam, kde jsou pedagogicky odůvodněné (general background knowledge).'"
+    },
+    {
+      "target": "Zásady — Požadavek na procesní artefakty (first bullet)",
+      "edit_instruction": "Keep the existing citation to kb_ai_101_tipu_pdf_04e4a115_page_8_1 for the 'Pokrok v matematice' example. Add an explicit short citation or cross‑reference to the chapter section that discusses process‑oriented tasks (e.g. sekce 5.3.4) to guide readers to more examples."
+    },
+    {
+      "target": "Zásady — Transparentnost vůči studentům (second bullet)",
+      "edit_instruction": "Add an explicit reference to the AI policy/syllabus template in the appendices (AI Policy Template / sekce 9.3) or mark as 'general background knowledge' if a KB citation is not available in the retrieval. Consider including one short example phrasing variant inline or as a footnote."
+    },
+    {
+      "target": "Poznámka o právních a GDPR aspektech",
+      "edit_instruction": "Add a citation or cross‑reference to the DPIA template in the appendices (Příloha 9.4) and to the GDPR guidance in sekce 2.2; if the KB pages are not yet retrieved, add a retrieval query to fetch those pages and then cite them."
+    },
+    {
+      "target": "Krátký operační checklist — item 4 (Při podezření)",
+      "edit_instruction": "Expand into a short 3‑step concrete workflow: 1) review artefacts against submission → 2) structured interview with 3 example verification questions → 3) follow local disciplinary policy; include brief example interview prompts and cross‑reference the rubric for oral checks (sekce 5.3.1)."
+    },
+    {
+      "target": "Krátké technické doporučení",
+      "edit_instruction": "Add an explicit sentence about retention and deletion of process artifacts (GDPR), or add a pointer to the data retention guidance in sekce 2.2.2. If retention periods are out of scope, note that retention should follow local institutional policy and the DPIA outcome."
+    }
+  ],
+  "retrieval_queries": [
+    "AI - 101 tipu.pdf sekce DPIA posouzení dopadů page (DPIA, Příloha 9.4) template",
+    "AI - 101 tipu.pdf AI policy template syllabus 'AI Policy Template' 'šablona do sylabů' (sekce 2.6 or 9.3)",
+    "AI - 101 tipu.pdf why not rely on AI detectors 'detektory AI' sekce 2.7 or 5.8",
+    "AI - 101 tipu.pdf enterprise licences DPA data residency 'DPA' 'data residency' 'enterprise' (sekce 8.3 or 2.3)",
+    "AI - 101 tipu.pdf examples of rubric weights for process vs product (sekce 5.4 or 5.8)"
+  ]
+}

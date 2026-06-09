@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The chunking prompt (F.15) specifies a hard numeric limit 'max 250 words each' for context chunks. This is a non‑trivial numeric recommendation and is not supported by any of the provided retrieved excerpts or context memory. The document elsewhere (RAG PoC) only advises configuring max chunks/tokens according to the chosen embeddings service but does not prescribe '250 words'.",
+      "required_fix": "Remove the hard 'max 250 words' value or qualify it as an editable example. Replace with a guidance statement such as: 'Choose a maximum chunk size appropriate for your embeddings/tokens limits (set according to your embeddings service; e.g., configure token/word limits per provider).' Ensure the prompt asks the model to respect a caller‑supplied max size parameter rather than hardcoding 250 words."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses non‑ASCII Czech characters and verbatim blocks. The section does not state LaTeX preamble requirements (input encoding, packages) which may cause compilation issues in some toolchains.",
+      "required_fix": "Add a short editor note or comment in the preface/preamble stating required LaTeX settings, e.g. include \\usepackage[utf8]{inputenc} (or use XeLaTeX/LuaLaTeX) and ensure the verbatim environment is available (package 'verbatim' is standard)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several templates that produce machine‑readable outputs (e.g., MCQ JSON in B.4, chunker output in F.15) do not include concrete example output/format examples. Users may be uncertain about field naming, types, and encoding expectations.",
+      "required_fix": "Add one short example for each machine‑oriented template showing a minimal valid output (e.g., a single MCQ JSON object and a single chunk JSON object). This improves immediate usability and reduces errors when importing into LMS/embedding pipelines."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Prompts for assessment and automated feedback (e.g., B.3 MCQ bank, C.7 feedback assistant, C.8 code review) do not consistently instruct inclusion of a human‑in‑the‑loop validation step or explicit caution about relying solely on generated outputs for grading.",
+      "required_fix": "Add a short line in relevant templates reminding the teacher: 'Validate generated items/feedback manually before publishing/using for grading; use human review to check correctness, bias, and appropriateness.' This aligns with governance and human‑in‑the‑loop guidance in the main document."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The chunking prompt asks for '2 keypoints' and a '1‑sentence summary suitable as an embedding description' — consider clarifying length limits for the embedding description (e.g., max tokens/characters) and whether the summary should be purely descriptive or include metadata.",
+      "required_fix": "Clarify within the chunking prompt that the 1‑sentence embedding description should be concise (e.g., 20–40 words or ~128 tokens) and purely descriptive (no formatting or citations). Alternatively, make the length configurable by the caller."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "F.15 Chunking interního dokumentu pro RAG (latex_body)",
+      "edit_instruction": "Remove 'max 250 words each' from the verbatim prompt and replace with: 'split it into context chunks respecting a caller‑supplied max size (set according to your embeddings/tokens limits). For example: max_chunk_tokens=500.' Also add a short example output showing one chunk JSON with fields: chunk_id, title, keypoints[], summary (one sentence)."
+    },
+    {
+      "target": "LaTeX preamble / editor note",
+      "edit_instruction": "Insert an editor note in the appendix or at the start of the Prompt Library: 'LaTeX notes: ensure source encoding is UTF‑8 (\\usepackage[utf8]{inputenc} for pdflatex or compile with XeLaTeX/LuaLaTeX). Verbatim environments require the standard 'verbatim' package.'"
+    },
+    {
+      "target": "B.4 MCQ banka — variabilita obtížnosti",
+      "edit_instruction": "Add a one‑item example JSON object (single MCQ) after the prompt showing id, question, options[], correct_index, explanation, difficulty to illustrate exact field names and types."
+    },
+    {
+      "target": "C.7/C.8 and B.6/B.3 assessment templates",
+      "edit_instruction": "Add the sentence 'Teacher: always perform a manual review and validation of generated feedback/questions/solutions before using them for grading' to each assessment/feedback template."
+    },
+    {
+      "target": "F.15 chunking prompt — clarity",
+      "edit_instruction": "Clarify the expected length for the '1‑sentence summary suitable as an embedding description' (e.g., 'concise, 10–30 words'). Make this adjustable via a parameter in the prompt."
+    }
+  ],
+  "retrieval_queries": [
+    "recommended chunk size for embeddings token limits guidance (best practices) RAG chunk size recommendations",
+    "examples of embedding description length recommended tokens/words for metadata or embedding labels",
+    "best practices human-in-the-loop grading AI generated assessments guidance VUT or academic sources"
+  ]
+}

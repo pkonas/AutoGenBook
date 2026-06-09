@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section cites kb_ai_101_tipu_pdf_04e4a115_page_8_1 for the Microsoft 365 Copilot + Forms quick‑quiz example, but the provided retrieved excerpt for page_8 focuses on 'Pokrok v matematice' and does not clearly document Copilot+Forms. Previous material in the memory does cite Copilot+Forms (kb_ai_101_tipu_pdf_04e4a115_page_36_1). The citation in this section therefore appears inconsistent or unsupported by the current retrieved excerpts.",
+      "required_fix": "Replace or augment the current Copilot+Forms citations with the correct supporting cite_key(s) (e.g., kb_ai_101_tipu_pdf_04e4a115_page_36_1 or other page(s) that explicitly mention Microsoft 365 Copilot + Forms), or reword the claim to a more generic statement and label it explicitly as general background knowledge if no direct KB excerpt is available."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The technical bullets about LLMs, rule‑based systems and classical ML contain non‑trivial factual claims (e.g., LLMs predict tokens, are pretrained on large corpora, tradeoff in explainability). While the section marks some items as 'general background knowledge', there is no direct KB citation or cross‑reference to the more detailed explanation in this handbook (section 1.3) to ground these statements.",
+      "required_fix": "Either add an explicit cross‑reference to the handbook's technical section on LLMs (section 1.3 / the tokens & embeddings subsection) or provide a supporting KB cite. If no supporting excerpt is available, shorten these bullets further and keep them explicitly labeled as 'general background knowledge'."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Citations for the same examples (Minecraft Education, Copilot/Forms, Designer) are inconsistent across this section and earlier sections: e.g., Minecraft is cited correctly to kb_ai_101_tipu_pdf_04e4a115_page_15_2 here (matching memory), but Copilot+Forms citation differs from earlier occurrences.",
+      "required_fix": "Harmonize citations across the document: use the same cite_key(s) for each recurring example (Minecraft -> page_15_2, Copilot+Forms -> page_36_1 or whichever page actually documents it, Designer -> page_51_1)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses nested itemize/enumerate environments which appear syntactically correct, but there is no cross‑reference commands (e.g., \\ref) to other sections referenced (like 'viz kapitola o hodnocení').",
+      "required_fix": "Optionally add explicit LaTeX cross‑references (\\label / \\ref) for internal pointers (e.g., to the chapter on assessment) to improve navigability and avoid ambiguous 'viz kapitola' phrasing."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Some activity descriptions omit an explicit estimate of duration and concrete learning outcomes, though such details exist elsewhere in the handbook (e.g., the Minecraft activity in previous sections lists 45–90 minutes).",
+      "required_fix": "Add short, supported metadata for each activity: estimated time, required setup (accounts/licenses/hardware), and one or two concise learning objectives. Cite the handbook page(s) where those estimates appear (e.g., kb_ai_101_tipu_pdf_04e4a115_page_15_2 for Minecraft)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rychlý experiment: vytvoření a validace kvízu pomocí Copilot + Forms",
+      "edit_instruction": "Change the citation(s) from \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1} to the KB entry that explicitly documents Copilot + Forms usage (e.g., \\cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}) or add that cite alongside the existing one. If you cannot locate a supporting KB page, reword the step to 'typický workflow s generativními asistenty v nástrojích pro tvorbu formulářů' and label it as general background knowledge."
+    },
+    {
+      "target": "Krátké technické rozlišení (bullets)",
+      "edit_instruction": "Add a brief cross‑reference to section 1.3 ('viz sekce 1.3: Jak fungují LLM') after the LLM bullet to anchor the technical claims in the handbook. If adding a cross‑reference is not possible, prepend '(general background knowledge)' to the LLM bullet (already present for some items) and reduce technical detail to a single short sentence."
+    },
+    {
+      "target": "Praktické ukázky (Minecraft activity)",
+      "edit_instruction": "Add estimated duration and cite the supporting KB excerpt: e.g., append 'Doba: 45–90 minut' and add \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2} to the Minecraft activity instructions to match the handbook's earlier guidance."
+    },
+    {
+      "target": "Vizuální rozdíly (Designer)",
+      "edit_instruction": "Keep the Designer example but make the license caution explicit and cite the supporting KB excerpt (kb_ai_101_tipu_pdf_04e4a115_page_51_1). For example, add a sentence: 'Platí omezení pro soukromé vs. školní účty — viz \\cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.'"
+    },
+    {
+      "target": "General phrasing",
+      "edit_instruction": "Where the section gives tool‑specific instructions, ensure each actionable claim references the relevant KB cite_key or is clearly labeled as 'general background knowledge'. Replace any unsupported inline claims (e.g., 'aktivujte Copilot v Microsoft Forms') with 'pokud vaše licence to umožňuje; viz příslušná dokumentace / KB' and cite the correct KB page."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf 36 Copilot Forms quiz Microsoft 365 Copilot Forms",
+    "kb_ai_101_tipu_pdf Copilot Forms Microsoft 365 page 36 'Copilot + Forms' 'vytvoření kvízu'",
+    "kb_ai_101_tipu_pdf definitions LLM tokens embeddings section 1.3",
+    "kb_ai_101_tipu_pdf page 8 'Copilot' 'Forms' (verify whether page_8 contains Copilot references)",
+    "kb_ai_101_tipu_pdf page 15 Minecraft Education Hour of Code duration 45–90 minutes"
+  ]
+}

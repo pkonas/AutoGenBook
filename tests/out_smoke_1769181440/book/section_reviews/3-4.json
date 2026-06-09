@@ -1,0 +1,61 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section contains several non-trivial, specific technical suggestions (CSV column names, exact input/output formats, curl example, recommended deployment steps for Moodle/Canvas/GitHub Classroom) that are not supported by any retrieved excerpts or citations. Under the non-negotiable grounding rules, such factual details must be either supported by excerpts or explicitly labelled as general background knowledge.",
+      "required_fix": "Either (A) provide supporting retrieval excerpts (official docs or reputable guides) for the specific API/CSV formats, webhook setup and GitHub Classroom/CI integration, or (B) explicitly mark each specific technical detail (CSV columns, curl example, API client/SDK recommendation, exact minimal steps) as 'general background knowledge' and make the wording explicitly advisory and minimal. Preferably add references to authoritative docs via retrieval."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section references the 'Rychlý checklist do 60 minut' in the final paragraph, which exists in the context memory, but the body does not consistently cross-reference other relevant items from memory (e.g., rubrics, audit logging, LLM-assisted grading workflows) that should be linked to automation choices.",
+      "required_fix": "Add explicit cross-references (textual references or LaTeX \\ref/\\label) to the checklist and to relevant earlier sections (rubrika, auditní záznam, combined workflow) where appropriate, and mention how the automation patterns should feed into those workflows (e.g., logging for audit, thresholds for LLM-assisted grading)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses nested itemize and a verbatim block. Ensure all \\begin{itemize}/\\end{itemize} pairs are balanced and consider using \\begin{verbatim} inside a dedicated code environment. Also consider adding section/subsection labels for cross-references.",
+      "required_fix": "Verify and correct any mismatched itemize environments. Add \\label{} near the section header for cross-referencing and consider replacing raw verbatim with a minted/listing environment if the document supports it (or keep verbatim but ensure it's properly enclosed)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some deployment steps are brief and could be ambiguous for readers unfamiliar with LMS or CI concepts (e.g., 'ověřit oprávnění v sandboxu', 'připravit importní balíček').",
+      "required_fix": "Expand minimally (1–2 short bullets) each 'Minimální nasazení' with explicit tiny steps (create sandbox course, create API token, test with one sample student, check logs) or mark them explicitly as general background guidance if no grounding will be provided."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section omits brief guidance on privacy/consent and audit logging when integrating third-party services (LMS, GitHub), which is pedagogically important and referenced elsewhere in the guide.",
+      "required_fix": "Add a short advisory sentence (labelled as general background knowledge if not supported) reminding to verify privacy/consent and to log minimal audit items (who, what, when) and to align with the 'Rychlý checklist do 60 minut' escalation plan."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "At each bullet, prepend or append the phrase '(general background knowledge)' for the concrete technical specifics (CSV column names, exact HTTP input/output formats, curl example, API client names, recommended CI steps) unless you can attach authoritative references. Where possible, replace absolute suggestions with 'for example' phrasing (e.g., 'např. CSV se sloupci (student_id, ...)') to signal that these are illustrative."
+    },
+    {
+      "target": "final paragraph",
+      "edit_instruction": "Replace the current single-sentence pilot recommendation with a short explicit pointer to the 'Rychlý checklist do 60 minut' (e.g., 'Viz „Rychlý checklist do 60 minut“ pro konkrétní kroky: definice cíle a KPI, sandbox, 1–3 uživatelé, plán eskalace'). Add a short note to log audit items and prepare a manual fallback procedure."
+    },
+    {
+      "target": "LaTeX structure",
+      "edit_instruction": "Run a quick check to ensure all \\begin{itemize} blocks are closed. Add a \\label{sec:3-4} after the section title and use consistent encoding for Czech characters. Keep the curl example in verbatim but ensure it's indented consistently in the source."
+    },
+    {
+      "target": "cross-references",
+      "edit_instruction": "Add inline references to earlier sections from context memory where relevant: link the GitHub Classroom/CI bullet to the 'Automatizované hodnocení kódu' section, the logging/audit remark to the 'Auditní záznam' item, and prompt/rubric items to the rubrika/workflow sections."
+    }
+  ],
+  "retrieval_queries": [
+    "Moodle API grade import CSV format example",
+    "Canvas SIS import grade CSV format or assignments CSV format",
+    "Moodle webhook/endpoint integration guide",
+    "Canvas webhook setup documentation",
+    "GitHub Classroom integration with GitHub Actions workflow example",
+    "best practices for LMS integrations privacy consent audit logging"
+  ]
+}

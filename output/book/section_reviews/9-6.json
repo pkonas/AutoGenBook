@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Labeling of items is inconsistent: some entries are explicitly marked \"(general background knowledge)\" while others (including many short definitions) are not. This reduces uniformity of the glossary and may confuse readers about which definitions are intentionally brief.",
+      "required_fix": "Either mark all purely conceptual entries with the same \"(general background knowledge)\" tag, or remove the parenthetical tag from those that are currently marked so that the style is consistent across all items."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some non-trivial short claims (e.g., about DPIA being recommended before AI deployments that process student data; the note that RAG is described in an earlier chapter; tokens/embeddings pedagogical implications) are not cross-referenced to the specific chapters/appendices in the book. While these claims align with the manual's content, the glossary would be stronger if it pointed to the exact supporting chapter/annex.",
+      "required_fix": "Add explicit cross-references to the corresponding chapters/sections in the guide (for example: chapter 1.3.1 for tokens, 1.3.2 for embeddings, the 'Základní RAG blueprint pro kurzy' section for RAG, and the DPIA template/section for DPIA/GDPR guidance). Use chapter/section numbers or phrasing like \"viz kapitola 1.3.1\" rather than inventing new citation keys."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The glossary uses \\cite{...} keys inline (for Minecraft Education, Microsoft Copilot, Pokrok v matematice, OneNote). If these citation keys are not present in the bibliography for the compiled document, LaTeX will fail or produce warning placeholders.",
+      "required_fix": "Ensure that the cited keys (e.g. kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_3_1, kb_ai_101_tipu_pdf_04e4a115_page_8_1) are included in the .bib file or replace the \\cite calls with internal cross-references to the guide's chapters/annexes if those are preferred."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some glossary entries mix definition and usage examples/tools (e.g., 'Pokrok v matematice', 'OneNote / math.microsoft.com', 'Microsoft 365 Copilot') while others are pure definitions. The current format is fine, but readers might benefit from a clearer visual separation between 'term definitions' and 'example tools/implementations'.",
+      "required_fix": "Consider grouping entries into two subtables or subsections: 'Základní pojmy' (definitions) and 'Praktické nástroje a příklady' (example tools). Alternatively, prepend 'Příklad:' to items that are tool examples."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The entries for tokens and embeddings are concise but do not give a 1–2 sentence classroom-friendly example despite the note at the end promising more detailed explanations in the main chapters.",
+      "required_fix": "Either add a one-sentence pedagogical example to each (e.g., for tokens: show a short Czech sentence split into tokens; for embeddings: a short note how similarity search helps find related lecture slides) or add an explicit pointer 'viz kapitola 1.3.1' / 'viz kapitola 1.3.2' to guide teachers to the fuller explanation and examples."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "overall style",
+      "edit_instruction": "Make labeling consistent: either add '(general background knowledge)' to all conceptual items or remove that parenthetical from those that have it now. Prefer the first option if you want to emphasise the concise nature of glossary entries."
+    },
+    {
+      "target": "DPIA entry",
+      "edit_instruction": "Add an explicit cross-reference: 'DPIA — posouzení dopadů na ochranu osobních údajů (general background knowledge; viz kapitola 2.2.4 — Vzor DPIA)'. This ties the glossary definition to the fuller template and guidance in the manual."
+    },
+    {
+      "target": "RAG entry",
+      "edit_instruction": "Replace 'Viz také „Základní RAG blueprint pro kurzy“ v předchozí kapitole.' with a precise reference such as 'viz kapitola \"Základní RAG blueprint pro kurzy\" (kapitola 1.x nebo příloha 9.5 podle struktury)'. Ensure the reference number matches the final numbering."
+    },
+    {
+      "target": "Tokens/Embeddings entries",
+      "edit_instruction": "Either append a one-line classroom example to each entry or add 'viz kapitola 1.3.1' for tokens and 'viz kapitola 1.3.2' for embeddings so teachers can find the more detailed illustrative explanations promised in the note."
+    },
+    {
+      "target": "Citations",
+      "edit_instruction": "Verify that the \\cite keys used for Minecraft Education, Microsoft Copilot, Pokrok v matematice and OneNote/math.microsoft.com are present in the bibliography. If the document prefers internal cross-references, convert those \\cite{...} calls into 'viz kapitola / příloha X' references."
+    }
+  ],
+  "retrieval_queries": [
+    "kapitola 1.3.1 tokeny krátké vysvětlení v příručce \"AI ve výuce VUT\"",
+    "kapitola 1.3.2 embeddings vysvětlení a příklady v příručce",
+    "sekce 'Základní RAG blueprint pro kurzy' (kapitola 1 nebo příloha 9.5) text a doporučené odkazy",
+    "sekce 2.2.4 Vzor DPIA / Posouzení dopadů na ochranu osobních údajů v příručce",
+    "ověření existence bibliografických klíčů kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_3_1, kb_ai_101_tipu_pdf_04e4a115_page_8_1"
+  ]
+}

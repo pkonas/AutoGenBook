@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some practical recommendations (e.g., 'Uložení výstupů a provenance: ke každému shrnutí uložte seznam zdrojů, původní odstavce, použitý prompt a verzi modelu.') are sensible best practices but currently lack an explicit supporting citation from the provided KB excerpts. While they are labeled as 'general background knowledge', the section would be stronger if at least one concrete citation to institutional guidance or KB material about storing prompts/metadata were added.",
+      "required_fix": "Either add a supporting citation from the KB (or another allowed source) that documents the recommendation to store prompts/metadata, or explicitly keep the statement as 'general background knowledge' and reduce prescriptive wording (e.g., ' doporučené: ...' instead of imperative). If you want a citation, run a retrieval query for KB guidance on provenance/prompt logging (suggested in retrieval_queries)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section recommends using Copilot in Poznámkový blok for summarization and also suggests tool‑specific workflows (OneNote for equations). The text does cite Copilot in Notepad and OneNote in two places, but it does not mention that some advanced Copilot features or transformations may require a paid Microsoft 365 Copilot license (a relevant caution appears elsewhere in the book).",
+      "required_fix": "Add a short cautionary sentence about possible licensing/feature availability differences (e.g., some Copilot/transform features may require Microsoft 365 Copilot) and either cite the KB excerpt that documents license constraints or add a retrieval query to obtain that supporting excerpt."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body includes a verbatim block with prompt templates and uses a literal backslash-ampersand sequence 'copy-\\&-adapt' in running text. While \\& is valid in LaTeX, ensure the source encoding and the document class accept Czech characters and that the verbatim environment won't break in downstream processing.",
+      "required_fix": "Confirm the document preamble uses UTF-8 and that the verbatim environment is allowed in the target compilation pipeline. Optionally replace implicit special characters in headings with safer LaTeX macros if needed."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Checklist pro rychlé ověření kvality a přesnosti sumarizace' gives high-level checks (e.g., 'Zkontrolujte, zda shrnutí výslovně uvádí hlavní závěry a klíčové metriky') but lacks a small concrete example or brief step showing how to map a numeric claim in the summary back to the original paragraph (it only mentions generating a control query to the model).",
+      "required_fix": "Add one short illustrative mini-example (2–3 lines) showing: an excerpt from an original text, the extracted metric in the summary, and the corresponding verification step (e.g., quote original sentence and page/paragraph). If you cannot add an example, explicitly note that the check should include quoting the original passage and recording its location."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Workflow pro review a cross‑check ve výuce' describes peer review and expert validation. It might be helpful to explicitly reference the related checklist or milestone workflow elsewhere in the manual (there are related checklists in other chapters), to help teachers integrate this into course assessment.",
+      "required_fix": "Add a cross‑reference sentence to the relevant checklist or milestone workflow in the book (e.g., the pre-publication checklist for presentations or the rubric templates). If adding a citation, retrieve the exact KB reference or internal section number to cite."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the item 'Uložení výstupů a provenance', add a parenthetical note: '(doporučeno: ukládat také použitý prompt a verzi modelu pro reprodukovatelnost)'. If possible, attach a KB citation that supports prompt/metadata logging."
+    },
+    {
+      "target": "tip about tools with equations",
+      "edit_instruction": "In the 'Tip pro práci s odbornými texty obsahujícími matematiku', keep the OneNote citation but add one sentence noting potential limitations (e.g., occasional OCR errors or rounding differences) and suggest verifying converted equations against source PDFs or scans."
+    },
+    {
+      "target": "Copilot licensing note",
+      "edit_instruction": "Add a one‑line caution under the Notepad/Copilot example: 'Pozn.: dostupnost a rozsah funkcí Copilotu (např. transformace/rozšířená editace) může záviset na licenci Microsoft 365 Copilot.' Then add a citation backing this statement or include a retrieval query to fetch it."
+    },
+    {
+      "target": "checklist",
+      "edit_instruction": "Append a tiny worked example to the checklist: show an original sentence with a p‑value or mean ± SD and then show how to record the excerpt location (article, section, paragraph) and confirm the summary's numeric claim."
+    },
+    {
+      "target": "verbatim prompts",
+      "edit_instruction": "Wrap the verbatim prompt templates in a LaTeX-safe environment (verbatim is ok) and ensure the doc uses \\usepackage[utf8]{inputenc} (or XeLaTeX/LuaLaTeX) so Czech characters render correctly."
+    }
+  ],
+  "retrieval_queries": [
+    "Evidence that some Microsoft Copilot features (e.g., advanced transform/edit in Copilot chat or certain Notepad Copilot functions) require a Microsoft 365 Copilot paid license (KB page or vendor documentation).",
+    "Any KB excerpt detailing provenance/prompt/metadata logging recommendations for AI workflows (guidance recommending to save prompts, model versions, timestamps).",
+    "Further examples or guidance in the KB for verifying numerical results and equations after OneNote handwriting conversion (edge cases, limitations)."
+  ]
+}

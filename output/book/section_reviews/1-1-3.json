@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section correctly flags many statements as \"general background knowledge\", but one practical claim — that embeddings are used when searching relevant documents (RAG) — would benefit from an explicit in-text citation to the manual's RAG discussion (the outline includes sections on RAG / RAG blueprint).",
+      "required_fix": "Add an explicit footnote or parenthetical reference pointing to the manual's section on Retrieval‑Augmented Generation (e.g. section 8.5 or 9.4 in the outline) for the sentence that links embeddings to RAG."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "A classroom activity recommendation cites Minecraft Education (good), but other adjacent practical references (e.g. use of Microsoft 365 Copilot in Forms mentioned elsewhere in the KB) are not cited in this micro‑section. If you expect readers to follow up, add a brief citation when referring to tools or examples taken from the KB.",
+      "required_fix": "Add a short footnote to any sentence that refers to external tools/examples drawn from the KB (for example, cite kb_ai_101_tipu_pdf_page_36_1 for Microsoft 365 Copilot when it is mentioned)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The repeated inline tags '(general background knowledge)' appear in the visible text. These tags are metadata, not student-facing content, and may confuse readers if left in the printed lesson text.",
+      "required_fix": "Remove the inline '(general background knowledge)' labels from the visible LaTeX body; instead keep such labels in the source metadata or a comment for editors."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The minilesson plan is time‑boxed and practical, but it lacks explicit learning objectives and a short assessment/check to confirm student understanding.",
+      "required_fix": "Add 1–2 concise learning objectives (what students should be able to do after the mini‑lesson) and a 1‑sentence formative check (e.g. quick pair share or 1‑minute written summary) to the minilesson."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citation formatting uses a raw \\footnote{Source: kb_ai_101_tipu_pdf_page_15_2}. The manual uses a set of KB citation keys elsewhere; consistency would improve readability and linking.",
+      "required_fix": "Use the same citation style as other sections (either \\footnote{kb_ai_101_tipu_pdf_page_15_2} or a \\cite command if a bibliography is maintained). Also add matching footnotes for the RAG and Copilot references as suggested above."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "embeddings paragraph / enumerate item 2",
+      "edit_instruction": "After 'embeddings se používají při vyhledávání relevantních dokumentů (RAG)', add a short footnote: \\footnote{Viz část 8.5 'Architektura Retrieval‑Augmented Generation' a 9.4 'Základní RAG blueprint' v této příručce.} or reference the internal section numbers used in the outline."
+    },
+    {
+      "target": "any mention of external tools/examples",
+      "edit_instruction": "Where the text refers to specific tools (e.g. Minecraft Education already has a footnote), add matching citations for other tool mentions if they appear in neighboring text (for Microsoft 365 Copilot use kb_ai_101_tipu_pdf_page_36_1). Ensure all tool references have consistent footnote formatting."
+    },
+    {
+      "target": "visible '(general background knowledge)' tags",
+      "edit_instruction": "Remove all visible '(general background knowledge)' markers from the LaTeX body. Preserve this label in the editorial metadata for the section but not in the student‑facing text."
+    },
+    {
+      "target": "Rychlý návrh miniaturní hodiny",
+      "edit_instruction": "Prepend 1–2 learning objectives, e.g.: 'Cíle: 1) Umět stručně vysvětlit, co je token, embedding a trénovací data; 2) Prakticky ukázat rozdíl mezi počtem slov a počtem tokenů.' Then add a 1‑minute formative check: 'Na závěr nechte studenty jednou větou shrnout, jak by vysvětlili pojem token spolužákovi.'"
+    },
+    {
+      "target": "footnote formatting",
+      "edit_instruction": "Standardize footnote wording and format. Replace 'Source: kb_ai_101_tipu_pdf_page_15_2' with the same citation style used elsewhere in the manual (e.g. '\\footnote{kb_ai_101_tipu_pdf_page_15_2}'). Add corresponding footnotes for RAG (internal section reference) and Copilot (kb_ai_101_tipu_pdf_page_36_1) where relevant."
+    }
+  ],
+  "retrieval_queries": []
+}

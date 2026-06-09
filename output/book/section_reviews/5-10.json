@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Step 2 in 'Rychlý plán zavedení' recommends ensuring DPA / souhlas and cites kb_ai_101_tipu_pdf_04e4a115_page_15_2. The provided excerpt page_15_2 documents Minecraft Education licensing (free Hour of Code vs. Microsoft 365 A3/A5) but does not explicitly mention DPA / dohody o zpracování osobních údajů (DPA) or consent procedures.",
+      "required_fix": "Replace or augment the citation with an explicit excerpt that documents DPA / DPIA / consent guidance (e.g. the chapter/paragraph covering DPA/DPIA in the handbook, such as sections 2.2.4–2.2.5), or rephrase the sentence to reference general privacy checks and point reader to the DPIA/DPA templates in the appendices (with an appropriate citation)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Rychlý plán zavedení' gives a good high-level sequence but lacks measurable success criteria, explicit role assignments (teacher vs. IT vs. data protection officer), and minimal data‑retention/retention-period guidance for pilot artifacts.",
+      "required_fix": "Add (a) 2–3 concrete success metrics (e.g. % of students who completed the activity, teacher satisfaction rating, evidence of process artifacts collected), (b) a short responsibilities table or bullet list naming the role(s) responsible for license checking, DPIA/DPA sign‑off, technical setup, and evaluation, and (c) a short note about retention/deletion of collected student artifacts, or point to the DPIA template in the appendices with a supporting citation."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'General background knowledge' paragraph lists several international universities as inspirational case studies but does not indicate where readers can find those case studies within the handbook (they are presented as general background).",
+      "required_fix": "Either (a) add an explicit pointer/citation to the handbook's case studies chapter (e.g. chapter 7 / Případové studie z univerzit) or appendices where those examples are summarized, or (b) shorten the background note and keep it clearly labeled as 'general background' (as currently done). Prefer adding an internal pointer to chapter 7."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX body uses \\cite keys that are present elsewhere in the document. No syntactic LaTeX errors detected, but consider adding a reference inside the 'General background knowledge' note if that text will be cross-referenced.",
+      "required_fix": "If adding an internal pointer to chapter 7 (as suggested above), insert a \\cite or \\ref to the chapter or to the appropriate internal resource so the cross‑reference compiles and is verifiable."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rychlý plán zavedení — krok 2",
+      "edit_instruction": "Replace the single citation on licensing with two citations: one for licensing (kb_ai_101_tipu_pdf_04e4a115_page_15_2) and another for DPA/DPIA procedural guidance (chapter/appendix covering DPIA/DPA). If the latter excerpt is not available, rephrase to: 'Ověřte licenční a datovou situaci (viz kapitola o ochraně dat a šablona DPIA v přílohách) a zajistěte DPA / souhlas tam, kde je to nutné.' and add a cross‑reference to the DPIA template (Příloha 9.4)."
+    },
+    {
+      "target": "Rychlý plán zavedení — add measurable criteria",
+      "edit_instruction": "Append a short 'Úspěšnost pilotu — návrh metrik' subsection with 3 measurable indicators (e.g. % studentů, splnění didaktického cíle v %; min. 70% artifact submission compliance; učitelské hodnocení užitečnosti 1–5). Also add a one‑line responsibilities list: 'Zodpovědnost: garant předmětu (didaktika), IT (licence + technická integrace), GDPR/Data Protection Officer (DPA/DPIA + souhlas), metodické oddělení (vyhodnocení pilotu)'."
+    },
+    {
+      "target": "General background knowledge",
+      "edit_instruction": "Add an internal pointer: 'Viz kapitola 7: Případové studie z univerzit pro konkrétní příklady (Georgia Tech, CS50, Arizona State, UCL, TU Delft).' If not adding a pointer, leave the paragraph but keep it explicitly labeled as background and concise (one sentence)."
+    },
+    {
+      "target": "Integrace nástrojů / artefakty",
+      "edit_instruction": "Consider adding a brief example of what to collect as artefacts (e.g. 'meziverze, commit logy, screenshoty, exporty z pokroku v matematice') and reference the checklist/rubric templates in the appendices (e.g. Příloha 9.2 / 9.3) so implementers know where to find concrete templates."
+    }
+  ],
+  "retrieval_queries": [
+    "DPIA DPA guidance ai_101_tipu_pdf (DPIA / DPA text, appendix 9.4 or chapter 2.2.5)",
+    "Appendices 9.1–9.4 ai_101_tipu_pdf prompt library / DPIA / checklist pages",
+    "Enterprise/licensing and data processing terms Microsoft 365 A3/A5 ai_101_tipu_pdf page 14–15 (confirmation of enterprise preference and DPA guidance)"
+  ]
+}

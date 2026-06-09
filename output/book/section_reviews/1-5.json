@@ -1,0 +1,51 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The final paragraph refers to the online repository ai.vut.cz as a 'living resource' and to 'Přílohy 9.3–9.5' but does not cite the repository entry (Příloha/section 9.9) directly. The context memory includes repository details, but the section would be clearer and better grounded if it referenced the repository entry explicitly.",
+      "required_fix": "Add an explicit citation/reference to the repository entry (Příloha 9.9 / repo instructions) or to the relevant internal excerpt describing ai.vut.cz so the claim that the repo is a 'living resource' is explicitly supported."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Co měřit během pilotu' metrics are described at a high level but lack concrete example metrics or suggested formats (e.g., what counts as 'časová úspora' or how to record 'procesní důkazy'). Pedagogical readers would benefit from one or two concrete, non‑numeric examples of how to record or operationalize these metrics.",
+      "required_fix": "Add short example metrics/formats (qualitative and quantitative) that are clearly labeled as examples (not invented empirical results), e.g. 'měřítko: čas na přípravu materiálu — zaznamenaný čas učitele před/po; evidence: počet iterací upravených návrhů a screenshoty logů dotazů.' Ensure examples are phrased as templates and do not invent numeric results."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses citation keys (e.g. \\cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}) that are present elsewhere in the handbook, but the section does not cite the repository entry (Příloha 9.9) which is referenced in the prose. Also consider adding a short label or subsectioning command for the checklist for easier cross-referencing in the full document.",
+      "required_fix": "Add a \\cite to the repository/excerpt (Příloha 9.9) where the repo is mentioned; optionally wrap the checklist in a \\subsection or add a LaTeX \\label to allow cross-references from other parts of the handbook."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section suggests 'Budou logovány interakce a naplánován pravidelný audit chování systému během pilotu?' in the checklist, but does not explicitly mention who has access to logs and how long logs should be retained — an important practical detail for GDPR and operational practice that is discussed elsewhere in the handbook.",
+      "required_fix": "Either add a short parenthetical note pointing to Příloha 9.4 / 9.9 for recommended log-retention/access-control templates, or add a brief sentence specifying that log access, retention period and responsible role should be documented in the DPIA (no numeric retention durations invented)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "final paragraph (repo mention)",
+      "edit_instruction": "Add an explicit citation to the repo entry (Příloha 9.9) after 'online repozitář ai.vut.cz as living resource' — e.g. append ' (viz Příloha 9.9 / repozitář ai.vut.cz)'. This grounds the claim to the repository description already present in the handbook."
+    },
+    {
+      "target": "Co měřit během pilotu — Pedagogické výsledky",
+      "edit_instruction": "Insert one or two brief example metrics or recording templates (labelled 'Příklad'): e.g. 'Příklad metrik: (a) čas přípravy materiálu — zaznamenaný čas učitele před a po; (b) kvalita výstupů — anonymní blind‑review 3 hodnotiteli podle rubriky.' Phrase as examples/templates only."
+    },
+    {
+      "target": "Krátký checklist — logging item",
+      "edit_instruction": "Clarify that logging should include documentation of access control and retention and direct reader to DPIA and repo templates: add a clause like '— včetně uvedení, kdo má k logům přístup a plánované doby retence (dokumentujte v DPIA / vzor v Příloze 9.4 a repozitáři)'."
+    },
+    {
+      "target": "LaTeX structure around checklist",
+      "edit_instruction": "Add a \\label or \\subsection{} header before the 'Krátký checklist pro pedagoga' to allow cross-references (e.g. '\\subsection{Krátký checklist pro pedagoga}\\label{sec:checklist-pilot}'). Ensure citation keys used match the document's bibliography entries."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1",
+    "kb_repo_ai_vut_repozitar (or Příloha 9.9 repository entry to cite ai.vut.cz)"
+  ]
+}

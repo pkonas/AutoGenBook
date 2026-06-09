@@ -1,0 +1,96 @@
+% Robust LaTeX settings for AutoGenBook (LuaLaTeX-friendly).
+\ProvidesFile{robustness.tex}[2026/01/01 Robust LaTeX settings]
+
+\RequirePackage{xparse}
+\RequirePackage{fvextra}
+\RequirePackage{enumitem}
+\RequirePackage{adjustbox}
+\RequirePackage{tabularx}
+\RequirePackage{ltablex}
+\keepXColumns
+
+% Fallback for unknown environments from conversions.
+\ProvideDocumentEnvironment{para}{+b}{\par\smallskip\noindent#1\par\smallskip}{}
+
+% Prompt/code block (breaks anywhere to avoid overfull boxes).
+% Prompt/code block with safe line breaking.
+\DefineVerbatimEnvironment{PromptBlock}{Verbatim}{
+  formatcom=\ttfamily\small,
+  breaklines=true,
+  breakanywhere=true,
+  breaksymbolleft=,
+  breaksymbolright=
+}
+
+% Make plain verbatim blocks breakable as well.
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{
+  formatcom=\ttfamily\small,
+  breaklines=true,
+  breakanywhere=true,
+  breaksymbolleft=,
+  breaksymbolright=
+}
+
+% Listings defaults (robust line breaking).
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false
+}
+
+% Description list labels should wrap to next line.
+\setlist[description]{style=nextline,leftmargin=0pt,labelsep=0.5em}
+
+% Safer line breaking for prose.
+\emergencystretch=3em
+\tolerance=4000
+\pretolerance=1000
+\hfuzz=0.2pt
+
+% Better URL breaks.
+\Urlmuskip=0mu plus 2mu
+
+% Images never exceed linewidth.
+\makeatletter
+\def\maxwidth{%
+  \ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\setkeys{Gin}{width=\maxwidth,keepaspectratio}
+\makeatother
+
+% Fit-width wrapper for wide tables.
+\NewDocumentEnvironment{fitwidth}{+b}{\begin{adjustbox}{max width=\linewidth}#1\end{adjustbox}}{}
+
+% LuaLaTeX fonts and Unicode fallbacks.
+\ifLuaTeX
+  \defaultfontfeatures{Ligatures=TeX}
+  \newcommand{\AutogenMainFont}{Latin Modern Roman}
+  \IfFontExistsTF{Latin Modern Roman}{}{\renewcommand{\AutogenMainFont}{TeX Gyre Termes}}
+  \newcommand{\AutogenSansFont}{Latin Modern Sans}
+  \IfFontExistsTF{Latin Modern Sans}{}{\renewcommand{\AutogenSansFont}{TeX Gyre Heros}}
+  \newcommand{\AutogenMonoFont}{DejaVu Sans Mono}
+  \newcommand{\AutogenMonoBold}{DejaVu Sans Mono Bold}
+  \newcommand{\AutogenMonoItalic}{DejaVu Sans Mono Oblique}
+  \newcommand{\AutogenMonoBoldItalic}{DejaVu Sans Mono Bold Oblique}
+  \IfFontExistsTF{DejaVu Sans Mono}{}{
+    \renewcommand{\AutogenMonoFont}{Latin Modern Mono}
+    \renewcommand{\AutogenMonoBold}{Latin Modern Mono Bold}
+    \renewcommand{\AutogenMonoItalic}{Latin Modern Mono Slanted}
+    \renewcommand{\AutogenMonoBoldItalic}{Latin Modern Mono Bold Slanted}
+  }
+
+  \setmainfont{\AutogenMainFont}
+  \setsansfont{\AutogenSansFont}
+  \IfFontExistsTF{\AutogenMonoBold}{
+    \setmonofont{\AutogenMonoFont}[
+      BoldFont=\AutogenMonoBold,
+      ItalicFont=\AutogenMonoItalic,
+      BoldItalicFont=\AutogenMonoBoldItalic,
+      Scale=MatchLowercase
+    ]
+  }{
+    \setmonofont{\AutogenMonoFont}[Scale=MatchLowercase]
+  }
+\fi

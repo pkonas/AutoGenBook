@@ -1,0 +1,54 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Section would be more immediately usable if it included one or two concrete sample output rows (e.g. a CSV header plus one example row) so readers can see the exact expected structure.",
+      "required_fix": "Add a short example CSV header and one example row for the math test and for the flashcards (Front,Back)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section suggests exporting student results to CSV for import into an LMS, but does not mention data protection / anonymization considerations when exporting student-level data.",
+      "required_fix": "Add a short note reminding teachers to anonymize personal data or follow institutional GDPR/DPIA procedures when exporting/importing student records, with a pointer to the DPIA/GDPR guidance in the manual (see sections on DPIA and GDPR)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses inline footnotes and quoted blocks; consider ensuring footnotes are attached to the intended sentence (one footnote currently follows a parenthetical). Also check hyphenation sequence stu\\-denty for consistency.",
+      "required_fix": "Move footnotes so they follow the sentence they annotate (not mid-parenthesis), and verify hyphenation '\\\\-denty' renders as intended in the compiled document."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some claims cite kb_ai_101_tipu_pdf_page_21_1 and _21_2; those supporting excerpts are present in the context memory but not in the small set of retrieved excerpts attached. While the claims are consistent with the prompt library content in memory, a direct local excerpt would strengthen grounding.",
+      "required_fix": "If possible, attach or reference the specific KB excerpt(s) for page 21 (flashcards / flashcard CSV example and short summaries) so the statements have explicit supporting excerpts."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the math CSV prompt example, add a one-line sample CSV (header + one row), e.g.:\n\nOtázka,Typ,O1,O2,O3,O4,Správná\n\"Vyřešte: 2x+3=7\",ABCD,\"x=1\",\"x=2\",\"x=3\",\"x=4\",\"x=2\"\n\nAnd after the flashcards prompt add an example flashcard row: Front,Back\n\"airport\",\"letiště\""
+    },
+    {
+      "target": "privacy note",
+      "edit_instruction": "Insert a short reminder after 'Krátká praktická rada' about handling student data: 'Při exportu výsledků nebo importu do LMS dbejte na anonymizaci osobních údajů a postupujte podle interních GDPR/DPIA pokynů (viz příloha s DPIA a sekce o ochraně osobních údajů).' Reference the manual sections on GDPR/DPIA."
+    },
+    {
+      "target": "footnote placement",
+      "edit_instruction": "Move footnotes so they immediately follow the sentence they support (not placed inside a parenthetical where possible)."
+    },
+    {
+      "target": "prompt precision",
+      "edit_instruction": "For each example prompt, explicitly show placeholders for variable parameters (e.g. <LEVEL>, <FORMAT>, <TÉMA>) or include a brief comment line reminding to specify target level and exact output format to match LMS import requirements (this reinforces the existing practical advice)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 21 flashcards CSV Front Back example",
+    "kb_ai_101_tipu_pdf page 21 short summaries examples",
+    "kb_ai_101_tipu_pdf page 8 Pokrok v matematice detailed description",
+    "kb_ai_101_tipu_pdf page 15 Minecraft Education Hour of Code example",
+    "kb_ai_101_tipu_pdf pages on GDPR DPIA (sections 2.2 and 9.3) guidance for anonymization"
+  ]
+}

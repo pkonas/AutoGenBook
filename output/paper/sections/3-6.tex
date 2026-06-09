@@ -1,0 +1,12 @@
+The assembly stage merges validated section-level JSON into a compile-ready LaTeX manuscript and a companion provenance JSON, preserving evidentiary links and reusing canonical bibliographic metadata to reduce editing and improve reproducibility \cite{web_bos_2023_latex_metadata_and_publishing_workflows}.
+
+Pipeline overview: the assembler consumes section JSONs and an optional retrieval pool and performs deterministic transforms and lightweight validations:
+\begin{itemize}
+  \item Validate JSON conformity and surface schema errors.
+  \item Extract and canonicalize citation slots and source identifiers.
+  \item Map sources to BibTeX (prefer canonical records; emit minimal entries when needed) and emit \texttt{refs.bib}.
+  \item Insert LaTeX citation macros, assign stable labels from section ids, and replace cross-reference placeholders.
+  \item Emit a provenance JSON linking claims to sources and recording conflict resolutions and warnings.
+\end{itemize}
+
+Sources are de-duplicated by normalizing identifiers (DOI $>$ arXiv $>$ internal); all conflict-resolution decisions are recorded in the provenance file. Validation checks ensure JSON-to-LaTeX citation consistency, resolvable cross-references, and a dry bibliography compile; detected issues appear in an assembly report and the provenance artifact. The packaged outputs (LaTeX, \texttt{refs.bib}, provenance, report) support automated verification and human review. Limitations include reliance on accurate span offsets and the retrieval pool coverage, discussed further in the paper \cite{web_bos_2023_latex_metadata_and_publishing_workflows}.

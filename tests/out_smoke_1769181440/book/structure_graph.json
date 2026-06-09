@@ -1,0 +1,188 @@
+{
+  "graph": {
+    "title": "Mini průvodce AI ve výuce",
+    "summary": "Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurzech. Kniha zdůrazňuje přínosy pro personalizaci učení, zefektivnění přípravy a hodnocení, a dává jasná doporučení pro bezpečné a etické používání nástrojů. Je koncipována jako praktický manuál pro učitele a garanty předmětů, kteří chtějí rychle vyzkoušet osvědčené postupy.",
+    "n_pages": 2.0,
+    "target_readers": "Učitelé, lektoři, garantní předmětů a metodici na univerzitách",
+    "additional_requirements": "",
+    "equation_frequency_level": 1,
+    "do_consider_outline": true,
+    "do_consider_previous_sections": true,
+    "max_depth": 5,
+    "max_output_pages": 1.5,
+    "author": ""
+  },
+  "nodes": {
+    "book": {
+      "title": "Mini průvodce AI ve výuce",
+      "summary": "Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurzech. Kniha zdůrazňuje přínosy pro personalizaci učení, zefektivnění přípravy a hodnocení, a dává jasná doporučení pro bezpečné a etické používání nástrojů. Je koncipována jako praktický manuál pro učitele a garanty předmětů, kteří chtějí rychle vyzkoušet osvědčené postupy.",
+      "n_pages": 2.0,
+      "needsSubdivision": true
+    },
+    "1": {
+      "title": "Úvod",
+      "summary": "Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými piloty. Obsahuje rychlý checklist pro posouzení vhodnosti nástroje pro konkrétní kurz a základní pravidla pro ověřování výstupů a zajištění akademické integrity.",
+      "n_pages": 0.6,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\1.tex"
+    },
+    "2": {
+      "title": "Případové studie z univerzit (praktické příklady)",
+      "summary": "Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiálů a testových otázek, a podpora studentských konzultací chatboty. Ke každému případu jsou uvedeny cíle, nasazení, dosažené přínosy (měřené metriky nebo pozorování), implementační kroky a tipy, jak začít s malým pilotem.",
+      "n_pages": 0.6,
+      "needsSubdivision": true
+    },
+    "3": {
+      "title": "Nástroje, šablony a konkrétní postupy pro učitele",
+      "summary": "Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubrik pro hodnocení AI-generated výstupů a jednoduché skripty/integrace, které lze rychle nasadit v běžných prostředích (Moodle, Canvas, GitHub Classroom).",
+      "n_pages": 0.4,
+      "needsSubdivision": true
+    },
+    "4": {
+      "title": "Implementace v kurzu: plánování a řízení rizik",
+      "summary": "Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimalizaci rizik (ověřování faktů, kontrola plagiátorství, nastavení konzervativních promptů). Obsahuje příklady monitorovacích metrik a šablonu plánu pilotního projektu.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\4.tex"
+    },
+    "5": {
+      "title": "Etika, ochrana soukromí a ověřování výstupů",
+      "summary": "Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záznamů). Dále konkrétní metody pro ověření správnosti generovaných odpovědí a zajištění akademické integrity (dvoustupňové hodnocení, náhodné kontroly, kombinace automatického a ručního hodnocení).",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\5.tex"
+    },
+    "2-1": {
+      "title": "Adaptivní úlohy v MOOC a LMS",
+      "summary": "Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\2-1.tex"
+    },
+    "2-2": {
+      "title": "Automatizované hodnocení krátkých odpovědí",
+      "summary": "Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\2-2.tex"
+    },
+    "2-3": {
+      "title": "Automatizované hodnocení kódu v technických kurzech",
+      "summary": "Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\2-3.tex"
+    },
+    "2-4": {
+      "title": "Generování výukových materiálů a testových otázek",
+      "summary": "Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\2-4.tex"
+    },
+    "2-5": {
+      "title": "Chatboti pro studentské konzultace a tutorování",
+      "summary": "Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\2-5.tex"
+    },
+    "2-6": {
+      "title": "Praktický pilot a checklist nasazení",
+      "summary": "Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\2-6.tex"
+    },
+    "3-1": {
+      "title": "Přehled praktických nástrojů a rychlého nastavení",
+      "summary": "Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné hodiny výuky.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\3-1.tex"
+    },
+    "3-2": {
+      "title": "Šablony promptů a vzory pro přípravu lekcí a úloh",
+      "summary": "Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\3-2.tex"
+    },
+    "3-3": {
+      "title": "Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted)",
+      "summary": "Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\3-3.tex"
+    },
+    "3-4": {
+      "title": "Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom",
+      "summary": "Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném prostředí.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769181440\\book\\sections\\3-4.tex"
+    }
+  },
+  "edges": [
+    [
+      "book",
+      "1"
+    ],
+    [
+      "book",
+      "2"
+    ],
+    [
+      "book",
+      "3"
+    ],
+    [
+      "book",
+      "4"
+    ],
+    [
+      "book",
+      "5"
+    ],
+    [
+      "2",
+      "2-1"
+    ],
+    [
+      "2",
+      "2-2"
+    ],
+    [
+      "2",
+      "2-3"
+    ],
+    [
+      "2",
+      "2-4"
+    ],
+    [
+      "2",
+      "2-5"
+    ],
+    [
+      "2",
+      "2-6"
+    ],
+    [
+      "3",
+      "3-1"
+    ],
+    [
+      "3",
+      "3-2"
+    ],
+    [
+      "3",
+      "3-3"
+    ],
+    [
+      "3",
+      "3-4"
+    ]
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The final paragraph refers to a central VUT repository (ai.vut.cz) but cites kb_ai_101_tipu_pdf_04e4a115_page_15_2. The retrieved excerpt for page_15_2 discusses Minecraft Education and does not support the claim about the VUT repository. This is a miscited or unsupported reference.",
+      "required_fix": "Replace the incorrect citation with a correct excerpt/citation that documents the VUT repository (ai.vut.cz) or remove the explicit citation. If the repository is described elsewhere in the document/kb, cite that location (e.g. the internal repo node or the appendix listing). If no supporting excerpt is available, reword the sentence to a minimal general recommendation (label as general background knowledge) and remove the specific cite."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several practical recommendations (e.g., 'uveďte verzi/nastavení asistenta' in Transparentnost; 'dokumentujte prompty, verze modelů' in Zodpovědnost) are reasonable but not supported by a specific retrieved excerpt. While some tool examples are correctly cited (Pokrok v matematice -> kb_ai_101_tipu_pdf_04e4a115_page_8_1; Minecraft Education -> kb_ai_101_tipu_pdf_04e4a115_page_15_2; Microsoft 365 Copilot -> kb_ai_101_tipu_pdf_04e4a115_page_36_1), the documentation/recording practice recommendations lack a direct citation.",
+      "required_fix": "Either add supporting citations from the KB that recommend logging prompts/model versions (or institutional guidance), or explicitly mark these lines as 'general background knowledge' (if kept as generic best-practice advice)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section uses a mix of 'general background knowledge' tags and uncategorized practical recommendations. This is inconsistent with the style used elsewhere in the manual where non‑sourced short definitions are consistently flagged as (general background knowledge).",
+      "required_fix": "Ensure all non‑sourced definitional or normative statements are labeled '(general background knowledge)' for consistency, or add KB citations where available."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX structure uses \\paragraph{} and \\subparagraph{} for the principle headings. Depending on the document class and the surrounding sectioning conventions in the book, \\subparagraph may not produce the intended heading style or appear in the toc.",
+      "required_fix": "Consider using \\subsubsection{Transparentnost} (or \\paragraph{Transparentnost}\\mbox{} with a following newline) for clearer and more portable sectioning. Verify the document class supports \\subparagraph as formatted here."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist and practical recommendations are concise but would benefit from one concrete example (e.g., a short model syllabus sentence for transparent AI use, or an example field for 'Declaration of AI use' in a submission form).",
+      "required_fix": "Add one or two short, concrete examples (template syllabus sentence; example prompt‑logging table header) or point explicitly to the appendix item (AI Policy Template, Prompt Library) with a correct citation so teachers can copy/paste."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "final paragraph (repo reference)",
+      "edit_instruction": "If you have an internal KB excerpt describing ai.vut.cz, replace the citation kb_ai_101_tipu_pdf_04e4a115_page_15_2 with that correct cite. Otherwise rephrase to: 'Pro rychlé praktické příklady a šablony využijte centrální repozitář VUT (ai.vut.cz) — odeslání na repozitář a přístup koordinuje metodické oddělení.' and remove the incorrect citation. Mark the statement as (general background knowledge) if no KB excerpt is available."
+    },
+    {
+      "target": "Transparentnost — Practical recommendations",
+      "edit_instruction": "Either add a supporting citation that recommends declaring AI version/settings in course documentation, or append '(general background knowledge)' to make clear this is practical advice rather than a KB‑supported fact."
+    },
+    {
+      "target": "Zodpovědnost — documentation line",
+      "edit_instruction": "If the KB contains guidance or templates for prompt/model logging, add that citation next to 'Zdokumentujte prompty, verze modelů...'. If not, keep the recommendation but mark it '(general background knowledge)' and suggest a concrete example (e.g., table headings: date, prompt, model/version, response id, reviewer initials)."
+    },
+    {
+      "target": "LaTeX headings",
+      "edit_instruction": "Replace \\subparagraph{...} with \\subsubsection{...} or check the book's style guide. Ensure headings are included in the ToC if desired and that spacing after headings yields readable lists."
+    },
+    {
+      "target": "Checklist",
+      "edit_instruction": "Add one sample syllabus sentence (e.g., 'AI tools may be used for drafts but must be declared in the submission form; final grading considers process and reflection') and add a pointer to the appendix template (correct cite) or mark it as general advice if no cite."
+    }
+  ],
+  "retrieval_queries": [
+    "ai.vut.cz repozitář reference VUT ai repository ai policy template citation",
+    "KB: AI Policy Template sylab ai.vut.cz or internal repo citation",
+    "KB: recommendations to document prompts and model versions in educational pilots",
+    "KB: DPIA template for AI in education (example excerpt supporting DPIA checklist item)"
+  ]
+}

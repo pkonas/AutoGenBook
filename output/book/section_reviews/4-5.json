@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Věta „Použijte Copilot k vygenerování variant hintů a k diagnostice typických chyb (…)“ není podložená konkrétním excerptem z KB. Obsah je označen jako 'general background knowledge' jinde, ale v hlavním textu působí jako doporučení bez explicitní vazby na zdroj.",
+      "required_fix": "Buď doplnit konkrétní citaci podporující použití Copilota pro generování nápověd a diagnostiku chyb, nebo jasněji označit tuto pasáž jako 'general background knowledge' (např. pomocí poznámky v textu)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce doporučuje pilot s 1–2 týmy, ale v paměti kontextu (sekce 4‑3) jsou podrobné doporučené časy pro živou ukázku (45–60 min) a rozpis aktivit. Text gamifikace tuto návaznost explicitně nezmiňuje.",
+      "required_fix": "Přidat krátké propojení s doporučeným časovým rámcem uvedeným v části 4‑3 (např. reference na 'Průběh ukázky — doporučený časový rámec (45–60 min)') nebo upravit doporučení pilotu tak, aby bylo konzistentní s tímto časováním."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "V textu je několikrát vložen štítek '(general background knowledge)' přímo v bodech. To znesnadňuje plynulost čtení a může působit matoucím dojmem, jestli jde o citaci či autorovo doporučení.",
+      "required_fix": "Přesunout poznámku o 'general background knowledge' buď do závorky na konci příslušného odstavce, nebo do poznámky pod čarou; jinak ji sjednotit stylisticky v celé sekci."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce nenabízí konkrétní příklad jedné kompletní hádanky (escape room) mapované na konkrétní vzdělávací cíl a hodnoticí kritéria, přestože uvádí obecné pokyny.",
+      "required_fix": "Doporučit doplnění 1–2 krátkých, konkrétních příkladů hádanek (s uvedením vzdělávacího cíle, očekávaného výstupu a návrhu rubriky hodnocení) jako vzor pro pedagogy."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX část vypadá syntakticky v pořádku, ale interní poznámky '(general background knowledge)' jsou vloženy přímo do prostředí enumerate/itemize, což může vizuálně rušit výslednou sazbu.",
+      "required_fix": "Přesunout tyto poznámky do poznámkového sloupce nebo poznámek pod čarou v LaTeXu, případně je formátovat tak, aby nezasahovaly do hlavního toku seznamu."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "odstavec o použití Copilota pro hinty",
+      "edit_instruction": "Upravte formulaci na: 'Lze použít Copilot k vygenerování variant hintů a k diagnostice typických chyb (toto doporučení vychází z obecné praxe při použití generativní AI; ověřte výstupy pedagogicky).' Alternativně přidejte konkrétní citaci, pokud je k dispozici."
+    },
+    {
+      "target": "sekce 'Praktické vzory použití' — Escape room",
+      "edit_instruction": "Doplňte konkrétní krátký příklad jedné hádanky (1–2 odstavce): popis hádanky, vzdělávací cíl, příklad tří hintů (první indikuje chybějící koncept, druhý vede k mezikroku, třetí dává poslední nápovědu) a návrh, jak hodnotit řešení (krátká rubrika). Označte tento příklad jako 'illustrative / general background knowledge'."
+    },
+    {
+      "target": "poznámky o licencích a dostupnosti Copilota",
+      "edit_instruction": "Zachovejte citaci kb_ai_101_tipu_pdf_04e4a115_page_3_1 u tvrzení o dostupnosti Copilota pro školy, ale přidejte větu: 'Před nasazením ověřte konkrétní podmínky licence vaší školy,' a umístěte ji blízko existujícího textu o dostupnosti."
+    },
+    {
+      "target": "označování 'general background knowledge'",
+      "edit_instruction": "Sjednoťte formát označení (např. použít kurzívu nebo poznámku pod čarou) a umístěte ho konzistentně za odstavcem místo inline v každém bulletu."
+    },
+    {
+      "target": "cross‑reference k časovému rámci",
+      "edit_instruction": "Přidejte krátké propojení: 'Pro doporučené časové rozložení živé ukázky viz sekci 4‑3 (Průběh ukázky — doporučený časový rámec 45–60 min).' (nebo obdobné explicitní odkazy v textu)."
+    }
+  ],
+  "retrieval_queries": [
+    "Dokumenty nebo části KB o tom, jak konfigurovat Microsoft 365 Copilot jako 'persona' nebo NPC (příklad systému instrukcí / prompting pro nastavení osobnosti).",
+    "Praktické návody / ukázky z KB, které potvrzují, že Copilot přímo exportuje strukturovaný soubor otázek/odpovědí vhodný pro vložení do Microsoft Forms (pokud existují další supporting excerpts nad rámec page_36_1).",
+    "Podrobnější informace o licencování Microsoft 365 Copilot pro školy a rozdílech mezi webovou verzí Copilot (zdarma v Office 365 A1) a placeným Microsoft 365 Copilot, specificky relevantní pro české školy nebo VUT (doplnit nad rámec page_3_1).",
+    "Příklady ověřených escape room hádanek ve výuce z KB nebo jiných citovaných zdrojů, které lze použít jako konkrétní příklad v sekci."
+  ]
+}

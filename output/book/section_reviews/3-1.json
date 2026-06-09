@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Poznámka u cílů kapitoly obsahuje text '(general background knowledge)'. To je v souladu s pravidou o jasném označení obecných tvrzení, ale formulace by mohla být přesnější a viditelně oddělená od vlastních cílů (jinak hrozí, že čtenář nebude jasně rozlišovat, co je podloženo zdroji a co je pouze orientační).",
+      "required_fix": "Přesuňte poznámku o 'general background knowledge' do závěrečné poznámky pod nadpisem Cíle (např. kurzívou nebo poznámkovou poznámkou) a/nebo explicitně u každého bodu označte, pokud jde o background knowledge."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Checklist pro pilot (bod 3) uvádí, že je třeba 'předem definovat metriky úspěchu (čas úspory, spokojenost studentů, kvalita materiálů)', ale chybí konkrétní příklady metrik a způsob jejich měření (operacionalizace).",
+      "required_fix": "Doplňte 1–2 konkrétní příklady metrik (např. 'čas přípravy materiálů: průměrná doba na vytvoření pracovního listu před/po pilotu, cíl: ≥30% zrychlení; spokojenost: 5‑bodová Likertova škála, cílové skóre ≥4; kvalita materiálů: externí hodnocení 3 ukázkových listů pomocí krátké rubriky 0–10, cílové zlepšení ≥1 bod'). Přidejte stručný návod, jak tyto metriky sbírat."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Text zmiňuje 'Online repozitář s video tutoriály a mechanismem kvartálních aktualizací je uveden v závěru příručky', ale v odstavci chybí explicitní odkazy na konkrétní přílohu/sekci (např. 9.9). Z hlediska pravidla, že netriviální tvrzení musí mít podporu, je vhodné uvést přesné místo v příručce nebo citaci zdroje.",
+      "required_fix": "Upravte formulaci tak, aby odkazovala na konkrétní přílohu (např. 'viz Příloha 9.9 – Repozitář, video tutoriály a mechanismus aktualizací'). Pokud existuje externí URL nebo interní repozitář, přidejte odkaz v bibliografii nebo v poznámce."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX tělo používá \\cite{...} pro tři položky. Je nutné zajistit, že všechny tyto citační klíče jsou přítomné v bibliografii (.bib) a že dokument build procesu zahrnuje příslušné .bib z příloh. Dále se doporučuje kontrola, zda se v konečném PDF neztrácí mezery kolem '--' nebo speciálních znaků.",
+      "required_fix": "Zkontrolujte, že cite_klíče kb_ai_101_tipu_pdf_04e4a115_page_15_2, _page_8_1 a _page_54_1 jsou definovány v bibliografii. Doporučuji v textu uvést také přílohy podle čísel (9.1, 9.3, 9.4, 9.9), aby čtenář nemusel hledat."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Odkazy na Kapitolu 2 a na Přílohy jsou konzistentní s obsahem příručky, ale text by mohl explicitně uvádět čísla sekcí/příloh (např. 'viz Kapitola 2 (Etické zásady) a Příloha 9.4 (Vzor DPIA)') pro lepší propojení mezi kapitolami.",
+      "required_fix": "Doplňte v textu přesné odkazy na kapitoly a přílohy (čísla), například v odstavci o GDPR uveďte 'viz Kapitola 2.2 a Příloha 9.4'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Poznámka u cílů kapitoly",
+      "edit_instruction": "Přesuňte poznámku '(general background knowledge)' do vysvětlivky pod nadpis 'Cíle kapitoly' a u každého bodu uveďte krátký tag [BG] pokud jde o obecné, nepodložené tvrzení."
+    },
+    {
+      "target": "Checklist — bod 3 (Připravte malý pilot)",
+      "edit_instruction": "Doplňte konkrétní metriky a způsoby měření: např. 'Metrika 1 — čas úspory: měřit čas strávený na tvorbě 3 ukázkových materiálů před/po pilotu; cíl ≥30% zrychlení. Metrika 2 — spokojenost studentů: krátký dotazník 5 bodů, n=30, cílové průměrné skóre ≥4. Metrika 3 — kvalita materiálů: posouzení 3 materiálů nezávislým recenzentem pomocí rubriky 0–10, cílové zlepšení ≥1 bod.'"
+    },
+    {
+      "target": "Krátká inspirace — konkrétní nástroje",
+      "edit_instruction": "U každého nástroje doplňte explicitní odkaz na přílohu nebo sekci s více informacemi (např. 'Minecraft Education — viz Příloha 9.10 nebo sekce 4.3; Pokrok v matematice — viz Kapitola 6.6; Microsoft Learn — viz zdroj \\cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}')."
+    },
+    {
+      "target": "Etika a GDPR — shrnutí",
+      "edit_instruction": "Místo obecného 'zvažte nutnost DPIA' doplňte: 'viz Kapitola 2.2 a Příloha 9.4 (Vzor DPIA) pro praktický checklist a vzor dokumentu.'"
+    },
+    {
+      "target": "Kde najdete šablony a další materiály",
+      "edit_instruction": "Uveďte přílohy číselně: 'Prompt Library (Příloha 9.1), AI Policy Template do sylabů (Příloha 9.3), Vzor DPIA (Příloha 9.4) a repozitář s video tutoriály (Příloha 9.9).' Pokud je dostupné URL repozitáře, přidejte ho do poznámek."
+    }
+  ],
+  "retrieval_queries": [
+    "Extract excerpt for section 9.9 'Repozitář, video tutoriály a mechanismus aktualizací' to get exact wording and any reference/URL.",
+    "Extract the bibliographic entries or confirmation that citation keys kb_ai_101_tipu_pdf_04e4a115_page_15_2, _page_8_1 and _page_54_1 are present in the bibliography/source list.",
+    "Fetch any excerpt that explicitly maps 'Prompt Library', 'AI Policy Template', and 'Vzor DPIA' to appendix numbers (9.1, 9.3, 9.4) if present in the source."
+  ]
+}

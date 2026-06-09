@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section makes generally acceptable high‑level recommendations but omits concrete examples of 'menší modely' and specific tooling (e.g., example model families, quantization/distillation tools, container images). Some readers expect at least illustrative examples referenced from the KB.",
+      "required_fix": "Either (a) add one or two concrete, supported examples (e.g. model families such as Llama, Mistral) with supporting KB excerpts or citations, or (b) explicitly keep phrasing generic and mark those sentences as 'general background knowledge' (as already done). If adding examples, supply supporting evidence from the repository."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section does not include explicit cross‑references to closely related sections in the manual (RAG architecture, DPIA/DPA templates, LMS connector pattern) even though these are highly relevant and present elsewhere in the book.",
+      "required_fix": "Add cross‑references (e.g. pointers to the RAG architecture section, DPIA template in the appendices, and LMS connector pattern) so readers can find concrete ingest/indexing guidance and DPIA/DPA templates described elsewhere in the manual."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some operational recommendations are high‑level (e.g., 'plánujte dostatek paměti', 'monitoring: sledujte latenci, chybovost') but lack concrete examples of metrics, thresholds or minimal hardware sizing guidance that would help implementers start a PoC.",
+      "required_fix": "Either add concrete example metrics and suggested thresholds (e.g., target p95 latency, error rate alerts, sample VRAM/CPU/RAM sizing ranges) supported by KB evidence, or explicitly state that detailed sizing/metrics are environment‑specific and provide a short template of what to measure (latency percentiles, GPU memory, request QPS, index size)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section is suitable for technical staff but could better serve pedagogical readers by explicitly mapping recommended controls (DPIA, RBAC, human‑in‑the‑loop) to common course scenarios (e.g., FAQ bot, lab tutor) described elsewhere in the manual.",
+      "required_fix": "Add 1–2 short pedagogical examples that show how the recommended governance and operational controls apply to typical course PoCs (e.g., a local FAQ bot for a course vs. an automated grading assistant), and cross‑link to the earlier pedagogical examples in the manual."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX body uses in‑text parenthetical labels '(general background knowledge)' repeatedly. While not a syntax error, this can be noisy in the compiled document.",
+      "required_fix": "Consider moving the 'general background knowledge' note to a single preamble sentence or a footnote, or mark items with a consistent LaTeX comment or macro (e.g., \\gkb{}) to reduce visual clutter in the compiled output."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "intro paragraph",
+      "edit_instruction": "Add a single sentence linking this section to the RAG architecture and DPIA template elsewhere in the manual (e.g., 'Viz také sekce Architektura RAG s interními materiály a Vzor DPIA v přílohách'), so readers can follow up for ingest/index guidance and DPIA templates."
+    },
+    {
+      "target": "Technické požadavky a doporučení",
+      "edit_instruction": "Either include one or two illustrative examples of small open‑source models (e.g., Llama, Mistral) and typical optimization approaches (quantization, distillation) — only if you can support these with KB excerpts — or prefix the paragraph with 'obecné doporučení' and avoid concrete model names."
+    },
+    {
+      "target": "Monitoring item",
+      "edit_instruction": "Expand the monitoring bullet into a short checklist with recommended metrics to collect (latency p50/p95/p99, error rate, GPU memory usage, request QPS, retrieval hit rate, unusual answer anomaly counts) and recommend alerting actions. If adding numeric guidance (thresholds), back them with evidence or make them clearly example values."
+    },
+    {
+      "target": "Praktický checklist pro pilotní nasazení",
+      "edit_instruction": "Add two short, concrete PoC examples (one pedagogical: local FAQ tutor for a course; one technical: local inference server for vector‑search) showing minimal scope, actors to involve (IT, GDPR, guarantor), and an acceptance criterion (e.g., 'no sensitive PII returned during 100 simulated retrieval tests'). If you want to include the acceptance criterion, provide supporting test methodology or mark as example."
+    },
+    {
+      "target": "general background labels",
+      "edit_instruction": "Consolidate repeated '(general background knowledge)' annotations: keep a single note at the beginning stating which statements are general guidance, and remove repetitive inline labels to improve readability."
+    }
+  ],
+  "retrieval_queries": [
+    "Examples of small open-source LLM families recommended for on‑prem or edge deployment (e.g., Llama, Mistral) authoritative KB references",
+    "Best practices and tooling for quantization and distillation for on‑device/inference efficiency (tools names, short references)",
+    "Typical hardware sizing guidance for small LLM inference on server (RAM, VRAM, disk for indexes) — evidence or documented examples",
+    "Recommended monitoring metrics and thresholds for LLM inference and RAG systems (latency percentiles, error rate, anomaly detection approaches)",
+    "Examples or templates of linking DPIA/DPA steps to PoC workflows in university contexts (short KB guidance or templates)"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several practical assertions are currently labeled as “general background knowledge” (licence/DPA, SSO, RAG, pilot testing) but are not linked to specific internal sections or retrieved excerpts. Non‑trivial procedural recommendations (e.g. perform DPA, build retrieval/indexing, SSO with SAML/OIDC, LMS connectors like LTI/webhooks) should be explicitly cross‑referenced to the relevant sections of the handbook or to the KB excerpts already used elsewhere in the document.",
+      "required_fix": "Add explicit internal cross‑references or citations for: (a) licensing/DPA (see section 2.2.5 'Smlouvy s poskytovateli a dohody o zpracování'), (b) SSO/authentication flows (see section 8.2 'Autentizace, autorizace a správa identit'), (c) LMS/connectors (see section 8.4 'Integrace do univerzitní infrastruktury'), and (d) RAG/indexing (see section 8.5 'Architektura RAG s interními materiály'). Alternatively keep these items but clearly mark them as high‑level advice and point reader to the detailed sections."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The text mixes inline labels '(general background knowledge)' in some list items and comments in others (e.g. checklist comments). This is inconsistent and may confuse the reader about what is prescriptive vs. background guidance.",
+      "required_fix": "Either (A) uniformly label all high‑level advisory statements as 'General background' (and optionally add a short legend at the top), or (B) remove the parenthetical tags and use consistent cross‑references to the detailed handbook sections for normative guidance."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section contains three \\cite{...} keys matching retrieved KB excerpts. Ensure the LaTeX build has corresponding bibliography entries (or use internal section cross‑references) so the citations compile correctly.",
+      "required_fix": "Include the KB bibliography entries for the cited keys in the document bibliography, or replace the \\cite calls with internal references (e.g. 'viz sekce 4.3 / AI - 101 tipu.pdf, str. 8') if a formal bib entry is not available."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Testování a nasazení pilotu' item and the checklist refer to a pilot but omit the concrete, step‑by‑step 'praktický mini‑pilot' that appears elsewhere in the memory/context (the 6‑step mini‑pilot).",
+      "required_fix": "Add (or cross‑reference) the concise mini‑pilot steps: 1) vybrat jeden kurz a cíl pilotu, 2) zvolit nízkoprahový nástroj (např. Minecraft Education nebo 'Pokrok v matematice'), 3) definovat 2–3 metriky (účast, validované postupy, čas na zpětnou vazbu), 4) pilot na malé kohortě, 5) zhodnotit GDPR/minimalizaci dat a 6) dokumentovat prompty/nastavení (provenance)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The opening line 'Cíl této sekce (general background knowledge): ...' is explicit but could be clearer for the reader whether the section provides prescriptive steps or only orientation.",
+      "required_fix": "Rephrase the opening to clearly state the intent (e.g. 'Cíl: stručně popsat konkrétní technické kroky doporučené k provedení při integraci enterprise AI do výuky; podrobnosti a právní požadavky viz sekce 2.2.5, 8.2, 8.4, 8.5')."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "At the start of the section, add a one‑sentence legend explaining the meaning of '(general background knowledge)' and that prescriptive/legal steps are detailed in other handbook sections; include explicit internal cross‑references (e.g. 'viz sekce 2.2.5, 8.2, 8.4, 8.5')."
+    },
+    {
+      "target": "Kroky integrace — praktický postup, item 1",
+      "edit_instruction": "After 'Prověřit licenční a smluvní podmínky...', add ' (viz sekce 2.2.5 Smlouvy s poskytovateli a dohody o zpracování)' or a formal citation to the handbook section that lists DPA/DPIA checklist items."
+    },
+    {
+      "target": "Kroky integrace — praktický postup, item 2",
+      "edit_instruction": "After 'Autentizace a SSO...', add ' (viz sekce 8.2 Autentizace, autorizace a správa identit)' to ground the recommendation in the handbook guidance."
+    },
+    {
+      "target": "Kroky integrace — praktický postup, item 3",
+      "edit_instruction": "After 'Napojení na LMS...', add ' (viz sekce 8.4 Integrace do univerzitní infrastruktury)' and keep the existing citations to the KB where Microsoft‑specific features are mentioned."
+    },
+    {
+      "target": "Kroky integrace — praktický postup, item 5",
+      "edit_instruction": "For the RAG bullet, append ' (viz sekce 8.5 Architektura RAG s interními materiály)' and consider replacing the broad phrasing with 'Budujte retrieval vrstvu podle doporučeného RAG blueprintu (viz příloha 9.5)' if the blueprint is available."
+    },
+    {
+      "target": "Checklist",
+      "edit_instruction": "Include the explicit mini‑pilot 6‑step plan (from the 'Praktický mini‑pilot' memory) as an optional expandable checklist item, and add concrete example metrics (účast, validované postupy, čas na zpětnou vazbu)."
+    },
+    {
+      "target": "bibliography/citations",
+      "edit_instruction": "Ensure the cited KB entries (kb_ai_101_tipu_pdf_04e4a115_page_8_1, _page_15_2, _page_53_1) are present in the document bibliography or replace the \\cite calls with internal references if a formal bib entry is not used."
+    }
+  ],
+  "retrieval_queries": [
+    "Retrieve section 2.2.5 (Smlouvy s poskytovateli a dohody o zpracování) for exact text to cite regarding DPA/DPIA and contractual clauses.",
+    "Retrieve section 8.2 (Autentizace, autorizace a správa identit) to support the SSO/SAML/OIDC recommendations and best practices for role mapping and audit logs.",
+    "Retrieve section 8.4 (Integrace do univerzitní infrastruktury) to ground recommendations about LMS connectors (LTI, REST, webhooks) and typical integration patterns for Moodle/Teams.",
+    "Retrieve section 8.5 (Architektura RAG s interními materiály) or appendix 9.5 (Základní RAG blueprint) for concrete wording on indexing, embeddings, and access control for retrieval layers."
+  ]
+}

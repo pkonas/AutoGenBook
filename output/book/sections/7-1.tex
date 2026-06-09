@@ -1,0 +1,44 @@
+% Úvod a metodika případových studií
+% Poznámka: níže uvedená metodika obsahuje praktická doporučení; část obsahu je obecné metodické doporučení (general background knowledge).
+
+Tato sekce vysvětluje, jak jsou jednotlivé případové studie strukturovány a jak je číst tak, aby byly použitelné při redesignu předmětů na VUT. Hlavním cílem je poskytnout čtenáři jasný checklist pro posouzení přenositelnosti jednotlivého příkladu do lokálního kontextu a krok‑za‑krokem pracovní postup pro pilotní adaptaci (general background knowledge).
+
+\begin{itemize}
+  \item Struktura každé případové studie (pole, která vždy najdete):
+    \begin{itemize}
+      \item Instituce a kontext kurzu (velikost kurzu, formát: prezenčně/online/hybrid).
+      \item Cíl a pedagogické metriky (co se měřilo).
+      \item AI řešení (co bylo použito: nástroj, konfigurace, integrace).
+      \item Implementace (fáze nasazení, role lidí, technická integrace).
+      \item Výsledky a evidence (kvantitativní a kvalitativní poznatky).
+      \item Lessons learned (co fungovalo/na co si dát pozor).
+      \item Odkazy a zdroje pro další čtení.
+    \end{itemize}
+  \item Jak číst kazuistiku — rychlý průvodce pro garanta předmětu:
+    \begin{enumerate}
+      \item Identifikujte, které části řešení jsou technické (model, licence, integrace) a které pedagogické (úkoly, hodnocení, procesní důkazy).
+      \item Hledejte konkrétní měřitelné výsledky nebo indikátory úspěchu, které lze reprodukovat ve vašem předmětu (např. čas na opravu, změna engagementu apod.) (general background knowledge).
+      \item Zmapujte rizika a mitigace popsané v kazuistice (data, soukromí, akademická integrita).
+      \item Zvažte nutné kroky pro lokalizaci: překlad, adaptace zadání na lokální data, ověření licencí a kompatibility s IT prostředím VUT.
+    \end{enumerate}
+\end{itemize}
+
+Praktické ukázky nástrojů v kazuistikách často obsahují příklady edukačních aplikací a vzdělávacích akcelerátorů; při posuzování jejich přenositelnosti věnujte pozornost, zda řešení vyžaduje školní licence nebo specifické integrační kroky. Jako ilustraci typu nástrojů, které se v praxi používají, lze uvést Minecraft Education pro didaktické světy a Hodinu kódu (viz popis využití v materiálu) \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}. Podobně jsou v pedagogických scénářích zmíněny vzdělávací akcelerátory pro procvičování čtení a matematiky (funkce „Pokrok ve čtení“ a „Pokrok v matematice“) — tyto příklady ukazují, jak může systém předzpracovat a vyhodnotit studentovy odpovědi a navrhnout personalizaci \cite{kb_ai_101_tipu_pdf_04e4a115_page_7_1, kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  
+Krátký checklist pro posouzení přenositelnosti případu:
+\begin{itemize}
+  \item Je cíl pedagogicky kompatibilní s očekávanými výstupy předmětu? (general background knowledge)
+  \item Jaké jsou technické požadavky a jsou splnitelné v prostředí VUT (LMS, SSO, enterprise licence)? (general background knowledge)
+  \item Jaké údaje se zpracovávají a je potřeba provést DPIA / DPA před nasazením? (general background knowledge)
+  \item Existuje jasný plán pilotu (malý rozsah → validace → škálování) a metrika úspěchu? (general background knowledge)
+  \item Jsou ve studii popsané konkrétní „lessons learned“, které eliminují známé rizikové kroky? (general background knowledge)
+\end{itemize}
+
+Jak využít kazuistiku při redesignu předmětu — doporučený postup (3 kroky, praktické):
+\begin{enumerate}
+  \item Extrahujte z kazuistiky komponenty, které chcete replikovat: (a) typ úkolu, (b) role AI, (c) požadavek na důkazy studentovy práce.
+  \item Navrhněte malý pilot v rámci jednoho tématu/sem. hodiny: definujte vstupy, výstupy, metriky a lidské validační body (např. pedagog prověří 10\% výstupů).
+  \item Vyhodnoťte pilot podle předem definovaných metrik a zdokumentujte „lessons learned“ pro širší nasazení nebo úpravu sylabu (general background knowledge).
+\end{enumerate}
+
+Na závěr: při čtení kapitol s případovými studiemi hledejte konkrétní technické a pedagogické body, které lze vyzkoušet v malém měřítku; využijte přiložené checklisty této kapitoly jako šablonu pro vlastní pilotní plán (general background knowledge).

@@ -1,0 +1,73 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Section contains multiple concrete technical recommendations (explicit protocols: SAML, OAuth2/OIDC, SCIM; operational practices: SIEM export, JSON/CSV log formats; RBAC role names and privileges) that are not supported by the provided RETRIEVED EXCERPTS. Non‑trivial technical claims must be either cited or explicitly labeled as general background knowledge.",
+      "required_fix": "Either (A) add citations to authoritative sources (vendor docs, standards, or internal IT guidance) for each specific protocol/practice referenced, or (B) for every bullet or test that cannot be supported with existing KB, prepend or label it as \"(general background knowledge)\" and shorten/neutralize technical detail. Prefer adding citations for the most operational claims (SCIM provisioning flow, audit export formats, SSO attribute mapping, RBAC enforcement tests)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX text uses \\cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1} but the section does not indicate a bibliography entry or ensure the bib entry exists; placement of repeated '(general background knowledge)' tags inside lists is inconsistent and noisy.",
+      "required_fix": "Ensure the cited key is present in the document's bibliography (.bib) or replace the internal citation with a footnote or inline reference that matches the project's referencing practice. Consolidate or move the repeated '(general background knowledge)' markers to section or subsection headers rather than repeating on each list item."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several practical items are expressed at a high level but lack concise, actionable examples/templates (e.g., a minimal RBAC matrix, sample SCIM attribute mapping, example audit log schema, stepwise PoC script).",
+      "required_fix": "Add one or two short templates or example tables (or point to existing appendices in the handbook) for: (1) RBAC role→permission mapping; (2) minimal audit log fields and example JSON record; (3) SCIM attribute mapping and test steps for provisioning/deprovisioning. If templates are not available, add a cross‑reference to the appendices (e.g., 9.4 DPIA, 9.5 RAG blueprint, 9.7 contacts) where readers can find related artifacts."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section's recommendations overlap with material in other sections (8.1, 9.*) but do not explicitly cross‑reference the most relevant templates/checklists from the outline memory (e.g., the 'Rychlý checklist pro garanta — UCL design patterns').",
+      "required_fix": "Insert explicit cross‑references to the earlier/later sections and appendices that contain templates and checklists (for example: refer to section 8.1 for vendor selection matrix, and appendices 9.2–9.5 for templates and DPIA). Also reference the 'Rychlý checklist pro garanta' artifact in memory to keep pedagogic guidance aligned."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Krátké shrnutí pro garanta předmětu' recommends PoC items but does not tie them to the pedagogical artifacts (sylabus text, prompt‑log templates, milestone templates) available elsewhere in the handbook.",
+      "required_fix": "Add explicit pointers to the sylabus template and prompt‑log/template artifacts (appendices 9.3 and 9.1) so guarants can translate technical PoC outcomes into student‑facing syllabus language and assessment rubrics."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "section header / first paragraph",
+      "edit_instruction": "Move the '(general background knowledge)' tag from scattered places into the section header and add a short sentence: 'Items marked as general background knowledge are high-level recommendations; implementers should validate them against institutional IT/legal guidance.'"
+    },
+    {
+      "target": "Rychlý kontrolní seznam pro PoC a nasazení",
+      "edit_instruction": "For each checklist bullet that names a protocol or mechanism (SSO: SAML/OIDC, provisioning: SCIM, log export formats), either add a citation to vendor/spec documentation or append ' (general background knowledge)' to that bullet. Add a one-line cross‑reference at the end: 'See appendices 9.2–9.5 for templates and sample mappings.'"
+    },
+    {
+      "target": "Praktické ověřovací testy pro PoC",
+      "edit_instruction": "Replace the current high‑level tests with slightly more prescriptive test steps (no technical deep dive), for example: 'End‑to‑end SSO: using a test IdP account, authenticate, verify that user attributes (email, affil, role) are received and that no new local account is created; record the HTTP exchange headers or IdP audit ID for verification.' Mark these as general background knowledge if no supporting citations are added."
+    },
+    {
+      "target": "Návrh minimálního modelu rolí a oprávnění",
+      "edit_instruction": "Add a minimal RBAC table example (role → allowed actions) as a short LaTeX tabular or point to appendix 9.2/9.3 for a ready template. Keep the roles but avoid prescribing exact permission names (leave 'allowed actions' as examples)."
+    },
+    {
+      "target": "Auditní logy — doporučené položky k zaznamenávání",
+      "edit_instruction": "Add an explicit example JSON snippet (1–2 lines) showing minimal audit fields (timestamp, user_id, action, resource, source_ip) or add a pointer to an appendix with a full schema. If adding JSON, mark it as example/general background knowledge."
+    },
+    {
+      "target": "Odkazy a zdroje pro další nastudování",
+      "edit_instruction": "Keep the Microsoft Learn citation but ensure the bibliography includes the cited key. Add a short instruction: 'For SSO/SCIM/RBAC implementation details consult vendor docs: IdP vendor guides and SAML/OIDC/SCIM specs (add links here).' If links are not available, add retrieval query suggestions for maintainers."
+    },
+    {
+      "target": "Krátké shrnutí pro garanta předmětu",
+      "edit_instruction": "Add explicit cue points for guarants: (1) 'Include a 1‑line statement in the syllabus about authentication and required SSO login' with a pointer to appendix 9.3 (AI Policy Template into sylabus), and (2) 'Require PoC evidence: SSO login screenshot, provisioning trace, and anonymized audit snippet.'"
+    }
+  ],
+  "retrieval_queries": [
+    "University SSO integration best practices SAML OIDC SCIM provisioning example guide",
+    "SCIM provisioning example attribute mapping IdP to service provider test steps",
+    "RBAC templates for higher education role definitions Data Steward course lead TA student permissions",
+    "Recommended audit log schema fields for security and compliance SIEM ingestion JSON example",
+    "Guidance on audit log retention and GDPR requirements for institutional logs Czech/European context",
+    "Vendor docs for integrating enterprise AI platforms with SSO and provisioning (e.g., ChatGPT Enterprise, Azure OpenAI) — SSO/SCIM/OIDC support"
+  ]
+}

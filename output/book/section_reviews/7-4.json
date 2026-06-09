@@ -1,0 +1,67 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section title and framing ('Arizona State University — kampusové nasazení ChatGPT Enterprise') could be read as claiming a specific, documented ASU case study. The provided RETRIEVED EXCERPTS and context memory only indicate that 7.4 is a general-background mention of a campus deployment example; no ASU‑specific primary evidence or citation for an actual ASU ChatGPT Enterprise deployment is included among the retrieved excerpts.",
+      "required_fix": "Either (A) provide a supporting citation/excerpt that documents the ASU deployment (and attach it into the KB), or (B) change the title and wording so it is unambiguously a generic/template case example (e.g. 'Kampusové nasazení — vzor: ChatGPT Enterprise (general background knowledge)') and add an explicit qualifier in the opening sentence that this is a template/general guidance rather than a report of a verified ASU deployment."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section references central artifacts (prompt library, checklist, DPA/DPIA) but does not explicitly cross‑reference the repository and appendices already present in the outline/context (e.g. Prompt Library 9.1, Checklist for transferability 7-1). This reduces navigability and consistency with the rest of the manual.",
+      "required_fix": "Add explicit cross‑references (phrases or LaTeX refs) to the repository/appendix entries: Prompt Library (9.1), Checklist pro posouzení přenositelnosti (7.1/7‑1), and the DPIA/DPA templates in the appendices (9.4/2.2.4)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses several Unicode non‑ASCII characters (e.g. narrow non‑breaking hyphen U+2011 in 'krok‑za‑krokem') which can cause compilation issues in some LaTeX engines if input encoding or packages are not set. Also prompts contain characters (square brackets, quotes) which are fine but should be reviewed for any local macro collisions.",
+      "required_fix": "Replace problematic unicode hyphens with ASCII hyphen '-' or use standard LaTeX macros for hyphenation; ensure document uses \\usepackage[utf8]{inputenc} (or LuaLaTeX/xelatex). Verify that the prompt text does not conflict with any macros in the surrounding LaTeX document."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Prompts are presented in English inside a Czech document. It is unclear whether the library is expected to be in English or localized; for VUT adaptation localization advice is missing.",
+      "required_fix": "Add a short note recommending localization of prompt texts (provide Czech translations or templates) or explain that prompts are intentionally in English (and why)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The monitoring/pilot metrics are listed at a high level (e.g. 'quality návrhů podle náhodné lidské kontroly') but lack concrete sampling plans, example thresholds or methods for human validation, which would aid implementers in designing the pilot.",
+      "required_fix": "Add brief, concrete examples of sampling methodology (e.g. sample size or percent of interactions per week for manual review, frequency of reviews) and example target thresholds (e.g. target teacher satisfaction score, acceptable incident rate) — or clearly label these as items for local definition by the pilot team."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "title",
+      "edit_instruction": "Change the title to clearly indicate templated/general guidance, e.g. 'Kampusové nasazení — vzor (ChatGPT Enterprise) (general background knowledge)' or 'Příklad: kampusové nasazení ChatGPT Enterprise (vzory a doporučení)'. If actual ASU evidence is added, include an explicit citation and short source line under the title."
+    },
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Add one clarifying sentence: 'Tento text je vzorovým souhrnem doporučených kroků pro kampusové nasazení enterprise služby; není to detailní dokumentace konkrétního ASU projektu — pokud budete citovat reálný případ, doplňte zdroj.'"
+    },
+    {
+      "target": "prompt library section",
+      "edit_instruction": "Add Czech translations (or parallel Czech variants) for each example prompt, or add a note recommending localization, e.g. provide a Czech version of the 'formative feedback' prompt and note typical localization changes (vstupní kontekt, požadovaná délka odpovědi, jazyk)."
+    },
+    {
+      "target": "monitoring, metriky a vyhodnocení pilotu",
+      "edit_instruction": "Insert a short example sampling plan and example thresholds, e.g. 'Pro manuální kontrolu kvality náhodně vyberte 5–10 % interakcí týdenně nebo minimálně 20 položek měsíčně; definujte cílovou spokojenost pedagogů ≥ 75 % po 3 měsících pilotu; eskalaci incidentů řešte do 48 hodin.' Mark these as examples to be adapted locally."
+    },
+    {
+      "target": "cross-references",
+      "edit_instruction": "Add a closing sentence with references to the manual's appendices/repository: 'Viz také Prompt Library (kap. 9.1), Checklist pro přenositelnost kazuistik (7.1) a Vzor DPIA/DPA v přílohách (9.4, 2.2.4).' Use LaTeX \\ref or a plain textual pointer depending on repository conventions."
+    },
+    {
+      "target": "LaTeX encoding",
+      "edit_instruction": "Normalize hyphens to ASCII '-' and ensure document preamble includes appropriate input encoding declarations (\\usepackage[utf8]{inputenc}) or switch to xelatex/lualatex if unicode is required. Escape or check any characters that might be interpreted as macros."
+    }
+  ],
+  "retrieval_queries": [
+    "Arizona State University ChatGPT Enterprise campus deployment case study",
+    "ChatGPT Enterprise university campus deployment DPA SSO case study ASU",
+    "examples of campus-wide ChatGPT Enterprise deployments (enterprise licence, SSO, DPA) university",
+    "best practices for campus deployment of ChatGPT Enterprise documentation"
+  ]
+}

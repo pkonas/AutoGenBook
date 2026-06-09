@@ -1,0 +1,90 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T151924Z",
+  "input": {
+    "section_title": "Úvod",
+    "node_key": "1",
+    "section_latex": "V tomto průvodci si klademe jednoduchý cíl: nabídnout univerzitním učitelům a garantům rychlý, praktický a bezpečný návod, jak smysluplně vyzkoušet a zavést nástroje založené na umělé inteligenci do výuky. Následující shrnutí a doporučení jsou uvedena jako obecné podkladové informace pro rychlý start (označeno níže jako \"obecné podkladové informace\"). Neobsahují specializovaná tvrzení podložená konkrétními studiemi; jejich cílem je poskytnout pragmatický rámec pro pilotní nasazení v kurzu.\n\nObecné podkladové informace — klíčové přínosy AI ve výuce\n- Personalizace: AI může pomoci přizpůsobit úlohy a nápovědu individuální úrovni studenta.\n- Škálovatelnost: automatizační nástroje ulehčují opakované úkony při větším počtu studentů.\n- Zrychlení tvorby materiálů: generátory textu a šablony mohou urychlit přípravu osnov, příkladů a testových otázek.\n- Podpora hodnocení: nástroje mohou asistovat při předběžném hodnocení krátkých odpovědí či testů, čímž šetří čas hodnotitelům.\n\nJak začít s malým pilotem — krok za krokem (praktický postup)\n1. Definujte jasný cíl pilota (1–2 věty): co chcete v kurzu zlepšit (např. zrychlit opravy domácích úkolů, nabídnout 24/7 podporu FAQ, nebo generovat doplňkové výukové texty).\n2. Vyberte úzkou oblast použití a menší skupinu studentů (5–30 osob), aby bylo nasazení snadno kontrolovatelné.\n3. Zvolte nástroj s ohledem na ochranu dat a jednoduchost integrace (LMS plugin, samostatný chatbot, nebo offline generátor materiálů).\n4. Navrhněte metriky úspěchu (např. čas na přípravu materiálů, spokojenost studentů, korelace automatického hodnocení s ručním).\n5. Nasadíte pilot na jeden semestrální blok (4–8 týdnů), průběžně sbírejte data a zpětnou vazbu.\n6. Vyhodnoťte výsledky, upravte postupy a rozhodněte o dalším rozšíření.\n\nRychlý checklist pro posouzení vhodnosti nástroje pro konkrétní kurz (obecné podkladové informace)\n- Má nástroj zřejmé vstupy a výstupy, které odpovídají výukovým cílům?\n- Lze snadno ověřit kvalitu výstupů a přidat lidský audit?\n- Jsou splněny požadavky na ochranu osobních údajů a podmínky používání?\n- Umožňuje nástroj kontrolu verzí a ukládání záznamů pro audit?\n- Je řešení uživatelsky přijatelné pro vyučující i studenty (školení <= 2 hodiny)?\n\nZákladní pravidla pro ověřování výstupů a zajištění akademické integrity (obecné podkladové informace)\n- Vždy verifikujte náhodný vzorek automaticky generovaných odpovědí ručně; uvažujte o stratifikovaném výběru (různé úrovně obtížnosti).\n- Požadujte od AI nástrojů explicitní zdroje nebo krátké vysvětlení postupů; tam, kde nástroj zdroje nedává, zvyšte míru lidské kontroly.\n- Transparentnost vůči studentům: jasně uveďte v zadání, kdy a jak je AI používána a jaké jsou pravidla pro její využití (např. povoleno jako pomocný nástroj vs. zakázané odevzdání čistě AI‑generovaného textu).\n- Používejte kombinaci technik detekce plagiátů a rozboru procesních stop (např. požadavek na průvodní komentář, verze průběžného řešení).\n- Dokumentujte rozhodnutí o bodování a postupy hodnocení tak, aby byly dostupné pro audit a pro studenty.\n\nKrátké doporučení pro první týden nasazení\n- Den 0: informujte studenty o pilotu a pravidlech; získejte souhlas s použitím nástroje, pokud je vyžadován.\n- Den 1–7: proveďte krátké školení (30–60 min) a zkušební běh s kontrolním úkolem.\n- Po týdnu: vyhodnoťte prvotní data a upravte prompt/směrování nástroje podle zjištěných chyb.\n\nZávěrem\nÚvodní pilot by měl být malý, cílený a snadno měřitelný. Cílem není nahradit pedagogické rozhodování, ale podpořit ho nástroji, které šetří čas a mohou zvýšit kvalitu podpory studentů. V dalším textu průvodce najdete konkrétní případy užití, šablony promptů a checklisty, které usnadní přechod od pilotu k širšímu nasazení.",
+    "context_memory_excerpt": "TERMS:\n(none)\n\nCITATIONS:\n(none)\n\nOPEN THREADS:\n(none)",
+    "previous_sections": "(none)",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": false,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "major",
+        "description": "Text obsahuje několik netriviálních faktických tvrzení (přínosy AI, doporučené velikosti pilotní skupiny 5–30 osob, délka pilota 4–8 týdnů, metriky úspěchu apod.) bez jakýchkoli odkazů na zdroje nebo poznámky o povaze tvrzení.",
+        "required_fix": "Buď přidejte ověřitelné citace/podklady k těmto tvrzením, nebo explicitně označte tyto části jako \"obecné podkladové informace / obecné zkušenostní doporučení\" (tj. nejedná se o závěry z konkrétních studií). Konkrétní číselné doporučení (5–30 studentů, 4–8 týdnů) je netriviální a musí být buď podloženo zdrojem, nebo přeformulováno jako ilustrativní příklad (např. \"typicky se doporučuje malé skupině ~5–30 studentů; upravte podle lokálních podmínek\")."
+      },
+      {
+        "type": "clarity",
+        "severity": "major",
+        "description": "Oddíl deklaruje v outline, že Úvod bude obsahovat definici AI v kontextu vysoké školy, ale text takovou definici neobsahuje.",
+        "required_fix": "Doplňte krátkou, jasnou definici pojmu 'umělá inteligence' v kontextu výuky (může být stručná a označená jako obecné background knowledge pokud nemáte citační podporu)."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "Text slíbil, že v dalším textu budou konkrétní případy užití, šablony promptů a checklisty. Intro by bylo pedagogicky silnější, pokud by obsahovalo alespoň jedno krátké ilustrační mini‑příklad (1–2 věty) pilotu.",
+        "required_fix": "Přidejte krátký ilustrační příklad pilotu (např. \"pilot: automatizované předběžné hodnocení krátkých odpovědí v semináři – 10 studentů, 6 týdnů, kontrolní ruční hodnocení 10 % odpovědí\"). Označte tento příklad jako ilustraci, není-li podložen studií."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "Poskytnutý latex_body je čistý text (česky), nikoli LaTeX mark‑up; při zpracování do dokumentu bude třeba převést seznamy a nadpisy do korektního LaTeX formátu.",
+        "required_fix": "Převeďte nadpis na \\section{Úvod} (nebo odpovídající úroveň) a seznamy do prostředí itemize/enumerate. Zajistěte, že diakritika a kódování souboru je UTF-8. Pokud chcete, mohu připravit hotový LaTeX výstup."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "V textu se používá termín 'obecné podkladové informace' ale tyto části nejsou vizuálně nebo textově jasně odděleny nebo opětovně označeny jako takové.",
+        "required_fix": "Přidejte explicitní větu nebo štítek před bloky, které mají být považovány za 'obecné podkladové informace' (např. tučně nebo v LaTeX poznámce), aby čtenář věděl, že se nejedná o podložené závěry."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "Úvod – první odstavec",
+        "edit_instruction": "Přidejte krátkou definici 'umělé inteligence' v kontextu výuky (1–2 věty). Pokud nelze citovat zdroj, začněte větou: 'Následující tvrzení jsou obecné podkladové informace (obecné zkušenostní poznatky), nikoli výsledky konkrétních studií.'"
+      },
+      {
+        "target": "Sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce'",
+        "edit_instruction": "Přesně označte tento blok jako 'obecné podkladové informace / zkušenostní doporučení'. U každého bodu přidejte krátké upřesnění, např. 'Personalizace: (obecná poznámka) AI může... Pokud požadujete empirické podklady, doplňte odkaz.' Alternativně nahraďte číselné odhady výrazy jako 'typicky', 'může' apod."
+      },
+      {
+        "target": "Krok za krokem – body 1–6",
+        "edit_instruction": "U bodů obsahujících konkrétní čísla (5–30 studentů; 4–8 týdnů) uveďte, že jde o ilustrační doporučení a že je třeba upravit podle místních podmínek. Příklad formulace: 'Doporučení (ilustrační): 5–30 studentů — upravte podle dostupných zdrojů a cíle pilotu.'"
+      },
+      {
+        "target": "Checklist a pravidla pro ověřování výstupů",
+        "edit_instruction": "Přidejte větu vysvětlující, že konkrétní techniky detekce plagiátů a právní požadavky (např. GDPR) nejsou v tomto dokumentu podrobně rozebrány a je vhodné raději doplnit odkazy na institucionální směrnice nebo právní konzultaci. Pokud chcete, vložte placeholder 'viz sekce 5: Etika a ochrana soukromí' a odkazujte sem."
+      },
+      {
+        "target": "LaTeX převod",
+        "edit_instruction": "Přepište latex_body do korektního LaTeX: nahraďte nadpis řádkem '\\\\section{Úvod}', použijte 'enumerate' pro kroky a 'itemize' pro bullet‑listy. Zkontrolujte kódování UTF-8. Přidejte poznámku o tom, že číselné údaje jsou ilustrativní."
+      }
+    ],
+    "retrieval_queries": [
+      "empirické studie o dopadu AI nástrojů (LLM/automatizované hodnocení) na čas potřebný pro opravy a kvalitu hodnocení ve vysokoškolské výuce",
+      "doporučené metodiky a velikosti pilotů pro edukační technologie (počet studentů, délka pilotu) v univerzitním prostředí",
+      "best practices pro validaci automatizovaného hodnocení proti ručnímu hodnocení (metriky, statistické testy)",
+      "právní požadavky na zpracování osobních údajů studentů při použití cloudových AI služeb (EU GDPR guidance for educational institutions)",
+      "metody detekce AI‑generovaného textu a jejich spolehlivost v akademickém kontextu",
+      "příklady krátkých pilotních studií nasazení AI v kurzech (case studies) z akademické literatury nebo white paperů univerzit"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 3309,
+      "completion_tokens": 2613,
+      "total_tokens": 5922
+    },
+    "cost_usd": 0.00605325,
+    "total_cost_usd": 0.01788025,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

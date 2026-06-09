@@ -1,0 +1,67 @@
+Tato kontrolní sada slouží jako praktický checklist pro pilotní nasazení interaktivních AI nástrojů ve výuce (GPT‑asistenti, live‑bots, Copilot apod.). U každého bodu je stručně uvedeno, kdo rozhoduje (vyučující / katedra / IT) a zda jde o právně‑etické riziko nebo provozní krok.
+
+\begin{enumerate}
+  \item Vymezení rozsahu a zodpovědností
+    \begin{itemize}
+      \item Určete kurzy/aktivity a typ použití (Q\\ \&A, live demo, auto‑feedback). Odpovědnost: garant + katedra.
+      \item Jmenujte kontaktní osobu pro incidenty a eskalaci (IT, GDPR, garant).
+    \end{itemize}
+
+  \item Transparentnost a souhlas
+    \begin{itemize}
+      \item Zaznamenejte do sylabu, kde a jaký nástroj bude použit a jaké typy dat se zpracovávají.
+      \item Zajistěte, aby studenti věděli, kdy odpovídá AI a kdy člověk; zvažte informovaný souhlas, pokud se zpracovávají osobní údaje.
+    \end{itemize}
+
+  \item Ochrana osobních údajů a DPIA
+    \begin{itemize}
+      \item Mapujte datové toky: co jde externě vs. co zůstává lokálně; minimalizujte data (pseudonymizace/anonymizace).
+      \item Zvažte DPIA při zpracování citlivých nebo identifikovatelných artefaktů.
+    \end{itemize}
+
+  \item Smluvní a licenční požadavky
+    \begin{itemize}
+      \item Ověřte školní/enterprise licence a existenci DPA; některé edukační funkce jsou v Microsoft 365 A3/A5 \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+      \item Stanovte jasná pravidla retence a zpracování dat u poskytovatele.
+    \end{itemize}
+
+  \item Technické a bezpečnostní kontroly
+    \begin{itemize}
+      \item Zajistěte integraci se školním SSO, řízení přístupu a auditní logy.
+      \item Definujte pravidla pro nahrávání médií a ověřte, jak nástroj s nimi pracuje (např. AI funkce v editoru fotek, Copilot) \cite{kb_ai_101_tipu_pdf_04e4a115_page_53_1}.
+      \item Nastavte pravidla pro uchovávání a mazání studentských artefaktů.
+    \end{itemize}
+
+  \item Akademická integrita
+    \begin{itemize}
+      \item Formulujte jasná pravidla povoleného a zakázaného využití AI (např. povinná deklarace použití).
+      \item Zvažte sběr postupů studentů (fotky, meziodevzdání, commit historie) pro ověření individuálního přínosu a audit výsledků \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+    \end{itemize}
+
+  \item Eskalace a lidská validace
+    \begin{itemize}
+      \item Stanovte kritéria pro přepojení na lidskou validaci (nejasné, rozporné nebo nízká jistota).
+      \item Zavádějte pravidelné spot‑checky kvality a dokumentujte proces validace.
+    \end{itemize}
+
+  \item Provozní připravenost a monitoring
+    \begin{itemize}
+      \item Měřte metriky pilotu: spolehlivost, poměr eskalací, doba řešení incidentů a spokojenost uživatelů.
+      \item Mějte postup pro rollback a záložní lidskou podporu při výpadku služby.
+    \end{itemize}
+
+  \item Edukace a komunikace
+    \begin{itemize}
+      \item Proškolte vyučující a asistenty o fungování nástroje, jeho limitech a interpretaci výstupů; ověřte konkrétní integrace (např. Copilot ve Word/OneNote/Forms) před použitím \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+      \item Informujte studenty o očekávané úrovni lidské kontroly a o postupu pro stížnosti.
+    \end{itemize}
+
+  \item Rychlý kontrolní seznam před spuštěním
+    \begin{itemize}
+      \item Je jasně definován účel a rozsah použití? Existuje smlouva/DPA nebo školní licence pro požadované funkce?
+      \item Jsou mapovány datové toky a provedeny kroky minimalizace dat? Jsou studenti informováni a je nastaven postup pro incidenty/stížnosti?
+      \item Jsou nastaveny metriky kvality, pravidla eskalace a záložní mechanismy?
+    \end{itemize}
+\end{enumerate}
+
+Poznámka: Některé body odkazují na obecné principy (interní postupy). Konkrétní technické a právní kroky konzultujte s interními týmy VUT (IT, právní odd., GDPR/PRIV) a zaznamenejte v dokumentaci pilotu.

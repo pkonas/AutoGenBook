@@ -1,0 +1,59 @@
+\subsection*{Úvod}
+Generování kvízů a automatické hodnocení jsou efektivní způsoby, jak škalovat kontrolu porozumění a poskytnout rychlou zpětnou vazbu studentům. Níže je praktický soubor postupů a šablon, které lze přímo použít při přípravě kurzů na VUT; specifická funkčnost pro matematické úlohy (sběr postupů, předoprava hodnocení a diagnostika) je ilustrována na příkladu nástroje „Pokrok v matematice“ \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+\subsection*{Rychlý workflow pro tvorbu kvízu}
+\begin{enumerate}
+  \item Definujte cíl kvízu (1–2 věty) a formát (MCQ, krátké otevřené odpovědi, programovací úloha).
+  \item Rozhodněte o úrovni automatizace (plně automatické vyhodnocení vs. AI‑asistent + lidská finalizace). U matematických úloh lze využít režim, kdy AI předopracuje hodnocení a učitel finálně dokončí výsledky — tento přístup používají některé vzdělávací nástroje jako „Pokrok v matematice“ \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Vygenerujte sadu položek (itemů) pomocí LLM a zároveň automaticky vytvořte klíče/řešení a návrhy testovacích případů (pro programování). Ponechte v šabloně metainformace: obtížnost, odhadovaný čas, typ položky.
+  \item Nasaďte pilotní běh na malé skupině (např. 10–20 studentů) a zkombinujte automatické vyhodnocení s ruční kontrolou náhodného výběru položek.
+  \item Reflektujte výsledky pilotu a upravte položky (jasnost zadání, vyvážení obtížnosti, chybějící okruhy).
+\end{enumerate}
+
+\subsection*{Generování MCQ a item banky (prakticky)}
+Postup pro rychlé vytvoření item banky:
+\begin{enumerate}
+  \item Vstup: seznam témat / dovedností + požadovaný počet položek na téma.
+  \item Pro každé téma vygenerujte 4–6 MCQ: správná odpověď + 3 (plausibilní) distraktory + krátké vysvětlení správné odpovědi.
+  \item Přiřaďte každé položce metadatové štítky: Bloomova úroveň (rozumění/aplikace/analýza), očekávaný čas, doporučená prerekvizita.
+  \item Generujte varianty parametrických položek (proměnné v zadání — čísla, kontext), aby bylo možné snadno produkovat verze pro jednotlivé studenty a snižovat riziko sdílení hotových odpovědí.
+\end{enumerate}
+Poznámka: samotné generování distraktorů a vysvětlení je obecná doporučená praxe (general background knowledge).
+
+\subsection*{Automatické hodnocení otevřených odpovědí a matematických postupů}
+U otevřených textových odpovědí lze použít AI pro předběžné ohodnocení podle definovaných rubrik (např. jasnost argumentace, správnost klíčových bodů). U úloh, kde je důležitý postup (matematika, chemické výpočty), je silně doporučeno požadovat nahrání postupu řešení — nástroje v rodině „Pokrok v matematice“ toto podporují: žák nahrává postup, AI provede předopravu a označí části, kde pravděpodobně došlo k chybě; učitel pak finálně dokončí hodnocení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}. Pro sběr rukopisu a převod na digitální podobu lze využít např. OneNote, který detekuje rovnice a umí je převést a dále zpracovat \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+\subsection*{Automatické hodnocení programovacích úloh (shrnutí praktik)}
+(Toto je obecné doporučení — general background knowledge.)
+\begin{itemize}
+  \item Požadujte repozitář se studentským kódem (Git, LMS upload) a definujte rozhraní pro spouštění testů (Docker/CI runner nebo školicí sandbox).
+  \item Generujte automatické testy (unit/integration) pro ověření funkcionality; součástí by měly být také testovací případy pro hraniční vstupy a chybná data.
+  \item Pro detekci plagiátorství využijte kombinaci metrik: porovnání struktury kódu, podobnost v logice a ruční kontroly podezřelých případů.
+  \item Doporučený režim: automatické skóre + náhodná ruční revize, případně oral‑exam nebo doplňková reflexe studenta k předloženému kódu.
+\end{itemize}
+
+\subsection*{Praktické prompt‑šablony (copy \\ \& adapt) — general background knowledge}
+\begin{verbatim}
+1) "Vygeneruj 10 MCQ pro téma 'Numerická integrace':
+ - uveď otázku, 4 možnosti (označ A-D), správnou odpověď, krátké vysvětlení 1-2 věty,
+ - přiřaď Bloom level a odhadovaný čas."
+2) "Pro tuto programovací úlohu napiš 8 unit testů (Python pytest): 
+ - popiš vstupy a očekávané výstupy, přidej 2 hraniční případy."
+3) "Pro zadanou otevřenou otázku navrhni rubriku se 4 kritérii (0-4 body každé) a krátký popis, co se hodnotí."
+\end{verbatim}
+(Přizpůsobte prompt stylu používaného LLMu a vždy validujte výstupy manuálně.)
+
+\subsection*{Validace kvality a integrita hodnocení}
+Checklist pro nasazení automatického hodnocení:
+\begin{itemize}
+  \item Definované rubriky pro otevřené položky a pravidla pro automatické předohodnocení.
+  \item Požadavek na postup (tam, kde má proces hodnotu) — zvyšuje robustnost vůči generickým odpovědím \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Náhodné ruční kontroly (min. 5–10\% automaticky ohodnocených záznamů) a jasně definovaný postup eskalace v případě nesouladu.
+  \item Logování verzí položek (item bank changes) a auditní záznamy výsledků pro případnou revizi.
+\end{itemize}
+
+\subsection*{Etika, GDPR a transparentnost}
+Krátce: informujte studenty o způsobu použití AI při vytváření a hodnocení kvízů (transparentnost), zajistěte minimalizaci osobních údajů tam, kde to je možné, a pokud systém shromažďuje data (logy, nahrávky postupů), dodržujte fakultní postupy pro DPIA a DPA (general background knowledge). V případě použití cloudových služeb zvažte enterprise varianty a konzultaci s IT/právním oddělením (viz kapitola o etice a institucionálním nasazení).
+
+\medskip
+Poznámka: výstupy generované AI považujte za návrhy — vždy proveďte lidskou validaci přinejmenším u pilotních běhů a u položek s vysokým dopadem na konečné hodnocení; u matematických aktivit lze využít funkcí popsaných v „Pokrok v matematice“ a nástrojích pro převod rukopisu (OneNote) jako podpůrnou technologii \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.

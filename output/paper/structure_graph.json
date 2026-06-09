@@ -1,0 +1,297 @@
+{
+  "graph": {
+    "title": "Graph-Aware Prompting for Reliable Section Generation",
+    "abstract": "We propose a graph-guided prompting workflow to improve reliability, coherence, and citation quality in long-form scientific writing. Our approach represents a draft document as a document graph that encodes section hierarchy, dependencies, and evidence links; it uses strict JSON schemas for section-level outputs and evidence-aware prompts that require cited support for claims. The workflow builds a section graph, retrieves relevant evidence for each node, generates leaf sections with constrained JSON responses, and assembles the final LaTeX document with refs.bib. We evaluate graph-guided sectioning against a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show that graph-guided prompting increases citation coverage and reduces factual inconsistencies while producing audit-friendly, machine-parseable outputs. We emphasize conservative claims and an audit trail: every generated assertion is paired with source pointers when available, and outputs conform to schemas for downstream verification. Our contributions include a graph-based section scheduler, an evidence-injection mechanism per section, and an audit-friendly output format suitable for automatic checking and human review. The method is compatible with internal notes and small curated PDF sets and targets reproducible, citation-aware long-form generation.",
+    "keywords": [
+      "document graph",
+      "long-form generation",
+      "evidence",
+      "citations",
+      "structured prompting",
+      "section scheduling",
+      "factual consistency"
+    ],
+    "target_venue": "EMNLP",
+    "contributions": [
+      "A graph-based section scheduler that organizes sections and inter-section dependencies to guide generation order and context flow.",
+      "An evidence injection pipeline that retrieves and attaches supporting sources to each section, reducing hallucination and increasing citation coverage.",
+      "A strict JSON schema and evidence-aware prompting design that ensures consistent, machine-parseable, and audit-friendly section outputs.",
+      "An empirical evaluation comparing graph-guided prompting to linear prompting on two topics using citation coverage, hallucination rate, and reviewer scores."
+    ],
+    "citation_style": "bibtex",
+    "max_depth": 3,
+    "max_output_pages": 8.0,
+    "author": "gpt"
+  },
+  "nodes": {
+    "paper": {
+      "title": "Graph-Aware Prompting for Reliable Section Generation",
+      "summary": "We propose a graph-guided prompting workflow to improve reliability, coherence, and citation quality in long-form scientific writing. Our approach represents a draft document as a document graph that encodes section hierarchy, dependencies, and evidence links; it uses strict JSON schemas for section-level outputs and evidence-aware prompts that require cited support for claims. The workflow builds a section graph, retrieves relevant evidence for each node, generates leaf sections with constrained JSON responses, and assembles the final LaTeX document with refs.bib. We evaluate graph-guided sectioning against a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show that graph-guided prompting increases citation coverage and reduces factual inconsistencies while producing audit-friendly, machine-parseable outputs. We emphasize conservative claims and an audit trail: every generated assertion is paired with source pointers when available, and outputs conform to schemas for downstream verification. Our contributions include a graph-based section scheduler, an evidence-injection mechanism per section, and an audit-friendly output format suitable for automatic checking and human review. The method is compatible with internal notes and small curated PDF sets and targets reproducible, citation-aware long-form generation.",
+      "n_pages": 0,
+      "needsSubdivision": true
+    },
+    "1": {
+      "title": "Introduction",
+      "summary": "Introduce the problem of unreliable claims and citation omissions in current long-form generation. Motivate the need for structured workflows that produce auditable outputs. State the research question: how does graph-guided sectioning affect coherence and citation quality? Outline the proposed graph-guided prompting workflow and summarize contributions and evaluation approach.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\1.tex"
+    },
+    "2": {
+      "title": "Related Work",
+      "summary": "Survey prior work on controllable generation, retrieval-augmented generation, structured prompting, and citation-aware systems. Contrast linear prompting pipelines and document-level planners with graph-based or hierarchical generation techniques. Identify gaps in auditability and section-level evidence conditioning.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\2.tex"
+    },
+    "3": {
+      "title": "Methods",
+      "summary": "Describe the document graph representation (nodes as sections, edges as dependencies), the section scheduler algorithm, and the JSON schema for section outputs. Detail the evidence retrieval process, evidence-aware prompt templates, and the constrained generation procedure for leaf sections. Explain the assembly process to produce LaTeX with refs.bib and how source pointers are embedded for auditing.",
+      "n_pages": 2.5,
+      "needsSubdivision": true
+    },
+    "4": {
+      "title": "Experimental Setup",
+      "summary": "Explain datasets (internal notes and a small curated PDF set when available), baselines (linear prompting), topics (two distinct domains), and implementation details. Define metrics: citation coverage, hallucination rate (using reference-based checks), and reviewer score (blind human evaluation). Describe statistical testing and ablations.",
+      "n_pages": 1.5,
+      "needsSubdivision": true
+    },
+    "5": {
+      "title": "Results",
+      "summary": "Report quantitative outcomes: citation coverage, hallucination rate, and reviewer scores, comparing graph-guided prompting to the baseline. Present qualitative examples of section outputs, evidence attachments, and failure cases. Include ablation studies showing impact of scheduler and strict JSON constraints.",
+      "n_pages": 1.0,
+      "needsSubdivision": true
+    },
+    "6": {
+      "title": "Discussion",
+      "summary": "Interpret results conservatively, noting strengths (improved citation coverage, reduced hallucinations, auditability) and limitations (dependence on retrieval quality, limited dataset size). Discuss practical deployment considerations, ethical implications of citation errors, and how the audit-friendly format enables downstream verification.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\6.tex"
+    },
+    "7": {
+      "title": "Conclusion and Future Work",
+      "summary": "Summarize main findings and contributions. Recommend avenues for future work: scaling retrieval, integrating stronger fact-checkers, broader dataset evaluation, and community benchmarks for citation-aware long-form generation. Reiterate conservative framing and the importance of audit trails.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\7.tex"
+    },
+    "3-1": {
+      "title": "Document graph representation",
+      "summary": "Define the document graph data model: nodes as sections (meta: id, heading, target length, role), directed edges encoding dependency types (e.g., prerequisite, elaboration, evidence-flow), and evidence-link annotations that point to retrieved sources. Specify graph serialization format and invariants used by the pipeline (e.g., acyclicity constraints for scheduling, allowed edge labels).",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\3-1.tex"
+    },
+    "3-2": {
+      "title": "Section scheduler algorithm",
+      "summary": "Describe the scheduler that orders and partitions the document graph into generation steps. Include inputs/outputs, priority heuristics (e.g., leaf-first vs. top-down), dependency-respecting traversal, batching strategy for parallel generation, and failure/retry handling. State complexity and practical considerations for balancing coherence and efficiency.",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\3-2.tex"
+    },
+    "3-3": {
+      "title": "JSON schema for section outputs",
+      "summary": "Present the strict JSON schema required from section-level generators, including fields for structured text (title, abstracted claims, paragraphs), citation slots (with source pointers and span-level indices), provenance metadata (retrieval hits, confidence), and machine-checkable validation rules. Explain why schema constraints aid auditability and downstream assembly.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\3-3.tex"
+    },
+    "3-4": {
+      "title": "Evidence retrieval and prompt templates",
+      "summary": "Detail the evidence retrieval pipeline per node: query construction from section graph context, retrieval sources (internal notes, curated PDFs), ranking/filtering, and how retrieved items are represented to the generator. Provide the evidence-aware prompt templates used to instruct models to cite supporting items, including required citation formats and explicit failure modes (e.g., insist on 'no-evidence' tags when support is absent).",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\3-4.tex"
+    },
+    "3-5": {
+      "title": "Constrained generation for leaf sections",
+      "summary": "Explain the constrained generation procedure for leaf nodes that produces JSON-compliant outputs: decoding constraints, validation checks, forced citation insertion, techniques to minimize hallucination (e.g., evidence grounding clauses), and post-generation verification steps. Describe how iterative edits and schema re-validation are performed when constraints fail.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\3-5.tex"
+    },
+    "3-6": {
+      "title": "Assembly into LaTeX and audit embedding",
+      "summary": "Describe the assembly process that merges section JSONs into a final LaTeX document with refs.bib: mapping citation slots to BibTeX entries, conflict resolution, cross-reference handling, and generation of an audit trail (inline source pointers, machine-readable provenance file) to support automatic verification and human review.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\3-6.tex"
+    },
+    "4-1": {
+      "title": "Datasets and topic selection",
+      "summary": "Describe the data sources used (internal notes and any small curated PDF collections), inclusion and exclusion criteria, evidence curation workflow, and privacy/access restrictions. Explain how the two topical domains were chosen and how document units (sections/nodes) are defined for retrieval and generation.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\4-1.tex"
+    },
+    "4-2": {
+      "title": "Baselines and comparative pipelines",
+      "summary": "Give a concise specification of the baseline(s), emphasizing the linear prompting pipeline used for comparison. Include any baseline variants or ablations of prompting order, and justify the choice of baselines for fair comparison with the graph-guided workflow.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\4-2.tex"
+    },
+    "4-3": {
+      "title": "Implementation details and reproducibility",
+      "summary": "Detail the implementation: model interfaces and prompt templates, the strict JSON schema enforced for section outputs, the evidence-injection mechanism per node, document-graph construction and scheduling, and the LaTeX + refs.bib assembly pipeline. Note code/data availability and any compute or runtime considerations relevant for reproduction.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\4-3.tex"
+    },
+    "4-4": {
+      "title": "Metrics and annotation protocol",
+      "summary": "Define the primary evaluation metrics—citation coverage, hallucination rate (reference-based checks), and reviewer score (blind human evaluation)—and provide clear annotation guidelines used to compute them. Describe label formats, adjudication rules, and how automatic vs. manual checks are combined.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\4-4.tex"
+    },
+    "4-5": {
+      "title": "Statistical testing and ablation studies",
+      "summary": "Specify the statistical hypothesis-testing strategy and reporting conventions (e.g., tests used, multiple-comparison handling, effect-size measures) and enumerate planned ablations that isolate components of the graph-guided pipeline (evidence injection, scheduling, schema constraints).",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\4-5.tex"
+    },
+    "4-6": {
+      "title": "Human evaluation logistics",
+      "summary": "Describe the blind reviewer protocol: reviewer recruitment criteria, instructions and scoring rubric, procedures for anonymity and conflict-of-interest, and how reviewer scores are aggregated and used alongside automatic metrics.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\4-6.tex"
+    },
+    "5-1": {
+      "title": "Aggregate quantitative comparison",
+      "summary": "Present overall numeric results comparing graph-guided prompting to the baseline across primary metrics (citation coverage, hallucination rate, reviewer-style scores). Include a summary table of means ± std, brief description of evaluation protocol, and indication of statistical tests used to compare conditions.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\5-1.tex"
+    },
+    "5-2": {
+      "title": "Per-domain and per-metric breakdown",
+      "summary": "Disaggregate results by the two topical domains used in evaluation. Show per-domain citation coverage, hallucination rate, and reviewer-score distributions, with small charts or tables to illustrate domain-specific differences and any domain × method interactions.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\5-2.tex"
+    },
+    "5-3": {
+      "title": "Ablation studies",
+      "summary": "Report controlled ablations isolating the impact of the section scheduler, strict JSON output constraints, and evidence-injection. For each ablation, give the metric changes relative to the full graph-guided pipeline and interpret which components drive improvements.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\5-3.tex"
+    },
+    "5-4": {
+      "title": "Qualitative examples and evidence attachments",
+      "summary": "Provide selected generated section excerpts from both methods, showing JSON-constrained outputs, attached evidence pointers, and snippets of the assembled LaTeX + refs.bib. Annotate examples to highlight improved citation alignment and machine-parseable structure.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\5-4.tex"
+    },
+    "5-5": {
+      "title": "Failure cases and error analysis",
+      "summary": "Document representative failure modes (hallucinated claims, missed citations, coherence or redundancy issues), quantify remaining error rates, and briefly discuss remediation strategies and limitations for future work.",
+      "n_pages": 0.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_paper\\sections\\5-5.tex"
+    }
+  },
+  "edges": [
+    [
+      "paper",
+      "1"
+    ],
+    [
+      "paper",
+      "2"
+    ],
+    [
+      "paper",
+      "3"
+    ],
+    [
+      "paper",
+      "4"
+    ],
+    [
+      "paper",
+      "5"
+    ],
+    [
+      "paper",
+      "6"
+    ],
+    [
+      "paper",
+      "7"
+    ],
+    [
+      "3",
+      "3-1"
+    ],
+    [
+      "3",
+      "3-2"
+    ],
+    [
+      "3",
+      "3-3"
+    ],
+    [
+      "3",
+      "3-4"
+    ],
+    [
+      "3",
+      "3-5"
+    ],
+    [
+      "3",
+      "3-6"
+    ],
+    [
+      "4",
+      "4-1"
+    ],
+    [
+      "4",
+      "4-2"
+    ],
+    [
+      "4",
+      "4-3"
+    ],
+    [
+      "4",
+      "4-4"
+    ],
+    [
+      "4",
+      "4-5"
+    ],
+    [
+      "4",
+      "4-6"
+    ],
+    [
+      "5",
+      "5-1"
+    ],
+    [
+      "5",
+      "5-2"
+    ],
+    [
+      "5",
+      "5-3"
+    ],
+    [
+      "5",
+      "5-4"
+    ],
+    [
+      "5",
+      "5-5"
+    ]
+  ]
+}

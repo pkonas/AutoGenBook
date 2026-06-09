@@ -1,0 +1,1265 @@
+{
+  "graph": {
+    "title": "METODICKÁ PŘÍRUČKA \"AI VE VÝUCE VUT\"",
+    "summary": "Tato metodická příručka poskytuje praktický a eticky podložený návod, jak integrovat nástroje generativní AI do výuky na Vysokém učení technickém v Brně (VUT). Kniha kombinuje teoretické základy (co je generativní AI, jak fungují LLM, základní pojmy jako tokens a embeddings) s praktickými návody, prompt šablonami, tutoriály a příklady použití v přípravě výuky, hodnocení i podpoře studentů. Silný důraz je kladen na etiku, GDPR, akademickou integritu a transparentnost použití AI. Příručka navíc zahrnuje kapitolu o institucionálním nasazení, bezpečnosti a integraci do infrastruktury VUT (LMS, SSO, enterprise licence, RAG), a ověřené případové studie z univerzit, které už AI úspěšně využívají (např. Georgia Tech, Harvard CS50, Arizona State University, UCL, TU Delft). Součástí jsou checklisty, knihovna promptů a šablony pro redesign předmětů, aby byla příručka použitelná jako živý dokument s pravidelnými aktualizacemi. Formát bude PDF s hypertextovými odkazy, doplněný online repository s video tutoriály a mechanismem pro zpětnou vazbu a kvartální aktualizace.",
+    "n_pages": 79.0,
+    "target_readers": "Pedagogové a akademičtí pracovníci VUT (lektorky, lektoři, garanti předmětů), školitelé a metodici, asistenti výuky a vzdělávací podpora na univerzitě",
+    "additional_requirements": "PDF s hypertextovými odkazy, doprovodné video tutoriály pro vybrané sekce, online repository (living document) s pravidelnými kvartálními updaty na ai.vut.cz, přehled doporučených licencí/enterprise variant nástrojů a jednoduché šablony pro rychlé nasazení na úrovni kateder.",
+    "equation_frequency_level": 1,
+    "do_consider_outline": true,
+    "do_consider_previous_sections": true,
+    "max_depth": 5,
+    "max_output_pages": 1.5,
+    "author": "Petr Koňas, OpenAI-GPT-5-mini"
+  },
+  "nodes": {
+    "book": {
+      "title": "METODICKÁ PŘÍRUČKA \"AI VE VÝUCE VUT\"",
+      "summary": "Tato metodická příručka poskytuje praktický a eticky podložený návod, jak integrovat nástroje generativní AI do výuky na Vysokém učení technickém v Brně (VUT). Kniha kombinuje teoretické základy (co je generativní AI, jak fungují LLM, základní pojmy jako tokens a embeddings) s praktickými návody, prompt šablonami, tutoriály a příklady použití v přípravě výuky, hodnocení i podpoře studentů. Silný důraz je kladen na etiku, GDPR, akademickou integritu a transparentnost použití AI. Příručka navíc zahrnuje kapitolu o institucionálním nasazení, bezpečnosti a integraci do infrastruktury VUT (LMS, SSO, enterprise licence, RAG), a ověřené případové studie z univerzit, které už AI úspěšně využívají (např. Georgia Tech, Harvard CS50, Arizona State University, UCL, TU Delft). Součástí jsou checklisty, knihovna promptů a šablony pro redesign předmětů, aby byla příručka použitelná jako živý dokument s pravidelnými aktualizacemi. Formát bude PDF s hypertextovými odkazy, doplněný online repository s video tutoriály a mechanismem pro zpětnou vazbu a kvartální aktualizace.",
+      "n_pages": 79.0,
+      "needsSubdivision": true
+    },
+    "1": {
+      "title": "ÚVOD DO AI PRO PEDAGOGY",
+      "summary": "Kapitola uvádí pedagogické publikum do základů generativní AI: definuje umělou inteligenci a generativní AI, popisuje rozdíl mezi tradičními AI přístupy a moderními LLM a vysvětluje základní principy fungování (tokens, embeddings, training data). Nabízí praktické příklady toho, co může pedagog od nástrojů reálně očekávat, a jak bezpečně začít (halucinace, bias, cut‑off dat). Obsahuje krátké technické vysvětlení LLM, rychlý start s nástroji (ChatGPT, Claude, Gemini, Microsoft Copilot) a návrhy cvičení první interakce ve třídě. Zahrnuje odkazy na tutoriály a další studijní zdroje.",
+      "n_pages": 10.0,
+      "needsSubdivision": true
+    },
+    "2": {
+      "title": "ETICKÉ ZÁSADY POUŽITÍ AI",
+      "summary": "Kapitola definuje klíčové etické principy použití AI ve výuce: transparentnost, ochrana soukromí, spravedlnost/equita, integrita a zodpovědnost. Nabízí praktické postupy pro GDPR‑kompatibilní práci s daty studentů (anonymizace, minimalizace dat, DPIA, uzavření DPA s poskytovateli), doporučení pro využití enterprise či lokálních řešení, a stručný přehled evropského AI Act (2024) a jeho dopadů na vzdělávání. Rozpracovává akademickou integritu v éře AI, navrhuje kategorizaci úloh (zakázáno / povoleno s deklarací / vyžadováno), šablony do sylabů a vzory citací AI v různých citačních stylech. Obsahuje i doporučení, proč se nespoléhat na detektory AI a jak místo toho navrhovat úkoly a hodnoticí kritéria.",
+      "n_pages": 8.0,
+      "needsSubdivision": true
+    },
+    "3": {
+      "title": "AI V PŘÍPRAVĚ VÝUKY",
+      "summary": "Praktická kapitola věnovaná využití AI při tvorbě osnov, prezentací, cvičení a studijních materiálů. Obsahuje prompt šablony pro generování sylabů, 90minutových přednášek, návrhy aktivit a diferenciaci podle úrovně studentů. Ukazuje nástroje pro tvorbu slidů a vizuálních materiálů (Gamma, Beautiful.ai, DALL·E, Midjourney) a návody krok za krokem. Dále popisuje generování pracovních listů, kvízů a automatických řešení, sumarizaci vědeckých textů (NotebookLM, Elicit, Claude pro dlouhé texty) a ověřování výstupů. Součástí jsou hotové vzory pro redesign předmětů a ukázky z univerzit, kde takové postupy úspěšně zavedli.",
+      "n_pages": 12.0,
+      "needsSubdivision": true
+    },
+    "4": {
+      "title": "AI VE VÝUCE (INTERAKTIVNÍ METODY)",
+      "summary": "Kapitola ukazuje, jak integrovat AI do interaktivních metod výuky: virtuální teaching asistenti (custom GPTs), live demonstrace a simulace, facilitace diskusí s AI a gamifikace. Přináší návod na vytvoření vlastního GPT asistenta pro předmět, příklady scénářů pro sokratovský dialog a techniky pro adaptaci vysvětlení podle úrovně studentů (Explain it like I'm 5/15/25). Dále popisuje použití AI pro escape roomy, role‑playing a podporu mezinárodních i neurodivergentních studentů. Opírá se o ověřené příklady z univerzit, kde AI asistenti snižují zátěž office hours a urychlují zpětnou vazbu (inspirováno např. kurzy typu CS50).",
+      "n_pages": 10.0,
+      "needsSubdivision": true
+    },
+    "5": {
+      "title": "HODNOCENÍ V ÉŘE AI",
+      "summary": "Kapitola řeší redesign hodnocení v době dostupné AI. Představuje šest principů AI‑aware assessment (autenticita, procesní hodnocení, personalizace, multimodalita, kolaborace, metakognice) a katalog úloh odolných vůči triviálnímu využití AI (ústní zkoušky, in‑class writings, reflexivní portfolia, procesní a lokálně specifické úkoly, AI‑enhanced assignments). Nabízí rubriky, které zahrnují transparentnost použití AI, šablony milestone‑based hodnocení, a doporučení, proč nepoužívat detektory AI. Uvádí nástroje podporující hodnocení (např. Gradescope pro rychlejší a konzistentnější zpětnou vazbu) a konkrétní implementační tipy pro technické obory.",
+      "n_pages": 10.0,
+      "needsSubdivision": true
+    },
+    "6": {
+      "title": "AI PRO PODPORU STUDENTŮ",
+      "summary": "Kapitola mapuje AI jako personalizovaného tutora, nástroje pro zpětnou vazbu na písemné práce, podporu jazykových dovedností a přístupnosti. Praktické scénáře zahrnují nastavení pravidel pro AI tutora (sokratovský přístup, hintování, zákaz hotových řešení) a ukázky promptů. Nabízí tierovaný seznam nástrojů pro feedback (Grammarly, Hemingway, Turnitin Draft Coach), doporučení pro mezinárodní studenty (DeepL, ChatGPT pro konverzaci, ELSA Speak) a řešení pro accessibility (Microsoft Immersive Reader, Speechify). Vychází z praxe univerzit, kde AI tutori a asistivní technologie prokazatelně zlepšují dostupnost podpory a studijní zkušenost.",
+      "n_pages": 8.0,
+      "needsSubdivision": true
+    },
+    "7": {
+      "title": "PŘÍPADOVÉ STUDIE Z UNIVERZIT (OVĚŘENÉ PŘÍKLADY)",
+      "summary": "Kapitola obsahuje případové studie s jasnou strukturou (instituce, kurz/prostředí, AI řešení, implementace, výsledky, lesson learned, odkazy). Zahrnuje ověřené příklady: Georgia Tech – AI teaching assistant „Jill Watson“ v online kurzu (IBM Watson) s prokázaným zrychlením odpovědí na dotazy; Harvard CS50 – AI bot pro debugging a stylovou zpětnou vazbu s jasnými pravidly použití; Arizona State University – kampusové nasazení ChatGPT Enterprise s fakultním školením a knihovnou promptů; UCL a TU Delft – veřejně dostupné design patterny a příklady pro tvorbu AI‑aware zadání a hodnocení. Případové studie jsou vybrány tak, aby byly snadno přenositelné do kontextu VUT.",
+      "n_pages": 6.0,
+      "needsSubdivision": true
+    },
+    "8": {
+      "title": "INSTITUCIONÁLNÍ NASAZENÍ, INTEGRACE A BEZPEČNOST",
+      "summary": "Kapitola nahrazuje obecný přehled nástrojů a zaměřuje se na praktické zavádění AI na úrovni fakulty či univerzity: výběr enterprise variant (ChatGPT Enterprise, Azure OpenAI Service, Claude for Enterprise, Gemini pro Google Workspace, Microsoft Copilot pro M365), SSO, správa oprávnění, auditní logy, DPA a data residency. Popisuje integrační scénáře do LMS (Moodle), knihoven a vývojářského prostředí, architekturu RAG s interními materiály, možnost lokálního/edge nasazení modelů (např. Llama, Mistral) a řízení nákladů (limity, rozpočty, token metriky). Zahrnuje checklist pro IT a katedry, vzory RFP/SLA, governance (Data Stewards, AI Council) a bezpečnostní opatření (guardrails, filtrování obsahu, red‑teaming).",
+      "n_pages": 8.0,
+      "needsSubdivision": true
+    },
+    "9": {
+      "title": "PŘÍLOHY",
+      "summary": "Sada praktických příloh: Prompt Library s 20+ šablonami k okamžitému použití (lesson planning, assessment, feedback), Checklist pro redesign předmětu, AI Policy Template do sylabů, vzor DPIA pro použití AI ve výuce, základní RAG blueprint pro kurzy, Glossář pojmů a kontakty/podpora VUT. Dále kompletní bibliografie a anotované odkazy na univerzitní guideline a patterny (UCL, TU Delft aj.). Přílohy jsou navrženy jako pracovní nástroje připravené ke kopírování a úpravám.",
+      "n_pages": 6.0,
+      "needsSubdivision": false
+    },
+    "10": {
+      "title": "ZÁVĚR",
+      "summary": "Shrnutí klíčových myšlenek příručky, důraz na výhody AI pro kvalitu a efektivitu výuky a výzva k odpovědnému experimentování. Nabízí další kroky, pozvánku do online repository a formulář pro zpětnou vazbu. Motivuje k průběžné evaluaci dopadů a sdílení praxe napříč VUT.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\10.tex"
+    },
+    "1-1": {
+      "title": "Co je AI a generativní AI",
+      "summary": "Stručné pedagogické uvedení: základní definice umělé inteligence a generativní AI, proč je téma relevantní pro výuku a jak ho rámovat vůči studentům. Zaměření na srozumitelné vysvětlení bez hloubkových technických detailů.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-1.tex"
+    },
+    "1-2": {
+      "title": "Tradiční přístupy v AI versus moderní LLM",
+      "summary": "Srovnání klasických přístupů (např. pravidlové systémy, klasické machine learningové modely) a moderních velkých jazykových modelů; pedagogické dopady rozdílů (jaké typy úloh který přístup zvládá).",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-2.tex"
+    },
+    "1-3": {
+      "title": "Jak fungují LLM: tokens, embeddings a tréninková data",
+      "summary": "Koncentrované technické jádro: vysvětlení pojmů tokens a embeddings, role tréninkových dat a pojem cut‑off dat; názorné grafické schéma (bez hluboké matematiky) vhodné pro pedagogické použití.",
+      "n_pages": 1.5,
+      "needsSubdivision": false
+    },
+    "1-4": {
+      "title": "Rizika a bezpečné používání ve výuce",
+      "summary": "Přehled hlavních rizik relevantních pro výuku: halucinace (nesprávné výstupy), bias, otázky ochrany osobních údajů a akademické integrity; doporučení prvních bezpečnostních opatření a transparentní praxe vůči studentům.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-4.tex"
+    },
+    "1-5": {
+      "title": "Co od nástrojů reálně očekávat — doporučení pro pedagogy",
+      "summary": "Praktický přehled schopností a omezení nástrojů generativní AI z pohledu výuky a návrh ‚bezpečného startu‘: jak začít s malými piloty, co měřit a jak nastavit očekávání studentů i garanta kurzu.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-5.tex"
+    },
+    "1-6": {
+      "title": "Rychlý start s nástroji (ChatGPT, Claude, Gemini, Microsoft Copilot)",
+      "summary": "Krok‑za‑krokem návod pro první použití běžných nástrojů v praxi výuky včetně poznámky o dostupnosti Microsoft 365 Copilot pro školní prostředí (integrační příležitosti do Office/Teams).",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-6.tex"
+    },
+    "1-7": {
+      "title": "Návrhy cvičení první interakce ve třídě",
+      "summary": "Sada konkrétních krátkých aktivit pro první vyzkoušení s žáky/studenty: včetně ukázkových zadání pro diskusi a hands‑on aktivity. Obsahuje praktické příklady z praxe zmíněné v KB, např. použití Minecraft Education nebo nástrojů pro ‚pokrok v matematice‘.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-7.tex"
+    },
+    "1-8": {
+      "title": "Odkazy na tutoriály, zdroje a doporučená literatura",
+      "summary": "Kurátorský seznam online tutoriálů, vstupních zdrojů pro pedagogy a doporučené kroky pro další vzdělávání; odkazy na repozitář s šablonami a videonávody jako další krok po pilotu.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-8.tex"
+    },
+    "1-9": {
+      "title": "Krátký slovník pojmů pro pedagogy",
+      "summary": "Stručný glosář klíčových termínů (tokens, embeddings, hallucination, bias, RAG apod.) vhodný pro rychlou orientaci při přípravě materiálů a komunikaci se studenty.",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-9.tex"
+    },
+    "2-1": {
+      "title": "Přehled etických principů použití AI ve výuce",
+      "summary": "Vymezení klíčových principů: transparentnost, ochrana soukromí, spravedlnost (equita), akademická integrita a zodpovědnost. Stručné vysvětlení, proč jsou tyto principy relevantní pro pedagogickou praxi a jak ovlivňují rozhodování při nasazení AI v předmětech.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-1.tex"
+    },
+    "2-2": {
+      "title": "Ochrana soukromí a GDPR‑kompatibilní postupy",
+      "summary": "Praktické postupy pro práci s osobními údaji studentů: princip minimalizace dat, anonymizace/pseudonymizace, provedení DPIA (posouzení dopadů) a dohody o zpracování (DPA) s poskytovateli. Doporučení kroků pro zpracování dat ve výuce a příklady opatření ke snížení rizik.",
+      "n_pages": 1.5,
+      "needsSubdivision": false
+    },
+    "2-3": {
+      "title": "Enterprise a lokální řešení: volba infrastruktury a bezpečnost dat",
+      "summary": "Kritéria pro rozhodování mezi cloudovými enterprise řešeními a lokálními/nebo on‑premise nasazení (včetně RAG), včetně aspektů bezpečnosti, řízení přístupu, logování a smluvních požadavků. Praktické doporučení pro IT spolupráci na VUT.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-3.tex"
+    },
+    "2-4": {
+      "title": "Krátký přehled evropského AI Act (2024) a důsledky pro vzdělávání",
+      "summary": "Stručné vymezení relevantních částí AI Act pro akademické prostředí a praktické implikace pro výuku a instituční nasazení AI (rizikové klasifikace, povinnosti transparentnosti a odpovědnosti). Nízkoslovný přenos na interní politiky předmětů.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-4.tex"
+    },
+    "2-5": {
+      "title": "Akademická integrita v éře AI",
+      "summary": "Analýza vlivu generativní AI na plagiátorství, autorství a fair play; návrh politiky a postupů pro dodržování akademické integrity. Obsahuje navrhovanou kategorizaci úloh (zakázáno / povoleno s deklarací / vyžadováno využití AI) pro začlenění do předmětů.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-5.tex"
+    },
+    "2-6": {
+      "title": "Šablony do sylabů a vzory citací AI",
+      "summary": "Hotové texty a formulace, které lze vložit do sylabů (policy o používání AI, požadavek na deklaraci), a doporučené způsoby citování výstupů AI v běžných citačních stylech. Praktické příklady, které pedagog může adaptovat.",
+      "n_pages": 0.6,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-6.tex"
+    },
+    "2-7": {
+      "title": "Proč se nespoléhat na detektory AI a alternativní přístupy",
+      "summary": "Kritické zhodnocení omezení detektorů AI a doporučení nástrojů a postupů místo nich: návrh úloh odolných vůči zneužití AI, požadavek na procesní důkazy (postupy, drafty) a využití formativního hodnocení.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-7.tex"
+    },
+    "2-8": {
+      "title": "Hodnocení a rubriky v době AI",
+      "summary": "Navrhované hodnoticí kritérium a rubriky přizpůsobené použití AI (hodnocení procesu vs. produktu, důraz na metody a reflexi), včetně příkladů měřitelných kritérií pro různé typy úloh.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-8.tex"
+    },
+    "2-9": {
+      "title": "Praktické checklisty, šablony a odkazy pro učitele",
+      "summary": "Konzizní check‑listy pro provedení DPIA, uzavření DPA, nasazení enterprise řešení a revizi sylabů; odkazy na šablony (smlouvy, deklarace studentů) a doporučené interní kroky pro rychlou implementaci.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-9.tex"
+    },
+    "3-1": {
+      "title": "Úvod a přehled kapitol",
+      "summary": "Krátké představení kapitoly: cíle, kompetence, jak využít materiál v přípravě předmětů na VUT a odkazy na etické/GDPR zásady a transparentnost použití AI (odvozeno z kontextu příručky).",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-1.tex"
+    },
+    "3-2": {
+      "title": "Tvorba sylabů a osnov pomocí AI",
+      "summary": "Praktické workflow a prompt šablony pro generování sylabů, formulaci učebních výstupů, rozvržení témat a propojení s ECTS/assessment kritérii; doporučení pro ověření a úpravy výstupů.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-2.tex"
+    },
+    "3-3": {
+      "title": "Návrh 90minutové přednášky a plán hodin",
+      "summary": "Šablony a konkrétní prompty pro rozfázování 90minutové přednášky (timeboxing, aktivity, přechody), návrhy interaktivních vstupů a varování k validaci faktů vygenerovaných textů.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-3.tex"
+    },
+    "3-4": {
+      "title": "Tvorba cvičení, pracovních listů a diferenciace",
+      "summary": "Postupy pro generování pracovních listů a cvičení na různé úrovně studentů, strategie diferenciace (lehčí/standardní/náročné verze) a kontrolní mechanismy pro kvalitu úloh a řešení.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-4.tex"
+    },
+    "3-5": {
+      "title": "Generování kvízů a automatické hodnocení",
+      "summary": "Návody pro tvorbu kvízů (MCQ, otevřené úlohy, programovací úkoly), tvorbu item banky a základy automatického hodnocení včetně návrhů na generování řešení a testovacích případů.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-5.tex"
+    },
+    "3-6": {
+      "title": "Tvorba výukových prezentací a slide decků",
+      "summary": "Praktické postupy a prompty pro převod sylabu do slidů, návrhy vizuální struktury, integrace multimédií a nástroje pro rychlou tvorbu prezentací (rokování nástrojů uvedených v kapitole).",
+      "n_pages": 1.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-6.tex"
+    },
+    "3-7": {
+      "title": "Generování a úprava obrázků a grafiky",
+      "summary": "Přehled možností generování vizuálů (včetně editace existující grafiky) a ukázky použití nástrojů pro tvorbu grafiky a obrázků ve výuce; zahrnuje praktické tipy pro rozměry a stylizaci (využití funkcí Designer a podobných nástrojů).",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-7.tex"
+    },
+    "3-8": {
+      "title": "Sumarizace vědeckých textů a ověřování výstupů",
+      "summary": "Postupy a nástroje pro sumarizaci dlouhých odborných textů, extrakci klíčových závěrů a doporučení jak ověřit přesnost a relevanci sumarizací (návrhy workflow pro review a cross-check).",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-8.tex"
+    },
+    "3-9": {
+      "title": "Knihovna promptů a vzorů pro redesign předmětů",
+      "summary": "Sada opakovaně použitelných promptů, checklistů a šablon pro redesign kurikula, včetně ukázkových vstupů a výsledků, které lze adaptovat pro různé typy předmětů.",
+      "n_pages": 1.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-9.tex"
+    },
+    "3-10": {
+      "title": "Ověřené případové studie a inspirace",
+      "summary": "Konkrétní příklady dobré praxe z univerzit a implementací (shrnutí klíčových přístupů a přenosných principů) a doporučení pro pilotní nasazení na úrovni předmětu či katedry.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\3-10.tex"
+    },
+    "4-1": {
+      "title": "Úvod a pedagogické cíle interaktivních AI metod",
+      "summary": "Stručné vymezení kapitoly: proč integrovat AI do interaktivní výuky, očekávané didaktické přínosy a hlavní rizika k řešení. Nastavení cílů pro předměty (zvýšení angažovanosti, zrychlení zpětné vazby, podpora diferenciace).",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-1.tex"
+    },
+    "4-2": {
+      "title": "Vytvoření vlastního GPT asistenta pro předmět",
+      "summary": "Praktický návod krok za krokem: definice rolí a kompetencí asistenta, návrh konverzačních promptů, integrace s LMS/SSO a enterprise nástroji, provozní údržba a monitorování chyb. Zmíněny požadavky na transparentnost a zodpovědnost při nasazení.",
+      "n_pages": 1.5,
+      "needsSubdivision": false
+    },
+    "4-3": {
+      "title": "Live demonstrace a simulace (včetně Minecraft Education)",
+      "summary": "Postupy pro živé ukázky a interaktivní simulace v hodině; praktické příklady vedení hodin s využitím virtuálních prostředí (včetně Minecraft Education jako didaktického nástroje pro demonstraci principů AI a Hodina kódu, viz zdroj).",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-3.tex"
+    },
+    "4-4": {
+      "title": "Facilitace diskusí s AI: sokratovský dialog a adaptivní vysvětlování",
+      "summary": "Techniky vedení sokratovských dialogů s AI, návrhy scénářů pro postupné zvyšování složitosti vysvětlení (Explain it like I'm 5/15/25) a doporučené postupy pro moderování a zajištění kvality výstupů AI v diskusích.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-4.tex"
+    },
+    "4-5": {
+      "title": "Gamifikace: escape roomy, role‑playing a kvízy s Copilotem",
+      "summary": "Nápady a šablony pro gamifikované aktivity (escape roomy, role‑playing) a praktické využití AI při tvorbě kvízů a testů (vč. Microsoft 365 Copilot + Forms pro generování elektronických písemek, viz zdroj).",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-5.tex"
+    },
+    "4-6": {
+      "title": "Podpora mezinárodních a neurodivergentních studentů",
+      "summary": "Konkrétní adaptace interaktivních AI nástrojů pro podporu jazykové rozmanitosti a neurodiverzity: lokalizace, úprava tempo/komplexity, alternativní modality (text/audio/visual) a zásady inkluzivního designu.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-6.tex"
+    },
+    "4-7": {
+      "title": "Knihovna promptů a scénářů pro interaktivní hodiny",
+      "summary": "Sada ověřených promptů a konverzačních šablon pro typické scénáře: asistent pro Q&A, sokratovský kouč, simulace rozhovorů, generování cvičení a automatické opravování návrhů odpovědí.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-7.tex"
+    },
+    "4-8": {
+      "title": "Hodnocení, zpětná vazba a zátěž vyučujících",
+      "summary": "Workflows pro využití AI k rychlejší zpětné vazbě studentům, doplnění office hours a škálování hodnocení; praktické doporučení pro kombinaci automatické a fakultativní lidské validace.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-8.tex"
+    },
+    "4-9": {
+      "title": "Implementační checklist a právně‑etické požadavky",
+      "summary": "Kontrolní seznam pro pilotní nasazení interaktivních AI nástrojů: souhlas a transparentnost, GDPR a ochrana osobních dat, akademická integrita, bezpečnostní a provozní opatření.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-9.tex"
+    },
+    "4-10": {
+      "title": "Ověřené případové studie a inspirace",
+      "summary": "Krátké přehledy ověřených příkladů z praxe (inspirováno kurzy typu CS50 a dalšími univerzitními nasazeními) s konkrétními poučeními a návrhy, co adaptovat pro VUT.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-10.tex"
+    },
+    "5-1": {
+      "title": "Úvod a shrnutí kapitoly",
+      "summary": "Stručné uvedení do výzev a cílů hodnocení v éře dostupné generativní AI; jak přistupovat k redesignu hodnocení na úrovni kurzu a katedry, přehled obsahu kapitoly a doporučený pracovní postup pro čtenáře (garanti předmětů, lektoři, asistenti).",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-1.tex"
+    },
+    "5-2": {
+      "title": "Šest principů AI‑aware assessment",
+      "summary": "Přehled a krátké definice šesti principů: autenticita (authenticity), procesní hodnocení, personalizace, multimodalita, podpora kolaborace a metakognice; vysvětlení, proč jsou principy základem redesignu úloh a kritérií hodnocení.",
+      "n_pages": 1.4,
+      "needsSubdivision": true
+    },
+    "5-3": {
+      "title": "Katalog úloh odolných vůči triviálnímu využití AI",
+      "summary": "Sady konkrétních typů úloh s praktickými varian- tami a příklady: ústní zkoušky a pohovory, in‑class writings a time‑boxed psaní, reflexivní portfolia, procesně orientované a lokálně specifické úkoly, AI‑enhanced assignments (úkoly využívající AI jako nástroj s povinnou reflexí).",
+      "n_pages": 1.4,
+      "needsSubdivision": true
+    },
+    "5-4": {
+      "title": "Rubriky, transparentnost a milestone‑based hodnocení",
+      "summary": "Praktické rubriky, které zahrnují explicitní pole pro deklaraci použití AI; šablony pro hodnocení po milnících (milestone‑based assessment) a příklady, jak propojit průběžné milníky s konečným hodnocením.",
+      "n_pages": 1.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-4.tex"
+    },
+    "5-5": {
+      "title": "Formativní hodnocení a nástroje pro podporu hodnocení",
+      "summary": "Jak AI nástroje efektivně podporují formativní zpětnou vazbu (např. použití asistentů k hromadnému generování komentářů); přehled podporovaných nástrojů pro rychlejší a konzistentnější zpětnou vazbu (vč. příkladů implementace jako Gradescope a ukázka využití Copilota pro tvorbu textových hodnocení).",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-5.tex"
+    },
+    "5-6": {
+      "title": "Implementační tipy pro technické obory",
+      "summary": "Konkrétní doporučení pro laboratoře, programovací úlohy a projektové předměty: nastavení zadání, ověřitelnost práce (lokální data, repo‑specifické artefakty), workflow pro korekci kódu a hodnocení procesu vývoje, integrace s LMS/SSO a enterprise řešení.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-6.tex"
+    },
+    "5-7": {
+      "title": "Etika, GDPR a akademická integrita v kontextu hodnocení",
+      "summary": "Zásady transparentního oznamování použití AI, požadavky na souhlas a zpracování osobních údajů při sběru a zpracování studentských výstupů, pravidla akademické integrity při povolení/omezení AI nástrojů v zadáních.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-7.tex"
+    },
+    "5-8": {
+      "title": "Proč se vyvarovat detektorů AI a alternativy",
+      "summary": "Argumenty proti spoléhaní se na detektory AI a doporučení alternativních postupů (design úloh, procesní ověřování, reflexe studentů, odborné interview), včetně praktických kroků, jak správně řešit podezření z neférového použití AI.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-8.tex"
+    },
+    "5-9": {
+      "title": "Šablony, checklisty a prompt‑knihovna pro hodnocení",
+      "summary": "Sada připravených šablon pro milestone‑based hodnocení, rubriky obsahující pole pro deklaraci AI, checklisty pro garanty a prompt‑šablony pro zadávání úloh i pro asistenty hodnotitelů při generování formativní zpětné vazby.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-9.tex"
+    },
+    "5-10": {
+      "title": "Případové studie a ověřené postupy z praxe",
+      "summary": "Krátké, ověřené příklady implementace z univerzit a kurzů (modely adaptovatelné pro VUT), klíčové poučení a rychlý plán zavedení vybraného vzoru v lokálním předmětu.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-10.tex"
+    },
+    "6-1": {
+      "title": "Role AI jako personalizovaný tutor",
+      "summary": "Přehled pedagogických rolí AI (personalizace učení, adaptivní nápověda) a doporučené režimy interakce (sokratovský přístup, hintování, zákaz poskytování hotových řešení). Zmíněny principy pro nastavení pravidel pro tutora a očekávané přínosy pro individuální podporu studentů.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-1.tex"
+    },
+    "6-2": {
+      "title": "Praktické nastavení AI tutora: pravidla, workflow a ukázky promptů",
+      "summary": "Konkrétní postupy pro konfiguraci AI tutora v kurzu: pravidla chování, příklady promptů (pro vedení otázkami, kontrolu postupů, omezení generování hotových řešení) a doporučené pracovní toky mezi studentem, AI a vyučujícím.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-2.tex"
+    },
+    "6-3": {
+      "title": "Nástroje pro zpětnou vazbu na písemné práce",
+      "summary": "Tierovaný seznam a krátké srovnání nástrojů pro textovou zpětnou vazbu a korekturu v praxi (např. Grammarly, Hemingway, Turnitin Draft Coach) a doporučené postupy jejich využití v procesu hodnocení a rozvoje studenta.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-3.tex"
+    },
+    "6-4": {
+      "title": "Podpora jazykových dovedností a mezinárodní studenti",
+      "summary": "Nástroje a metody pro podporu studentů s různým jazykovým zázemím: strojový překlad a asistence (DeepL, Microsoft Translator), konverzační praxe a simulace (ChatGPT), výcvik výslovnosti (ELSA Speak) a doporučené didaktické postupy.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-4.tex"
+    },
+    "6-5": {
+      "title": "Accessibility a asistivní technologie",
+      "summary": "Řešení pro zlepšení přístupu a inkluze: čtení nahlas a zvýraznění textu (Microsoft Immersive Reader), aplikace pro nevidomé (SeeingAI), převod textu na řeč a diktování (Speechify, hlasové diktování ve Wordu) a scénáře využití ve výuce.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-5.tex"
+    },
+    "6-6": {
+      "title": "AI pro cvičení a procvičování (matematika a kontrola postupů)",
+      "summary": "Praktické aplikace AI pro generování cvičných úloh a vyhodnocení postupů (např. funkce Pokrok v matematice, OneNote pro převod rukopisu a math.microsoft.com) a návrhy, jak je integrovat do domácích úkolů a diagnostiky chyb.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-6.tex"
+    },
+    "6-7": {
+      "title": "Integrace do studijní podpory: workflow, role učitele a etika",
+      "summary": "Doporučení pro zařazení AI do poradenské a podpůrné infrastruktury: role asistenta vs. učitele, transparentnost použití AI a základní zásady akademické integrity a ochrany osobních údajů (stručné směrnice pro praxi).",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-7.tex"
+    },
+    "6-8": {
+      "title": "Checklisty, šablony promptů a příklady použití",
+      "summary": "Praktické checklisty pro nasazení AI v podpoře studentů, sbírka šablon promptů pro běžné situace (zpětná vazba, nápověda, adaptivní úlohy) a krátké ukázky osvědčených scénářů z praxe.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\6-8.tex"
+    },
+    "7-1": {
+      "title": "Úvod a metodika případových studií",
+      "summary": "Popisované struktury případových studií (instituce, kurz/prostředí, AI řešení, implementace, výsledky, lessons learned, odkazy) a metodika výběru příkladů tak, aby byly přenositelné na VUT. Pokyny pro čtení kapitoly a jak využít jednotlivé sekce při redesignu předmětu.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-1.tex"
+    },
+    "7-2": {
+      "title": "Georgia Tech — 'Jill Watson' (AI teaching assistant)",
+      "summary": "Kazuistika zaměřená na použití AI asistenta v online kurzu: popis řešení, implementační kroky, dosažené efekty a klíčové ponaučení. General background knowledge: zahrnuje příklad asistenta 'Jill Watson' používaného v kurzech (AI teaching assistant) a zmínku o pozitivním vlivu na rychlost odpovědí studentům.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-2.tex"
+    },
+    "7-3": {
+      "title": "Harvard CS50 — AI bot pro debugging a stylovou zpětnou vazbu",
+      "summary": "Popis nasazení AI bota v rozsáhlém kurzu CS50: pravidla použití, omezení, workflow pro poskytování debuggingové a stylistické zpětné vazby a zjištěné dopady na výuku a akademickou integritu. General background knowledge: obsahuje příklad CS50 s jasnými pravidly použití AI bota.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-3.tex"
+    },
+    "7-4": {
+      "title": "Arizona State University — kampusové nasazení ChatGPT Enterprise",
+      "summary": "Případ nasazení na úrovni fakulty/kampusu: proces zavedení enterprise licence, školení pedagogů, knihovna promptů a organizační zajištění provozu. General background knowledge: zahrnuje zmínku o kampusovém nasazení ChatGPT Enterprise a souvisejícím fakultním školení.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-4.tex"
+    },
+    "7-5": {
+      "title": "UCL — design patterns pro AI‑aware zadání a hodnocení",
+      "summary": "Shrnutí veřejně dostupných design patternů a příkladů pro tvorbu zadání a hodnoticích postupů, které reflektují přítomnost generativní AI ve výuce; konkrétní patterny pro formulaci úloh, transparentnost a validaci výsledků.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-5.tex"
+    },
+    "7-6": {
+      "title": "TU Delft — šablony a ověřené příklady pro redesign předmětů",
+      "summary": "Kompilace konkrétních šablon a ukázek redesignu předmětů s AI‑aware komponentami: zadání, assessment, formative feedback a technické integrace. General background knowledge: obsahuje odkaz na TU Delft jako zdroj veřejně dostupných příkladů a šablon.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-6.tex"
+    },
+    "7-7": {
+      "title": "Přenositelnost na VUT: konkrétní doporučení, checklisty a šablony",
+      "summary": "Praktický přenos poznatků z kazuistik do prostředí VUT: krok‑za‑krokem doporučení pro implementaci, kontrolní seznamy pro garanty předmětů, šablony promptů a scénáře pilotního nasazení v rámci fakulty.",
+      "n_pages": 0.8,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\7-7.tex"
+    },
+    "8-1": {
+      "title": "Strategie výběru enterprise řešení a licencí",
+      "summary": "Kritéria pro výběr enterprise variant (např. ChatGPT Enterprise, Azure OpenAI, Claude for Enterprise, Gemini, Microsoft Copilot), porovnání podle DPA/SLA, integrace do existujícího stacku, business‑case a rozhodovací matice pro fakultu/univerzitu.",
+      "n_pages": 1.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-1.tex"
+    },
+    "8-2": {
+      "title": "Autentizace, autorizace a správa identit",
+      "summary": "SSO integrace, správa oprávnění a rolí, provisioning uživatelů, auditní logy a způsoby zaznamenávání přístupů a akcí pro účely bezpečnosti a compliance.",
+      "n_pages": 1.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-2.tex"
+    },
+    "8-3": {
+      "title": "Ochrana dat, DPA a data residency",
+      "summary": "Požadavky na zpracování osobních a interních dat, smlouvy o zpracování (DPA), možnosti data residency, šifrování v klidu i v přenosu a zásady pro sdílení citlivých materiálů (GDPR‑orientované postupy).",
+      "n_pages": 1.1,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-3.tex"
+    },
+    "8-4": {
+      "title": "Integrace do univerzitní infrastruktury",
+      "summary": "Scénáře a technické vzory integrace s LMS (Moodle), knihovnami, vývojářskými prostředími a dalšími službami VUT; connectors, webhooky, SSO‑flow a doporučené implementační postupy pro katedry a IT.",
+      "n_pages": 1.4,
+      "needsSubdivision": true,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-4.tex"
+    },
+    "8-5": {
+      "title": "Architektura RAG s interními materiály",
+      "summary": "Návrhy pro Retrieval‑Augmented Generation: indexace interních dokumentů, embeddings, retrieval vrstvy, bezpečné napojení na LLM, varianty cloud vs. hybrid vs. on‑prem a mitigace rizik úniku informací.",
+      "n_pages": 1.5,
+      "needsSubdivision": true,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-5.tex"
+    },
+    "8-6": {
+      "title": "Lokální a edge nasazení modelů",
+      "summary": "Možnosti lokálního/edge provozu (např. menší modely jako Llama, Mistral), provozní požadavky, licensing‑considerations, zálohy, aktualizace modelů a provozní bezpečnostní doporučení.",
+      "n_pages": 1.0,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-6.tex"
+    },
+    "8-7": {
+      "title": "Governance, řízení nákladů, checklisty a bezpečnostní opatření",
+      "summary": "Role a procesy (Data Stewards, AI Council), řízení rozpočtů a token/metrické limity, vzory RFP/SLA, IT+katederní checklisty pro nasazení a provoz, plus guardrails, filtrování obsahu a red‑teaming postupy.",
+      "n_pages": 1.5,
+      "needsSubdivision": true,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\8-7.tex"
+    },
+    "9-1": {
+      "title": "Prompt Library (20+ šablon)",
+      "summary": "Knihovna 20+ praktických prompt šablon k okamžitému použití v přípravě výuky, tvorbě zadání a hodnocení (lesson planning, assessment, feedback, generování testů, rubrik, zpětné vazby). Šablony jsou copy-&-paste připravené s krátkým návodem k přizpůsobení pro různé předměty a úrovně.",
+      "n_pages": 1.5,
+      "needsSubdivision": true,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-1.tex"
+    },
+    "9-2": {
+      "title": "Checklist pro redesign předmětu",
+      "summary": "Pracovní kontrolní seznam kroků při redesignu kurzu s AI (cíle, výstupy, metody hodnocení, akademická integrita, transparentnost použití AI, ověření výsledků), připravený k přímému použití a úpravě garanty předmětů.",
+      "n_pages": 0.6,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-2.tex"
+    },
+    "9-3": {
+      "title": "AI Policy Template do sylabů",
+      "summary": "Vzor textu pro zařazení do sylabů s doporučenou formulací o povoleném/zakázaném použití generativní AI, požadavcích na citování, a doporučených postupech pro studenty i vyučující.",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-3.tex"
+    },
+    "9-4": {
+      "title": "Vzor DPIA (posouzení dopadů na ochranu osobních údajů)",
+      "summary": "Šablona DPIA připravená pro nasazení AI ve výuce: popis zpracování, identifikace rizik (GDPR), navrhovaná opatření a doporučený postup schvalování na úrovni katedry/FS/IT.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-4.tex"
+    },
+    "9-5": {
+      "title": "Základní RAG blueprint pro kurzy",
+      "summary": "Jednostránkový plán (blueprint) pro nasazení Retrieval-Augmented Generation ve výuce: architektura, datové zdroje, bezpečnostní a etické body, role vyučujícího a doporučené scénáře použití.",
+      "n_pages": 0.7,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-5.tex"
+    },
+    "9-6": {
+      "title": "Glossář pojmů",
+      "summary": "Krátký slovník klíčových pojmů (generativní AI, LLM, tokeny, embeddings, RAG, DPIA apod.) jako rychlá reference pro pedagogy při přípravě materiálů a komunikaci se studenty.",
+      "n_pages": 0.6,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-6.tex"
+    },
+    "9-7": {
+      "title": "Kontakty a podpora VUT",
+      "summary": "Seznam interních kontaktů pro podporu (metodické oddělení, IT, právní/GDPR, e-learning, národní kontakty), doporučené SLA pro žádosti o pomoc a postup při hlášení incidentů souvisejících s AI.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-7.tex"
+    },
+    "9-8": {
+      "title": "Bibliografie a anotované odkazy na univerzitní guideline",
+      "summary": "Kompaktní bibliografie a anotované odkazy na relevantní univerzitní guideline a patterny (UCL, TU Delft, další příklady dobré praxe), připraveno jako výchozí seznam pro další studium a odkazy v online repozitáři.",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-8.tex"
+    },
+    "9-9": {
+      "title": "Repozitář, video tutoriály a mechanismus aktualizací",
+      "summary": "Instrukce pro přístup k online repozitáři s šablonami a video tutoriály, popis mechanismu pro kvartální aktualizace a sběr zpětné vazby od učitelů (živý dokument).",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\9-9.tex"
+    },
+    "1-3-1": {
+      "title": "Co jsou tokens a jak je chápat v pedagogickém kontextu",
+      "summary": "Krátké, srozumitelné vysvětlení pojmu token (jednotka textu pro LLM), rozdíl mezi tokenem a písmenem/slovem, ukázka rozdělení věty na tokeny a jednoduché pedagogické metafory pro vysvětlení studentům. Praktické důsledky pro promptování (dlouhé vs. krátké promptování, limit kontextu).",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-3-1.tex"
+    },
+    "1-3-2": {
+      "title": "Embeddings: co to jsou a jak je používat ve výuce",
+      "summary": "Přehled, co jsou vektory embeddingů a jak zachycují význam slov/vět; demonstrace jednoduchého příkladu (vizualizace 2D/3D) a konkrétní pedagogické scénáře: vyhledávání podobných materiálů, clustering studijních odpovědí, základ RAG (retrieval‑augmented generation).",
+      "n_pages": 0.5,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-3-2.tex"
+    },
+    "1-3-3": {
+      "title": "Tréninková data, cut‑off dat a názorné schéma pro výuku",
+      "summary": "Role tréninkových dat u LLM, co znamená cut‑off dat (hranice, do kdy model ‚ví‘ fakta), dopady na aktualitu informací, základní otázky kolem kvality dat, zkreslení a ochrany soukromí (stručně pro pedagogické posouzení). Součástí je jedno přehledné grafické schéma (návrh obsahu schématu a tipy pro zařazení do výuky) a krátký návod, jak toto schéma prezentovat bez hluboké matematiky.",
+      "n_pages": 0.6,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\1-3-3.tex"
+    },
+    "2-2-1": {
+      "title": "Zásady zpracování osobních údajů ve výuce",
+      "summary": "Stručné shrnutí hlavních principů, které ovlivňují návrh výuky s AI (princip minimalizace dat, účelové omezení, transparentnost vůči studentům) a stručný přehled, kdy zapojit bezpečnostní/PRIV týmy fakult. Slouží jako orientační rámec před praktickými kroky.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-2-1.tex"
+    },
+    "2-2-2": {
+      "title": "Minimalizace dat a návrh datového toku v kurzech",
+      "summary": "Praktické postupy pro omezení sběru a zpracování (co sbírat, co není nutné), doporučený návrh datového toku v rámci kurzu (sběr, zpracování, uchovávání, mazání) a krátké příklady řešení pro běžné výukové scénáře.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-2-2.tex"
+    },
+    "2-2-3": {
+      "title": "Anonymizace a pseudonymizace: metody a limity",
+      "summary": "Popis rozdílu mezi anonymizací a pseudonymizací, praktické techniky (odstranění identifikátorů, agregace, generalizace, hashing/pseudonymy) a upozornění na omezení a zbytková rizika při použití v učebních datech.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-2-3.tex"
+    },
+    "2-2-4": {
+      "title": "Posouzení dopadů na ochranu osobních údajů (DPIA) pro AI ve výuce",
+      "summary": "Praktický návod k provedení DPIA zaměřeného na nasazení generativní AI ve výuce: klíčové kroky, co zdokumentovat, ukázková struktura posouzení a kdy je DPIA doporučená/nezbytná z hlediska rizik.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-2-4.tex"
+    },
+    "2-2-5": {
+      "title": "Smlouvy s poskytovateli a dohody o zpracování (DPA)",
+      "summary": "Seznam klíčových bodů do DPA a smluv s poskytovateli AI/nástrojů (role správce/zpracovatele, bezpečnostní požadavky, podmínky uchovávání dat, možnosti auditů a odpovědnost), praktické tipy pro vyjednávání s komerčními službami.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-2-5.tex"
+    },
+    "2-2-6": {
+      "title": "Praktický checklist a opatření ke snížení rizik",
+      "summary": "Jednostránkový/checklistový seznam kroků pro pedagoga před i během použití AI ve výuce: povolení dat, pseudonymizace, retence, přístupová práva, lokální zpracování vs. cloud (např. doporučení: nenahrávat studentské fotky do neznámých služeb), monitorování a incident response.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\2-2-6.tex"
+    },
+    "4-2-1": {
+      "title": "Definice role a kompetencí asistenta",
+      "summary": "Vymezení očekávaných rolí (např. tutoring, administrativní podpora), hranic kompetencí a pravidel pro eskalaci k lidskému pracovníkovi; doporučené výstupy pro studenty a učitele.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-2-1.tex"
+    },
+    "4-2-2": {
+      "title": "Návrh konverzačních promptů a šablon",
+      "summary": "Praktické šablony promptů pro běžné scénáře (FAQ, vysvětlení úloh, zpětná vazba) a postupy pro testování a ladění konverzačních toků s ohledem na přesnost a bezpečnost.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-2-2.tex"
+    },
+    "4-2-3": {
+      "title": "Integrace s LMS, SSO a enterprise nástroji",
+      "summary": "Kroky pro technickou integraci do prostředí VUT (LMS, jednotné přihlášení), zapojení enterprise služeb a RAG patternů; praktické poznámky k licencím a zabezpečení.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-2-3.tex"
+    },
+    "4-2-4": {
+      "title": "Provozní údržba a monitorování chyb",
+      "summary": "Postupy pro nasazení, pravidelnou údržbu modelu a promptů, sledování metrik výkonu a chybových stavů, postupy pro rollback a řízení incidentů.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-2-4.tex"
+    },
+    "4-2-5": {
+      "title": "Transparentnost, zodpovědnost a soulad s pravidly",
+      "summary": "Požadavky na transparentní oznámení použití AI, zásady akademické integrity, ochranu osobních údajů a zajištění vysvětlitelnosti odpovědí studentům a garantům předmětu.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\4-2-5.tex"
+    },
+    "5-2-1": {
+      "title": "Autenticita",
+      "summary": "Krátká definice: úlohy zakotvené v reálných kontextech, které mají smysl mimo zkoušku. Role pro redesign: přehodnocení cílů a kritérií tak, aby úloha měřila reálné schopnosti a motivovala studenty. (general background knowledge)",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-2-1.tex"
+    },
+    "5-2-2": {
+      "title": "Procesní hodnocení",
+      "summary": "Definice a implikace: zaměření na postupy, kroky a odůvodnění řešení místo pouze konečného výsledku; kritéria hodnotí kvalitu procesu. Praktický důraz v materiálu: u některých nástrojů (např. 'Pokrok v matematice') je vyžadován nahraný postup a tento postup je považován za důležitější než samotný výsledek.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-2-2.tex"
+    },
+    "5-2-3": {
+      "title": "Personalizace",
+      "summary": "Definice a implikace: přizpůsobení obtížnosti a obsahu jednotlivým studentům a použité podmínky hodnocení; redesign úloh vede k adaptivním variantám a diferenciovaným kritériím. Podpůrný příklad z materiálu: nástroje ukazují, jaké typy příkladů studentovi jdou a jaké ne, a umožňují nastavovat obtížnost zadání.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-2-3.tex"
+    },
+    "5-2-4": {
+      "title": "Multimodalita",
+      "summary": "Definice a implikace: zapojení více modalit (text, obraz, rukopis, interaktivní simulace) do zadání i sběru důkazů u hodnocení. V materiálu ilustrováno např. konverzí rukopisu na digitální rovnice v OneNote a výukovými světy (Minecraft Education) pro praktické aktivity.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-2-4.tex"
+    },
+    "5-2-5": {
+      "title": "Podpora kolaborace",
+      "summary": "Krátká definice: úlohy navržené tak, aby studenty zapojovaly do společné práce; implikace: hodnotit příspěvek, komunikaci a společné řešení úloh. (general background knowledge)",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-2-5.tex"
+    },
+    "5-2-6": {
+      "title": "Metakognice",
+      "summary": "Definice a implikace: podpora sebereflexe, vysvětlování vlastního myšlení a záznamu rozhodnutí; redesign kritérií zahrnuje sebereflexní položky a hodnocení schopnosti zdůvodnit postup. Materiál zdůrazňuje význam dokumentace postupu při automatizované či asistované kontrole úloh.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-2-6.tex"
+    },
+    "5-3-1": {
+      "title": "Ústní zkoušky a pohovory",
+      "summary": "Postupy pro navržení ústních zkoušek a pohovorů odolných vůči triviálnímu využití AI: strukturované otázky, živé dotazování na proces myšlení, scénáře reagující na studentovy odpovědi a ověření porozumění místo pouhého výsledku.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-3-1.tex"
+    },
+    "5-3-2": {
+      "title": "In‑class writings a time‑boxed psaní",
+      "summary": "Krátké, časově omezené písemné úlohy psané v rámci výuky (dozorované nebo digitálně kontrolované), zaměřené na proces tvorby, rychlé opakované verze a artefakty z jejich práce (drafty, poznámky).",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-3-2.tex"
+    },
+    "5-3-3": {
+      "title": "Reflexivní portfolia a metareflexe",
+      "summary": "Sady úkolů založené na portfoliích, kde studenti předkládají výběr prací doplněný povinnou reflexí o použití AI, záznamy o pracovním postupu a sebehodnocení; obsahuje návrh hodnoticích kritérií pro reflexi.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-3-3.tex"
+    },
+    "5-3-4": {
+      "title": "Procesně orientované a lokálně specifické úkoly",
+      "summary": "Úkoly vázané na lokální data, kontext nebo fáze procesu (inkrementální odevzdání, laboratorní zápisníky, analytické kroky), které kladou důraz na sledovatelný postup a jedinečnost řešení.",
+      "n_pages": 0.3,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-3-4.tex"
+    },
+    "5-3-5": {
+      "title": "AI‑enhanced assignments a příklady nástrojů",
+      "summary": "Úkoly, které explicitně povolují použití AI jako nástroje za podmínky povinné dokumentace a reflexe o jeho použití; obsahuje krátké šablony a ilustrativní nástroje (např. Copilot v Poznámkovém bloku, Minecraft Education jako edukační příklad z praxe).",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out\\sections\\5-3-5.tex"
+    }
+  },
+  "edges": [
+    [
+      "book",
+      "1"
+    ],
+    [
+      "book",
+      "2"
+    ],
+    [
+      "book",
+      "3"
+    ],
+    [
+      "book",
+      "4"
+    ],
+    [
+      "book",
+      "5"
+    ],
+    [
+      "book",
+      "6"
+    ],
+    [
+      "book",
+      "7"
+    ],
+    [
+      "book",
+      "8"
+    ],
+    [
+      "book",
+      "9"
+    ],
+    [
+      "book",
+      "10"
+    ],
+    [
+      "1",
+      "1-1"
+    ],
+    [
+      "1",
+      "1-2"
+    ],
+    [
+      "1",
+      "1-3"
+    ],
+    [
+      "1",
+      "1-4"
+    ],
+    [
+      "1",
+      "1-5"
+    ],
+    [
+      "1",
+      "1-6"
+    ],
+    [
+      "1",
+      "1-7"
+    ],
+    [
+      "1",
+      "1-8"
+    ],
+    [
+      "1",
+      "1-9"
+    ],
+    [
+      "2",
+      "2-1"
+    ],
+    [
+      "2",
+      "2-2"
+    ],
+    [
+      "2",
+      "2-3"
+    ],
+    [
+      "2",
+      "2-4"
+    ],
+    [
+      "2",
+      "2-5"
+    ],
+    [
+      "2",
+      "2-6"
+    ],
+    [
+      "2",
+      "2-7"
+    ],
+    [
+      "2",
+      "2-8"
+    ],
+    [
+      "2",
+      "2-9"
+    ],
+    [
+      "3",
+      "3-1"
+    ],
+    [
+      "3",
+      "3-2"
+    ],
+    [
+      "3",
+      "3-3"
+    ],
+    [
+      "3",
+      "3-4"
+    ],
+    [
+      "3",
+      "3-5"
+    ],
+    [
+      "3",
+      "3-6"
+    ],
+    [
+      "3",
+      "3-7"
+    ],
+    [
+      "3",
+      "3-8"
+    ],
+    [
+      "3",
+      "3-9"
+    ],
+    [
+      "3",
+      "3-10"
+    ],
+    [
+      "4",
+      "4-1"
+    ],
+    [
+      "4",
+      "4-2"
+    ],
+    [
+      "4",
+      "4-3"
+    ],
+    [
+      "4",
+      "4-4"
+    ],
+    [
+      "4",
+      "4-5"
+    ],
+    [
+      "4",
+      "4-6"
+    ],
+    [
+      "4",
+      "4-7"
+    ],
+    [
+      "4",
+      "4-8"
+    ],
+    [
+      "4",
+      "4-9"
+    ],
+    [
+      "4",
+      "4-10"
+    ],
+    [
+      "5",
+      "5-1"
+    ],
+    [
+      "5",
+      "5-2"
+    ],
+    [
+      "5",
+      "5-3"
+    ],
+    [
+      "5",
+      "5-4"
+    ],
+    [
+      "5",
+      "5-5"
+    ],
+    [
+      "5",
+      "5-6"
+    ],
+    [
+      "5",
+      "5-7"
+    ],
+    [
+      "5",
+      "5-8"
+    ],
+    [
+      "5",
+      "5-9"
+    ],
+    [
+      "5",
+      "5-10"
+    ],
+    [
+      "6",
+      "6-1"
+    ],
+    [
+      "6",
+      "6-2"
+    ],
+    [
+      "6",
+      "6-3"
+    ],
+    [
+      "6",
+      "6-4"
+    ],
+    [
+      "6",
+      "6-5"
+    ],
+    [
+      "6",
+      "6-6"
+    ],
+    [
+      "6",
+      "6-7"
+    ],
+    [
+      "6",
+      "6-8"
+    ],
+    [
+      "7",
+      "7-1"
+    ],
+    [
+      "7",
+      "7-2"
+    ],
+    [
+      "7",
+      "7-3"
+    ],
+    [
+      "7",
+      "7-4"
+    ],
+    [
+      "7",
+      "7-5"
+    ],
+    [
+      "7",
+      "7-6"
+    ],
+    [
+      "7",
+      "7-7"
+    ],
+    [
+      "8",
+      "8-1"
+    ],
+    [
+      "8",
+      "8-2"
+    ],
+    [
+      "8",
+      "8-3"
+    ],
+    [
+      "8",
+      "8-4"
+    ],
+    [
+      "8",
+      "8-5"
+    ],
+    [
+      "8",
+      "8-6"
+    ],
+    [
+      "8",
+      "8-7"
+    ],
+    [
+      "9",
+      "9-1"
+    ],
+    [
+      "9",
+      "9-2"
+    ],
+    [
+      "9",
+      "9-3"
+    ],
+    [
+      "9",
+      "9-4"
+    ],
+    [
+      "9",
+      "9-5"
+    ],
+    [
+      "9",
+      "9-6"
+    ],
+    [
+      "9",
+      "9-7"
+    ],
+    [
+      "9",
+      "9-8"
+    ],
+    [
+      "9",
+      "9-9"
+    ],
+    [
+      "1-3",
+      "1-3-1"
+    ],
+    [
+      "1-3",
+      "1-3-2"
+    ],
+    [
+      "1-3",
+      "1-3-3"
+    ],
+    [
+      "2-2",
+      "2-2-1"
+    ],
+    [
+      "2-2",
+      "2-2-2"
+    ],
+    [
+      "2-2",
+      "2-2-3"
+    ],
+    [
+      "2-2",
+      "2-2-4"
+    ],
+    [
+      "2-2",
+      "2-2-5"
+    ],
+    [
+      "2-2",
+      "2-2-6"
+    ],
+    [
+      "4-2",
+      "4-2-1"
+    ],
+    [
+      "4-2",
+      "4-2-2"
+    ],
+    [
+      "4-2",
+      "4-2-3"
+    ],
+    [
+      "4-2",
+      "4-2-4"
+    ],
+    [
+      "4-2",
+      "4-2-5"
+    ],
+    [
+      "5-2",
+      "5-2-1"
+    ],
+    [
+      "5-2",
+      "5-2-2"
+    ],
+    [
+      "5-2",
+      "5-2-3"
+    ],
+    [
+      "5-2",
+      "5-2-4"
+    ],
+    [
+      "5-2",
+      "5-2-5"
+    ],
+    [
+      "5-2",
+      "5-2-6"
+    ],
+    [
+      "5-3",
+      "5-3-1"
+    ],
+    [
+      "5-3",
+      "5-3-2"
+    ],
+    [
+      "5-3",
+      "5-3-3"
+    ],
+    [
+      "5-3",
+      "5-3-4"
+    ],
+    [
+      "5-3",
+      "5-3-5"
+    ]
+  ]
+}

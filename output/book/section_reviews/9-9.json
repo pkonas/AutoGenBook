@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several operational/procedural statements are marked as \"general background knowledge\" (repo entry point ai.vut.cz, recommended folder structure, quick‑start steps, quarterly release cycle, contribution process). Those are acceptable as guidance but currently lack explicit pointers to a canonical internal source (e.g. CONTRIBUTING.md, repository README or institutional policy).",
+      "required_fix": "Either (A) add explicit citations/links to the canonical repo resources (e.g. README, CONTRIBUTING.md, .github/ISSUE_TEMPLATE.md, release notes template) if they exist in the repository; or (B) keep the statements but explicitly state they are local recommendations and add a short sentence pointing readers to the authoritative file(s) in the repo (path(s))."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section references chapter 9.7 for local contacts and support. That cross‑reference is consistent with the previous sections excerpt, but it would be clearer to use the exact label used in 9.7 (e.g. 'Kontakty a podpora VUT') or provide the specific contact filename/location in the repo.",
+      "required_fix": "Either reference the exact chapter title used in 9.7 ('Kontakty a podpora VUT') or add the repository path/file where those contacts are maintained (e.g. /CONTACTS.md or a specific README section)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Potential LaTeX issues: non‑ASCII/nonstandard hyphen characters used inside \\texttt entries (e.g. 'case‑studies' uses a nonstandard hyphen), which can cause compilation differences in some toolchains. Also a small typo in Czech: 'abtrakt' should be 'abstrakt'.",
+      "required_fix": "Replace non‑ASCII hyphens with ASCII hyphen '-' inside \\texttt (e.g. \\texttt{/case-studies}). Fix typo 'abtrakt' → 'abstrakt'. Run a quick LaTeX compile check to confirm no other encoding issues remain."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Jak přispět' and 'Mechanismus kvartálních aktualizací' bullets are high level and could be ambiguous for implementers (who reviews PRs, expected timeline for review, review criteria, how pedagogical impact is assessed, where release notes live).",
+      "required_fix": "Add a concise contributor workflow example: path to issue template, required fields to include (pedagogical impact, test deployment plan), expected SLA for triage/review, and the release notes location/format. If such matrices/checklists exist in the repo, link to them."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Video tutorial guidance correctly cites Minecraft Education and Microsoft features (supported by retrieved excerpts). However, the section could benefit from one short concrete example of a video metadata template (fields) and a sample timecode list to ensure uniformity across videos.",
+      "required_fix": "Add a one‑line example of the recommended video metadata fields (e.g. title, abstrakt, duration, keywords, licenses, timecodes) and/or a path to a metadata template file in the repo (e.g. /videos/METADATA_TEMPLATE.md)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace 'Každé video má krátký abtrakt, délku a seznam klíčových časových bodů...' with 'Každé video má krátký abstrakt, délku a seznam klíčových časových bodů; použijte šablonu videometadat v /videos/METADATA_TEMPLATE.md (příklad: title, abstrakt, duration, keywords, licences, timecodes: 00:00 — přehled; 02:30 — demo; 07:15 — tipy pro nasazení).' If the template file does not exist, add it to the repo."
+    },
+    {
+      "target": "LaTeX code",
+      "edit_instruction": "In the \\texttt list, replace non‑ASCII hyphen(s) with ASCII hyphen: \\texttt{/prompts}, \\texttt{/templates}, \\texttt{/videos}, \\texttt{/case-studies}, \\texttt{/blueprints}. Also correct 'abtrakt' → 'abstrakt'."
+    },
+    {
+      "target": "Contribution guidance",
+      "edit_instruction": "Expand 'Jak přispět' to reference the concrete files: e.g. 'Použijte .github/ISSUE_TEMPLATE.md pro návrh nebo opravu; před velikými změnami otevřete PR s popisem pedagogického dopadu a návrhem testovacího nasazení. Viz /CONTRIBUTING.md pro checklist a review SLA.' If these files are absent, create them in the repo."
+    },
+    {
+      "target": "Release process",
+      "edit_instruction": "Clarify 'kvartální release' with minimal timeline and artefacts: e.g. 'Kvartální vydání: vydání je naplánováno ke konci každého čtvrtletí; cut‑off pro příspěvky je 2 týdny před; každé vydání obsahuje release notes v /releases/vX.Y/RELEASE_NOTES.md a changelog.' If the project uses GitHub/GitLab releases, reference that mechanism."
+    }
+  ],
+  "retrieval_queries": [
+    "ai.vut.cz repository README or CONTRIBUTING.md path and canonical description of repository structure",
+    "internal repository files: .github/ISSUE_TEMPLATE.md, /videos/METADATA_TEMPLATE.md, /CONTRIBUTING.md, /releases/ or release notes template",
+    "institutional policy or documentation that defines the quarterly release cadence for the ai.vut.cz repository"
+  ]
+}

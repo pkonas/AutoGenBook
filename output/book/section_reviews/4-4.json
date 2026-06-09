@@ -1,0 +1,67 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The 'Šablony promptů (praktické, copy‑paste ready)' block presents concrete prompt templates and an expected assistant format but is not marked as 'general background knowledge' nor cross‑referenced to the prompt library or testing checklist. The text asserts these are 'copy‑paste ready' (a non‑trivial claim) without an explicit grounding citation or pointer to the repository of validated templates.",
+      "required_fix": "Either label the prompt templates explicitly as 'general background knowledge' (or 'examples to be validated locally') or add a cross‑reference to the Prompt Library / appendix (section 9.1) and/or a note that these must be pilot‑tested using the prompt testing checklist (definition of intents, 20–50 tests)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some instructional recommendations (e.g., 'Use generated visuals as supplementary material, not as sole source') are sensible pedagogical guidance but are presented without an explicit pointer to the supporting KB excerpts. A few paragraphs do cite KB excerpts correctly (Minecraft, Pokrok v matematice, Designer), but not all guidance paragraphs include such grounding or the 'general background knowledge' label.",
+      "required_fix": "For paragraphs that present concrete operational guidance, either (a) add the '(general background knowledge)' label where appropriate, or (b) attach an explicit citation/cross‑reference to relevant KB/appendix material (for example, cross‑reference the Live demonstrations section or Prompt Library)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The latex_body appears to be a body fragment and contains \\\\cite commands. There is no explicit LaTeX sectioning command (\\section/\\subsection) in the fragment; bibliography keys used in \\cite must exist in the document bibliography to compile properly.",
+      "required_fix": "Ensure the fragment is inserted under the proper \\section or \\subsection command in the main LaTeX file. Verify that all citation keys used (e.g. kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_51_1) are defined in the .bib file or replace inline citations with cross‑references to internal sections (e.g., Appendix: Prompt Library) if bibliography entries are not available."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "The section lacks a concrete worked example: a complete, minimal interaction (System/User/Assistant) with a short annotated assistant response showing the expected '2–4 guiding questions' format and how a facilitator should annotate/assess the student’s chosen next step. Without such an example, teachers may misunderstand expected assistant behavior and moderation practice.",
+      "required_fix": "Add one short, fully worked example: (1) the System prompt, (2) a sample student User prompt (partial solution), (3) the ideal Assistant output (2–4 numbered guiding questions each with brief rationale), and (4) a short facilitator checklist showing how to mark correct diagnostics, identify hallucinations, and request the student’s justification. Mark the example as 'example / for validation' and recommend pilot testing."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "The section recommends moderation and sampling of model outputs (annotation of hallucinations) but does not explicitly link to the operational monitoring/testing procedures from the 'Provozní údržba a monitorování chyb' or the prompt testing checklist (20–50 tests) described elsewhere in the manual. This reduces the section's usefulness for operationalizing quality control.",
+      "required_fix": "Add an explicit cross‑reference and brief summary: (a) instruct facilitators to use the prompt testing checklist (define intents, boundary cases, 20–50 tests) before classroom use; (b) reference the operational monitoring workflow (sampling outputs, quarterly review, changelog) and point to the relevant sections in the manual (e.g., section 4.2.2/4.2.4 and the Prompt Library/Appendix). If possible, include a one‑paragraph checklist in this section for day‑to‑day moderation."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The System prompt template is written in English while the surrounding section is in Czech. This may confuse readers expecting Czech examples or localized templates.",
+      "required_fix": "Either provide a Czech translation of the System/User/Assistant templates or explicitly state that the templates are language‑neutral examples and include an equivalent Czech version for local use."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Šablony promptů (praktické, copy‑paste ready)",
+      "edit_instruction": "Mark this block as 'general background knowledge / example templates' and add an explicit cross‑reference to the Prompt Library (Appendix / section 9.1) and to the prompt testing checklist (definition of intents, 20–50 tests). Prepend a short validation note: 'These templates are examples — pilot and validate with your model and classroom setting before use.'"
+    },
+    {
+      "target": "Šablony promptů — System/User/Assistant examples",
+      "edit_instruction": "Add a fully worked example: show a specific Student (User) partial solution, the System prompt (in Czech and English), and the expected Assistant output (2–4 numbered guiding questions, each with 1–2 sentence rationale). Then add a 3‑item facilitator annotation checklist (check consistency, check assumptions indicated by the model, flag potential hallucinations)."
+    },
+    {
+      "target": "Moderování a zajištění kvality výstupů",
+      "edit_instruction": "Insert a 4‑step quick operational checklist for facilitators: (1) pilot the prompt with 20–50 test cases (edge cases included), (2) sample and annotate 5–10 classroom interactions weekly for first month, (3) log hallucinations with context and corrective prompt, (4) schedule quarterly prompt/model review with changelog. Cross‑reference sections 4.2.2 / 4.2.4 and Appendices for full procedures."
+    },
+    {
+      "target": "LaTeX / citations",
+      "edit_instruction": "Confirm that all \\cite keys used in this fragment exist in the document bibliography. If bibliography entries are not available for the cited KB excerpts, replace \\cite entries with explicit cross‑references to internal sections or appendices (e.g., 'see Appendix: Prompt Library'). Also ensure the fragment is placed under a proper \\section{...} or \\subsection{...} command in the main LaTeX file."
+    },
+    {
+      "target": "Language consistency",
+      "edit_instruction": "Provide Czech translations for the English prompt templates (System/User/Assistant) or explicitly label the English templates as 'example (in English) — translate as needed'."
+    }
+  ],
+  "retrieval_queries": [
+    "Provide the exact Prompt Library entries or KB excerpts that contain the copy‑paste prompt templates and the prompt testing checklist (definition of intents, 20–50 tests) so the section can cite them directly.",
+    "Provide any KB excerpt that gives an explicit operational checklist for prompt/model monitoring (sampling frequency, annotation format, changelog example) to support the moderation instructions."
+  ]
+}

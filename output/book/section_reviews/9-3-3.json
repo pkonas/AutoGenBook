@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The DPIA checklist (section 7) and the 'Informování studentů' item (section 5 and 8) should explicitly cross‑reference the existing syllabus template and student declaration templates already present in the manual (editable sylabus template and short LMS declaration). This will help implementers find the exact text to reuse and ensure consistency across documents.",
+      "required_fix": "Add explicit cross‑references (e.g., 'viz sekce 9.2 — Editovatelná šablona sylabu' and 'viz 9-3-2 — Povinná studentská deklarace (šablona LMS)') where the DPIA asks to inform students or include declaration into syllabus/LMS."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The document recommends consulting the legal department for binding legal steps. While this is consistent with other parts of the manual that mention contract/DPA review and legal checks, the DPIA would be stronger if it also requested inclusion of the institutional Data Protection Officer (DPO) / legal contact in the identification block.",
+      "required_fix": "Add an explicit field in '1. Identifikace projektu' for 'Kontaktní osoba DPO / právní oddělení (kontakt):' so the DPIA record includes who was consulted. This is consistent with other checklist items that refer to 'právní oddělení' and the manual's contacts appendix (section 9.7)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The risk list misses an explicit item calling out 'automatizované rozhodování / profilování' (automated decision-making) as a specific GDPR concern relevant when AI outputs affect student assessment or progression. The template includes 'Riziko nesprávných nebo škodlivých výstupů AI dopadajících na hodnocení', but does not name profiling/automated decisions as a GDPR/legal category, which implementers might need to assess separately.",
+      "required_fix": "Add an item in section 4 (Identifikace a vyhodnocení rizik) explicitly about automated decision‑making/profiling and require statement whether any decision affecting students will be fully or partially automated; if so, require legal review and additional safeguards (human review, appeal path). Mark this recommendation as general background guidance if you cannot cite a legal excerpt."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Some LaTeX usage is inconsistent or redundant: many list items include trailing '\\\\' after '\\item' lines; the checkbox lines use inline math '\\(\\square\\)' inside an itemize with '\\item[]' and trailing '\\\\'. These can produce extra vertical spacing or compile warnings and reduce clarity of the source.",
+      "required_fix": "Clean up list markup: remove stray '\\\\' after '\\item' entries; for checkboxes prefer '\\item[\\(\\square\\)]' (no trailing '\\\\') or use 'enumitem' package keys. Ensure consistent use of '\\item' for all list entries."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some fields are generic placeholders (e.g., 'Rozsah pilotu / předmět / skupina studentů: ____') but the template does not prompt recording of the legal basis for processing (GDPR) or retention period details in machine‑readable form. Implementers may omit specifying lawful basis and exact retention time.",
+      "required_fix": "Add explicit prompt fields in section 1 or 3 for: (a) 'Právní titul zpracování (GDPR):' with options (souhlas / plnění smlouvy / veřejný zájem / oprávněný zájem / zákonná povinnost / jiný), and (b) 'Doba uchovávání (konkrétní perioda):' to force recording concrete retention durations. If you cannot provide legal advice, mark these prompts as 'vyplní právní oddělení / DPO'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "In '1. Identifikace projektu' add a new line: 'Kontaktní osoba DPO / právní oddělení (kontakt): \\underline{\\hspace{8cm}}'."
+    },
+    {
+      "target": "section 4 (risk table)",
+      "edit_instruction": "Add a bullet: 'Riziko automatizovaného rozhodování / profilování (AI ovlivní hodnocení/stupeň) — mitigace: zakázat plně automatizovaná rozhodnutí, zavést lidské ověření a odvolací postupy; právní přezkum.' Mark as 'general background guidance' if no legal text is embedded."
+    },
+    {
+      "target": "section 7 (checklist)",
+      "edit_instruction": "Add an explicit checklist line: 'Přiložená šablona deklarace studenta vložena do LMS (viz 9.2 / sekce šablon) — ANO/NE' and 'Právní/ DPO revize DPA a právního titulu — ANO/NE'."
+    },
+    {
+      "target": "LaTeX source",
+      "edit_instruction": "Remove redundant line breaks '\\\\' after '\\item' entries; for checkboxes convert to '\\item[\\(\\square\\)]' syntax or use proper list formatting so printed checkboxes align and compile cleanly. Example: replace '\\item[] \\(\\square\\) Minimalizovat sběr PII; sbírat jen nezbytné položky.\\\\' with '\\item[\\(\\square\\)] Minimalizovat sběr PII; sbírat jen nezbytné položky.'"
+    },
+    {
+      "target": "section 8 (informing students example)",
+      "edit_instruction": "Add a short suggestion to reuse the exact wording from the editable syllabus template or student LMS declaration (cross‑reference to sections 9.2 and the LMS declaration template) to ensure consistency."
+    }
+  ],
+  "retrieval_queries": [
+    "DPIA automated decision-making profiling GDPR education DPIA guidance",
+    "institutional DPIA template include DPO contact 'Data Protection Officer' university template DPIA",
+    "examples of DPIA fields 'legal basis' 'retention period' GDPR guidance DPIA"
+  ]
+}

@@ -1,0 +1,75 @@
+Tato sekce nabízí praktický workflow a sadu prompt šablon pro rychlé vytvoření návrhu sylabu a osnovy předmětu s pomocí generativní AI. Cílem je získat kvalitní počáteční návrh, který vyučující ověří a upraví tak, aby odpovídal místním požadavkům (ECTS, hodnocení, etika/GDPR) a pedagogickým cílům kurzu.
+
+\medskip
+\textbf{Rychlý pracovní postup (workflow).}
+\begin{enumerate}
+  \item Definujte rámec: cílová skupina, semestr/počet týdnů, kontaktní hodiny, očekávaný workload/ECTS.
+  \item Sepište 3--5 měřitelných učebních výstupů.
+  \item Pošlete do AI jasný prompt (viz šablony níže) a získejte návrh obsahující: stručný popis kurzu, výstupy, týdenní témata, návrh hodnocení a orientační rozdělení ECTS/workload.
+  \item Validujte návrh: faktická správnost, náročnost, soulad s ECTS a lokálními pravidly; upravte jazyk a úroveň.
+  \item Doplňte závěry týkající se etiky/GDPR a transparentnosti používání AI; vytvořte doprovodné materiály pomocí specializovaných nástrojů podle potřeby \cite{kb_ai_101_tipu_pdf_04e4a115_page_44_2, kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+\end{enumerate}
+
+\medskip
+\textbf{Důležité body validace (kontrolní seznam).}
+\begin{itemize}
+  \item Soulad výstupů s aktivitami a kritérii hodnocení.
+  \item Realističnost workloadu (hodiny vs.\ ECTS).
+  \item Jasné rozlišení procesu a produktu v hodnocení (milníky, průběžné odevzdání).
+  \item Transparentnost: do sylabu uveďte, co vzniklo s využitím AI (viz Kapitola 2).
+  \item Žádná citlivá data studentů nebyla použita bez příslušných DPA/DPIA.
+\end{itemize}
+
+\medskip
+\textbf{Praktické prompt šablony (kopírovat a upravit).}
+
+\textbf{1) Generování základního sylabu}
+\begin{verbatim}
+Jsem vyučující [Název], úroveň [bakalář/magistr].
+Cílovka: [ročník, předpoklady]; semestr: [týdny]; kontaktní hodiny: [x]; workload: [y h ~= z ECTS].
+Úkol: Navrhni sylabus (max 1 str.) s:
+ - krátkým popisem (2-3 věty),
+ - 4 měřitelnými výstupy,
+ - týdenním plánem témat,
+ - návrhem hodnocení (milníky + váhy),
+ - orientační literaturou.
+\end{verbatim}
+
+\textbf{2) Mapování výstupů na ECTS a hodnocení}
+\begin{verbatim}
+Mám tyto výstupy: [seznam].
+Pro každý navrhni:
+ - formy ověření (proces/produkt),
+ - doporučené váhy ve hodnocení,
+ - orientační čas (kontakt vs. samostatně).
+Uveď artefakty jako důkazy dosažení výstupu.
+\end{verbatim}
+
+\textbf{3) Struktura lekce (90/45/30 min)}
+\begin{verbatim}
+Pro týden [číslo] připrav osnovu 90min lekce:
+ - cíle lekce,
+ - časový rozpis (vstup, aktivita, diskuse, závěr),
+ - 2 aktivizační úlohy (různá náročnost),
+ - domácí úkol / další zdroje.
+\end{verbatim}
+
+\medskip
+\textbf{Tipy k využití výstupů s nástroji pro prezentace a grafiku.}
+\begin{itemize}
+  \item Některé nástroje dokážou vytvořit slide deck přímo do školní šablony, což zrychlí přípravu materiálů \cite{kb_ai_101_tipu_pdf_04e4a115_page_44_2}.
+  \item Pro vizuální prvky (ikony, obrázky, rozvržení) využijte Designer nebo podobné nástroje, které generují/úpravují grafiku a nastaví poměry stran \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+  \item Jako názornou ukázku AI v praxi lze vložit lab aktivitu (např. demonstrace v Minecraft Education) pro praktické principy učení AI \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\end{itemize}
+
+\medskip
+\textbf{Doporučené ověřovací kroky po vygenerování návrhu.}
+\begin{enumerate}
+  \item Projděte návrh s garantem nebo kolegou (peer review).
+  \item Ověřte zdroje a faktická tvrzení.
+  \item Přizpůsobte jazyk a úroveň obsahu specifikům kurzu.
+  \item Doplňte pravidla pro používání AI studenty (odkazy na AI Policy Template).
+\end{enumerate}
+
+\medskip
+Hotové prompty a šablony najdete v Přílohách této příručky (Prompt Library) — využijte je jako výchozí bod a vždy proveďte lokální úpravy a validaci. Poznámka: návrhy vygenerované AI urychlí tvorbu; konečná odpovědnost za obsah, pedagogickou kvalitu a soulad s interními pravidly zůstává na garantu předmětu.

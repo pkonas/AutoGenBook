@@ -1,0 +1,78 @@
+{
+  "title": "Kurz pedagogických dovedností",
+  "summary": "Krátký přehlední kurz zaměřený na rozvoj pedagogických kompetencí akademických pracovníků na Vysokém učení technickém v Brně. Pokrývá šest klíčových témat: vzdělávací cíle, plánování výuky, metody výuky, hodnocení a kritéria, zpětná vazba a reflexe. Kurz propojuje teoretické definice s praktickými doporučeními a aplikacemi v laboratořích a ateliérech. Cílem je podpořit přechod od teorie ke konkrétním zlepšením ve výuce.",
+  "audience": "akademičtí pracovníci a vyučující na vysoké škole (VUT v Brně)",
+  "duration_minutes": 30.0,
+  "style_guidance": "Formální a přehledný tón; vizuálně čisté snímky s čitelnými fonty, krátkými odrážkami a dostatkem volného prostoru. Použít barvy a grafické prvky v souladu s identitou VUT, zdůraznit klíčové body ikonami nebo jednoduchými schématy. Doporučit praktické příklady a konkrétní doporučení pro laboratorní/ateliérovou výuku.",
+  "theme": "Madrid",
+  "paginate": false,
+  "outline": true,
+  "author": "",
+  "header": "",
+  "footer": "",
+  "max_depth": 3,
+  "max_output_pages": 1.0,
+  "slides": [
+    {
+      "title": "Úvod",
+      "summary": "Představení kurzu pedagogických dovedností na VUT v Brně, jeho účelu a hlavních přínosů pro profesní rozvoj akademických pracovníků. Stručné uvedení struktury kurzu a očekávaných výsledků účasti.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Kontext a obsah kurzu",
+      "summary": "Popis současných výzev ve vysokoškolské výuce a potřeby zefektivnění edukačního procesu. Přehled šesti klíčových pedagogických témat, která budou v kurzu rozpracována.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Téma 1",
+      "summary": "Vysvětlení vzdělávacích cílů: definice očekávaných výsledků učení a význam jejich srozumitelného formulování pro studenty. Doporučení pro formulaci cílů tak, aby byly měřitelné a komunikovatelné.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Téma 2",
+      "summary": "Plánování výuky se zaměřením na hospodaření s časovou dotací a návaznost edukačních bloků. Rozdíl mezi dlouhodobým a krátkodobým plánováním a klíčové prvky kvalitního plánování.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Téma 3",
+      "summary": "Metody výuky: role výkladu, diskuse a aktivizujících přístupů pro hlubší učení. Návrhy na kombinaci metod a tipy, jak zvýšit zapojení studentů do praktických i teoretických částí.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Téma 4",
+      "summary": "Hodnocení a kritéria: důraz na transparentnost požadavků a spravedlivé, objektivní posuzování výkonu studentů. Doporučení pro formulaci hodnoticích kritérií a komunikaci hodnocení.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Téma 5",
+      "summary": "Zpětná vazba jako nástroj pro rozvoj: rozdíl mezi bodovým hodnocením a formativní zpětnou vazbou zaměřenou na zlepšení výkonu. Praktické principy kvalitní zpětné vazby (konkrétní, včasná, zaměřená na zlepšení).",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Téma 6",
+      "summary": "Reflexe výuky: identifikace a analýza problémů ve výukovém procesu a systematické odstraňování bariér. Jak reflexe podporuje profesní rozvoj vyučujícího a zlepšování výuky.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Aplikace do praxe",
+      "summary": "Konkrétní aplikace pedagogických prvků v prostředí VUT v Brně, zejména v laboratořích a ateliérech. Příklady sladění cílů, metod a hodnocení s praktickými požadavky a kontextem učebních pracovišť.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Závěr",
+      "summary": "Závěrečné shrnutí hlavních myšlenek kurzu a výzva k účasti a dalšímu rozvoji. Informace o přihlášení do programu a přechodu od teorie ke konkrétním pedagogickým řešením.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    }
+  ],
+  "n_pages": 10.0
+}

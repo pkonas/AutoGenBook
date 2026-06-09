@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Sekce správně začíná poznámkou, že jde o obecná doporučení (\"general background knowledge\"). Nicméně některé položky (např. \"užitnost pro učitele\") zůstávají vágní a obsahují implicitní tvrzení o přínosech bez odkazu na ověřené postupy nebo zdroje.",
+      "required_fix": "Buď explicitně zachovat a rozšířit kvalifikaci jako \"general background knowledge\" u konkrétních bodů, nebo doplnit krátké odkazy na místní piloty / oddělení kvality a postupy ověření (viz návrh editů). Pokud budete chtít přidat konkrétní metriky nebo hodnoty (např. cílové hodnoty shody), dodejte zdroje nebo výsledky lokálních pilotů."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce se tematicky shoduje s obsahem v paměti (např. doporučení pro ruční verifikaci vzorku), ale neodkazuje explicitně na související části průvodce (např. část o etice, ochraně soukromí a ověřování výstupů).",
+      "required_fix": "Přidat krátké křížové odkazy na relevantní části průvodce (např. sekci 5 \"Etika, ochrana soukromí a ověřování výstupů\" a sekci s pravidly pro verifikaci)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Návrh metrik je užitečný, ale pojmy jako \"shoda s lidským hodnocením\", \"konzistence\" a \"užitnost pro učitele\" nejsou operacionalizovány (chybí způsob měření a příklady metrik / nástrojů).",
+      "required_fix": "Doplňte ke každému navrženému ukazateli krátkou definici a příklad, jak ho vypočítat nebo změřit (např. procento shody, Cohenova kappa nebo ICC pro shodu; opakovací testy pro konzistenci; čas na hodnocení / dotazník pro užitnost). Pokud chcete citovat statistické metody, přiložte důkaz nebo odkaz na doporučenou metodiku."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Chybí konkrétní, ilustrační příklad rubriky a ukázkový průběh validace (malý vzorek odpovědí s porovnáním automat vs. člověk), což by výrazně usnadnilo praktické nasazení a pochopení postupu.",
+      "required_fix": "Přidejte jeden krátký příklad (1–2 otázky) s ukázkovou rubrikou a ilustrativním výsledkem automatického skórování vs. ručního hodnocení v LaTeXu. Ukažte, jak identifikovat systematické odchylky (např. 3 konkrétní případy chyb)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX tělo je obecně syntakticky v pořádku. Pro lepší integraci do širšího dokumentu by bylo užitečné přidat \\\\label pro křížové odkazy a zvážit použití vhodného prostředí pro poznámku (např. quote či emph).",
+      "required_fix": "Přidat \\label{sec:automatizovane-hodnoceni-kratkych-odpovedi} hned za název nebo na začátek latex_body a případně obalit úvodní poznámku do \\begin{quote}\\footnotesize ... \\end{quote} pro lepší čitelnost."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "úvodní poznámka",
+      "edit_instruction": "Zachovat varování \"general background knowledge\" a přidat větu: \"Viz také sekce 5 o etice a ochraně osobních údajů pro požadavky na souhlas a auditovatelnost.\" (vložit \\label pro křížové odkazy)."
+    },
+    {
+      "target": "sekce 'Návrh metrik kvality'",
+      "edit_instruction": "U každého bodu přidejte krátkou operacionalizaci. Např.: 'shoda s lidským hodnocením — reportovat % shody a Cohenovu kappu mezi automatickým skórem a průměrem dvou lidských hodnotitelů; cílově používat pilotní prahy před nasazením.' Pokud chcete konkrétní metody, připojte reference nebo výsledky pilotu."
+    },
+    {
+      "target": "sekce 'Základní implementační postup'",
+      "edit_instruction": "Doplnit krok mezi 2 a 3: 'nastavte metriky a plán validace (vzorek, metody porovnání, kritéria akceptace)'. Také přidat návrh šablony pro protokolování rozhodnutí modelu (co ukládat: input, výstup, skóre, verzí modelu, čas, opatření učitele)."
+    },
+    {
+      "target": "sekce 'Validace proti ručnímu hodnocení'",
+      "edit_instruction": "Doplnit krátký checklist: (a) vybrat reprezentativní (ideálně stratifikovaný) vzorek, (b) mít alespoň dva nezávislé lidské hodnotitele pro výpočet mezihodnotitelské shody, (c) analyzovat systematické chyby podle typu otázky a demografických skupin, (d) rozhodnout prahy pro automatické akceptování vs. lidskou revizi."
+    },
+    {
+      "target": "praktické tipy pro pilot",
+      "edit_instruction": "Přidat konkrétní ukázkovou rubriku (v LaTeXu) pro krátkou odpověď 50–150 slov se 3 kritérii (relevance, přesnost, jasnost) a 3 úrovněmi (0/1/2 body) a krátký příklad, jak by systém a učitel řešili rozdíl."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices automated short answer scoring validation sample size and metrics (Cohen's kappa, percent agreement, ICC) guidance for education evaluation",
+    "recommendations anonymization and consent for processing student assessment data (GDPR guidance or university policies) best practices",
+    "example rubrics for short-answer grading (3-level rubric template) and worked examples comparing automated scoring to human raters"
+  ]
+}

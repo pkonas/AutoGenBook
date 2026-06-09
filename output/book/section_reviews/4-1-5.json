@@ -1,0 +1,48 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "One bullet is annotated as '(general background knowledge)' but the recommended practice (keeping a simple error/incident registry and versioning system/instructional prompts for rollback and A/B testing) is described in the KB (see rolování instrukcí / provozní artefakty referenced elsewhere in the memory). This item should either be cited to the KB or be explicitly marked and kept as a minimal general recommendation.",
+      "required_fix": "Replace the '(general background knowledge)' tag with an explicit footnote citation to the KB (kb_ai_101_tipu_pdf_page_15_2) or rephrase the bullet as a brief general‑background note separated from KB‑sourced items. Example: add \\footnote{Source: kb_ai_101_tipu_pdf_page_15_2} or move the sentence into a short 'General background' paragraph."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Multiple \\footnote entries are used inside the itemize environment. While legal in LaTeX, this sometimes produces awkward spacing/numbering depending on the document class and can complicate automated processing of the LaTeX body.",
+      "required_fix": "Either move the footnotes to the paragraph following the itemize (collecting citations there) or convert inline citations to parenthetical source tags (e.g., [Source: kb_ai_101_tipu_pdf_page_15_2]) if the build system prefers. Ensure consistent footnote numbering and compilation."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The item 'Do sylabu explicitně uveďte pravidla používání asistenta (co je povoleno, co vyžaduje deklaraci, komu hlásit problémy) …' asks to state 'komu hlásit problémy' but does not give the minimal recommended role names. The context memory repeatedly recommends defining responsibilities (IT, garant, vyučující).",
+      "required_fix": "Add a short parenthetical example listing typical responsible roles, e.g. '(např. IT — přístup k logům a incidentům; garant předmětu — revize instrukcí; kontaktní osoba pro studenty)'. Add a KB footnote to kb_ai_101_tipu_pdf_page_15_2 to ground the recommendation."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section correctly emphasises transparency in the syllabus but could point the reader to the concrete AI policy/syllabus templates in the KB (existing elsewhere in the manual) to make it easier for instructors to act on the recommendation.",
+      "required_fix": "Add an explicit cross‑reference to the available syllabus templates/checklists (e.g., the AI policy and editable syllabus template noted in the manual's appendices) and cite the KB page that contains those templates (use the appropriate KB cite key available in the repository). If the exact cite key is not available here, add 'see appendix / šablony' and link/cite when the correct KB location is provided."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace the '(general background knowledge)' tag in the 'registr chyb/nevhodných odpovědí' bullet with a KB footnote citing kb_ai_101_tipu_pdf_page_15_2 (the KB already documents logging, versioning and A/B testing workflows)."
+    },
+    {
+      "target": "itemize footnotes",
+      "edit_instruction": "To avoid LaTeX footnote/spacing issues, either move all \\footnote{} calls out of individual \\item entries and place consolidated footnotes after the itemize, or replace footnotes with inline bracketed source tags consistent with the rest of the document."
+    },
+    {
+      "target": "syllabus bullet",
+      "edit_instruction": "Clarify 'komu hlásit problémy' by adding brief role examples (IT, garant, kontaktní osoba pro studenty) and add a supporting footnote to kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "target": "final paragraph",
+      "edit_instruction": "Add a short cross‑reference to the manual's syllabus templates / AI policy appendix (for concrete wording teachers can copy into sylabi). If the exact KB citation for the template is available, add it as a footnote; otherwise add 'see příloha: AI policy do sylabů' and link when available."
+    }
+  ],
+  "retrieval_queries": []
+}

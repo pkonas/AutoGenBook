@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Most statements are labelled as \"(General background knowledge)\" which satisfies the requirement to flag unsupported content. However, the section makes procedural recommendations (e.g. pilot, peer review of tests, A/B experiments) without citations or pointers to concrete examples or evidence-based practices.",
+      "required_fix": "Either keep the statements explicitly labelled as general background knowledge (as they are now) or add supporting references / concrete examples from the knowledge base (e.g. case studies, tool documentation, evaluation reports). If no citations are available, retain the general‑knowledge label but consider adding a short clarifying sentence that these are high‑level recommendations to be adapted locally."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section is short and high-level; several steps are generic and may be insufficient for practitioners who expect concrete next steps (e.g. what a test case should include, how to structure human review, what metrics to collect).",
+      "required_fix": "Expand a few items with concrete, non‑claimed templates or examples (for example: a minimal checklist for a test case: inputs, expected outputs, edge cases, performance constraints; an outline of human review workflow: triggers for manual review, roles, SLA). If concrete examples are not added, add pointers to where the reader can find templates (e.g. an appendix or external resources) or mark as intentional high-level guidance."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The Outline and Context memory indicate that this section should include 'požadované technologie a integrační body do LMS', but the current text only briefly mentions choosing a tool compatible with the LMS without describing integration points or required technologies.",
+      "required_fix": "Add a short paragraph listing common integration considerations (authentication, gradebook sync, file formats, sandboxing/execution environments) or explicitly cross-reference the later chapter(s) that cover integration details and technical requirements."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The pedagogical guidance is present (faster grading, immediate feedback), but there is no guidance on aligning autograder use with learning objectives, rubrics, or formative vs summative assessment design.",
+      "required_fix": "Add a brief note recommending alignment of autograder tasks with explicit learning objectives and rubrics, and clarify when autograders are most appropriate (formative practice, low‑stakes quizzes, or parts of summative assessments with human oversight). If detailed pedagogical guidance will appear elsewhere, add a cross-reference."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX is syntactically valid, but every item and paragraph is prefixed with the literal marker '(General background knowledge)', which is repetitive and clutters the source.",
+      "required_fix": "Remove repeated '(General background knowledge)' markers inside the LaTeX body and instead include a single statement at the start of the section that the content is general background knowledge. This will improve readability and reduce clutter in the LaTeX source."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Replace repeated inline labels with a single sentence: e.g. 'Poznámka: níže uvedené body jsou obecné doporučení (general background knowledge) a je vhodné je přizpůsobit lokálním podmínkám.'"
+    },
+    {
+      "target": "Základní kroky zavedení",
+      "edit_instruction": "For each enumerated step, add one concise actionable sub-bullet. Examples: for step 2 (testovací sady) add a checklist: '1) definovat vstupy; 2) očekávaný výstup; 3) okrajové případy; 4) nejednoznačné vstupy; 5) automatické i ruční testy.' For step 4 (pilot) add guidance on pilot size (e.g. one lab group or 5–15% of class) and pilot duration (e.g. one assignment or 2–4 weeks) or else cross-reference a pilot guidance section."
+    },
+    {
+      "target": "implementační workflow",
+      "edit_instruction": "Expand the single‑line workflow into a 3–5 step micro‑workflow: '1) odevzdání spouští sandbox execution; 2) autograder vrací skóre a diagnostiku; 3) výsledky uloží do LMS gradebook; 4) pravidlo: ruční přezkum pokud selhání testu neodpovídá chybě nebo pokud student žádá review.'"
+    },
+    {
+      "target": "Měření přínosu a kvality",
+      "edit_instruction": "Add concrete metrics examples and measurement method hints: 'Čas ručního hodnocení (hodiny na úkol), % oprav po aktualizaci testů, spokojenost studentů (krátký dotazník), procento případů přesměrovaných k ručnímu přezkumu.' If rigorous evaluation is intended, recommend simple pre/post measurements or a short pilot A/B with defined outcome variables."
+    },
+    {
+      "target": "Běžná rizika a mitigace",
+      "edit_instruction": "Add a short cross-reference to the later chapter on ethics, data protection and consent, and include a one-sentence item about data privacy: 'Zvažte ochranu osobních údajů a souhlas studentů; viz kapitola 3 pro praktickou doporučenou formulaci a procedury.'"
+    }
+  ],
+  "retrieval_queries": [
+    "Best practices for deploying autograders in higher education pilot studies case study integration with LMS",
+    "Common technical integration points for autograders and LMS gradebook sync authentication file formats (Moodle Canvas Blackboard) documentation",
+    "Metrics and evaluation methods for autograder impact on grading time and student learning A/B experiments",
+    "Guidance on human-in-the-loop workflows for automated grading and triggers for manual review",
+    "Data protection and consent considerations for automated grading systems GDPR guidance higher education"
+  ]
+}

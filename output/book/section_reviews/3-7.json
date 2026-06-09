@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several practical recommendations and workflow steps in the section are presented as factual guidance (e.g. the numbered 'Doporučený rychlý workflow', export format recommendations, and some checklist items) but are not explicitly supported by the provided retrieved excerpts. According to the NON-NEGOTIABLE GROUNDING RULES, non-trivial factual claims or procedural recommendations that are not present in the retrieved excerpts must be either removed or explicitly labeled as 'general background knowledge'.",
+      "required_fix": "Mark the procedural recommendations and export/checklist items that are not directly supported by the retrieved excerpts as 'general background knowledge', or add explicit citations to supporting source material. Specifically: (a) label the entire 'Doporučený rychlý workflow for vytvoření vizuálu k lekci' as general background knowledge unless you can add a supporting excerpt; (b) label the export-format recommendations (PNG/SVG/JPG/PDF) and the checklist items about alt-text and metadata as general background knowledge or provide a supporting citation; (c) ensure any claim about availability/limits of Designer features is tied to the retrieved excerpts (e.g. page_51 and page_52) or to other verifiable sources."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The new section overlaps with content in earlier sections (e.g. slide-generation workflow and the recommendation to use Microsoft Designer). The overlap is not contradictory but the section does not explicitly cross-reference the earlier 'Tvorba výukových prezentací a slide decků' section where closely-related workflows are defined.",
+      "required_fix": "Add an explicit cross-reference to the earlier section (Tvorba výukových prezentací a slide decků) for the high-level slide/visual workflow, or indicate which steps are the same vs. specialized for image generation/editing."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Small LaTeX issues that may affect rendering or style: the parenthetical label 'copy \\\\ \\& adapt' contains a double backslash and an escaped ampersand which may produce an unwanted linebreak or layout effect; the document uses a verbatim environment correctly but the section header uses an explicit percent comment at the top which is acceptable but unusual.",
+      "required_fix": "Change 'Praktické prompt‑šablony (copy \\\\ \\& adapt)' to a safer LaTeX phrasing such as 'Praktické prompt‑šablony (copy \\& adapt)' (single escaped ampersand) or 'Praktické prompt‑šablony — copy & adapt' (using \\texttt{} if monospace desired). Verify that the double backslash is intentional; if not, remove it."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some steps are high-level and would benefit from a concise concrete example (for instance, a minimal before/after transform prompt sequence or an explicit example of metadata fields to save). The verbatim prompt templates are useful but adding an explicit example of saved prompt metadata format would improve reproducibility.",
+      "required_fix": "Add one short concrete example showing: (a) the exact prompt used to generate an image, (b) the parameter values to save (aspect ratio, style tags, seed if available, export format), and (c) a short transform prompt example (before/after) illustrating iterative update. If such an example cannot be supported by a retrieved excerpt, label it as 'general background knowledge'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Pedagogical recommendations (e.g. 'Vygenerujte 3 varianty, vyberte nejvhodnější') are sensible but are not tied to evidence in the retrieved excerpts. The section also suggests workflows for classroom use without explicitly connecting to the 'Praktická šablona vizuální struktury slideu' from earlier in the manual.",
+      "required_fix": "Either (a) add an explicit short note referencing the earlier slide-structure guidance so readers can align the image-generation workflow with slide templates, or (b) label the iterative-generation recommendation as 'general background knowledge'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Doporučený rychlý workflow for vytvoření vizuálu k lekci (whole numbered list)",
+      "edit_instruction": "Prefix the numbered workflow with '(general background knowledge)' or insert a citation if you have an excerpt that supports each listed recommendation. If you cannot add citations, rewrite to make clear these are practical teacher heuristics rather than documented features."
+    },
+    {
+      "target": "Export recommendations and 'Checklist při exportu a nasazení vizuálů' items",
+      "edit_instruction": "Either add supporting evidence for file-format recommendations and metadata practices, or label each item explicitly as '(general background knowledge)'. Consider providing a minimal metadata schema example (fields: prompt text, aspect ratio, style tags, generation date, tool/version) and label it as background knowledge if unsourced."
+    },
+    {
+      "target": "Praktické prompt‑šablony heading",
+      "edit_instruction": "Replace 'Praktické prompt‑šablony (copy \\\\ \\& adapt)' with a LaTeX-safe phrase such as 'Praktické prompt‑šablony (copy \\& adapt)' or 'Praktické prompt‑šablony — copy & adapt'."
+    },
+    {
+      "target": "Ukázka postupu pro úpravu části obrázku (transformace)",
+      "edit_instruction": "Add a one-sentence concrete example showing a before/after transform prompt (e.g. original prompt summary + transform prompt) and mark it as 'general background knowledge' if it is not directly supported by the retrieved excerpts."
+    },
+    {
+      "target": "Poznámka k licencím a dostupnosti funkcí",
+      "edit_instruction": "Tighten the wording to directly reference the retrieved excerpt about Copilot transform availability and account limitations (cite kb_ai_101_tipu_pdf_04e4a115_page_52_2 and kb_ai_101_tipu_pdf_04e4a115_page_51_1 where appropriate)."
+    }
+  ],
+  "retrieval_queries": [
+    "Is there a reliable source or KB excerpt that recommends export formats for icons vs. full-page materials (e.g. 'export icons as SVG/PNG and materials as JPG/PDF')?",
+    "Is there an explicit KB excerpt that prescribes saving prompt metadata (which fields to save) for reproducibility of Designer/Copilot-generated images?",
+    "Any additional excerpt about Designer account limitations (e.g. which features require private Microsoft accounts) beyond kb_ai_101_tipu_pdf_04e4a115_page_51_1 to clarify availability for educational accounts?",
+    "Are there retrieved examples or best-practice notes in the KB about alt-text conventions for AI-generated images (short 1-2 sentence alt-text guidance) to support the checklist item?"
+  ]
+}

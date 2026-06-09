@@ -1,0 +1,42 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The text refers to the RAG blueprint ('RAG blueprint je v příloze 9.4') and to 'kapitola o GDPR' but does not use explicit internal cross‑references (chapter numbers) or footnotes for these internal pointers. The outline / retrieved excerpts show presence of příloha 9.4 and kapitola 2.2, so the section should cite them explicitly to improve grounding and navigability.",
+      "required_fix": "Change the ambiguous references to explicit internal cross‑references (e.g. 'viz příloha 9.4' → 'viz příloha 9.4 (Základní RAG blueprint)'; 'viz kapitola o GDPR' → 'viz kap. 2.2 Ochrana soukromí a GDPR') and add corresponding footnotes or \\\\ref commands as appropriate in the LaTeX source."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Many items are correctly labeled as 'general background knowledge', but several operational checklist steps and the short example workflow read as prescriptive heuristics. Readers would benefit from an explicit short statement that these are pragmatic heuristics to be adapted locally.",
+      "required_fix": "Add one or two short qualifying sentences (marked as general background knowledge) before the checklist and before the example workflow, e.g. 'Následující checklist a časový plán jsou praktické heuristiky; přizpůsobte je podle místních podmínek, licencí a provozních požadavků.'"
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX contains inline footnotes inside list items (which is acceptable) but the RAG and GDPR internal references are plain text. To improve cross‑referencing in the compiled document, use LaTeX labels/refs or consistent \\\\footnote entries for internal pointers.",
+      "required_fix": "Replace plain textual pointers with proper LaTeX references or footnotes (for example: 'RAG blueprint je v příloze~\\ref{app:RAG}' and add \\label{app:RAG} in příloha 9.4; 'viz kap.\\,2.2 (Ochrana soukromí a GDPR)' or a footnote pointing to section label). Ensure footnote syntax is correct and compiles."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Before the 'Praktický checklist' add a one‑line qualifier: 'Poznámka: následující checklist jsou praktické heuristiky (general background knowledge) — přizpůsobte je místním podmínkám a smluvním požadavkům.'"
+    },
+    {
+      "target": "checklist item 3",
+      "edit_instruction": "Replace 'RAG blueprint je v příloze 9.4' with an explicit internal reference/footnote, e.g. 'RAG blueprint je v příloze~9.4 (viz příloha 9.4)'. Preferably use LaTeX cross‑reference: 'viz příloha~\\ref{sec:9.4-RAG}'."
+    },
+    {
+      "target": "checklist item 4",
+      "edit_instruction": "Replace 'viz kapitola o GDPR' with 'viz kap. 2.2 (Ochrana soukromí a GDPR)' or add a footnote pointing to section 2.2 to make the pointer explicit and navigable."
+    },
+    {
+      "target": "footnotes / references",
+      "edit_instruction": "Ensure the existing external-source footnotes are preserved (kb_ai_101_tipu_pdf_page_36_1, kb_ai_101_tipu_pdf_page_15_2, kb_ai_101_tipu_pdf_page_54_1). Add similar internal footnotes/labels for 9.4 and 2.2 so readers can jump to the referenced material in the compiled document."
+    }
+  ],
+  "retrieval_queries": []
+}

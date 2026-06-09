@@ -1,0 +1,7 @@
+We compare the proposed graph-aware prompting pipeline to a linear prompting baseline and several ablations, evaluating a full graph-aware system (graph construction, leaf-first scheduling, evidence injection, JSON enforcement) against a linear baseline and variants: no JSON enforcement, breadth-first scheduling, limited evidence scope, and linear+schema.
+
+For reproducibility we record model endpoint and API parameters, exact prompt templates, JSON schema and enforcement mechanism, retrieval backend and snippet-ranking, randomness seeds and seeding strategy, and hardware/compute accounting in the appendix.
+
+Prompts follow standardized blocks—task and schema, injected ranked evidence with provenance, formatting/citation instructions, and failure handling (INSUFFICIENT\_EVIDENCE); generators are instructed to emit schema-conformant JSON when enforced and to cite only claims supported by provided snippets.
+
+We fix controllable random seeds where possible, report observed variance otherwise, and document platform limitations (e.g., closed APIs or non-deterministic endpoints) and resource usage in the appendix to enable replication and cost comparisons.

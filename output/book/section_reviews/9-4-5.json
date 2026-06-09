@@ -1,0 +1,72 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Úvodní věta ('Krátký úvod: níže uvedené blueprinty poskytují...') obsahuje faktické tvrzení o účelu a povaze obsahu, ale není označena jako 'general background knowledge' ani není explicitně navázána na existující položku v KB (např. 9.4.5 / Prompt Library). Podle pravidel musí být nenápadná/neověřená tvrzení buď citována, nebo označena jako general background knowledge.",
+      "required_fix": "Buď označit úvodní větu jako '(general background knowledge)', nebo přidat explicitní odkaz na relevantní položku v příloze (např. 9.4.5 / 9.1 Prompt Library) aby bylo jasné, že jde o shrnutí existujícího obsahu."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Citovaná šablona promptu pro vyučující (uváděná jako přímá citace) není explicitně navázána na záznam v Prompt Library (9.1) ani na jiný konkrétní excerpt. I když sekce obsahuje označení 'general background knowledge' u některých částí, tento konkrétní prompt by měl být buď podepřen odkazem na 9.1, nebo označen jako příklad/obecná ukázka.",
+      "required_fix": "Přidat krátkou poznámku 'viz Prompt Library (9.1)' nebo přesně označit tento text jako 'příklad (general background knowledge)'. Ve LaTeXu uvést prompt v verbatim/texttt prostředí a přidat poznámku o původu (Prompt Library)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX body používají inline \\\\footnote{Source: kb_...} poznámky; je třeba ověřit, že v konečném dokumentu budou tyto klíče správně zpracovány (buď jako prostý text v poznámce, nebo mapované na bibliografii). Také prompt obsahuje znaky '~' a krátké citace, které by měly být v LaTeXu escapovány nebo umístěny do verbatim bloku.",
+      "required_fix": "Upravit LaTeX: 1) změnit \\footnote{Source: kb_xxx} na čitelný text v poznámce (např. \\footnote{Zdroj: kb_ai_101_tipu_pdf_page_15_2}), nebo propojit s bibitem; 2) vložit šablonu promptu do \\begin{verbatim}...\\end{verbatim} nebo \\texttt{}; escapovat zvláštní znaky."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Sekce uvádí 'požadavky na meziverze/milníky a ústní ověření' bez konkrétních doporučení (časové osy, počet meziverzí, formát ústního ověření). To snižuje použitelnost template pro učitele, kteří očekávají konkrétní, snadno kopírovatelný vzor.",
+      "required_fix": "Doporučit a vložit krátký vzor (např. minimálně 2 meziverze: koncept + finální odevzdaný dokument v týdnu X/Y; krátké ústní ověření 10 min během konzultací) nebo přidat odkaz na šablonu milestone-based hodnocení (sekce 5.5 / 9.3.2)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Praktické příklady (Minecraft Education, 'Pokrok v matematice', Microsoft Designer) jsou správně podložené vybranými KB excerpty, ale chybí krátké instrukce, jak je konkretizovat do zadání RAG (jak indexovat materiály, jak formulovat vyhledávací prompt ve RAG).",
+      "required_fix": "Doplnit jednu krátkou ukázku (1–2 věty) RAG promptu pro vyhledání materiálů k tématu v kurzu a požadovaný formát průvodního dokumentu (např. seznam zdrojů + 2–3 větové zhodnocení relevance). Pokud chcete plnohodnotný příklad, doplnit odkaz na Prompt Library (9.1) nebo vložit příklad z promptů v 9.1."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Node_key je uveden jako '9-4-5' zatímco v outline se používá formát '9.4.5'. Možná drobná nekonzistence v označení sekce/přenositelnosti mezi editor tools.",
+      "required_fix": "Upravit node_key na konzistentní formát (např. 9.4.5) nebo potvrdit, že '9-4-5' odpovídá internímu systému a zrevidovat za účelem jednotnosti."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Přidejte za první větu '(general background knowledge)' nebo nahraďte 'Krátký úvod: ...' verzí 'Krátký úvod (general background knowledge): ...' tak, aby bylo zřejmé, že jde o souhrnná doporučení, ne o nový empirický výsledek."
+    },
+    {
+      "target": "Šablona promptu pro vyučující",
+      "edit_instruction": "Vložte citovaný prompt do LaTeX verbatim bloku (\\begin{verbatim}...\\end{verbatim}) nebo \\texttt{}, přidejte poznámku 'viz Prompt Library (sekce 9.1)' a případně znení upravte na: 'Příklad promptu (general background knowledge, viz 9.1): ...'."
+    },
+    {
+      "target": "Praktické příklady / RAG zadání",
+      "edit_instruction": "Doplňte krátký konkrétní příklad RAG promptu (1–2 věty) a jasnou strukturu požadovaného průvodního dokumentu (obsah: postup vyhledávání, uvedené zdroje s ID/metadata, 2–3 větové zhodnocení relevance). Pokud preferujete, připojte odkaz 'viz Prompt Library (9.1)' místo vložení plného příkladu."
+    },
+    {
+      "target": "Milníky a ústní ověření",
+      "edit_instruction": "Přidejte jednoduchý vzor rozvržení milníků (např. 'Týden 3 – koncept + seznam použitých zdrojů; Týden 6 – první verze se záznamy vyhledávání; Týden 10 – finální odevzdání + krátké ústní ověření 10 min') nebo přidejte poznámku 'viz milestone templates sekce 5.5 / příloha 9.3.2'."
+    },
+    {
+      "target": "LaTeX footnotes",
+      "edit_instruction": "Upravte \\footnote{Source: kb_...} na čitelný tvar v češtině (např. \\footnote{Zdroj: AI – 101 tipů, str. 15}) nebo propojte s bibliografií; escapujte tildy a další speciální znaky v promptu."
+    },
+    {
+      "target": "node_key",
+      "edit_instruction": "Normalizujte označení sekce na '9.4.5' pokud to odpovídá zbytku dokumentu."
+    }
+  ],
+  "retrieval_queries": [
+    "Prompt Library (sekce 9.1) — konkrétní ukázkové prompty pro vyučující, zvláště příklady promptů pro shrnutí ~200 slov, 3 cvičení a 1 check‑question.",
+    "RAG blueprint for courses (sekce 9.4.1) — krátký příklad promptu a doporučený formát průvodního dokumentu pro studentské zadání RAG.",
+    "Milestone templates / sekce 5.5 — vzor rozvržení milníků a doporučené délky ústního ověření pro kursy."
+  ]
+}

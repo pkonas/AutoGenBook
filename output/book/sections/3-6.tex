@@ -1,0 +1,68 @@
+% Tělo sekce: Tvorba výukových prezentací a slide decků
+% (Pozor: název sekce se neuvádí — pouze obsah)
+
+Cílem této části je nabídnout učitelský workflow pro rychlé a bezpečné převedení sylabu a osnovy lekce do srozumitelných slide decků, doporučené vizuální šablony a praktické prompty, které lze okamžitě použít nebo adaptovat. Praktické tipy vycházejí z ověřených možností nástrojů pro generování grafiky a z práce s digitálním rukopisem, které jsou užitečné při tvorbě výukových materiálů.
+
+Úvodní doporučený workflow (shrnutí)
+\begin{enumerate}
+  \item Sestavte „kostru“ prezentace: 3--5 hlavních výstupů lekce a seznam klíčových bodů pro každý výstup.  (general background knowledge)
+  \item Rozdělte obsah na typy slideů: úvodní / cíl, vysvětlení konceptu, příklad / demonstrace, aktivita / úkol pro studenty, shrnutí / takeaway. (general background knowledge)
+  \item Pro každý slide napište 1--2 věty „hlavní myšlenky“, které chce učitel předat; ty jsou vstupem pro generování odstavců, bodů a poznámek lektora pomocí LLM. (general background knowledge)
+  \item Vytvořte nebo vygenerujte relevantní vizuál k nejméně jednomu klíčovému slideu (diagram, ilustrace, screenshot nebo monogram/ikonka). Pro generování ilustrací lze využít nástroje jako Microsoft Designer, který umí vytvářet nové grafiky z promptu, upravovat stávající grafiku a také generovat obrázky v různých poměrech stran (např. širokoúhlé) \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+  \item Pokud sbíráte ručně psané vzorce nebo poznámky pro prezentaci, použijte nástroje pro převod rukopisu (např. OneNote), které dokážou převést rukopisné rovnice do digitální podoby a usnadnit jejich vložení do slideů \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Validujte každý automaticky vygenerovaný text a vizuál lidskou revizí; doplňte alt text pro obrázky a krátké poznámky k použití při výuce. (general background knowledge)
+\end{enumerate}
+
+Praktická šablona vizuální struktury slideu (opakovatelný pattern)  (general background knowledge)
+\begin{itemize}
+  \item Hlavička (1 věta): název bloku / slide topic.
+  \item Klíčová myšlenka (1--2 věty): co si student má odnést.
+  \item 3 krátké body (bullety) nebo jedno krátké vysvětlení + příklad (max. 6 řádků textu).
+  \item Vizuální prvek (obr. / schéma / screenshot / ikona) — dominantní prvek slideu.
+  \item Takeaway / otázka pro studenty (1 věta) nebo krátká aktivita (má‑to‑udělat‑student).
+\end{itemize}
+
+Použití Microsoft Designer pro vizuály (konkrétní možnosti)
+\begin{itemize}
+  \item Designer podporuje tři režimy práce: generování nové grafiky z promptu, úpravu existující grafiky a klasický ruční návrh; je užitečný tam, kde chcete vytvořit rychlé obrázky, ikony nebo stylizované pozvánky a monogramy pro výuku \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+  \item Designer umí generovat obrázky na základě textového promptu a umožňuje nastavit různé poměry stran (není omezen na 1:1), což usnadňuje tvorbu širokoúhlých slide ilustrací nebo bannerů \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+  \item Praktické nápady: vytvořte si sadu malých ikon (avatarů, štítků) pro rychlé odlišení typů úloh ve slidech (např. „cvičení“, „domácí úkol“, „checkpoint“). Designer zvládne i varianty pro samolepky/štítky s bílým okrajem, které lze exportovat do prezentací \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+\end{itemize}
+
+Práce s rukopisem a rovnicemi
+\begin{itemize}
+  \item Pokud v kurzu používáte ruční zápis (tabule, tablet), převeďte záznamy do digitální podoby pomocí OneNote nebo podobných nástrojů; OneNote dokáže detekovat rovnice a převést je do editovatelné digitální podoby, což usnadní vložení přesných matematických výrazů do slideů \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Doporučení (general background knowledge): po převodu rovnice zkontrolujte formátování (font, zarovnání), přidejte krátkou poznámku ke každému kroku a případně animaci, která postupně odhalí kroky řešení během prezentace.
+\end{itemize}
+
+Praktické prompt‑šablony pro převod sylabu do slidů (copy \\ \& adapt)  (general background knowledge)
+\begin{verbatim}
+1) "Vezmi tento odstavec sylabu (vložit text) a rozděl ho na 5 slideů:
+ - pro každý slide napiš: název slide (5-7 slov), 2-4 bullet body, jednu krátkou aktivitu pro studenty (1 věta), návrh vizuálu (1-2 slova)."
+2) "Pro tento konkrétní učení výsledek: 'Student rozumí základům numerické integrace'
+ - vygeneruj 3 slidey: (a) krátké vysvětlení konceptu, (b) jednoduchý příklad krok-po-kroku, (c) návrh krátké in-class aktivty + kontrolní otázka."
+3) "Vytvoř návrh 1-snímkového přehledu kurzu: struktura 10 týdnů, u každého týdne 1 věta o cíli a doporučený artefakt (prezentace/úkol/projekt)."
+\end{verbatim}
+
+Tipy pro přístupnost a nasazení v LMS (general background knowledge)
+\begin{itemize}
+  \item Každý obrázek opatřete krátkým alt‑textem (1–2 věty) a v poznámkách lektora uveďte, jak obrázek komentovat při výuce.
+  \item Exportujte slide decky do PDF pro studentské materiály a zachovejte samostatný soubor s podrobnými poznámkami lektora (pro asistentky/asistenty).
+  \item U větších kurzů připravte „master“ slide šablonu s jednotným stylem a sadou ikon; šablonu uložte do repozitáře katedry pro opakované použití.
+\end{itemize}
+
+Rychlý checklist před publikací (general background knowledge)
+\begin{itemize}
+  \item Text na slidech stručný: max. 6 řádků / 6 slov na řádek.
+  \item Vizuál relevantní a čitelný při redukovaném rozměru (thumbnail).
+  \item Kontrola správnosti konverze rovnic (pokud byla použita automatika).
+  \item Přidat zdroje / odkazy a upozornění na použití AI při generování obsahu (transparentnost).
+\end{itemize}
+
+Poznámka k integraci nástrojů a dalšímu zpracování
+\begin{itemize}
+  \item Pokud používáte generování obrázků z promptů, uložte původní prompty a metadata (styl, rozměr), aby bylo možné vizuály reprodukovat nebo upravit později; u Microsoft Designeru je možné experimentovat s variantami a exportovat různé poměry stran pro použití v slidech \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+  \item V případech, kdy do slide decku zahrnujete materiály studentů (např. jejich projekty nebo screenshoty), zvažte souhlas ke zveřejnění a pravidla ochrany osobních údajů podle místních směrnic (general background knowledge).
+\end{itemize}
+
+Závěrem: kombinujte strukturovaný text, jeden silný vizuál na slide a krátkou aktivitu — to výrazně zvýší srozumitelnost a interaktivitu prezentace. Vizuály lze efektivně generovat a upravovat např. v Microsoft Designeru; ručně psané rovnice převeďte přes OneNote pro přesnost a snadné vložení do slideů \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1,kb_ai_101_tipu_pdf_04e4a115_page_8_1}.

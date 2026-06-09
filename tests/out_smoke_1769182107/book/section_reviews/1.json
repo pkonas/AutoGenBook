@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Many non‑trivial claims are presented (e.g., types of tools, pedagogical benefits, examples from practice) but are labeled as '(General background knowledge)' rather than supported by citations or concrete, verified case studies. This is allowed as background for a short introduction, but later practical chapters should replace these placeholders with evidence-backed references or run artifacts.",
+      "required_fix": "Keep the high-level background phrasing here, but add explicit placeholders/notes pointing authors to insert specific, cited case studies and evaluation data in the corresponding practical chapters. Example: after each illustrative bullet add '— viz. Kapitola 2.x pro ověřené případy a odkazy na literaturu'."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The opening paragraph and lists are concise but somewhat generic; readers may benefit from a brief, one‑sentence definition of 'AI' as used in this guide (scope: generative models, adaptive systems, analytics), and a clear statement of intended reader roles (e.g., lecturers, course designers, IT administrators).",
+      "required_fix": "Add one short definitional sentence (labeled as 'General background knowledge') clarifying the scope of 'AI' in the guide and a short clarifier of the target audience roles."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section lists main questions and metrics to consider, but does not give any concrete example metrics or a short exemplar evaluation rubric (even at high level). This may make it harder for readers to translate 'Měření úspěchu' into immediate actions.",
+      "required_fix": "Include 2–3 example metrics as templates (e.g., 'čas na přípravu obsahu — % změna v hodinách', 'průměrná doba zpětné vazby pro studenty', 'míra zapojení: % aktivních studentů na týden'), labeled as general background examples to be refined with evidence in later chapters."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure (itemize, enumerate) is valid. However, there are inline parenthetical labels '(General background knowledge)' appended to many list items which break visual flow and may be better placed as a single note or footnote.",
+      "required_fix": "Replace repeated inline labels with a single sentence or footnote at the start or end of the section stating that unlabeled claims are 'General background knowledge' and will be supported later; remove the per-item labels to improve readability."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section aligns with the provided outline, but it uses slightly different phrasing (e.g., 'krok‑za‑krokem' vs 'krok po kroku' in the outline). These differences are minor but could be harmonized for consistency across chapters.",
+      "required_fix": "Harmonize phrasing with the outline: use consistent terms such as 'krok po kroku' or 'krok‑za‑krokem' throughout the guide and ensure headings match the outline section titles."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Add one short sentence defining the scope of 'AI' as used in this guide (e.g., 'Ve tomto průvodci 'AI' zahrnuje nástroje jako generativní modely, adaptivní výukové moduly a analytiku učení (General background knowledge).') and explicitly list intended reader roles (lektori, pedagogičtí návrháři, IT administrátoři)."
+    },
+    {
+      "target": "labels '(General background knowledge)'",
+      "edit_instruction": "Remove repeated per-item labels. Instead add a single footnote or a sentence near the top: 'Pozn.: Body níže jsou shrnutím obecného kontextu (General background knowledge); konkrétní ověřené případy a citace jsou uvedeny v praktických kapitolách.'"
+    },
+    {
+      "target": "main questions / metrics list",
+      "edit_instruction": "Add 2–3 concrete example metrics (as templates) such as: 'Časová úspora pro vyučující (hodiny/termín), průměrná doba odpovědi chatbotu (sekundy/minuty), míra zapojení studentů (% aktivních v online modulu)'. Label them as illustrative examples (General background knowledge)."
+    },
+    {
+      "target": "illustrative examples list",
+      "edit_instruction": "After each illustrative item (chatboti, autogradery, adaptivní moduly) add a short placeholder pointing to the relevant practical chapter, e.g.: '— viz. Kapitola 2.3' so authors know where to insert evidence-backed case studies."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Keep current itemize/enumerate structure but move the repeated labels into a single note. Optionally wrap the note in \\textit{...} or \\footnote{...} for typographic clarity."
+    }
+  ],
+  "retrieval_queries": [
+    "case studies of chatbots deployed as teaching assistants in higher education (example deployments, evaluation results)",
+    "evaluations of autograders in programming courses (effect on grading time and feedback quality)",
+    "example metrics and rubrics used to evaluate AI interventions in university teaching (engagement, learning gains, time savings)",
+    "best practices and governance frameworks for deployment of AI in higher education (data protection, consent, inclusivity)"
+  ]
+}

@@ -1,0 +1,60 @@
+Tato sekce shrnuje krátké checklisty pro rychlé nasazení AI, praktické prompt‑šablony a tři stručné ukázky pracovních scénářů vhodné pro pilot.
+
+\subsubsection*{Krátký checklist před spuštěním služby}
+\begin{itemize}
+  \item Ověřit dostupnost funkcí a nastavit přístupy/role administrátorů \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Definovat rozsah činností AI, pravidla lidské validace a eskalace; nastavit pravidla uchovávání a přístupu k datům.
+  \item Spustit malý end‑to‑end pilot (generování → odevzdání → AI předopraví → pedagogická revize) a doladit retenci dat \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Ověřit licence pro doplňkové zdroje (např. Minecraft Education, Hour of Code) pokud budou použity \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\end{itemize}
+
+\subsubsection*{Rychlé šablony promptů (copy‑paste)}
+\paragraph{1) Systémový prompt — formativní zpětná vazba}
+\begin{verbatim}
+SYSTEM: Asistent pro formativní zpětnou vazbu.
+Vstupy: student_submission, rubric (3-5 bodů), declared_AI_use.
+Výstup: 200-250 slov:
+  1) 2 věty povzbuzení
+  2) 2 konkrétní kroky ke zlepšení
+  3) 1 doporučený milník
+Pokud declared_AI_use == "ano", přidej 1 větu co ověřit.
+\end{verbatim}
+
+\paragraph{2) Deklarace použití AI (do instrukcí)}
+\begin{verbatim}
+Deklarace AI:
+ - Použil/a jsem AI: Ano/Ne
+ - Pokud Ano: nástroj a role (nápověda/editace/generování)
+ - Jak ověřeno (max. 50 slov)
+ - Sebereflexe (max. 200 slov)
+\end{verbatim}
+
+\paragraph{3) Generování adaptivních cvičení}
+\begin{verbatim}
+Vygeneruj 10 cvičení: lineární rovnice (úroveň: 2. roč. BS).
+ - 6 krátkých výpočtů, 4 slovní úlohy.
+ - U každého požaduj nahrání postupu.
+ - Označ obtížnost (lehký/standardní/obtížný).
+\end{verbatim}
+(Možnost vyžadovat postup a AI předopravit odpovědi; funkce Vzdělávacích akcelerátorů \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.)
+
+\paragraph{4) Rychlý kvíz (Copilot + Forms)}
+\begin{verbatim}
+Vytvoř test 10 otázek "Austrálie" pro 8. roč. ZŠ:
+ - 4 ABC, 4 pravda/nepravda, 2 otevřené.
+ - U každé napiš správnou odpověď a krátké vysvětlení.
+\end{verbatim}
+(Praktické použití s Microsoft 365 Copilot ve Forms \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.)
+
+\subsubsection*{Krátké ukázky pracovních scénářů}
+\paragraph{A) Adaptivní matematická praxe}
+Učitel nastaví generátor (téma, obtížnost, požadavek na postup), studenti odevzdají postup; AI předběžně označí chyby a shrne časté potíže, učitel provede finální kontrolu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+\paragraph{B) Rychlá in‑class písemka}
+Učitel vygeneruje a upraví písemku, nasdílí v LMS; Copilot přidá vysvětlení a zrychlí přípravu \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+
+\paragraph{C) Seznámení s principy AI}
+Krátké workshopy využijí Minecraft Education a Hour of Code pro demonstraci principů ML a interaktivní seznámení studentů \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+
+\subsubsection*{Závěrečné doporučení}
+Přizpůsobte šablony místnímu kurikulu a vždy validujte výstupy AI lidskou kontrolou.

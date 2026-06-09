@@ -1,0 +1,7 @@
+The following discussion is presented as general background knowledge: no external evidence excerpts were provided to support specific empirical claims, and the statements below should be interpreted as design recommendations and hypotheses rather than verified results. (General background knowledge.)
+
+We recommend enforcing a strict JSON schema per section (fields for rendered text, cited evidence identifiers, and provenance metadata) so each authored unit yields a compact, verifiable record that supports automated schema/citation checks and simplifies human inspection.
+
+Concretely, require claim-level evidence_ids (automated citation–assertion checking); capture fine-grained provenance for each snippet (source id, retrieval query/score/rank, offsets, transformations); package versioned pipelines and configuration (indexes, prompt templates, schema versions) for reproducibility; and broaden evaluation (more domains and structured human assessments, plus metrics over the JSON outputs).
+
+Limitations include dependence on retrieval quality, possible rigidity of schemas, and the need to balance automated blocking with human-in-the-loop review; adopting JSON-constrained outputs and explicit provenance can improve auditability in principle but requires implementing these components and empirical validation. (General background knowledge.)

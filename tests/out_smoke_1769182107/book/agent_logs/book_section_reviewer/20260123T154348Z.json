@@ -1,0 +1,100 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T154348Z",
+  "input": {
+    "section_title": "Tvorba a adaptace učebních materiálů pomocí AI",
+    "node_key": "2-5",
+    "section_latex": "% Cílem této sekce je nabídnout praktický, krok‑za‑krok workflow pro generování a adaptaci výukových materiálů pomocí nástrojů AI\n% Poznámka: následující doporučení jsou obecné zásady a návodné kroky (general background knowledge).\n\nÚčel a zásady\n\\begin{itemize}\n  \\item Cílem je zrychlit tvorbu cvičení, studijních opor a multimediálního obsahu při zachování akademické kvality a kompatibility s výukovými cíli. (general background knowledge)\n  \\item Pracujte iterativně: AI generuje návrhy, učitel upravuje a validuje obsah, po pilotu se materiály upraví podle zpětné vazby. (general background knowledge)\n\\end{itemize}\n\nVýběr nástrojů — krátký checklist (general background knowledge)\n\\begin{itemize}\n  \\item Podpora vstupu/výstupu ve formátu, který používáte v LMS (text, QTI/CSV, multimédia).\n  \\item Transparentnost modelu a možnost kontroly generovaných zdrojů (snadná editace).\n  \\item Možnosti řízení autorských práv a provenance (uložení původních promptů a verzí).\n  \\item Zabezpečení dat a možnost nasazení on‑premise nebo s jasnými pravidly o ukládání dat.\n\\end{itemize}\n\nWorkflow pro tvorbu a validaci (krok‑za‑krok, general background knowledge)\n\\begin{enumerate}\n  \\item Definujte výukové cíle a typ výstupu (krátké testy, otevřené otázky, cvičení s řešením, prezentace, video scénář).\n  \\item Vytvořte šablonu promptu pro konzistentní generování (vstupy: téma, úroveň obtížnosti, formát výstupu, specifikace zpětné vazby).\n  \\item Generujte první verzi materiálu pomocí AI.\n  \\item Učitel provede kontrolu na: správnost obsahu, shodu s výukovými cíli, úroveň obtížnosti, inkluzivitu jazyka a případné etické/copyright rizika.\n  \\item Validace pilotem: nasazení u malé skupiny studentů, sběr metrik (čas tvorby, srozumitelnost, uživatelská spokojenost).\n  \\item Finalizace a integrace do LMS (označení verzí, poznámky k úpravám).\n\\end{enumerate}\n\nUkázková implementace pro jeden modul (stručně, general background knowledge)\n\\begin{enumerate}\n  \\item Kontext: modul „Základy X“ — cílem jsou krátké praktické úlohy k procvičení klíčových konceptů.\n  \\item Role: učitel nastaví výukové cíle a schválí šablony; asistent AI vygeneruje 20 variant úloh; tutor provede náhodnou kontrolu 20\\,\\% položek.\n  \\item Kroky: (a) připravit šablony promptů; (b) vygenerovat úlohy a okamžitá řešení; (c) učitel upraví a označí úlohy vhodné pro kurz; (d) pilot s 10–30 studenty; (e) upravit podle zpětné vazby a publikovat.\n\\end{enumerate}\n\nKontrola kvality a právní aspekty — rychlý checklist (general background knowledge)\n\\begin{itemize}\n  \\item Kontrola faktické správnosti a citací u odborného textu.\n  \\item Ověření, že vygenerovaný obsah neporušuje autorská práva; při použití tréninkových materiálů uvádět zdroje, pokud jsou známé.\n  \\item Zajištění inkluzivního jazyka a přístupnosti (alt‑texty pro obrázky, přepisy pro audio/video).\n  \\item Uchovávání historie promptů a verzí pro auditovatelnost.\n\\end{itemize}\n\nMěření přínosu (návrhy metrik, general background knowledge)\n\\begin{itemize}\n  \\item Čas tvorby: srovnání času potřebného k vytvoření materiálu před a po zavedení AI.\n  \\item Kvalita obsahu: expertní hodnocení vzorku vytvořených materiálů.\n  \\item Uživatelská spokojenost: krátké průzkumy mezi studenty a učiteli po pilotu.\n  \\item Učební výsledky: porovnání vybraných metrik (úspěšnost v cvičeních, engagement) před/po nasazení v rámci pilotu.\n\\end{itemize}\n\nKrátké doporučení pro praxi (general background knowledge)\n\\begin{itemize}\n  \\item Začněte malým pilotem na jednom modulu; dokumentujte proces a uložte všechny verze.\n  \\item Zapojte studenty do pilotu a sbírejte konkrétní zpětnou vazbu na srozumitelnost a užitečnost.\n  \\item Vytvořte interní šablony a pravidla pro kontrolu kvality, copyright a inkluzi, které budou součástí pracovního postupu.\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- Požadované datové zdroje (learning analytics): Datové zdroje doporučené pro analytiku: LMS (přihlášení, návštěvy, dokončení úkolů, diskuse), hodnocení, aktivita u e‑learningových objektů a administrativní údaje (pouze eticky/legálně dostupné). (from section only) (first: 2-4)\n- Doporučené metriky (learning analytics): Návržené metriky angažovanosti: frekvence přihlášení týdně, % dokončených povinných aktivit, trend průběžného skóre a interakce s materiály. (from section only) (first: 2-4)\n- Dashboard a upozornění (learning analytics): Seznam rizikových studentů s filtry (kurz/skupina/období), krátkým komentářem a upozorněním instruktorovi; zásadně neplně automatické zásahy (instruktor rozhoduje o dalším kroku). (from section only) (first: 2-4)\n- Plán zásahů (learning analytics): Doporučený workflow: automatické upozornění/e‑maily s nabídkou podpory → manuální ověření instruktorem → personalizovaná doporučení nebo schůzka s tutorem. (from section only) (first: 2-4)\n- Vyhodnocení (learning analytics): Návrh vyhodnocení účinku: měřit změny metrik a průběžných známek před/po zásahu; používat A/B piloty nebo historické kontroly a krátké průzkumy spokojenosti. (from section only) (first: 2-4)\n- Etika a checklist (learning analytics): Etický checklist pro analytiku: sbírat jen nezbytná data, informovat studenty a umožnit opt‑out, zajistit bezpečné ukládání, omezení přístupu, retenci, schválení etiky a mít připravené šablony zásahů a eskalace. (from section only) (first: 2-4)\n\nCITATIONS:\n- node_1 (node: 1)\n- node_2-1 (node: 2-1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n- 2-4 (node: 2-4)\n\nOPEN THREADS:\n- Technické detaily integrace datových zdrojů z LMS (API, datová schémata, anonymizace/pseudonymizace, zabezpečení a politika retence) nejsou v sekci popsány a vyžadují doplnění. (node: 2-4)\n- Metodika provádění A/B pilotů a statistické testování efektu zásahů (stanovení baseline, velikost vzorku, metriky významnosti) není v sekci rozpracována. (node: 2-4)\n- Konkrétní p...",
+    "previous_sections": "The title of part 1 sections ago is Learning analytics a podpora cílených intervencí, and the content is as follows.\n\\noindent Poznámka: následující stručný scénář nasazení learning analytics a zásahů je general background knowledge a slouží jako šablona přizpůsobitelná místním podmínkám.\n\\noindent Účel: rychle identifikovat studenty s klesající angažovaností a spustit předem definované podpůrné zásahy (e‑mail, konzultace, doporučené materiály); pilot 4–8 týdnů, upravovat prahy.\n\\noindent Požadované datové zdroje: LMS (přihlášení, návštěvy, dokončení úkolů, diskuse), hodnocení, aktivita u e‑learningových objektů, administrativní údaje (jen eticky/legálně).\n\\noindent Doporučené metriky: frekvence přihlášení týdně, \\% dokončených povinných aktivit, trend průběžného skóre, interakce s materiály.\n\\noindent Dashboard a upozornění: seznam rizikových studentů s filtry (kurz/skupina/období), krátký komentář, upozornění instruktorovi — ne plně automatické zásahy.\n\\noindent Plán zásahů: automatický e‑mail s nabídkou podpory, manuální ověření instruktorem, personalizovaná doporučení nebo schůzka s tutorem.\n\\noindent Vyhodnocení: měřte změny metrik a průběžných známek před/po, používejte A/B piloty nebo historické kontroly a krátké průzkumy spokojenosti.\n\\noindent Etika a checklist: sbírejte jen nezbytná data, informujte studenty a umožněte opt‑out, zajistěte bezpečné ukládání, omezení přístupu, retenci, schválení etiky a připravené šablony zásahů a eskalace.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": false,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "The section contains several specific numeric recommendations (e.g., \"AI vygeneruje 20 variant úloh\", \"tutor provede náhodnou kontrolu 20\\,\\% položek\", \"pilot s 10–30 studenty\") that are presented as prescriptive rather than illustrative. No supporting evidence or references are provided in the KB. According to grounding rules, such non-trivial numerical claims must be either supported or explicitly labeled as examples/defaults.",
+        "required_fix": "Mark all numeric values as illustrative examples or suggested defaults (e.g., prepend 'např.' or 'příkladně'), or provide supporting evidence citations. Alternatively remove numeric specifics."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "The section discusses measuring impact and collecting metrics but does not explicitly reference or reuse the data sources and recommended metrics described in the Learning analytics section (context memory: LMS, hodnocení, aktivita u e‑learningových objektů; metrics like frequency of logins, % completed activities, trends in scores). This risks duplication or divergence between sections.",
+        "required_fix": "Add an explicit cross-reference to the Learning analytics section (2.4) and state that pilots should use the same data sources and recommended metrics where applicable, or explain divergences."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "The top two lines of the provided LaTeX body are comments (start with '%') and will not appear in the compiled output. If those lines are intended to be visible explanatory text, they must be converted to normal text. Otherwise, this is acceptable. Also, while one percent sign appears correctly escaped as '\\,\\%', verify that all literal '%' characters intended for display are escaped.",
+        "required_fix": "Convert leading comment lines to normal text if they should be visible. Confirm escaping of '%' characters where needed."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "The workflow and checklists are concise but omit a few practical details that readers will expect: example prompt templates, concrete QA steps for factual verification of domain content, and brief guidance on how to integrate storage/versioning of prompts (location, format, metadata). The section also does not address integration/technical details flagged in open threads (API, anonymization, data schemas) nor the methodology for A/B pilots and statistical testing.",
+        "required_fix": "Add a short example prompt template (or a single illustrative prompt), list concrete QA checks for fact-checking (e.g., cite authoritative sources, have domain expert review), and briefly note technical integration points to be aligned with the open threads (link to the LA technical details section or signal that further technical specs are in an appendix). For A/B pilots, at least state that sample-size calculation and significance thresholds should be pre-specified and that statistical support is recommended."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "Pedagogical recommendations are generally sound but could better highlight how to align generated materials with learning objectives and assessment alignment (constructive alignment). Currently the section lists 'definujte výukové cíle' but does not show how to link those to the prompt template or validated items.",
+        "required_fix": "Add one short instruction: require mapping each generated item to specific learning objective(s) and intended difficulty level in the prompt/template, and keep that mapping in the version metadata for future analytics."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "top comment lines",
+        "edit_instruction": "If the lines beginning with '%' ('% Cílem této sekce ...' and '% Poznámka: ...') are intended to appear in the document, remove the leading '%' so they compile as visible text; otherwise keep them as comments."
+      },
+      {
+        "target": "Účel a zásady (first item)",
+        "edit_instruction": "Add a short sentence referencing the Learning analytics section: 'Viz sekce 2.4 Learning analytics pro doporučené datové zdroje a metriky, které lze využít při validaci a pilotování materiálů.'"
+      },
+      {
+        "target": "Výběr nástrojů — krátký checklist",
+        "edit_instruction": "Add a bullet: 'Kompatibilita s exportem/importem metrik a logů do nástrojů používaných pro learning analytics (API, standardní formáty, anonymizace/pseudonymizace).'"
+      },
+      {
+        "target": "Workflow pro tvorbu a validaci, krok 2",
+        "edit_instruction": "Suggest including a minimal prompt template example here. For instance: 'Příklad šablony promptu (ilustrační): \"Vygeneruj {počet} cvičení na téma {téma} pro úroveň {úroveň}, typ: {test/otevřená otázka/prezentace}; u každé položky uveď: cílový výukový cíl, obtížnost (1–5), klíčové body řešení a odkaz na zdroj/texty pro faktickou kontrolu.\" — označte jako příklad."
+      },
+      {
+        "target": "Ukázková implementace pro jeden modul",
+        "edit_instruction": "Mark numeric choices explicitly as examples: replace 'vygeneruje 20 variant úloh', 'kontrola 20\\,\\% položek', 'pilot s 10–30 studenty' with 'např. vygeneruje ~20 variant (příklad)', 'např. náhodná kontrola ~20\\,\\% položek (příklad)', 'pilot s ~10–30 studenty (příklad velikosti pilotu); velikost pilotu by měla být stanovena dle cíle evaluace a statistické síly.'"
+      },
+      {
+        "target": "Kontrola kvality a právní aspekty",
+        "edit_instruction": "Add: 'Ujistěte se o souladu s interní politikou IP a vzdělávacím zákonem; uchovávejte metadata promptů (autor, datum, verze, účel) v auditovatelném úložišti. Pro faktickou kontrolu požadujte, aby domain expert připojil zdrojové reference k odborným tvrzením.'"
+      },
+      {
+        "target": "Měření přínosu",
+        "edit_instruction": "Add: 'Specifikujte datové zdroje (LMS logy, hodnocení, aktivita u e‑learningových objektů) a předem definujte metriky a statistický plán (baseline, velikost vzorku, významnost) pro A/B piloty nebo historické kontroly; konzultujte statistika při návrhu pilotu.'"
+      },
+      {
+        "target": "General tone",
+        "edit_instruction": "Throughout the section, explicitly label prescriptive defaults as 'příklad' or 'doporučení' and avoid stating them as universally applicable facts."
+      }
+    ],
+    "retrieval_queries": [
+      "best practices for piloting educational interventions sample size A/B testing education pilot sample size guidelines",
+      "guidelines for quality assurance of AI-generated educational content fact checking and provenance in education",
+      "data privacy and LMS integration best practices anonymization pseudonymization API LMS export formats",
+      "recommendations for storing AI prompts and provenance in institutional repositories (auditability of generated content)"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 3703,
+      "completion_tokens": 3307,
+      "total_tokens": 7010
+    },
+    "cost_usd": 0.00753975,
+    "total_cost_usd": 0.12412,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

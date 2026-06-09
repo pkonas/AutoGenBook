@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Bullet 'Didaktické využití: preferujte aktivity, kde AI slouží jako pomocník (...)' is a non-trivial pedagogical recommendation but is not labeled as 'general background knowledge' nor supported by a retrieved excerpt.",
+      "required_fix": "Either add an explicit label '(general background knowledge)' to this bullet, or add a supporting citation from the KB (if available). If no KB excerpt supports this exact phrasing, mark it as general background knowledge."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The line 'Edupraktická poznámka: automatická generace ušetří čas, ale vždy validujte ...' is a practical claim that should be explicitly grounded. While related citations exist for Microsoft 365 Copilot creating quizzes, the note itself currently lacks an explicit in-line citation.",
+      "required_fix": "Add an explicit citation to the retrieved excerpt that documents Copilot's capability to generate quizzes and explain that this can save time (e.g. kb_ai_101_tipu_pdf_04e4a115_page_36_1 or kb_ai_101_tipu_pdf_04e4a115_page_3_1), or re-label the sentence as 'general background knowledge' if preferred."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The latex_body is written as plain text with \\\\cite commands but does not use standard LaTeX sectioning or environment commands. This may cause formatting inconsistencies when compiled into the manual.",
+      "required_fix": "Wrap the content with an appropriate sectioning command (e.g. \\section{Co je AI a generativní AI}) and convert enumerations/bullets into LaTeX itemize/enumerate environments. Ensure all \\cite keys match the bibliography and that special characters are escaped where needed."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The opening line 'Krátké uvedení (co si pedagogové potřebují pamatovat)' is a good prompt but the section lacks a short 'quick takeaways' list (2–3 bullets) that busy pedagogues can scan quickly.",
+      "required_fix": "Add 2–3 concise takeaways at the top (e.g. 1–2 sentence learning objective and 2 practical dos/don'ts). These can be formulated as pedagogical guidance; if they are recommendations, mark them as 'general background knowledge' or support them with KB citations where available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The 'Rychlé odkazy a další kroky' paragraph refers to other parts of the manual (e.g. chapters on risks, GDPR, AI Policy Template) but does not include explicit cross-references to the appendix items (e.g. Prompt Library 9.1, AI Policy Template 9.3) present in the outline/context memory.",
+      "required_fix": "Add explicit cross-references to the relevant annex/sections (for example 'viz Příloha 9.1 Prompt Library' and 'viz Příloha 9.3 AI Policy Template'). If you want to cite KB excerpts for these references, retrieve supporting excerpts; otherwise add the cross-reference as an internal pointer."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Didaktické využití bullet",
+      "edit_instruction": "Prefix this bullet with '(general background knowledge)' OR add a supporting citation. Suggested text: '(general background knowledge) Didaktické využití: preferujte aktivity, kde AI slouží jako pomocník (tvorba otázek, variant úloh, nápověd) spíše než jako náhradní řešení pro studentskou práci.'"
+    },
+    {
+      "target": "Edupraktická poznámka under 'Rychlé vytvoření kvízu'",
+      "edit_instruction": "Add an explicit citation after the sentence to ground the claim, e.g. append '\\\\cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}' (the retrieved excerpt describes Copilot generating complete quizzes and explanations)."
+    },
+    {
+      "target": "LaTeX structure",
+      "edit_instruction": "Wrap the section with a LaTeX sectioning command and use environments: e.g. replace the plain title with '\\\\section{Co je AI a generativní AI}' and convert the top-level lists to '\\\\begin{itemize} ... \\\\end{itemize}' and the numbered classroom workflows to '\\\\begin{enumerate} ... \\\\end{enumerate}'. Ensure all '\\\\cite{...}' keys are present in the document bibliography."
+    },
+    {
+      "target": "Opening paragraph",
+      "edit_instruction": "Insert a 2–3 bullet 'Rychlé shrnutí / co si pamatovat' at the very top (concise learning objectives and two quick dos/don'ts). Mark these as '(general background knowledge)' if they are recommendations not directly supported by KB excerpts."
+    },
+    {
+      "target": "'Rychlé odkazy a další kroky'",
+      "edit_instruction": "Add explicit internal cross-references to annexes/chapters in the manual, e.g. 'viz Příloha 9.1 Prompt Library' and 'viz Příloha 9.3 AI Policy Template'. If you prefer KB grounding for these pointers, retrieve and cite supporting excerpts for the Prompt Library and AI Policy Template."
+    }
+  ],
+  "retrieval_queries": [
+    "Locate an excerpt that supports the recommendation 'preferujte aktivity, kde AI slouží jako pomocník (tvorba otázek, variant úloh, nápověd)' or any KB text that frames pedagogical guidelines for preferring AI as an assistant rather than a replacement.",
+    "Find a KB excerpt that explicitly states 'automatic generation saves teachers time' or similar wording to directly support the 'Edupraktická poznámka' if a citation different from kb_ai_101_tipu_pdf_04e4a115_page_36_1 is preferred.",
+    "Retrieve any KB excerpt(s) that correspond to the Prompt Library (9.1) and AI Policy Template (9.3) to enable direct citations when cross-referencing those annexes."
+  ]
+}

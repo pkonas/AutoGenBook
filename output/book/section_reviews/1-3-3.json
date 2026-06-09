@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several actionable items mention RAG, DPIA/DPA and policy templates but do not point to the relevant internal resources in the manual (appendices) that the rest of the guide exposes (e.g. RAG blueprint, Vzor DPIA, AI policy templates). The section already cites two external KB excerpts (Malinka and AI‑101) where appropriate, but adding internal references would improve traceability and compliance with the handbook.",
+      "required_fix": "Add explicit references to the internal appendices/sections in the handbook (e.g. the RAG blueprint and the Vzor DPIA and AI Policy Template in the appendices) where readers can find concrete templates and checklists. Keep existing general background phrasing but point to concrete templates in Appendix 9.x (as present in the context memory)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX uses \"Model\" for quoting, which in plain LaTeX produces an umlaut (\"M) rather than typographic quotes. Other inline quoting uses plain ASCII backslashes for quotes which are incorrect in LaTeX.",
+      "required_fix": "Replace occurrences of \"Model\" with proper LaTeX quotes (e.g. ``Model''), or use \\enquote{} (with csquotes) or \\texttt{} if monospaced is intended. Check any other instances of \"...\" and replace with proper LaTeX quoting."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some bullets are broad (e.g. 'RAG / retrieval: how internal indexes and retrieval layer mění chování modelu (box)') but do not state the pedagogical aim or the recommended short demo/visualization for this point. Similarly, the slide suggestions could be clearer about how to visually demonstrate the difference between model cut‑off and RAG-augmented up-to-date retrieval.",
+      "required_fix": "For each technical bullet (RAG, privacy/DPIA, data quality/bias), add a one‑sentence pedagogical objective (what students should learn) and one short demo suggestion (1–2 lines) for the slide or in-class activity that makes the point concrete (e.g. show a query answered incorrectly by base model and then corrected when a retrieval passage is provided)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The classroom workshop/activity is well structured but lacks explicit learning outcomes and assessment/expected artifacts (what the instructor should collect to verify learning). Also the connection to existing 'Šablona instrukcí k odevzdání (povinné artefakty)' from context memory is not referenced.",
+      "required_fix": "Add 2–3 short learning outcomes for the workshop (e.g. 'students will be able to identify at least two failure modes caused by model cut‑off or bias'), and specify required artifacts to collect (e.g. original student draft, AI‑augmented draft, short reflection of max 300 words) and point to the 'Šablona instrukcí k odevzdání' template."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section uses the label '(general background knowledge)' for many statements (which is consistent with other sections), but a couple of non-trivial operational recommendations (e.g. 'always show where information comes from') would benefit from explicit cross-reference to the handbook recommendations on transparency and RAG (chapters 2.x and 8.x in outline).",
+      "required_fix": "Either keep these sentences labeled as 'general background knowledge' (fine) and add internal cross‑references to the relevant chapters (e.g. transparency/RAG) or add short citations to internal appendix items (policy templates, RAG blueprint)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace the quoted token \"Model\" in the 'Mapa tréninkových dat' slide description with proper LaTeX quoting: use ``Model'' (two backticks and two apostrophes) or \\enquote{Model} if using the csquotes package."
+    },
+    {
+      "target": "bullet: RAG / retrieval",
+      "edit_instruction": "Add a parenthetical internal reference: '(viz příloha 9.5 Základní RAG blueprint)' and append one pedagogical demo: 'Ukázka: stejný dotaz bez retrieval vs. s retrieval — porovnejte přesnost a zdroje v odpovědi.'"
+    },
+    {
+      "target": "bullet: Soukromí a právní aspekty",
+      "edit_instruction": "Add an explicit pointer to the internal DPIA template and DPA guidance: '(viz Vzor DPIA v příloze 9.4 a checklist DPA v sekci 2.2.5)' and indicate a recommended instructor action: 'Pořádat krátké DPA/DPIA check před zadáním inkluzivních dat do externích služeb.'"
+    },
+    {
+      "target": "workshop activity",
+      "edit_instruction": "Add learning outcomes and required artifacts: before step 1 add 2–3 learning outcomes (e.g. 'rozpoznat neaktuální informace, navrhnout mitigace biasu') and after step 3 add 'Požadované artefakty: původní studentský text, AI‑upravená verze, reflexe max. 300 slov (viz šablona povinných artefaktů).' Point to the internal 'Šablona instrukcí k odevzdání' in appendices."
+    },
+    {
+      "target": "slide suggestions",
+      "edit_instruction": "In Snímek 1 explicitly note how to depict RAG: 'na ose cut‑off ukažte základní tréninkové okno a přidejte vrstvu 'retrieval' šipkami z interních indexů, aby bylo vizuálně patrné, že retrieval může doplnit novější zdroje.'"
+    }
+  ],
+  "retrieval_queries": [
+    "Najdi pasáž v příručce (interní KB) s 'Základní RAG blueprint' (appendix 9.5) pro přesné parafráze a citaci.",
+    "Najdi Vzor DPIA (appendix 9.4) v příručce, aby bylo možné přesně odkázat na požadované položky DPIA.",
+    "Najdi 'Šablona instrukcí k odevzdání (povinné artefakty)' v interní paměti/katalogu (section/appendix) pro přesnou formulaci požadovaných artefaktů (drafts + reflexe).",
+    "Najdi v KB další pasáže, které formálně doporučují ukázat zdroje v RAG workflow a jak to demonstrativně prezentovat (transparency / show sources guidance)."
+  ]
+}

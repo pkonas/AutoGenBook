@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Most recommendations are labelled as \"general background knowledge\", which is acceptable under the KB rules. However several actionable operational suggestions (e.g. 'nastavit varovné hranice a automatické throttlingy', 'alokovat náklady podle kateder / pilotních projektů') are non‑trivial operational claims without explicit supporting citations in the provided excerpts.",
+      "required_fix": "Either add supporting citations (internal VUT guidance or external best‑practice sources) for these operational measures, or rephrase them as high‑level recommendations (keep them labelled as general background knowledge) and avoid precise operational wording that implies a specific mandated practice."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section discusses RAG, PoC, and edge/locally deployed models but does not cross‑reference the existing related sections in the manual (RAG PoC workflow — section 8‑5 and Lokální/edge nasazení — prior section).",
+      "required_fix": "Add explicit cross‑references to the RAG PoC workflow (section 8‑5) and Lokální/edge nasazení guidance (section 8‑6) so readers can find the more detailed technical steps and align governance checklists with technical workflows."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses '\\\\' after \\textbf headings and a mix of spacing commands. Citations use \\cite{...} with KB keys; ensure the bibliography contains corresponding entries. Also some hyphenation characters (e.g. 'ochrann‑osobních‑údajů') use nonstandard en‑dash‑like characters that may affect typesetting.",
+      "required_fix": "Remove unnecessary '\\\\' after section headings (use paragraph spacing commands instead), verify that all \\cite keys map to .bib entries, and normalize hyphens/dashes to standard LaTeX characters. Confirm the commented lines at the top remain comments and do not break rendering."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several checklist items are high level and would benefit from short concrete examples or templates (e.g. sample SLA metrics, minimal budget/chargeback template, example red‑teaming checklist and frequency).",
+      "required_fix": "Add short, non‑numeric templates or placeholders (e.g. 'SLA: dostupnost X, latency SLA: P95 < Y ms, čas obnovy RTO = Z') or link to appendix templates (e.g. refer to appendix 9.x) so implementers have actionable starting points without inventing precise numbers."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section suggests training and Microsoft Learn modules (correctly cited) but does not indicate which audiences (IT, pedagogy, legal) should take which modules or provide minimal learning outcomes.",
+      "required_fix": "Add a brief mapping: which target audience should follow which type of training (e.g. IT: Azure/M365 admin modules; pedagogy: basic AI & classroom use modules) and/or refer to the Microsoft Learn resources already cited for further detail."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Řízení nákladů a metriky provozu (paragraph)",
+      "edit_instruction": "Clarify that the examples are templates or placeholders and avoid presenting specific numeric thresholds. Add a short template list of metric categories to track (e.g. 'objem tokenů / requestů, latence (P50/P95), měsíční náklady per pilot/katedra, počet eskalací při X% překročení rozpočtu') and recommend linking these to the PoC acceptance criteria in section 8‑5."
+    },
+    {
+      "target": "Praktické checklisty pro IT a katedry před nasazením (checklist)",
+      "edit_instruction": "Add one line mapping each checklist item to the corresponding PoC step in section 8‑5 (e.g. '1) Vymezení pedagogického cíle — viz PoC krok 1; 2) Klasifikace dat — viz PoC krok 2'), and point to templates in the appendices (9.2, 9.4) for DPIA/DPA."
+    },
+    {
+      "target": "Guardrails, filtrování obsahu a red‑teaming (paragraph)",
+      "edit_instruction": "Add a concise red‑teaming starter checklist (as high‑level bullets, no invented data): scope of tests (leakage, prompt injection, adversarial prompts), expected artifacts (test cases, findings report), and a recommended cadence placeholder (e.g. 'minimálně před pilotem a poté pravidelně — kvartálně/po významné změně'). Mark cadence as a placeholder to be set by local governance."
+    },
+    {
+      "target": "Školení a znalostní podpora (paragraph)",
+      "edit_instruction": "Specify target audiences for Microsoft Learn suggestions (e.g. 'IT/security staff: Azure/M365 admin modules; pedagogové: interaktiv AI use modules') and/or suggest that the methodická příručka's online repository link to curated module lists. Keep the existing citation to kb_ai_101_tipu_pdf_04e4a115_page_54_1."
+    },
+    {
+      "target": "LaTeX body overall",
+      "edit_instruction": "Remove redundant '\\\\' after \\textbf headings, ensure consistent use of \\medskip or paragraph breaks, and confirm \\cite keys exist in the bibliography file. Normalize dash characters and ensure the file compiles without warnings."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices SLA metrics for LLM/cloud LLM services (availability, latency P95, cost per 1K tokens) industry guidance",
+    "red‑teaming cadence and starter checklist for LLM deployments (leakage, prompt injections, adversarial testing) best practices",
+    "cost management practices and chargeback models for cloud AI/LLM usage in higher education or enterprise"
+  ]
+}

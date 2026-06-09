@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section refers to random checks / validation (e.g. 'proveďte náhodné kontroly procesních artefaktů') but does not state a recommended sampling range. The practice of a 5–10 % spot‑check is present in the context memory (Spot‑check entry) but is not cited in this section.",
+      "required_fix": "Add an explicit recommended spot‑check rate (for example 5–10 %) and cite the internal guidance on spot‑checks from the chapter (or change the statement to an intentionally open recommendation if no citation is available)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The example rubric uses qualitative labels ('vysoká váha') for some criteria but the related 'Reflexivní portfolia' section defines numeric weights (35/35/20/10). This may create inconsistency for readers expecting numeric guidance.",
+      "required_fix": "Either provide concrete numeric weights for the example rubric (e.g. align with the portfolio rubric: dokumentace postupu 35%, kvalita metareflexe 35%, technická kvalita 20%, formální náležitosti 10%) or explicitly state that the rubric is illustrative and weights should be set locally."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The workflow recommends artefacts (logs, screenshots, exports) but does not give brief practical guidance on file naming, minimal required metadata, or escalation rules when AI outputs are doubtful. These operational details would increase reproducibility and align with other sections (e.g. 'Pravidla eskalace').",
+      "required_fix": "Add 2–3 bullet points with concrete operational conventions: recommended file naming pattern (e.g. studentID_assignment_milestone_date), required metadata fields (timestamp, tool used, prompt summary), and a short pointer to escalation rules (when to request human validation). If possible, cite the chapter's 'Pravidla eskalace' guidance."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses \\cite keys which match retrieved excerpts, but the section refers to 'šablona viz kap. Reflexivní portfolia' without a cross‑reference command. Also there is a stray parenthetical 'viz šablony metareflexe v kapitole o portfoliích' that could be made a clear \\ref or \\label target in the final document.",
+      "required_fix": "Add a LaTeX \\label in the referenced 'Reflexivní portfolia' section and use \\ref{...} here or turn the phrase into an explicit citation (e.g. 'viz kapitola X, sekce Y'). Ensure all \\cite keys resolve in the document bibliography."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The short 'Poznámka (general background knowledge)' is explicitly labeled as general background knowledge. However it asserts a pedagogical effect (zvyšuje jedinečnost řešení a snižuje možnost přímého „kopírování\")). While reasonable, this causal claim is not directly supported by the retrieved excerpts.",
+      "required_fix": "Either add a cross‑reference to the chapter passages arguing that locally specific data increases authenticity (e.g. 5.2/5.3 discussion), or qualify the sentence as an instructor's recommendation rather than an evidence‑backed claim."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Praktický workflow pro návrh a provoz úlohy — Validace a kontrola (item 4)",
+      "edit_instruction": "Add a parenthetical recommended spot‑check rate and cite the chapter guidance, e.g. 'Proveďte náhodné kontroly procesních artefaktů (doporučeně 5–10 % spot‑check) a vyžadujte krátkou metareflexi...' and include a short pointer to escalation rules for unclear AI outputs."
+    },
+    {
+      "target": "Konkrétní požadované artefakty (vzorně)",
+      "edit_instruction": "Add minimal operational metadata for submitted artefacts, for example: 'Povinné pole u každého souboru: studentID, milestone_name, datum a čas (ISO), stručný popis použitého nástroje a promptu (1--2 věty)'. Also add an example file‑naming convention."
+    },
+    {
+      "target": "Příklad jednoduché rubriky",
+      "edit_instruction": "Replace qualitative labels with numeric weights or explicitly mark the rubric as illustrative. Suggested numeric weights aligned with Reflexivní portfolia: 'Dokumentace postupu a mezikroků — 35 %; Kvalita metareflexe — 35 %; Technická kvalita výsledku — 20 %; Formální náležitosti — 10 %.'"
+    },
+    {
+      "target": "Poznámka (general background knowledge)",
+      "edit_instruction": "Either add a citation to the chapter passages that motivate using local data or rephrase to: 'Doporučení pro učitele: vazba na lokální data může zvýšit jedinečnost řešení...' to mark it as recommendation rather than an empirically supported claim."
+    },
+    {
+      "target": "LaTeX cross‑references",
+      "edit_instruction": "Replace the informal 'viz šablony metareflexe v kapitole o portfoliích' with an explicit reference using \\ref to the labeled Reflexivní portfolia section (add \\label in that section if missing) and verify bibliography entries for the \\cite keys used."
+    }
+  ],
+  "retrieval_queries": [
+    "Spot‑check (kontrolní vzorek) 5–10% guidance site: internal KB 'AI - 101 tipu.pdf' or chapter 5",
+    "Pravidla eskalace pro AI‑feedback (rules for escalation) in chapter 5 of the metodická příručka",
+    "Rubrika a váhy pro reflexivní portfolia (documented rubric percentages) 'AI - 101 tipu.pdf' page 8 or section Reflexivní portfolia"
+  ]
+}

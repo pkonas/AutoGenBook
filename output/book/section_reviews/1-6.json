@@ -1,0 +1,68 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Multiple non‑trivial claims and citations refer to the source kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1 (DPIA, pilot workflow steps, human‑in‑the‑loop, evaluation guidance). The provided RETRIEVED EXCERPTS in the review inputs include only extracts from 'AI - 101 tipu.pdf' (kb_ai_101_tipu_pdf_04e4a115_page_3_1, page_15_2, page_36_1). There are no retrieved excerpts for the kb_malinka source attached to substantiate the citations used throughout the section.",
+      "required_fix": "Either (A) provide the corresponding retrieved excerpt(s) from kb_malinka (especially the page(s) that support DPIA, two‑phase pilot advice, human‑in‑the‑loop rules, and evaluation metrics) so the claims can be grounded, or (B) remove or rephrase statements that currently rely solely on kb_malinka and mark them explicitly as 'general background knowledge' if they are kept without a supporting excerpt."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The checklist and 6‑step workflow include prescriptive points (e.g., 'zdokumentujte datový tok', 'provéďte zjednodušené DPIA', 'porovnejte kontrolní skupinu bez AI a skupinu s AI') that are substantive procedural recommendations but currently cite only kb_malinka. These procedural recommendations must be supported by a provided excerpt or relocated to the general background category.",
+      "required_fix": "Attach or cite the supporting run artifact/excerpt for these procedural steps (kb_malinka pages) or change the wording to a clearly signposted general recommendation and reduce prescriptiveness until evidence is provided."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section duplicates material and procedural recommendations that already appear in the previous section 'Co od nástrojů reálně očekávat — doporučení pro pedagogy' (e.g., two‑phase pilot, DPIA, human‑in‑the‑loop).",
+      "required_fix": "Either cross‑reference the earlier section explicitly (cite the section by title and/or attachment) and shorten duplicated wording, or adjust the new section to add distinct, tool‑specific details (e.g., Copilot/Forms steps) rather than repeating the general workflow."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses \\\\begin{verbatim} inside an itemize environment. While this is syntactically allowed, verbatim environments can break some list formatting depending on the surrounding document class/packages. Citations (\\cite{...}) are embedded in inline text but the review cannot confirm that the .bib contains the cited keys.",
+      "required_fix": "Verify that the document preamble includes the packages needed for verbatim in lists (e.g., use the 'verbatim' package or 'listings') or replace the example prompt with a \\texttt or small framed environment that is robust inside lists. Also ensure that all \\cite keys used in the section are present in the bibliography."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some checklist items are brief and actionable but lack concrete examples of implementation (e.g., 'Nastavte pravidla human‑in‑the‑loop' — who is typically responsible, what a minimal rule looks like).",
+      "required_fix": "Add one or two short, concrete examples (e.g., 'final approval by course instructor or lead TA; escalate to course guarantor on factual disputes') — but only include such concrete examples if supported by an excerpt or label them as 'general background knowledge'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section refers to 'Přílohy 9.3–9.5' and 'online repozitář ai.vut.cz' as locations for templates and DPIA. The review cannot verify these links/existence from provided excerpts.",
+      "required_fix": "If these references refer to other parts of the same manual, add explicit cross‑references (e.g., 'see Příloha 9.4: Vzor DPIA') and ensure those attachments are present. If the online repo is external, provide an excerpt or internal reference that confirms the repo URL and that the listed templates are available there."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "For every sentence that cites kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1, either attach the supporting excerpt or change the citation to 'general background knowledge' and add a short phrase making that explicit (the section already marks some mentions as 'general background knowledge' — expand that practice to all unsupported procedural claims)."
+    },
+    {
+      "target": "Rychlý 6‑krokový workflow, items 1–6",
+      "edit_instruction": "If kb_malinka excerpts are provided, keep the current wording and add parenthetical cross‑references to Příloha 9.4 (DPIA template) and Příloha 9.3 (sylabus text) where appropriate. If not, shorten items to concise high‑level recommendations (e.g., 'Consider performing a DPIA and documenting data flows — see Příloha 9.4') and mark them as general guidance."
+    },
+    {
+      "target": "Konkrétní příklad (Copilot + Forms)",
+      "edit_instruction": "Retain the Copilot/Forms example (this is supported by kb_ai_101_tipu_pdf_04e4a115_page_36_1 and page_3_1). However, remove or revise checklist bullets that claim institutional availability or licensing specifics unless you attach the relevant institutional excerpt. Add an explicit sentence: 'This example is illustrative; verify license/dostupnost with your IT department' (supported by kb_ai_101_tipu_pdf_04e4a115_page_3_1)."
+    },
+    {
+      "target": "LaTeX prompt block",
+      "edit_instruction": "Replace the verbatim environment with a safer inline code environment if compatibility issues are expected, or ensure the document class allows verbatim inside lists. Also confirm bibliography entries for the cited keys exist; if not, add them or remove the \\cite commands."
+    },
+    {
+      "target": "Checklist and 'Drobné tipy'",
+      "edit_instruction": "For tips labeled 'general background knowledge', explicitly tag them as such in the text (the section already does so in some places). For any tip that makes stronger claims about risk reduction or outcomes, either supply an excerpt or tone down to a cautious recommendation."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1 (full chunk supporting DPIA, two-phase pilot, human-in-the-loop, evaluation metrics)",
+    "Příloha 9.3–9.5 excerpts from the manual repository (especially the DPIA template Příloha 9.4 and AI Policy Template Příloha 9.3)",
+    "Any additional excerpts that show the online repository ai.vut.cz contains the referenced templates and checklists"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Některé body odkazují na praktiky (provenance, auditní logy, retence) bez explicitního interního cross‑reference na konkrétní sekce/přílohy, které v příručce toto řeší. Např. bullet o provenance je označen jako \"general background knowledge\" — podle pravidel by mělo být buďto podpořeno excerptem nebo jasně označeno/odkázáno na relevantní část příručky.",
+      "required_fix": "Přidat interní cross‑reference na sekce, kde je provenance, logování a retence rozpracované (např. Provozní údržba / 4.2.4 / kapitola 2.2 / příloha 9.4) nebo nahradit \"general background knowledge\" konkrétní citací z příručky."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Citace \\cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1} je použita pro bod o auditních logech, ale v aktuálním souboru excerptů chybí přímý obsah stránky 3. Přesto je v předchozích sekcích zmíněna poznámka týkající se enterprise funkcí a auditu.",
+      "required_fix": "Buď vložit konkrétní excerpt nebo změnit citaci na interní cross‑ref (např. na část 'Provozní údržba a monitorování chyb' / poznámku), případně přidat retrieval query pro získání textu ze stránky 3."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "V textu v části 'Dohoda o ochraně dat' je použit anglický termín 'retention' ('doba retention'), což je stylisticky nekonzistentní s češtinou dokumentu.",
+      "required_fix": "Nahradit 'doba retention' českým výrazem (např. 'doba uchovávání') a zkontrolovat drobné jazykové nesrovnalosti."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Bullety uvádějí užitečné zásady, ale chybí krátký příklad konkrétní věty do sylabu (praktická ukázka), na který se v textu odkazuje jako 'jednoznačná věta do sylabu'.",
+      "required_fix": "Doplnit jednu–dvě varianty šablonové věty do sylabu (krátká, facultativní) nebo explicitně odkázat na šablony v kapitole 2.6 / příloze 9.3."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Bod o 'Požadujte jednoduchou provenance' doporučuje, co studenty požádat (shrnutí, prompt, upravené části), ale neuvádí, jak tuto deklaraci hodnotit nebo jak ji začlenit do grading rubricy; v příručce jsou relevantní části (5.4, 2.6), ale nejsou zde cross‑refy.",
+      "required_fix": "Přidat krátkou poznámku nebo cross‑ref k sekcím s rubrikami/hodnocením (5.4, 2.6), případně krátký návrh, jak pole pro provenance začlenit do rubriky (např. checklist: prompt / co nástroj dělal / části upravené studentem)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Upravte druhý bullet (provenance) takto: buď explicitně odkázat na sekci 'Provozní údržba a monitorování chyb' nebo na 4.2.4, a nechte poznámku 'general background knowledge' zmizet. Například: 'Požadujte jednoduchou provenance (viz Provozní údržba / 4.2.4): u úloh, kde bylo AI použito, nechte studenty připojit krátké shrnutí – co nástroj dělal, jaký prompt použili a které části výsledku upravili.'"
+    },
+    {
+      "target": "latex_body",
+      "edit_instruction": "Opravte formulaci 'doba retention' na 'doba uchovávání' a přidejte cross‑ref na kapitolu 2.2 (DPIA) a přílohu 9.4 (vzor DPIA): '...uveďte účel zpracování a dobu uchovávání; pokud jde o citlivá data studentů, řešte to přes DPIA a DPA (viz kapitola 2.2 a příloha 9.4).'"
+    },
+    {
+      "target": "practical tip",
+      "edit_instruction": "Doplňte příklad krátké věty do sylabu (šablonu). Např.: 'Používání generativní AI v tomto předmětu je povoleno za podmínky povinné deklarace v poli \"Použití AI\" při odevzdání (uveďte nástroj, krátký popis, použitý prompt nebo screenshot a popis úprav). Podrobnosti a vzory jsou v kapitole 2.6 a příloze 9.3.'"
+    },
+    {
+      "target": "audit bullet",
+      "edit_instruction": "U bulletu o logování a auditu přidejte interní cross‑ref nebo konkrétní doporučení z provozní sekce: '...aktivujte auditní logy a retenci provenance (dotazy/odpovědi, verze promptů/modelů) pro účely vyšetřování incidentů a zpětné kontroly (viz sekce \"Provozní údržba a monitorování chyb\").'"
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 3 audit logy retence provenance enterprise funkce",
+    "kb_ai_101_tipu_pdf provenance prompt verzování promptů 'provenance' 'prompt' 'verze promptu' page",
+    "kb_ai_101_tipu_pdf kapitola 2.6 šablony do sylabů příloha 9.3 AI Policy Template texty pro sylab"
+  ]
+}

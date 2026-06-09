@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section cites kb_ai_101_tipu_pdf_04e4a115_page_8_1 for the DPIA recommendation. That claim is consistent with the previous sections in memory, but the specific retrieved excerpt for page_8_1 was not provided in the current RETRIEVED EXCERPTS batch.",
+      "required_fix": "Ensure the bibliography contains kb_ai_101_tipu_pdf_04e4a115_page_8_1 and add the corresponding excerpt (page 8) to the retrieval set so the DPIA recommendation is directly supported by a retrieved excerpt."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Usage of \\hfill inside each \\item is unusual and may create awkward spacing; repeated parenthetical labels at line ends are not ideal LaTeX style inside itemize.",
+      "required_fix": "Remove the per-item \\hfill tokens and either (a) move the (general background knowledge) label to a single sentence before or after the list, or (b) use a description environment with short labels. Verify compiled output for spacing."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Mixed language/terminology in one bullet: 'Sub‑procesoři: seznam současných sub‑processorů...' mixes Czech and English terms.",
+      "required_fix": "Use a single Czech term consistently (e.g. 'sub‑procesorů' or 'pod‑zpracovatelů') and update the inflected forms accordingly."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Every list item is marked '(general background knowledge)' which is redundant and makes the list visually noisy.",
+      "required_fix": "Replace repeated per-item labels with a single clarifying sentence before the list, e.g. 'Níže stručný seznam klíčových bodů, které by DPA měla pokrýt (obecné doporučení — \"general background knowledge\"):', and remove the per-item tags."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section gives negotiation advice (prefer enterprise/licensed variants) and mentions Microsoft educational offerings; useful, but it could point readers to concrete local templates or the central repo for DPA/DPIA templates.",
+      "required_fix": "Add a short sentence referencing the VUT online repository (ai.vut.cz) with a citation or an explicit link to DPA/DPIA templates, or include a retrieval-supported pointer to where templates/checklists can be found."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Move the repeated '(general background knowledge)' label out of each \\item: place one parenthetical note in the introductory sentence to the list and remove \\hfill from each item. Example: change the opening line to 'Níže stručný seznam klíčových bodů, které by DPA měla pokrýt (obecné doporučení — \"general background knowledge\"):' and delete per-item markers and \\hfill."
+    },
+    {
+      "target": "item 'Sub‑procesoři'",
+      "edit_instruction": "Replace the mixed-language phrase with consistent Czech: 'Sub‑procesoři: seznam současných sub‑procesorů, pravidla pro oznámení a schválení nových sub‑procesorů'. Alternatively use 'pod‑zpracovatelé' if that aligns with the rest of the document."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Remove \\hfill occurrences inside \\item entries. If alignment of the parenthetical note is desired, use a single note above the list or employ a description environment for label alignment."
+    },
+    {
+      "target": "practical tip paragraph",
+      "edit_instruction": "Add a short, verifiable pointer to local templates: e.g. 'Doporučení: před podpisem použijte šablony DPA a vzorové klauzule dostupné v online repozitáři ai.vut.cz a/nebo konzultujte s metodickým oddělením.' Ensure this sentence is linked to a retrieved excerpt or to the repository reference in the KB."
+    },
+    {
+      "target": "citations check",
+      "edit_instruction": "Verify that the citation \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1} resolves in the bibliography and add the retrieved excerpt for page 8 to the document source so the DPIA recommendation is explicitly backed by a retrieved excerpt."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 8 excerpt (DPIA recommendation / posouzení dopadů) — text supporting 'u pilotů a při sdílení studentských dat je provedení DPIA doporučené'",
+    "kb_ai_101_tipu_pdf_04e4a115 any excerpt that lists DPA checklist items or contractual clauses (security, retention, sub-processors, audits) to directly ground the itemized list",
+    "repository ai.vut.cz or project online repo excerpt listing DPA/DPIA templates or guidance for VUT (to support the suggested pointer to local templates)"
+  ]
+}

@@ -1,0 +1,12 @@
+Title: Intro to Retrieval-Augmented Generation (RAG)
+Audience: software engineers and product managers
+Duration: 20 minutes
+Desired slide count: 12-15
+Style: short bullets, minimal jargon, include one simple diagram description
+Must include:
+- What problem RAG solves
+- High-level architecture (retriever + generator)
+- Data sources (KB, web, papers)
+- Evaluation metrics
+- Risks and mitigations
+Close with a 3-step adoption plan

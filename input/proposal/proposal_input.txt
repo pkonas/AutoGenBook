@@ -1,0 +1,250 @@
+Níže je nový fiktivní text. Zachovává podobnou logiku členění jako přiložený dokument: metadatová hlavička, kontext, cíl, přínos, metodika, harmonogram, výstupy, strategie, tým a rizika. Strukturu jsem odvodil z přílohy. 
+
+---
+
+Jazyk: cz
+Název: **Městské zelené střechy jako modulární systém pro ochlazování školních budov**
+Autor: **Ateliér Elenora Vrbová**
+Klíčová slova: zelené střechy, mikroklima, školní budovy, modulární vegetační panely, hospodaření s dešťovou vodou
+Omezení: součástí musí být etický plán a data management.
+Počet stran: 10–20
+
+## Obsah
+
+### Kontext a motivace
+
+Městské školy se v posledních letech potýkají se zvyšující se tepelnou zátěží, přehříváním učeben a rostoucími náklady na chlazení v jarních a letních měsících. V hustě zastavěných čtvrtích jsou školní dvory často tvořeny převážně zpevněnými plochami a střechy školních budov zůstávají nevyužité. Přitom právě střechy představují významný prostor pro zadržování dešťové vody, podporu biodiverzity a zlepšení mikroklimatu v bezprostředním okolí budovy.
+
+Tradiční návrh zelených střech bývá často individuální, nákladný a obtížně přenositelný mezi různými typy školních objektů. Každá budova se posuzuje samostatně, vznikají unikátní návrhy a realizace je závislá na dostupnosti specializovaných dodavatelů. Města proto jen pomalu zavádějí podobná opatření ve větším měřítku, přestože tlak na adaptaci veřejných budov na změny klimatu narůstá.
+
+Projekt reaguje na tuto situaci vývojem modulárního systému lehkých vegetačních panelů, které bude možné přizpůsobit různým typům střech školních budov. Cílem není pouze vytvořit technický produkt, ale také ověřit postup návrhu, instalace, údržby a dlouhodobého sledování dopadů na vnitřní i vnější prostředí školy.
+
+### Hlavní cíl projektu
+
+Cílem projektu je vyvinout a pilotně ověřit modulární systém zelených střešních panelů pro školní budovy, který umožní:
+
+rychlou instalaci na vybrané typy plochých a mírně šikmých střech,
+
+zlepšení tepelné stability učeben v nejvyšších podlažích,
+
+zadržování a pozvolné odpařování dešťové vody,
+
+podporu drobných městských biotopů pro hmyz a ptactvo,
+
+vytvoření metodiky pro správu, údržbu a opakované nasazení systému na dalších školách.
+
+Projekt bude zaměřen na návrh konstrukčně lehkých panelů s vegetační skladbou odolnou vůči suchu, kolísání teplot a omezené údržbě. Součástí bude také ověření, zda lze systém instalovat bez zásadních stavebních úprav a bez dlouhodobého omezení provozu školy.
+
+Výsledné řešení bude testováno na fiktivní Základní škole Jasmínová v městské části Nové Sady. Pilotní instalace poslouží jako demonstrační vzorek pro další veřejné budovy podobného typu.
+
+### Odborné zaměření a výzkumný přínos
+
+Projekt propojuje několik odborných oblastí: stavební fyziku, krajinářskou architekturu, hydroretenční materiály, péči o městskou zeleň a provoz veřejných školních budov. Přínos projektu spočívá zejména v ověření, zda lze zelené střechy navrhovat jako opakovatelný, modulární a provozně jednoduchý systém, nikoli jako výhradně individuální stavební řešení.
+
+Novost spočívá v kombinaci lehké nosné kazety, retenční vrstvy z recyklovaných minerálních granulátů a vegetační směsi sestavené pro extrémní městské podmínky. Systém bude navržen tak, aby jednotlivé panely bylo možné v případě potřeby vyměnit, přesunout nebo doplnit bez narušení celé střechy.
+
+Výzkumná nejistota je spojena hlavně s:
+
+dlouhodobou odolností vegetační směsi při nízké vrstvě substrátu,
+
+schopností panelů zadržet dostatečné množství vody při přívalových deštích,
+
+vlivem instalace na teplotu v učebnách v nejvyšším podlaží,
+
+nároky na údržbu v běžném provozu školy,
+
+přijatelností řešení pro správce budov, učitele, rodiče a zřizovatele.
+
+Projekt bude ověřovat nejen technické parametry, ale také praktickou použitelnost systému v prostředí veřejné instituce, kde je klíčová bezpečnost, jednoduchá údržba a dlouhodobá ekonomická udržitelnost.
+
+### Metodika a technické řešení
+
+Základem řešení bude návrh modulárního panelu o jednotném rozměru, který bude možné kombinovat do větších celků podle velikosti a únosnosti střechy. Panel bude tvořen lehkým nosným rámem, separační vrstvou, retenčním jádrem, vegetačním substrátem a předpěstovanou rostlinnou směsí.
+
+Technické řešení bude zahrnovat:
+
+návrh několika variant panelu podle hmotnosti, výšky substrátu a retenční kapacity,
+
+testování materiálů v laboratorních podmínkách,
+
+ověření stability panelů při větru a při opakovaném vysychání,
+
+návrh bezpečného kotvení bez narušení hlavní hydroizolace střechy,
+
+pilotní instalaci na části střechy školní budovy,
+
+sledování teplotních, vlhkostních a provozních parametrů.
+
+Projekt bude pracovat s kombinací laboratorních testů, technického návrhu, provozního měření a uživatelské zpětné vazby. Důraz bude kladen na to, aby systém nebyl závislý na složité technologii a aby jej bylo možné po ukončení projektu nabídnout jako prakticky použitelný model pro další veřejné objekty.
+
+### Datová infrastruktura a plán správy dat
+
+Projekt bude vytvářet a spravovat několik typů dat: technické parametry panelů, laboratorní měření materiálů, provozní měření na pilotní škole, fotodokumentaci vývoje vegetace, záznamy o údržbě a anonymizovanou zpětnou vazbu od uživatelů budovy.
+
+Plán správy dat bude založen na těchto principech:
+
+všechna měřená data budou ukládána v jednotné tabulkové struktuře s časovým razítkem, popisem měřicího místa a informací o použitém senzoru,
+
+technická dokumentace panelů bude verzována a ukládána odděleně od provozních měření,
+
+fotodokumentace bude označena datem, místem pořízení a číslem testovací plochy,
+
+osobní údaje nebudou sbírány, pokud to nebude nezbytné pro vyhodnocení projektu,
+
+uživatelská zpětná vazba bude zpracována anonymně a pouze v agregované podobě,
+
+po ukončení projektu bude vytvořen souhrnný datový balíček obsahující metodiku, agregovaná měření a popis pilotní instalace.
+
+Za správu dat bude odpovědné fiktivní Centrum městských adaptací Liora. Přístup k surovým provozním datům budou mít pouze členové řešitelského týmu. Pro veřejné šíření budou připraveny pouze agregované výstupy, které neumožní identifikaci konkrétních osob ani citlivých provozních informací školy.
+
+### Etický plán
+
+Projekt bude probíhat v prostředí školní budovy, a proto bude zvláštní pozornost věnována bezpečnosti, ochraně soukromí a minimalizaci zásahů do běžného chodu školy.
+
+Etický plán zahrnuje následující opatření:
+
+instalace panelů bude probíhat mimo dobu běžné výuky nebo v předem dohodnutých provozních oknech,
+
+žáci nebudou zapojováni do technických prací ani do činností se zvýšeným bezpečnostním rizikem,
+
+v případě vzdělávacích aktivit budou žáci pracovat pouze s demonstračními vzorky, nikoli na střešní ploše,
+
+nebude pořizována identifikovatelná fotodokumentace žáků ani zaměstnanců školy,
+
+případné dotazníky pro učitele a správce budovy budou dobrovolné a anonymní,
+
+všechna měření budou zaměřena na prostředí budovy, nikoli na sledování jednotlivců,
+
+projekt nebude používat skryté senzory, kamery ani zařízení schopná monitorovat pohyb osob,
+
+správce školy bude předem informován o rozsahu měření, umístění senzorů a způsobu nakládání s daty.
+
+Etická odpovědnost bude svěřena fiktivní koordinátorce projektu, Ing. Eleně Rybkové. Ta bude dohlížet na soulad instalace a sběru dat s interními pravidly školy, bezpečnostními požadavky a zásadou přiměřenosti.
+
+### Harmonogram prací
+
+**Harmonogram prací: 09/2026–08/2029**
+
+#### 1. rok: Návrh systému a laboratorní ověření
+
+analýza typických střešních skladeb školních budov,
+
+návrh modulárního panelu ve třech konstrukčních variantách,
+
+výběr retenčních materiálů a vegetačních směsí,
+
+laboratorní testování hmotnosti, nasákavosti a vysychání,
+
+příprava technické dokumentace pro pilotní instalaci,
+
+předběžné posouzení bezpečnosti a údržby.
+
+#### 2. rok: Pilotní instalace a provozní měření
+
+výběr vhodné části střechy na Základní škole Jasmínová,
+
+instalace zkušebního pole vegetačních panelů,
+
+umístění senzorů pro měření teploty, vlhkosti a srážkové vody,
+
+sledování vývoje vegetace během první sezóny,
+
+záznam nároků na údržbu,
+
+průběžné vyhodnocení funkčnosti a úprav systému.
+
+#### 3. rok: Optimalizace a rozšíření testovací plochy
+
+úprava panelů podle výsledků z prvního roku provozu,
+
+doplnění dalších vegetačních variant,
+
+rozšíření testovací plochy o druhý typ střešní zóny,
+
+porovnání mikroklimatických dat s referenční částí střechy bez vegetace,
+
+zpracování metodiky pro správce budov,
+
+příprava demonstračních a vzdělávacích materiálů.
+
+#### 4. rok: Vyhodnocení, metodika a příprava k uplatnění
+
+finální vyhodnocení provozních dat,
+
+posouzení ekonomické a údržbové náročnosti,
+
+zpracování katalogu doporučených skladeb panelů,
+
+návrh postupu pro zavádění systému na dalších školách,
+
+příprava závěrečné zprávy a veřejné prezentace výsledků,
+
+předání metodiky fiktivnímu městskému odboru veřejných budov.
+
+### Hlavní výstup a uplatnění výsledků
+
+Stěžejním výstupem projektu bude funkční modulární systém zelených střešních panelů ověřený na pilotní školní budově. Výsledkem bude také sada provozních měření, metodika instalace, metodika údržby a katalog doporučených vegetačních skladeb podle míry oslunění, dostupnosti vody a požadované hmotnosti systému.
+
+Hlavní praktické výstupy budou:
+
+funkční vzorek modulárního vegetačního panelu,
+
+pilotní zelená střešní plocha na Základní škole Jasmínová,
+
+soubor měření teploty, vlhkosti a retenční schopnosti,
+
+metodika instalace pro správce školních budov,
+
+plán údržby pro různé vegetační varianty,
+
+doporučení pro městské zřizovatele veřejných budov.
+
+Výsledky budou využitelné pro města, školy, správce veřejného majetku a malé realizační firmy zaměřené na adaptační opatření. Projekt může přispět ke snížení tepelné zátěže budov, lepšímu hospodaření s dešťovou vodou a rozšíření městské zeleně i tam, kde není možné významně upravovat okolní pozemky.
+
+Práva k výsledkům budou v tomto fiktivním návrhu rozdělena mezi řešitelské organizace následovně: 70 % Ateliér Elenora Vrbová, 20 % Centrum městských adaptací Liora a 10 % Základní škola Jasmínová jako pilotní partner pro uživatelskou validaci. Toto rozdělení je pouze modelové a neodkazuje na žádné skutečné smluvní ujednání.
+
+### Soulad se strategiemi a prioritami
+
+Projekt je v souladu s fiktivní městskou strategií **Nové Sady 2040: město odolné vůči horku**, která podporuje adaptační opatření na veřejných budovách, zadržování vody v městském prostředí a rozvoj zelené infrastruktury.
+
+Zároveň naplňuje tematickou prioritu **Veřejné budovy jako klimatické ostrovy stability**, protože se zaměřuje na školy jako místa s vysokou společenskou hodnotou a pravidelným denním provozem. Projekt podporuje také environmentální vzdělávání, jelikož pilotní instalace může být využita jako názorný příklad hospodaření s vodou, péče o zeleň a praktické adaptace na měnící se klimatické podmínky.
+
+### Řešitelský tým a zajištění
+
+Projekt bude řešen fiktivním konsorciem tří partnerů.
+
+**Ateliér Elenora Vrbová** zajistí návrh modulárního systému, architektonické začlenění do budovy, technickou koordinaci a přípravu instalační metodiky.
+
+**Centrum městských adaptací Liora** bude odpovědné za měření mikroklimatických parametrů, správu dat, vyhodnocení dopadů a přípravu závěrečných doporučení pro veřejný sektor.
+
+**Základní škola Jasmínová** poskytne pilotní budovu, provozní součinnost, zpětnou vazbu správce objektu a možnost ověřit řešení v reálném školním prostředí.
+
+Tým je sestaven tak, aby pokryl návrh, technickou realizaci, environmentální měření, správu dat, bezpečnost provozu a praktické uplatnění výsledků.
+
+### Rizika a jejich ošetření
+
+Mezi hlavní rizika projektu patří omezená únosnost vybrané střechy, nedostatečná odolnost vegetace při dlouhém období sucha, vyšší než očekávané nároky na údržbu a možné komplikace při provozu školy během instalace.
+
+Navržená opatření zahrnují:
+
+předběžné technické posouzení střechy před zahájením instalace,
+
+vývoj více hmotnostních variant panelu,
+
+volbu suchomilných a nízkoúdržbových rostlinných druhů,
+
+instalaci po etapách a mimo hlavní výukový provoz,
+
+pravidelný monitoring stavu vegetace,
+
+náhradní plán pro výměnu poškozených panelů,
+
+průběžnou komunikaci se správcem budovy.
+
+Rizikem je také omezená přenositelnost výsledků na budovy s odlišnou konstrukcí střechy. Toto riziko bude řešeno tím, že metodika nebude popisovat pouze jeden konkrétní případ, ale vytvoří rozhodovací rámec pro posouzení vhodnosti systému na různých typech objektů.
+
+### Závěrečné shrnutí
+
+Projekt navrhuje praktické, modulární a opakovatelné řešení pro zavádění zelených střech na školních budovách. Jeho cílem je propojit technickou jednoduchost, environmentální přínos a provozní bezpečnost. Výsledkem bude ověřený systém vegetačních panelů, metodika instalace a údržby, datově podložené vyhodnocení dopadů a návrh dalšího využití ve veřejném sektoru.
+
+Celý návrh je fiktivní: uvedené názvy organizací, osob, školy, strategií i programu jsou smyšlené a neslouží jako odkaz na skutečné subjekty.

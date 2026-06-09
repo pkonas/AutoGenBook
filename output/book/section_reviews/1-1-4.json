@@ -1,0 +1,59 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Nepodpořený faktický návod: „Praktický tip: při tvorbě pracovních listů kombinujte Designer pro vizuální část a OneNote pro matematické/formální zápisy, pak exportujte do LMS.\" V dostupných RETRIEVED EXCERPTS (kb_ai_101_tipu_pdf_page_51_1 a kb_ai_101_tipu_pdf_page_8_1) je popsána funkcionalita Designeru a OneNotu, ale v nich se nenachází explicitní tvrzení o workflow „kombinovat Designer + OneNote a exportovat do LMS\" ani o konkrétních exportních možnostech do LMS.",
+      "required_fix": "Buď: a) doplnit konkrétní citaci / zdroj, který potvrzuje možnost přímého exportu z Designer/OneNote do LMS a doporučený postup slučování výstupů, nebo b) přeformulovat tuto větu jako obecné doporučení a přidat poznámku, že konkrétní exportní postup závisí na používaném LMS a verzi nástrojů (označit jako \"general background knowledge\")."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Chybí explicitní interní odkazy na související části příručky (např. kde jsou rozvedeny technické pojmy tokens/embeddings nebo kontrolní checklisty pro ověření automatického hodnocení). To ztíží uživateli rychlé nalezení doplňujících informací zmíněných v sekci.",
+      "required_fix": "Přidat krátké křížové odkazy (např. „viz 1-1-3 Klíčové pojmy: tokens, embeddings“ nebo „viz 3.7 Automatické řešení a rubriky hodnocení“) u pasáží, které se na tyto témata odkazují."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce uvádí workflow pro 'Pokrok v matematice' v bodech, ale neobsahuje možné kontrolní otázky/prompty nebo jednoduchý checklist pro ověření kvality automatického předhodnocení a akademické integrity (otevřený thread v kontextu).",
+      "required_fix": "Doplnit 2–3 krátké ukázkové prompt/ověřovací otázky a krátký checklist (např. zkontrolovat náhodně 5% vyhodnocených úloh, ověřit postupy u žáků s odchylkami, explicitně vyžadovat nahrání postupu) nebo odkaz na příslušnou šablonu v přílohách."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Drobné nekonzistence v označení zdrojů: některé položky mají poznámku 'General background knowledge' jako poznámku u nohy, jiné používají konkrétní cite_key. To může čtenáře mást při ověřování podkladů.",
+      "required_fix": "Ujasnit a sjednotit styl poznámek pod čarou: explicitně označit, které kroky jsou podložené KB cite_keys a které jsou pedagogickým doporučením (general background)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX je syntakticky v pořádku, ale poznámka pod čarou \"General background knowledge\" je použita jako obsah footnoty (místo cite_key). To je v pořádku, ale může být vhodné sjednotit označování citací/poznámek pro automatické zpracování zdrojů.",
+      "required_fix": "Volitelně upravit text footnoty tak, aby jasně uváděla 'general background knowledge' v uvozovkách nebo přidat krátké vysvětlení, že jde o pedagogické doporučení, nikoli přímou citaci KB."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Praktický tip (Item 3, bod 3)",
+      "edit_instruction": "Přeformulujte jako obecné doporučení a označte jako general background knowledge, např.: 'Praktický tip (obecné doporučení): při tvorbě pracovních listů můžete uvažovat o kombinaci Designeru pro vizuální část a OneNotu pro matematické/formální zápisy; konkrétní postup exportu do vašeho LMS závisí na použitém systému a verzi aplikací — ověřte možnosti exportu a licencí před realizací.' Přidejte footnotu 'General background knowledge' místo konkrétní KB cite_key, pokud nemáte přímý zdroj."
+    },
+    {
+      "target": "Minecraft Education krok 1",
+      "edit_instruction": "Doplnit krátkou poznámku o licencích přímo k bodu (např. 'Před stažením zkontrolujte dostupnost v rámci školní licence — některé světy jsou zdarma v rámci Hour of Code, jiné vyžadují Microsoft 365 A3/A5', s odkazem na kb_ai_101_tipu_pdf_page_15_2)."
+    },
+    {
+      "target": "Pokrok v matematice (Item 2)",
+      "edit_instruction": "Doplnit 2–3 kontrolní otázky/checklist pro učitele (např. '1) Náhodně zkontrolujte postupy u 5% žáků; 2) Ověřte, zda AI správně vyhodnotilo klíčový krok u chybových řešení; 3) Zaznamenejte oblasti s opakovanými chybami a vytvořte dodatečné sady úloh'). Pokud je možné, připojit krátký příklad promptu pro vygenerování sady úloh."
+    },
+    {
+      "target": "Křížové odkazy",
+      "edit_instruction": "Přidat v textu malé odkazy na související sekce: u zmínky o tokenech/embeddingech odkazovat na 1-1-3; u ověřování a rubrik odkazovat na 3.7 a 5.4. Např. '...viz 1-1-3 Klíčové pojmy (tokens, embeddings)'."
+    }
+  ],
+  "retrieval_queries": [
+    "Designer export to LMS OneNote export to LMS 'Designer export LMS' 'Designer export PowerPoint/PNG/PDF' site:kb or 'AI - 101 tipu.pdf' (search for export or LMS)",
+    "Combining Microsoft Designer and OneNote workflow export to LMS 'Designer + OneNote export' 'Designer OneNote export' in KB",
+    "Sample prompts or templates for 'Pokrok v matematice' or Microsoft Education Accelerators for generating practice sets and verification steps kb_ai_101_tipu_pdf 'Pokrok v matematice' prompt examples",
+    "Guidance in KB for verifying AI pre-evaluation results in 'Pokrok v matematice' or Microsoft education tools (random checks, asking for procedure uploads) 'Pokrok v matematice' verification"
+  ]
+}

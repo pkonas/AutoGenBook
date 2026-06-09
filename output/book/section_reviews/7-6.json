@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Bullet in the Implementační checklist recommends running a 'krátký pilot (10–20 studentů)'. The provided KB excerpts and context memory do not clearly support an absolute pilot size of 10–20 students (they contain references to e.g. 10–20% for oral spot‑checks but not a recommended pilot cohort size). A numeric recommendation is a non‑trivial claim and needs supporting evidence or should be qualified/removed.",
+      "required_fix": "Either (A) provide a supporting citation from the KB that explicitly recommends a 10–20 student pilot, or (B) change the text to a qualified suggestion (e.g. 'proveďte krátký pilot s malou skupinou studentů — například 10–20, pokud je to proveditelné — a upravte workflow podle výsledků') and note that the exact size should depend on course scale and resources."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section requires students to attach an 'AI log' and to provide prompts/outputs/reflections but does not explicitly provide operational guidance for data protection, consent, data retention, or which institutional templates (DPIA/DPA) to use. These are non‑trivial practical/legal requirements that must be aligned with GDPR and institutional procedures (the text only contains a general note to 'prověřit soulady s GDPR').",
+      "required_fix": "Add explicit instructions or pointers to KB locations that handle DPIA, DPA, data retention and consent (for example reference the DPIA template and guidance in the manual: sections 2.2 and 9.4 in the Outline). If no direct KB citation is available, rephrase to clearly mark this as an action item for the course guarantor (e.g. 'Před sběrem AI logů prověřit DPIA/DPA s právním oddělením; ukládat logy jen po nezbytnou dobu a s předchozím informovaným souhlasem')."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "Open thread / context memory notes that a 'knihovna ověřených promptů' is missing. The section invites use of prompt logs and a prompt library but does not include any concrete, copy‑pasteable prompt examples or explicit directions for building a Prompt Library, which reduces re‑usability for instructors.",
+      "required_fix": "Include at least 2–3 concrete prompt templates (copy‑paste ready) or explicitly link to the repository/prompt library (see Outline 9.1 'Prompt Library'). If the KB contains ready prompts (Prompt Library 9.1), cite or link to those excerpts; otherwise add a TODO note to populate this section with verified prompt examples before publication."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Minor LaTeX issues: the header 'copy\\\\ \\&paste' uses an explicit linebreak and an escaped ampersand inside \\textbf which is awkward and may break formatting; the file also contains inline parenthetical labels '(general background knowledge)' that look like editor comments rather than intended printed text.",
+      "required_fix": "Replace 'copy\\\\ \\&paste' with 'copy \\& paste' (or 'copy‑and‑paste') to avoid the manual line break. Remove or convert the '(general background knowledge)' markers to LaTeX comments (%) or to a footnote if these notes should be visible to readers."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The prompt‑log template uses a verbatim block but does not state expected formats, file naming conventions, or acceptable file types for the AI log attachment (e.g. plain text, PDF, JSON). Lack of such details can cause inconsistent submissions.",
+      "required_fix": "Add a short sentence specifying acceptable formats (recommendations) and a suggested file naming convention (e.g. '<studentID>_<assignment>_AILog.txt') or point to institutional guidance on artifact submission formats."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Implementační checklist — pilot bullet",
+      "edit_instruction": "Change 'Proveďte krátký pilot (10–20 studentů) a upravte workflow podle zjištěných problémů.' to a qualified recommendation: 'Proveďte krátký pilot s malou skupinou studentů (např. 10–20, pokud to odpovídá kapacitě kurzu) a upravte workflow podle zjištěných problémů; odůvodněte zvolenou velikost pilotu.' If you can, cite KB guidance recommending pilot testing or mention this as local policy decision."
+    },
+    {
+      "target": "Prompt‑log / Prompt Library",
+      "edit_instruction": "Add a short paragraph linking this template to the central Prompt Library (Outline item 9.1). If the Prompt Library is available, insert a reference like 'Viz Prompt Library (9.1) pro ověřené prompt‑šablony' and include 2–3 concrete prompt templates (copy‑paste ready) illustrating typical tasks (e.g. summarization, code review, question generation). If the KB does not contain these, add a TODO placeholder to populate examples."
+    },
+    {
+      "target": "Privacy / DPIA note",
+      "edit_instruction": "Expand the brief GDPR note into actionable bullets: (a) before collecting AI logs consult the DPIA template (Outline 2.2 and 9.4), (b) minimise stored personal data in logs, (c) get informed consent from students, (d) define retention period and access controls. Cite relevant KB sections (2.2, 9.4) where available."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Remove visible '(general background knowledge)' phrases from printed text; keep them only as source comments. Fix 'copy\\\\ \\&paste' to 'copy \\& paste' or 'copy‑and‑paste'. Ensure verbatim block compiles by keeping it simple and documenting expected file formats outside the verbatim block."
+    },
+    {
+      "target": "Prompt‑log format details",
+      "edit_instruction": "Add one line after the verbatim block specifying acceptable file formats and a suggested filename pattern for uploaded AI logs (e.g. 'Preferované formáty: .txt, .md, .pdf; Doporučený název souboru: <studentID>_<assignment>_AIlog.<ext>')."
+    }
+  ],
+  "retrieval_queries": [
+    "Evidence for recommended pilot sizes (e.g. guidance recommending pilot with 10–20 students) in the KB/manual",
+    "KB excerpts about managing AI logs, DPIA/DPA templates and guidance for storing/safeguarding student prompt logs (sections 2.2 and 9.4 in the Outline)",
+    "Location or examples of the Prompt Library (9.1) and sample copy‑paste prompt templates in the KB",
+    "Any KB guidance about acceptable file formats and retention periods for submission artifacts (prompt logs, metadata, hashes)"
+  ]
+}

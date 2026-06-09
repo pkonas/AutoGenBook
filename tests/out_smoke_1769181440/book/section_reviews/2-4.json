@@ -1,0 +1,66 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section contains several non-trivial claims presented as recommendations (expected benefits, risks, checklist). These claims are already qualified by the opening note as \"general background knowledge\", but that qualification should be made more prominent and consistently applied to individual recommendation lists so readers are clearly aware these are not evidence-backed statements.",
+      "required_fix": "Make the 'general background knowledge' qualification visually or textually explicit for each major subsection (e.g., add a short parenthetical note at the start of 'Očekávané přínosy', 'Hlavní rizika', and 'Proces kontroly obsahu')."
+    },
+    {
+      "type": "consistency",
+      "severity": "major",
+      "description": "The section is high-level and lacks concrete, example artifacts (rubrics, sample validated questions, metrics) referenced elsewhere in the guide. The outline and previous sections indicate concrete rubrics and evaluation patterns will be provided (see sections 3.3 and parts of 2.3), but this section does not cross-reference them or provide minimal examples.",
+      "required_fix": "Either include at least one short example rubric skeleton and one concrete metric to collect in the pilot (both clearly labeled as illustrative), or add a clear cross-reference to the sections that will provide those artifacts (e.g., 'viz. sekce 3.3 Rubriky a pracovní postupy pro hodnocení') so readers know where to find concrete templates."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Prompt examples currently include backticks (``...''), angle brackets and other raw characters. In LaTeX these are acceptable but may render inconsistently. Also the prompts would be clearer if formatted as monospaced/verbtext to preserve whitespace and special characters.",
+      "required_fix": "Format prompt examples using \\texttt{...} or a verbatim environment (e.g., \\begin{verbatim}...\\end{verbatim}) to ensure reliable rendering. Replace double backticks with proper LaTeX quoting or monospaced font."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some checklist items and pilot steps are concise but could be ambiguous in practice (e.g., 'zaznamenat počet nutných oprav' — what counts as an 'oprav'?).",
+      "required_fix": "Clarify measurement definitions in the pilot procedure by giving short guidance on what to record (e.g., classify fixes as factual, pedagogical/alignment, language/formatting) and suggest simple metrics to report (number of fixes per document, time spent on fixes, student comprehension ratings). Label these suggestions as illustrative."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends pedagogical alignment but does not suggest concrete checks (e.g., cognitive level alignment, formative vs summative suitability).",
+      "required_fix": "Add brief guidance on pedagogical checks (e.g., map each generated item to a learning objective and suggested cognitive level such as 'recall', 'apply', 'analyze') or point readers to section 3.2/3.3 for templates that include Bloom-like mappings."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening note",
+      "edit_instruction": "Expand the existing short note to a short paragraph stating explicitly that all lists below are illustrative 'general background knowledge' and must be validated locally; recommend that each subsection begins with '(ilustrativní doporučení — ověřit v pilotu)'."
+    },
+    {
+      "target": "Očekávané přínosy / Hlavní rizika",
+      "edit_instruction": "Prepend each list with a one-line qualifier such as '(ilustrativní — nezaručené přínosy/rizika; prověřit v pilotu)' to ensure readers do not treat them as evidence-backed claims."
+    },
+    {
+      "target": "Proces kontroly obsahu (praktický checklist)",
+      "edit_instruction": "Add brief examples for each checklist item: for fact-checking indicate 'ověření u učitele/subject-matter expert; záznam odkud byla informace ověřena', for pedagogické sladění add 'uveďte odpovídající učební cíl a preferovanou úroveň poznání (např. zapamatování/porozumění/aplikace)'."
+    },
+    {
+      "target": "Jednoduchý pilotní postup",
+      "edit_instruction": "Add a short table-like sentence (or bullet) describing minimal reporting: 'reportujte: počet vygenerovaných položek, počet nutných oprav (faktické/pedagogické/jazykové), čas potřebný na opravy, výsledky krátkého studentského testu (porozumění), závěr o použitelnosti.' Alternatively, add a cross-reference to section 3.3 for rubriky a metriky."
+    },
+    {
+      "target": "Šablony promptů",
+      "edit_instruction": "Format each prompt example using \\texttt{...} or a verbatim environment. Add one short illustrative filled example (e.g., a one-sentence sample summary prompt populated for a concrete topic) but label it explicitly as illustrative and 'general background knowledge'."
+    },
+    {
+      "target": "cross-references",
+      "edit_instruction": "Add explicit cross-references to related sections in the guide: mention that concrete rubriky and evaluation templates are available in section 3.3, and that pilot/metric guidance aligns with the approach in section 2.3 (automatizované hodnocení kódu) where validation samples and agreement metrics are discussed."
+    }
+  ],
+  "retrieval_queries": [
+    "examples of rubric templates for AI-generated teaching materials (rubric skeleton, what to mark automatically vs manually)",
+    "studies or guidelines measuring factual error rates in LLM-generated educational content or recommended validation metrics for AI-generated assessments",
+    "sample pilot evaluation templates for validating AI-created educational materials (what to record: error taxonomy, time to fix, student comprehension measures)"
+  ]
+}

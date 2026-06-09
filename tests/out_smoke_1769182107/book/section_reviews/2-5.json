@@ -1,0 +1,75 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section contains several specific numeric recommendations (e.g., \"AI vygeneruje 20 variant úloh\", \"tutor provede náhodnou kontrolu 20\\,\\% položek\", \"pilot s 10–30 studenty\") that are presented as prescriptive rather than illustrative. No supporting evidence or references are provided in the KB. According to grounding rules, such non-trivial numerical claims must be either supported or explicitly labeled as examples/defaults.",
+      "required_fix": "Mark all numeric values as illustrative examples or suggested defaults (e.g., prepend 'např.' or 'příkladně'), or provide supporting evidence citations. Alternatively remove numeric specifics."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section discusses measuring impact and collecting metrics but does not explicitly reference or reuse the data sources and recommended metrics described in the Learning analytics section (context memory: LMS, hodnocení, aktivita u e‑learningových objektů; metrics like frequency of logins, % completed activities, trends in scores). This risks duplication or divergence between sections.",
+      "required_fix": "Add an explicit cross-reference to the Learning analytics section (2.4) and state that pilots should use the same data sources and recommended metrics where applicable, or explain divergences."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The top two lines of the provided LaTeX body are comments (start with '%') and will not appear in the compiled output. If those lines are intended to be visible explanatory text, they must be converted to normal text. Otherwise, this is acceptable. Also, while one percent sign appears correctly escaped as '\\,\\%', verify that all literal '%' characters intended for display are escaped.",
+      "required_fix": "Convert leading comment lines to normal text if they should be visible. Confirm escaping of '%' characters where needed."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The workflow and checklists are concise but omit a few practical details that readers will expect: example prompt templates, concrete QA steps for factual verification of domain content, and brief guidance on how to integrate storage/versioning of prompts (location, format, metadata). The section also does not address integration/technical details flagged in open threads (API, anonymization, data schemas) nor the methodology for A/B pilots and statistical testing.",
+      "required_fix": "Add a short example prompt template (or a single illustrative prompt), list concrete QA checks for fact-checking (e.g., cite authoritative sources, have domain expert review), and briefly note technical integration points to be aligned with the open threads (link to the LA technical details section or signal that further technical specs are in an appendix). For A/B pilots, at least state that sample-size calculation and significance thresholds should be pre-specified and that statistical support is recommended."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Pedagogical recommendations are generally sound but could better highlight how to align generated materials with learning objectives and assessment alignment (constructive alignment). Currently the section lists 'definujte výukové cíle' but does not show how to link those to the prompt template or validated items.",
+      "required_fix": "Add one short instruction: require mapping each generated item to specific learning objective(s) and intended difficulty level in the prompt/template, and keep that mapping in the version metadata for future analytics."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "top comment lines",
+      "edit_instruction": "If the lines beginning with '%' ('% Cílem této sekce ...' and '% Poznámka: ...') are intended to appear in the document, remove the leading '%' so they compile as visible text; otherwise keep them as comments."
+    },
+    {
+      "target": "Účel a zásady (first item)",
+      "edit_instruction": "Add a short sentence referencing the Learning analytics section: 'Viz sekce 2.4 Learning analytics pro doporučené datové zdroje a metriky, které lze využít při validaci a pilotování materiálů.'"
+    },
+    {
+      "target": "Výběr nástrojů — krátký checklist",
+      "edit_instruction": "Add a bullet: 'Kompatibilita s exportem/importem metrik a logů do nástrojů používaných pro learning analytics (API, standardní formáty, anonymizace/pseudonymizace).'"
+    },
+    {
+      "target": "Workflow pro tvorbu a validaci, krok 2",
+      "edit_instruction": "Suggest including a minimal prompt template example here. For instance: 'Příklad šablony promptu (ilustrační): \"Vygeneruj {počet} cvičení na téma {téma} pro úroveň {úroveň}, typ: {test/otevřená otázka/prezentace}; u každé položky uveď: cílový výukový cíl, obtížnost (1–5), klíčové body řešení a odkaz na zdroj/texty pro faktickou kontrolu.\" — označte jako příklad."
+    },
+    {
+      "target": "Ukázková implementace pro jeden modul",
+      "edit_instruction": "Mark numeric choices explicitly as examples: replace 'vygeneruje 20 variant úloh', 'kontrola 20\\,\\% položek', 'pilot s 10–30 studenty' with 'např. vygeneruje ~20 variant (příklad)', 'např. náhodná kontrola ~20\\,\\% položek (příklad)', 'pilot s ~10–30 studenty (příklad velikosti pilotu); velikost pilotu by měla být stanovena dle cíle evaluace a statistické síly.'"
+    },
+    {
+      "target": "Kontrola kvality a právní aspekty",
+      "edit_instruction": "Add: 'Ujistěte se o souladu s interní politikou IP a vzdělávacím zákonem; uchovávejte metadata promptů (autor, datum, verze, účel) v auditovatelném úložišti. Pro faktickou kontrolu požadujte, aby domain expert připojil zdrojové reference k odborným tvrzením.'"
+    },
+    {
+      "target": "Měření přínosu",
+      "edit_instruction": "Add: 'Specifikujte datové zdroje (LMS logy, hodnocení, aktivita u e‑learningových objektů) a předem definujte metriky a statistický plán (baseline, velikost vzorku, významnost) pro A/B piloty nebo historické kontroly; konzultujte statistika při návrhu pilotu.'"
+    },
+    {
+      "target": "General tone",
+      "edit_instruction": "Throughout the section, explicitly label prescriptive defaults as 'příklad' or 'doporučení' and avoid stating them as universally applicable facts."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices for piloting educational interventions sample size A/B testing education pilot sample size guidelines",
+    "guidelines for quality assurance of AI-generated educational content fact checking and provenance in education",
+    "data privacy and LMS integration best practices anonymization pseudonymization API LMS export formats",
+    "recommendations for storing AI prompts and provenance in institutional repositories (auditability of generated content)"
+  ]
+}

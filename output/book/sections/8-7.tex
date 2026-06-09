@@ -1,0 +1,85 @@
+% Governance, řízení nákladů, checklisty a bezpečnostní opatření
+% (Obsah této části následuje po nadpisu sekce; nadpis není součástí tohoto výstupu.)
+
+Krátké shrnutí účelu sekce. Tato část popisuje doporučené organizační role, základní principy řízení nákladů a metrik při provozu AI služeb na úrovni fakulty/univerzity a poskytuje praktické check‑listy pro IT i katedry včetně návrhů základních bezpečnostních opatření a red‑teamingu.
+
+\medskip
+
+\textbf{Klíčové organizační role (stručně)} \\
+(Doplňující popis níže je uveden jako general background knowledge.)
+\begin{itemize}
+  \item Data Steward — odpovědná osoba za klasifikaci a správu interních dat, rozhoduje o anonymizaci/pseudonymizaci a o rozsahu ingestu. (general background knowledge)
+  \item AI Council / Governance Board — meziodborová skupina garantující pravidla pro nasazení (DPA/DPIA, SLA, bezpečnostní požadavky) a schvalování pilotů. (general background knowledge)
+  \item IT Security Owner + Incident Response kontakt — provozní zodpovědnosti za monitoring, logy a reakce na bezpečnostní incidenty. (general background knowledge)
+\end{itemize}
+
+\medskip
+
+\textbf{Bezpečnostní a riziková priorita} \\
+Analýza rizik by měla být nedílnou součástí aplikací AI ve vzdělávání; při návrhu řešení je třeba explicitně posoudit bezpečnostní, etická a ochrany‑osobních‑údajů rizika a zapojit příslušné odborné týmy (IT, právní/GDPR, garanti předmětů) do návrhové fáze \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}. 
+
+\medskip
+
+\textbf{Řízení nákladů a metriky provozu} \\
+(Zde uvedené body jsou uvedeny jako general background knowledge — slouží k rychlému nasazení rozhodovacích mechanismů.)
+\begin{itemize}
+  \item Rozpočet a chargeback: alokovat náklady podle kateder / pilotních projektů; definovat limitní rozpočty pro PoC fáze. (general background knowledge)
+  \item Tokeny / metrické limity: u cloudových LLM sledovat spotřebu tokenů, počet requestů a latency; nastavit varovné hranice a automatické throttlingy. (general background knowledge)
+  \item Měření dopadu: metriky spokojenosti uživatelů, poměr lidské validace vs. automatických odpovědí, chybovost/halucinace (sampling a auditování). (general background knowledge)
+\end{itemize}
+
+\medskip
+
+\textbf{RFP / SLA – klíčové body pro požadavky na dodavatele} \\
+(Následující body jsou doporučenou šablonou; pokud jsou použity v zadávacích dokumentech, doplňte právní prověrku.)
+\begin{itemize}
+  \item Zásady zpracování dat (DPA): jasně definované role správce a zpracovatele, popis typů zpracovávaných dat a uložení dat (data residency). (general background knowledge)
+  \item Auditní schopnosti: požadavek na auditní logy, možnost exportu logů, a dostupnost traceability/provenance pro retrieval události. (general background knowledge)
+  \item SLA metriky: dostupnost služby, latence, garantované časy obnovy, podmínky pro rollback a bezpečnostní incidenty. (general background knowledge)
+  \item Bezpečnostní certifikace a red‑teaming: doložení bezpečnostních testů, výsledky red‑team cvičení nebo povinnost umožnit třetí straně audit. (general background knowledge)
+\end{itemize}
+
+\medskip
+
+\textbf{Praktické checklisty pro IT a katedry před nasazením (rychlý přehled)} \\
+Následující checklist je uveden jako general background knowledge pro rychlé ověření připravenosti:
+\begin{enumerate}
+  \item Vymezení pedagogického cíle a seznam dokumentů/data, která budou použita (scope). (general background knowledge)
+  \item Posouzení nutnosti DPIA a zapojení právního/GDPR týmu (analýza dopadu na ochranu dat je součástí návrhu) \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item Klasifikace dat (interní / veřejné / obsahující PII) a rozhodnutí o anonymizaci/pseudonymizaci. (general background knowledge)
+  \item Definice přístupových práv (SSO + RBAC) a auditních požadavků. (general background knowledge)
+  \item Testovací fáze (pilot s malou skupinou, měření metrik a lidská validace výsledků). (general background knowledge)
+  \item Nasazení monitoringu, alertů na překročení token/metrických limitů a plán pro rollback. (general background knowledge)
+\end{enumerate}
+
+\medskip
+
+\textbf{Guardrails, filtrování obsahu a red‑teaming} \\
+Doporučené bezpečnostní postupy a testy — shrnutí jako general background knowledge:
+\begin{itemize}
+  \item Guardrails: definujte limity pro typ dotazů (zákaz generování citlivých dat), předfiltraci vstupů a blacklisty/whitelisty pro externí zdroje. (general background knowledge)
+  \item Filtrování retrieval vrstev (u RAG): omezení retrieve na schválené zdroje, filtrování podle role/kurzu a maximální počet chunků na odpověď. (general background knowledge)
+  \item Red‑teaming: pravidelné interní testy zaměřené na leakage interních dokumentů, zkoušení nebezpečných promptů a simulace chybových stavů; výstupy dokumentovat a implementovat nápravná opatření. (general background knowledge)
+  \item Human‑in‑the‑loop: pro dotazy s vysokým rizikem zajistit eskalaci k lidskému recenzentovi. (general background knowledge)
+\end{itemize}
+
+\medskip
+
+\textbf{Školení a znalostní podpora} \\
+Pro kapacitní zajištění a zvyšování kvality provozu doporučujeme zřídit školení pro IT a pedagogy — u produktů Microsoft jsou užitečné oficiální moduly na Microsoft Learn jako zdroj pro technologie Microsoft/365 a integrace \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}. V rámci interní governance je vhodné vést centrální repozitář dokumentace (SOP), incidentních postupů a šablon pro DPA/DPIA.
+
+\medskip
+
+\textbf{Rychlý návrh eskalačního postupu při incidentu} \\
+(Uvedené kroky jsou general background knowledge a měly by být adaptovány podle interních pravidel VUT.)
+\begin{enumerate}
+  \item Izolace incidentu a omezení přístupu k postiženým službám.
+  \item Notifikace Data Stewarda, IT Security Ownera a právního/GDPR kontaktu.
+  \item Interní forenzní analýza (logy, provenance retrieval událostí) a vyhodnocení rozsahu uniklých informací.
+  \item Opatření nápravy (revoke keys, rotace modelů/indexů, aktualizace filtrovacích pravidel).
+  \item Zpráva o incidentu a aktualizace DPIA / provozní dokumentace. 
+\end{enumerate}
+
+\medskip
+
+Závěrem: implementace governance a řízení nákladů pro AI na úrovni fakulty kombinuje technické (monitoring, throttling, RBAC), právní (DPA/DPIA) a organizační (role, board) prvky. Analýza dopadů a zapojení relevantních týmů musí proběhnout již v předběžné fázi návrhu řešení \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}. Pro praktické nasazení použijte tento text jako výchozí checklist a adaptujte body podle interních pravidel a smluvních požadavků dodavatelů. \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}

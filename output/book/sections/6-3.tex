@@ -1,0 +1,51 @@
+Úvodní poznámka: tato sekce shrnuje praktické nástroje a postupy pro poskytování zpětné vazby na písemné práce v kurzech VUT. Kde to dovolují zdroje, uvedeme konkrétní příklady integrovaných řešení; obecné doporučené postupy jsou označeny jako (general background knowledge).
+
+Krátké rozdělení nástrojů (tierovaný přístup)
+\begin{itemize}
+  \item Tier 1 — integrované / školní enterprise nástroje: nástroje, které jsou dostupné přímo v rámci školního Office/M365 ekosystému a které lze spravovat centrálně (např. Microsoft 365 Copilot v aplikacích Word, Forms, OneNote apod.). Microsoft 365 Copilot je poskytován jako součást školních Office služeb (ve variantách) a placený doplněk přidává generativní funkce přímo do Word/Excel/PowerPoint/Forms/OneNote atd.; pro školní prostředí existují i webové verze chatbota Copilot Chat \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}. 
+  \item Tier 2 — specializované asistenční nástroje pro psaní (externí služby): nástroje typu kontrola gramatiky, stylu a čitelnosti (např. Grammarly, Hemingway) a nástroje pro zpětnou vazbu nad strukturou textu. Pozn.: konkrétní popisy funkcí těchto komerčních nástrojů nejsou v dostupných KB výpiscích uvedeny; níže jsou jejich využití a omezení popsány jako (general background knowledge).
+  \item Tier 3 — nástroje pro detekci podobnosti a draft‑assistance (originality / průvodní nástroje): nástroje pro kontrolu plagiátorství a práce s návrhy (např. Draft Coach v řešeních typu Turnitin) a platformy, které nabízejí workflow pro revizi draftů. Opět: konkrétní vlastnosti a omezení těchto komerčních produktů jsou zde shrnuty jako (general background knowledge).
+\end{itemize}
+
+Doporučené scénáře použití (praktický workflow)
+\begin{enumerate}
+  \item Nastavte očekávání v sylabu: jasně definujte, které nástroje studenti mohou používat a jak mají deklarovat použití AI (viz vlákno deklarace níže). (general background knowledge)
+  \item Požadujte meziverze/drafty: namiřte hodnocení na proces — student odevzdá první draft + krátkou sebereflexi + deklaraci AI; učitel nebo AI‑asistent poskytne strukturovanou formativní zpětnou vazbu; student upraví text a odevzdá finální verzi. Tento postup odpovídá principům milestone‑based workflow používaným v příručce (general background knowledge).
+  \item Použijte integrované nástroje tam, kde je potřeba škálovat: pokud máte školní/enterprise Copilot nebo nástroj spravovaný fakultou, využijte jej k hromadnému generování komentářů k formálním aspektům (gramatika, čitelnost, kontrolní otázky) a nechte lektora validovat obsahově klíčové části, zvlášť tam, kde je rozhodující faktická přesnost \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+  \item Pro matematiku a převod rukopisu: u úloh zahrnujících výpočty využijte nástroje, které dokáží zpracovat postupy (OneNote, math.microsoft.com a funkce „Pokrok v matematice“ byly v praxi popisovány jako užitečné k záznamu postupu a analýze chyb) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Pilotujte a dokumentujte: při prvním cyklu zaznamenejte typické chyby AI‑asistentů a nastavte pravidla retence dat a přístupů (kdo může číst konverzace a drafty). Preferujte školní licence a dohodu o zpracování dat pro nástroje, které budou zpracovávat osobní údaje studentů \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+\end{enumerate}
+
+Vzorový prompt pro asistenta generujícího formativní zpětnou vazbu
+\vspace{0.5em}
+
+\noindent (tento prompt odpovídá doporučenému formátu z knihovny promptů — adaptujte podle rubriky)
+\begin{quote}
+  Vstupy: (student_submission) (rubric) (declared_AI_use). \\
+  Výstup (do ~250 slov): 2 věty chvály, 2 konkrétní návrhy ke zlepšení, 1 návrh na další milník; pokud AI bylo použito, přidej instrukci k ověření specifického tvrzení. Tone: konstruktivní, akční.
+\end{quote}
+\vspace{0.5em}
+
+Praktický checklist pro učitele před nasazením AI‑podpory zpětné vazby
+\begin{itemize}
+  \item Je ve sylabu jasně formulováno, jak mají studenti deklarovat použití AI (viz níže uvedená krátká šablona deklarace)? (general background knowledge)
+  \item Jsou definovány hranice role AI‑asistenta (např. kontrola jazyka a formy vs. obsahová validace)? (general background knowledge)
+  \item Máte nastavené pravidlo sběru postupu pro úlohy, kde je důležitý proces (např. matematické postupy nebo programovací commity)? Pro matematiku zvažte funkce, které umožňují nahrání postupu a jeho analýzu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Je dostupná škálovatelná cesta lidské validace klíčových tvrzení (např. u závěrečných milníků)? (general background knowledge)
+  \item Jsou řešeny otázky ochrany osobních údajů a je zajištěna odpovídající licence / DPA pro používané nástroje? Preferujte školní/enterprise varianty tam, kde se zpracovávají studentské artefakty \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+\end{itemize}
+
+Krátká šablona deklarace použití AI (vložit do instrukcí k odevzdání)
+\begin{quote}
+  Deklarace použití AI: Uveďte, zda jste použili AI, nástroj a roli (nápověda/editace/generování). Popište ověření správnosti výsledků. Přiložte krátkou sebereflexi (max. 200 slov).
+\end{quote}
+(vzor převzat z šablon uvedených v příručce; použití doporučeno pro každé odevzdání.)
+
+Poznámky k omezením a rizikům (stručně)
+\begin{itemize}
+  \item AI nástroje dobře škálují korekturu jazyka a návrhy ke struktuře, avšak obsahovou správnost a hodnocení autorství musí validovat lidský garant. (general background knowledge)
+  \item U úloh vyžadujících sledovatelný proces (matematika, programování) preferujte workflow, které sbírá mezi‑verze, snímky postupu, nebo repozitářový záznam (commity). Funkce jako převod rukopisu v OneNote a nástroje pro „pokrok v matematice“ mohou zjednodušit analýzu postupu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Pro demonstrační aktivity a motivaci studentů lze využít výukové světy (např. Minecraft Education) — vhodné zejména pro první seznámení s principy AI v učebním kontextu \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\end{itemize}
+
+Závěrem: kombinujte integrované nástroje (kde jsou dostupné a spravované univerzitou) pro škálovatelné aspekty zpětné vazby se strukturovanými lidskými revizemi pro klíčové obsahové části. Pilotní cyklus s jasnými pravidly pro deklaraci AI a sběr postupu je efektivní cestou k udržení akademické integrity a podpory rozvoje studenta. (general background knowledge)

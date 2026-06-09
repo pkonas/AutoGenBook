@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section refers explicitly to a repository at the URL \"ai.vut.cz\" (several places: 'living repository na ai.vut.cz' and in short instructions). There is no retrieved excerpt supporting that specific URL. Specific factual claims (a concrete URL) must be supported by a KB excerpt or removed/qualified.",
+      "required_fix": "Either provide a KB citation or other authoritative evidence for the existence and intended use of ai.vut.cz, or remove the explicit URL and replace it with a generic reference (e.g., 'course repository / living repository') or an institutional contact point that is supported by the KB."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The text directs students/guarantors to 'repozitář kurzu' and 'living repository' as locations for templates and examples without a supporting citation. While the concept of an online repository is consistent with the manual, the specific repository references are not supported by the retrieved excerpts.",
+      "required_fix": "Either add a supporting citation from the KB that documents the repository reference (if available), or rephrase to a supported, non‑specific instruction such as 'uložte do kurzového repozitáře (living repository) a uveďte jeho URL v místním sylabu', and indicate where to find that repository via institutional contacts (with a citation)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX body uses \\cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1} and \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2} but the section does not note inclusion of a bibliography. If the final document will compile, corresponding BibTeX / bibliography entries must exist for these keys.",
+      "required_fix": "Ensure the document's .bib or bibliography contains entries for the cited keys, or convert those citations to inline parenthetical references consistent with the project's citation method."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Krátké poznámky pro garanty' and 'Rozšířená verze' advise rules about validation and documentation (e.g., require meziverze, commit‑log, screenshoty konverzací) but do not provide concrete minimal examples of acceptable evidence or where/how to upload such evidence (LMS field names, file formats, size/privacy constraints).",
+      "required_fix": "Add short concrete examples: e.g., example LMS field name for 'AI declaration', suggested minimal metadata string (1–2 sentences), recommended formats for logs (PDF/text), and a note on redaction/pseudonymization requirements. If institutional templates exist in the repository, link them (with a supported citation) or indicate they are 'available in the course repository (see course support contact)'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The short and extended templates are pedagogically reasonable, but the section does not state how the declaration will be used in assessment (e.g., whether omission is treated as academic integrity breach and what the process is). That may cause uncertainty for students and guarantors.",
+      "required_fix": "Add a short sentence confirming how declarations are treated (for example: 'Declaration is mandatory and its omission may be addressed under standard academic integrity procedures — see faculty policy'), and point to the faculty academic integrity policy or contact (with a supporting citation) or otherwise remove prescriptive sanction language if no citation is available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rozšířená verze / Podpora a zdroje",
+      "edit_instruction": "Replace 'living repository na ai.vut.cz' with either a supported citation to the institutional repository or a neutral phrasing such as 'living course repository (link provided in the course page / contact the course guarantor)'. If your production pipeline expects a fixed URL, add that URL only after providing a KB citation or internal approval."
+    },
+    {
+      "target": "Krátké instrukce pro rychlé nasazení do sylabu, step 3",
+      "edit_instruction": "Change 'ai.vut.cz' to 'kurzový repozitář (living repository; uveďte URL v materiálech předmětu)' unless you can supply a citation for the concrete URL. Optionally add an example: 'Uložte šablony do repozitáře kurzu (např. složka \"AI‑policy\") a vložte odkaz do sekce s materiály.'"
+    },
+    {
+      "target": "LaTeX citations",
+      "edit_instruction": "Ensure that the cited keys \\cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1} and \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2} are present in the document bibliography. If a bibliography is not included in this fragment, add a note to the editor/compiler to include the KB bibliography or convert the citations to inline references."
+    },
+    {
+      "target": "Praktický vzor deklarace / metadata guidance",
+      "edit_instruction": "Add one short example of how to include the 'krátká deklarace v metadatech souboru' (e.g., file metadata Title/Description or as the first page of the submission). Suggested text (for students to paste): 'AI declaration: Použito Microsoft 365 Copilot — návrh osnovy kapitoly; úprava a ověření autorem.'"
+    },
+    {
+      "target": "Sanctions / handling omissions",
+      "edit_instruction": "Either reference the faculty's academic integrity policy (with a citation) or add a neutral sentence: 'Nedodání deklarace bude řešeno podle standardních pravidel akademické integrity; kontaktujte garanta při nejasnostech.'"
+    }
+  ],
+  "retrieval_queries": [
+    "VUT ai repository ai.vut.cz repository \"ai.vut.cz\"",
+    "site:vut.cz ai.vut.cz \"living repository\"",
+    "VUT \"AI Policy Template\" \"sylabus\" ai.vut.cz",
+    "kb_ai_101_tipu_pdf citation example 'AI outputs' 'citation' 'template' page 36 page 15"
+  ]
+}

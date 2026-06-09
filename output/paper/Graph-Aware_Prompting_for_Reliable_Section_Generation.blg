@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Graph-Aware_Prompting_for_Reliable_Section_Generation.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Database file #1: refs.bib
+Warning--I didn't find a database entry for "c"
+Warning--to sort, need author or key in web_varin_2013_statistical_modelling_of_citation_exchange_betwee
+Warning--empty journal in web_sudarsan_2007_reshape_a_framework_for_dynamic_resizing_and_sch
+You've used 37 entries,
+            2118 wiz_defined-function locations,
+            657 strings with 12657 characters,
+and the built_in function-call counts, 11278 in all, are:
+= -- 1050
+> -- 810
+< -- 0
++ -- 322
+- -- 282
+* -- 738
+:= -- 2135
+add.period$ -- 147
+call.type$ -- 37
+change.case$ -- 252
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 367
+empty$ -- 636
+format.name$ -- 282
+if$ -- 2179
+int.to.chr$ -- 0
+int.to.str$ -- 37
+missing$ -- 36
+newline$ -- 224
+num.names$ -- 72
+pop$ -- 225
+preamble$ -- 1
+purify$ -- 215
+quote$ -- 0
+skip$ -- 265
+stack$ -- 0
+substring$ -- 188
+swap$ -- 36
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 148
+warning$ -- 2
+while$ -- 72
+width$ -- 39
+write$ -- 442
+(There were 3 warnings)

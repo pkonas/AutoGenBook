@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section refers to templates, workflows and verification practices (e.g. požadavek na postup, pilotování, dokumentace pravidel) but does not explicitly cross‑reference related templates and workflows already present elsewhere in the metodická příručka (e.g. deklarace AI, milestone‑based workflow, prompt‑knihovna). Explicit cross‑references would improve navigation and internal consistency.",
+      "required_fix": "Add explicit links/cross‑references to the existing templates and workflows in the handbook (e.g. Prompt Library, AI Policy / šablona deklarace AI, milestonové workflow and checklisty in chapters 5 and 9). Use the exact section titles/numbers from the outline (e.g. příloha 9.1 Prompt Library, 9.3 AI Policy Template do sylabů, and the milestone‑based workflow described in the Hodnocení chapter) so readers can find the supporting artefacts."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Praktický workflow' and 'Praktická pravidla' are high‑level. Teachers may benefit from at least one concrete example prompt for each suggested interaction mode (hintování, sokratovský styl, a test‑generation via Copilot/Forms) and a short list of measurable pilot evaluation metrics.",
+      "required_fix": "Include 1–2 short example prompts (practical, copyable) for: a) incremental hinting, b) sokratovský dotazovací režim, and c) generating a differentiated test with Copilot/Forms. Add suggested pilot metrics (e.g. % students submitting postup, time‑to‑feedback, student perceived usefulness via short survey) and say where to record them during the pilot."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Most factual claims are supported by KB excerpts. A few recommendations labelled 'general background knowledge' mention specific operational choices (e.g. using enterprise/school variants when personal data are processed) that would be stronger with an explicit pointer to the handbook sections on data protection and enterprise choices.",
+      "required_fix": "Add explicit pointers to the handbook sections that cover data protection and enterprise/local solutions (e.g. kapitola 2.2 'Ochrana soukromí a GDPR‑kompatibilní postupy' and 8.1 'Enterprise a lokální řešení') where readers can find DPIA guidance and criteria for selecting enterprise variants."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The latex_body uses plain hyphen lists and free text with \\cite{} commands. For robust LaTeX compilation and consistent styling in the manual, lists should use itemize/enumerate environments and citations should be placed where they refer to specific sentences.",
+      "required_fix": "Wrap the bullet lists in proper itemize/enumerate environments and ensure each \\cite{...} appears directly after the sentence/phrase it supports. Check for proper escaping of any special LaTeX characters (none obvious now)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends banning full solutions for skill development and requiring postup submissions, but does not indicate how to handle borderline cases (e.g. partial AI use allowed for drafting).",
+      "required_fix": "Add brief guidance for edge cases: how to adjudicate partial AI use (e.g. stylistic/help vs. solution generation), and point to the 'Šablona deklarace AI' and rubric templates (appendix) to be included in the sylabus to make enforcement fair and transparent."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the sentence that recommends 'Požadujte důkazy o postupu...', add: 'Viz také šablonu deklarace AI a milestone‑based workflow v příručce (příloha 9.3 a popis milestonového hodnocení v kapitole 5), a použijte prompt‑knihovnu (příloha 9.1) při návrhu nápověd a validací.'"
+    },
+    {
+      "target": "Praktický workflow krok 2",
+      "edit_instruction": "Append two short example prompts (one for hinting, one for Sokratovský dialog) and an example Copilot prompt for generating a test. Example (Czech, copyable):\n- Hintování: 'Student_submission: {student_answer}. Úkolem: dej krátkou nápovědu (max. 2 věty), která nasměruje studenta na další krok, neříkej řešení.'\n- Sokratovský: 'Student_submission: {student_answer}. Polož 3 otevřené otázky, které studentovi pomohou vysvětlit jeho myšlenkový postup.'\n- Copilot/Forms test: 'Vytvoř test s 10 otázkami pro 2. ročník gymnázia na téma lineární rovnice: 6x ABC, 2x pravda/nepravda, 2x otevřené. Přidej řešení a krátké vysvětlení u každé otázky.'"
+    },
+    {
+      "target": "Praktická pravidla — pilotování",
+      "edit_instruction": "Add a short list of recommended pilot evaluation metrics, e.g. 'Doporučené metriky pilotu: % studentů odevzdávajících postup (target > 80%), průměrná doba do poskytnutí formativní zpětné vazby, měřené zlepšení v cílové dovednosti mezi baseline a post‑testem, a krátké studentské hodnocení užitečnosti (1–5)).' Link this to the pilot checklist in kap. 'Rychlý plán zavedení vzoru'."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Convert hyphenated lists to proper LaTeX itemize/enumerate environments. For example replace '- Adaptivní cvičení...' with '\\begin{itemize}\\item Adaptivní cvičení...' and so on. Ensure each \\cite{...} follows the sentence it supports."
+    }
+  ],
+  "retrieval_queries": [
+    "Search in KB for 'prompt examples tutor sokratovský hintování' to retrieve any existing sample prompts or prompt library entries for tutor interaction modes.",
+    "Search in KB for 'milestone based workflow example prompts' or 'Šablona deklarace AI' to cite exact template text to cross‑reference in this section.",
+    "Search in KB for pilot evaluation metrics or case studies (e.g. metrics used in pilots of 'Pokrok v matematice' or Copilot pilots) to provide evidence‑based suggested metrics."
+  ]
+}

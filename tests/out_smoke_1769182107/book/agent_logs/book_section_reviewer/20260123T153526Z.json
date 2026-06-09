@@ -1,0 +1,89 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T153526Z",
+  "input": {
+    "section_title": "Adaptivní a personalizované učení",
+    "node_key": "2-2",
+    "section_latex": "Úvodní poznámka: Níže uvedené kroky a doporučení jsou shrnutím praktických postupů pro nasazení adaptivních modulů v kurzech; jednotlivá doporučení jsou uvedena jako general background knowledge a je třeba je ověřit na místních datech a infrastruktuře (general background knowledge).\n\nKrátké shrnutí cíle\n\\begin{itemize}\n  \\item Cílem adaptivního modulu je nabídnout studentům individuální výukové cesty založené na jejich výkonu a potřebách, zvýšit efektivitu učení a zlepšit udržení vědomostí (general background knowledge).\n\\end{itemize}\n\nKrátký implementační scénář (krok za krokem)\n\\begin{enumerate}\n  \\item Definujte jasné výukové cíle a rozdělení obsahu do nezávislých „držáků“ (modulů) s měřitelnými kritérii zvládnutí (general background knowledge).\n  \\item Navrhněte větve výukové cesty: nápravné moduly pro chyby, rozšiřující moduly pro pokročilé, opakovací moduly pro udržení (general background knowledge).\n  \\item Určete pravidla adaptace (např. prahová hodnota zvládnutí, počet opakování, spacing) a jak budou změny logiky zaznamenány pro evaluaci (general background knowledge).\n  \\item Zajistěte datové zdroje: pretesty, průběžné úlohy, čas strávený v aktivitách a odpovědi; připravte anonymizaci a souhlas studentů (general background knowledge).\n  \\item Integrujte modul s LMS (workflow odevzdání, sledování pokroku, export dat) a pilotujte na malé skupině, sbírejte zpětnou vazbu učitelů a studentů (general background knowledge).\n\\end{enumerate}\n\nDoporučený postup pilotu\n\\begin{itemize}\n  \\item Pilotní skupina (menší počet studentů) + kontrolní skupina pro základní srovnání; průběžné monitorování chyb adaptace a eskalace k učiteli (general background knowledge).\n  \\item Rychlé iterace: opravujte mapy obsahu a prahy podle zjištěných nesrovnalostí; dokumentujte rozhodnutí pro pozdější škálování (general background knowledge).\n\\end{itemize}\n\nMěřítka efektivity (indikátory úspěchu)\n\\begin{itemize}\n  \\item Metody měření: zlepšení skóre mezi pretestem a posttestem, míra udržení znalostí při opakovaných testech, engagement (čas/aktivita), rozložení výukových cest mezi studenty (general background knowledge).\n  \\item Sledujte i vedlejší ukazatele: nárůst dotazů na podporu, míra dokončení modulů, kvalita studentských reakcí na zpětnou vazbu (general background knowledge).\n\\end{itemize}\n\nOmezení a rizika\n\\begin{itemize}\n  \\item Studenti s málo daty (cold start) mohou dostat nevhodné doporučení; je potřeba záložní cesta a lidská intervence (general background knowledge).\n  \\item Riziko zkreslení obsahu nebo posílení chybného chování, pokud adaptační pravidla nejsou pravidelně auditována (general background knowledge).\n  \\item Požadavky na ochranu dat a transparentnost adaptace musí být řešeny před nasazením (general background knowledge).\n\\end{itemize}\n\nZásady návrhu obsahu pro personalizaci (praktické tipy)\n\\begin{itemize}\n  \\item Rozdělte obsah do krátkých, jasně definovaných kroků s měřitelnými výstupy.\n  \\item Definujte jasná kritéria „mastery“ a minimalizujte závislost rozhodnutí na jediném bodu dat.\n  \\item Umožněte studentovi kontrolu: vysvětlete, proč systém doporučuje konkrétní cestu a nabídněte možnost přepnutí na alternativní cestu nebo kontakt s učitelem (general background knowledge).\n\\end{itemize}\n\nKrátká ukázka struktury článku v kapitole (pro rychlé použití učitelem)\n\\begin{itemize}\n  \\item Cíl modulu – Definice výukových cílů.\n  \\item Mapování obsahu – Seznam modulů a předpoklady.\n  \\item Pravidla adaptace – Popis rozhodovacích pravidel.\n  \\item Datové požadavky – Co sbíráme a jak to ukládáme.\n  \\item Pilotní plán – Rozsah, metriky, role učitele.\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- Chatboti jako kurzoví asistenti: Ilustrační příklad: chatboti používaní jako kurzoví asistenti. (from section Úvod) (first: 1)\n- Autogradery: Ilustrační příklad/nástroj pro učitele: autogradery pro hodnocení kódu. Praktické nasazení zahrnuje cíle (zrychlení rutinního hodnocení, okamžitá zpětná vazba, uvolnění času vyučujícímu), specifické kroky zavedení (příprava testovacích sad s okrajovými případy a peer review, volba LMS‑kompatibilního nástroje a pilotování, pravidlo lidského přezkumu pro sporné/otevřené odpovědi) a metriky pro měření přínosu (čas ručního hodnocení, opravy testů, spokojenost studentů, A/B piloty). (from section only) (first: 2-1)\n- Adaptivní moduly: Ilustrační příklad/nástroj pro studenty: moduly měnící obtížnost podle výkonu studenta. (from section Úvod) (first: 1)\n- Praktické kapitoly (obsah): Scénáře nasazení s postupem a integrací do LMS, ověřené příklady, tipy pro piloty a škálování, doporučení pro měření účinnosti, řízení rizik, ochranu údajů a etiku. (from section Úvod) (first: 1)\n- Automatizovaná zpětná vazba a podpora hodnocení: Praktické nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí; účel: zrychlit rutinní hodnocení, poskytovat okamžitou zpětnou vazbu a uvolnit čas vyučujícímu. (from section only) (first: 2-1)\n- Kroky zavedení autograderů: Krátký postup zavedení: 1) definovat typy úloh a připravit testovací sady včetně okrajových případů a peer review testů; 2) vybrat nástroj kompatibilní s LMS, integrovat do workflow odevzdání a pilotovat na malé skupině; 3) nastavit pravidlo lidského přezkumu pro sporné či otevřené odpovědi a iterovat podle zjištěných chyb. (from section only) (first: 2-1)\n\nCITATIONS:\n- node_1 (node: 1)\n- node_2-1 (node: 2-1)\n\nOPEN THREADS:\n- Konkrétní kroky pro integraci nástrojů (autogradery, chatboti, adaptivní moduly) do LMS a postupy pilotních nasazení (node: 1)\n- Konkrétní technické požadavky a příklady nástrojů kompatibilních s různými LMS (pluginy, API, provozní testov...",
+    "previous_sections": "The title of part 1 sections ago is Automatizovaná zpětná vazba a podpora hodnocení, and the content is as follows.\n(General background knowledge) Tato část popisuje praktické nasazení autograderů a kroky pro zavedení v kurzu.\n(General background knowledge) Účel nasazení: zrychlit rutinní hodnocení, poskytovat okamžitou zpětnou vazbu a uvolnit čas vyučujícímu.\n(General background knowledge) Základní kroky zavedení (krátký postup):\n\\begin{enumerate}\n\\item (General background knowledge) Definujte vhodné typy úloh a připravte testovací sady včetně okrajových případů; dělejte peer review testů.\n\\item (General background knowledge) Vyberte nástroj kompatibilní s LMS, integrujte ho do workflow odevzdání a pilotujte na malé skupině, sbírejte chyby a feedback.\n\\item (General background knowledge) Nastavte pravidlo lidského přezkumu pro sporné či otevřené odpovědi a iterujte podle zjištěných chyb.\n\\end{enumerate}\n(General background knowledge) Měřte přínos (čas ručního hodnocení, opravy testů, spokojenost studentů, A/B piloty); mitigujte rizika (peer review testů, povinný lidský přezkum, testovací prostředí a IT podpora) a začínejte malými piloty.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": false,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "Some non‑trivial statements in the section are not marked as 'general background knowledge' (contrary to the section's opening note). According to the grounding rules, unsupported factual claims must be labelled or removed.",
+        "required_fix": "Add the 'general background knowledge' label (or supply supporting excerpts) to the unlabeled items. Specifically label the bullets in 'Zásady návrhu obsahu pro personalizaci' (first and second bullet) and all bullets under 'Krátká ukázka struktury článku v kapitole' as 'general background knowledge'."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "The section does not explicitly include an equivalent of the 'rule of human review' used in the previous autograder section (context memory shows autograder guidance includes mandatory human review for disputed cases).",
+        "required_fix": "Add an explicit recommendation (and label it 'general background knowledge' if unsupported) that adaptive decisions with high uncertainty or high impact should trigger human review/teacher escalation, mirroring the pattern used for autograders."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Terminology and a few informal phrases could be clearer or standardized (e.g., term „držáků“ is colloquial; the section mixes short checklist items with procedural steps).",
+        "required_fix": "Replace colloquial terms with a consistent term (e.g., 'moduly' or 'obsahové moduly') and consider making the implementation steps and pilot checklist parallel in form. Mark the change as 'general background knowledge' if no source is available."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "Practical pedagogical details that would help implementers are missing (examples of candidate adaptation rules, examples of fallback strategies for cold start, examples of metrics and evaluation windows). These are currently stated only at a high level.",
+        "required_fix": "Either add concrete exemplar thresholds and fallback patterns (with supporting evidence) OR explicitly state that implementers must derive these from local pilots and provide a short list of candidate options (e.g., mastery threshold, minimum N data points before personalization, teacher override). Label as 'general background knowledge' if unsupported."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "LaTeX appears syntactically valid (matching begin/end for environments), but the opening parenthetical note repeats 'general background knowledge' inline and some list items also carry the same parenthetical tag, which reduces readability in rendered output.",
+        "required_fix": "Either keep one global parenthetical note stating that items are 'general background knowledge' (and remove the repeated inline tags), or consistently append the tag to every non‑trivial item. Prefer the single global note for readability; adjust the LaTeX accordingly."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "Úvodní poznámka",
+        "edit_instruction": "Replace multiple inline '(general background knowledge)' labels with a single global sentence: 'Níže uvedené kroky a doporučení jsou shrnutím praktických postupů pro nasazení adaptivních modulů; jednotlivá doporučení jsou general background knowledge a je třeba je ověřit na místních datech a infrastruktuře.' Then remove repeated inline tags throughout the lists."
+      },
+      {
+        "target": "Zásady návrhu obsahu pro personalizaci (první a druhý bullet)",
+        "edit_instruction": "Add the 'general background knowledge' label (if no supporting evidence available) and change 'držáků' to 'modulů' or 'obsahových modulů' for clarity."
+      },
+      {
+        "target": "Implementační scénář (krok 3)",
+        "edit_instruction": "Add an explicit bullet (or sentence) recommending a human‑in‑the‑loop rule: e.g., 'Nastavte pravidlo lidské eskalace pro situace s vysokou nejistotou či vysokým dopadem (např. změna hodnocení, doporučení pro závěrečné úlohy)'. Mark as 'general background knowledge' if unsupported."
+      },
+      {
+        "target": "Měřítka efektivity",
+        "edit_instruction": "Add concrete candidate measurement windows and methods (label as 'general background knowledge' if needed), e.g.: 'měření rozdílu mezi pretestem a posttestem po 2–6 týdnech; sledování udržení znalostí při opakovaných testech po 4–12 týdnech; A/B piloty pro validaci adaptivních pravidel'. If these specifics cannot be sourced, instead add a caution that time windows must be determined locally during pilot."
+      },
+      {
+        "target": "Krátká ukázka struktury článku v kapitole",
+        "edit_instruction": "Append '(general background knowledge)' to each bullet or remove the inline labels if the global opening note is used. Ensure the structure uses consistent labels: 'Cíl modulu', 'Mapování obsahu', 'Pravidla adaptace', 'Datové požadavky', 'Pilotní plán'."
+      }
+    ],
+    "retrieval_queries": [
+      "Praktické doporučení pro prahové hodnoty 'mastery' v adaptivním učení (konkrétní příklady a studie): jaké prahy (%) nebo počet správných odpovědí se běžně používají?",
+      "Doporučené strategie 'cold start' pro adaptivní výukové systémy: fallback patterns, pretesty, or group defaults (příklady z praxe nebo publikované průvodce)",
+      "Příklady politiky 'human‑in‑the‑loop' pro adaptivní moduly: kdy a jak eskalovat rozhodnutí k učiteli (případové studie nebo provozní doporučení)",
+      "Příklady integrace adaptivních modulů s běžnými LMS (Canvas, Moodle): integrační body, exporty dat a autentizační vzory (praktické návody nebo technické white‑papers)",
+      "Doporučené metriky a časové okna pro evaluaci účinnosti adaptivních pilotů (např. délka pilotu, follow‑up testy, A/B designy) — příklady z literatury nebo praktických implementací"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 3457,
+      "completion_tokens": 2640,
+      "total_tokens": 6097
+    },
+    "cost_usd": 0.00614425,
+    "total_cost_usd": 0.052216750000000006,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

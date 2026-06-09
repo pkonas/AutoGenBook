@@ -1,0 +1,54 @@
+Tato sekce popisuje praktické postupy pro rychlé a bezpečné shrnutí dlouhých odborných textů pomocí nástrojů AI a navrhuje konkrétní kroky pro ověření přesnosti a relevance výsledných sumarizací. Upozornění: níže uvedené doporučené pracovní postupy kombinují dostupné funkce nástrojů (viz příklad Copilota níže) a osvědčené postupy pro lidskou validaci; konkrétní technické možnosti závisí na vámi používaném nástroji a licenci. (general background knowledge)
+
+Automatizované shrnutí — rychlý postup (praktický příklad)
+\begin{enumerate}
+  \item Sběr vstupních dokumentů: shromážděte původní PDF, kapitoly nebo články, které mají být shrnuty; zaznamenávejte metadata (autor, rok, URL/DOI). (general background knowledge)
+  \item Předzpracování: rozdělte dlouhé texty na logické části (abstrakt, úvod, metodika, výsledky, diskuse) a očistěte OCR chyby u skenovaných dokumentů. (general background knowledge)
+  \item Automatická agregace a shrnutí: použijte Copilot / lokální LLM nebo jiný vhodný nástroj pro vytvoření konzistentního přehledu z více zdrojů; v prostředí Windows lze např. v Poznámkovém bloku využít funkci „Shrnout“ pro kombinaci textů z různých webů a vytvoření stručného souhrnu \cite{kb_ai_101_tipu_pdf_04e4a115_page_14_1}.
+  \item Uložení výstupů a provenance: ke každému shrnutí uložte seznam zdrojů, původní odstavce, použitý prompt a verzi modelu. (general background knowledge)
+\end{enumerate}
+
+Tip pro práci s odbornými texty obsahujícími matematiku a rovnice
+\begin{itemize}
+  \item Pokud text obsahuje rovnice nebo rukopisné poznámky, využijte nástroje, které umějí převádět rukopis do digitální podoby (např. OneNote) a zpracovat rovnice jako součást obsahu před shrnutím \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}. To pomáhá zajistit, že číselné výsledky a symbolika nejsou při summarizaci ztraceny nebo zkresleny.
+\end{itemize}
+
+Checklist pro rychlé ověření kvality a přesnosti sumarizace (praktické kroky)
+\begin{itemize}
+  \item Zkontrolujte, zda shrnutí výslovně uvádí hlavní závěry a klíčové metriky (p-hodnoty, intervaly spolehlivosti, numerické výsledky). (general background knowledge)
+  \item Porovnejte minimum 2–3 vět z shrnutí s originálními pasážemi, které shrnutí odkazuje; ověřte, že parafráze není překreslením faktů (hallucination). (general background knowledge)
+  \item Ověřte citace: pro každý fakticky náročný výrok vygenerujte kontrolní dotaz pro model („Který odstavec v původním článku toto podporuje?“) nebo najděte primární zdroj. (general background knowledge)
+  \item Validace metodiky: pokud shrnutí konstatuje metody či závěry, nechte odborníka z oblasti zhodnotit, zda byly metody popsány adekvátně a zda závěry logicky plynou z výsledků. (general background knowledge)
+\end{itemize}
+
+Praktické prompty a šablony pro shrnutí (copy-\\ \&-adapt)
+\begin{verbatim}
+1) Kompaktní shrnutí (1 odstavec):
+"Vezmi následující text (vložit) a vytvoř 5-řádkové shrnutí,
+kde první věta popisuje hlavní cíl studie, druhá metoda, třetí
+klíčový výsledek (číselně pokud je k dispozici), čtvrtá hlavní závěr
+a pátá implikace pro praxi/učitele."
+2) Extrakce klíčových metrik:
+"Najdi a vypiš všechny číselné výsledky a metriky z textu
+(výsledky experimentů, p-hodnoty, velikosti efektu, sample size).
+Uveď i přesný odstavec/stránku, kde se nacházejí."
+3) Porovnání více studií:
+"Máme tři články (vložit krátké metadaty a relevantní pasáže).
+Vytvoř tabulku: cíl studie | metoda | hlavní výsledek | omezení."
+\end{verbatim}
+
+Workflow pro review a cross‑check ve výuce (doporučené rozhraní učitel–AI)
+\begin{enumerate}
+  \item Student/učitel vygeneruje první automatické shrnutí pomocí zvoleného nástroje (uloží se prompt a seznam zdrojů). (general background knowledge)
+  \item Peer‑review: jiný student nebo asistent porovná klíčové výroky se zdroji a označí nesrovnalosti. (general background knowledge)
+  \item Odborná validace: vyučující nebo odborný garant zkontroluje vybrané pasáže a potvrdí závěry; v případě sporných bodů se vrátí k původním zdrojům. (general background knowledge)
+  \item Zapracování zpětné vazby do finálního shrnutí a explicitní poznámka v materiálech o tom, že shrnutí prošlo validací (transparentnost vůči studentům). (general background knowledge)
+\end{enumerate}
+
+Uchování provenance a transparentnost
+\begin{itemize}
+  \item Ukládejte vždy: vstupní texty (nebo jejich identifikátory), použitý prompt, verzi modelu/nástroje a datum vytvoření. (general background knowledge)
+  \item V sylabu nebo k zadání přidejte krátkou poznámku o tom, že některé souhrny mohou být generovány automaticky a jak byl zajištěn review proces. (general background knowledge)
+\end{itemize}
+
+Poznámka o nástrojích: Copilot v Poznámkovém bloku lze použít k automatickému vytváření souhrnů z různých zdrojů, což usnadňuje sestavení přehledů z webových textů a poznámek \cite{kb_ai_101_tipu_pdf_04e4a115_page_14_1}. Pro materiály s rovnicemi doporučujeme před shrnutím využít nástroje podporující převod rukopisu/rovnic na digitální formu, např. OneNote, aby se předešlo ztrátě numerické přesnosti \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.

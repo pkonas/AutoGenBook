@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "Proposed metriky (úspora času, zlepšení výsledků, spokojenost, kvalita materiálů) jsou užitečné, ale nejsou v textu operationalizovány — chybí konkrétní definice, způsob sběru dat, periody baseline vs. pilot, a metody analýzy (např. jak porovnat pilotní a kontrolní skupinu). Bez toho jsou metriky těžko implementovatelné.",
+      "required_fix": "Doplnit krátké, konkrétní instrukce pro každou metriku: jak ji měřit (jednotky), jakou mám použít období pro baseline, minimální vzorek/periodu pro smysluplné srovnání a doporučené metriky popisné i inferenční (bez uvádění nových statistických údajů). Pokud jsou k dispozici příklady/šablony z node_2-5, odkazovat na ně."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Sekce obsahuje užitečný rozhodovací strom a workflow, ale chybí konkrétní příklady nebo ukázky (např. krátký vzor šablony promptu, ukázka pilotního harmonogramu, vzor ankety pro spokojenost).",
+      "required_fix": "Přidat jeden nebo dva krátké příklady (označené jako ukázka), např. 4–6týdenní pilotní harmonogram s klíčovými kontrolními body a vzor položek ankety pro studenty/učitele. Pokud není možné přímo doplnit obsah, přidat poznámku „doplňit příklady“ a případnou referenci na oddíl 2.5."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX je formálně správný, ale dokument opakovaně odkazuje na jeden citační klíč \\cite{node_2-5}. Je třeba ověřit, že tento citační záznam existuje v bibliografii a/nebo nahradit některé opakované citace křížovými odkazy na sekci 2.5 pro větší čitelnost.",
+      "required_fix": "Zkontrolovat .bib, že existuje položka node_2-5. Uvažovat o nahrazení některých opakovaných \\cite{node_2-5} křížovým odkazem na interní sekci (např. „viz §2.5“) nebo konsolidovat citace tak, aby text nebyl přecitován."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Obsah částečně duplikuje body uvedené v předchozí sekci 2.5 (workflow, checklist). Duplicitní text může zmást čtenáře nebo zvětšit rozsah bez přidané hodnoty.",
+      "required_fix": "Buď zkrátit opakování a odkázat na detailní popis v sekci 2.5 (např. „viz 2.5“), nebo rozšířit tuto sekci o konkrétní implementační detaily/příklady, které v 2.5 chybí."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "V části jsou označené položky jako ‚general background knowledge‘ — to je v pořádku, ale některé výroky (např. že profesní rozvoj zvyšuje šanci přijetí) by bylo vhodné explicitně podpořit buď odkazem, nebo poznámkou, že jde o obecné doporučení.",
+      "required_fix": "Buď ponechat tyto položky jako ‚general background knowledge‘ (jak je nyní), nebo přidat krátkou poznámku 'doporučení založené na obecné praxi' a/nebo odkaz na relevantní literaturu/praxi pokud je k dispozici."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Praktické metriky",
+      "edit_instruction": "U každé metriky přidat 1–2 věty definující, jak ji přesně měřit. Např. pro ‚úsporu času učitelů‘: měřit průměrný čas (v minutách/hodinách) strávený přípravou před zavedením (baseline) a během pilotu na stejné typy aktivit; uvést, kolik učitelů/dní sbírat data, a doporučit statistickou metodu pro porovnání (popisně nebo test). Neuvádět konkrétní statistické výsledky."
+    },
+    {
+      "target": "Pilotní plán (kapitola/odstavec)",
+      "edit_instruction": "Přidat krátký vzor pilotního harmonogramu (označený jako příklad), například: fáze přípravy (1–2 týdny), fáze pilotu s malou skupinou (2–4 týdny) se sběrem metrik v reálném čase, analýza výsledků (1 týden), iterace a nasazení. Pokud nechcete specifikovat přesná čísla, popsat typické fáze a klíčové kontrolní body, které musí pilot splnit."
+    },
+    {
+      "target": "Archivace promptů",
+      "edit_instruction": "Doplnit krátkou instrukci, co by měla obsahovat archivovaná verze promptu (verze promptu, kontext/parametry, vstupy/outputs ukázky, datum a autor) a upozornit na nutnost uchovávání provenance pro audit."
+    },
+    {
+      "target": "Etika a souhlas se zpracováním dat",
+      "edit_instruction": "Doplnit vzorovou, stručnou formulaci, kterou může instituce použít pro informování studentů (např. ‚studenti budou informováni o tom, jaká data jsou shromažďována, jak budou použita a kdo k nim bude mít přístup; dává se možnost odepřít souhlas‘) — případně ponechat jako položku k dopracování s právním oddělením."
+    },
+    {
+      "target": "Reference a křížové odkazy",
+      "edit_instruction": "Upravit citace tak, aby se vyhnuly nadměrnému opakování \\cite{node_2-5} (např. uvést jednu souhrnnou citaci na konci odstavce nebo dodat křížový odkaz na 2.5 tam, kde je obsah výslovně stejný). Zkontrolovat, že klíč node_2-5 existuje v bibliografii."
+    }
+  ],
+  "retrieval_queries": [
+    "Příklady pilotních plánů pro zavedení AI ve výuce (skrátené šablony nebo osvědčené postupy) — zdroje nebo interní příklady zmíněné v node_2-5",
+    "Šablony měření úspory času učitelů při zavádění nástrojů (jak sbírat časové záznamy, doporučené periody baseline vs. pilot)",
+    "Vzory znění informovaného souhlasu / komunikace studentům o zpracování jejich dat nástroji AI v akademickém prostředí",
+    "Příklad struktury archivace promptů/provenance (která metadata uchovávat) z praktických implementací"
+  ]
+}

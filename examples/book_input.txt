@@ -1,0 +1,1081 @@
+Název: METODICKÁ PŘÍRUČKA "AI VE VÝUCE VUT"
+Obsah: Vytvoř učebnici, která vysvětluje jak využívat AI ve výuce na VUT.
+Kapitoly:
+## KAPITOLA 1: ÚVOD DO AI PRO PEDAGOGY (10 stran)
+
+### 1.1 Co je generativní AI? (2 strany)
+**Obsah:**
+- Definice umělé inteligence a generativní AI
+- Rozdíl mezi tradiční AI a generativní AI
+- Jak fungují velké jazykové modely (LLM)
+- Základní principy: tokens, embeddings, training data
+
+**Zdroje a tutoriály:**
+- UCLA Teaching Guide: *Using Generative AI Reflectively and Responsibly*
+  https://teaching.ucla.edu/resources/teaching-guides/using-generative-ai-reflectively-and-responsibly-in-teaching-and-learning/
+  
+- Gonzaga University: *Embracing Generative AI in the Classroom*
+  https://www.gonzaga.edu/news-events/stories/2024/6/3/embracing-generative-ai-in-the-classroom-and-office
+
+- Oxford Centre for Teaching and Learning: *An introduction to the use of generative AI tools*
+  https://www.ctl.ox.ac.uk/ai-tools-in-teaching
+
+### 1.2 Hlavní AI nástroje pro pedagogy (3 strany)
+**Obsah:**
+- ChatGPT (OpenAI) - vlastnosti, možnosti, omezení
+- Claude (Anthropic) - silné stránky pro dlouhé texty
+- Gemini (Google) - integrace s Google Workspace
+- Microsoft Copilot - pro uživatele MS Office
+
+**Praktický tutoriál:**
+```
+CVIČENÍ 1: První konverzace s AI
+1. Otevřete ChatGPT (chat.openai.com)
+2. Zadejte prompt: "Vysvětli mi kvantovou mechaniku jako bych byl 10letý"
+3. Zkuste stejný prompt v Claude (claude.ai)
+4. Porovnejte odpovědi
+```
+
+**Odkazy:**
+- ChatGPT oficiální průvodce: https://platform.openai.com/docs/guides/prompt-engineering
+- Claude Getting Started: https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources
+- Google Gemini for Education: https://gemini.google.com/
+
+### 1.3 Jak AI "myslí" - pochopení limitací (2 strany)
+**Obsah:**
+- Halucinace - AI si vymýšlí fakta
+- Bias v trénovacích datech
+- Aktuálnost znalostí (cut-off date)
+- Co AI neumí: kreativní myšlení, etické úsudky, emoce
+
+**Demonstrace:**
+```
+CVIČENÍ 2: Odhalení halucinací
+Zadejte AI: "Kdo získal Nobelovu cenu za fyziku v roce 2025?"
+AI pravděpodobně vygeneruje nějakou odpověď (i když rok ještě nenastal)
+→ Ukázka důležitosti fact-checkingu
+```
+
+### 1.4 Prompt engineering pro pedagogy (3 strany)
+**Obsah:**
+- Co je prompt a proč je důležitý
+- Základní struktura efektivního promptu
+- Techniky: Zero-shot, Few-shot, Chain-of-thought
+- Role-playing v promptech
+
+**Framework CLEAR:**
+- **C**ontext (Kontext): "Jsi odborný asistent pro..."
+- **L**ength (Délka): "V rozsahu 200 slov..."
+- **E**xamples (Příklady): "Podobně jako..."
+- **A**udience (Publikum): "Pro studenty prvního ročníku..."
+- **R**ole (Role): "Jednaj jako expert na..."
+
+**Zdroje:**
+- MIT Sloan: *Effective Prompts for AI: The Essentials*
+  https://mitsloanedtech.mit.edu/ai/basics/effective-prompts/
+  
+- Prompt Engineering Guide (kompletní)
+  https://www.promptingguide.ai/
+  
+- JMIR: *Prompt Engineering Tutorial for Medical Professionals*
+  https://www.jmir.org/2023/1/e50638/
+  
+- Sydney University: *Prompt Engineering for Educators*
+  https://educational-innovation.sydney.edu.au/teaching@sydney/prompt-engineering-for-educators-making-generative-ai-work-for-you/
+
+---
+
+## KAPITOLA 2: ETICKÉ ZÁSADY POUŽITÍ AI (8 stran)
+
+### 2.1 Etické principy (2 strany)
+**Obsah:**
+- Transparentnost použití AI
+- Ochrana osobních údajů (GDPR)
+- Autorství a citace AI-generovaného obsahu
+- Zodpovědnost za výstupy AI
+
+**Rámec:**
+```
+5 ETICKÝCH PILÍŘŮ AI VE VZDĚLÁVÁNÍ:
+
+1. TRANSPARENTNOST
+   ✓ Vždy sdělte studentům, kdy používáte AI
+   ✓ Vysvětlete, jak AI funguje
+
+2. SOUKROMÍ
+   ✓ Nikdy nevkládejte citlivá data studentů do AI
+   ✓ Dodržujte GDPR
+
+3. EQUITA (SPRAVEDLNOST)
+   ✓ Zajistěte rovný přístup k AI nástrojům
+   ✓ Alternativy pro studenty bez přístupu
+
+4. INTEGRITA
+   ✓ AI jako podpora, ne náhrada myšlení
+   ✓ Jasná pravidla pro studenty
+
+5. ZODPOVĚDNOST
+   ✓ Pedagog odpovídá za kvalitu AI výstupů
+   ✓ Fact-checking je povinný
+```
+
+**Zdroje:**
+- UNESCO: *Ethics of Artificial Intelligence*
+  https://www.unesco.org/en/artificial-intelligence/recommendation-ethics
+  
+- EDUCAUSE: *AI Ethical Guidelines*
+  https://library.educause.edu/resources/2025/6/ai-ethical-guidelines
+  
+- Harvard: *Academic Integrity and Teaching With(out) AI*
+  https://oaisc.fas.harvard.edu/academic-integrity-and-teaching-without-ai/
+  
+- UT Austin: *Responsible Adoption of AI Tools*
+  https://provost.utexas.edu/the-office/academic-affairs/office-of-academic-technology/responsible-adoption-of-ai-tools/
+
+### 2.2 Akademická integrita v éře AI (3 strany)
+**Obsah:**
+- Redefinice "cheating" vs. "legit use"
+- Trojí kategorizace úloh (AI zakázána / povolena s citací / vyžadována)
+- Jak komunikovat pravidla studentům
+- Příklady z univerzit (Harvard, MIT, Stanford)
+
+**Šablona pro syllabus:**
+```
+AI POLICY PRO TENTO PŘEDMĚT:
+
+KATEGORIE A: AI ZAKÁZÁNA
+□ Písemné testy a zkoušky
+□ [další specifické úkoly]
+
+KATEGORIE B: AI POVOLENA S DEKLARACÍ
+□ Domácí úkoly
+□ Eseje (s popisem, jak byla AI použita)
+
+KATEGORIE C: AI VYŽADOVÁNA
+□ Projekt XY
+
+POVINNOST STUDENTA:
+- Transparentně uvést každé použití AI
+- Citovat AI jako zdroj
+- Nepředkládat nezpracované AI výstupy
+```
+
+**Zdroje:**
+- Cornell: *Ethical AI for Teaching and Learning*
+  https://teaching.cornell.edu/generative-artificial-intelligence/ethical-ai-teaching-and-learning
+  
+- Texas A&M: *Use Guidelines and Ethics*
+  https://ai.tamu.edu/teach-with-ai/use-guidelines-and-ethics.html
+  
+- ASCCC: *Academic Integrity Policies in the Age of AI* (PDF)
+  https://www.asccc.org/sites/default/files/ASCCC_AI_Resources_2024.pdf
+  
+- UNSW: *Guidance on AI in Assessment*
+  https://www.teaching.unsw.edu.au/ai/ai-assessment-guidance
+
+### 2.3 GDPR a ochrana dat (2 strany)
+**Obsah:**
+- Co smíte/nesmíte vkládat do AI
+- Anonymizace dat studentů
+- Využití lokálních AI řešení vs. cloudových
+- Doporučení VUT pro práci s daty
+
+**Checklist:**
+```
+✓ NIKDY NEVKLÁDEJTE DO AI:
+- Jména a příjmení studentů
+- Rodná čísla, kontakty
+- Hodnocení spojená se jmény
+- Citlivé osobní informace
+
+✓ ANONYMIZUJTE:
+- Použijte kódy místo jmen (Student_001)
+- Odstraňte identifikátory před vložením
+- Používejte agregovaná data
+
+✓ PREFERUJTE:
+- Lokální AI řešení (pokud jsou dostupná)
+- Enterprise verze AI (s GDPR compliance)
+```
+
+### 2.4 Citace AI (1 strana)
+**Obsah:**
+- Jak citovat ChatGPT, Claude, Gemini podle různých citačních stylů
+- Příklady správných citací
+- Co uvádět v bibliografii
+
+**Příklady citací:**
+```
+APA 7:
+OpenAI. (2024). ChatGPT (Version GPT-4) [Large language model]. 
+https://chat.openai.com
+
+ISO 690:
+OPENAI. ChatGPT: GPT-4 version [online]. 2024 [cit. 2024-12-15]. 
+Dostupné z: https://chat.openai.com
+
+V textu práce:
+"Podle AI asistenta ChatGPT (OpenAI, 2024) lze definovat..."
+```
+
+**Zdroje:**
+- APA Style Blog: *How to Cite ChatGPT*
+  https://apastyle.apa.org/blog/how-to-cite-chatgpt
+
+---
+
+## KAPITOLA 3: AI V PŘÍPRAVĚ VÝUKY (12 stran)
+
+### 3.1 Generování osnov přednášek a cvičení (3 strany)
+**Obsah:**
+- Prompt šablony pro tvorbu sylabu
+- AI asistence při strukturování látky
+- Adaptace pro různé úrovně studentů
+
+**Praktický tutoriál:**
+```
+PŘÍKLAD 1: Generování osnovy přednášky
+
+PROMPT:
+"Vytvoř detailní osnovu 90minutové přednášky na téma 'Základy 
+strojového učení' pro studenty 2. ročníku bakalářského studia 
+informatiky. Předpokládej, že studenti znají lineární algebru 
+a programování v Pythonu. Rozděl na:
+1. Úvod (10 min)
+2. Teoretická část (40 min)
+3. Praktické příklady (30 min)
+4. Diskuse a Q&A (10 min)
+Pro každou sekci uveď klíčové body a návrhy aktivit."
+
+VÝSTUP: [ukázka vygenerované osnovy]
+```
+
+**AI nástroje:**
+- MagicSchool: *Lesson Plan Generator*
+  https://www.magicschool.ai/tools/lesson-plan
+  
+- Brisk Teaching: *Free AI Lesson Planner*
+  https://www.briskteaching.com/
+  
+- Eduaide.Ai: *AI for Lesson Plans*
+  https://www.eduaide.ai/
+  
+- Canva for Education: *AI Lesson Plan Generator*
+  https://www.canva.com/features/ai-lesson-plan-generator/
+
+### 3.2 Tvorba prezentací a vizuálních materiálů (3 strany)
+**Obsah:**
+- AI pro generování slideů (Gamma, Beautiful.ai, Tome)
+- DALL-E, Midjourney pro obrázky (etika použití)
+- Infografiky a diagramy s AI
+
+**Nástroje s tutoriály:**
+
+**GAMMA - AI Prezentace**
+- Web: https://gamma.app/
+- Tutoriál: Import nebo napište téma → AI vygeneruje celou prezentaci
+- Výhody: Automatické formátování, responsive design
+- Cena: Zdarma pro educators (omezený počet)
+
+```
+CVIČENÍ: Vytvoření prezentace v Gamma
+1. Registrace na gamma.app
+2. Klikněte "Create with AI"
+3. Zadejte: "Presentation about renewable energy for engineering 
+   students, 10 slides, include diagrams"
+4. Vyberte styl a barvy
+5. AI vygeneruje kompletní prezentaci za 2 minuty
+6. Upravte podle potřeby
+```
+
+**Beautiful.ai** - https://www.beautiful.ai/
+**Tome** - https://tome.app/
+**Canva Magic Design** - https://www.canva.com/
+
+**Generování obrázků:**
+- DALL-E 3 (integrované v ChatGPT Plus): https://openai.com/dall-e-3
+- Microsoft Designer: https://designer.microsoft.com/ (zdarma)
+- Adobe Firefly: https://firefly.adobe.com/ (eticky trénované)
+
+### 3.3 Příprava cvičení a pracovních listů (3 strany)
+**Obsah:**
+- Generování příkladů a úloh
+- Diferenciace obtížnosti pro různé studenty
+- Tvorba kvízů a testů
+
+**Prompt šablony:**
+```
+ŠABLONA 1: Generování příkladů
+
+"Vytvoř 10 příkladů na [téma] pro [úroveň]. 
+Příklady by měly:
+- Postupně narůstat na obtížnosti
+- Zahrnovat různé typy úloh (výpočty, konceptuální, aplikační)
+- Mít uvedená řešení s vysvětlením postupu
+Formát: Každý příklad na samostatnou kartu."
+
+PŘÍKLAD POUŽITÍ:
+"Vytvoř 10 příkladů na derivace složených funkcí pro studenty 
+1. ročníku inženýrského studia. Příklady by měly postupně 
+narůstat na obtížnosti..."
+```
+
+**Nástroje:**
+- Eduaide.Ai: *Worksheet Generator*
+  https://www.eduaide.ai/
+  
+- Quizizz: *AI Question Generator*
+  https://quizizz.com/
+  
+- Diffit: *Differentiated Reading*
+  https://www.diffit.me/
+
+### 3.4 Vytváření studijních materiálů (3 strany)
+**Obsah:**
+- Sumarizace dlouhých textů
+- Zjednodušování složitých konceptů
+- Překlad a adaptace materiálů
+- Generování glossářů a slovníčků
+
+**Praktické příklady:**
+```
+USE CASE 1: Sumarizace vědeckého článku
+
+PROMPT:
+"Přečti si tento vědecký článek [vložit text nebo URL] a vytvoř:
+1. Jednooduchý abstrakt (150 slov) vhodný pro studenty
+2. 5 klíčových bodů (bullet points)
+3. 3 otázky pro diskusi v semináři
+4. Glossář odborných termínů s definicemi"
+
+NÁSTROJ: Claude (zvládá až 200 000 tokenů = ~150 stran textu)
+```
+
+**Specializované nástroje:**
+- **NotebookLM** (Google): https://notebooklm.google/
+  - Uploadujte PDF, články → AI vytvoří interaktivní notes
+  - Funkce "Audio Overview" = AI vygeneruje podcast o textu
+  
+- **Elicit**: https://elicit.com/
+  - AI pro literatrární rešerše
+  - Sumarizace research papers
+  
+- **Consensus**: https://consensus.app/
+  - AI vyhledávač vědeckých studií
+  - Evidence-based odpovědi
+
+---
+
+## KAPITOLA 4: AI VE VÝUCE (INTERAKTIVNÍ METODY) (10 stran)
+
+### 4.1 AI jako virtuální teaching assistant (3 strany)
+**Obsah:**
+- Custom GPTs pro konkrétní předměty
+- Claude Projects pro dlouhodobou práci
+- Gemini Gems pro specializované úkoly
+
+**Tutoriál: Vytvoření Custom GPT**
+```
+KROK ZA KROKEM: Vlastní AI asistent pro váš předmět
+
+1. PŘÍSTUP (potřebujete ChatGPT Plus):
+   - Přihlaste se do ChatGPT
+   - Klikněte na své jméno → "My GPTs" → "Create a GPT"
+
+2. KONFIGURACE:
+   - Název: "Asistent pro Termodynamiku I"
+   - Description: "Pomáhá studentům s pojmy a příklady z TD"
+   - Instructions (prompt):
+     "Jsi odborný tutor pro termodynamiku. Odpovídáš na otázky 
+     studentů pomocí Sokratovské metody - nikdy nedáváš hotové 
+     řešení, ale vedeš studenta k nalezení odpovědi. Používáš 
+     jednoduché analogie. Když student uvízne, poskytuješ hint."
+   
+3. ZNALOSTNÍ BÁZE:
+   - Uploadujte syllabus kurzu (PDF)
+   - Uploadujte vzorové příklady
+   - Uploadujte FAQ
+
+4. TESTOVÁNÍ:
+   - Zkuste zadat typické studentské otázky
+   - Upravte instructions podle výsledků
+
+5. SDÍLENÍ:
+   - Nastavte "Anyone with link"
+   - Sdílejte odkaz se studenty
+```
+
+**Příklady použití:**
+- Tutor pro matematiku (vede studenta krok za krokem)
+- Assistant pro psaní kódu (code review, debugging hints)
+- Language partner pro cizí jazyky
+
+**Zdroje:**
+- OpenAI: *Custom GPT Documentation*
+  https://help.openai.com/en/articles/8554397-creating-a-gpt
+
+### 4.2 Interaktivní demonstrace a simulace (2 strany)
+**Obsah:**
+- AI vysvětluje složité koncepty různými způsoby
+- Live coding s AI asistentem (GitHub Copilot)
+- Simulace dialogů a scénářů
+
+**Demonstrační techniky:**
+```
+TECHNIKA 1: "Explain it like I'm 5/15/25"
+- Zadejte AI: "Vysvětli kvantovou svázanost jako bych byl 5/15/25"
+- Ukažte studentům, jak AI přizpůsobuje jazyk
+- Diskutujte, které vysvětlení je nejlepší a proč
+
+TECHNIKA 2: Multiple perspectives
+- "Vysvětli fotosyntézu z pohledu: a) fyzika b) chemie c) evoluce"
+- Ukázka interdisciplinarity
+```
+
+### 4.3 AI pro facilitaci diskusí (2 strany)
+**Obsah:**
+- AI generuje diskusní otázky
+- Devil's advocate arguments
+- Brainstorming s AI
+
+**Metodika:**
+```
+AKTIVITA: Sokratický dialog s AI
+
+PRŮBĚH:
+1. Představte studentům etický problém nebo hypotézu
+2. Studenti v párech diskutují s AI (každá dvojice jiný pohled)
+3. AI má roli kritického tazatele
+4. Studenti prezentují své závěry
+5. Třída debatuje
+
+PROMPT PRO STUDENTY:
+"Hraj roli kritického filosofa. Kladu ti hypotézu: '[XYZ]'. 
+Tvým úkolem je ptát se na předpoklady, hledat logické mezery 
+a nutit mě přemýšlet hlouběji. Ale nedávej mi odpovědi, jen 
+kladi otázky."
+```
+
+### 4.4 Gamifikace s AI (2 strany)
+**Obsah:**
+- AI generuje kvízy a hádanky
+- Escape room s AI hádankami
+- Role-playing scénáře
+
+**Nástroje:**
+- **Curipod**: https://curipod.com/
+  - Interaktivní lekce s AI
+  - Real-time polls a quizzes
+  
+- **Kahoot! + AI**: https://kahoot.com/
+  - AI generování kvízových otázek
+  
+- **Quizizz AI**: https://quizizz.com/
+
+### 4.5 AI pro diferenciaci výuky (1 strana)
+**Obsah:**
+- Adaptace materiálů pro různé úrovně
+- Podpora studentů se speciálními potřebami
+- Jazykové adaptace pro mezinárodní studenty
+
+---
+
+## KAPITOLA 5: HODNOCENÍ V ÉŘE AI (10 stran)
+
+### 5.1 Redesign hodnocení - principy (3 strany)
+**Obsah:**
+- Proč tradiční eseje a testy nefungují
+- 6 principů AI-aware assessment
+- Authentic assessment
+
+**Framework:**
+```
+6 PRINCIPŮ HODNOCENÍ V ÉŘE AI:
+
+1. AUTENTICITA
+   ✓ Úkoly odrážející reálné problémy
+   ✗ Generické otázky s jednoznačnými odpověďmi
+
+2. PROCESNÍ HODNOCENÍ
+   ✓ Hodnotíme cestu, ne jen cíl
+   ✓ Průběžné milestones, reflective journals
+
+3. PERSONALIZACE
+   ✓ Úkoly navázané na zájmy studenta
+   ✗ One-size-fits-all zadání
+
+4. MULTIMODALITA
+   ✓ Video obhajoby, prezentace, portfolia
+   ✗ Pouze písemné práce
+
+5. KOLABORACE
+   ✓ Týmové projekty s průběžnou dokumentací
+   ✗ Individuální izolované úkoly
+
+6. METAKOGNICE
+   ✓ Reflexe vlastního učení
+   ✓ Sebeevaluace
+```
+
+**Zdroje:**
+- QAA: *Reconsidering Assessment for the ChatGPT Era* (PDF)
+  https://www.qaa.ac.uk/docs/qaa/members/reconsidering-assessment-for-the-chat-gpt-era.pdf
+  
+- UMass: *How Do I Redesign Assignments in an AI World*
+  https://www.umass.edu/ctl/how-do-i-redesign-assignments-and-assessments-ai-impacted-world
+  
+- Charles Sturt University: *Rethinking Assessment Strategies*
+  https://www.csu.edu.au/division/learning-teaching/assessments/assessment-and-artificial-intelligence/rethinking-assessments
+  
+- MDPI: *Redesigning Assessments for AI-Enhanced Learning*
+  https://www.mdpi.com/2227-7102/15/2/174
+
+### 5.2 Typy úkolů odolných vůči AI (4 strany)
+**Obsah:**
+- In-class assessments
+- Oral examinations
+- Reflective portfolios
+- Process-focused assignments
+- Site-specific / experience-based tasks
+
+**Katalog příkladů:**
+
+```
+TYP 1: ÚSTNÍ ZKOUŠKY A PREZENTACE
+✓ Student prezentuje + obhajuje
+✓ Otázky na místě → nelze si připravit s AI
+✓ Hodnotí se porozumění, ne memorování
+
+PŘÍKLAD pro Programování:
+"Prezentuj svůj kód (5 min), pak vyber 3 řádky a vysvětli, 
+proč jsi je napsal právě tak. Jaké alternativy existují?"
+
+---
+
+TYP 2: IN-CLASS WRITINGS (Psaní na místě)
+✓ Časově omezené (30-45 min)
+✓ Bez přístupu k AI
+✓ Témata známá předem → studenti se můžou připravit
+
+PŘÍKLAD pro Historii techniky:
+"Máte 40 minut. Vyberte si 1 ze 3 témat (známých týden předem) 
+a napište esej. Můžete používat poznámky, ale ne AI."
+
+---
+
+TYP 3: REFLEXIVNÍ PORTFOLIA
+✓ Student dokumentuje svůj learning journey
+✓ Weekly reflections + evidence učení
+✓ Metakognice: "Co jsem se naučil a jak?"
+
+STRUKTURA:
+- Týdenní zápis (2-3 věty): "Dnes jsem se naučil..."
+- Měsíční reflexe (1 strana): "Největší výzva/pokrok"
+- Finální portfolio (5-10 stran) + artefakty
+- Zahrnutí: "Kdy a jak jsem použil AI, co mi to dalo"
+
+---
+
+TYP 4: PROCESNÍ ÚKOLY
+✓ Hodnotíme průběžné milestones, ne jen finální produkt
+✓ Studenti odevzdávají: draft → peer review → revize → finál
+✓ + reflektivní statement k revizím
+
+PŘÍKLAD pro Projekt:
+1. Proposal (týden 2) - 10%
+2. Literature review draft (týden 4) - 10%
+3. Peer feedback exchange (týden 5) - 5%
+4. Revised draft + changelog (týden 7) - 15%
+5. Final project + reflective essay (týden 12) - 60%
+
+---
+
+TYP 5: LOKÁLNĚ SPECIFICKÉ ÚKOLY
+✓ Vyžadují přímou zkušenost/pozorování
+✓ AI nemá přístup k těmto datům
+
+PŘÍKLADY:
+- "Navštiv laboratoř X, popiš experiment a analyzuj výsledky"
+- "Proveď interview se 3 odborníky, napiš report"
+- "Pozoruj [jev] na VUT kampusu, dokumentuj a vyhodnoť"
+
+---
+
+TYP 6: AI-ENHANCED ASSIGNMENTS
+✓ AI je explicitně součástí úkolu
+✓ Hodnotíme kritické myšlení O AI výstupech
+
+PŘÍKLAD:
+"Vygeneruj esej o tématu X pomocí ChatGPT. Pak:
+1. Fact-checkuj každé tvrzení (cituj zdroje)
+2. Identifikuj 3 chyby nebo bias
+3. Přepiš esej s korekcemi
+4. Napiš 500-word reflexi: Co AI zvládlo/nezvládlo?"
+```
+
+**Další zdroje:**
+- *Rethinking Assessment: Beyond the Essay* (blog)
+  https://rethinkingassessment.com/rethinking-blogs/rethinking-assessment-for-generative-ai-beyond-the-essay/
+  
+- ScienceDirect: *Generative AI Tools and Assessment Guidelines*
+  https://www.sciencedirect.com/science/article/pii/S2666557323000290
+
+### 5.3 Rubrics a hodnotící kritéria (2 strany)
+**Obsah:**
+- Tvorba rubrics s ohledem na AI
+- Hodnocení procesu, ne jen produktu
+- Zahrnutí "AI transparency" jako kritéria
+
+**Příklad rubrics:**
+```
+RUBRIC PRO VÝZKUMNOU ESEJ V ÉŘE AI
+
+KRITÉRIUM 1: Originalita myšlenky (30%)
+- Výborně (27-30): Unikátní perspektiva, propojuje zdroje novým způsobem
+- Dobře (24-26): Zajímavý pohled s vlastními insights
+- Dostatečně (21-23): Základní analýza, málo originality
+- Nedostatečně (0-20): Převážně parafrázované/AI-generované myšlenky
+
+KRITÉRIUM 2: Kvalita argumentace (30%)
+- Hodnotí se logika, důkazy, kritické myšlení
+- [podobná struktura]
+
+KRITÉRIUM 3: AI Transparency & Proper Use (20%)
+- Výborně: Jasně deklarováno použití AI + ukázáno, jak byl výstup 
+  zpracován/ověřen
+- Dobře: AI použití zmíněno, ale není zcela jasné jak
+- Dostatečně: Nejasné nebo minimální AI disclosure
+- Nedostatečně: Skryté použití AI nebo předložení nezpracovaného 
+  AI outputu
+
+KRITÉRIUM 4: Technická kvalita (10%)
+- Formátování, citace, jazyk
+
+KRITÉRIUM 5: Reflective statement (10%)
+- Student vysvětluje svůj proces, včetně role AI
+```
+
+### 5.4 Detekce AI - proč (ne)funguje (1 strana)
+**Obsah:**
+- Mýty o AI detectorech (GPTZero, Turnitin AI)
+- Vysoká míra false positives
+- Alternativní přístup: důvěra + redesign
+
+**Fakta:**
+```
+❌ PROČ NEPOUŽÍVAT AI DETEKTORY:
+
+1. Nízká přesnost (60-70%)
+2. False positives postihují:
+   - Non-native English speakers
+   - Studenty s určitým stylem psaní
+   - Někdy i zcela lidsky psané texty
+
+3. Studenti rychle najdou workarounds
+4. Vytváří atmosféru nedůvěry
+
+✅ CO MÍSTO TOHO:
+- Redesignujte úkoly
+- Průběžné milestones
+- Osobní interakce se studenty
+- Transparentní komunikace
+```
+
+**Zdroj:**
+- MIT Sloan: *AI Detectors Don't Work. Here's What to Do Instead*
+  https://mitsloanedtech.mit.edu/ai/teach/ai-detectors-dont-work/
+
+---
+
+## KAPITOLA 6: AI PRO PODPORU STUDENTŮ (8 stran)
+
+### 6.1 AI jako personalizovaný tutor (3 strany)
+**Obsah:**
+- 24/7 dostupná pomoc
+- Adaptivní výuka podle tempa studenta
+- Sokratovská metoda s AI
+
+**Implementace:**
+```
+SCÉNÁŘ: AI Tutor pro Matematiku
+
+NÁSTROJ: Custom GPT nebo Claude Project
+
+PROMPT (pro pedagoga, který GPT nastavuje):
+"Jsi tutor pro [předmět]. Tvým cílem je pomoci studentům 
+pochopit koncepty, NE dát jim hotová řešení.
+
+PRAVIDLA:
+1. Když student položí otázku, zjisti jeho úroveň porozumění
+2. Rozděl problém na menší kroky
+3. Ptej se: 'Co myslíš, že by byl první krok?'
+4. Poskytuj hinty, ne odpovědi
+5. Oslavuj pokrok: 'Skvělé! A co dál?'
+6. Když student úplně uvízne, ukážeš JEDEN krok a necháš 
+   ho pokračovat
+
+STYL:
+- Přátelský, povzbuzující
+- Používej analogie a příklady z reálného života
+- Emojis jsou OK ✓
+
+ZAKÁZÁNO:
+- Dávat hotová řešení domácích úkolů
+- Nahrazovat člověka v oblasti subjektivních úsudků"
+
+SDÍLENÍ SE STUDENTY:
+Odkaz + instrukce: "Tento AI tutor ti pomůže, když já nejsem 
+dostupný. Pamatuj: má tě provést myšlením, ne dát hotovku!"
+```
+
+**Příklady:**
+- Khan Academy's Khanmigo: https://www.khanacademy.org/khan-labs
+- Duolingo Max (pro jazyky): https://blog.duolingo.com/duolingo-max/
+
+### 6.2 Zpětná vazba na písemné práce (2 strany)
+**Obsah:**
+- AI pro formativní feedback
+- Automatické komentáře k draftům
+- Gramatika, styl, struktura
+
+**Nástroje:**
+```
+TIER 1: Základní nástroje (FREE)
+
+- Grammarly: https://www.grammarly.com/
+  ✓ Gramatika, pravopis, styl
+  ✓ Free verze dostačující pro studenty
+  
+- Hemingway Editor: https://hemingwayapp.com/
+  ✓ Readability score
+  ✓ Identifikace složitých vět
+
+- QuillBot: https://quillbot.com/
+  ✓ Paraphrasing (opatrně!)
+  ✓ Grammar checker
+
+---
+
+TIER 2: Pokročilé (PAID nebo s edu licencí)
+
+- Turnitin Draft Coach:
+  ✓ Integrovaný do LMS
+  ✓ Similarity check + writing feedback
+  
+- Microsoft Editor (v MS Word):
+  ✓ Automatický v Office 365
+  ✓ Grammar + style suggestions
+
+---
+
+TIER 3: AI Feedback assistants
+
+POUŽITÍ:
+Prompt: "Přečti si tento draft eseje a poskytni konstruktivní 
+feedback na:
+1. Strukturu argumentu
+2. Podporující důkazy
+3. Logické vazby mezi odstavci
+4. Jasnost formulací
+Formát: 3 silné stránky + 3 návrhy na zlepšení"
+```
+
+### 6.3 Podpora jazykových dovedností (2 strany)
+**Obsah:**
+- AI pro mezinárodní studenty (cizojazyčníci)
+- Překlady s kontextem
+- Konverzační praxe
+
+**Aplikace:**
+```
+PRO STUDENTY S ANGLIČTINOU JAKO 2. JAZYK:
+
+1. DeepL: https://www.deepl.com/translator
+   - Nejlepší překladač (lepší než Google Translate)
+   - Zachovává kontext a nuance
+
+2. ChatGPT jako konverzační partner
+   Prompt: "Pojďme cvičit akademickou angličtinu. Hraj roli 
+   profesora a veď se mnou konverzaci o [téma]. Opravuj mé 
+   chyby způsobem, který nepřeruší flow rozhovoru."
+
+3. Elsa Speak: https://elsaspeak.com/
+   - AI pro výslovnost
+```
+
+### 6.4 Accessibility (přístupnost) (1 strana)
+**Obsah:**
+- AI pro studenty se speciálními potřebami
+- Text-to-speech, speech-to-text
+- Zjednodušování textů
+
+**Nástroje:**
+- Microsoft Immersive Reader (v MS Office)
+- Natural Reader: https://www.naturalreaders.com/
+- Speechify: https://speechify.com/
+
+---
+
+## KAPITOLA 7: PŘÍKLADY DOBRÉ PRAXE Z VUT (6 stran)
+
+### 7.1 Case Studies z různých fakult (4 strany)
+
+**FORMÁT PRO KAŽDÝ PŘÍKLAD:**
+```
+FAKULTA: [FIT/FEKT/FSI/...]
+PŘEDMĚT: [název]
+PEDAGOG: [jméno] (volitelné)
+
+CHALLENGE:
+Co bylo problémem/výzvou?
+
+AI SOLUTION:
+Jak bylo AI použito?
+
+IMPLEMENTATION:
+Konkrétní kroky, nástroje
+
+OUTCOMES:
+Výsledky, studentská zpětná vazba
+
+LESSONS LEARNED:
+Co by autor příště udělal jinak?
+
+ODKAZ:
+[pokud existuje blog/článek/video]
+```
+
+**Příklady ke sběru (placeholder - vyplnit reálnými daty z VUT):**
+
+1. **FIT: Custom GPT pro výuku programování**
+   - Popis implementace
+   - Ukázky promptů
+   - Studentská zpětná vazba
+
+2. **FSI: AI-asistovaný design projektu**
+   - Jak studenti používali AI pro brainstorming
+   - Hodnocení procesu, ne jen výsledku
+
+3. **FEKT: Simulace s AI pro praktická cvičení**
+   - Virtuální lab assistant
+
+4. **FA: AI v architektonickém designu**
+   - Generování konceptů, kritická evaluace
+
+### 7.2 Tipy od kolegů (2 strany)
+- Sbírka quick tips
+- "Co fungovalo / nefungovalo"
+- Doporučené resources
+
+---
+
+## KAPITOLA 8: NÁSTROJE A APLIKACE (8 stran)
+
+### 8.1 Velké jazykové modely (2 strany)
+
+```
+SROVNÁVACÍ TABULKA:
+
+| Nástroj    | Silné stránky | Limity | Cena | Odkaz |
+|------------|---------------|--------|------|-------|
+| ChatGPT    | Všestrannost  | Cut-off dat | Free/20$/měs | chat.openai.com |
+| Claude     | Dlouhé texty  | Pomalejší | Free/20$/měs | claude.ai |
+| Gemini     | Google integrace | Někdy unp recise | Free/20$/měs | gemini.google.com |
+| Perplexity | Web search + AI | Omezené deep reasoning | Free/20$/měs | perplexity.ai |
+```
+
+**Doporučení:**
+- Začínající: ChatGPT (nejuniverzálnější)
+- Pro dlouhé dokumenty: Claude
+- Pro Google Workspace uživatele: Gemini
+- Pro research: Perplexity nebo Consensus
+
+### 8.2 Specializované nástroje pro pedagogy (3 strany)
+
+```
+KATEGORIE: Lesson Planning
+----------------------------
+✓ MagicSchool AI - magicschool.ai
+  - 60+ AI tools pro učitele
+  - Lesson plans, quizzes, IEPs
+  - FREE tier dostačující
+
+✓ Eduaide.Ai - eduaide.ai
+  - Graphic organizers, games
+  - Curriculum mapping
+
+✓ Brisk Teaching - briskteaching.com
+  - Chrome extension
+  - Works across Google/MS tools
+
+---
+
+KATEGORIE: Prezentace & Vizuály
+-------------------------------
+✓ Gamma - gamma.app
+  - AI generované slidedecks
+  - No design skills needed
+
+✓ Canva Magic Design - canva.com
+  - AI design suggestions
+  - Edu účty zdarma
+
+✓ Beautiful.ai - beautiful.ai
+  - Smart templates
+
+✓ Microsoft Designer - designer.microsoft.com
+  - FREE
+  - AI image generation
+
+---
+
+KATEGORIE: Assessment & Feedback
+---------------------------------
+✓ Gradescope - gradescope.com
+  - AI-assisted grading
+  - Rubrics
+
+✓ Alayna - alayna.ai
+  - Handwriting recognition
+  - AI grading
+
+✓ Turnitin - turnitin.com
+  - Similarity detection
+  - Draft Coach feedback
+
+---
+
+KATEGORIE: Interactive Learning
+--------------------------------
+✓ Curipod - curipod.com
+  - Interactive lessons
+  - Real-time engagement
+
+✓ Quizizz - quizizz.com
+  - AI quiz generation
+
+✓ Kahoot! - kahoot.com
+  - AI question generator
+
+---
+
+KATEGORIE: Research & Reading
+------------------------------
+✓ NotebookLM - notebooklm.google
+  - Upload PDFs → AI notes
+  - Audio overviews (podcast)
+
+✓ Elicit - elicit.com
+  - Research paper search
+  - Summarization
+
+✓ Consensus - consensus.app
+  - Scientific evidence
+
+✓ SciSpace - scispace.com
+  - PDF reader with explanations
+
+---
+
+KATEGORIE: Coding & Technical
+------------------------------
+✓ GitHub Copilot - github.com/features/copilot
+  - Code completion
+  - Free for verified educators
+
+✓ Replit Ghostwriter - replit.com
+  - AI coding assistant
+  - Browser-based
+
+---
+
+KATEGORIE: Accessibility
+-------------------------
+✓ Speechify - speechify.com
+  - Text-to-speech
+
+✓ Otter.ai - otter.ai
+  - Meeting transcription
+
+✓ Microsoft Immersive Reader
+  - Built into Office/Edge
+  - Reading support
+```
+
+### 8.3 AI nástroje pro studenty (2 strany)
+- Doporučený seznam pro různé use cases
+- S upozorněním na etické použití
+
+### 8.4 Jak zůstat v obraze (1 strana)
+```
+NEWSLETTERS & ZDROJE:
+
+✓ The Batch (by Andrew Ng)
+  - Týdenní AI news
+  - https://www.deeplearning.ai/the-batch/
+
+✓ AI in Education Newsletter
+  - EdTech focus
+  - https://www.aieducationnewsletter.com/
+
+✓ EDUCAUSE AI Resources
+  - Higher ed perspective
+  - https://www.educause.edu/
+
+✓ r/HigherEdAI (Reddit)
+  - Community diskuse
+
+✓ LinkedIn: Sledujte #AIinEducation
+
+✓ Twitter/X: @OpenAI, @AnthropicAI, @GoogleAI
+```
+
+---
+
+## PŘÍLOHY (6 stran)
+
+### Příloha A: Prompt Library (šablony)
+- 20+ готовых promptů pro různé situace
+- Kategorizováno: Lesson planning, Assessment, Feedback, atd.
+
+### Příloha B: Checklist pro redesign předmětu
+- Krok za krokem guide
+- Otázky k zamyšlení
+
+### Příloha C: AI Policy Template
+- Šablona pro syllabus
+- Přizpůsobitelná pro různé předměty
+
+### Příloha D: Glossář pojmů
+- AI terminologie vysvětlená srozumitelně
+
+### Příloha E: Kontakty a podpora VUT
+- Kam se obrátit s dotazy
+- Konzultační hodiny
+- Workshopy
+
+### Příloha F: Reference a další čtení
+- Kompletní bibliografie
+- Anotované odkazy
+
+---
+
+## ZÁVĚR (1 strana)
+- Rekapitulace klíčových bodů
+- Motivace k experimentování
+- "AI je nástroj, vy jste pedagog"
+
+---
+
+**CELKOVÝ ROZSAH: ~65 stran**
+
+**FORMAT:**
+- PDF s hypertextovými odkazy
+- Doplněný online repository s updaty
+- Video tutoriály pro vybrané sekce
+
+**ÚDRŽBA:**
+- Pravidelné updaty (quarterly)
+- Feedback formulář na konci
+- Living document na ai.vut.cz
+

@@ -1,0 +1,9 @@
+We conclude with three principal limitations and practical short-term mitigations.
+
+\textbf{Dataset scale.} Our small, curated evaluation limits generalizability; we recommend assembling a broader, heterogeneous corpus, running controlled data-ablation studies, and using lightweight data augmentation (e.g., paraphrase/snippet expansion) as experiments rather than asserted remedies.  
+
+\textbf{Domain transfer.} Section graphs, templates, and retrievals may need retargeting for new domains; mitigate by modularizing templates/schema, seeding prompts with a few in-domain exemplars, tuning retrieval heuristics per domain, and optionally using few-shot or adapter updates, then measuring transfer on held-out domains.  
+
+\textbf{Retrieval dependence and evidence quality.} Grounding relies on retrieval recall/ranking; reduce risk with ensemble retrieval, explicit reranking/calibration, and conservative fallbacks that mark or qualify unsupported claims; validate via retrieval perturbation, ablations, and document-withholding stress tests.  
+
+Preserve machine-readable section outputs and full provenance, and record prompt/retrieval seeds to enable deterministic reruns where possible; these practices support reproducibility and auditability but are validation steps, not definitive fixes.

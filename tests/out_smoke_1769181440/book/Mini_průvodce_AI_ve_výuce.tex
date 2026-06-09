@@ -1,0 +1,246 @@
+\documentclass{report}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{geometry}%
+\geometry{a4paper=True,margin=25mm}%
+\usepackage{amsmath}%
+\usepackage{amssymb}%
+\usepackage{amsfonts}%
+\usepackage{mathtools}%
+\usepackage{bm}%
+\usepackage{physics}%
+\usepackage{graphicx}%
+\usepackage{microtype}%
+\usepackage{iftex}%
+\usepackage{listings}%
+\usepackage{listingsutf8}%
+\usepackage{xcolor}%
+\usepackage[strings]{underscore}%
+\usepackage{url}%
+\usepackage{xurl}%
+\usepackage{hyperref}%
+\usepackage{bookmark}%
+\usepackage[square,numbers]{natbib}%
+%
+\ifLuaTeX\usepackage{fontspec}\usepackage{unicode-math}\else\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}\fi\usepackage[czech]{babel}%
+\graphicspath{{figures/}}%
+\renewcommand{\bibname}{Použitá literatura}%
+\renewcommand{\bibsection}{\chapter*{\bibname}\addcontentsline{toc}{chapter}{\bibname}}%
+\input{robustness.tex}%
+\title{Mini průvodce AI ve výuce}%
+\date{\today}%
+%
+\begin{document}%
+\normalsize%
+\lstset{backgroundcolor=\color[gray]{0.95},basicstyle=\ttfamily\small,breaklines=true,breakatwhitespace=false,columns=fullflexible,keepspaces=true,frame=single,numbers=left,numberstyle=\tiny,tabsize=4,inputencoding=utf8,extendedchars=true,showstringspaces=false}%
+\hypersetup{pageanchor=false}%
+\pagenumbering{roman}%
+\maketitle%
+\tableofcontents%
+\clearpage%
+\hypersetup{pageanchor=true}%
+\pagenumbering{arabic}%
+\chapter{Úvod}%
+Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými piloty. Obsahuje rychlý checklist pro posouzení vhodnosti nástroje pro konkrétní kurz a základní pravidla pro ověřování výstupů a zajištění akademické integrity.%
+
+
+%
+V tomto průvodci je cíl: nabídnout učitelům a garantům rychlý, praktický a bezpečný návod, jak smysluplně pilotovat a zavést AI nástroje do výuky.
+Následující shrnutí slouží jako obecné podkladové informace pro rychlý start; neobsahuje specializovaná tvrzení podložená studiemi.
+
+Obecné podkladové informace — klíčové přínosy AI ve výuce
+- Personalizace: přizpůsobení úloh a nápovědy; škálovatelnost: automatizace opakovaných úkonů.
+- Rychlejší tvorba materiálů: generátory a šablony urychlí osnovy, příklady a testy.
+- Podpora hodnocení: asistence u krátkých odpovědí a testů, úspora času hodnotitelů.
+
+Jak začít s malým pilotem — krok za krokem (praktický postup)
+1) Definujte jasný cíl pilota (1–2 věty): co chcete zlepšit (např. opravy, FAQ, doplňkové texty).
+2) Vyberte úzkou oblast a malou skupinu (5–30 studentů) pro snadnou kontrolu.
+3) Zvolte nástroj s ohledem na ochranu dat a integraci (LMS plugin, chatbot, offline nástroj).
+4) Navrhněte metriky úspěchu (čas přípravy, spokojenost, korelace automatického a ručního hodnocení).
+5) Nasazení: 4–8 týdnů, průběžné sbírání dat a zpětné vazby.
+6) Vyhodnoťte, upravte postupy a rozhodněte o rozšíření.
+
+Rychlý checklist pro posouzení vhodnosti nástroje (obecné podkladové informace)
+- Vstupy/výstupy odpovídají výukovým cílům a jejich kvalita je ověřitelná lidským auditem?
+- Splňuje ochranu osobních údajů, podmínky použití a umožňuje verzi/archivaci pro audit?
+- Je uživatelsky přívětivý pro vyučující i studenty (školení <= 2 hod)?
+
+Základní pravidla pro ověřování výstupů a akademickou integritu (obecné podkladové informace)
+- Verifikujte náhodný vzorek generovaných odpovědí ručně; zvažte stratifikaci podle obtížnosti.
+- Požadujte zdroje nebo krátké vysvětlení od AI; pokud nejsou, zvyšte lidskou kontrolu.
+- Transparentně informujte studenty o použití AI a pravidlech (povolení vs. zakázání AI‑generovaného odevzdání).
+- Kombinujte detekci plagiátů s procesními stopami (průvodní komentář, verze řešení) a dokumentujte postupy pro audit.
+
+Krátké doporučení pro první týden nasazení
+- Den 0: informujte studenty, sdělte pravidla a získejte souhlas, je‑li třeba.
+- Den 1–7: školení (30–60 min) a zkušební úkol; po týdnu vyhodnoťte data a upravte prompt/nastavení.
+
+Závěrem: Pilot by měl být malý, cílený a měřitelný; cílem je podporovat pedagogické rozhodování a připravit půdu pro širší nasazení.%
+
+%
+\chapter{Případové studie z univerzit (praktické příklady)}%
+Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiálů a testových otázek, a podpora studentských konzultací chatboty. Ke každému případu jsou uvedeny cíle, nasazení, dosažené přínosy (měřené metriky nebo pozorování), implementační kroky a tipy, jak začít s malým pilotem.%
+\section{Adaptivní úlohy v MOOC a LMS}%
+Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.%
+
+
+%
+Krátký popis a účel: Adaptivní úlohy upravují obtížnost, počet nebo typ zpětné vazby podle výkonu studenta; níže tři stručné scénáře a praktické tipy pro malý pilot (doporučený přístup v úvodu průvodce \cite{1}).  
+Scénář A — doplňkové cvičení (pravidla): cílem doplnit cvičení podle diagnostiky (např. pravidla: <80\% → 3 cvičení; <50\% → přidat vysvětlení); měřte čas, zlepšení skóre a míru dokončení; pilot 5--30 studentů, 4--8 týdnů.  
+Scénář B — personalizované hinty (pravidla + jednoduché statistiky): triggery na základě času/neúspěšných pokusů nebo chybového skóru; měřte počet hintů, změnu času do dokončení a spokojenost.  
+Scénář C — adaptivní cesta (ML): ML predikuje riziko neúspěchu a přesměruje na remedial obsah; nejprve retrospektivní analýza a A/B pilot s validací; tipy: jasné metriky, začít s pravidly, transparentnost a ruční audit výstupů \cite{1}.%
+
+%
+\section{Automatizované hodnocení krátkých odpovědí}%
+Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.%
+
+
+%
+\noindent\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}
+
+\medskip
+
+Požadavky před nasazením: jasně definovaná rubrika pro krátké odpovědi; anonymizovaná testovací/validační sada s ručními hodnoceními; souhlas a ochrana osobních údajů; technické rozhraní pro export/import a protokolování. Metriky: shoda s lidským hodnocením, konzistence a užitnost pro učitele/studenty. Postup: stanovte cíle a rubriku, připravte validační vzorky, vyberte nástroj a předzpracování, spusťte pilot s lidskou kontrolou, vyhodnoťte systematické odchylky a dokumentujte pravidla pro audit. Validace/pilot: porovnejte distribuce skóre, analyzujte případy rozdílů, zvažte kombinovaný workflow (automatika jako návrh, finále člověk) a informujte studenty; uchovávejte záznamy rozhodnutí pro pozdější zlepšování.%
+
+%
+\section{Automatizované hodnocení kódu v technických kurzech}%
+Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.%
+
+
+%
+\noindent\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\medskip
+Cíle automatizovaného hodnocení kódu: rychlá verifikace funkčnosti, konzistentní kontrola chyb a okamžitá zpětná vazba studentům, přičemž učitelé se mohou soustředit na design a komplikovanější hodnocení.
+Klíčové komponenty: testovací sada (unit/integrace, chybové stavy), statická analýza, metriky kvality a lidský dohled; návrh nasazení: jasná rubrika (co automaticky vs. ručně), validační anonymní vzorek, workflow odevzdání \(\to\) automatické testy \(\to\) učitelova kontrola a malý pilot.
+Hodnocení systému: shoda s ručním hodnocením, flaky tests, pokrytí a míra nutného lidského zásahu; tipy: používat automatiku pro repetitivní úlohy, dokumentovat hranice, řešit fluktuaci testů a zvážit nástroje pro detekci plagiátorství; rychlý checklist: rubrika, testy/lintery, validační vzorek, komunikace se studenty, plán auditu.%
+
+%
+\section{Generování výukových materiálů a testových otázek}%
+Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.%
+
+
+%
+\noindent\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\medskip
+
+Krátký přehled: možné výstupy — učební texty, shrnutí/cheat sheety, ilustrované příklady a testové položky; očekávané přínosy — rychlejší tvorba, snadná adaptace úrovní, generování variant testů.
+
+Hlavní rizika a kontrolní body — faktické chyby, opomenutí kontextu/bias, nesoulad s učebními cíli; checklist: ověřit fakta, pedagogické sladění, jazyk a autorská práva.
+
+Pilot a prompty: proveď malý pilot s referencemi, generuj 2–3 varianty, reviduj a otestuj se studenty; ukázkové prompty: 200slovné shrnutí, krok‑za‑krokem příklad, MCQ.%
+
+%
+\section{Chatboti pro studentské konzultace a tutorování}%
+Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.%
+
+
+%
+\noindent\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\medskip
+
+Krátce: nasazení chatbota vždy začněte omezeným pilotem s jasným rozsahem (např. FAQ, navigace k materiálům nebo orientační tutorování); typické role zahrnují FAQ/logistiku, pedagogický tutor, krokový asistent a jasná eskalace na člověka. Měřte kvantitativní metriky (počet dotazů, doba odpovědi, procento eskalací) i kvalitativní ukazatele (audit odpovědí, spokojenost uživatelů) a dbejte na transparentnost, ochranu osobních údajů a definovanou odpovědnost. Doporučený postup pilota: definice cíle, sběr znalostí, volba technologie, nastavení metrik, školení dohledu a vyhodnocení — začínejte malé s lidským dohledem a iterujte podle zjištěných výsledků.%
+
+%
+\section{Praktický pilot a checklist nasazení}%
+Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.%
+
+
+%
+\noindent\textit{Poznámka: níže uvedené body jsou obecná doporučení a měly by být ověřeny lokálním pilotem před plošným nasazením.}
+
+Krátce: začněte malé s jasným cílem, vyberte 2–4 měřitelné KPI, vymezte rozsah (kurzy/studenti, typ úloh, délka) a nastavte technické i organizační kroky s jasnými odpovědnostmi.
+
+Šablona časového plánu: Týden 0: definice cíle, metriky, tým; 1--2: technická příprava a naplnění dat; 3--6: běh pilotu a průběžné vyhodnocení; 7: sběr zpětné vazby; 8: rozhodnutí o rozšíření/ukončení.
+
+Rychlý checklist a role: zajistit ochranu dat a souhlasy, manuální audit kvality, monitorovat zátěž a zaujatost, transparentnost a plán eskalace; role: pedagogický garant, IT, dozor kvality, koordinátor pilotu, zástupce studentů.%
+
+%
+\chapter{Nástroje, šablony a konkrétní postupy pro učitele}%
+Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubrik pro hodnocení AI-generated výstupů a jednoduché skripty/integrace, které lze rychle nasadit v běžných prostředích (Moodle, Canvas, GitHub Classroom).%
+\section{Přehled praktických nástrojů a rychlého nastavení}%
+Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné hodiny výuky.%
+
+
+%
+Krátký přehled ověřených kategorií nástrojů a kdy je vyzkoušet:
+
+LMS pluginy (automatizace distribuce, sběr odpovědí, rychlé nasazení – test v sandboxu); Chatboty (FAQ, konzultace, měřit počet dotazů, dobu odpovědi, eskalace, audit a spokojenost) \cite{2-5}; Generátory otázek (ruční kontrola 10–20 položek); LLM-assisted grading (předhodnocení + manuální audit a pravidla eskalace) \cite{2-6}; Skripty/webhooky/CSV pro rychlou integraci.
+
+Rychlý checklist do 60 minut: 1) Definujte cíl pilotu a 2–4 KPI \cite{2-6}; 2) Vytvořte sandbox a udělte oprávnění \cite{2-6}; 3) Nahrajte malý vzorek obsahu, proveďte kontrolní běh s 1–3 uživateli a sledujte metriky (u chatbotů viz výše) \cite{2-5}; 4) Naplánujte eskalaci a odpovědnou osobu za manuální audit \cite{2-6}.%
+
+%
+\section{Šablony promptů a vzory pro přípravu lekcí a úloh}%
+Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.%
+
+
+%
+Tato sekce nabízí přenosné prompty pro učitele (s hranatými zarážkami [OBOR], [ÚROVEŇ], [TÉMA]) — např. lesson plan, zadání úlohy, cvičení s variantami, řešení krok‑za‑krokem, MCQ a rubrika.  
+Prompty jsou určeny k rychlému vložení do LLM nebo skriptu; upravte jen zarážky a explicitně omezte délku výstupu (slova/odstavce) pro snadnou kontrolu.  
+Přizpůsobení: nahraďte zarážky, pro varianty přidejte „make each variant unique...“, u chatbotů zahrňte metriky a plán auditu \cite{2-5}.  
+Před nasazením provádějte manuální kontrolu, stanovte KPI a pravidla eskalace podle pilotního checklistu a dokumentujte rozhodnutí v rubrice \cite{2-6}.%
+
+%
+\section{Rubriky a pracovní postupy pro hodnocení (včetně LLM{-}assisted)}%
+Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.%
+
+
+%
+\begin{itemize}
+\item Stručný úvod: šablony a postupy pro hodnocení výstupů částečně/zcela generovaných AI; obsahují doporučený krok‑za‑krok workflow a vzor záznamu pro audit a zveřejnění studentům.
+\item Vzorná rubrika (upravte dle předmětu): A – místná správnost 0–4, B – struktura/argumentace 0–4, C – originalita/citace 0–2 (AI kontrola), D – forma/jazyk 0–2; uveďte pravidla eskalace a dokumentujte je v rubrice \cite{2-6}.
+\item Kombinovaný workflow: nastavte prahy pro automatické předhodnocení, nechte LLM označit low‑confidence položky, přiřaďte podprahové/označené položky a náhodné vzorky člověku; lidský hodnotitel upraví skóre a rozhodne o eskalaci; provádějte porovnání korekcí, pilot a KPI \cite{2-6}.
+\item Prompty a auditní záznam: používejte strukturované prompty (nahraďte [OBOR],[ÚROVEŇ],[TÉMA]), omezte délku podle doporučení \cite{3-2}, logujte ID práce, datum, verzi rubricy, LLM skóre/prompt, lidské skóre/komentář, důvod eskalace a rozhodnutí; začněte pilotem (10–20 ručních kontrol).
+\end{itemize}%
+
+%
+\section{Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom}%
+Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném prostředí.%
+
+
+%
+Krátký přehled rychle nasaditelných skriptů a integrací:
+\begin{itemize}
+\item Webhook FAQ/chatbot (HTTP POST $\rightarrow$ JSON); Import/Export CSV (CSV $\rightarrow$ LMS); API skript pro automatizaci zadání; GitHub Classroom + CI (testy, artefakty, výsledky do gradebooku).
+\end{itemize}
+Pilot: validace v sandboxu s 1–3 uživateli, logování chyb a krátký postup pro manuální zásah.%
+
+%
+\chapter{Implementace v kurzu: plánování a řízení rizik}%
+Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimalizaci rizik (ověřování faktů, kontrola plagiátorství, nastavení konzervativních promptů). Obsahuje příklady monitorovacích metrik a šablonu plánu pilotního projektu.%
+
+
+%
+Praktický krok‑za‑krok plán pro zavedení AI do kurzu, s důrazem na řízení rizik a kontrolu kvality.
+
+\begin{enumerate}
+\item Identifikujte cíle a scénáře (kde AI přidává hodnotu, měřitelné metriky).
+\item Návrh malého pilotu: cíl, rozsah, KPI, role a komunikace se studenty.
+\item Kontrola kvality a audit: rubriky (A–D, viz 3.3); auditní záznamy (ID, datum, verze rubriky, prompt/LLM skóre, lidské skóre, důvod eskalace, rozhodnutí).
+\item Řízení rizik: fact‑check vrstvy, detekce plagiátorství, konzervativní prompty, minimalizace sdílených dat a zajištění souhlasu.
+\item Školení a zapojení studentů: krátké školení pro vyučující/hodnotitele; transparentnost a sběr zpětné vazby.
+\item Monitorování a iterace: KPI (shoda AI vs. člověk, čas na feedback, spokojenost, eskalace); pravidelné revize a úpravy workflowů.
+\end{enumerate}
+
+Krátká šablona pilotního plánu:
+\begin{description}
+\item[Cíl pilotu:] $\underline{\hspace{6cm}}$ \item[Rozsah:] $\underline{\hspace{6cm}}$ \item[KPI:] $\underline{\hspace{3cm}}$ \item[Role:] $\underline{\hspace{3cm}}$
+\item[Kontrola kvality / auditní záznam:] (povinné položky viz výše) \item[Plán komunikace \\ \& Harmonogram:] $\underline{\hspace{6cm}}$
+\end{description}
+Poznámka: pro konkrétní rubriky a auditní záznamy viz sekce 3.3.%
+
+%
+\chapter{Etika, ochrana soukromí a ověřování výstupů}%
+Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záznamů). Dále konkrétní metody pro ověření správnosti generovaných odpovědí a zajištění akademické integrity (dvoustupňové hodnocení, náhodné kontroly, kombinace automatického a ručního hodnocení).%
+
+
+%
+Krátká pravidla a praktické kroky pro etické a bezpečné nasazení AI v kurzu: minimalizujte sdílená data a získejte informovaný souhlas; anonymizujte výstupy; transparentně komunikujte použití AI, role, omezení a pravidla hodnocení a auditu \cite{4}.\\
+Nastavte řízení přístupu a dobu uchovávání, ukládejte kritické záznamy auditovatelně; logujte prompty a parametry; zařaďte fact‑check vrstvy a detekci plagiátorství \cite{4, 3-3}.\\
+Dvoustupňové hodnocení: automatizované skórování podle jasné rubriky + lidské kontroly pro eskalace a náhodné ověření; kombinujte automatické nástroje se závazkem lidské verifikace u klíčových rozhodnutí \cite{3-3, 4}.\\
+V auditním záznamu u každého posudku uchovávejte ID, datum/čas, verzi rubriky, prompt/parametry, automatické skóre/jistotu, lidské skóre, důvod eskalace a konečné rozhodnutí; před pilotem připravte zásady ochrany dat, rubriky, logování, role a školení \cite{3-3, 4}.%
+
+%
+\bibliographystyle{unsrt}%
+\bibliography{refs}%
+\end{document}

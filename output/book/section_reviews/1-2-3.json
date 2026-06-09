@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some checklist items and recommendations are presented as factual guidance but lack explicit grounding to the provided KB excerpts. In particular, the checklist steps (1) 'Definujte pedagogický cíl' and (2) 'Zvažte, zda potřebujete rychlé generování obsahu (LLM) nebo plnou vysledovatelnost (tradiční řešení)' are not labelled as 'general background knowledge' nor footnoted, although they make non‑trivial prescriptive claims.",
+      "required_fix": "Either label these checklist items as 'general background knowledge' (as done elsewhere) or add explicit citations to relevant KB excerpts or earlier sections (e.g. the short comparison of traditional AI vs. LLM in the introductory sections such as node 1-2-2 or other KB pages)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The opening bullet 'Interpretovatelnost a kontrola' is correctly marked as general background knowledge, but the section would be stronger and more consistent if it referenced the earlier technical comparison of traditional AI vs. LLM (previous section content / node 1-2-2) to link to the definitions and terms already present in the document.",
+      "required_fix": "Add an explicit cross‑reference or footnote to the earlier section (e.g. 1-2-2) so readers can see the canonical definitions (tokens, pretraining/fine‑tuning, halucinace, bias) used elsewhere in the guide."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body begins with several occurrences of \\paragraph{} with empty braces (i.e. no heading text). While valid TeX, empty \\paragraph{} commands are unusual and reduce semantic clarity of the source structure.",
+      "required_fix": "Replace empty \\paragraph{} commands with either a meaningful heading (e.g. \\paragraph{Shrnutí} or \\subsection{...}) or remove them if they were intended only as spacing."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The checklist entry 'Při použití LLM vždy výstupy ověřte...' has an appropriate footnote, but would benefit from a short, concrete sub‑checklist (what exactly to verify: factual accuracy, stepwise correctness, pedagogical suitability) to make it actionable for teachers.",
+      "required_fix": "Add a short sublist (2–4 bullet checks) under this item that lists concrete verification steps; these can reference the KB excerpt about halucinace and verification (kb_ai_101_tipu_pdf_page_14_1)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section references Minecraft Education and licensing (free Hour of Code worlds vs. content in Microsoft 365 A3/A5) but does not clarify which elements are free and which require the paid school licence. The open threads note this detail is not fully specified.",
+      "required_fix": "Add a brief clarifying sentence (grounded to kb_ai_101_tipu_pdf_page_15_2) explicitly stating that Hour of Code worlds are free for students while additional worlds/content are part of the Microsoft 365 A3/A5 school licence, or retrieve specific KB pages that enumerate which worlds are free vs paid."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Mark checklist steps 1 and 2 explicitly as 'general background knowledge' or add a footnote referencing the earlier comparison material (node 1-2-2) to ground the recommendation about choosing LLM vs traditional tools."
+    },
+    {
+      "target": "Praktické implikace – checklist",
+      "edit_instruction": "Expand item 3 ('Při použití LLM vždy výstupy ověřte') into a short actionable sublist, e.g.: (a) ověřte faktickou správnost (zdroje, data), (b) ověřte správnost postupu řešení (krok za krokem), (c) ověřte pedagogickou vhodnost (úroveň jazyka, náročnost), with a footnote to kb_ai_101_tipu_pdf_page_14_1."
+    },
+    {
+      "target": "LaTeX structure",
+      "edit_instruction": "Replace the initial empty '\\paragraph{}' commands with meaningful headings or remove them. Ensure section/subsection commands are used consistently so the PDF/print layout has clear headings."
+    },
+    {
+      "target": "Minecraft licensing note",
+      "edit_instruction": "Insert one sentence after the Minecraft Education bullet clarifying licensing: reference kb_ai_101_tipu_pdf_page_15_2 and state that some Hour of Code worlds are freely available to pupils while other Minecraft Education content is part of the Microsoft 365 A3/A5 school licence; if more granular licensing details are needed, add a retrieval query to fetch them."
+    },
+    {
+      "target": "Cross‑reference to earlier definitions",
+      "edit_instruction": "Add a short cross‑reference sentence linking the interpretability/control bullet and LLM recommendation to the earlier explanatory section (Velké jazykové modely — stručné technické vysvětlení, node 1-2-2) so readers can revisit definitions (LLM, halucinace, bias, kontextové okno)."
+    }
+  ],
+  "retrieval_queries": [
+    "Find KB excerpts that explicitly compare interpretability/auditability of traditional rule‑based / small models vs LLMs (phrases like 'interpretovatelnost' or 'auditovatelné').",
+    "Find KB or documentation that lists which Minecraft Education 'Hour of Code' worlds are free and which specific worlds/content require Microsoft 365 A3/A5 licence (more granular licensing details).",
+    "Find an excerpt in the KB that provides a short, actionable verification checklist for AI/LLM outputs in education (concrete verification steps), beyond the general warning about halucinace (kb_ai_101_tipu_pdf_page_14_1)."
+  ]
+}

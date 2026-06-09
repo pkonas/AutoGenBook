@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Two brief product summaries (Gamma, Beautiful.ai) make comparative claims but are marked only as 'general background knowledge' and lack KB citations. This is allowed per the grounding rules, but the statements could be either cited or further qualified to avoid readers assuming they come from the provided KB.",
+      "required_fix": "Either add supporting citations from the KB for Gamma and Beautiful.ai features, or keep the descriptions explicitly labeled and terser as 'general background knowledge'. If factual specifics are added, provide retrieved excerpts."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The note that some Designer features apply only to private Microsoft accounts appears in a footnote attached to the practical example rather than next to the paragraph that lists the features. Readers might miss this limitation when skimming the features.",
+      "required_fix": "Move or duplicate the account‑limitation note so it immediately follows the feature list sentence describing Designer's AI features (or add an inline parenthetical), ensuring the constraint is visible where features are introduced."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Multiple footnotes labeled 'General background knowledge' are used. While not incorrect LaTeX, repeating identical simple footnotes can be noisy in the rendered document and may be better handled by a single consolidated note or by in‑text parenthetical tags.",
+      "required_fix": "Consider consolidating repeated 'General background knowledge' footnotes into a single footnote at the start or end of the compact comparison, or convert them to an in‑text parenthetical remark for concision."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist and 'Praktický tip pro učitele' are practical but relatively generic. The section could be more actionable for teachers by adding one concrete, short example workflow (e.g., how to go from prompt→image to inserting into a slide and exporting to LMS) — but such an example must be supported by KB or labeled as general advice.",
+      "required_fix": "Either add a short concrete, KB‑supported step (with citation) or explicitly label a concise example workflow as 'general background knowledge' before including it."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first paragraph (Designer features)",
+      "edit_instruction": "Add or move the account limitation note immediately after the sentence listing Designer's AI features. For example, append '(Pozn.: některé funkce platí pouze pro soukromé Microsoft účty.)' with the existing kb_ai_101_tipu_pdf_page_51_1 citation."
+    },
+    {
+      "target": "Gamma and Beautiful.ai bullets",
+      "edit_instruction": "Either (a) add KB citations for statements about Gamma and Beautiful.ai (if available), or (b) shorten the bullets and keep the explicit '(general background knowledge)' tag, e.g. 'Gamma: vhodné pro rychlé vizuální prototypy. (general background knowledge)'."
+    },
+    {
+      "target": "footnotes for general background notes",
+      "edit_instruction": "Consolidate repeated 'General background knowledge' footnotes: replace repetitive footnotes by a single footnote at the start of the 'Kompaktní srovnání' list stating that unreferenced bullets are general background knowledge."
+    },
+    {
+      "target": "Checklist / Praktický tip",
+      "edit_instruction": "If possible, add one very short concrete example of a workflow (prompt→image in Designer → resize/export → upload to LMS). If you cannot support specific tool steps from the KB, label the example explicitly as 'general background knowledge'."
+    }
+  ],
+  "retrieval_queries": [
+    "Gamma presentation features capabilities interactive export PPTX PDF 'Gamma' 'presentations' features product page",
+    "Beautiful.ai features templates automated alignment corporate branding 'Beautiful.ai' features product page",
+    "Microsoft Designer export formats PPTX PDF Designer 'export' 'PowerPoint' 'PDF' 'Designer' 'Microsoft' 'prompt image' 'aspect ratio' 'private account'",
+    "Microsoft Designer licensing 'private account' limitation 'Designer' 'souprivate' 'platí pouze pro soukromé účty'"
+  ]
+}

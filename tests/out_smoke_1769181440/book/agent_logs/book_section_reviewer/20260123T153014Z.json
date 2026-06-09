@@ -1,0 +1,87 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T153014Z",
+  "input": {
+    "section_title": "Chatboti pro studentské konzultace a tutorování",
+    "node_key": "2-5",
+    "section_latex": "\\noindent\\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\\medskip\n\nKrátký přehled: chatboty lze v kurzu nasadit pro časté dotazy (FAQ), poskytování krok‑za‑krokových návodů k pracovním úkolům, nenáročné tutorování (vysvětlení konceptů, příklady k procvičení) a směrování složitějších dotazů na učitele. Doporučený přístup je začít omezeným pilotem s jasně definovaným rozsahem a rolí chatbota (např. „FAQ + navigace k materiálům“ nebo „pomoc při ladění domácích úloh“). (general background knowledge)\\medskip\n\nRole chatbota — příklady (general background knowledge):\n\\begin{itemize}\n  \\item FAQ a logistická podpora: odpovídá na organizační otázky (termíny, formáty odevzdání).\n  \\item Pedagogický tutor: poskytuje vysvětlení, krátké příklady a odkazy na zdroje; vždy označí nejasnosti a doporučí konzultaci s učitelem.\n  \\item Krokový asistent: vede studenta přes postup řešení úlohy krok po kroku, přičemž nevyužívá řešení místo studenta.\n  \\item Escalation agent: detekuje složité nebo rizikové dotazy a předává je lidskému garantovi.\n\\end{itemize}\n\nMěření užitečnosti a metriky pilotu (general background knowledge):\n\\begin{itemize}\n  \\item Kvantitativní: počet zodpovězených dotazů, průměrný čas do odpovědi, procento dotazů eskalovaných na člověka.\n  \\item Kvalitativní: vyhodnocení kvality odpovědí na náhodném vzorku (validované lidmi), uživatelská spokojenost (krátký průzkum, Likertova škála).\n  \\item Pedagogický dopad: změna počtu konzultací s učitelem, výsledky v kontrolních úkolech (pouze jako indikátor, vyžaduje kontrolní skupinu).\n\\end{itemize}\n\nBezpečnostní a etické aspekty (general background knowledge):\n\\begin{itemize}\n  \\item Transparentnost: studenti musí vědět, kdy komunikují s chatbotem a co od něj mohou očekávat.\n  \\item Ochrana osobních údajů: minimalizovat ukládání citlivých dat, zajistit souhlas a dodržování lokálních pravidel zpracování dat.\n  \\item Zodpovědnost: jasné pravidlo, že chatbot nevytváří oficiální hodnocení a že důležitá rozhodnutí činí člověk.\n  \\item Logging a audit: ukládat anonymizované záznamy pro zlepšení a audit, s procesem pro mazání na žádost.\n\\end{itemize}\n\nRychlý postup pro pilot (5 kroků) (general background knowledge):\n\\begin{enumerate}\n  \\item Definujte jasný cíl pilotu a rozsah dotazů (např. „FAQ + orientační tutorování“).\n  \\item Sestavte zdroj znalostí: sběr FAQ, skriptů, ukázkových řešení a odkazů na kurikulum.\n  \\item Zvolte technologii: jednoduché pravidlové FAQ nebo LLM‑based bot s dohledáváním (vyzkoušejte v izolovaném prostředí).\n  \\item Nastavte metriky a sběr zpětné vazby; pilote proběhne na malé skupině studentů po 2–4 týdny.\n  \\item Vyhodnocení: ruční audit vzorku odpovědí, analýza metrik a rozhodnutí o rozšíření či úpravách.\n\\end{enumerate}\n\nKrátké šablony pro komunikaci (general background knowledge):\n\\begin{itemize}\n  \\item Systémová instrukce (pro naucení chování): „Odpovídej stručně, vždy uváděj zdroj/odkaz, pokud nevíš, doporuč kontaktovat vyučujícího.“\n  \\item Upozornění studentům: „Tento chatbot poskytuje orientační informace; za oficiální rozhodnutí odpovídá vyučující.“\n\\end{itemize}\n\nZávěrem: začínejte malé, s jasným dohledem člověka; sbírejte data pro rozhodování o dalším rozšíření a vždy řešte otázky soukromí a zodpovědnosti před plošným nasazením. (general background knowledge)",
+    "context_memory_excerpt": "TERMS:\n- Generování výukových materiálů a testových otázek: Sekce popisuje použití AI pro tvorbu učebních textů, shrnutí/cheat sheetů, ilustrovaných příkladů a testových položek; upozorňuje, že doporučení jsou obecná (\"general background knowledge\") a musí být ověřena lokálním pilotem. (first: 2-4)\n- Možné výstupy (generování materiálů): Výstupy zahrnují učební texty, shrnutí/cheat sheety, ilustrované příklady a testové položky (z textu sekce 'Generování výukových materiálů a testových otázek'). (first: 2-4)\n- Očekávané přínosy (generování materiálů): Očekávané přínosy zmíněné v sekci: rychlejší tvorba materiálů, snadná adaptace úrovní a generování variant testů. (first: 2-4)\n- Hlavní rizika a kontrolní body (generování materiálů): Uvedená rizika a kontrolní body: faktické chyby, opomenutí kontextu nebo bias, a nesoulad s učebními cíli; doporučuje ověřit fakta, pedagogické sladění, jazyk a autorská práva. (first: 2-4)\n- Pilotní postup pro generování materiálů: Doporučený malý pilot: používat reference, generovat 2–3 varianty, revidovat a otestovat s vybranými studenty; součástí jsou ukázkové prompty (200slovné shrnutí, krok‑za‑krokem příklad, MCQ). (first: 2-4)\n- Ukázkové prompty (sekce): Sekce uvádí příklady promptů k otestování: 200slovné shrnutí, krok‑za‑krokem příklad a multiple‑choice question (MCQ). (first: 2-4)\n\nCITATIONS:\n- 1 (node: 1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n- 2-4 (node: 2-4)\n\nOPEN THREADS:\n- Potřeba standardizovaného protokolu pilotní validace a metrik (benchmarks) pro porovnání mezi pracovišti při zavádění automatizovaného hodnocení kódu. (node: 2-3)\n- Potřeba konkrétních šablon a technických integrací pro nasazení generování materiálů (sekce uvádí ukázkové prompty, ale chybějí přenosné šablony a integrace do LMS/CI). (node: 2-4)\n- Potřeba standardizovaného protokolu pilotu a metrik pro ověření kvality generovaných materiálů mezi pracovišti (sekce doporučuje malý pilot s 2–3 variantami, ale neuvádí metriky ani přesný protokol). (node: 2-4)\n...",
+    "previous_sections": "The title of part 1 sections ago is Generování výukových materiálů a testových otázek, and the content is as follows.\n\\noindent\\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\\medskip\n\nKrátký přehled: možné výstupy — učební texty, shrnutí/cheat sheety, ilustrované příklady a testové položky; očekávané přínosy — rychlejší tvorba, snadná adaptace úrovní, generování variant testů.\n\nHlavní rizika a kontrolní body — faktické chyby, opomenutí kontextu/bias, nesoulad s učebními cíli; checklist: ověřit fakta, pedagogické sladění, jazyk a autorská práva.\n\nPilot a prompty: proveď malý pilot s referencemi, generuj 2–3 varianty, reviduj a otestuj se studenty; ukázkové prompty: 200slovné shrnutí, krok‑za‑krokem příklad, MCQ.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Section is largely labeled as \"general background knowledge\", which satisfies grounding constraints, but it does not explicitly point readers to related materials and templates available elsewhere in the guide (e.g. the sample prompts and pilot templates in the 'Generování výukových materiálů a testových otázek' section).",
+        "required_fix": "Add a short cross‑reference (one sentence) to the earlier section that contains sample prompts and pilot templates (section 2.4). Indicate which specific templates are most relevant (system instruction templates, example prompts, pilot checklist)."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "Minor typographical/orthographic issues in the Czech text that should be fixed for polish and consistency: e.g. \"pilote\" should be \"pilotu/pilot\", \"naucení\" should be \"naučení\", and English-like terms could be localized (\"Logging a audit\" → \"logování a audit\" or similar).",
+        "required_fix": "Correct the typos and adjust the few anglicisms to Czech equivalents while preserving LaTeX structure. Recompile to check no missing braces or environment errors."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "Pilot metrics and escalation rules are listed at a high level but lack concrete, reusable examples (e.g. example survey items, sample rubric for human validation, or concrete escalation triggers based on model confidence or content patterns). This makes it harder for local pilots to operationalize the recommendations.",
+        "required_fix": "Add one or two concrete, lightweight artefacts: (a) a short example user satisfaction question (Likert), (b) an example human‑validation rubric (3 criteria) for auditing responses, and (c) suggested escalation triggers (e.g. presence of policy/legal/medical language, model confidence below a placeholder threshold, repeated student distress keywords). Mark any numerical thresholds as placeholders to be tuned in the local pilot."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "The section repeats the same upfront note used in other sections about 'general background knowledge' but the phrasing and placement differ slightly from the earlier 'Generování výukových materiálů' section.",
+        "required_fix": "Unify the warning phrasing with the earlier section (use the identical sentence or a short template) and place it consistently (e.g. as the first line) so readers immediately recognize the status of the recommendations across sections."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "The 'Krátké šablony pro komunikaci' entry contains only one system instruction and one student notice; these are useful but sparse and could be misinterpreted as exhaustive.",
+        "required_fix": "Expand this subsection with 2–3 short, clearly labelled template snippets (system instruction variations for FAQ mode, step‑by‑step assistant mode, and escalation agent) and label them as templates to be adapted locally. Keep each template 1–2 lines and mark them as 'general background knowledge'."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "cross-reference sentence",
+        "edit_instruction": "Add a single sentence after the short overview: 'Viz sekce 2.4 \"Generování výukových materiálů a testových otázek\" pro ukázkové prompty a šablony (system prompts, krok‑za‑krokem příklady a MCQ), které lze přizpůsobit pro pilot chatbota.'"
+      },
+      {
+        "target": "typo fixes",
+        "edit_instruction": "Replace 'pilote' → 'pilot', 'naucení' → 'naučení', and 'Logging a audit' → 'logování a audit' (or equivalent Czech phrasing). Run a quick spellcheck for any additional minor language issues."
+      },
+      {
+        "target": "pilot metrics",
+        "edit_instruction": "Under 'Měření užitečnosti a metriky pilotu' add three short concrete artefacts to copy/adapt: (a) example Likert satisfaction question: 'Jak jste byli spokojeni s užitečností odpovědí chatbota? (1–5)', (b) sample audit rubric with three criteria (faktická přesnost, pedagogická relevance, srozumitelnost) and simple pass/needs review/fail flags, (c) suggested escalation triggers: 'výskyt právních/medicínských dotazů, model confidence < X (placeholder), nebo opakované nesouhlasné/rozhořčené zprávy od studenta'. Mark thresholds as placeholders to be set in the pilot."
+      },
+      {
+        "target": "communication templates",
+        "edit_instruction": "Expand 'Krátké šablony pro komunikaci' with 2–3 one‑line system instruction templates labelled by role (FAQ, tutor, step‑by‑step assistant) and add one short escalation notice template to present to students when a query is forwarded to a human."
+      },
+      {
+        "target": "consistency of warning",
+        "edit_instruction": "Replace the opening note with the exact same wording used in section 2.4 (or explicitly reference it) so the reader recognizes the guidance is consistently 'general background knowledge' across sections."
+      }
+    ],
+    "retrieval_queries": [
+      "best practices pilot evaluation chatbot higher education metrics Likert satisfaction sample rubric human audit chatbot responses",
+      "example escalation criteria chatbot education model confidence thresholds",
+      "sample system prompts for educational chatbots FAQ tutor step-by-step assistant"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 4134,
+      "completion_tokens": 2657,
+      "total_tokens": 6791
+    },
+    "cost_usd": 0.0063475,
+    "total_cost_usd": 0.12121975,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

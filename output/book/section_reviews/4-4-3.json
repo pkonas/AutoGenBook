@@ -1,0 +1,66 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several specific operational recommendations (e.g. \"1–2 minuty\" pro kontrolní bod, \"1–3 kontrolní otázky\", kritérium \"2/3 kontrolních otázek\") are given without an explicit KB citation. The section header already marks the content as \"general background knowledge\", but specific numeric thresholds should either be (a) supported by a KB excerpt or (b) explicitly phrased as a teacher's heuristic/recommendation.",
+      "required_fix": "Either add precise citations from the KB supporting these numeric recommendations, or rephrase these items to make clear they are suggested heuristics (e.g. \"doporučeně 1–2 minuty (heuristika)\") and keep them short. Add a cross‑reference to the existing KB material on adaptive explanations / scaffolding (section 4.4.*) where appropriate."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The footnote for requiring upload of solution steps cites kb_ai_101_tipu_pdf_page_8_1 (Pokrok v matematice) which supports the capability to require uploading solution steps. Other tool references (if added) should also cite the matching KB excerpts.",
+      "required_fix": "Keep the existing footnote for the math upload. If you mention other specific tools (e.g. Minecraft Education) in this section, add the corresponding KB citations (kb_ai_101_tipu_pdf_page_15_2 etc.)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Small typographical/LaTeX issues: a misspelling in the checklist item 5 ('vrstvení' appears with a duplicated letter: 'vrstvvení'/'vrstvení' inconsistent). Also check consistent use of hyphens/en‑dashes (e.g. fade‑out uses nonstandard hyphen character) and encoding of Czech diacritics.",
+      "required_fix": "Fix the typo (use 'vrstvení') and standardize hyphenation (use -- or proper UTF‑8 en‑dash consistently). Ensure the document compiles with UTF‑8 encoding and that \\footnote inside itemize is acceptable for the target compiler."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Iterativní prodlužování zadání' mathematics example is pedagogically useful but tersely stated; readers may want a clearer sequence of concrete steps to apply this pattern.",
+      "required_fix": "Add a one‑sentence operational example (labelled as an illustrative heuristic) that shows step 1 → step 2 → step 3 in a classroom timeline, or point to an appendix/example template (e.g. Appendix with sample 3‑step exercise). If no KB excerpt exists for the concrete example, mark it explicitly as instructor's illustration."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Praktický checklist' suggests testing in a small pilot group and adjusting layering length, but gives no concrete metric or simple rubric for deciding when to shorten/lengthen layers.",
+      "required_fix": "Add a suggested minimal rubric (e.g. success = >= X of Y check‑ins passed) and mark it as a recommendation, or cross‑reference the milestone/rubric templates in the KB (sections on milestone‑based/process assessment). If using a numeric threshold, either cite KB or label as heuristic."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Keep the 'general background knowledge' label. Add an explicit cross‑reference to the adaptive explanation/scaffolding material in the handbook (section 4.4.1 / 'Principy adaptivního vysvětlení') to show alignment with earlier content."
+    },
+    {
+      "target": "Rozklad úloh na kroky (chunking) item",
+      "edit_instruction": "Either cite a KB excerpt supporting the 1–2 minute check‑point recommendation or rephrase to 'krátký kontrolní bod (1–2 minuty) — doporučení/heuristika' to avoid presenting it as a hard rule."
+    },
+    {
+      "target": "Vrstvené nápovědy (layered hints) a fade‑out item",
+      "edit_instruction": "Add a short footnote or cross‑reference to the handbook section describing three layers (summary → expanded → model example). If no direct KB citation is available, explicitly mark 'Příklad vrstvy: shrnutí → rozvedení → modelový příklad (heuristika)'."
+    },
+    {
+      "target": "Formativní check‑ins a kritéria přechodu mezi úrovněmi",
+      "edit_instruction": "Clarify that numeric criteria (e.g. '2/3 kontrolních otázek') are sample thresholds. Prefer phrasing like: 'Například: učitel může zvolit, že student postupuje dál po správném zodpovězení 2 ze 3 kontrolních otázek (doporučení).' Optionally point to checklist/rubric templates in Section 5.x or Appendix."
+    },
+    {
+      "target": "Praktický checklist — položka 5",
+      "edit_instruction": "Fix typo 'upravit délku vrstvvení' → 'upravit délku vrstvení'. Also add: 'V případě potřeby přidejte krátký pilotní protokol: počet studentů, metrika úspěchu, doba trvání pilotu.'"
+    },
+    {
+      "target": "LaTeX hygiene",
+      "edit_instruction": "Ensure document uses UTF‑8 and consistent dash characters (‑ vs -). Confirm \\footnote inside itemize compiles correctly in the target LaTeX engine or move footnote text to endnote / parent paragraph if necessary."
+    }
+  ],
+  "retrieval_queries": [
+    "Najdi v KB konkrétní doporučení týkající se délky a počtu formativních check‑inů (např. doporučení 1–2 minuty / 1–3 otázky) pro zařazení do textu.",
+    "Najdi v KB podporu nebo odkaz na model 'tří vrstev nápověd' (shrnutí → rozvedení → modelový příklad) a případné doporučení pro fade‑out pravidla.",
+    "Najdi v KB příklady rubrik nebo jednoduchých metrik pro rozhodování o přechodu mezi úrovněmi (např. milestone‑based rubriky, sekce 5.5/9.2)."
+  ]
+}

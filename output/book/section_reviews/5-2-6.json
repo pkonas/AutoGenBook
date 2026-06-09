@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The proposed rubric weights (40% / 40% / 20%) are presented as a recommendation but no retrieved excerpt in the KB supports these specific weight values.",
+      "required_fix": "Either add a supporting citation from the KB that recommends these weights, or explicitly label the weights as an illustrative example (e.g. 'illustrative suggestion') so they are not presented as a factual claim backed by the KB."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The note about considering GDPR and institutional rules when using Microsoft 365 Copilot cites kb_ai_101_tipu_pdf_04e4a115_page_3_1 (which documents Copilot availability) but does not cite a KB excerpt that discusses GDPR or data‑protection implications of Copilot or OneNote processing.",
+      "required_fix": "Either cite a KB excerpt that explicitly discusses GDPR / data protection in connection with Copilot or Office tools, or rephrase the sentence to mark the GDPR caution as 'general background knowledge' and link to the guide's GDPR section (e.g. section 2.2) if an appropriate KB excerpt is available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The workflow and escalation steps refer to 'nízké jistoty' and 'neúplné postupy' as criteria for escalation but do not cite the KB excerpt that defines 'Pravidla eskalace' and typical criteria.",
+      "required_fix": "Add a citation (from the KB) to the definition/examples of 'Pravidla eskalace' (the context memory includes such a definition) or briefly quote the checklist criteria (e.g. low model confidence, contradictory or incomplete steps) with a supporting citation."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section uses several \\cite{...} keys. If the LaTeX build expects a bibliography, ensure the cited keys are present in the .bib file. Also verify verbatim block placement if the section will be nested inside other environments (verbatim can break certain wrappers).",
+      "required_fix": "Ensure the bibliography contains the cited keys and that the verbatim environment is allowed in the target LaTeX context (or replace with a minted/quote block if needed)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Some recommendations are high‑level (e.g. 'automatizovaná předkontrola') without brief practical thresholds or examples: e.g. what constitutes 'nízká jistota' or guidance on how to set spot‑check sampling (5–10% is given but could be explained).",
+      "required_fix": "Either add a short parenthetical note clarifying that 5–10% is an illustrative example (and cite the 'Spot‑check' definition), and/or add brief examples of escalation triggers (draw from the KB's 'Pravidla eskalace' excerpt)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Příklad položek v rubrice pro metakognici (doporučené váhy)",
+      "edit_instruction": "Change the heading or add text to indicate these weights are illustrative (e.g. 'Ilustrativní návrh váh:') unless you can add a KB citation that recommends these exact weights."
+    },
+    {
+      "target": "Poznámka k nástrojům: Microsoft 365 Copilot ... GDPR",
+      "edit_instruction": "Either add a citation to a KB excerpt that discusses GDPR considerations for Copilot/Office integration (for institutional guidance), or rephrase to 'Consider GDPR and institutional rules (general background knowledge / see GDPR section of the guide)'."
+    },
+    {
+      "target": "Workflow krok 2 and escalation rules",
+      "edit_instruction": "Add an inline citation to the KB excerpt that defines 'Pravidla eskalace' or add a short parenthetical listing of typical escalation criteria (e.g. 'nízká jistota modelu, rozpor v postupu, neúplný postup') with the supporting citation."
+    },
+    {
+      "target": "Šablona krátké instrukce pro studenty (verbatim block)",
+      "edit_instruction": "Confirm verbatim environment is acceptable in the final LaTeX build; if not, replace with \\begin{quote}...\\end{quote} or a simple formatted paragraph, preserving the copy‑paste friendly wording."
+    },
+    {
+      "target": "General labels",
+      "edit_instruction": "Be consistent in marking which statements are 'general background knowledge' versus KB‑supported claims. Add explicit 'general background knowledge' labels where recommendations are authorial (rubric weights, exact spot‑check percentage rationale) if no KB citation is available."
+    }
+  ],
+  "retrieval_queries": [
+    "Provide KB excerpt(s) that recommend or discuss suggested weighting for metacognitive assessment items (rubric weights) or examples of rubrics for metacognition.",
+    "Provide KB excerpt(s) that discuss GDPR / data protection implications when using Microsoft 365 Copilot, OneNote or related Office tools in educational contexts.",
+    "Provide KB excerpt(s) that define 'Pravidla eskalace' or list concrete escalation criteria (e.g. low model confidence, contradictory/incomplete procedure) to cite in the workflow."
+  ]
+}

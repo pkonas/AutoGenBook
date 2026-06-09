@@ -1,0 +1,46 @@
+Tato část shrnuje praktické zásady pro lokální (on‑prem) a edge nasazení menších modelů v univerzitním prostředí. Obsahuje doporučené kroky před nasazením, provozní požadavky, bezpečnostní body a provozní rutiny. Pokud není uvedeno jinak, níže uvedená doporučení jsou general background knowledge.
+
+Krátké vymezení a kdy uvažovat o lokálním/edge provozu (general background knowledge).
+Lokální nebo edge nasazení zvyšuje kontrolu nad citlivými daty a může snížit závislost na externích cloudových poskytovatelích; na druhou stranu obvykle vyžaduje vyšší provozní kapacity, správu HW a pečlivé licenční posouzení (modely, knihovny, runtime) (general background knowledge).
+
+Předběžné kroky před PoC
+\begin{itemize}
+  \item Definujte pedagogický cíl nasazení (např. lokální tutor pro laboratoře, inference nad interními materiály) a rozsah dat, která budou modelu zpřístupněna (general background knowledge).
+  \item Zapojte IT, právní/GDPR a garanty předmětu ještě v návrhové fázi — rozhodnutí o on‑prem vs. hybrid musí zahrnovat posouzení DPA/DPIA, požadavky na data residency a auditní stopu (general background knowledge).
+  \item Zvolte rozsah funkcionality: offline inference na klientském zařízení (edge), inference na lokálním serveru, nebo hybridní režim (lokální index + cloud inference) (general background knowledge).
+\end{itemize}
+
+Technické požadavky a doporučení (general background knowledge)
+\begin{itemize}
+  \item Hardware: odhady nároků závisí na velikosti modelu a režimu (CPU inference vs. GPU/TPU). Pro edge/embedded scénáře volte kvantizované a optimalizované verze modelů; pro server‑side inference plánujte dostatek paměti, diskového úložiště pro indexy a způsob řízení GPU času.
+  \item Modely a optimalizace: u menších open‑source modelů (příklady modelových rodin se často používají v praxi) volte varianty optimalizované pro inference, případně použijte kvantizaci a distilaci ke snížení nároků (general background knowledge).
+  \item Správa závislostí: používejte kontejnerizaci (Docker/OCI), verziování modelů a reproducibilní CI/CD pipeline pro nasazení modelu a runtime (general background knowledge).
+  \item Licensing‑considerations: ověřte licenční podmínky modelu a knihoven (komerční použití, distribuce upravených modelů, požadavky na attribution). Licence mohou ovlivnit možnost nasazení na univerzitním HW nebo sdílení modelu mezi útvary (general background knowledge).
+\end{itemize}
+
+Bezpečnost, soukromí a provozní opatření (general background knowledge)
+\begin{itemize}
+  \item Omezení ingestu: indexujte a zpřístupňujte lokálně pouze nezbytné dokumenty. Pseudonymizujte nebo anonymizujte osobní údaje před použitím v tréninku nebo indexaci.
+  \item Přístup a audit: integrujte SSO/SSO‑flow a RBAC pro řízení přístupu k inference endpointům a vektorovým indexům; logujte requesty a uchovávejte auditní trail pro forenzní účely.
+  \item Red‑teaming a testování leakage: simulujte dotazy, které by mohly způsobit únik interních informací, a ověřte, že model nevrací citlivé části dokumentů mimo kontext.
+  \item Human‑in‑the‑loop: pro dotazy obsahující citlivá data nebo rozhodnutí s vysokou mírou dopadu zajistěte schvalovací procesy nebo eskalaci na lidského pracovníka.
+\end{itemize}
+
+Provozní rutiny: zálohy, aktualizace a monitoring (general background knowledge)
+\begin{enumerate}
+  \item Monitoring: sledujte latenci, chybovost, využití HW a anomálie v inference (neobvyklé odpovědi, náhlý nárůst chyb).
+  \item Aktualizace modelu a indexů: verziujte změny (modely i prompt šablony), testujte nové verze v izolovaném prostředí a plánujte rollback strategie.
+  \item Zálohy a retence: pravidelně zálohujte modely, indexy a metadata (včetně provenance). Definujte retenční politiku pro staré indexy a logy.
+  \item Incident response: připravte postup pro bezpečnostní incidenty včetně kontaktů IT, právního oddělení a odpovědné osoby na katedře.
+\end{enumerate}
+
+Praktický checklist pro pilotní nasazení (general background knowledge)
+\begin{itemize}
+  \item Jasně definovaný pedagogický případ použití a seznam typů dokumentů, které budou použity.
+  \item Posouzení licencí modelu a souvisejících knihoven.
+  \item Schválení DPIA/DPA v případě zpracování osobních údajů.
+  \item Testovací prostředí s monitoringem a možností rollbacku.
+  \item Dokumentace provozních postupů, školení pro pedagogy a kontaktní body pro technickou podporu.
+\end{itemize}
+
+Závěrem: lokální a edge nasazení přináší výhodu zvýšené kontroly nad daty a nižší závislosti na cloudových operátorech, ale s sebou nese vyšší provozní nároky, potřebu řízení licencí a robustní provozní postupy. Doporučujeme plánovat PoC s úzkou spoluprací mezi garantem předmětu, IT oddělením a právním/GDPR týmem a začít s omezeným pilotem před rozšířením do produkce (general background knowledge).

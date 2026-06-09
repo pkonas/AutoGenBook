@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some operational / policy recommendations in the checklist and privacy notes are marked as \"general background knowledge\" and are not accompanied by an internal-document citation. The handbook contains a dedicated GDPR and DPIA section (Chapter 2.2) that would be a better, citable source for these items.",
+      "required_fix": "Add an explicit citation to the handbook's GDPR/DPIA guidance (chapter 2.2) for the bullets about consent, retention and internal rules; or else keep them as unlabeled background text but move the parenthetical label out of the main text (see clarity issue below). If you cannot locate the precise excerpt, mark these items clearly as general background in a single short note and request retrieval of chapter 2.2 to support them."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The inline markers \"(general background knowledge)\" appear several times inside the LaTeX body. These parenthetical notes break the reading flow and are not a conventional way to annotate unsupported statements in final text.",
+      "required_fix": "Replace inline parenthetical tags with one of: (a) footnotes clarifying which bullets are general background, or (b) a single short prefatory sentence stating that some operational recommendations are general background knowledge and not cited to the KB, and remove the repeated parentheticals."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses localized text and citations correctly, but the section contains several parenthetical annotations and explanatory notes that would be better moved to footnotes or removed for the final compiled PDF. Also verify that all cited keys exist in the .bib file used for compilation.",
+      "required_fix": "Convert inline annotations to \\\\footnote{} entries or remove them; ensure the .bib contains the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_11_1 and kb_ai_101_tipu_pdf_04e4a115_page_7_1) and that the document compiles without citation warnings."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Practical activities are concise and relevant, but could benefit from one brief note on differentiating access for students who cannot or will not use the technology (e.g., offline/printed alternatives and accessibility of devices). While some bullets mention alternatives, a short statement linking to institutional support (IT/assistive services) would make the guidance more actionable.",
+      "required_fix": "Add one sentence recommending coordination with institutional disability/IT support when planning activities (citing internal contacts in appendix 9.7 where available), or provide a reference to where instructors can find those contacts."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first checklist privacy bullet",
+      "edit_instruction": "Replace the parenthetical '(general background knowledge)' with an explicit citation to the handbook's GDPR/DPIA guidance (Chapter 2.2). If a precise citation key is not available, change the sentence to: 'Před první hodinou ohlaste studentům účel použití asistivních nástrojů a získejte souhlas pro nahrávání či ukládání přepisů; viz oddíl o ochraně osobních údajů (GDPR/DPIA) v příručce.'"
+    },
+    {
+      "target": "inline '(general background knowledge)' tags",
+      "edit_instruction": "Remove repeated inline tags and instead add a single short paragraph before the checklist stating: 'Některá provozní doporučení níže jsou obecnými zásadami praxe (oznamování účelu, souhlas, záložní plány). Pro konkrétní GDPR‑pravidla viz kapitolu 2.2.' Alternatively, convert each tag to a LaTeX footnote."
+    },
+    {
+      "target": "privacy and ethics bullets",
+      "edit_instruction": "Add a pointer to institutional contacts for support (appendix or 9.7 in the outline). For example: 'V případě pochybností kontaktujte interní GDPR / IT podpůrné služby (viz kontakty v Příloze 9.7).' Ensure this is backed by an internal citation or move to general guidance if no excerpt is available."
+    },
+    {
+      "target": "LaTeX body",
+      "edit_instruction": "Run a compilation check and (a) convert long parentheticals into footnotes or remove them, (b) ensure bibliography includes the cited kb_ai_101_tipu_pdf_04e4a115_page_11_1 and kb_ai_101_tipu_pdf_04e4a115_page_7_1 entries, and (c) consider adding a short label or cross‑reference to the handbook chapter 2.2 in the privacy bullets."
+    }
+  ],
+  "retrieval_queries": [
+    "AI - 101 tipu.pdf chapter 2.2 GDPR DPIA guidance page(s) for use of recordings and consent (cite key or excerpt)",
+    "AI - 101 tipu.pdf page 15 or references to Microsoft school licensing (M365 A3/A5) and availability of educational features like Immersive Reader or Minecraft Education",
+    "AI - 101 tipu.pdf appendix or contacts section listing internal VUT support (Příloha 9.7) for disability/IT/GDPR assistance"
+  ]
+}

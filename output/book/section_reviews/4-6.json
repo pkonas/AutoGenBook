@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several non‑trivial claims and recommendations in the section are not explicitly marked as unsupported ('general background knowledge') nor backed by a citation to the provided KB excerpts. According to the grounding rules, each unsupported factual claim must either be removed or explicitly labeled as 'general background knowledge'. Examples: the opening paragraph's statement about what the section 'shrnuje' and what guarant/assistant can 'rychle nasadit'; workflow steps 1, 2 and 6 (definice cíle podpory, příprava upravených verzí zadání, poskytnutí personalizované zpětné vazby) are presented as procedural recommendations but not labeled or cited; several checklist and evaluation bullets (e.g. measuring modality usage, periodic updates) likewise lack labels/citations.",
+      "required_fix": "Either add citations from the KB for each procedural recommendation or explicitly mark the items as '(general background knowledge)'. At minimum, label the opening paragraph and workflow steps 1, 2 and 6, and the checklist/evaluation bullets as 'general background knowledge' (or add specific KB citations if available)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The document's context memory contains a recommended time allocation for a live demo (45–60 min) and concrete facilitation tips (section 4‑3), but the current section does not cross‑reference these existing recommendations when describing the 'Pracovní workflow' for a single exercise or the use of Minecraft Education for live demos. This is a missed internal cross‑link and may cause redundant or inconsistent guidance.",
+      "required_fix": "Add an explicit cross‑reference to the existing live demo time allocation (section 4‑3 / 'Průběh ukázky — doporučený časový rámec (45–60 min)') or integrate a short timing suggestion consistent with that memory excerpt."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure is generally correct, but the body mixes explicit '(general background knowledge)' labels inline with bullets and uses non‑ASCII characters. Also the quotes contain \\texttt—ensure the main document uses UTF‑8 and appropriate packages for Czech characters, and that citation keys used match the bibliography.",
+      "required_fix": "Confirm the main LaTeX preamble includes \\usepackage[utf8]{inputenc} (or compile with UTF‑8 by default) and that the bibliography contains the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_15_2, _page_51_1, _page_8_1). Optionally, move repeated '(general background knowledge)' tags to a single header note to reduce clutter."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some procedural steps and checklist items are high‑level and would benefit from a short concrete worked example (e.g., one short math exercise run through the workflow) to make the step‑by‑step flow actionable for instructors.",
+      "required_fix": "Add a one‑paragraph worked example demonstrating the workflow: original prompt, simplified/enriched versions, Designer visual produced, student artifact capture, and the OneNote conversion step. If no KB citation exists for the exact worked example, label it as '(general background knowledge)'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Prompt templates and upload workflows lack explicit privacy/PII cautions. Given the KB includes GDPR and data‑handling guidance elsewhere, the section should explicitly instruct to anonymize student submissions and obtain consent when collecting media.",
+      "required_fix": "Add a short bullet in the checklist (or augment existing one about transparent info/consent) instructing to anonymize artifacts, avoid uploading PII to third‑party services, and obtain student consent for recordings; reference the DPIA/checklist material in chapter 2 if available or label as '(general background knowledge)'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Mark the opening paragraph as '(general background knowledge)' or add a supporting citation. Suggested edit: prepend the intro with a short tag: '(general background knowledge) Tato sekce shrnuje...'."
+    },
+    {
+      "target": "Pracovní workflow steps 1 & 2 & 6",
+      "edit_instruction": "Either add citations that ground these workflow steps (e.g., to sections on support for language/neurodiversity in chapter 6) or append '(general background knowledge)' to each of these enumerated steps."
+    },
+    {
+      "target": "Checklist",
+      "edit_instruction": "Add an explicit bullet about anonymization/consent: 'Ujistěte se o anonymizaci odesílaných artefaktů a získejte informovaný souhlas pro nahrávky; neodesílejte identifikovatelné osobní údaje do externích služeb.' Mark as general background knowledge if not citing chapter 2 DPIA guidance."
+    },
+    {
+      "target": "Examples",
+      "edit_instruction": "Insert one short worked example (Czech) showing a math exercise run through steps: base task → simplified/enriched prompts → Designer diagram → student uploads photo → OneNote conversion → sample short feedback. Label as (general background knowledge) if no KB citation."
+    },
+    {
+      "target": "Cross‑reference",
+      "edit_instruction": "Add a sentence linking to live demo timing and facilitation tips: e.g., 'Pro živé ukázky viz doporučené časové rozložení a tipy pro facilitaci v sekci 4‑3 (Průběh ukázky — 45–60 min).' (mark as internal cross‑reference)."
+    }
+  ],
+  "retrieval_queries": [
+    "evidence KB: guidance on supporting neurodivergent students with AI tools (inclusion, stepwise decomposition) in 'AI - 101 tipu.pdf' or other nodes",
+    "KB: explicit guidance or example workflows for 'personalized feedback' or 'collecting student artifacts' (OneNote, Pokrok v matematice) in the KB",
+    "KB: GDPR / DPIA guidance for collecting student audio/photo/video in the manual (chapter 2 references)"
+  ]
+}

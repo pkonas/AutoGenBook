@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Sentence 'Použití takových světů se osvědčuje tam, kde je cílem názorně vysvětlit koncepty (datové vstupy, chování agentů, učení na příkladech)' makes a slightly more detailed claim about which AI concepts Minecraft worlds demonstrate than the cited excerpt explicitly states.",
+      "required_fix": "Rephrase to align more closely with the KB excerpt (e.g. 'pro pochopení principu fungování AI a toho, jak se AI učí') and keep the existing citation to kb_ai_101_tipu_pdf_04e4a115_page_15_2."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The mini‑pilot step 'Pilot proveďte na malém vzorku (1–2 rozstupy výuky)' uses the term 'rozstupy výuky', which is ambiguous.",
+      "required_fix": "Replace '1–2 rozstupy výuky' with a clearer phrase such as '1–2 vyučovací skupiny / 1–2 lekce (malý pilotní koš)' or '1–2 výukové skupiny / sekce' so readers understand the intended pilot scale."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Mini‑pilot step 'Vyhodnoťte bezpečnostní a GDPR aspekty (minimalizace dat, anonymizace) před rozšířením.' is appropriate but does not cross‑reference the handbook sections that cover GDPR and DPIA guidance.",
+      "required_fix": "Add an explicit cross‑reference to the handbook chapter on privacy (e.g. 'viz Kapitola 2.2 Ochrana soukromí a GDPR‑kompatibilní postupy') so readers can find concrete procedures and checklists."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citations (\\cite{...}) are used in the LaTeX body. The section does not verify that all citation keys appear in the document bibliography.",
+      "required_fix": "Ensure the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_14_1) are present in the .bib file or replace with internal cross‑references if appropriate."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Several useful references and artifacts are mentioned (prompt‑knihovna, šablony, online repozitář). The section currently points readers to a generic 'online repozitáře' without a cross‑reference to the handbook's appendix or repository location.",
+      "required_fix": "Add a precise cross‑reference to the relevant appendix/section in the handbook (e.g. Appendix/Section 9.9 'Repozitář, video tutoriály a mechanismus aktualizací') or provide the repository path used in the living document."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph: 1) Využití vzdělávacích světů",
+      "edit_instruction": "Reword the parenthetical list to more closely match the KB excerpt. Suggested wording: '...k demonstraci principu fungování AI a toho, jak se AI učí (viz \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}).' Remove the more granular claims 'datové vstupy, chování agentů, učení na příkladech' unless you can cite a KB excerpt that lists those specific concepts."
+    },
+    {
+      "target": "Praktický mini‑pilot: krok za krokem — krok 4",
+      "edit_instruction": "Clarify '1–2 rozstupy výuky' → 'pilot proveďte na malém vzorku (např. 1–2 vyučovací skupiny nebo 1–2 lekce)'."
+    },
+    {
+      "target": "Praktický mini‑pilot: krok za krokem — krok 5",
+      "edit_instruction": "Add cross‑reference to handbook privacy guidance: e.g. 'Vyhodnoťte bezpečnostní a GDPR aspekty (minimalizace dat, anonymizace) před rozšířením — viz Kapitola 2.2 Ochrana soukromí a GDPR‑kompatibilní postupy.'"
+    },
+    {
+      "target": "Krátké doporučení pro přenositelnost na katedru / Odkazy a další kroky",
+      "edit_instruction": "Add an explicit pointer to Appendix 9.9 (Repozitář, video tutoriály) and/or to the Prompt Library (9.1) so readers can quickly locate the templates and repo mentioned. If the living repository URL is stable, add it in the repo metadata (or ensure it's included in Appendix 9.9)."
+    },
+    {
+      "target": "Bibliography / LaTeX preamble",
+      "edit_instruction": "Verify that all \\cite keys used in this section correspond to bibliography entries. If these are internal KB citations, consider converting them to internal cross‑references (e.g., 'viz str. X' or 'viz Kapitola 3.7') to avoid missing .bib entries."
+    }
+  ],
+  "retrieval_queries": [
+    "Provide KB excerpts or internal handbook text that explicitly list the AI concepts demonstrated by Minecraft Education worlds (e.g., 'datové vstupy', 'chování agentů', 'učení na příkladech') to support the more granular phrasing, if available.",
+    "Provide the handbook excerpt or KB text for a recommended phrasing or checklist for GDPR/DPIA to cite directly in the mini‑pilot (to strengthen step 5).",
+    "Provide the canonical repository URL or the internal appendix reference (9.9) text to cite for 'online repozitář příručky' and prompt library pointers."
+  ]
+}

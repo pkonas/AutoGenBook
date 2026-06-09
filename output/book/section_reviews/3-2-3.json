@@ -1,0 +1,61 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The Microsoft Designer bullet omits the caveat from the KB that some Designer features (and generated content examples) apply only to private Microsoft accounts.",
+      "required_fix": "Add a short note that some Designer features/usage conditions are limited to private Microsoft accounts and cite kb_ai_101_tipu_pdf_page_51_1."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The Minecraft Education bullet recommends using Hour of Code worlds but does not mention the licensing note in the KB that some worlds/content are part of the school paid license (Microsoft 365 A3/A5).",
+      "required_fix": "Add the licensing caveat that while some Hour of Code worlds are free, other Minecraft Education content may require a Microsoft 365 A3/A5 school licence and cite kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Practical hour plan is labeled as 'general background knowledge' which is consistent, but the section does not reference the recommended iterative workflow and pilot/testing guidance from the earlier chapter (3-1), which would improve alignment.",
+      "required_fix": "Add one sentence linking this quick lesson outline to the 'Doporučený časový workflow (tvorba artefaktu)' / piloting recommendation from section 3-1 (internal memory) so teachers are reminded to define objectives and pilot the activity."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The quick lesson skeleton gives time boxes but no concrete example learning objective or expected student artefact.",
+      "required_fix": "Include one brief example learning objective and the expected student artefact (e.g., short reflective note, generated image used in worksheet, or short group presentation) to make the plan directly actionable."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnotes are present and valid, but the final enumerate footnote is generic 'General background knowledge' in English; consider using consistent Czech phrasing for footnotes.",
+      "required_fix": "Change the English 'General background knowledge' footnote text to the Czech equivalent used elsewhere (e.g., 'General background knowledge' → 'Obecné doplňující informace') or keep format consistent with other footnotes."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Minecraft Education bullet",
+      "edit_instruction": "After the existing sentence add: 'Upozornění: některé světy v rámci Minecraft Education jsou volně dostupné v Hour of Code, ale další obsahy mohou být součástí školní placené licence Microsoft 365 A3/A5.' Cite kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "target": "Microsoft Designer bullet",
+      "edit_instruction": "Add a short caveat sentence such as: 'Pozn.: některé funkce nebo podmínky použití mohou být omezeny na soukromé Microsoft účty.' Cite kb_ai_101_tipu_pdf_page_51_1."
+    },
+    {
+      "target": "Rychlý návrh hodinové aktivity (enumerate)",
+      "edit_instruction": "Insert one concrete example learning objective and expected artefact, e.g.: 'Cíl hodiny: studenti vysvětlí základní principy strojového učení a vypracují krátkou reflexi (max. 200 slov) o tom, jak se model v daném Minecraft světě učí.' Label this example explicitly and keep the original time boxes."
+    },
+    {
+      "target": "Rychlý návrh hodinové aktivity (enumerate)",
+      "edit_instruction": "Add a short linker sentence to the beginning or end of the enumerate: 'Tuto kostru použijte v rámci doporučeného iterativního workflow: nejprve definujte cíl a očekávané výstupy, pilotujte aktivitu na malé skupině a upravte podle zpětné vazby.' This aligns with the workflow in section 3-1 (internal memory)."
+    },
+    {
+      "target": "Footnote texts",
+      "edit_instruction": "Use consistent Czech phrasing for the general background footnote (e.g., replace 'General background knowledge' with a Czech label consistent with other footnotes in the document)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_51_1 Microsoft Designer licence omezení 'Platí pouze pro soukromé účty Microsoft' (for precise phrasing/citation)",
+    "kb_ai_101_tipu_pdf_page_15_2 Minecraft Education licensing Microsoft 365 A3 A5 details (to support explicit caveat in text)"
+  ]
+}

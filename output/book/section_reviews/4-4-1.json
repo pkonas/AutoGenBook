@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section gives two concrete tool examples (Minecraft Education, Pokrok v matematice) with supporting citations. A closely related, frequently referenced capability (Microsoft 365 Copilot + Forms for generating quizzes) appears elsewhere in the handbook and would strengthen this section if included with an explicit citation.",
+      "required_fix": "Add Microsoft 365 Copilot (Forms) as a short example under 'Krátké příklady nástrojů pro adaptivní procvičování' with a footnote to kb_ai_101_tipu_pdf_page_36_1 (or cross‑reference the prior section where Copilot+Forms is described)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminology for ELI levels (ELI5/ELI15/ELI25) is used here and elsewhere (e.g. section 4.4.2). The section's guidance and the example prompt refer to ELI levels but do not point readers to the concrete prompt templates promised in the outline.",
+      "required_fix": "Add an explicit cross-reference to section 4.4.2 (Šablony promptů pro různé úrovně porozumění) or include one short concrete example prompt per ELI level in this section to make the guidance immediately actionable."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX content is generally well-formed (itemize, enumerate, quote, footnotes). However, to ensure portability and clean compilation across environments, the section does not include cross‑references (labels) or suggestion about encoding packages that handle Czech quotation marks and non‑ASCII hyphenation.",
+      "required_fix": "Optionally add a brief note for authors/editors to ensure the document preamble includes appropriate encoding/packages (e.g. inputenc/fontenc or use XeLaTeX/LuaLaTeX) or replace language‑specific punctuation with LaTeX‑safe constructs if compilation issues arise. Also consider adding labels for the section (\\label{sec:adaptivni-vysvetleni}) if internal cross‑referencing will be used."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Many pedagogical statements are marked as 'general background knowledge', which is appropriate under the grounding rules. Some actionable items (e.g. 'Navrhněte kontrolní body...') are high‑level and could benefit from one concrete example (e.g. a sample check question or mini‑quiz) to help teachers implement them.",
+      "required_fix": "Add one short concrete example (e.g. a sample 2‑question mini‑quiz linked to the layering approach) or point readers to an existing prompt template in the prompt library (9.1) to increase immediate usability."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist recommends saving prompts and student reflections, which aligns with prior memory items about prompt storage. However, there is no explicit cross‑reference to the earlier procedural guidance about 'Ukládání promptů a povinná reflexe'.",
+      "required_fix": "Add an explicit cross‑reference (e.g. 'viz. sekce 4-3-4: Ukládání promptů a povinná reflexe') so readers can find implementation details and institutional recommendations."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Krátké příklady nástrojů pro adaptivní procvičování (podporované zdroji)",
+      "edit_instruction": "Add a third item: 'Microsoft 365 Copilot + Forms — generování písemek a kvízů včetně označení správných odpovědí a vysvětlení; vhodné pro rychlou tvorbu diagnostických testů.' Add a footnote citing kb_ai_101_tipu_pdf_page_36_1."
+    },
+    {
+      "target": "Praktické zásady pro učitele (bod 3)",
+      "edit_instruction": "After 'Navrhněte kontrolní body...' add one short concrete example (e.g. 'Příklad: Po vrstvě shrnutí položte 2 kontrolní otázky typu pravda/nepravda a jednu krátkou otevřenou otázku pro ověření porozumění klíčovému příkladu')."
+    },
+    {
+      "target": "ELI prompt example (quote environment)",
+      "edit_instruction": "Add a brief note or cross‑reference: 'Pro konkrétní šablony ELI5/15/25 viz. sekce 4.4.2 nebo Knihovna promptů (9.1).' Alternatively, include one-line template variants for each ELI level directly beneath the example prompt."
+    },
+    {
+      "target": "General housekeeping (LaTeX)",
+      "edit_instruction": "Recommend adding a \\label{sec:adaptivni-vysvetleni} to the section header for cross-referencing and confirm the document preamble supports Czech punctuation/encoding (or advise using XeLaTeX/LuaLaTeX)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_36_1 (Microsoft 365 Copilot + Forms example wording to cite)",
+    "kb_ai_101_tipu_pdf_page_15_2 (confirm Minecraft Education wording/licensing if further detail needed)",
+    "kb_ai_101_tipu_pdf_page_8_1 (confirm 'Pokrok v matematice' wording if additional phrasing is required)"
+  ]
+}

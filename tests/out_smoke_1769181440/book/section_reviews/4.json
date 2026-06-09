@@ -1,0 +1,75 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several actionable recommendations (e.g., explicit role list, fact‑check workflow, plagiarism detection approach, requirement that prompts 'require citations' and teacher verification) are presented without explicit citation to supporting excerpts from the knowledge base. The document already marks two bullets as '(general background knowledge)', but other similar general recommendations are not labelled or cross‑referenced.",
+      "required_fix": "Either (a) mark these bullets explicitly as 'general background knowledge' or (b) add explicit cross‑references to the sections in the KB that support them (for example 2.6, 3.2 or 3.3), or (c) replace them with wording that references the more detailed procedures given in those sections."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The text refers to rubric structure and audit record fields in section 3.3 and to prompt templates in 3.2, but it does not summarise the concrete rubric scoring or the exact audit fields. This creates a mild inconsistency with the rest of the guide which provides concrete templates elsewhere.",
+      "required_fix": "Either include a short, explicit summary (e.g., rubric A–D scoring ranges and the audit record required fields) drawn from section 3.3, or add precise cross‑references to 3.3 where those items are presented in full so readers know where to find the templates."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The pilot design bullets ask for scope (number of students, length in weeks) and KPI definitions but give no guidance or examples of realistic pilot sizes/durations. This may leave implementers uncertain.",
+      "required_fix": "Add a brief pointer to the pilot checklist/examples in section 2.6 (or include a short, referenced example from the KB). If concrete numbers are not available in the KB, label this as 'general background knowledge' and instruct readers to adapt to local constraints."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The short pilot template uses math mode to render underlines (e.g. $\\underline{\\hspace{6cm}}$). While valid, this is stylistically unconventional and may cause spacing differences in some LaTeX setups.",
+      "required_fix": "Consider replacing the math‑mode underlines with a text mode rule (for example \\rule{6cm}{0.4pt}) or a \\vphantom/\\makebox approach to ensure consistent formatting."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'role' line lists actors (garant kurzu, technická podpora, hodnotitelé, odpovědná osoba za ochranu osobních údajů) but does not state responsibilities or minimal expectations for each role, which reduces practical usefulness.",
+      "required_fix": "Either add one‑line responsibility notes for each role (sourced from the KB if available) or add a cross‑reference to where role descriptions and responsibilities are provided (e.g., pilot checklist in 2.6 or governance recommendations in section 5). If the KB lacks role details, mark these as general background suggestions."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "item 1, first bullet",
+      "edit_instruction": "Add an explicit cross‑reference to the Intro and 2.4 where the benefits (personalization, faster material creation, support for assessment) are discussed, or label this bullet '(general background knowledge)' if not extracting from KB."
+    },
+    {
+      "target": "item 2, role list",
+      "edit_instruction": "Either add brief responsibilities for each listed role (one sentence each) sourced from the KB, or append '(general background knowledge)' and add 'see 2.6 for pilot checklist and recommended role descriptions' to point readers to the checklist."
+    },
+    {
+      "target": "item 3, audit record bullets",
+      "edit_instruction": "Insert a short parenthetical that reproduces the required audit fields from section 3.3 (ID práce, datum, verze rubricy, LLM skóre/prompt, lidské skóre/komentář, důvod eskalace a rozhodnutí) so the section is self‑contained, or add an exact cross‑reference: '(see full auditní záznam in 3.3)'."
+    },
+    {
+      "target": "item 3, validation procedure bullet",
+      "edit_instruction": "Add an explicit citation to the combined workflow in 3.3 and keep the recommended 10–20 manual checks language only if 3.3 contains that recommendation; otherwise label it as '(general background knowledge)'."
+    },
+    {
+      "target": "item 4, conservative prompts bullet",
+      "edit_instruction": "If the KB (section 3.2) includes prompt templates that recommend length limits and citation requests, add a reference to 3.2; if not, change 'požadovat citace' to 'požádejte o zdroje a ověření' and mark as general background guidance."
+    },
+    {
+      "target": "Krátká šablona pilotního plánu",
+      "edit_instruction": "Replace $\\underline{\\hspace{6cm}}$ constructs with text‑mode rules (e.g., \\rule{6cm}{0.4pt}) for more robust LaTeX rendering, or leave but add a formatting note for editors."
+    },
+    {
+      "target": "KPI list under 'Monitorování metrik a iterace'",
+      "edit_instruction": "Add a pointer to where KPI definitions and measurement methods are described in the KB (e.g., sections 2.2, 2.6 or 3.3). If specific KPI calculations are not present in the KB, label the list as '(general background knowledge)'."
+    },
+    {
+      "target": "general",
+      "edit_instruction": "Search the KB for supporting excerpts (3.2, 3.3, 2.6, 5) and add explicit cross‑references where the section currently refers to procedures or templates. For any recommendation not present in the KB, mark it as 'general background knowledge'."
+    }
+  ],
+  "retrieval_queries": [
+    "Section 3.3 rubrika for AI‑generated outputs: full rubric text including scoring ranges for A–D and rules of escalation; combined workflow for LLM‑assisted grading; audit record recommended fields and recommended manual check count (10–20).",
+    "Section 3.2 prompt templates: examples and recommendations (length limits, citation requests, logging prompts) and guidance on substituting [OBOR],[ÚROVEŇ],[TÉMA].",
+    "Section 2.6 pilot checklist: concrete pilot size/duration examples, checklist items, and role descriptions for pilot implementation.",
+    "Section 5 (Ethics/privacy): recommended procedures for consent, anonymization, and the role/responsibilities of the data protection officer in course pilots."
+  ]
+}

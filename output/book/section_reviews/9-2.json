@@ -1,0 +1,48 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Item 1 asks for '3–5 klíčových kompetencí', while the Prompt Library (section A.2 'Generování sylabu') and related templates use '3–6 learning outcomes'. This is a small internal inconsistency in recommended counts.",
+      "required_fix": "Align the recommended number of learning outcomes/competences across the document (either change '3–5' to '3–6' in this checklist or add a short justification for the narrower range)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX enumerated list uses constructs like \\item[1.] and includes '[\\ ]' checkboxes inside the optional label argument. This can lead to unexpected label/spacing behavior in some LaTeX classes and may break automated parsing.",
+      "required_fix": "Use a standard enumerate label (e.g. \\begin{enumerate}[label=\\arabic*.]) and render checkboxes as content (e.g. \\item \\mbox{[\\ ]} Vymezit...) or use a checkbox package (enumitem + checkbox) to ensure stable formatting."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some checklist items are high-level and marked 'General background knowledge' (e.g. items 1–4, 7–10). For operational use by course guarantors, a short example or concrete template pointer would improve usability (e.g. a one‑line example rubric field, a sample DPA/DPIA checklist, or a minimal pilot timeline).",
+      "required_fix": "Add 1–2 concise examples or direct pointers to the existing templates in the Prompt Library / Appendices for at least items 1, 4, 5 and 8 (e.g. reference the 'Rubrika pro procesní hodnocení' or 'Milestone‑based assessment template' from the Prompt Library)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The checklist references specific tools and functionalities (e.g. 'Pokrok v matematice', OneNote handwriting conversion, Minecraft Education) and provides citations. Ensure citation placement is unambiguous next to the sentences they support.",
+      "required_fix": "Move or duplicate the existing citations to directly follow the sentences that mention those tools (e.g. cite kb_ai_101_tipu_pdf_04e4a115_page_8_1 after both sentences mentioning 'Pokrok v matematice' and OneNote; cite kb_ai_101_tipu_pdf_04e4a115_page_15_2 after Minecraft Education references)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Item 1 (Vymezit pedagogické cíle...)",
+      "edit_instruction": "Change '3–5 klíčových kompetencí' to '3–6 klíčových kompetencí' to match the Prompt Library guidance (see 'Generování sylabu' template), or add a parenthetical note explaining why a narrower range (3–5) may be preferred."
+    },
+    {
+      "target": "LaTeX enumerate environment",
+      "edit_instruction": "Replace '\\begin{enumerate} \\item[1.] [\\ ] ...' with a standard numbered list and place the checkbox inside the item body. Example instruction: use enumitem and write '\\begin{enumerate}[label=\\arabic*.] \\item \\mbox{[\\ ]} Vymezit pedagogické cíle...'. Alternatively, use a checkbox package for consistent rendering."
+    },
+    {
+      "target": "Citations positioning",
+      "edit_instruction": "Ensure each specific tool claim has the citation immediately after it (e.g. after the sentence about 'Pokrok v matematice' and after the sentence about OneNote add \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}; after Minecraft Education example add \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2})."
+    },
+    {
+      "target": "Items 5 and 8 (procedural detail)",
+      "edit_instruction": "Add a one‑sentence concrete example for each: for item 5, show a minimal expected 'postup' submission (e.g. draft → screenshots/OneNote export → short reflection); for item 8, add a 3‑point pilot checklist (recruit N students, run pilot week, collect usability + accuracy metrics)."
+    }
+  ],
+  "retrieval_queries": []
+}

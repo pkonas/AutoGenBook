@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The bullet on 'Transparentnost a pravidla' mentions modelové limity (např. možné „halucinace\") but does not cite a KB excerpt that describes hallucinations/nesprávné výstupy. The document's broader outline discusses halucinace in section 1.3, so an explicit cross‑reference/citation should be added.",
+      "required_fix": "Add an explicit citation or cross‑reference to the KB passage about halucinace/nesprávné výstupy (section 1.3) or include a short parenthetical pointing readers to that section (e.g. 'viz. sekce 1.3 Možnosti a omezení — halucinace')."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Checklist before class omits an explicit step to verify required licences for demo tools (Minecraft Education / Microsoft 365 Copilot), while earlier sections and context memory emphasise license differences (A1 vs. A3/A5, Copilot paid vs. Copilot Chat).",
+      "required_fix": "Add a checklist item requiring the teacher to verify licence availability and access (e.g. check whether school has Microsoft 365 A3/A5 for full Minecraft Education content and whether Microsoft 365 Copilot is available or only Copilot Chat in A1). Reference the KB licence notes (sections about Minecraft Education and Copilot)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several lines in the LaTeX body include the token '(general background knowledge)' inline. These are metadata labels and should not appear in the printed section.",
+      "required_fix": "Remove the inline '(general background knowledge)' tags from the visible LaTeX text, and if needed retain them in editorial notes or the source management system instead."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section gives high‑level pedagogical principles (Sokratovský přístup, role učitele) but is missing any concrete example Sokratovských otázek/prompts or a short micro‑script that a teacher could reuse during a student–AI–student activity.",
+      "required_fix": "Either: (a) add 2–3 short example Socratic prompts (e.g. 'Co předpokládáš v tomto tvrzení?', 'Jak bys ověřil tento zdroj?', 'Jaké další otázky bys položil, abys otestoval robustnost odpovědi?'), or (b) add an explicit cross‑reference to section 4.3.3 (Šablony sokratovských otázek a promptů) so readers can quickly find ready templates."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnotes inside the itemize use internal KB keys (e.g. '\\footnote{Source: kb_ai_101_tipu_pdf_page_15_2}'). These are useful for editors but may be unclear for end readers.",
+      "required_fix": "Replace machine citation tokens with a human‑readable footnote text (e.g. 'viz. AI – 101 tipů, str. 15') or use the document's standard bibliographic command so the final PDF shows reader‑friendly references."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "In the 'Transparentnost a pravidla' bullet, add a short cross‑reference to the KB section about model limits/halucinace (e.g. 'viz sekce 1.3 — Halucinace a nesprávné výstupy')."
+    },
+    {
+      "target": "checklist (before class)",
+      "edit_instruction": "Insert a new item after (2) 'Nastavte jasná pravidla interakce': '2.a Ověřte licence a přístupy k nástrojům (Minecraft Education: A3/A5 vs. bezplatné Hodiny kódu; Microsoft 365 Copilot vs. Copilot Chat). Viz poznámky o licencích v sekci 4.2.2.3 a 4.2.3.3.'"
+    },
+    {
+      "target": "itemize bullets",
+      "edit_instruction": "Remove all occurrences of the literal string '(general background knowledge)' from visible LaTeX. If necessary, convert them into an editor‑only comment (e.g. '% general background knowledge')."
+    },
+    {
+      "target": "Praktické příklady nástrojů bullet",
+      "edit_instruction": "Replace machine footnote tokens with human‑readable text, e.g. '\\footnote{Viz AI – 101 tipů, str. 15 (Minecraft Education) a str. 36 (Microsoft 365 Copilot).}' or use the supervised bibliographic macro used elsewhere in the document."
+    },
+    {
+      "target": "Role učitele bullet",
+      "edit_instruction": "Add two short, concrete Socratic prompts or add 'viz. sekce 4.3.3 pro šablony otázek' to link to the prompt templates."
+    }
+  ],
+  "retrieval_queries": [
+    "halucinace nesprávné výstupy 'AI - 101 tipu.pdf' halucinace page",
+    "licence Minecraft Education A3 A5 'AI - 101 tipu.pdf' page 15",
+    "Microsoft 365 Copilot licence A1 Copilot Chat 'AI - 101 tipu.pdf' page 36"
+  ]
+}

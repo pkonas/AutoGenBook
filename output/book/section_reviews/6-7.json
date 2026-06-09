@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several actionable recommendations (notably the step 4 'Pilot a ověření end-to-end toku' and related checklist items about piloting and tuning data‑retention/access rules) are presented with an explicit citation to kb_ai_101_tipu_pdf_04e4a115_page_8_1, but that excerpt documents the functionality of 'Pokrok v matematice' and related tools rather than an explicit recommendation or worked example of running a pilot or tuning retention rules. The current phrasing implies the pilot procedure and tuning rules are documented in the cited KB chunk, which is not supported by the provided excerpts.",
+      "required_fix": "Either remove the specific kb_ai_101_tipu_pdf_04e4a115_page_8_1 citation for the pilot-related claims and mark the pilot recommendation as 'general background knowledge', or replace the citation with a KB excerpt that explicitly recommends running a pilot and tuning access/retention rules. If no supporting KB excerpt exists, reword to a minimal, clearly labeled 'general background knowledge' recommendation (e.g., 'Doporučeno spustit malý pilotní běh (výběr kurzů) k otestování toku—toto je obecné doporučení, nikoli tvrzení převzaté z KB')."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The bullet 'Škálování a automatizace rutinních úloh' correctly cites kb_ai_101_tipu_pdf_04e4a115_page_36_1 for the Microsoft 365 Copilot + Forms capability, but the advisory 'vždy však ponechte kontrolu nad finálními hodnotami a vysvětlením správných odpovědí' is a normative safety recommendation that is not explicitly supported by the cited chunk.",
+      "required_fix": "Either add a supporting KB citation that states or implies the need for human oversight of final grading/answers, or qualify the sentence as 'general background knowledge / best practice' and keep it short."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Some items in the section are labeled '(general background knowledge)' and others are given KB citations. For clarity and internal consistency with the rest of the manual (where similar operational recommendations appear), the section should consistently mark which parts are KB‑sourced and which are general practice.",
+      "required_fix": "Standardize labeling: keep explicit citations only where a KB excerpt supports the specific factual claim; mark procedural recommendations (pilot, escalation thresholds, data‑retention tuning, role checklists) as 'general background knowledge' if they are not directly in the KB."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Praktické role a odpovědnosti' list is concise but abstract. It lacks concrete examples of escalation criteria (when exactly should an AI's output be escalated to the teacher) and minimal examples of access roles/permissions that IT should set up.",
+      "required_fix": "Add 1–2 short concrete examples (e.g., 'escalate when AI confidence < X or when student declares AI use for generative content', and 'IT should provide role groups: instructor, grader, observer; log access and retention policies set per course') — these examples must be labeled as 'general background knowledge' unless supported by KB excerpts."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure appears syntactically correct, but some Czech terms are flagged as 'general background knowledge' inline. For clearer rendering in the compiled manual, consider moving those parentheses into footnotes or comments rather than inline parentheticals inside list items.",
+      "required_fix": "Optionally revise text so that parenthetical notes like '(general background knowledge)' are either removed from the main flow or placed as footnotes/comments in LaTeX to improve readability."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "item 4 (Pilot a ověření end‑to‑end toku)",
+      "edit_instruction": "If you cannot find a KB chunk explicitly recommending pilot runs, change the sentence to: 'Pilot a ověření end‑to‑end toku (general background knowledge): spusťte malý pilot na vybrané skupině kurzů k otestování generování cvičení, odevzdání, automatického označení problémů a pedagogické revize; použijte pilot k doladění pravidel přístupu a retence dat.' Remove the kb_ai_101_tipu_pdf_04e4a115_page_8_1 citation from this item."
+    },
+    {
+      "target": "Škálování a automatizace rutinních úloh",
+      "edit_instruction": "Keep the citation to kb_ai_101_tipu_pdf_04e4a115_page_36_1 for the Microsoft 365 Copilot + Forms example, but add a short qualifier labeled as general background knowledge: '...; vždy však ponechte kontrolu nad finálním hodnocením a vysvětlením správných odpovědí (general background knowledge).' Remove implication that the KB chunk mandates the oversight practice."
+    },
+    {
+      "target": "Praktické role a odpovědnosti",
+      "edit_instruction": "Add one short, clearly labeled example for escalation criteria and one short example access-role mapping (both as general background knowledge). Example text: 'Příklad eskalace (general background knowledge): pokud AI označí chybu s nízkou jistotou nebo když student deklaruje, že AI vygenerovala řešení, eskalovat k manuální revizi učitelem.' and 'Příklad přístupů (general background knowledge): role — Instructor (plný přístup), Grader (přístup k označeným výstupům), Auditor (čtení reportů); auditní logy musí být povolené.'"
+    },
+    {
+      "target": "Checklist — pilot/testing items",
+      "edit_instruction": "Remove kb citation where it doesn't support the pilot/testing step; instead cross‑reference the general 'Checklist pro první použití' in Section 6.1/6.4 if appropriate, or mark as 'general background knowledge'. If a supporting KB chunk exists for pilot recommendations, replace the citation accordingly."
+    },
+    {
+      "target": "LaTeX parenthetical notes",
+      "edit_instruction": "Consider relocating repeated '(general background knowledge)' tags into a single short preamble note for the section, or convert them into footnotes to reduce inline clutter."
+    }
+  ],
+  "retrieval_queries": [
+    "pilotní běh nasazení AI ve výuce doporučení pilot testování 'pilot' 'pilotní' site: (KB) 'AI - 101 tipu.pdf'",
+    "retence dat 'retence' 'udržování dat' 'Pokrok v matematice' 'retence' kb_ai_101_tipu_pdf",
+    "eskalace k lidskému pedagogovi 'eskal' 'lidské revize' 'AI předopravování' kb_ai_101_tipu_pdf",
+    "dohled lidského učitele nad automatickým hodnocením 'kontrola finálního hodnocení' 'Copilot' 'Forms' kb_ai_101_tipu_pdf",
+    "pilot recommendation 'zahájit malý pilot' 'doporučit pilot' 'AI ve výuce' kb_ai_101_tipu_pdf"
+  ]
+}

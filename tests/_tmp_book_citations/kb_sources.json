@@ -1,0 +1,32 @@
+{
+  "chunks": [
+    {
+      "source_path": "docs/pr-08.docx",
+      "loc": "chunk 8",
+      "rid": "r1",
+      "cite_key": "kb_pr_08_metoda_singularit_pro_tenk_profily_docx_4425a50f_chunk_8",
+      "excerpt": "docx"
+    },
+    {
+      "source_path": "docs/09.pptx",
+      "loc": "slide 2 chunk 1",
+      "rid": "r2",
+      "cite_key": "kb_09_v_rov_vlakna_biott_sawart_pptx_19d4be5e_slide_2_1",
+      "excerpt": "pptx 09"
+    },
+    {
+      "source_path": "docs/10.pptx",
+      "loc": "slide 4 chunk 1",
+      "rid": "r3",
+      "cite_key": "kb_10_mezn_vrstva_pptx_04246716_slide_4_1",
+      "excerpt": "pptx 10"
+    },
+    {
+      "source_path": "docs/11.pptx",
+      "loc": "slide 4 chunk 1",
+      "rid": "r4",
+      "cite_key": "kb_11_metoda_singularit_pptx_396ad930_slide_4_1",
+      "excerpt": "pptx 11"
+    }
+  ]
+}

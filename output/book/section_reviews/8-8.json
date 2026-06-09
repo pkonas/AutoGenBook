@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several footnotes in the section cite kb_ai_101_tipu_pdf_page_3_1 and kb_ai_101_tipu_pdf_page_8_1, but the explicit retrieved excerpts provided to the reviewer package include only pages 15, 44 and 51. The section's claims rely on page_3_1 and page_8_1 as sources (e.g. audit logs, export/retention, operational metrics), so those cited excerpts should be attached or made available to ensure direct support.",
+      "required_fix": "Attach the cited excerpts for kb_ai_101_tipu_pdf_page_3_1 and kb_ai_101_tipu_pdf_page_8_1 (or include their relevant text snippets) so each footnoted claim is verifiable from the provided KB material."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Typo / unclear phrase: the item reads 'Požadovat v případě citlivých dat provoz v rámci enterprise řešení s jasnými DPA/DPA podmínkami' — duplication 'DPA/DPA' is likely an error and reduces clarity.",
+      "required_fix": "Correct the duplication to the intended phrasing (e.g. 'jasnými DPA/SLA podmínkami' or simply 'jasnými DPA podmínkami') and ensure the chosen term matches the terminology used elsewhere in the document."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Use of \\\\subparagraph and empty \\\\paragraph{} is valid in many classes but may render inconsistently depending on document class. The text contains typographic characters (non‑ASCII hyphens '‑') which can cause issues in some LaTeX toolchains.",
+      "required_fix": "Run a LaTeX compile check for this section in the target document class; replace problematic unicode characters with LaTeX-friendly forms (e.g. -- or \\textendash) where needed and ensure the heading level commands match the book's style conventions."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Many checklist items are marked 'general background knowledge' which is acceptable, but the operational checklists would be more actionable if at least one concrete example per checklist was included (e.g. example retention periods/formats for audit logs, example quota thresholds or alert levels, roles with sample responsibilities).",
+      "required_fix": "Add one or two concrete, minimal examples (label them explicitly as 'example' or 'illustration') or point the reader to the exact editable templates in the appendices/repository so implementers have actionable defaults to adapt."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Fix the 'DPA/DPA' duplication: replace with consistent term used elsewhere (suggestion: 'jasnými DPA podmínkami' or 'jasnými DPA/SLA podmínkami') and ensure corresponding footnote or cross‑reference points to the DPA template in the appendices (9.3)."
+    },
+    {
+      "target": "RFP / SLA — klíčové položky k zahrnutí",
+      "edit_instruction": "Add a short, non-normative example line such as 'Příklad: auditní logy dostupné pro export ve strojově čitelném formátu (JSON/CSV), s retenční politikou uvedenou v DPA (např. x dní) a definovaným procesem pro forenzní přístup.' Mark this as 'example / illustration' and, if possible, point to the editable RFP template in the appendices instead of inventing a specific retention period."
+    },
+    {
+      "target": "Checklisty pro IT / provoz",
+      "edit_instruction": "Link specific checklist items to the repository templates in the appendices (e.g. 'viz příloha: RFP template' or 'viz příloha: Incident runbook template') to make the checklist immediately actionable without adding unsupported specifics to the main text."
+    },
+    {
+      "target": "LaTeX hygiene",
+      "edit_instruction": "Run a compile test for the section and normalize hyphens/dashes and non‑ASCII characters; confirm that heading commands (\\paragraph, \\subparagraph) match the main document's TOC/formatting rules."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 3 (chunk 1) — text about audit logs, export and access for providers (to validate footnotes referencing kb_ai_101_tipu_pdf_page_3_1)",
+    "kb_ai_101_tipu_pdf page 8 (chunk 1) — text about monitoring operational metrics (requests, tokens, latency) and use in quarterly pilot reviews (to validate kb_ai_101_tipu_pdf_page_8_1 citations)",
+    "kb_ai_101_tipu_pdf page 3 full context — any contractual recommendations (export/retention) and incident logging guidance",
+    "kb_ai_101_tipu_pdf page 8 full context — examples of SLA/metric definitions and recommended reporting formats"
+  ]
+}

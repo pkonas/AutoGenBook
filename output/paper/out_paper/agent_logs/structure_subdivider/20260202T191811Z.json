@@ -1,0 +1,47 @@
+{
+  "agent": "structure_subdivider",
+  "timestamp": "20260202T191811Z",
+  "input": {
+    "doc_kind": "paper",
+    "doc_title": "Graph-Aware Prompting for Reliable Section Generation",
+    "doc_summary": "We present a graph-guided prompting workflow for long-form scientific writing that prioritizes evidence and citation consistency. Our method constructs a document graph that encodes section dependencies and uses strict JSON schemas and evidence-aware prompts to generate and validate individual sections. At generation time, the system (1) builds a section graph and schedules leaf-first writing, (2) retrieves and injects relevant evidence for each section, (3) produces JSON-constrained section outputs, and (4) assembles a LaTeX manuscript with refs.bib. We evaluate the approach by comparing it to a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show improved citation coverage and reduced unsupported assertions while keeping edits and post-hoc audits straightforward via machine-readable outputs. We intentionally state conservative claims and require explicit source citations for all factual assertions. The paper contributes practical artifacts: a graph-based section scheduler, an evidence-injection protocol per section, and an audit-friendly JSON output format that integrates with standard LaTeX/bib workflows. Our experiments use internal notes and a small curated PDF set where available; metrics focus on citation fidelity and factual consistency rather than broad generalization.",
+    "target_audience": "ACL Workshop on Natural Language Generation",
+    "parent_title": "Discussion",
+    "parent_summary": "Analyze why graph-guided scheduling affects coherence and citation placement, limitations (dataset scale, domain transfer, reliance on retrieval quality), and implications for auditability and reproducibility. Propose mitigations and future extensions.",
+    "n_pages": 0.15,
+    "max_output_pages": 1.5,
+    "retrieved_context": "(none)"
+  },
+  "output": [
+    {
+      "title": "Effects of Graph-Guided Scheduling on Coherence and Citation Placement",
+      "summary": "Analyze mechanisms by which the graph-guided, leaf-first section scheduling influences narrative coherence and the placement of citations (e.g., dependency-driven ordering, local evidence injection before higher-level synthesis). Focus on qualitative pathways through which scheduling can reduce contradictory claims and improve topical citation clustering, and identify what evidence would be needed to quantify these effects.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Limitations: Dataset Scale, Domain Transfer, and Retrieval Dependence",
+      "summary": "Explicitly discuss the stated limitations: small/curated dataset scale, challenges in transferring the workflow across domains, and sensitivity to retrieval quality. For each limitation, outline practical mitigations and short-term experiments (e.g., larger/diverse corpora, domain adaptation strategies, retrieval ensemble/robustness checks) that could be pursued within constrained resources.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Auditability, Reproducibility, and Future Extensions",
+      "summary": "Discuss implications for audit-friendly workflows and reproducible science given JSON-constrained section outputs and LaTeX/bib integration. Propose future extensions that enhance auditability (automated citation-assertion checks, provenance tracking), reproducibility (releaseable pipelines, config schemas), and evaluation (broader topical coverage, human reviewer studies).",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    }
+  ],
+  "meta": {
+    "run_id": "20260202T201710Z",
+    "usage": {
+      "prompt_tokens": 763,
+      "completion_tokens": 1265,
+      "total_tokens": 2028
+    },
+    "cost_usd": 0.00272075,
+    "total_cost_usd": 0.011206750000000001,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

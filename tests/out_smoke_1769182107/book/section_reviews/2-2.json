@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some non‑trivial statements in the section are not marked as 'general background knowledge' (contrary to the section's opening note). According to the grounding rules, unsupported factual claims must be labelled or removed.",
+      "required_fix": "Add the 'general background knowledge' label (or supply supporting excerpts) to the unlabeled items. Specifically label the bullets in 'Zásady návrhu obsahu pro personalizaci' (first and second bullet) and all bullets under 'Krátká ukázka struktury článku v kapitole' as 'general background knowledge'."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section does not explicitly include an equivalent of the 'rule of human review' used in the previous autograder section (context memory shows autograder guidance includes mandatory human review for disputed cases).",
+      "required_fix": "Add an explicit recommendation (and label it 'general background knowledge' if unsupported) that adaptive decisions with high uncertainty or high impact should trigger human review/teacher escalation, mirroring the pattern used for autograders."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Terminology and a few informal phrases could be clearer or standardized (e.g., term „držáků“ is colloquial; the section mixes short checklist items with procedural steps).",
+      "required_fix": "Replace colloquial terms with a consistent term (e.g., 'moduly' or 'obsahové moduly') and consider making the implementation steps and pilot checklist parallel in form. Mark the change as 'general background knowledge' if no source is available."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Practical pedagogical details that would help implementers are missing (examples of candidate adaptation rules, examples of fallback strategies for cold start, examples of metrics and evaluation windows). These are currently stated only at a high level.",
+      "required_fix": "Either add concrete exemplar thresholds and fallback patterns (with supporting evidence) OR explicitly state that implementers must derive these from local pilots and provide a short list of candidate options (e.g., mastery threshold, minimum N data points before personalization, teacher override). Label as 'general background knowledge' if unsupported."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX appears syntactically valid (matching begin/end for environments), but the opening parenthetical note repeats 'general background knowledge' inline and some list items also carry the same parenthetical tag, which reduces readability in rendered output.",
+      "required_fix": "Either keep one global parenthetical note stating that items are 'general background knowledge' (and remove the repeated inline tags), or consistently append the tag to every non‑trivial item. Prefer the single global note for readability; adjust the LaTeX accordingly."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Úvodní poznámka",
+      "edit_instruction": "Replace multiple inline '(general background knowledge)' labels with a single global sentence: 'Níže uvedené kroky a doporučení jsou shrnutím praktických postupů pro nasazení adaptivních modulů; jednotlivá doporučení jsou general background knowledge a je třeba je ověřit na místních datech a infrastruktuře.' Then remove repeated inline tags throughout the lists."
+    },
+    {
+      "target": "Zásady návrhu obsahu pro personalizaci (první a druhý bullet)",
+      "edit_instruction": "Add the 'general background knowledge' label (if no supporting evidence available) and change 'držáků' to 'modulů' or 'obsahových modulů' for clarity."
+    },
+    {
+      "target": "Implementační scénář (krok 3)",
+      "edit_instruction": "Add an explicit bullet (or sentence) recommending a human‑in‑the‑loop rule: e.g., 'Nastavte pravidlo lidské eskalace pro situace s vysokou nejistotou či vysokým dopadem (např. změna hodnocení, doporučení pro závěrečné úlohy)'. Mark as 'general background knowledge' if unsupported."
+    },
+    {
+      "target": "Měřítka efektivity",
+      "edit_instruction": "Add concrete candidate measurement windows and methods (label as 'general background knowledge' if needed), e.g.: 'měření rozdílu mezi pretestem a posttestem po 2–6 týdnech; sledování udržení znalostí při opakovaných testech po 4–12 týdnech; A/B piloty pro validaci adaptivních pravidel'. If these specifics cannot be sourced, instead add a caution that time windows must be determined locally during pilot."
+    },
+    {
+      "target": "Krátká ukázka struktury článku v kapitole",
+      "edit_instruction": "Append '(general background knowledge)' to each bullet or remove the inline labels if the global opening note is used. Ensure the structure uses consistent labels: 'Cíl modulu', 'Mapování obsahu', 'Pravidla adaptace', 'Datové požadavky', 'Pilotní plán'."
+    }
+  ],
+  "retrieval_queries": [
+    "Praktické doporučení pro prahové hodnoty 'mastery' v adaptivním učení (konkrétní příklady a studie): jaké prahy (%) nebo počet správných odpovědí se běžně používají?",
+    "Doporučené strategie 'cold start' pro adaptivní výukové systémy: fallback patterns, pretesty, or group defaults (příklady z praxe nebo publikované průvodce)",
+    "Příklady politiky 'human‑in‑the‑loop' pro adaptivní moduly: kdy a jak eskalovat rozhodnutí k učiteli (případové studie nebo provozní doporučení)",
+    "Příklady integrace adaptivních modulů s běžnými LMS (Canvas, Moodle): integrační body, exporty dat a autentizační vzory (praktické návody nebo technické white‑papers)",
+    "Doporučené metriky a časové okna pro evaluaci účinnosti adaptivních pilotů (např. délka pilotu, follow‑up testy, A/B designy) — příklady z literatury nebo praktických implementací"
+  ]
+}

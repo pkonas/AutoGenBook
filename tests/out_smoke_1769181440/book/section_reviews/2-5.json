@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Section is largely labeled as \"general background knowledge\", which satisfies grounding constraints, but it does not explicitly point readers to related materials and templates available elsewhere in the guide (e.g. the sample prompts and pilot templates in the 'Generování výukových materiálů a testových otázek' section).",
+      "required_fix": "Add a short cross‑reference (one sentence) to the earlier section that contains sample prompts and pilot templates (section 2.4). Indicate which specific templates are most relevant (system instruction templates, example prompts, pilot checklist)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Minor typographical/orthographic issues in the Czech text that should be fixed for polish and consistency: e.g. \"pilote\" should be \"pilotu/pilot\", \"naucení\" should be \"naučení\", and English-like terms could be localized (\"Logging a audit\" → \"logování a audit\" or similar).",
+      "required_fix": "Correct the typos and adjust the few anglicisms to Czech equivalents while preserving LaTeX structure. Recompile to check no missing braces or environment errors."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Pilot metrics and escalation rules are listed at a high level but lack concrete, reusable examples (e.g. example survey items, sample rubric for human validation, or concrete escalation triggers based on model confidence or content patterns). This makes it harder for local pilots to operationalize the recommendations.",
+      "required_fix": "Add one or two concrete, lightweight artefacts: (a) a short example user satisfaction question (Likert), (b) an example human‑validation rubric (3 criteria) for auditing responses, and (c) suggested escalation triggers (e.g. presence of policy/legal/medical language, model confidence below a placeholder threshold, repeated student distress keywords). Mark any numerical thresholds as placeholders to be tuned in the local pilot."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section repeats the same upfront note used in other sections about 'general background knowledge' but the phrasing and placement differ slightly from the earlier 'Generování výukových materiálů' section.",
+      "required_fix": "Unify the warning phrasing with the earlier section (use the identical sentence or a short template) and place it consistently (e.g. as the first line) so readers immediately recognize the status of the recommendations across sections."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Krátké šablony pro komunikaci' entry contains only one system instruction and one student notice; these are useful but sparse and could be misinterpreted as exhaustive.",
+      "required_fix": "Expand this subsection with 2–3 short, clearly labelled template snippets (system instruction variations for FAQ mode, step‑by‑step assistant mode, and escalation agent) and label them as templates to be adapted locally. Keep each template 1–2 lines and mark them as 'general background knowledge'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "cross-reference sentence",
+      "edit_instruction": "Add a single sentence after the short overview: 'Viz sekce 2.4 \"Generování výukových materiálů a testových otázek\" pro ukázkové prompty a šablony (system prompts, krok‑za‑krokem příklady a MCQ), které lze přizpůsobit pro pilot chatbota.'"
+    },
+    {
+      "target": "typo fixes",
+      "edit_instruction": "Replace 'pilote' → 'pilot', 'naucení' → 'naučení', and 'Logging a audit' → 'logování a audit' (or equivalent Czech phrasing). Run a quick spellcheck for any additional minor language issues."
+    },
+    {
+      "target": "pilot metrics",
+      "edit_instruction": "Under 'Měření užitečnosti a metriky pilotu' add three short concrete artefacts to copy/adapt: (a) example Likert satisfaction question: 'Jak jste byli spokojeni s užitečností odpovědí chatbota? (1–5)', (b) sample audit rubric with three criteria (faktická přesnost, pedagogická relevance, srozumitelnost) and simple pass/needs review/fail flags, (c) suggested escalation triggers: 'výskyt právních/medicínských dotazů, model confidence < X (placeholder), nebo opakované nesouhlasné/rozhořčené zprávy od studenta'. Mark thresholds as placeholders to be set in the pilot."
+    },
+    {
+      "target": "communication templates",
+      "edit_instruction": "Expand 'Krátké šablony pro komunikaci' with 2–3 one‑line system instruction templates labelled by role (FAQ, tutor, step‑by‑step assistant) and add one short escalation notice template to present to students when a query is forwarded to a human."
+    },
+    {
+      "target": "consistency of warning",
+      "edit_instruction": "Replace the opening note with the exact same wording used in section 2.4 (or explicitly reference it) so the reader recognizes the guidance is consistently 'general background knowledge' across sections."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices pilot evaluation chatbot higher education metrics Likert satisfaction sample rubric human audit chatbot responses",
+    "example escalation criteria chatbot education model confidence thresholds",
+    "sample system prompts for educational chatbots FAQ tutor step-by-step assistant"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Many concrete operational recommendations (e.g., preference for repo links vs. uploaded archives, automatic submission receipts, recommended metadata fields, CI/test integration specifics) are presented as prescriptive steps but lack citations to the provided KB excerpts. Although many items are tagged as \"general background knowledge\", several are non‑trivial operational claims that should be either supported by KB excerpts or softened/qualified.",
+      "required_fix": "Either add KB citations (from the provided KB) to support each non‑trivial operational recommendation, or explicitly mark them as general background guidance and reduce prescriptive wording. For recommendations that map to content already present in other sections (team project artifact lists, milestone/rubrics guidance, Microsoft tooling), add explicit cross‑references and supporting footnotes to the matching KB excerpts (e.g., pages about 'Pokrok v matematice', Minecraft Education, Microsoft 365 Copilot, and the sections describing team project artifact requirements)."
+    },
+    {
+      "type": "consistency",
+      "severity": "major",
+      "description": "The section does not explicitly reference or align some LMS requirements with the locally specific team project described in memory (team project artifact list and grading weights). That context prescribes required artifacts (raw data with timestamps, versioned scripts, photos, logs) and an assessment split (40/40/20) which are not mentioned here.",
+      "required_fix": "Add an explicit paragraph that maps LMS channels/required artifacts to the locally specific team project requirements (list required artifact types, timestamping, versioned scripts, photos, logs) and indicate how these artifacts feed into rubrics and milestone grading. Cite the stored context (sections referencing team project requirements / rubrics) when adding these specifics."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body begins with heading text 'Účel a rychlé shrnutí' that doesn't match the section title ('Nastavení LMS a workflow odevzdávání'). There are inline \\\\footnote commands inside list items — these are valid in LaTeX but might produce formatting issues depending on document class/packages.",
+      "required_fix": "Change the top heading in latex_body to match the node title (e.g., use \\section{Nastavení LMS a workflow odevzdávání} or \\subsection{...} as appropriate). Ensure the document includes packages that handle footnotes inside lists (e.g., footmisc or keepfootnote usage) or move footnotes out of inner list items if the build fails."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some practical steps are high‑level and would benefit from short concrete examples (e.g., example metadata field labels and sample rubric items mapping to CI test outputs).",
+      "required_fix": "Insert small examples: a sample submission form field list (e.g., 'Title, artifact type, commit URL, commit hash, experiment date, AI tools used, prompt field, uploaded log'), and a short note how CI results (pass/fail, failed test count) could be mapped to a rubric cell. Keep examples short and labeled as illustrative."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section references AI pre‑grading tools (Microsoft 365 Copilot, automatic generators) and correctly states 'teacher finalizes grade' in some bullets, but it does not explicitly instruct how AI‑use declarations will be evaluated in rubrics or how this interacts with academic integrity procedures.",
+      "required_fix": "Add one or two sentences linking the required metadata/declaration field to rubric components (e.g., a rubric item for 'Transparentnost použití AI' with brief scoring guidance) and reference the KB section on rubrics/transparent rules where available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Replace the heading 'Účel a rychlé shrnutí' with a section heading that matches the node title, e.g. '\\\\section{Nastavení LMS a workflow odevzdávání}' (or \\subsection depending on level). Add a short sentence cross‑referencing the chapter on 'Rubriky, transparentnost a pravidla použití AI' and the team project artifact requirements so readers know where to find related rubric and artifact specifications."
+    },
+    {
+      "target": "Kanály odevzdávání a povolené formáty",
+      "edit_instruction": "Add a clarifying sentence: 'For team/project tasks that collect local field data, create a dedicated submission channel that accepts raw data files with timestamps, versioned script links, photos and logs; require commit hashes for code artifacts so provenance is auditable.' Mark this sentence as supported by the project‑requirements context and add a cross‑reference footnote to the relevant KB excerpt describing local team project artifacts."
+    },
+    {
+      "target": "Povinné artefakty a pole formuláře při odevzdání",
+      "edit_instruction": "Include a very short illustrative sample of submission fields (one line), e.g.: 'Suggested fields: Task type; Experiment date; Commit URL + commit hash; Uploaded logs/photos; AI tools used; Prompt (text); Short process summary.' Label the sample as illustrative and, where possible, reference KB material about required artifacts/rubrics."
+    },
+    {
+      "target": "Integrace automatizovaných kvízů a předhodnocení",
+      "edit_instruction": "Keep the existing Copilot example but make the citation explicit inline (ensure the footnote points to kb_ai_101_tipu_pdf_page_36_1). Add a short qualifier that tool availability depends on institutional license and link to the KB note about Copilot licensing (if available)."
+    },
+    {
+      "target": "Pole pro postupy u programovacích úloh a automatické testování",
+      "edit_instruction": "Add a short sentence specifying that CI/test results should be stored as part of the submission artifact (e.g., attach test report showing pass/fail and failed test count) and that teachers should define in the rubric how CI outputs map to rubric cells (process vs. correctness). Cross‑reference the section that discusses CI/test integration or Gradescope if a KB excerpt is available."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 8 (process‑focused assessment, required artifacts, milestones)",
+    "kb_ai_101_tipu_pdf page 15 (Minecraft Education, local/project artifacts examples)",
+    "kb_ai_101_tipu_pdf page 36 (Microsoft 365 Copilot in Forms — citation already used)",
+    "kb_ai_101_tipu_pdf pages mentioning 'verzionování', 'CI', 'testovací běhy', or 'Gradescope' (to support CI/test integration claims)",
+    "kb_ai_101_tipu_pdf sections on rubrics and transparent AI‑use declaration (to support mapping declarations to rubric items)",
+    "kb_ai_101_tipu_pdf section(s) on GDPR/DPIA and submission storage retention (to cite privacy and data retention recommendations)"
+  ]
+}

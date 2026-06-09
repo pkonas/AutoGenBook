@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The item that asks to 'Zkontrolujte, že všechny šablony sylabů, zadání a rubriky obsahují jasnou informaci o povoleném způsobu použití AI studenty (viz sekce s šablonami do sylabů — příloha)' is marked as 'General background knowledge' but does not point to the concrete annex/section in the handbook that provides editable AI‑policy text (section 9.3 in the outline).",
+      "required_fix": "Add an explicit reference to the handbook annex/section containing AI policy templates (section 9.3 'AI policy do sylabů a vzor DPIA' / příloha) so readers can find ready‑to‑use formulace. Replace 'příloha' with a precise pointer (e.g. 'viz příloha 9.3: AI policy do sylabů')."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The checklist mentions DPIA/DPA and other legal items as 'general background knowledge' but does not point to the DPIA/DPA templates and checklist that the handbook provides (sections 2.2.3 and 9.3.3 in the outline).",
+      "required_fix": "Add explicit pointers to the DPIA checklist and DPA guidance available in the handbook (e.g. reference to the DPIA checklist and the DPA clauses in the appendices) so implementers can use the provided templates rather than having to draft them from scratch."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Monitorování, provozní údržba a eskalace' item is operational but lacks a short example of the expected incident report fields, escalation levels and ownership (who triages incidents, SLA targets, and where to log them).",
+      "required_fix": "Add a short example incident report template (fields to capture: timestamp, tool, user, input/context, generated output, severity, steps to reproduce, immediate mitigation, owner) or refer to a template in the appendices/operational checklist so teams know what to collect on first incidents."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The final recommendation to form a 'run‑team' (garant, 1–2 vyučující, IT kontakt, právník/metodik) is reasonable but not explicitly connected to the handbook sections that describe recommended roles and responsibilities (e.g. section 4.1.5 and 9.4.3).",
+      "required_fix": "Link the run‑team composition to the handbook sections describing role responsibilities and to the operational checklists (suggest referencing 4.1.5 'Nasazení a integrace' and 9.4.3 'Provoz, údržba a roadmapa') or add a brief justification for each role (who does what) while keeping the claim as 'general background knowledge'."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnote style is inconsistent: some footnotes are labeled 'General background knowledge' while others use 'Source: kb_ai_101_tipu_pdf_page_...'. The LaTeX body embeds these footnotes inline which is fine, but consistency and linking to internal handbook sections would improve usability.",
+      "required_fix": "Use a consistent footnote format. For internal KB citations keep the current 'Source: kb_ai_101_tipu_pdf_page_...' form; for general background items use a uniform phrase such as '\\footnote{General background knowledge (see handbook sections X.Y)}' and where possible add cross‑references to handbook sections (e.g. 'viz sekce 9.3')."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist suggests quarterly reviews and collecting metrics (kvalita materiálů, nahlášené halucinace, spokojenost studentů) but does not suggest concrete, measurable example metrics or minimum sample sizes/targets for pilot evaluation.",
+      "required_fix": "Add a short suggested metrics list (e.g. % of materials flagged for correction, mean student satisfaction on a 1–5 scale, number of confirmed hallucinations per 1000 prompts) or point to the pilot evaluation section (7.6.5 in the outline) so teams can operationalize 'kvartální revize' more concretely."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace vague 'příloha' references with explicit pointers to the handbook annexes and sections. E.g. change the first item's note to: '... obsahují jasnou informaci o povoleném způsobu použití AI studenty (viz příloha 9.3: AI policy do sylabů).' Add a footnote pointing to section 9.3 and to the editable AI policy template."
+    },
+    {
+      "target": "item 'Bezpečnost, soukromí a právní kontrola'",
+      "edit_instruction": "Add a parenthetical pointer to available templates: 'Prověřit potřebu DPIA / souhlasu studentů (viz příloha 9.3.3: vzor DPIA), minimalizovat sběr osobních údajů a zajistit anonymizaci tam, kde to lze.' Also add a short note who should own DPIA initiation (suggest 'iniciuje právní/metodik ve spolupráci s IT')."
+    },
+    {
+      "target": "item 'Monitorování, provozní údržba a eskalace'",
+      "edit_instruction": "Insert a one‑line example of required incident report fields or add 'viz příloha provozních šablon (sekce 9.4.3)' and include a short list: 'doporučené pole: datum/čas, nástroj, vstup, výstup, popis problému, závažnost, kroky pro mitigaci, odpovědná osoba, odkaz na záznam.'"
+    },
+    {
+      "target": "footnotes/LaTeX",
+      "edit_instruction": "Standardize footnote texts. For KB citations use 'Source: kb_ai_101_tipu_pdf_page_X_Y' and for general background notes use 'General background knowledge — viz sekce <číslo>'. Ensure LaTeX cross‑refs can be added (e.g. '\\ref{sec:ai_policy}') if the document is compiled as a whole."
+    },
+    {
+      "target": "closing recommendation",
+      "edit_instruction": "When recommending the run‑team and a quick pilot, add a one‑sentence pointer to the pilot plan and metrics in the handbook (e.g. 'viz sekce 7.6.5 Pilotní nasazení a metriky úspěchu') or include a 2–3 line example pilot timeline (week 0: setup, week 1–2: test, week 3–4: run, week 8: first review). If including a timeline, mark it as 'general background knowledge / example' unless you cite a specific template in the KB."
+    }
+  ],
+  "retrieval_queries": [
+    "AI policy template for syllabus (handbook section 9.3) — request KB excerpt with editable formulace",
+    "DPIA checklist / vzor DPIA referenced in the handbook (section 9.3.3) — request KB excerpt",
+    "Operational incident report template and 'provoz, údržba a roadmapa' (section 9.4.3) — request KB excerpt",
+    "Pilot plan and suggested metrics for pilot evaluation (section 7.6.5) — request KB excerpt"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The sentence ‚(možno využít AI‑generované testy jako konzistentní instrument)‘ links Microsoft 365 Copilot's ability to generate tests (supported by kb_ai_101_tipu_pdf_page_36_1) to the claim that these can be used as a consistent measurement instrument. The KB excerpt shows Copilot can generate tests but does not provide evidence that AI‑generated tests are psychometrically equivalent/validated as measurement instruments.",
+      "required_fix": "Qualify the statement: state that Copilot can generate tests (cite kb_ai_101_tipu_pdf_page_36_1) but recommend validating AI‑generated tests for equivalence (item difficulty, reliability) against existing instruments before treating them as the primary measurement tool, or mark the measurement use as provisional."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "The recommended quantitative and qualitative metrics are listed, but operational definitions and measurement procedures are missing (e.g., how to compute pre/post differences, pairing, timing of measurements, minimal sample sizes, significance criteria, anonymization and consent workflows). Without these, implementers cannot reliably collect or interpret the metrics.",
+      "required_fix": "Add short operational definitions and a measurement protocol for each key metric: define baseline timing and content, whether tests are paired, which summary statistics to report (mean difference, percent change, sample size), minimum recommended cohort size or guidance to consult a statistician, and data privacy/consent steps (cross-reference DPIA guidance in the Provozní checklisty)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The text suggests logging interaction metrics ('počet dotazů / sezení' — logovat agregovaně) but does not note that availability of such logs depends on the tool and that logging must comply with privacy rules. The KB contains guidance on logging, DPIA and data residency elsewhere (memory excerpts) but the current section does not explicitly reference these.",
+      "required_fix": "Add an explicit instruction to verify the pilot tool's logging/export capabilities and to ensure logs are aggregated/anonymized in line with DPIA/DPA guidance (cross-reference the Provozní checklisty and DPIA template in the KB)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The run‑team composition and some operational points repeat material from the earlier 'Provozní checklisty a role/odpovědnosti' section. The wording is consistent but the new section should explicitly cross‑reference that earlier section to avoid duplication and to point readers to the detailed checklist.",
+      "required_fix": "Add a cross‑reference sentence (e.g., ‚Viz také sekce Provozní checklisty a role/odpovědnosti pro detailní checklist a role‘) so implementers can find the longer checklist and DPIA templates in the KB."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure (enumerate, itemize, \\\\footnote calls) appears syntactically correct. However, the section includes multiple inline footnotes referencing sources; consider adding labels or a short caption to improve navigability and ensure compilation with Czech hyphenation if required.",
+      "required_fix": "No syntax fixes required. Optionally add a \\\\label for the section and ensure the document uses appropriate language settings (babel) to render Czech characters/hyphenation correctly. If footnote numbering must match the rest of the document, check global numbering."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section lacks explicit decision rules for scaling up (e.g., go/no‑go criteria based on metric thresholds) and examples of concrete small pilot designs (sample sizes, timeline, example prompts or rubrics) beyond naming example tools.",
+      "required_fix": "Add a short 'Decision criteria' bullet: example threshold(s) for scaling (e.g., improvement magnitude, teacher time saved, no major privacy incidents), and one or two concrete micro‑pilot templates (e.g., 2 small cohorts of 15–25 students, 4‑week timeline: week 0 baseline, weeks 1–3 intervention, week 4 post). If you cannot propose numbers, at least instruct teams to document thresholds and consult institutional governance/statistics support."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph: 'Doporučené metriky (kvantitativní)'",
+      "edit_instruction": "For each metric add a one‑line operational definition and suggested measurement procedure. Example edits: (a) 'Učení: rozdíl průměrného skóre v pre/post testech pro stejný obsah — compute paired mean difference and report sample size, standard deviation and 95% CI; ensure tests are equivalent or equated before comparison.' (b) 'Provozní metriky: časová úspora — ask teachers to log preparation time for 2 comparable lessons pre‑pilot and during pilot; report mean hours saved per lesson and % reduction.' Mark these as provisional 'general background knowledge' and point to statistical support if needed."
+    },
+    {
+      "target": "paragraph: 'Postup (shrnutí kroků)'",
+      "edit_instruction": "Add a short bullet after step 4: 'Define success criteria and decision rules (e.g., minimal detectable improvement, acceptable error rate, teacher time saved) and obtain DPIA/consent before data collection; see Provozní checklisty a role/odpovědnosti for DPIA template.'"
+    },
+    {
+      "target": "paragraph: 'Praktické poznámky a příklady'",
+      "edit_instruction": "Add one concrete micro‑pilot example: 'Micro‑pilot: 2 tutorial groups (n≈20 each), topic X. Week 0 baseline test (same items), weeks 1–3 intervention with AI‑generated homework, week 4 post test. Metrics: paired pre/post score difference, percent task completion, teacher prep time logs, and student survey. Use anonymized IDs and follow DPIA.' This is an editable template — do not claim that these numbers are canonical; present as an example to adapt."
+    },
+    {
+      "target": "footnote about AI‑generated tests",
+      "edit_instruction": "Replace or append the footnote that asserts AI‑generated tests can be used as consistent instruments with a qualification: cite kb_ai_101_tipu_pdf_page_36_1 for Copilot's ability to generate tests and add a note recommending test validation (item analysis, pilot reliability) before using them as primary assessment instruments."
+    }
+  ],
+  "retrieval_queries": [
+    "Guidance on validating newly created educational tests (item analysis, reliability measures) for pilot studies",
+    "Recommended sample size guidance for small educational pilot studies and minimal detectable effect estimation",
+    "Tool capability documentation for logging/export features of Microsoft 365 Copilot and 'Pokrok v matematice' (to confirm what interaction metrics are available and export formats)"
+  ]
+}

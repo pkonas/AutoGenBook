@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The bullet about Microsoft 365 Copilot mentions generating tests and integration into Forms, but the text does not cross‑reference the concrete example in section 4.2.2.1 (Generování písemek pomocí Microsoft 365 Copilot ve Forms) where an example prompt/workflow is given.",
+      "required_fix": "Add an explicit cross‑reference (e.g. \"viz 4.2.2.1 Generování písemek pomocí Copilot ve Forms\") or brief parenthetical note linking this tool entry to the concrete example in section 4.2.2.1 to help readers find the worked example."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The short 'General background knowledge' sentence is useful but stands alone without pointing to operational artifacts (checklists, pilot guidance) in the handbook that elaborate the recommendation to pilot and verify outputs.",
+      "required_fix": "Either move/duplicate this recommendation into a brief 'Provozní poznámky' paragraph and/or add references to the checklist and pilot guidance (e.g. 9.2 Checklist a šablony pro redesign předmětu; 7.6.5 Pilotní nasazení a metriky úspěchu) so implementers know where to find evaluation templates and suggested metrics. If a direct citation is not available, label the sentence explicitly as 'general background knowledge' (it already is) and keep it succinct."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnotes currently contain the text 'Source: kb_ai_101_tipu_pdf_page_3_1' etc. This is functional but inconsistent with the rest of the document's citation style (some sections use \footnote{Source: ...}, others use numbered kb keys).",
+      "required_fix": "Normalize citation style: either convert the footnote text to match the handbook's citation macro (e.g. use the cite_key only or a consistent textual citation) or keep the current literal source strings but ensure they follow the project's preferred LaTeX citation conventions."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The bullets list the tools and licensing notes correctly, but do not explicitly mention a recommended quick operational check (e.g. teacher spot‑check of generated tests before distribution) that aligns with the handbook's checklist for verifying AI outputs.",
+      "required_fix": "Add a one‑sentence operational caution to each relevant bullet (particularly Copilot and Pokrok v matematice) recommending that teachers verify generated items (answer keys, explanations) before assigning to students; mark this recommendation as 'general background knowledge' or point to the 'Checklist pro kontrolu kvality AI‑odpovědí' in section 4.3/earlier."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "In the Copilot bullet, append a parenthetical: '(viz. sekce 4.2.2.1: Generování písemek pomocí Microsoft 365 Copilot ve Forms)' so readers can find the worked example immediately."
+    },
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the three bullets, turn the 'General background knowledge' sentence into a short 'Provozní poznámky' paragraph and add a pointer to the handbook artifacts, e.g.: 'Doporučení: pilotečně nasadit v malé skupině a ověřit kvalitu vygenerovaných materiálů před širším nasazením (viz Checklist pro kontrolu kvality AI‑odpovědí a Pilotní nasazení a metriky úspěchu).' If you cannot cite those sections directly here, keep the sentence labelled as general background knowledge."
+    },
+    {
+      "target": "latex footnotes",
+      "edit_instruction": "Replace the footnote bodies to match the document citation style, e.g. '\\footnote{kb_ai_101_tipu_pdf_page_3_1}' or use the project's citation macro to avoid verbose 'Source:' text."
+    },
+    {
+      "target": "each tool bullet",
+      "edit_instruction": "Add a one‑line operational caution for teachers to verify AI outputs before assigning to students; either mark as 'general background knowledge' or add a cross‑reference to the checklist for quality control."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_36_1 (evidence for note about tools generating tests and explanations)",
+    "kb_ai_101_tipu_pdf_page_7_1 (additional grounding for operational pilot recommendations and checklists)",
+    "kb_ai_101_tipu_pdf_page_21_2 (examples of tool workflows for feedback and integration)"
+  ]
+}

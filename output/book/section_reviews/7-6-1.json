@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several operational recommendations are marked as \"general background knowledge\" (SSO/LMS integration, audit/logging for GDPR, test pilot steps). These are reasonable, but statements about audit/logging and GDPR compliance are non-trivial and would benefit from an explicit cross‑reference to the institutional/privacy sections (e.g. 8.3 or 2.2 in the outline) or a supporting citation from the KB.",
+      "required_fix": "Add explicit cross‑references or a supporting footnote to the relevant sections (e.g. 'See sekce 8.3 Autentizace, autorizace a auditní stopy' and/or 2.2 Ochrana soukromí a GDPR) or include a short citation from the KB excerpts that addresses audit/logging and GDPR."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The checklist omits an explicit check for the required 'AI‑usage statement' (transparentní deklarace AI‑použití) that is specified elsewhere in the memory/context (section 7‑5).",
+      "required_fix": "Add an item to the pre‑pilot checklist requiring that the course include the AI‑usage statement field or at least confirm how AI usage will be declared and collected, with a cross‑reference to the AI‑usage policy described in the previous section."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure is generally correct, but footnotes are placed inside itemize entries. For clarity and typesetting consistency, footnote markers should follow the clause punctuation (e.g. after the sentence) and consider using \\item[] or a nested \\paragraph for the short checklist header.",
+      "required_fix": "Move footnote markers to follow the relevant sentence punctuation and consider formatting the short checklist as a \\subsubsection or starting the enumerate on a new paragraph for readability."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section mixes concrete, cited examples (Minecraft Education, Microsoft tools) with higher‑level 'general background knowledge' items. Some readers may expect brief concrete examples or links showing how to verify license availability and distribution of user accounts.",
+      "required_fix": "Add one or two brief actionable examples (e.g. 'ask IT for a list of licensed products in the faculty Microsoft 365 tenant' or 'confirm whether Copilot features are enabled for the tenant') or cross‑reference the relevant KB pages already cited."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the bullet 'Nastavení auditování a logování použití nástrojů', add: '(viz sekce 8.3: Autentizace, autorizace a auditní stopy; viz též 2.2 pro GDPR‑požadavky).' Place a footnote pointing to the KB section covering audit/logging if available."
+    },
+    {
+      "target": "checklist",
+      "edit_instruction": "Insert a new checklist item (between current items 1 and 2 or as item 2): 'Ověřit mechanismus sběru AI‑usage statement a zajištění transparentnosti (povinné pole při odevzdání artefaktu nebo jiný proces pro sběr deklarací dle interního šablonového textu).' Cross‑reference the AI‑usage requirement from section 7‑5."
+    },
+    {
+      "target": "latex formatting",
+      "edit_instruction": "Move each footnote marker to immediately follow the end of the sentence it supports (after the period). Consider starting the 'Krátký checklist...' on a new paragraph (e.g. add a blank line or \\medskip before the enumerate) and, for visual hierarchy, use \\subsubsection*{Krátký checklist...} if aligned with document style."
+    },
+    {
+      "target": "examples",
+      "edit_instruction": "For the 'Minimální technické požadavky' bullet, add one concrete verification step: 'Ověřte export výsledků do LMS – proveďte export z nástroje (např. Forms) a import do testovací kurzu v Moodle, zkontrolujte metadata a přiřazení uživatelů.' Mark this as an actionable example."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_15_2 (Minecraft Education license details) -- already cited but include if more context needed",
+    "kb_ai_101_tipu_pdf_page_36_1 (Microsoft 365 Copilot / Forms examples) -- already cited; request extended excerpt if available",
+    "kb:AI - 101 tipu.pdf section 8.3 or page covering 'auditní logy' and GDPR (to support the audit/logging claim)",
+    "kb:AI - 101 tipu.pdf section 2.2 (Ochrana soukromí a GDPR) for explicit guidance on logging/audit requirements in educational deployments"
+  ]
+}

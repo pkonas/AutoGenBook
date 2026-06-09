@@ -1,0 +1,88 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T154622Z",
+  "input": {
+    "section_title": "Zavedení do praxe, etika a hodnocení efektivity",
+    "node_key": "3",
+    "section_latex": "Praktické kroky pro zavedení AI do kurzu začínají jasným plánováním: stanovte výukové cíle a metriky úspěchu, definujte, které části výuky budou automatizovány nebo podpořeny AI, a připravte kontrolní body pro pilotní fázi \\cite{node_2-5}. Doporučený workflow (zjednodušeně): \n\\begin{enumerate}\n  \\item Definice cíle a formátu zásahu AI (co má nástroj dělat, jaké výstupy poskytne) \\cite{node_2-5}.\n  \\item Příprava šablony promptu / konfigurace (archivovat verze pro audit) \\cite{node_2-5}.\n  \\item Generování první verze, lokální kontrola a úprava učitelem \\cite{node_2-5}.\n  \\item Pilotní nasazení s omezenou skupinou studentů a sběr metrik (čas, kvalita, spokojenost, výsledky) \\cite{node_2-5}.\n  \\item Iterativní úpravy na základě měření a rozšíření do celého kurzu \\cite{node_2-5}.\n\\end{enumerate}\n\nKrátký rozhodovací strom pro výběr nástroje (praktické otázky):\n\\begin{itemize}\n  \\item Podporuje nástroj vaše požadované formáty (LMS, QTI/CSV, multimédia)? Pokud ne, uvažujte o export‑importních řešeních nebo jiném nástroji \\cite{node_2-5}.\n  \\item Je model transparentní a editovatelný (možnost upravovat výstupy a uchovávat prompty)? Pokud ne, vyžadujte záruky pro audit a provizi provenance \\cite{node_2-5}.\n  \\item Vyhovují bezpečnostní požadavky (možnost on‑premise nebo zpracování bez sdílení citlivých dat)? Pokud ne, zvažte právní/IT opatření nebo jiný produkt \\cite{node_2-5}.\n\\end{itemize}\n\nNavrhované metriky pro hodnocení přínosu (měřitelné ukazatele):\n\\begin{itemize}\n  \\item Úspora času učitelů při přípravě a hodnocení (porovnat před/po) \\cite{node_2-5}.\n  \\item Zlepšení výsledků učení v cílových aktivitách (porovnání výkonu pilotní a kontrolní skupiny) \\cite{node_2-5}.\n  \\item Spokojenost studentů a učitelů se službou (ankety) \\cite{node_2-5}.\n  \\item Kvalita generovaných materiálů (náhodná kontrola, míra oprav) a sledování provenance promptů \\cite{node_2-5}.\n\\end{itemize}\n\nEtika, ochrana dat a governance: vybírejte nástroje s podporou datového zabezpečení a možností nasazení on‑premise; transparentně komunikujte studentům, jak jsou jejich data využívána, a uchovávejte prompty/versioning pro audit \\cite{node_2-5}. \n\nPoznámky označené jako general background knowledge:\n\\begin{itemize}\n  \\item Je vhodné vytvořit interní pravidla (governance) a postup eskalace na člověka v případě pochybností — doporučení lze připravit na úrovni fakulty nebo instituce (general background knowledge).\n  \\item Profesní rozvoj učitelů (workshopy, ukázkové scénáře, podpora IT) zvyšuje šanci úspěšného přijetí technologií (general background knowledge).\n  \\item Rizika jako zkreslení dat, bezpečnost nebo vliv na akademickou poctivost je třeba monitorovat a řešit v příslušných politikách (general background knowledge).\n\\end{itemize}\n\nKrátká ukázka struktury kapitoly / článku pro interní dokumentaci pilotu:\n\\begin{itemize}\n  \\item Cíl a očekávané přínosy\n  \\item Vybraný nástroj a odůvodnění (formáty, bezpečnost, transparentnost) \\cite{node_2-5}\n  \\item Plán pilotu: časový harmonogram, metriky, zodpovědnosti\n  \\item Výsledky měření a doporučení dalšího postupu\n  \\item Archivovaná verze promptů / konfigurací a záznamy o kontrole kvality \\cite{node_2-5}\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- Tvorba a adaptace učebních materiálů pomocí AI: Praktické postupy pro generování cvičení, studijních opor a multimediálního obsahu s kontrolou akademické kvality: cílem zrychlit tvorbu materiálů při zachování souladu s výukovými cíli; postupuje se iterativně (AI návrh → učitel upraví a validuje → pilot → úpravy). (from section only) (first: 2-5)\n- Checklist výběru nástrojů pro tvorbu obsahu: Krátký seznam požadavků při výběru nástroje: podpora potřebných formátů (LMS, QTI/CSV, multimédia), transparentnost modelu a editovatelnost výstupů, řízení autorských práv/provenance a možnosti datového zabezpečení nebo on‑premise nasazení. (from section only) (first: 2-5)\n- Workflow tvorby obsahu pomocí AI: Krok‑za‑krok workflow: 1) definujte výukové cíle a formát; 2) vytvořte šablonu promptu; 3) generujte první verzi; 4) učitel kontroluje správnost, shodu s cíli, obtížnost, inkluzi a rizika; 5) pilot, sběr metrik a finalizace/integra ce do LMS. (from section only) (first: 2-5)\n- Šablona promptu (prompt template): Doporučený artefakt v workflow: připravená struktura promptu používaná pro konzistentní generování výukových materiálů, kterou následně archivovat a iterativně upravovat. (from section only) (first: 2-5)\n- Kontrola kvality materiálů generovaných AI: Postupy kontroly kvality: učitel nastaví cíle a šablony, AI vygeneruje varianty, provede se náhodná kontrola; zajistit faktickou správnost, respekt k autorským právům, inkluzi, archivaci promptů a měření přínosu (čas, kvalita, spokojenost, výsledky). (from section only) (first: 2-5)\n- Archivace promptů: Požadavek uchovávat prompt šablony a jejich verze jako součást workflow pro sledovatelnost a opakovatelnost generování materiálů. (from section only) (first: 2-5)\n\nCITATIONS:\n- node_1 (node: 1)\n- node_2-1 (node: 2-1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n- 2-4 (node: 2-4)\n- 2-5 (node: 2-5)\n\nOPEN THREADS:\n- Technické detaily integrace podporovaných formátů (QTI/CSV, LMS import, multimediální soubory) a konkrétní ex...",
+    "previous_sections": "The title of part 1 sections ago is Tvorba a adaptace učebních materiálů pomocí AI, and the content is as follows.\nÚčel a zásady\n\\begin{itemize}\\item Cílem zrychlit tvorbu cvičení, studijních opor a multimédií při zachování akademické kvality a souladu s výukovými cíli; pracujte iterativně: AI navrhne, učitel upraví a validuje, pilot a úpravy.\\end{itemize}\nVýběr nástrojů — krátký checklist\n\\begin{itemize}\\item Podpora vašich formátů (LMS, QTI/CSV, multimédia), transparentnost modelu a editovatelnost, řízení autorských práv/provenance a datové zabezpečení/nasazení on‑premise.\\end{itemize}\nWorkflow (krok‑za‑krok)\n\\begin{enumerate}\\item Definujte výukové cíle a formát; vytvořte šablonu promptu; generujte první verzi; učitel kontroluje správnost, shodu s cíli, obtížnost, inkluzi a rizika; pilot, sběr metrik a finalizace/integace do LMS.\\end{enumerate}\nUkázka a kontrola kvality\n\\begin{itemize}\\item Příklad: učitel nastaví cíle a šablony, AI vygeneruje varianty, náhodná kontrola; zajistit faktickou správnost, respekt k autorským právům, inkluzi, archivaci promptů a měření přínosu (čas, kvalita, spokojenost, výsledky).\\end{itemize}\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "pedagogy",
+        "severity": "major",
+        "description": "Proposed metriky (úspora času, zlepšení výsledků, spokojenost, kvalita materiálů) jsou užitečné, ale nejsou v textu operationalizovány — chybí konkrétní definice, způsob sběru dat, periody baseline vs. pilot, a metody analýzy (např. jak porovnat pilotní a kontrolní skupinu). Bez toho jsou metriky těžko implementovatelné.",
+        "required_fix": "Doplnit krátké, konkrétní instrukce pro každou metriku: jak ji měřit (jednotky), jakou mám použít období pro baseline, minimální vzorek/periodu pro smysluplné srovnání a doporučené metriky popisné i inferenční (bez uvádění nových statistických údajů). Pokud jsou k dispozici příklady/šablony z node_2-5, odkazovat na ně."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Sekce obsahuje užitečný rozhodovací strom a workflow, ale chybí konkrétní příklady nebo ukázky (např. krátký vzor šablony promptu, ukázka pilotního harmonogramu, vzor ankety pro spokojenost).",
+        "required_fix": "Přidat jeden nebo dva krátké příklady (označené jako ukázka), např. 4–6týdenní pilotní harmonogram s klíčovými kontrolními body a vzor položek ankety pro studenty/učitele. Pokud není možné přímo doplnit obsah, přidat poznámku „doplňit příklady“ a případnou referenci na oddíl 2.5."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "LaTeX je formálně správný, ale dokument opakovaně odkazuje na jeden citační klíč \\cite{node_2-5}. Je třeba ověřit, že tento citační záznam existuje v bibliografii a/nebo nahradit některé opakované citace křížovými odkazy na sekci 2.5 pro větší čitelnost.",
+        "required_fix": "Zkontrolovat .bib, že existuje položka node_2-5. Uvažovat o nahrazení některých opakovaných \\cite{node_2-5} křížovým odkazem na interní sekci (např. „viz §2.5“) nebo konsolidovat citace tak, aby text nebyl přecitován."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "Obsah částečně duplikuje body uvedené v předchozí sekci 2.5 (workflow, checklist). Duplicitní text může zmást čtenáře nebo zvětšit rozsah bez přidané hodnoty.",
+        "required_fix": "Buď zkrátit opakování a odkázat na detailní popis v sekci 2.5 (např. „viz 2.5“), nebo rozšířit tuto sekci o konkrétní implementační detaily/příklady, které v 2.5 chybí."
+      },
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "V části jsou označené položky jako ‚general background knowledge‘ — to je v pořádku, ale některé výroky (např. že profesní rozvoj zvyšuje šanci přijetí) by bylo vhodné explicitně podpořit buď odkazem, nebo poznámkou, že jde o obecné doporučení.",
+        "required_fix": "Buď ponechat tyto položky jako ‚general background knowledge‘ (jak je nyní), nebo přidat krátkou poznámku 'doporučení založené na obecné praxi' a/nebo odkaz na relevantní literaturu/praxi pokud je k dispozici."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "Praktické metriky",
+        "edit_instruction": "U každé metriky přidat 1–2 věty definující, jak ji přesně měřit. Např. pro ‚úsporu času učitelů‘: měřit průměrný čas (v minutách/hodinách) strávený přípravou před zavedením (baseline) a během pilotu na stejné typy aktivit; uvést, kolik učitelů/dní sbírat data, a doporučit statistickou metodu pro porovnání (popisně nebo test). Neuvádět konkrétní statistické výsledky."
+      },
+      {
+        "target": "Pilotní plán (kapitola/odstavec)",
+        "edit_instruction": "Přidat krátký vzor pilotního harmonogramu (označený jako příklad), například: fáze přípravy (1–2 týdny), fáze pilotu s malou skupinou (2–4 týdny) se sběrem metrik v reálném čase, analýza výsledků (1 týden), iterace a nasazení. Pokud nechcete specifikovat přesná čísla, popsat typické fáze a klíčové kontrolní body, které musí pilot splnit."
+      },
+      {
+        "target": "Archivace promptů",
+        "edit_instruction": "Doplnit krátkou instrukci, co by měla obsahovat archivovaná verze promptu (verze promptu, kontext/parametry, vstupy/outputs ukázky, datum a autor) a upozornit na nutnost uchovávání provenance pro audit."
+      },
+      {
+        "target": "Etika a souhlas se zpracováním dat",
+        "edit_instruction": "Doplnit vzorovou, stručnou formulaci, kterou může instituce použít pro informování studentů (např. ‚studenti budou informováni o tom, jaká data jsou shromažďována, jak budou použita a kdo k nim bude mít přístup; dává se možnost odepřít souhlas‘) — případně ponechat jako položku k dopracování s právním oddělením."
+      },
+      {
+        "target": "Reference a křížové odkazy",
+        "edit_instruction": "Upravit citace tak, aby se vyhnuly nadměrnému opakování \\cite{node_2-5} (např. uvést jednu souhrnnou citaci na konci odstavce nebo dodat křížový odkaz na 2.5 tam, kde je obsah výslovně stejný). Zkontrolovat, že klíč node_2-5 existuje v bibliografii."
+      }
+    ],
+    "retrieval_queries": [
+      "Příklady pilotních plánů pro zavedení AI ve výuce (skrátené šablony nebo osvědčené postupy) — zdroje nebo interní příklady zmíněné v node_2-5",
+      "Šablony měření úspory času učitelů při zavádění nástrojů (jak sbírat časové záznamy, doporučené periody baseline vs. pilot)",
+      "Vzory znění informovaného souhlasu / komunikace studentům o zpracování jejich dat nástroji AI v akademickém prostředí",
+      "Příklad struktury archivace promptů/provenance (která metadata uchovávat) z praktických implementací"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 2307,
+      "completion_tokens": 1932,
+      "total_tokens": 4239
+    },
+    "cost_usd": 0.00444075,
+    "total_cost_usd": 0.15091975,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

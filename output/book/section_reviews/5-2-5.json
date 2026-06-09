@@ -1,0 +1,55 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Některé praktické doporučení jsou označeny jako \"general background knowledge\" (např. role v týmu, metriky pro reflektivní hodnocení, rubrika pro hodnocení contribution). Tyto body jsou pedagogicky správné, ale v textu chybí explicitní cross‑reference na související části příručky, které by poskytly čtenáři konkrétní šablony či pravidla (např. rubriky v sekci 5.4 nebo pravidla pro ochranu dat v kapitole 2.2).",
+      "required_fix": "Buď doplnit konkrétní interní odkazy (např. 'viz sekce 5.4 Rubriky' a 'viz 2.2 Ochrana soukromých údajů'), nebo redukovat formulaci na kratší, jasně označené BG‑poznámky."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Drobná stylistická/pravopisná nekonzistence v LaTeXu (např. 'kriteria' místo 'kritéria', některé diakritické chyby).",
+      "required_fix": "Opravit pravopisné chyby a zkontrolovat diakritiku v celém latex_body; případně konsolidovat použití závorek a interpunkce v položkách itemize/enumerate."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Položka o \"vytvoření agenta (Copilot) může usnadnit ...\" může čtenáře uvést v omyl ohledně rozsahu autonomie takového agenta a potřeby lidského dohledu (např. eskalace v případě nízké jistoty). Text neodkazuje na existující pravidla eskalace nebo předkontroly (předkontrola / pravidla eskalace jsou zmíněny v paměti kontextu).",
+      "required_fix": "Doplnit krátkou poznámku o nezbytnosti nastavení pravidel eskalace/předkontroly (např. 'nasadit podle pravidel předkontroly a eskalace, viz sekce 4‑8 / Předkontrola') nebo přidat cross‑reference na příslušnou šablonu."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce uvádí 'metriky a artefakty pro reflektivní hodnocení' bez konkrétního příkladu rubriky nebo krátkého ukázkového formuláře pro sebehodnocení/peer review, což by učitelům usnadnilo implementaci.",
+      "required_fix": "Přidat krátký ukázkový vzor (1–2 položky) pro sebehodnocení/peer review nebo explicitní odkaz na šablony v přílohách (např. 'viz Příloha / 9.9 Prompt Library / 5.4 Rubriky'). Pokud není možné přidat vzor, výslovně naznačit, že se jedná o doporučení k rozpracování a odkázat na rubriky."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Krátká definice",
+      "edit_instruction": "Nechte text jako 'general background knowledge', ale zkraťte a přidejte cross‑reference: 'Krátká definice (general background knowledge): úlohy navržené pro společnou práci; hodnotí se artefakt, individuální příspěvek a komunikace (viz sekce 5.4 Rubriky).'"
+    },
+    {
+      "target": "Praktické doporučení — role v týmu",
+      "edit_instruction": "Doplňte větu s odkazem na šablony: 'Definujte jasné role v týmu ... (viz šablona rubrik v sekci 5.4).'"
+    },
+    {
+      "target": "Praktické doporučení — OneNote / rukopis",
+      "edit_instruction": "Udržet současnou formulaci, ale zvážit doplnění přesného cross‑reference na stránku s detailním postupem převodu rukopisu (např. požádat o doplnění citačního klíče pro page_13_2 pokud je k dispozici)."
+    },
+    {
+      "target": "Praktické doporučení — Copilot / agent",
+      "edit_instruction": "Přidat krátkou poznámku: 'Agenty používejte s jasně definovanými pravidly eskalace a lidského dohledu (viz Předkontrola a Pravidla eskalace v sekci 4‑8).'"
+    },
+    {
+      "target": "Krátký příklad workflow",
+      "edit_instruction": "U kroku 3 (reflexe a hodnocení) doporučit explicitně použít rubriku a krátký formulář sebehodnocení (např. 'přiložte 3‑řádkovou reflexi + políčko pro self grade / peer review; viz sekce 5.4')."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115_page_13_2 OneNote převod rukopisu na text — detailní pasáž",
+    "sekce 5.4 Rubriky transparentnost milestone‑based assessment — konkrétní text nebo ukázková rubrika z příručky"
+  ]
+}

@@ -1,0 +1,16 @@
+\babel@toc {czech}{}\relax 
+\contentsline {chapter}{\numberline {1}Úvod}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Případové studie z univerzit (praktické příklady)}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Adaptivní úlohy v MOOC a LMS}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Automatizované hodnocení krátkých odpovědí}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Automatizované hodnocení kódu v technických kurzech}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Generování výukových materiálů a testových otázek}{3}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Chatboti pro studentské konzultace a tutorování}{3}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Praktický pilot a checklist nasazení}{3}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Nástroje, šablony a konkrétní postupy pro učitele}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Přehled praktických nástrojů a rychlého nastavení}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Šablony promptů a vzory pro přípravu lekcí a úloh}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Rubriky a pracovní postupy pro hodnocení (včetně LLM{-}assisted)}{5}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom}{6}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Implementace v kurzu: plánování a řízení rizik}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Etika, ochrana soukromí a ověřování výstupů}{8}{chapter.5}%

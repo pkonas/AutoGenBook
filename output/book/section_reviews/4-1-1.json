@@ -1,0 +1,70 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several bullets are marked as 'General background knowledge' (metrics, MVP items, checklist items). These are acceptable as general guidance, but some specific recommendations in the section would benefit from explicit KB citations that already exist in the knowledge base (e.g. audit/log fields, 'Pokrok v matematice', Minecraft licensing, image‑editing features in Windows/Photos).",
+      "required_fix": "Add targeted footnotes or cross‑references to the relevant KB excerpts: kb_ai_101_tipu_pdf_page_8_1 for audit/log fields and 'Pokrok v matematice' workflows; kb_ai_101_tipu_pdf_page_15_2 for Minecraft Education licensing note; kb_ai_101_tipu_pdf_page_53_1 for image/background‑removal functionality in Paint/Photos."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "There is an inline '\\\\' inside the item 'orientační Q\\\\ \\&A' which is an unnecessary linebreak command inside an \\item and may cause LaTeX formatting issues.",
+      "required_fix": "Remove the '\\\\' and write 'orientační Q\\&A nad sylabem ...' (escape the ampersand as already done)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The recommended time plan gives durations but does not state ownership/deliverables or explicit success criteria per phase, which reduces operational clarity for guarantors.",
+      "required_fix": "Augment the time plan with brief deliverables and owners per phase (e.g. '4 týdny — definice požadavků a dat: owner = garant + IT; deliverable = scope doc & DPIA decision') or cross‑reference the implementation checklist/roles in section 4.1.5 or 9.2."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section mentions 'sběr metrik a logů (anonymizovaně)' but does not list the specific audit fields recommended elsewhere in the KB (prompt, model/service/version, datetime, validator, decision) found in the redesign checklist.",
+      "required_fix": "Either include the recommended audit/log fields directly in the section or add a cross‑reference (and citation) to the redesign checklist (kb_ai_101_tipu_pdf_page_8_1) so readers know which fields to collect."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The MVP scope and key functions are general; adding 1–2 concrete starter pilot examples (aligned with earlier chapters) would help guarantors pick an initial scenario.",
+      "required_fix": "Add short explicit examples for MVP choices such as starting with 'Pokrok v matematice' (training/exercise generation) or a Minecraft Education Hour of Code pilot, with appropriate citations (kb_ai_101_tipu_pdf_page_8_1 and kb_ai_101_tipu_pdf_page_15_2)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Klíčové funkce — obrazová úprava bullet",
+      "edit_instruction": "Keep the example but attach the existing KB footnote: add footnote referencing kb_ai_101_tipu_pdf_page_53_1 (already available) and rephrase slightly to 'pomoc s tvorbou/úpravou didaktických a multimediálních materiálů (např. základní úpravy obrázků — odebrání pozadí v Paint a Funkcích aplikace Fotografie ve Windows)\\footnote{Source: kb_ai_101_tipu_pdf_page_53_1}.'"
+    },
+    {
+      "target": "Klíčové funkce — integrace s nástroji pro sledování pokroku bullet",
+      "edit_instruction": "Add a footnote to kb_ai_101_tipu_pdf_page_8_1 and, optionally, clarify the example: 'integrace s nástroji pro sledování pokroku (např. funkce \"Pokrok v matematice\")\\footnote{Source: kb_ai_101_tipu_pdf_page_8_1} — možnost použít tato data jako inspiraci pro metriky učení a cílené cvičení.'"
+    },
+    {
+      "target": "Klíčové funkce — orientační Q&A bullet",
+      "edit_instruction": "Remove the '\\\\' linebreak and render as 'orientační Q\\&A nad sylabem a často se vyskytujícími dotazy (scope omezen na daný modul) (General background knowledge)'."
+    },
+    {
+      "target": "Metriky úspěchu / sběr metrik a logů (MVP)",
+      "edit_instruction": "Either add an inline list of recommended audit/log fields or add a footnote to kb_ai_101_tipu_pdf_page_8_1. Suggested small insertion: '...sběr metrik a logů pro evaluaci (anonymizovaně) — doporučená pole auditního záznamu: prompt, model/služba/verze, datum/čas, validátor, rozhodnutí\\footnote{Source: kb_ai_101_tipu_pdf_page_8_1}.'"
+    },
+    {
+      "target": "Doporučený časový plán",
+      "edit_instruction": "Augment each phase with a one‑line deliverable and owner, or add a reference to section 4.1.5 ('Provoz, transparentnost a etika') for operational roles. Example: '4 týdny — definice požadavků a dat (deliverable: dokument rozsahu, odpovědná osoba: garant + IT; zahrnout DPIA rozhodnutí)'."
+    },
+    {
+      "target": "Prioritní rozsah první verze (MVP)",
+      "edit_instruction": "Add explicit starter examples to guide selection: e.g. 'Preferované piloty: 1) Pokrok v matematice (generování cvičení + sledování pokroku)\\footnote{Source: kb_ai_101_tipu_pdf_page_8_1}; 2) Minecraft Education — krátká Hour of Code aktivita (ověřit licenci předem)\\footnote{Source: kb_ai_101_tipu_pdf_page_15_2}.'"
+    },
+    {
+      "target": "Checklist pro schválení začátku projektu",
+      "edit_instruction": "Add an explicit item linking to DPIA template: 'vymezený rozsah dat a přístupů (GDPR/DPIA posouzení, využít vzorné DPIA v Přílohách — viz 9.3)'. Use existing internal cross‑reference rather than inventing external citation."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_8_1 auditní záznam prompt model verze validátor rozhodnutí (pro doplnění log fields)",
+    "kb_ai_101_tipu_pdf_page_15_2 Minecraft Education licence Hour of Code školní licence Microsoft 365 A3 A5 (pro doplnění poznámky o licenci)",
+    "kb_ai_101_tipu_pdf_page_53_1 Paint Photos odebrání pozadí Copilot (pro doplnění multimediálních funkcí)"
+  ]
+}

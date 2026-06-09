@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section repeatedly cites kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024 (DPIA / data plan / human‑in‑the‑loop). While these points are present in the document memory, the specific excerpt from that KB is not included among the provided RETRIEVED EXCERPTS. Current claims about mandatory prechecks (DPIA, exclusion of identifiers, who approves AI outputs) must be clearly supported by an explicit excerpt or pointer in the KB.",
+      "required_fix": "Attach or reference the exact retrieved excerpt (page/location) from kb_malinka_chatgpt_ve_vyuce... that supports these DPIA and human‑in‑the‑loop statements, or replace the unreferenced claims with a qualified phrase labelled as 'general background knowledge' if the source cannot be provided."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section uses the phrase 'general background suggestion' in some activity headers and 'general background knowledge' elsewhere. This is slightly inconsistent with labels used in previous sections.",
+      "required_fix": "Standardize the label across the document (prefer 'general background knowledge' as used elsewhere) to avoid confusion about which items are normative vs. illustrative."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX contains a verbatim environment nested inside enumerate. Some document classes or setups require \\\\usepackage{verbatim} or specific handling for verbatim inside lists.",
+      "required_fix": "Confirm the document preamble loads the verbatim package (or use \\texttt or a framed environment) and test compile of the enumerate + verbatim nesting. If verbatim causes compilation issues, move the sample declaration outside the enumerate or use \\begin{minipage}[t]{...}\\texttt{...}\\end{minipage}."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Phrases such as 'schválené a bezpečné instance' (approved and safe instance) and instructions about 'human‑in‑the‑loop' are high-level and could be ambiguous for practitioners (which instance counts as 'approved'; what exactly constitutes final approval/escalation).",
+      "required_fix": "Add a short, concrete pointer or one‑sentence checklist: e.g., verify enterprise/school license and DPA with IT, confirm who (role/title) is authorized to sign off outputs, and where to log escalations. Cite the earlier 'Rychlý 6‑krokový workflow' guidance or the DPIA template (if available)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Some activities (e.g., 'Icebreaker: Co je AI?', 'Rychlá kreativní aktivita') would benefit from a short sample teacher prompt or one concrete example of a student task to make replication easier.",
+      "required_fix": "Add one short example prompt per activity (kept generic and clearly labelled as an illustration). If adding concrete prompts would introduce unsupported factual claims about tool behavior, label those prompts as 'illustrative examples' and avoid specific output claims."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "At the start of the section (first paragraph) explicitly reference the DPIA and human‑in‑the‑loop excerpt by adding the exact citation to kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024 (page and chunk) so readers can verify the recommended safety steps. Example: 'Před každou aktivitou si ověřte základní bezpečnostní kroky (viz kb_malinka..., str. X): provedení minimálního DPIA / datového plánu, vyloučení citlivých identifikátorů a jasné určení, kdo schvaluje výstupy AI.'"
+    },
+    {
+      "target": "Icebreaker activity",
+      "edit_instruction": "Add one short, illustrative teacher prompt for Minecraft Education (labelled 'illustrative prompt/example', not a claim about outputs). E.g.: 'Ukázkový prompt pro hodinu kódu: \"Proveďte jednoduchou aktivitu, kde agent v Minecraftu sbírá položky za účelem ukázat princip odměny; žáci popíší, jak agent mění chování při odměně.\" '"
+    },
+    {
+      "target": "Praktické cvičení: Pokrok v matematice",
+      "edit_instruction": "Add a brief reminder to verify which features (e.g., requirement to upload student solutions) are enabled under your school's license, and cite kb_ai_101_tipu (page 8) which documents how 'Pokrok v matematice' handles solution uploads and pre‑grading."
+    },
+    {
+      "target": "Dvoufázový workshop",
+      "edit_instruction": "Clarify 'schválená a bezpečná instance' by adding: 'ověřte enterprise/school variantu a DPA u svého IT (viz sekce Rychlý 6‑krokový workflow a ověření licence Copilot v kap. 1.6).' Include an instruction to record where AI interactions/logs are stored for later audit."
+    },
+    {
+      "target": "Checklist",
+      "edit_instruction": "Add one checklist item: 'Je potvrzená licence/DPA s poskytovatelem pro použitý nástroj? (ano / ne)' and cite kb_ai_101_tipu page 3 (availability of Microsoft 365 Copilot and license variants) if relevant."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024 page 12 DPIA human‑in‑the‑loop citation",
+    "kb_ai_101_tipu_pdf page 3 Microsoft 365 Copilot availability school license DPA",
+    "kb_ai_101_tipu_pdf page 8 Pokrok v matematice details (uploading solutions, pre‑grading)",
+    "kb_ai_101_tipu_pdf page 15 Minecraft Education Hour of Code free vs paid A3/A5 license",
+    "kb_ai_101_tipu_pdf page 51 Designer features and example activities"
+  ]
+}

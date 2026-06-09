@@ -1,0 +1,51 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some procedural recommendations (micro‑workflow steps 1, 3, 4 and the final 'Poznámka pro praxi') are presented as factual or prescriptive but lack explicit grounding/citation. The section's first sentence is marked as 'General background knowledge', yet the workflow and practical note are not explicitly labeled, which violates the rule to mark unsupported statements as general background knowledge or back them by a source.",
+      "required_fix": "Either add supporting citations from the KB for these procedural recommendations or explicitly label the micro‑workflow and the 'Poznámka pro praxi' as 'General background knowledge' (and keep them concise)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Inconsistent use of the 'General background knowledge' label: it appears at the start of the section but not for other advisory paragraphs (micro‑workflow, Poznámka). This may confuse readers and conflicts with the grounding rules.",
+      "required_fix": "Make labeling consistent: mark each paragraph that contains general, advisory, or non‑KB‑sourced guidance with '(General background knowledge)' or add KB citations where available."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnotes are embedded inside itemize/enumerate items (which is allowed) but could produce layout issues if the document class/style treats footnotes differently. Also the explicit inline label '(General background knowledge)' appears as plain text; consider formatting consistently or using a LaTeX macro/comment to avoid layout surprises.",
+      "required_fix": "Optionally move footnote markers to the end of full sentences for clarity and ensure the '(General background knowledge)' label is typeset consistently (e.g., as a short italic note) or replaced with a macro used consistently across the manual."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section briefly recommends actions (e.g., 'uložte verzi pro revizi') that are sensible pedagogical practices but not referenced to KB evidence. Readers might expect a short rationale or link to best practices in evaluation/quality control.",
+      "required_fix": "Either add a one‑sentence rationale (as general background knowledge) explaining why saving versions and reviewing AI outputs is recommended, or cite an appropriate KB excerpt if available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Mark the micro‑workflow and the final 'Poznámka pro praxi' explicitly as '(General background knowledge)'. For example, insert '(General background knowledge)' before 'Krátký pracovní postup pro učitele...' and before 'Poznámka pro praxi: ...'."
+    },
+    {
+      "target": "item bullets",
+      "edit_instruction": "Move each footnote marker to the end of the full bullet sentence (if not already) for clearer association between claim and source. Ensure that the Copilot and Pokrok v matematice bullets keep their existing footnotes (kb_ai_101_tipu_pdf_page_36_1 and kb_ai_101_tipu_pdf_page_8_1) and that the Minecraft bullet keeps kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "target": "micro‑workflow step 3–4",
+      "edit_instruction": "Either add a short parenthetical label '(General background knowledge)' to steps 3 and 4, or add a brief citation if a KB source that recommends reviewing AI outputs and keeping versions is available. Keep the steps concise."
+    },
+    {
+      "target": "Poznámka pro praxi",
+      "edit_instruction": "Prefix this paragraph with '(General background knowledge)' or add a KB citation if a source explicitly recommends manual review and adaptation of AI‑generated teaching materials."
+    }
+  ],
+  "retrieval_queries": [
+    "Is there a KB excerpt that explicitly recommends teachers to 'save versions for review' or to 'check and adapt AI outputs' (guidance to support workflow steps about reviewing and storing generated materials)?",
+    "KB evidence about licensing or accessibility of Microsoft 365 Copilot for schools (to support any note about availability/pricing or required licenses for using Copilot in education)."
+  ]
+}

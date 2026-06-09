@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several actionable technical/contractual recommendations are marked as \"general background knowledge\" (e.g. verifying SSO/autorizace, central access management and audit logs; requesting hosting/residency in acceptable jurisdiction). These are non‑trivial recommendations and currently lack explicit citations to the KB excerpts provided.",
+      "required_fix": "Add explicit citations to the relevant KB excerpts or internal sections that justify these recommendations (for example the parts of the AI‑101 guidance that discuss authentication/SSO, audit logging, data residency and DPA requirements), or rephrase them clearly as unreferenced general background guidance and keep them minimal."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Opening sentence states the choice is governed by \"three main criteria\" (sensitivity, integration requirements, operational/budget availability) but no KB excerpt is cited to support this particular triage framing.",
+      "required_fix": "Either add a supporting citation from the KB (e.g. the institutional/integration/security selection criteria in the AI‑101 / institutional chapters) or change wording to a more clearly framed recommendation (e.g. \"common criteria to consider include...\") and cite supporting KB passages such as the sections about enterprise selection, DPA/SLA and integration."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Some \\cite keys contain leading spaces and one \\cite{} uses multiple keys separated by a comma + space (e.g. \\cite{kb_malinka_..., kb_ai_101_...}). This can cause LaTeX citation issues or fail style checks.",
+      "required_fix": "Normalize all citation keys inside each \\cite{...} to a comma‑separated list without extra spaces and remove any leading/trailing spaces inside keys. Verify that every cited key matches an entry in the .bib file used for compilation."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section recommends initiating DPIA for student data (correct and cited to Malinka). However, it would be more consistent with earlier checklist material (previous sections/annexes) to point readers to the provided DPIA template (9.4) or the online repo for templates.",
+      "required_fix": "Add an explicit cross‑reference to the DPIA template in the appendices (9.4) or to the internal repository (ai.vut.cz) so readers know where to find the DPIA form and example."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Konkrétní kroky spolupráce s IT a právním oddělením' bullets are high‑level. Readers (guarantors/IT) may benefit from a short example of the 'krátký assessment' form fields or a minimal checklist of DPA/SLA items to request.",
+      "required_fix": "Either include a 1–2 sentence example of the minimal assessment form (fields: data types, user roles, integrations, expected retention, PII presence) or reference the checklist/template in the annexes/repo so implementers have a concrete artefact to use."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The RAG note is appropriately cautious but remains generic. Practical, pedagogically relevant constraints (e.g. examples of what to exclude from indexation or minimal pseudonymization approaches) are not given.",
+      "required_fix": "Add 2–3 short, concrete examples (e.g. \"do not index student photos or grade spreadsheets with direct identifiers; keep only hashed IDs and aggregated scores\") or point to the RAG blueprint in the appendices (9.5) where such specifics are available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Either add citations to KB passages that support the triage criteria (sensitivity, integration, operational/budget) or change wording to: \"Typické kritéria při rozhodování zahrnují: ...\" and cite AI‑101 and Malinka where selection/integration/security are discussed."
+    },
+    {
+      "target": "item 4 in 'Praktická doporučení' (SSO/autorizace)",
+      "edit_instruction": "Replace the parenthetical '(general background knowledge)' with a citation to the KB section discussing authentication/SSO/audit (or to the institutional integration guidance). If a direct KB excerpt is not available, keep the sentence but preface it with 'Obecné doporučení:' and keep it concise."
+    },
+    {
+      "target": "Smluvní příprava bullet",
+      "edit_instruction": "Add an explicit pointer to the annex/template for DPA content (e.g. the DPA checklist in 9.5 or the DPIA template 9.4) or cite the KB page that lists key DPA points."
+    },
+    {
+      "target": "Poznámka k RAG",
+      "edit_instruction": "Add one concrete do/don't example for indexation of student data (e.g. 'DO pseudonymize student identifiers before indexing; DON’T index raw gradebooks with names') and reference the RAG blueprint (9.5) if available."
+    },
+    {
+      "target": "all \\cite entries",
+      "edit_instruction": "Remove leading/trailing spaces inside citation keys and use comma-separated keys without extra spaces. Verify that every key has a corresponding .bib entry."
+    }
+  ],
+  "retrieval_queries": [
+    "AI - 101 tipu.pdf pages describing authentication, SSO, autorizace, auditní logy, and data residency / DPA (search for sections 8.1, 8.2, 8.3)",
+    "Malinka_ChatGPT_ve_vyuce_dva_roky_pote_2024.pdf page(s) that discuss DPIA and security impact analysis in more detail",
+    "Repository ai.vut.cz templates DPIA DPA assessment form and RAG blueprint (search for 'DPIA template', 'RAG blueprint', 'DPA checklist')",
+    "AI - 101 tipu.pdf page(s) that discuss hosting in acceptable jurisdiction or data residency for school licenses"
+  ]
+}

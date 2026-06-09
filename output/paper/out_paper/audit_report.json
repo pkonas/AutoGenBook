@@ -1,0 +1,232 @@
+{
+  "doc_kind": "paper",
+  "file_path": "D:\\Scripts\\autogenbook\\output\\paper\\out_paper\\Graph-Aware_Prompting_for_Reliable_Section_Generation.tex",
+  "counts_by_severity": {
+    "warning": 21
+  },
+  "counts_by_type": {
+    "numeric_claim_no_evidence": 21
+  },
+  "issues": [
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 8",
+      "snippet": "eometry}%\n\\geometry{a4paper=True,margin=25mm}%\n\\usepackage{amsmath}%\n\\usepackage{a",
+      "metadata": {
+        "number": "25"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 34",
+      "snippet": "able Section Generation}%\n\\author{gpt{-}5{-}mini}%\n\\date{\\today}%\n%\n\\begin{docume",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 44",
+      "snippet": "ctions. At generation time, the system (1) builds a section graph and schedules l",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 44",
+      "snippet": "ph and schedules leaf{-}first writing, (2) retrieves and injects relevant evidenc",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 44",
+      "snippet": "ts relevant evidence for each section, (3) produces JSON{-}constrained section ou",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 44",
+      "snippet": "SON{-}constrained section outputs, and (4) assembles a LaTeX manuscript with refs",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 61",
+      "snippet": "er makes three practical contributions: 1. a procedure for constructing a documen",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 61",
+      "snippet": "algorithm for section-level generation; 2. an evidence-injection and JSON-constra",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 61",
+      "snippet": "d facilitates automatic validation; and 3. an audit-oriented assembly process tha",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 63",
+      "snippet": " failure modes are discussed in Section 6.%\n\n%\n\\section{Related Work}%\n\n\n%\nThe fo",
+      "metadata": {
+        "number": "6"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 84",
+      "snippet": "ften treated separately in prior work: (1) an explicit document graph encoding se",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 84",
+      "snippet": "pendencies and prerequisite relations, (2) per‑section evidence retrieval and cit",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 84",
+      "snippet": " demand machine‑checkable outputs, and (3) a strict JSON schema plus assembly rul",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 94",
+      "snippet": "as compact JSON compatible with Section 3.2.\n\nEach node holds structured metadata (",
+      "metadata": {
+        "number": "3.2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 96",
+      "snippet": " edits, and evidence injection (Section 3.3).\n\nA leaf‑first scheduler traverses the",
+      "metadata": {
+        "number": "3.3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 98",
+      "snippet": "ed evidence (assembly checks in Section 3.5).\n\nPer‑node provenance and the machine‑",
+      "metadata": {
+        "number": "3.5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 100",
+      "snippet": "eoffs and evaluation appear in Sections 4 and 5.%\n\n%\n\\subsection{JSON schema for ",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 100",
+      "snippet": "and evaluation appear in Sections 4 and 5.%\n\n%\n\\subsection{JSON schema for sectio",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 199",
+      "snippet": "the pre-registered metrics from Section 4---citation coverage, unsupported-assert",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 200",
+      "snippet": "ication follows the protocol in Section 4.2 and reports unsupported proportions wit",
+      "metadata": {
+        "number": "4.2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 200",
+      "snippet": "nd reports unsupported proportions with 95\\% bootstrap CIs where possible; reviewe",
+      "metadata": {
+        "number": "95"
+      }
+    }
+  ],
+  "stats": {
+    "n_cites_found": 20,
+    "n_unknown_cites": 0,
+    "n_numeric_claims": 23,
+    "n_numeric_claims_without_evidence": 21,
+    "n_figures_referenced": 0,
+    "n_figures_missing": 0,
+    "numeric_claim_support_rate": 0.08695652173913049,
+    "cite_key_coverage_rate": 1.0
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "No concrete example prompt is included in the section. The supporting KB (kb_ai_101_tipu_pdf_page_36_1) contains a useful sample prompt and concrete wording for generating a test; including it would make the recommendation more actionable.",
+      "required_fix": "Insert the sample prompt from the KB (e.g. the 'Vygeneruj mi test ... Austrálie' example) as a short, cited example (cite: kb_ai_101_tipu_pdf_page_36_1) and/or add one concise generic prompt template for Forms-based test generation."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminology alternates between 'Copilot Chat' and 'Microsoft 365 Copilot' without an explicit, brief clarification of the distinction.",
+      "required_fix": "Add one sentence clarifying the difference (as supported by kb_ai_101_tipu_pdf_page_3_1): that the school A1 Office 365 includes the web/mobile Copilot Chat for free, while 'Microsoft 365 Copilot' refers to the paid add‑on integrated into Office apps. Keep wording tight and cite kb_ai_101_tipu_pdf_page_3_1."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The inline parenthetical label '(general background knowledge)' appears inside the itemize list — this is fine semantically but may look odd in final LaTeX. Also the section currently uses raw \\footnote{Source: ...} markers (consistent with other sections but consider using the repository's citation macro if one exists).",
+      "required_fix": "Either convert the '(general background knowledge)' note into a footnote (e.g. \\footnote{General background knowledge}) or format it in italics for readability. Optionally standardize citations to the document's usual citation macro (if available)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The recommendation to 'ověřování výstupů manuálně' is appropriate but high-level; instructors would benefit from a short, actionable verification checklist (e.g. 2–3 quick checks) tailored to generated tests.",
+      "required_fix": "Add a very short verification checklist (label as 'general background knowledge') such as: (1) confirm correct answers and scoring keys, (2) check question appropriateness for the target grade level, (3) scan for factual errors or biased content — keep it brief and explicitly marked as background guidance."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first paragraph (technical/licensing)",
+      "edit_instruction": "Add one clarifying sentence after the first two sentences: 'Pozn.: Office 365 A1 školní nabídka zahrnuje webovou/mobilní verzi Copilot Chat zdarma; Microsoft 365 Copilot je samostatný placený doplněk, který integruje funkce přímo v aplikacích (Word, Excel, PowerPoint, Forms, OneNote, Whiteboard). \\footnote{kb_ai_101_tipu_pdf_page_3_1}'"
+    },
+    {
+      "target": "paragraph about Forms integration",
+      "edit_instruction": "Insert the concrete prompt example from the KB to illustrate usage (cite: kb_ai_101_tipu_pdf_page_36_1). For example, add a short block: 'Ukázkový prompt (citace KB): \"Vygeneruj mi test na hodinu zeměpisu na téma Austrálie...\" \\footnote{kb_ai_101_tipu_pdf_page_36_1}'"
+    },
+    {
+      "target": "itemize list (first and second bullets)",
+      "edit_instruction": "Replace the inline '(general background knowledge)' tag by a footnote or italic note for visual consistency. Also expand the second bullet slightly to mention verifying outputs with the short checklist (see pedagogy issue) and mark that checklist as general background knowledge."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Ensure consistent citation style across the document (use the project's citation macro if one exists). Optionally ensure all sentences end with appropriate punctuation and consider adding small breaks between list items for readability in PDF output."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 36 full chunk (to extract the exact example prompt text and the surrounding guidance about Excel complexity)",
+    "kb_ai_101_tipu_pdf page 3 full chunk (to confirm exact phrasing differentiating 'Copilot Chat' and 'Microsoft 365 Copilot' for a short clarifying sentence)"
+  ]
+}

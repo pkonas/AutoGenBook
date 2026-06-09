@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: METODICKÁ_PŘÍRUČKA__AI_VE_VÝUCE_VUT_.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Database file #1: refs.bib
+Warning--I didn't find a database entry for "kb_ai_101_tipu_pdf_page_36_1"
+Warning--I didn't find a database entry for "kb_ai_101_tipu_pdf_page_8_1"
+Warning--I didn't find a database entry for "kb_ai_101_tipu_pdf_page_15_2"
+You've used 19 entries,
+            1791 wiz_defined-function locations,
+            488 strings with 6318 characters,
+and the built_in function-call counts, 1884 in all, are:
+= -- 133
+> -- 19
+< -- 0
++ -- 19
+- -- 0
+* -- 2
+:= -- 163
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 95
+empty$ -- 343
+format.name$ -- 0
+if$ -- 495
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 0
+newline$ -- 79
+num.names$ -- 0
+pop$ -- 171
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 75
+stack$ -- 0
+substring$ -- 0
+swap$ -- 19
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 21
+write$ -- 135
+(There were 3 warnings)

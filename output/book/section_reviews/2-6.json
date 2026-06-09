@@ -1,0 +1,61 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section states that the living document repository is available at 'ai.vut.cz'. That specific URL is a non-trivial factual claim but is not supported by any of the provided retrieved excerpts or context memory (which only mentions an online repository without a URL).",
+      "required_fix": "Remove the explicit URL or replace it with a neutral reference to the online repository (e.g. 'the online repository referenced in section 9.9') OR provide a supporting excerpt that confirms 'ai.vut.cz' is the correct address."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "There are a few LaTeX issues/layout oddities that may cause compilation warnings or undesired line breaks, e.g. the string 'copy \\\\ \\& paste' appears to combine a linebreak and an escaped ampersand incorrectly; some uses of explicit line breaks and spacing commands may be unnecessary.",
+      "required_fix": "Replace 'copy \\\\ \\& paste' with a single, correct phrase such as 'copy \\& paste' or 'copy-and-paste' and remove unnecessary explicit '\\\\' linebreaks. Check other manual linebreaks and ensure ampersands are escaped as '\\&' only where needed."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section asks for process artifacts (drafts, commmits, screencasts) but does not mention data‑minimization / privacy safeguards (pseudonymization, storage location, avoidance of uploading sensitive files), which is an important institutional requirement present in the context memory.",
+      "required_fix": "Add a short paragraph or sentence advising minimal collection of personal data (use pseudonyms/IDs where possible), warn against uploading PII to unverified external clouds, and recommend enterprise/internal storage or following the DPA/DPIA guidance (refer to the minimalization/dataflow excerpt in the context memory)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Some sample citation suggestions (APA/IEEE examples) use placeholders like 'verze X' and include formatting that is only an illustration. Without explicit guidance, users may paste these verbatim.",
+      "required_fix": "Clarify that these are illustrative templates and instruct users to replace placeholders (e.g. 'verze X') with the actual tool name/version/date and to adapt to local citation norms. Optionally add a one‑line example showing a filled template."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section duplicates content that already appears in previous sections (e.g. the exact phrasing for 'Použití generativní AI...' and the rubrica items). While repetition isn't incorrect, it should be deliberate.",
+      "required_fix": "Either keep as-is for easy copy-paste, or indicate duplication is intentional (e.g. 'Repeated here for copy‑&‑paste convenience; see section 2.1 for discussion')."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace the sentence 'Pro rychlé nasazení použijte tyto šablony jako výchozí bod a odkažte studenty na online repozitář s plnými formulacemi, šablonami a video‑tutoriály (living document) dostupný na ai.vut.cz.' with: 'Pro rychlé nasazení použijte tyto šablony jako výchozí bod a odkažte studenty na online repozitář s plnými formulacemi, šablonami a video‑tutoriály (living document) (viz sekce 9.9 pro přístup k repozitáři). Pokud máte oficiální URL, vložte ji sem.'"
+    },
+    {
+      "target": "latex fix",
+      "edit_instruction": "Change 'Pole deklarace na odevzdání (návrh, copy \\\\ \\& paste):' to 'Pole deklarace na odevzdání (návrh, copy \\& paste):' or '... (návrh, copy-and-paste):' and remove other unnecessary '\\\\' linebreak tokens in running text."
+    },
+    {
+      "target": "privacy guidance",
+      "edit_instruction": "Add a brief note after the 'Povinný přílohový artefakt' item: 'Pozn.: Při sběru procesních artefaktů minimalizujte osobní údaje (používejte pseudonymy/ID), nezadávejte citlivé soubory do veřejných cloudů a ukládejte materiály do interního/enterprise úložiště podle pokynů IT a DPA/DPIA.' Link this recommendation to the minimalization/dataflow guidance in the manual (sekce 2.2.2)."
+    },
+    {
+      "target": "citation templates",
+      "edit_instruction": "After the APA/IEEE examples add: 'Pozn.: uvedené položky jsou ukázkové šablony. Nahraďte 'verze X' skutečnou verzí nebo datem a doplňte přesné znění promptu či popisu použití podle lokální citační normy.' Optionally provide one fully filled example."
+    },
+    {
+      "target": "duplication note",
+      "edit_instruction": "Add parenthetical note at top: '(Některé formulace se opakují z kap. 2.1 a jsou zde záměrně ponechány pro snadné kopírování.)'"
+    }
+  ],
+  "retrieval_queries": [
+    "Confirm whether 'ai.vut.cz' is the official URL for the 'online repository with templates and video tutorials' referenced in the guide (section 9.9) and provide a supporting excerpt if available.",
+    "Provide an authoritative excerpt from the KB or institutional guidance that specifies preferred storage/location for student process artifacts (e.g., recommendation to use internal/enterprise repositories and avoid external unverified clouds)."
+  ]
+}

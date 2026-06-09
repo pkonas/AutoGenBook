@@ -1,0 +1,72 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Nejde podložit v KB konkrétní numerická doporučení uvedená v textu: položka checklistu doporučuje „20–50 vzorových dotazů studentů“. Toto je netriviální číselné tvrzení a v poskytnutých RETRIEVED EXCERPTS není žádné explicitní zdrojové doporučení pro přesný rozsah testovací sady.",
+      "required_fix": "Buď přidejte do sekce citaci/krok z KB, která podporuje rozsah 20–50, nebo upravte formulaci na kvalifikovanou doporučující poznámku (např. „malá testovací sada (desítky dotazů)“ ) a označte ji jako general background knowledge."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Některé užitečné doporučující věty nejsou explicitně označeny jako 'general background knowledge' (např. ‚FAQ bot by měl vracet pouze informace veřejné povahy‘ v poznámce). Podle pravidel grounding musí být neověřená obecná doporučení jasně označena.",
+      "required_fix": "Označte tato doporučení jako general background knowledge nebo přidejte odkazy na příslušné části příručky (např. kapitoly o GDPR/hranice role asistenta) které to podporují."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Checklist a sekce ‚Sestavte testovací sadu‘ jsou obecné — chybí konkrétní příklady testovacích dotazů (hranice/edge cases) a ukázkové šablony pro hraniční případy.",
+      "required_fix": "Doplňte 5–8 konkrétních příkladů testovacích vstupů (v češtině) pokrývajících běžné a hraniční scénáře: jasné otázky, nejasné zadání, žádost o kompletní řešení, nahrávání mezikroků, dotaz s citlivými údaji apod."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "Sekce popisuje workflow, kde studenti nahrávají mezikroky — chybí konkrétní instrukce k ochraně dat a GDPR‑postupu (anonymizace, retence, kdo má přístup). To je kritické, protože text výslovně doporučuje požadovat nahrání postupu.",
+      "required_fix": "Přidejte jasnou poznámku o zásadách minimalizace dat, anonymizaci/pseudonymizaci a retenci pro nahrané mezikroky; odkažte na DPIA/vzor DPIA a sekce 2.2 (Ochrana soukromí a GDPR‑kompatibilní postupy) nebo vložte krátký checklist pro zpracování studentských dat při pilotu."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Použití prostředí verbatim uvnitř enumerate je běžně akceptovatelné, ale záleží na dokumentové třídě a předchozích balíčcích. Pokud cílový LaTeX template nepřipouští verbatim v seznamu, může to způsobit chybu kompilace.",
+      "required_fix": "Ověřte kompilaci v cílovém LaTeX šabloně; případně doporučte nahradit verbatim bloky za lstlisting (balíček listings) nebo explicitně poznamenat, že dokument vyžaduje standardní verbatim support."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce implicitně odkazuje na GDPR a na nutnost eskalace, to je v souladu s předchozími sekcemi, ale chybí explicitní mezivazba / cross‑reference na sekci 'Definice role a kompetencí asistenta' (4.2.1) a na části o DPIA (2.2 / 9.4).",
+      "required_fix": "Přidejte krátké explicitní cross‑reference (např. 'viz 4.2.1' a 'viz 2.2 / 9.4') aby čtenář snadno nalezl podrobnosti o hranicích role, eskalaci a GDPR‑postupech."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "testovací sada (checklist položka 2)",
+      "edit_instruction": "Upravte větu 'Sestavte testovací sadu: 20–50 vzorových dotazů studentů + hraniční případy' tak, aby buď obsahovala odkaz/citaci, nebo byla kvalifikována jako doporučení (např. 'malá testovací sada – řádově desítky dotazů, přibližně 20–50, podle rozsahu kurzu') a označena jako general background knowledge."
+    },
+    {
+      "target": "sekce s příklady testovacích dotazů",
+      "edit_instruction": "Doplňte 5–8 vzorových testovacích dotazů v češtině (ukázkové položky: jednoduchá faktická otázka o termínu odevzdání; nejasné zadání; žádost o kompletní řešení; nahrání kroků s chybou; otázka obsahující osobní citlivé informace). Tyto příklady slouží jako šablona pro tvorbu testovací sady."
+    },
+    {
+      "target": "část o nahrávání mezikroků",
+      "edit_instruction": "Rozšiřte text o krátký GDPR checklist: (1) požadovat jen nezbytné údaje; (2) anonymizovat/pseudonymizovat před uložením; (3) definovat dobu retence a přístupová práva; (4) před pilotem provést DPIA/zkontrolovat vzor DPIA (odkaz na Přílohu 9.4)."
+    },
+    {
+      "target": "poznámky a doporučení",
+      "edit_instruction": "U všech obecně doporučujících tvrzení (např. 'FAQ bot by měl vracet pouze informace veřejné povahy') přidejte poznámku '(general background knowledge)' nebo odkaz na příslušnou kapitolu/podkapitolu (např. 2.2 nebo 4.2.1), aby bylo zřejmé, že jde o obecné doporučení."
+    },
+    {
+      "target": "LaTeX verbatim příklady",
+      "edit_instruction": "Přidejte redakční poznámku: 'Zkontrolovat kompilaci; pokud cílový template verbatim v seznamech nedefinuje, použít listings/lstlisting.' (nebo alternativně přepsat verbatim bloky do lstlisting)."
+    },
+    {
+      "target": "úvodní věta sekce",
+      "edit_instruction": "Přidejte jednu krátkou větu s cross‑reference k části 'Definice role a kompetencí asistenta' (4.2.1) např. 'Pro detaily o hranicích kompetencí a eskalaci viz 4.2.1.'"
+    }
+  ],
+  "retrieval_queries": [
+    "Doporučená velikost testovacích sad pro testování konverzačních asistentů ve vzdělávání (best practices, počet vzorových dotazů) v KB nebo v příručkách pro piloty AI ve výuce",
+    "Konkrétní doporučení k zpracování nahraných mezikroků studentů: anonymizace, retence, DPIA — vyhledejte v KB části o GDPR a DPIA (např. sekce 2.2 a příloha 9.4)",
+    "Příkladové testovací dotazy / test cases pro chat‑asistenty ve výuce (hranice: žádost o hotové řešení, nejasné zadání, citlivé údaje) ve stávající prompt library (Prompt Library / Přílohy) v KB"
+  ]
+}

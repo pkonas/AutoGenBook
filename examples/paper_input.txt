@@ -1,0 +1,10 @@
+Title: Graph-Aware Prompting for Reliable Section Generation
+Summary: We propose a graph-guided prompting workflow for long-form scientific writing. The method uses a document graph, strict JSON schemas, and evidence-aware prompts to produce consistent sections with citations.
+Keywords: document graph, long-form generation, evidence, citations, structured prompting
+Research questions: How does graph-guided sectioning affect coherence and citation quality?
+Contributions: (1) graph-based section scheduler, (2) evidence injection for each section, (3) audit-friendly output format
+Method: Build a section graph, retrieve relevant evidence, write leaf sections, and assemble LaTeX with refs.bib.
+Experiments: Compare to baseline linear prompting on two topics, measure citation coverage and factual consistency.
+Datasets: Internal notes and a small curated PDF set (if available).
+Metrics: citation coverage, hallucination rate, reviewer score.
+Notes: Keep claims conservative and always cite sources.

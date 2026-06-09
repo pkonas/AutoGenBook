@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section names a specific URL (ai.vut.cz) for the VUT repository. No retrieved excerpt or memory excerpt explicitly supports the exact URL ai.vut.cz. The manuscript must not invent URLs or other factual claims that are not supported by the provided KB/excerpts.",
+      "required_fix": "Either remove the explicit URL or replace it with a reference to the VUT repository as described in the handbook (e.g. 'VUT repozitář – viz Příloha / Kontakty'), and add a supporting citation/excerpt that confirms the exact URL if the URL must remain."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section cites kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1 for DPIA and human‑in‑the‑loop recommendations. That source is present in the context memory excerpt but not in the provided RETRIEVED_EXCERPTS block. While memory supports the claim, verify the exact page/quote in the retrieved artifacts to ensure precise grounding.",
+      "required_fix": "Add or confirm a retrieved excerpt (or internal reference) that substantiates the DPIA / pseudonymization / human‑in‑the‑loop guidance on the cited page, or adjust text to explicitly mark statements as 'general background knowledge' if precise citation can't be provided."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Step 1 of the action plan instructs teachers to 'Projděte si krátké video‑tutoriály v repozitáři ai.vut.cz a vyberte jednu nízkorizikovou aktivitu' while elsewhere the text describes the VUT repository as a recommended next step after finishing a local pilot. This could confuse readers about whether the repo is used before or after the pilot.",
+      "required_fix": "Clarify sequencing: indicate whether the repo is intended as a pre‑pilot training resource (to pick an activity) or as a post‑pilot place to deposit artifacts and access templates. Make the timeline explicit and consistent with earlier mentions of the repo in the handbook."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX content uses a verbatim environment inside an enumerate environment. While valid in many LaTeX setups, verbatim inside lists can cause compilation issues unless the package provides support (e.g., using the 'verbatim' package or 'listings').",
+      "required_fix": "Either replace the verbatim block with a small formatted \\\\texttt or use a package-safe approach (e.g., \\begin{alltt} ... \\end{alltt}) or ensure the document preamble includes the necessary package(s) so verbatim compiles correctly inside lists."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The note labeled 'Poznámka (general background knowledge)' states a pedagogical claim without an explicit citation. Although it is framed as general background knowledge, readers may benefit from a short pointer to the handbook section(s) that summarize this practice.",
+      "required_fix": "Either keep as general background knowledge (explicitly labelled) or add a cross‑reference to relevant handbook sections (e.g., 1.5 or 2.6) that discuss starting with low‑risk activities and documenting pilots."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Repozitář VUT mention (first itemize bullet and 'Kde najít další materiály')",
+      "edit_instruction": "Remove the explicit URL 'ai.vut.cz' unless you can provide a supporting retrieved excerpt for that exact address. Replace with 'VUT repozitář (viz Přílohy / Kontakty v příručce)' and add a citation to section 9.9 or the appropriate appendix that documents the repository and update mechanism."
+    },
+    {
+      "target": "Rychlý akční plán — krok 1",
+      "edit_instruction": "Clarify sequencing: change 'Projděte si krátké video‑tutoriály v repozitáři ai.vut.cz a vyberte jednu nízkorizikovou aktivitu' to 'Projděte si krátké video‑tutoriály v VUT repozitáři (viz Příloha/Kontakty) a vyberte jednu nízkorizikovou aktivitu (např. Minecraft Education nebo Pokrok v matematice).' This avoids the unsupported URL and aligns the repo use as a preparatory resource."
+    },
+    {
+      "target": "DPIA citations in action plan and checklist",
+      "edit_instruction": "If possible, attach or reference the specific retrieved excerpt that supports the DPIA checklist items (kb_malinka... page 12). If that excerpt is not available, add a short qualifier such as '(viz interní guideline o DPIA)' or mark the guidance as 'general background knowledge' and point to the handbook chapter on DPIA (2.2.4)."
+    },
+    {
+      "target": "Verbatim block in LaTeX",
+      "edit_instruction": "Replace the \\begin{verbatim}...\\end{verbatim} block with either \\texttt{...} for a short inline sample or use \\begin{alltt}...\\end{alltt} and ensure the preamble includes the 'alltt' package to avoid compilation problems inside enumerate."
+    },
+    {
+      "target": "Poznámka (general background knowledge)",
+      "edit_instruction": "Either keep the sentence as a labeled general background statement (no citation) or add a cross‑reference to sections 1.5 and/or 2.6 of the handbook that discuss starting with low‑risk activities and documenting pilots."
+    }
+  ],
+  "retrieval_queries": [
+    "Confirm exact URL or canonical reference for the VUT repository with video tutorials (ai.vut.cz) in the handbook or internal KB",
+    "Retrieve kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024 page 12 to confirm DPIA and human‑in‑the‑loop recommendations and exact phrasings",
+    "Retrieve 'AI - 101 tipu.pdf' page 51 (kb_ai_101_tipu_pdf_04e4a115_page_51_1) if you want to reference Microsoft Designer guidance in this section"
+  ]
+}

@@ -1,0 +1,7 @@
+\textbf{Evaluation overview.} We evaluate generated sections with a combined manual-and-automated protocol to measure explicit citation usage, unsupported/hallucinated assertions, and reviewer-style quality; comparisons use per-section paired analyses (statistical details below).
+
+\textbf{Annotation protocol.} Human annotators segment assertions and record inline citations, judging whether cited sources (refs.bib or retrieved snippets) plausibly support each assertion; assertions are labeled supported or unsupported and counted per section.
+
+\textbf{Primary metrics and reviewer rubric.} Per-section metrics: Citation coverage = |Supported|/|Total|; Hallucination rate = |Unsupported|/|Total|; CitationAlignment = citations mapped to refs.bib or retrieved evidence / inline citations. Independent reviewers provide ordinal scores for factuality, citation adequacy, coherence, and overall quality; scores are averaged and mapped to pre-specified acceptability thresholds.
+
+\textbf{QA, statistics, and limitations.} A subset is double-annotated (agreement summarized with Cohen's kappa and ordinal agreement coefficients) and adjudicated; automated audits validate schema and citation-to-evidence mappings and flag mismatches. Paired nonparametric tests, bootstrap CIs, and effect sizes quantify differences. Reported metrics are computed on the annotated set (see Section 4.1); citation coverage reflects annotator judgments of plausible support and does not guarantee full substantiation (see Section 6.2).

@@ -1,0 +1,33 @@
+\paragraph{Krátké shrnutí (executive summary)}
+\begin{itemize}
+\item Název: \underline{\hspace{8cm}}; Garant: \underline{\hspace{6cm}}; Cíl: \underline{\hspace{6cm}}; Riziko: \underline{\hspace{3cm}}
+\end{itemize}
+\paragraph{General background knowledge:} DPIA je proces identifikace a hodnocení rizik pro práva a svobody subjektů údajů při plánovaném zpracování.\footnote{Toto je stručné obecné vysvětlení; pro právní závazky konzultujte GDPR specialistu.}
+\paragraph{1) Popis zpracování (co, kdo, proč)}
+\begin{itemize}
+\item Funkce nástroje ve výuce (asistent, RAG); kategorie údajů (jméno, email, výsledky, nahrávky apod.); účel a právní základ; tok dat: sběr→ukládání→přístup→retence→mazání (lokace: VUT cloud/externí).
+\end{itemize}
+\paragraph{2) Identifikace a hodnocení rizik}
+Navržené záznamy (u každého uveďte příčinu, opatření a zodpovědnou roli):
+\begin{itemize}
+\item Neoprávněný přístup — Pravděpodobnost: \underline{\hspace{2cm}} — Dopad: \underline{\hspace{2cm}}
+\item Únik citlivých údajů při indexaci — Pravděpodobnost: \underline{\hspace{2cm}} — Dopad: \underline{\hspace{2cm}}
+\item Nesprávné rozhodnutí modelu ovlivňující hodnocení — Pravděpodobnost: \underline{\hspace{2cm}} — Dopad: \underline{\hspace{2cm}}
+\end{itemize}
+\paragraph{3) Navrhovaná opatření (kontroly)}\begin{itemize}
+\item Minimalizace dat; pseudonymizace/anonymizace před ingestem. \textit{(general background knowledge)}
+\item IAM: SSO + role‑based access; auditní logy; šifrování v klidu i přenosu; uvést data residency; smluvní zajištění (DPA).
+\item Lidská validace AI u rozhodnutí ovlivňujících práva studentů; retence/mazání; testy leakage a bezpečnostní testy před pilotem.
+\end{itemize}
+\paragraph{4) Závěr a doporučení}\begin{itemize}
+\item Shrnutí residualního rizika: \underline{\hspace{6cm}}; Doporučení: povolit pilot / upravit návrh / neimplementovat (uveďte podmínky)
+\end{itemize}
+\paragraph{5) Schvalovací workflow}\begin{enumerate}
+\item Konzultace: garant + metodik + GDPR; IT technická kontrola; právní review; schválení vedoucím; pilot, monitoring a revize DPIA.
+\end{enumerate}
+\paragraph{6) Kontrolní checklist (před pilotem)}\begin{itemize}
+\item Určen GDPR/IT kontakt? \underline{\hspace{4cm}}; Kategorie a minimalizace definovány? \underline{\hspace{2cm}}; Uzavřena DPA? \underline{\hspace{2cm}}; Auditní logy, retence a plán lidské validace? \underline{\hspace{2cm}}
+\end{itemize}
+\paragraph{Příloha: vzorový záznam rizika}\begin{itemize}
+\item Název: indexace osobních poznámek; Popis: ingest studentských poznámek; Dopad: možné zveřejnění citlivých informací; Opatření: pseudonymizace, zákaz uploadu osobních údajů, revize před publikací; Stav: návrh/implementováno/ověřeno
+\end{itemize}

@@ -1,0 +1,91 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T153956Z",
+  "input": {
+    "section_title": "Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted)",
+    "node_key": "3-3",
+    "section_latex": "\\begin{itemize}\n\\item Stručný úvod: Praktické šablony rubrik a postupy níže slouží k hodnocení výstupů částečně nebo zcela generovaných AI; najdete zde také doporučený krok‑za‑krok workflow pro kombinované (LLM + člověk) hodnocení a vzor záznamu pro audit a zveřejnění studentům.\n\\item Vzorná rubrika (přenosná šablona — upravte kritéria podle předmětu):\n  \\begin{itemize}\n  \\item Kritérium A: Místná správnost faktů — 0–4 body (0: chybné, 4: bezchybné, poznámky k opravám)\n  \\item Kritérium B: Struktura a argumentace — 0–4 body (mezní popis úrovní)\n  \\item Kritérium C: Originalita / citace zdrojů — 0–2 body (kontrola použití AI‑generovaného textu)\n  \\item Kritérium D: Forma a jazyk — 0–2 body (gramatika, styl)\n  \\item Poznámky k bodování: explicitně uveďte pravidla eskalace pro výstupy s podezřením na plagiát či nesprávné použití AI; tato rozhodnutí dokumentujte v rubrice pro audit a pro informaci studentům \\cite{2-6}.\n  \\end{itemize}\n\n\\item Krokový workflow pro kombinované hodnocení (obecné doporučení; označeno jako general background knowledge):\n  \\begin{enumerate}\n  \\item Definujte jasná kritéria a prahy pro automatické předhodnocení (např. LLM skóre shody s referencí).\n  \\item Nechte LLM provést předhodnocení a označit komentáře + případné low‑confidence položky.\n  \\item Automaticky přiřaďte do kontroly člověka: všechny položky pod prahem nebo označené jako nízká důvěra + náhodný výběr pro kalibraci.\n  \\item Lidský hodnotitel opraví skóre, doplní krátký komentář a potvrdí nebo upraví rozhodnutí o eskalaci.\n  \\item Pravidelně (např. týdenní) porovnávejte korekce lidí vs. LLM, upravujte prompt a pravidla eskalace.\n  \\end{enumerate}\n  (Tento postup slouží jako praktický vzor; před nasazením proveďte pilotní kontrolu a stanovte KPI a pravidla eskalace podle lokálního checklistu a dokumentujte rozhodnutí v rubrice \\cite{2-6}.)\n\n\\item Šablony promptů a související nastavení: použijte strukturované prompty z kapitoly šablon (nahraďte zarážky [OBOR], [ÚROVEŇ], [TÉMA]) pro konzistentní předhodnocení LLM (\\cite{3-2} doporučuje omezit délku výstupu a přidat instrukce „make each variant unique...“ pro varianty úloh).\n\\item Vzorný záznam pro audit (log, co ukládat):\n  \\begin{itemize}\n  \\item ID práce, datum, verze rubricy, LLM skóre, LLM komentář/prompt,\n  \\item lidské skóre a krátký komentář, kdo hodnotil,\n  \\item důvod eskalace (pokud byl), výsledné rozhodnutí a datum úpravy.\n  \\end{itemize}\n  Tento záznam slouží pro interní audit a pro průhlednost vůči studentům; uveďte v oznámení kurzu, jaké části hodnocení provádí LLM a kdy bude výsledek auditován lidsky \\cite{2-6}.\n\n\\item Doporučení pro nasazení: začněte s malým pilotem (malý počet úloh/studentů), zkontrolujte 10–20 náhodných případů ručně (general background knowledge), upravte rubriku podle zjištěných nesrovnalostí a teprve poté škálujte.\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- Chatboty (praktické nasazení): Kategorie chatbotů pro FAQ, konzultace a měření užitečnosti (počet dotazů, doba odpovědi, procento eskalací, audit odpovědí a spokojenost) (from section only). (first: 3-1)\n- Generátory otázek: Nástroje pro automatické generování testových položek; doporučení z sekce: provést ruční kontrolu 10–20 položek před použitím (from section only). (first: 3-1)\n- LLM-assisted grading: Použití LLM pro předhodnocení odpovědí s následným manuálním auditem a definovanými pravidly eskalace (from section only). (first: 3-1)\n- Skripty/webhooky/CSV: Lehké integrační skripty a formáty pro rychlé propojení nástrojů (webhooky, import/export CSV) pro rychlou integraci do stávajících procesů (from section only). (first: 3-1)\n- Rychlý checklist do 60 minut: Krátký postup pro rychlé vyzkoušení nástroje: 1) definujte cíl pilotu a 2–4 KPI; 2) vytvořte sandbox a udělte oprávnění; 3) nahrajte malý vzorek obsahu, proveďte kontrolní běh s 1–3 uživateli a sledujte metriky; 4) naplánujte eskalaci a určete odpovědnou osobu za manuální audit (from section only). (first: 3-1)\n- Šablony promptů a vzory pro přípravu lekcí a úloh: Přenosné prompty pro učitele s hranatými zarážkami [OBOR], [ÚROVEŇ], [TÉMA] — zahrnují lesson plan, zadání úlohy, cvičení s variantami, řešení krok‑za‑krokem, MCQ a rubriku; určeno k vložení do LLM nebo skriptu, s doporučením upravit zarážky a explicitně omezit délku výstupu pro snadnou kontrolu; pro varianty přidat instrukci 'make each variant unique...'; pro chatboty zahrnout metriky a plán auditu (odkazuje na postupy z 2-5); před nasazením provést manuální kontrolu, stanovit KPI a pravidla eskalace podle pilotního checklistu a dokumentovat rozhodnutí v rubrice (odkazuje na 2-6). (from section only) (first: 3-2)\n\nCITATIONS:\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n- 2-4 (node: 2-4)\n- 2-5 (node: 2-5)\n- 2-6 (node: 2-6)\n- 3-2 (node: 3-2)\n\nOPEN THREADS:\n- Potřeba ověřených případových studií a konkrétních příkladů nasazení (sekce 3.1 dává ryc...",
+    "previous_sections": "The title of part 1 sections ago is Šablony promptů a vzory pro přípravu lekcí a úloh, and the content is as follows.\nTato sekce nabízí přenosné prompty pro učitele (s hranatými zarážkami [OBOR], [ÚROVEŇ], [TÉMA]) — např. lesson plan, zadání úlohy, cvičení s variantami, řešení krok‑za‑krokem, MCQ a rubrika.  \nPrompty jsou určeny k rychlému vložení do LLM nebo skriptu; upravte jen zarážky a explicitně omezte délku výstupu (slova/odstavce) pro snadnou kontrolu.  \nPřizpůsobení: nahraďte zarážky, pro varianty přidejte „make each variant unique...“, u chatbotů zahrňte metriky a plán auditu \\cite{2-5}.  \nPřed nasazením provádějte manuální kontrolu, stanovte KPI a pravidla eskalace podle pilotního checklistu a dokumentujte rozhodnutí v rubrice \\cite{2-6}.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "The rubric lists specific numeric score ranges (0–4, 0–2) as if prescriptive. The memory/context does not contain these exact scales as authoritative; they appear as an example template only in the new section.",
+        "required_fix": "Explicitly mark the rubric scoring ranges as an illustrative example (e.g. \"příklad/šablona — upravte kritéria a škálu bodování podle předmětu/instituce\"). Alternatively cite a source in the knowledge base that supports these exact ranges. Do not present them as universally required."
+      },
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "The workflow step suggests using an \"LLM skóre shody s referencí\" as a threshold for automatic pre-evaluation. The context includes general LLM-assisted grading guidance but does not provide a specific recommended scoring metric or threshold.",
+        "required_fix": "Qualify this as an example option (e.g. \"např. LLM skóre shody s referencí — jako příklad metriky pro předhodnocení\") or point readers to retrieve/localize a validated metric and calibration procedure before using it in production. Add a citation to an internal node that discusses LLM-assisted grading if available."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "The recommendation to manually check 10–20 random cases appears in other sections of the memory (e.g. prompt templates and generators). In the current section the advice is labelled as \"general background knowledge\" but lacks an explicit inline citation to the earlier checklist.",
+        "required_fix": "Add an inline citation to the relevant node (e.g. the prompt/templates or pilot checklist node such as 3-1 or 3-2) where the 10–20 manual-check guidance is stated, or repeat the justification briefly and keep the 'general background knowledge' label."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "The LaTeX body uses Unicode en-dashes for numeric ranges (e.g. \"0–4\"). Some LaTeX toolchains prefer explicit -- for ranges. Nested itemize/enumerate looks syntactically fine but verify encoding/packages.",
+        "required_fix": "Replace Unicode en-dashes in numeric ranges with LaTeX-compatible '--' (e.g. '0--4') or ensure the document preamble declares UTF-8 input handling (\\usepackage[utf8]{inputenc}) and that the target build supports Unicode."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "The section is practical but would benefit from a short concrete example: a filled example rubric row, a sample prompt used for LLM pre-evaluation, and an example audit log entry.",
+        "required_fix": "Add one minimal worked example (one student answer, LLM pre-score + comment, human correction and final score) and a short sample prompt template referencing 3-2 so readers can see the full loop. If no vetted example is available yet, mark this as an open TODO and request retrieval of case studies."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "Vzorná rubrika (the rubric block)",
+        "edit_instruction": "Prepend a short qualifier: '(Příklad/šablona — ilustrační bodové rozsahy; upravte podle předmětu/institucionálních pravidel)'. Optionally add an inline reference to rubric documentation node 2-6 if it contains institutional rules."
+      },
+      {
+        "target": "Krokový workflow heading",
+        "edit_instruction": "Keep the existing 'označeno jako general background knowledge' label, but change individual items that propose specific metrics (e.g. 'LLM skóre shody s referencí') to read 'např. (jako příklad metriky) LLM skóre shody s referencí' and add a parenthetical note recommending pilot calibration and KPI setting (refer to pilot checklist node such as 3-1/3-2)."
+      },
+      {
+        "target": "Doporučení pro nasazení",
+        "edit_instruction": "Add an inline citation to the quick pilot/checklist guidance in the memory (e.g. node 3-1 or 3-2) for the 'zkontrolujte 10–20 náhodných případů ručně' sentence, or re-label the sentence explicitly as '(příklady z praxe — minimalní kontrola 10–20 případů)'."
+      },
+      {
+        "target": "Šablony promptů a související nastavení",
+        "edit_instruction": "Add a pointer 'viz sekce 3-2' directly after the sentence that references structured prompts, to make the cross-reference explicit in the LaTeX text (\\cite{3-2} is present; add 'viz 3-2' or duplicate the citation at the sentence-end)."
+      },
+      {
+        "target": "LaTeX numeric ranges",
+        "edit_instruction": "Replace Unicode en-dashes in numeric ranges with LaTeX '--' (e.g. change '0–4' to '0--4') or ensure the document preamble includes UTF-8 support."
+      },
+      {
+        "target": "Add example",
+        "edit_instruction": "Insert one short worked example (single answer -> LLM pre-score + comment -> human correction -> final score and audit-log entry). If a vetted example is not available in the KB, mark this as TODO and request retrieval of case studies or exemplar rubrics."
+      }
+    ],
+    "retrieval_queries": [
+      "Proveďte vyhledání v uzlech 2-6, 3-1, 3-2 a 2-5: příklady rubrik a skórovacích škál použitých v LLM-assisted grading, ukázkové auditní záznamy a doporučené metriky/KPI pro pilot.",
+      "Vyhledejte v KB ukázkové prompt šablony pro předhodnocení LLM a doporučení k omezení délky výstupu (node 3-2).",
+      "Získejte případové studie nebo krátké příklady nasazení LLM-assisted grading (uzly 2-2..2-6) vhodné jako vyplněné ukázky v této sekci."
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 1989,
+      "completion_tokens": 1742,
+      "total_tokens": 3731
+    },
+    "cost_usd": 0.00398125,
+    "total_cost_usd": 0.21428474999999994,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

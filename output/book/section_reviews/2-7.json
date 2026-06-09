@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Opening claims about the practical limitations of automatic “AI detectors” (high false positive/negative rates, data/training dependence, easy circumvention) are presented as factual but no supporting evidence from the provided KB excerpts is included.",
+      "required_fix": "Either (A) add explicit citations/evidence for these claims from the literature or from an internal source, or (B) reduce the wording to a minimal, clearly‑labelled general background statement and avoid strong numeric/technical claims. If artifacts/links to studies cannot be added, keep the paragraph as a short, qualified statement (e.g. “Some reports and vendor tests indicate limitations; see external literature”) and mark it explicitly as 'general background knowledge'."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section already references templates and declaration fields, but it does not include explicit cross‑references (by section/node) to the matching internal resources (Šablony do sylabů, Pole deklarace, Hodnocení (návrh)). The section currently relies on 'viz' mentions which are less precise.",
+      "required_fix": "Add explicit cross‑references to the relevant internal sections (e.g. point to the 'Šablony do sylabů a vzory citací AI' and the 'Pole deklarace' / 'Hodnocení (návrh)' items in the memory) so readers can find concrete templates and fields without ambiguity."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body is overall valid, but it contains informal parenthetical notes like '(viz šablony do sylabů)' and '(general background knowledge)' that would be better replaced by LaTeX cross‑references or footnotes to internal sections for navigability.",
+      "required_fix": "Replace plain text 'viz ...' with proper LaTeX cross‑reference commands (\\ref or \\hyperref) or add short footnotes that indicate the exact internal section titles or node keys. Remove parenthetical metadata like '(general background knowledge)' from the rendered text or move it to an editor's note / comment in source."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some recommendations (e.g. requiring screencasts or repo commits) do not mention privacy/GDPR implications or guidance on acceptable formats; this may confuse implementers.",
+      "required_fix": "Add a short clarifying sentence reminding instructors to check data protection considerations (reference internal section 2.2 on GDPR/DPIA) and to allow multiple acceptable forms of process evidence when students cannot produce certain artifact types."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section is practical but could be strengthened by one concrete short example (e.g. a sample rubric entry or a short checklist item filled in) to show how to operationalize the rubrics and declaration fields.",
+      "required_fix": "Include a 1–2 line illustrative example (e.g. sample rubric row: 'Transparentnost použití AI 0–5 — 0 = žádná deklarace, 5 = nástroj+prompt+commity+screencast') and/or point explicitly to the 'Šablony do sylabů' excerpt that already contains matching templates."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph (Krátké shrnutí problému)",
+      "edit_instruction": "Either add citations supporting detector limitations, or rephrase and shorten. Suggested rephrase: 'Krátké shrnutí problému (označeno jako general background knowledge): některé studie a praktické zkušenosti uvádějí, že automatické detektory AI mají omezení (falešné pozitivní/negativní případy, závislost na tréninkových datech a možnost obcházení). Z tohoto důvodu by pedagogická praxe neměla stavět na detektorech jako na jediném rozhodujícím nástroji.' If no internal/external citation is available, keep this as a minimal, explicitly labelled background note."
+    },
+    {
+      "target": "body references to templates and declarations",
+      "edit_instruction": "Replace 'viz šablony do sylabů' and 'viz formulace v sekci \\emph{Šablony do sylabů a vzory citací AI}' with explicit cross‑references (e.g. 'viz sekce 2.6 – Šablony do sylabů a vzory citací AI' or include the exact template text inline). Where the text refers to the declaration field, mention the 'Pole deklarace (návrh)' from the context memory and its expected field types."
+    },
+    {
+      "target": "process evidence requirements (screencasty/commity)",
+      "edit_instruction": "Add a short note about data protection and acceptable alternatives: 'Pozor: požadování screencastů nebo sdílení repozitářů může mít dopady na ochranu osobních údajů — konzultujte sekci 2.2 (Ochrana soukromí a DPIA) a povolte alternativy (např. anonymizované logy, textové výpisy) pokud student sdílí citlivá data.'"
+    },
+    {
+      "target": "rubrics paragraph",
+      "edit_instruction": "Add a one‑line concrete example mapping scores to evidence (consistent with memory): 'Příklad: Transparentnost použití AI (0–5): 0 = žádná deklarace; 1–2 = deklarace bez promptu; 3 = deklarace + stručný prompt; 4 = deklarace + prompt + pracovní verze; 5 = kompletní procesní doklady (commity/screencast)'."
+    },
+    {
+      "target": "conclusion",
+      "edit_instruction": "Add an explicit pointer to living repository for ready templates: 'Pro rychlé nasazení použijte šablony uvedené v sekci 2.6 a living document na ai.vut.cz' (or, if live URL not to be added, point to the internal 'Repozitář, video tutoriály a mechanismus aktualizací' in Appendix 9.9)."
+    }
+  ],
+  "retrieval_queries": [
+    "Evidence on reliability of AI text detectors false positives false negatives academic integrity studies",
+    "Best practices / recommendations advising against sole reliance on AI detectors in education",
+    "Internal KB 'detektory', 'detektor' or 'detection' references in the manual",
+    "GDPR implications of collecting screencasts and repository logs in education DPIA guidance"
+  ]
+}

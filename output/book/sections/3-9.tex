@@ -1,0 +1,107 @@
+Tato sekce obsahuje opakovatelné prompty, šablony a krátké checklisty pro rychlý redesign sylabu, návrh hodin a hodnocení v kontextu generativní AI. Prompty jsou copy-\\ \&-adapt: vložte specifika kurzu (cíle, cílová skupina, očekávané výstupy, rozsah, předpoklady) a ověřte výsledky odbornou revizí.
+
+\medskip
+\noindent 1) Prompt: Generátor sylabu (rychlá verze)
+\begin{verbatim}
+"Vezmi následující informace:
+- Název, Úroveň (bakalář/magistr), ECTS
+- Cíle (3-5), Klíčová témata, Požadavky
+Vygeneruj 1-stránkový sylabus se sekcemi:
+- Stručný popis (2 věty)
+- Učební výstupy (5 bodů)
+- Týdenní osnova (10-12 týdnů, 1 věta/týden)
+- Formy hodnocení a váhy
+- Doporučená literatura/online zdroje
+U každé části přidej 1větný důvod volby."
+\end{verbatim}
+Tip: rozděl výstup na bloky a ověř terminologii a fakta.
+
+\medskip
+\noindent 2) Prompt: Převod sylabu na 90min slide deck
+\begin{verbatim}
+"Vezmi odstavec sylabu (vložit) a rozděl ho na 5 slideů:
+Pro každý slide napiš:
+- Název (5-7 slov)
+- 2-4 bullet body
+- Jednu in-class aktivitu (1 věta)
+- Návrh vizuálu (1-2 slova)
+Výstup: seznam 5 slideů připravených pro export do PPT."
+\end{verbatim}
+Doporučený pattern: hlavička, klíčová myšlenka, 3 body, vizuál, takeaway/aktivita.
+
+\medskip
+\noindent 3) Prompt: Redesign zadání odolného vůči triviálnímu použití AI
+\begin{verbatim}
+"Navrhni projekt/esej, které:
+- Měří autenticitu (lokální/datumované artefakty)
+- Mají >=3 milníky (draft, peer-review, final)
+- Vyžadují reflexi použití AI (co/ proč/ jak)
+- Obsahují hodnotící rubriku (proces, argumentace, originalita, reflexe AI)
+Vstup: téma, délka, požadované artefakty."
+\end{verbatim}
+Příklad rubriky: Proces (0–4), Metodická přesnost (0–4), Originalita (0–4), Dokumentace AI (0–4).
+
+\medskip
+\noindent 4) Prompt: Generátor milestone‑based hodnocení a checklistů
+\begin{verbatim}
+"Pro kurz (název + úroveň) navrhni 3–5 milníků s termíny a krátkými úkoly,
+které lze ověřit. U každého milníku uveď: cíl, očekávaný výstup,
+hodnoticí kritéria a doporučený způsob kontroly originality.
+Vstup: délka semestru (týdny), preferované formy odevzdání."
+\end{verbatim}
+
+\medskip
+\noindent 5) Prompt: Šablona pro generování formativní zpětné vazby
+\begin{verbatim}
+"Na základě výstupu studenta (text/kód/slide) vygeneruj:
+- 3 silné stránky (1 věta každá)
+- 3 konkrétní doporučení ke zlepšení (konkrétní kroky)
+- 1 návrh na cvičení nebo zdroj k procvičení"
+\end{verbatim}
+Použití: hromadné označení návrhů před kontrolou učitelem; vždy doplň lidskou kontrolu.
+
+\medskip
+\noindent 6) Prompt: Text do sylabu — zásady použití AI a deklarace
+\begin{verbatim}
+"Vytvoř 2–3 odstavce do sylabu, které:
+- Definují, co je povoleno/zakázáno u generativní AI
+- Popisují požadavek na deklaraci použití AI u odevzdání
+- Uvádějí důsledky porušení (odkaz na akademickou integritu)
+Přizpůsob pro technický kurz, neutrální tón."
+\end{verbatim}
+
+\medskip
+\noindent 7) Prompt: Návrh inkluzivních a multimodálních úloh
+\begin{verbatim}
+"Navrhni 3 varianty jednoho úkolu: textová, multimediální (audio/video),
+praktická (simulace). Uveď adaptace hodnocení a doporučené nástroje,
+s ohledem na podporu neurodiverzních studentů."
+\end{verbatim}
+Pozn.: při převodu rukopisu/rovnic použijte nástroje pro převod (např. OneNote) před generováním obsahu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+\medskip
+\noindent 8) Inspirace pro výukové světy a interaktivní ukázky
+\begin{itemize}
+  \item Zvažte vzdělávací světy (např. Minecraft Education) pro vysvětlení principů AI a hands‑on aktivity s nižší bariérou vstupu \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\end{itemize}
+
+\bigskip
+\noindent Krátký checklist před použitím promptů
+\begin{enumerate}
+  \item Uprav prompt pro lokální kontext (jazyk, úroveň studentů).
+  \item Otestuj prompt na jednom vzorku a ověř faktickou správnost.
+  \item Ulož prompt, vstupy, verzi modelu a datum (provenance).
+  \item Zaznamenej do sylabu, jak bude AI používána a hlášena.
+\end{enumerate}
+
+\medskip
+\noindent Vzorový postup pro adaptaci v katedře
+\begin{enumerate}
+  \item Vedoucí připraví vstupy (cíle, témata, výstupy).
+  \item Použije generátor sylabu a adaptuje návrh s odbornou garancí.
+  \item Pilotně otestuje hodnocení a rubriky na malém vzorku studentů.
+  \item Upravený sylabus verzuje, dokumentuje a publikuje (living document).
+\end{enumerate}
+
+\bigskip
+\noindent Poznámka: prompty jsou praktické šablony pro rychlý start. Při použití vždy proveďte odbornou kontrolu výstupů, zajistěte transparentnost vůči studentům a evidenci použitých modelů a promptů.

@@ -1,0 +1,27 @@
+We represent a draft document as a directed, labeled graph that encodes section-level structure, inter-section dependencies, and links to retrieved evidence; the representation is lightweight and machine-parseable so downstream components can validate invariants, schedule generation, and attach provenance.
+
+Formally,
+\[
+G = (V,E,\Lambda,\mathcal{M},\mathcal{A})
+\]
+where: \begin{itemize}
+  \item $V$ are nodes (sections/fragments); $E\subseteq V\times V$ are directed dependency edges;
+  \item $\Lambda$ is a finite label set with labeling $\ell:E\to\Lambda$;
+  \item $\mathcal{M}:V\to\mathrm{Meta}$ assigns structured metadata; $\mathcal{A}:V\to 2^{\mathrm{EvidenceLink}}$ attaches evidence links.
+\end{itemize}
+
+Node metadata: each $v$ has
+\[
+\mathrm{Meta}(v)=\{\texttt{id},\texttt{heading},\texttt{target\_length},\texttt{role},\texttt{summary},\texttt{constraints}\},
+\]
+used for serialization, scheduling, role-based prioritization, prompt templates, and constrained generation.
+
+Edge labels (example taxonomy): \emph{prerequisite}, \emph{elaboration}, \emph{evidence-flow}, and \emph{reference}; \emph{prerequisite} and \emph{evidence-flow} induce stronger ordering constraints than \emph{reference}.
+
+EvidenceLink records (attached via $\mathcal{A}$) minimally include \texttt{source\_id}, optional \texttt{span}, \texttt{excerpt}, \texttt{score}, and \texttt{access\_metadata}; they populate evidence-aware prompts and the audit trail.
+
+Serialization: JSON with top-level \texttt{"nodes"}, \texttt{"edges"}, \texttt{"evidence\_links"}; edges include \{\texttt{"source"},\texttt{"target"},\texttt{"label"},\texttt{"weight"}\}.
+
+Validation invariants (checked before scheduling) include: unique node ids; edge-label conformance $\ell(e)\in\Lambda$; edge endpoints in $V$; acyclicity of the strong-order subgraph (e.g., \{\texttt{prerequisite},\texttt{evidence-flow}\}) for topological ordering; and optional aggregate length-budget consistency (warnings on divergence).
+
+Design notes and limitations: the model favors simplicity and machine-tractability—rich discourse or intra-paragraph structure are omitted to keep node-level generators focused; the explicit EvidenceLink records and JSON schema support reproducible prompting, validation, and auditing.

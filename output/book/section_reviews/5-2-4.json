@@ -1,0 +1,49 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Checklist item 1 gives a concrete mapping example ('postup = rukopis, výsledek = text') but no explicit citation in the provided excerpts supports that specific mapping. While the general definition of multimodalita and the OneNote/Minecraft examples are supported, the recommended one‑to‑one mapping is an author recommendation rather than a citationable fact.",
+      "required_fix": "Either add a supporting citation (if available) for that mapping, rephrase the sentence as general background advice (label it 'general background knowledge'), or remove the specific mapping example."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Typo in the LaTeX: the tool name is written as '\\textit{Las o}' (with a space). The retrieved excerpt uses 'nástroj Laso'.",
+      "required_fix": "Fix the LaTeX to read '\\textit{Laso}' (no space) to match the KB excerpt and avoid a malformed emphasis token."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends collecting artefacts (scans/OneNote exports/Minecraft worlds) but does not instruct teachers about safe storage/format or link to privacy/GDPR guidance in the manual. Given earlier chapters cover privacy (chapter 2.2 etc.), this omission may lead to inconsistent practices.",
+      "required_fix": "Add a short sentence directing teachers to specify upload location and acceptable file formats (e.g., LMS, PDF/PNG/OneNote export) and cross‑reference the privacy/DPIA guidance (chapter 2.2 / 2.2.4) so that collectors of student artefacts follow GDPR‑aware procedures."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "In the first paragraph consider making the definitional sentence explicitly cite the KB (already present) and keep as-is. No change required unless you want to add a short cross‑reference to section 5.2.4 in the outline (which already defines multimodalita)."
+    },
+    {
+      "target": "OneNote bullet (první položka)",
+      "edit_instruction": "Fix the LaTeX typo: replace '\\textit{Las o}' with '\\textit{Laso}'. Keep the rest of the instruction, which matches the KB excerpt (kb_ai_101_tipu_pdf_04e4a115_page_13_2)."
+    },
+    {
+      "target": "Kombinovaná zadání bullet (třetí položka)",
+      "edit_instruction": "Add one sentence with practical upload/format guidance and a privacy cross‑reference. Suggested wording for the author to adapt: 'Uveďte v zadání, kam studenti mají artefakty nahrát (např. LMS), preferované formáty (PDF/PNG/OneNote export) a krátkou poznámku o ochraně osobních údajů — viz sekce 2.2 Ochrana soukromí a návrh DPIA.' This links the recommendation to existing material on privacy."
+    },
+    {
+      "target": "Checklist položka 1",
+      "edit_instruction": "Either remove the concrete example mapping ('např. postup = rukopis, výsledek = text') or mark it as 'general background knowledge / practical tip' (not a sourced fact). If you keep it, consider adding a phrase 'doporučená praxe' or similar to make it clear it's an author suggestion rather than an evidence‑backed claim."
+    },
+    {
+      "target": "Checklist položka 2",
+      "edit_instruction": "Add brief, concrete examples of acceptable file types and a reminder to check storage/retention policy. Example: 'Uveďte preferované formáty (PDF, PNG, OneNote export) a kam je nahrát; zvažte retenci a přístupová práva v souladu se sekcí 2.2 (GDPR).' This improves actionability for teachers."
+    }
+  ],
+  "retrieval_queries": [
+    "Confirm exact UI labels and spelling in OneNote for the Czech localization: 'nástroj Laso' and 'Rukopis na text' (to ensure LaTeX labels match source).",
+    "Any KB excerpt or guidance that recommends specific mappings between modality and assessed competency (e.g., 'postup = rukopis, výsledek = text') to support checklist item 1."
+  ]
+}

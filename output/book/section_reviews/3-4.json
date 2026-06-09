@@ -1,0 +1,56 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The recommendation to generate a set of variants e.g. \"8–12 příkladů\" (Rychlý pracovní postup, step 3) is a numeric suggestion that is not supported by any retrieved excerpt. The KB excerpts do describe tools that generate sets of examples, but do not justify this specific numeric range.",
+      "required_fix": "Either remove or rephrase the numeric recommendation as an explicit pedagogical suggestion (e.g. \"několik příkladů (např. 6–12) jako orientační rozsah — doporučení, ověřte lokálně)\") or provide a supporting citation from the KB or other evidence. Alternatively mark the line as \"general background knowledge / pedagogical suggestion\" to make its status explicit."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section mixes KB‑grounded statements (with citations) and pedagogical recommendations labeled as \"general background knowledge\", but this labeling is not consistent across all procedural or numeric recommendations (for example the quick workflow contains prescriptive steps without the \"general background\" label).",
+      "required_fix": "Explicitly mark procedural recommendations and numeric suggestions that are not directly supported by the provided KB as \"general background knowledge\" or add citations for statements that are claimed as factual. Make the distinction visually consistent in the LaTeX (e.g. short parenthetical note after each non‑KB assertion)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The workflow and validation steps are practical but would benefit from a concrete short worked example (e.g. one full exercise with expected solution steps and a short validation checklist) to illustrate the validation of steps and the hybrid verification workflow.",
+      "required_fix": "Add a brief worked example (marked as pedagogical illustration / general background knowledge) showing a generated math problem, expected solution steps, how the AI flags a likely error area, and which steps an instructor should manually check."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "No major LaTeX syntax errors detected, but verify that all \\\\cite keys used in the section correspond to entries in the document bibliography (.bib). Also ensure verbatim block compiles in the target document class and encoding (non-ASCII characters in the verbatim block are permitted but check encoding).",
+      "required_fix": "Confirm the bibliography contains the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_8_1, _page_14_1, _page_15_2). If not present, either add the corresponding bib entries or replace \\cite references with plain text references to the KB excerpts. Ensure the .tex file uses UTF-8 encoding so Czech characters compile correctly."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rychlý pracovní postup — step 3",
+      "edit_instruction": "Qualify the numeric recommendation. Replace \"(např. 8–12 příkladů)\" with: \"(orientačně několik variant — např. 6–12 — podle rozsahu hodiny; toto je pedagogická doporučená praxe, ověřte lokálně)\" and mark it as general background knowledge or provide a supporting citation."
+    },
+    {
+      "target": "Rychlý pracovní postup — entire list",
+      "edit_instruction": "Add a short parenthetical note at the start: \"Pozn.: kroky 1–5 jsou praktická doporučení; konkrétní nastavení přizpůsobte místním podmínkám a vždy validujte výstupy (viz citace k 'Pokrok v matematice' pro sběr postupů).\""
+    },
+    {
+      "target": "Specifika pro matematiku a sběr postupů",
+      "edit_instruction": "Add a one-paragraph worked example as a pedagogical illustration (marked as general background knowledge). Example: present a simple quadratic equation, list expected solution steps (factorization/completing the square), show how an AI tool could indicate likely error in the discriminant step, and note which steps the teacher should manually verify. Keep example short and labelled as illustrative, not as a KB fact."
+    },
+    {
+      "target": "Kontrolní mechanismy kvality a akademická integrita — item 3",
+      "edit_instruction": "Clarify the phrasing 'Náhodné variování parametrů úloh...' by adding: '(praktické doporučení pro snížení kolaborace žáků — pedagogická praxe, není specifikováno v KB)'."
+    },
+    {
+      "target": "LaTeX citations",
+      "edit_instruction": "Verify that the .bib includes entries for all \\cite keys used. If the technical workflow for compiling the manual does not include the KB bibliographic entries, convert the \\cite calls to parenthetical references like '(viz AI - 101 tipu, str. 8)' to avoid missing-bib errors."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices / guidance on recommended number of problems per worksheet for classroom use (evidence or guidance to justify '8-12' or similar ranges)",
+    "recommended sampling size or approach for manual validation/audit of AI-generated educational materials (how many examples to check to ensure quality)",
+    "examples or templates (from the KB or pedagogical literature) of a worked example showing AI-flagged error areas in student solution steps (to use as an illustrative example)"
+  ]
+}

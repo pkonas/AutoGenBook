@@ -1,0 +1,59 @@
+Tato podsekce shrnuje praktické kroky a kontrolní body zaměřené na ochranu osobních a interních dat při nasazení AI služeb na úrovni fakulty/univerzity. Následující doporučení jsou navržena jako pracovní průvodce pro garanty předmětů, IT a právní/GDPR kontakty; konečná právní a procesní rozhodnutí je nutné konzultovat s interním právním oddělením a specialisty na ochranu osobních údajů (general background knowledge).
+
+Poznámka k nástrojům ve výuce — ilustrativní příklady:
+\begin{itemize}
+  \item Některé edukační nástroje jsou součástí komerčních balíků (např. Minecraft Education v rámci Microsoft 365 A3/A5), což má vliv na smluvní podmínky a zpracování dat \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Funkce založené na zpracování obrazu (OCR, extrakce textu z obrázků) mohou konvertovat nahrané skeny či screenshoty do zpracovatelného textu; to je relevantní při sdílení dokumentů obsahujících osobní údaje \cite{kb_ai_101_tipu_pdf_04e4a115_page_53_2}.
+  \item Některé edukační AI funkce shromažďují a vyhodnocují výkon/student‑level metriky (např. nástroje generující příklady a analyzující postupy při matematice), což zvyšuje potřebu jasného smluvního ošetření a ochrany dat \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+Co zkontrolovat v DPA (Data Processing Agreement) — praktické body (general background knowledge)
+\begin{itemize}
+  \item Role a odpovědnosti: jasné vymezení, kdo je správcem (controller) a kdo zpracovatelem (processor), včetně sub‑processorů a práv na audity.
+  \item Účel zpracování: omezení na konkrétní účely výuky/administrace, zákaz sekundárního komerčního využití studentských dat bez souhlasu.
+  \item Doba retence a pravidla mazání: termíny uchovávání, procesy pro úplné odstranění dat na vyžádání a mechanismy pro obnovu po chybě.
+  \item Data residency a lokace zpracování: požadavek na zpracování/uložení v jurisdikci EU/EHP nebo jiná specifika podle interních pravidel fakulty.
+  \item Šifrování a zabezpečení: povinnost používat šifrování v přenosu (TLS) a šifrování v klidu; volitelné zákaznické (customer‑managed) klíče jsou výhodou.
+  \item Incidentní řízení: SLA pro hlášení úniku dat, povinnost notifikace do interních kontaktních bodů a lhůty pro oznámení.
+  \item Podmínky sub‑processorů a auditu: seznam povolených sub‑processorů, právo na bezpečnostní audity a penále/odpovědnost za porušení.
+\end{itemize}
+
+Data residency — možnosti a implikace (general background knowledge)
+\begin{itemize}
+  \item Možné varianty: 1) úložiště a zpracování v EU/EHP, 2) regionální cloud s možnostmi smluvního omezení lokace, 3) globální cloud bez záruk residency. Volba ovlivní právní compliance a provozní latenci.
+  \item Praktické pravidlo: pro citlivá studentská data preferovat EU‑based residency nebo on‑prem/hybridní řešení; u veřejně dostupných studijních materiálů lze zvážit širší varianty s odpovídajícími zárukami.
+\end{itemize}
+
+Šifrování a technická opatření (general background knowledge)
+\begin{itemize}
+  \item Požadujte šifrování v přenosu (TLS 1.2+/TLS 1.3) a šifrování v klidu (AES‑256 nebo ekvivalent).
+  \item Zvažte customer‑managed keys (CMK) pro klíčovou kontrolu, rotaci klíčů a možnost odnětí přístupu v případě incidentu.
+  \item U RAG scén a indexace interních zdrojů logujte retrieval události a volání modelu pro forenzní sledovatelnost (general background knowledge).
+\end{itemize}
+
+Praktický workflow pro sdílení citlivých materiálů v kurzu — krok po kroku (general background knowledge)
+\begin{enumerate}
+  \item Klasifikujte data používaná v kurzu (veřejné, interní, citlivé/osobní).
+  \item Minimalizujte sběr: sbírejte pouze nezbytná pole (pseudonymizujte tam, kde lze).
+  \item Proveďte DPIA (posouzení dopadů na ochranu osobních údajů) před zahájením rozsáhlejšího nasazení AI nástroje.
+  \item Uzavřete nebo ověřte DPA se službou, zkontrolujte residency, šifrování a sub‑processor pravidla.
+  \item Technicky nastavte přístup: SSO/IdP integrace, role‑based access, omezení exportů dat a auditní logování.
+  \item Testujte PoC: ověřte mazání dat, export logů, chování při incidentu a chování extrakčních funkcí (OCR atp.).
+  \item Do sylabu a komunikace s studenty jasně specifikujte pravidla sdílení dat a jak budou jejich výstupy zpracovávány (general background knowledge).
+\end{enumerate}
+
+Kontrolní checklist pro rychlý PoC (general background knowledge)
+\begin{itemize}
+  \item Existuje podepsaná DPA pokrývající všechny plánované datové toky?
+  \item Je lokace uložených dat (data residency) v souladu s interní politikou?
+  \item Jsou zapnutá šifrování v přenosu i v klidu a je dostupná možnost CMK?
+  \item Jsou nastavena auditní logy pro přístupy k interním dokumentům a volání modelu?
+  \item Proběhla DPIA a byla schválena příslušným orgánem/fakultním GDPR kontaktem?
+\end{itemize}
+
+Závěrečné doporučení pro garanty a IT (general background knowledge):
+\begin{itemize}
+  \item Zapojte právní/GDPR a IT/security týmy již ve fázi výběru řešení; smluvní zajištění a technické konfigurace ovlivní možnosti využití nástroje ve výuce.
+  \item Piloty navrhujte s omezeným dosahem dat (pseudonymizace, anonymizace) a jasným plánem rozšíření až po ověření bezpečnosti a souladu.
+  \item Dokumentujte všechna rozhodnutí o residency, DPA a retenčních politikách a zahrňte je do sylabů a komunikace ke studentům.
+\end{itemize}

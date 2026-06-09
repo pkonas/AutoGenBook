@@ -1,0 +1,74 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "major",
+      "description": "There is a stray '.\\itemsep0pt' inside the itemize list (after the 'A/B varianty systémových instrukcí (verze s ID).' item). Placing \\itemsep0pt inline like this is invalid LaTeX and will break compilation.",
+      "required_fix": "Remove the inline '.\\itemsep0pt' token. If zero item separation is desired, add e.g. '\\\\begin{itemize}\\n  \\\\setlength{\\\\itemsep}{0pt}' (or use a list package) at the start of the itemize environment."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The enumerate/itemize usage is otherwise fine, but footnotes inside lists are OK; confirm that the document class supports footnotes inside lists (most do).",
+      "required_fix": "No critical change required; optionally move footnotes outside list items if the document class causes layout issues."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "Ambiguous time abbreviation '4–8 týdnů' appears elsewhere as shorthand using 't' (open thread): the section refers to collecting data 'pro první 4–8 týdnů' but the rest of the document uses 't' as unit in a few places — unit should be explicit here to avoid misinterpretation.",
+      "required_fix": "Explicitly state the time unit (e.g. '4–8 týdnů') and, if the rest of the document uses the shorthand 't', add a parenthetical note clarifying that 't' = 'týdnů (weeks)'."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "There are typographical/encoding errors in Czech: 'sadu dotazů' appears as 'sadу' (Cyrillic 'у'), and 'nasadťe' contains an unexpected diacritic or malformed character.",
+      "required_fix": "Fix typographical/encoding errors: replace the Cyrillic 'у' with Latin 'u' ('sadu'), and correct 'nasadťe' to the intended Czech form (e.g. 'nasadte vítěznou variantu' or the preferred orthography used in the rest of the document)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section gives an example fail‑safe response but does not exactly quote the canonical version used in the ROLE templates in the previous section.",
+      "required_fix": "Use the exact fail‑safe wording from the ROLE: QA template to ensure consistency (the text in previous section: 'Nevím — doporučuji konzultaci s vyučujícím'). If a variant is intended, note that explicitly."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some steps are marked 'General background knowledge' (e.g. A/B testing rationale, collecting 'desired'/'undesired' examples) and lack explicit KB citation. While these are reasonable, the document's grounding policy prefers citations where non-trivial recommendations are made.",
+      "required_fix": "Where possible, add citations from the KB for recommendations such as the A/B testing approach, suggested logging schema, and the 10+5 pilot testset. If no direct KB citation exists, mark them clearly as general background (as currently done) and keep guidance high-level."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The log schema and metric suggestions are helpful but could be more actionable by giving a concrete example of a single log entry (field names and types) or a suggested target threshold for pilot metrics.",
+      "required_fix": "Add a short illustrative example (one sample log line or JSON object) showing fields: variant_id, query_text, response_text, time_to_first_response (s), repeated_query_flag (bool), user_satisfaction_score (1–5), reviewer_note. For thresholds, either cite KB evidence or present them as suggested defaults to be tuned in pilot."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening summary",
+      "edit_instruction": "Keep the high-level 'General background knowledge' label, but make the sentence slightly shorter and align phrasing with earlier ROLE templates (explicitly reference the fail‑safe wording used in ROLE: QA). E.g. add parenthetical: '(viz. ROLE: QA: \"Nevím — doporučuji konzultaci s vyučujícím\").'"
+    },
+    {
+      "target": "Praktický workflow, item 2",
+      "edit_instruction": "Fix encoding/typo in 'Připravte testovací sadу dotazů' → 'Připravte testovací sadu dotazů a scénářů'. Ensure '10+5 testů' remains footnoted to kb_ai_101_tipu_pdf_page_15_2 as currently."
+    },
+    {
+      "target": "Praktický workflow, item 6",
+      "edit_instruction": "Correct 'nasadťe vítěznou variantu' to a consistent Czech form used in the rest of document (e.g. 'nasadte vítěznou variantu do pilotu s reálnými uživateli'). Also add a short sentence instructing to document rollback criteria (e.g. which metric decline triggers rollback) — keep as a suggestion if no KB citation is available."
+    },
+    {
+      "target": "Checklist (itemize)",
+      "edit_instruction": "Remove the stray '.\\itemsep0pt' and, if desired, set list spacing with '\\\\begin{itemize}\\n  \\\\setlength{\\\\itemsep}{0pt}' (or similar) before the items. Ensure all footnote references compile correctly."
+    },
+    {
+      "target": "Logging paragraph and checklist item",
+      "edit_instruction": "Add a short illustrative example of a log entry (one JSON line) using the recommended fields. Keep it minimal and clearly labelled as an example; do not invent KB citations for concrete thresholds."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_15_2 full chunk: explicit references for 10+5 testset, fail-safe wording, logging schema and iteration recommendations",
+    "kb_ai_101_tipu_pdf_page_51_1 (or nearby pages): confirm wording for 'definujte fail-safe odpověď' and pilot timing recommendations (4–8 týdnů)",
+    "Any KB pages in the repository that discuss A/B testing of prompts or rollback criteria for prompt changes (search for 'A/B test', 'rollback', 'prompt testing')"
+  ]
+}

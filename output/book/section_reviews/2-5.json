@@ -1,0 +1,72 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section contains explicit numeric recommendations that are presented as prescriptive (e.g. '150–300 znaků' for the declaration text length; rubric numeric scales 'Transparentnost použití AI (0–5 bodů)', 'Originalita (0–10 bodů)', 'Doklad procesu (0–5 bodů)'). These are non‑trivial numeric claims and are not supported by any retrieved excerpt or run artifact.",
+      "required_fix": "Remove or rephrase these numeric/score statements as illustrative examples (e.g. 'příkladné škály bodování') or supply supporting references/evidence. If kept as an example, prefix them explicitly with 'příklad' or mark as (example) / (suggested) and avoid presenting them as normative requirements."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The 'Pole deklarace na odevzdání' suggests a concrete UI design (checkboxes, fields) and fixed character limits, which are implementation details presented without supporting evidence or cross‑reference to institutional guidance or technical constraints.",
+      "required_fix": "Either remove the fixed character limit and present the fields as recommended items (e.g. 'nástroj, prompt, popis přidané hodnoty — doporučené pole typu text/checkbox') or provide justification/supporting examples from institutional practice or a retrieved source. Ensure any mandatory behaviour (e.g. 'student explicitně uvede... konkrétní prompty a verze') is framed as a recommended template, unless institutional policy requires it."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some recommendations are not consistently labelled as 'general background knowledge' whereas others are. This may confuse readers about which items are evidence‑based vs. author suggestions.",
+      "required_fix": "Standardize labelling: mark all non‑sourced policy proposals as '(suggested example)' or '(general background knowledge)'. For items that can be grounded in the manual's other sections or in retrieved excerpts, add explicit cross‑references (e.g. 'viz sekce 2.2 — Minimalizace dat')."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends milestone/process assessments and sample phrasing for syllabi, but lacks concrete short examples of a milestone schedule, an AI‑enhanced assignment with a sample prompt and an example of an acceptable student reflection.",
+      "required_fix": "Add one short concrete example of: (a) milestone plan (dates / deliverables), (b) an AI‑enhanced assignment prompt + expected student reflection, and (c) a sample filled declaration to show acceptable level of detail — or point to the repository items listed in the outline (e.g. Annex 9.3/9.9)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section includes a citation \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1} (and references to other chapters). Ensure the bibliography contains the cited key(s) and that cross‑references to 'kapitoly 2.2 a 8' are valid in the final compiled document.",
+      "required_fix": "Verify that the bib file or the document's reference list includes the cited key(s). Add explicit LaTeX cross‑reference commands (\\ref) for chapters 2.2 and 8 if the document supports internal linking."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rubrika hodnocení (sekce s bodováním)",
+      "edit_instruction": "Replace concrete numeric scales with phrasing that marks them as examples. E.g. change 'Transparentnost použití AI (0–5 bodů)' to 'Transparentnost použití AI (příkladné škálování: např. 0–5 bodů — lze upravit podle předmětu)' and similarly for other rubric items. Alternatively, move concrete scales to an annex as 'příkladná rubrika'."
+    },
+    {
+      "target": "Pole deklarace na odevzdání",
+      "edit_instruction": "Remove the hard '150–300 znaků' limit; instead propose field types and guidance: 'Krátké textové pole pro popis přidané hodnoty (doporučeno: řádově stovky znaků), checkboxy pro zaškrtávací volby (použití nástroje: ano/ne) a povinné textové pole pro uvedení názevů nástrojů a promptů (nebo jejich anonymizovanou verzi). Uveďte poznámku o ochraně PII: neuvádět osobní nebo citlivé údaje do promptů.'"
+    },
+    {
+      "target": "Formulace do sylabu — ukázky",
+      "edit_instruction": "Mark all sample texts explicitly as 'příklad' or 'template' and add a short note: 'Přizpůsobte terminologii a proces řešení údajných porušení akademické integrity podle místních podmínek fakulty; viz kapitola 2.2 a 8 pro GDPR a smluvní požadavky.'"
+    },
+    {
+      "target": "Praktické konstrukce zadání a ověřitelnost",
+      "edit_instruction": "Add one short concrete example: a 3‑milestone schedule for a programming project (milestone 1: návrh + požadavky — odevzdat do T1; milestone 2: pracovní repo + commity — do T2; milestone 3: finální odevzdání + krátká obhajoba 10 min — do T3). For each milestone state what artefacts to collect (issues, commits, screenshots, brief log)."
+    },
+    {
+      "target": "Poznámka o detektorech",
+      "edit_instruction": "Keep the caution about detectors but add an explicit pointer to the relevant section (5.8 / 'Proč se nespoléhat na detektory AI'), and prefix the sentence with 'obecně' or 'dle literatury' to indicate it is guidance rather than a provable fact in this document."
+    },
+    {
+      "target": "Cross‑references",
+      "edit_instruction": "Replace the plain 'viz kapitoly 2.2 a 8' with explicit references to headings or annexes (e.g. 'viz sekce 2.2 \"Ochrana soukromí a GDPR‑kompatibilní postupy\" a sekce 8 \"Institucionální nasazení, integrace a bezpečnost\"') to help readers locate supporting content."
+    },
+    {
+      "target": "Bibliography / citations",
+      "edit_instruction": "Ensure that the citation key 'kb_ai_101_tipu_pdf_04e4a115_page_8_1' is present in the document's bibliography and that the related cited text (about 'Pokrok v matematice' and nahrávání postupu) is referenced next to the claim. If other claims are to be sourced, add corresponding citations."
+    }
+  ],
+  "retrieval_queries": [
+    "best practices rubric scoring academic integrity AI declaration recommended point scales evidence",
+    "examples of AI declaration fields used by universities (tool name, prompt, student reflection) template",
+    "guidance on recommended length for student reflections about AI use (character limits) from university policies",
+    "evidence/reports on limitations and false positive rates of automatic AI output detectors (papers, guidance)",
+    "institutional examples of milestone‑based assessment schedules for projects using AI (sample templates)"
+  ]
+}

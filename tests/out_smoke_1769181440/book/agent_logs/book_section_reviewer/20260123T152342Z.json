@@ -1,0 +1,87 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T152342Z",
+  "input": {
+    "section_title": "Automatizované hodnocení krátkých odpovědí",
+    "node_key": "2-2",
+    "section_latex": "\\noindent\\textit{Poznámka: níže uvedené body jsou obecná doporučení (``general background knowledge'') a měly by být ověřeny lokálním pilotem před plošným nasazením.}\n\n\\medskip\n\n\\begin{itemize}\n  \\item Požadavky před nasazením:\n    \\begin{itemize}\n      \\item jasně definovaná rubrika pro krátké odpovědi (co se hodnotí, jaké jsou stupně kvality);\n      \\item anonymizovaná testovací sada reálných studentských odpovědí pro ladění a validaci;\n      \\item zajištění souhlasu a ochrany osobních údajů pro zpracování studentských dat;\n      \\item technické rozhraní pro export/import odpovědí a protokolování rozhodnutí modelu.\n    \\end{itemize}\n\n  \\item Návrh metrik kvality (příklady):\n    \\begin{itemize}\n      \\item shoda s lidským hodnocením (míra, jak často automatické skóre odpovídá ručnímu);\n      \\item konzistence (stabilita skóre při opakovaných spuštěních nebo malých úpravě textu);\n      \\item užitnost pro učitele (zrychlení práce, snížení administrativy) a spokojenost studentů.\n    \\end{itemize}\n\n  \\item Základní implementační postup:\n    \\begin{enumerate}\n      \\item definujte cíle hodnocení a připravte rubriku;\n      \\item sestavte validační sadu s ručně ohodnocenými příklady;\n      \\item vyberte nástroj nebo model a nastavte předzpracování (tokenizace, normalizace);\n      \\item spusťte pilot: automatické hodnocení + lidská kontrola vybraného vzorku;\n      \\item vyhodnoťte metriky shody a identifikujte systematické odchylky; upravte rubriku nebo model;\n      \\item dokumentujte pravidla a výsledky pro audit a komunikujte je studentům.\n    \\end{enumerate}\n\n  \\item Validace proti ručnímu hodnocení:\n    \\begin{itemize}\n      \\item ověřte automatické skóry na náhodném nebo stratifikovaném vzorku z různých úrovní obtížnosti;\n      \\item porovnejte distribuce skóre a analyzujte případy, kde se systém a hodnotitel liší (chyby podhodnocení/nadhodnocení);\n      \\item při zjištění významných rozdílů zaveďte kombinovaný workflow (automatické skóre slouží jako návrh, finální rozhodnutí dělá člověk).\n    \\end{itemize}\n\n  \\item Praktické tipy pro pilot:\n    \\begin{itemize}\n      \\item začněte úzkým obsahem (konkrétní typ otázek), než systém rozšíříte;\n      \\item informujte studenty o použití automatizace a možnostech oprav/námitky;\n      \\item uchovávejte záznamy rozhodnutí modelu a oprav učitelů pro pozdější audit a zlepšování.\n    \\end{itemize}\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- Pravidla pro ověřování výstupů a akademickou integritu: Soubor doporučení: ručně verifikovat náhodný vzorek generovaných odpovědí (zvážit stratifikaci podle obtížnosti); požadovat zdroje nebo krátké vysvětlení od AI; transparentně informovat studenty o použití AI; kombinovat detekci plagiátů s procesními stopami a dokumentovat postupy pro audit (z textu sekce 'Základní pravidla pro ověřování výstupů a akademickou integritu'). (first: 1)\n- Krátké doporučení pro první týden nasazení: Konkrétní kroky pro počáteční týden: Den 0 informovat studenty a získat souhlas; Den 1–7 školení (30–60 min) a zkušební úkol; po týdnu vyhodnotit data a upravit nastavení (z textu sekce 'Krátké doporučení pro první týden nasazení'). (first: 1)\n- Adaptivní úlohy: Úlohy, které upravují obtížnost, počet nebo typ zpětné vazby podle výkonu studenta (z textu sekce 'Adaptivní úlohy v MOOC a LMS'). (first: 2-1)\n- Scénář A — doplňkové cvičení (pravidla): Cíl: doplnit cvičení podle diagnostiky; příklad pravidel v textu: <80% → 3 cvičení; <50% → přidat vysvětlení. Doporučené metriky: měřte čas, zlepšení skóre a míru dokončení. Doporučený pilot: 5--30 studentů, 4--8 týdnů (z textu sekce 'Adaptivní úlohy v MOOC a LMS'). (first: 2-1)\n- Scénář B — personalizované hinty (pravidla + jednoduché statistiky): Triggery založené na čase, neúspěšných pokusech nebo chybovém skóru; doporučené metriky: počet hintů, změna času do dokončení a spokojenost (z textu sekce 'Adaptivní úlohy v MOOC a LMS'). (first: 2-1)\n- Scénář C — adaptivní cesta (ML): Použití ML k predikci rizika neúspěchu a přesměrování studentů na remedial obsah; doporučený postup: začít retrospektivní analýzou, provést A/B pilot s validací; tipy zahrnují jasné metriky, začít s pravidly, transparentnost a ruční audit výstupů (z textu sekce 'Adaptivní úlohy v MOOC a LMS'). (first: 2-1)\n\nCITATIONS:\n- 1 (node: 1)\n\nOPEN THREADS:\n- Detailní postupy pro zajištění etiky, ochrany osobních údajů a auditovatelnosti (úvod uvádí zásady, ale ne proced...",
+    "previous_sections": "The title of part 1 sections ago is Adaptivní úlohy v MOOC a LMS, and the content is as follows.\nKrátký popis a účel: Adaptivní úlohy upravují obtížnost, počet nebo typ zpětné vazby podle výkonu studenta; níže tři stručné scénáře a praktické tipy pro malý pilot (doporučený přístup v úvodu průvodce \\cite{1}).  \nScénář A — doplňkové cvičení (pravidla): cílem doplnit cvičení podle diagnostiky (např. pravidla: <80\\% → 3 cvičení; <50\\% → přidat vysvětlení); měřte čas, zlepšení skóre a míru dokončení; pilot 5--30 studentů, 4--8 týdnů.  \nScénář B — personalizované hinty (pravidla + jednoduché statistiky): triggery na základě času/neúspěšných pokusů nebo chybového skóru; měřte počet hintů, změnu času do dokončení a spokojenost.  \nScénář C — adaptivní cesta (ML): ML predikuje riziko neúspěchu a přesměruje na remedial obsah; nejprve retrospektivní analýza a A/B pilot s validací; tipy: jasné metriky, začít s pravidly, transparentnost a ruční audit výstupů \\cite{1}.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "Sekce správně začíná poznámkou, že jde o obecná doporučení (\"general background knowledge\"). Nicméně některé položky (např. \"užitnost pro učitele\") zůstávají vágní a obsahují implicitní tvrzení o přínosech bez odkazu na ověřené postupy nebo zdroje.",
+        "required_fix": "Buď explicitně zachovat a rozšířit kvalifikaci jako \"general background knowledge\" u konkrétních bodů, nebo doplnit krátké odkazy na místní piloty / oddělení kvality a postupy ověření (viz návrh editů). Pokud budete chtít přidat konkrétní metriky nebo hodnoty (např. cílové hodnoty shody), dodejte zdroje nebo výsledky lokálních pilotů."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "Sekce se tematicky shoduje s obsahem v paměti (např. doporučení pro ruční verifikaci vzorku), ale neodkazuje explicitně na související části průvodce (např. část o etice, ochraně soukromí a ověřování výstupů).",
+        "required_fix": "Přidat krátké křížové odkazy na relevantní části průvodce (např. sekci 5 \"Etika, ochrana soukromí a ověřování výstupů\" a sekci s pravidly pro verifikaci)."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Návrh metrik je užitečný, ale pojmy jako \"shoda s lidským hodnocením\", \"konzistence\" a \"užitnost pro učitele\" nejsou operacionalizovány (chybí způsob měření a příklady metrik / nástrojů).",
+        "required_fix": "Doplňte ke každému navrženému ukazateli krátkou definici a příklad, jak ho vypočítat nebo změřit (např. procento shody, Cohenova kappa nebo ICC pro shodu; opakovací testy pro konzistenci; čas na hodnocení / dotazník pro užitnost). Pokud chcete citovat statistické metody, přiložte důkaz nebo odkaz na doporučenou metodiku."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "Chybí konkrétní, ilustrační příklad rubriky a ukázkový průběh validace (malý vzorek odpovědí s porovnáním automat vs. člověk), což by výrazně usnadnilo praktické nasazení a pochopení postupu.",
+        "required_fix": "Přidejte jeden krátký příklad (1–2 otázky) s ukázkovou rubrikou a ilustrativním výsledkem automatického skórování vs. ručního hodnocení v LaTeXu. Ukažte, jak identifikovat systematické odchylky (např. 3 konkrétní případy chyb)."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "LaTeX tělo je obecně syntakticky v pořádku. Pro lepší integraci do širšího dokumentu by bylo užitečné přidat \\\\label pro křížové odkazy a zvážit použití vhodného prostředí pro poznámku (např. quote či emph).",
+        "required_fix": "Přidat \\label{sec:automatizovane-hodnoceni-kratkych-odpovedi} hned za název nebo na začátek latex_body a případně obalit úvodní poznámku do \\begin{quote}\\footnotesize ... \\end{quote} pro lepší čitelnost."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "úvodní poznámka",
+        "edit_instruction": "Zachovat varování \"general background knowledge\" a přidat větu: \"Viz také sekce 5 o etice a ochraně osobních údajů pro požadavky na souhlas a auditovatelnost.\" (vložit \\label pro křížové odkazy)."
+      },
+      {
+        "target": "sekce 'Návrh metrik kvality'",
+        "edit_instruction": "U každého bodu přidejte krátkou operacionalizaci. Např.: 'shoda s lidským hodnocením — reportovat % shody a Cohenovu kappu mezi automatickým skórem a průměrem dvou lidských hodnotitelů; cílově používat pilotní prahy před nasazením.' Pokud chcete konkrétní metody, připojte reference nebo výsledky pilotu."
+      },
+      {
+        "target": "sekce 'Základní implementační postup'",
+        "edit_instruction": "Doplnit krok mezi 2 a 3: 'nastavte metriky a plán validace (vzorek, metody porovnání, kritéria akceptace)'. Také přidat návrh šablony pro protokolování rozhodnutí modelu (co ukládat: input, výstup, skóre, verzí modelu, čas, opatření učitele)."
+      },
+      {
+        "target": "sekce 'Validace proti ručnímu hodnocení'",
+        "edit_instruction": "Doplnit krátký checklist: (a) vybrat reprezentativní (ideálně stratifikovaný) vzorek, (b) mít alespoň dva nezávislé lidské hodnotitele pro výpočet mezihodnotitelské shody, (c) analyzovat systematické chyby podle typu otázky a demografických skupin, (d) rozhodnout prahy pro automatické akceptování vs. lidskou revizi."
+      },
+      {
+        "target": "praktické tipy pro pilot",
+        "edit_instruction": "Přidat konkrétní ukázkovou rubriku (v LaTeXu) pro krátkou odpověď 50–150 slov se 3 kritérii (relevance, přesnost, jasnost) a 3 úrovněmi (0/1/2 body) a krátký příklad, jak by systém a učitel řešili rozdíl."
+      }
+    ],
+    "retrieval_queries": [
+      "best practices automated short answer scoring validation sample size and metrics (Cohen's kappa, percent agreement, ICC) guidance for education evaluation",
+      "recommendations anonymization and consent for processing student assessment data (GDPR guidance or university policies) best practices",
+      "example rubrics for short-answer grading (3-level rubric template) and worked examples comparing automated scoring to human raters"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 3837,
+      "completion_tokens": 3237,
+      "total_tokens": 7074
+    },
+    "cost_usd": 0.00743325,
+    "total_cost_usd": 0.063472,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

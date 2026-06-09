@@ -1,0 +1,68 @@
+\begin{flushleft}
+Krátké shrnutí a cíle této sekce: prakticky nastavit chování a pracovní toky AI tutora v kurzu tak, aby podporoval učení (hinty, diagnostika, adaptivní cvičení), zároveň minimalizoval riziko „hotových řešení“ a respektoval ochranu osobních údajů. Níže naleznete doporučená pravidla, navržený workflow pro zavedení a ukázkové prompty (označené jako general background knowledge tam, kde nejsou přímo podloženy KB).
+\end{flushleft}
+
+\paragraph{Klíčová pravidla chování tutora (nutné nastavit před pilotem)}
+\begin{itemize}
+  \item Požadovat důkazy o postupu u úloh, kde je důležitý proces (např. matematické výpočty): nastavit povinnost nahrát/sklíčit postupy, které tutor kontroluje a k nimž generuje nápovědy, nikoli kompletní řešení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Upřesnit režim nápověd (hintování) místo poskytování hotových řešení; formulovat to ve srozumitelné politice pro studenty a vložit do sylabu (viz šablony v příručce) — toto pravidlo ozřejmuje očekávané chování tutora (general background knowledge).
+  \item Transparentnost: studenty informovat, kdy a jak tutor zpracovává jejich artefakty a jak mají deklarovat použití AI (general background knowledge).
+  \item Pro demonstrace a non‑sensitive cvičení využít výukové světy (např. Minecraft Education) — vhodné i pro vizualizaci principů strojového učení; některé lekce jsou zdarma, širší obsah může být součástí školní licence Microsoft 365 A3/A5 \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Při zpracování osobních údajů či sledování artefaktů preferovat školní/enterprise varianty nástrojů a ověřené datové dohody (general background knowledge). Pro generování a hromadné vytváření testů lze využít Microsoft 365 Copilot + Forms \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+\end{itemize}
+
+\paragraph{Doporučený praktický workflow pro nasazení tutora (krátký návod)}
+\begin{enumerate}
+  \item Definujte pedagogické cíle tutorování: které dovednosti má tutor podporovat (procedurální řešení, jazyková podpora, opakování pojmů). (general background knowledge)
+  \item Vyberte nástroje podle účelu: pro procvičování matematiky zvažte řešení, které umožní sběr postupu řešení (viz funkce „Pokrok v matematice“); pro tvorbu kvízů zvažte Copilot+Forms \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+  \item Nastavte pravidla: explicitně omezte generování kompletních řešení tam, kde požadujete proces; definujte formát odevzdávaných důkazů (snímky postupu, mezi‑verze, commit‑history). Požadavek na postup zvyšuje ověřitelnost výkonu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Pilotujte malou skupinu: sbírejte artefakty práce a krátké reflexe studentů; iterujte nastavení nápověd a omezení podle zpětné vazby.
+  \item Škálování: vytvořte banku adaptivních úloh a šablon testů; uvažujte o enterprise licencích tam, kde se budou zpracovávat citlivá data nebo kde je vyžadována centrální správa \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+\end{enumerate}
+
+\paragraph{Praktické provozní nastavení (konkrétní doporučení)}
+\begin{itemize}
+  \item Konfigurace ukládání a retence: rozhodněte, jak dlouho se ukládají konverzace a artefakty, a informujte studenty. (general background knowledge)
+  \item Auditní logy a přístup: zajistěte, kdo má přístup k datům tutora (učitelé, asistenti) a jak se provádí případná revize.
+  \item Metody validace: propojte automatické kontroly s lidskou validací pro klíčové milníky; při podezření na nesprávné použití použijte verifikační rozhovor (ověřovací ústní fáze) jako doplněk k artefaktům. (general background knowledge)
+\end{itemize}
+
+\paragraph{Ukázkové prompty pro běžné scénáře (příklady, označeno jako general background knowledge)}
+Poznámka: následující prompty jsou šablony k okamžitému použití; upravte je pro konkrétní kurz a pravidla omezování generování řešení.
+
+\begin{itemize}
+  \item „Sokratovský“ průvodce (vedení otázkami):
+    \begin{quote}
+      (general background knowledge) \\
+      Jsi studentský tutor. Student posílá krátký výňatek svého řešení. Neodpovídej kompletním řešením. Polož 3 kontrolní otázky, které ověří klíčové předpoklady studenta a nabídni jednu drobnou nápovědu vedoucí ke správnému kroku.
+    \end{quote}
+
+  \item Kontrola kroků u matematického příkladu:
+    \begin{quote}
+      (general background knowledge) \\
+      Student poslal postup řešení. Projděte každý krok a označte: (1) správný/částečně správný/nesprávný; (2) u nesprávného kroku popište, v čem je chyba (max. 30 slov); (3) navrhni krátkou nápovědu, která vede ke správnému dalšímu kroku, bez hotového řešení.
+    \end{quote}
+
+  \item Generování adaptivních cvičení (inspirace funkcí „Pokrok v matematice“):
+    \begin{quote}
+      (general background knowledge) \\
+      Vygeneruj 5 krátkých úloh zaměřených na lineární rovnice se zadanou obtížností (stupeň: základní/střední/pokročilý). U každé úlohy uveď očekávaný typ chyby a návrh nápovědy, pokud student odpoví chybně.
+    \end{quote}
+
+  \item Vytvoření testu v učitelském workflow (inspirace Copilot+Forms):
+    \begin{quote}
+      (general background knowledge) \\
+      Vygeneruj test na téma „lineární rovnice“ pro 1. ročník VŠ, 10 otázek: 6 ABC, 2 pravda/nepravda, 2 krátké otevřené. Přidej klíč odpovědí a krátké vysvětlení správných odpovědí (pro učitele).
+    \end{quote}
+\end{itemize}
+
+\paragraph{Kontrolní checklist pro učitele před spuštěním tutora}
+\begin{itemize}
+  \item Je definován požadavek na sběr postupu tam, kde je to potřeba? Viz doporučení pro matematiku a funkci „Pokrok v matematice“ \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Jsou stanovena pravidla pro omezení generování kompletních řešení a je to komunikováno studentům? (general background knowledge)
+  \item Máte připravený demonstrační scénář (např. v Minecraft Education) pro první seznámení s principy a chováním tutora? Některé lekce jsou zdarma, další jsou v rámci školní licence \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Pro generování testů a hromadné úlohy: máte ověřenu integraci s Copilot+Forms nebo jiným nástrojem a nastavenou kontrolu kvality otázek \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+\end{itemize}
+
+\paragraph{Závěr sekce}
+Nejlepší praxe kombinuje jasná pravidla (transparentnost, požadavek na postup), malý pilotní běh s iterací a technologii přizpůsobenou účelu (nástroje podporující sběr postupu pro matematiku; Copilot+Forms pro hromadné kvízy). Pro demonstrační a motivační aktivity uvažujte o připravených výukových světech (Minecraft Education) — to usnadní pochopení principů AI studentům i učitelům \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2,kb_ai_101_tipu_pdf_04e4a115_page_36_1,kb_ai_101_tipu_pdf_04e4a115_page_8_1}.

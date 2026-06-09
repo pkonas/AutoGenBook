@@ -1,0 +1,100 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T154519Z",
+  "input": {
+    "section_title": "Implementace v kurzu: plánování a řízení rizik",
+    "node_key": "4",
+    "section_latex": "Praktický krok‑za‑krok plán pro zavedení AI do kurzu, s důrazem na řízení rizik a kontrolu kvality.\n\n\\begin{enumerate}\n  \\item Identifikujte vhodné učební cíle a scénáře použití.\n    \\begin{itemize}\n      \\item Vyberte úkoly, kde AI přidává jasnou hodnotu (personalizace cvičení, předhodnocení odpovědí, generování podkladů) a kde jsou snadno definovatelné metriky úspěchu. (general background knowledge)\n      \\item Preferujte moduly s opakovatelnými výstupy a měřitelnými výsledky – např. krátké odpovědi, doma vypracované cvičení nebo automatizované feedbacky.\n    \\end{itemize}\n\n  \\item Návrh malého pilotu.\n    \\begin{itemize}\n      \\item Definujte cíl pilotu, rozsah (počet studentů, délka v týdnech) a kritéria úspěchu (KPI). Doporučení: začněte malým, iterativním pilotem a logujte výsledky pro analýzu. (general background knowledge)\n      \\item Určete role: garant kurzu, technická podpora, hodnotitelé, odpovědná osoba za ochranu osobních údajů.\n      \\item Zahrňte plán komunikace se studenty (transparentnost o použití AI, jak se budou data zpracovávat).\n    \\end{itemize}\n\n  \\item Metody kontroly kvality a auditní záznam.\n    \\begin{itemize}\n      \\item Používejte rubriky pro kontrolu výstupů; vzorová struktura rubriky (A–D) a pravidla eskalace jsou k dispozici v sekci 3.3. \n      \\item Vytvářejte auditní záznamy obsahující: ID práce, datum, verzi rubriky, použitý prompt/LLM skóre, lidské skóre/komentář, důvod eskalace a konečné rozhodnutí. Tento formát je doporučen pro pilotní ověření (viz auditní záznam v sekci 3.3).\n      \\item Doporučený postup validace: nechte LLM provést předhodnocení, označte položky s nízkou důvěrou pro lidskou kontrolu a provádějte náhodné vzorkování; pilotní ověření by mělo obsahovat ruční kontroly (doporučený rozsah viz sekce 3.3: 10–20 ručních kontrol).\n    \\end{itemize}\n\n  \\item Řízení rizik: technická i etická opatření.\n    \\begin{itemize}\n      \\item Ověřování faktů: zavést kontrolní vrstvy (manuální kontroly, seznam spolehlivých zdrojů pro fact‑check).\n      \\item Prevence plagiátorství: kombinace nástrojů pro detekci shody a jasné instrukce pro studenty o citování a používání AI.\n      \\item Konzervativní prompty: omezit generované délky, požadovat citace, explicitně nastavovat styl „draft/ návrh“ a požadavek na ověření údajů učitelem před publikací.\n      \\item Ochrana osobních údajů: minimalizovat sdílená data, použít anonymizaci tam, kde je to možné, a zajistit souhlas studentů podle interních pravidel univerzity.\n    \\end{itemize}\n\n  \\item Školení týmu a zapojení studentů.\n    \\begin{itemize}\n      \\item Krátké školení pro vyučující a hodnotitele: postupy pro kontrolu AI‑výstupů, používání rubrik a práce s auditními záznamy (viz kombinovaný workflow v sekci 3.3).\n      \\item Informujte studenty o cílech pilotu, očekáváních a pravidlech používání AI; získejte jejich zpětnou vazbu během a po pilotu.\n    \\end{itemize}\n\n  \\item Monitorování metrik a iterace.\n    \\begin{itemize}\n      \\item Základní KPI: shoda AI vs. lidské hodnocení (agreement), doba na přípravu/feedback (time saved), spokojenost studentů, četnost eskalací z důvodu nízké důvěry.\n      \\item Plánujte pravidelné revize po každém běhu pilotu a iterujte prompt/ workflow/ rubriky podle zjištěných problémů.\n    \\end{itemize}\n\\end{enumerate}\n\nKrátká šablona pilotního plánu (vyplnitelná):\n\\begin{description}\n  \\item[Cíl pilotu:] $\\underline{\\hspace{6cm}}$\n  \\item[Rozsah:] $\\underline{\\hspace{6cm}}$\n  \\item[KPI a metriky:] $\\underline{\\hspace{6cm}}$\n  \\item[Role a odpovědnosti:] $\\underline{\\hspace{6cm}}$\n  \\item[Kontrola kvality / auditní záznam:] (povinné položky viz výše)\n  \\item[Plán komunikace se studenty:] $\\underline{\\hspace{6cm}}$\n  \\item[Harmonogram a body pro rozhodnutí o rozšíření:] $\\underline{\\hspace{6cm}}$\n\\end{description}\n\nPoznámka: pro konkrétní postupy hodnocení, rubriky a auditní záznamy viz detailní vzory a doporučení v sekci 3.3; tam jsou uvedeny konkrétní položky auditního záznamu a kombinovaný workflow pro LLM‑assisted grading.",
+    "context_memory_excerpt": "TERMS:\n- Šablony promptů a vzory pro přípravu lekcí a úloh: Přenosné prompty pro učitele s hranatými zarážkami [OBOR], [ÚROVEŇ], [TÉMA] — zahrnují lesson plan, zadání úlohy, cvičení s variantami, řešení krok‑za‑krokem, MCQ a rubriku; určeno k vložení do LLM nebo skriptu, s doporučením upravit zarážky a explicitně omezit délku výstupu pro snadnou kontrolu; pro varianty přidat instrukci 'make each variant unique...'; pro chatboty zahrnout metriky a plán auditu (odkazuje na postupy z 2-5); před nasazením provést manuální kontrolu, stanovit KPI a pravidla eskalace podle pilotního checklistu a dokumentovat rozhodnutí v rubrice (odkazuje na 2-6). (from section only) (first: 3-2)\n- Rubrika pro hodnocení AI‑generovaných výstupů: Vzorná rubrika pro hodnocení výstupů částečně/zcela generovaných AI: A – místná správnost 0–4; B – struktura/argumentace 0–4; C – originalita/citace 0–2 (AI kontrola); D – forma/jazyk 0–2; pravidla eskalace mají být uvedena a dokumentována v rubrice (from section only). (first: 3-3)\n- Kombinovaný workflow (LLM-assisted grading): Krok‑za‑krok workflow pro kombinované hodnocení: nastavte prahy pro automatické předhodnocení; LLM označí low‑confidence položky; přiřaďte podprahové/označené položky a náhodné vzorky člověku; lidský hodnotitel upraví skóre a rozhodne o eskalaci; provádějte porovnání korekcí, pilot a KPI (from section only). (first: 3-3)\n- Auditní záznam pro hodnocení: Požadované položky auditního záznamu pro LLM-assisted workflow: ID práce, datum, verze rubricy, LLM skóre/prompt, lidské skóre/komentář, důvod eskalace a rozhodnutí; doporučeno zahájit pilot s 10–20 ručními kontrolami (from section only). (first: 3-3)\n- Strukturované prompty pro hodnocení: Používejte strukturované prompty s nahrazením zarážek [OBOR],[ÚROVEŇ],[TÉMA]; omezte délku podle doporučení; logujte použité prompty do auditního záznamu (from section only). (first: 3-3)\n- Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom: Krátký přehled rychle nasadit...",
+    "previous_sections": "The title of part 1 sections ago is Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom, and the content is as follows.\nKrátký přehled rychle nasaditelných skriptů a integrací:\n\\begin{itemize}\n\\item Webhook FAQ/chatbot (HTTP POST $\\rightarrow$ JSON); Import/Export CSV (CSV $\\rightarrow$ LMS); API skript pro automatizaci zadání; GitHub Classroom + CI (testy, artefakty, výsledky do gradebooku).\n\\end{itemize}\nPilot: validace v sandboxu s 1–3 uživateli, logování chyb a krátký postup pro manuální zásah.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": false,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "Several actionable recommendations (e.g., explicit role list, fact‑check workflow, plagiarism detection approach, requirement that prompts 'require citations' and teacher verification) are presented without explicit citation to supporting excerpts from the knowledge base. The document already marks two bullets as '(general background knowledge)', but other similar general recommendations are not labelled or cross‑referenced.",
+        "required_fix": "Either (a) mark these bullets explicitly as 'general background knowledge' or (b) add explicit cross‑references to the sections in the KB that support them (for example 2.6, 3.2 or 3.3), or (c) replace them with wording that references the more detailed procedures given in those sections."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "The text refers to rubric structure and audit record fields in section 3.3 and to prompt templates in 3.2, but it does not summarise the concrete rubric scoring or the exact audit fields. This creates a mild inconsistency with the rest of the guide which provides concrete templates elsewhere.",
+        "required_fix": "Either include a short, explicit summary (e.g., rubric A–D scoring ranges and the audit record required fields) drawn from section 3.3, or add precise cross‑references to 3.3 where those items are presented in full so readers know where to find the templates."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "The pilot design bullets ask for scope (number of students, length in weeks) and KPI definitions but give no guidance or examples of realistic pilot sizes/durations. This may leave implementers uncertain.",
+        "required_fix": "Add a brief pointer to the pilot checklist/examples in section 2.6 (or include a short, referenced example from the KB). If concrete numbers are not available in the KB, label this as 'general background knowledge' and instruct readers to adapt to local constraints."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "The short pilot template uses math mode to render underlines (e.g. $\\underline{\\hspace{6cm}}$). While valid, this is stylistically unconventional and may cause spacing differences in some LaTeX setups.",
+        "required_fix": "Consider replacing the math‑mode underlines with a text mode rule (for example \\rule{6cm}{0.4pt}) or a \\vphantom/\\makebox approach to ensure consistent formatting."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "The 'role' line lists actors (garant kurzu, technická podpora, hodnotitelé, odpovědná osoba za ochranu osobních údajů) but does not state responsibilities or minimal expectations for each role, which reduces practical usefulness.",
+        "required_fix": "Either add one‑line responsibility notes for each role (sourced from the KB if available) or add a cross‑reference to where role descriptions and responsibilities are provided (e.g., pilot checklist in 2.6 or governance recommendations in section 5). If the KB lacks role details, mark these as general background suggestions."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "item 1, first bullet",
+        "edit_instruction": "Add an explicit cross‑reference to the Intro and 2.4 where the benefits (personalization, faster material creation, support for assessment) are discussed, or label this bullet '(general background knowledge)' if not extracting from KB."
+      },
+      {
+        "target": "item 2, role list",
+        "edit_instruction": "Either add brief responsibilities for each listed role (one sentence each) sourced from the KB, or append '(general background knowledge)' and add 'see 2.6 for pilot checklist and recommended role descriptions' to point readers to the checklist."
+      },
+      {
+        "target": "item 3, audit record bullets",
+        "edit_instruction": "Insert a short parenthetical that reproduces the required audit fields from section 3.3 (ID práce, datum, verze rubricy, LLM skóre/prompt, lidské skóre/komentář, důvod eskalace a rozhodnutí) so the section is self‑contained, or add an exact cross‑reference: '(see full auditní záznam in 3.3)'."
+      },
+      {
+        "target": "item 3, validation procedure bullet",
+        "edit_instruction": "Add an explicit citation to the combined workflow in 3.3 and keep the recommended 10–20 manual checks language only if 3.3 contains that recommendation; otherwise label it as '(general background knowledge)'."
+      },
+      {
+        "target": "item 4, conservative prompts bullet",
+        "edit_instruction": "If the KB (section 3.2) includes prompt templates that recommend length limits and citation requests, add a reference to 3.2; if not, change 'požadovat citace' to 'požádejte o zdroje a ověření' and mark as general background guidance."
+      },
+      {
+        "target": "Krátká šablona pilotního plánu",
+        "edit_instruction": "Replace $\\underline{\\hspace{6cm}}$ constructs with text‑mode rules (e.g., \\rule{6cm}{0.4pt}) for more robust LaTeX rendering, or leave but add a formatting note for editors."
+      },
+      {
+        "target": "KPI list under 'Monitorování metrik a iterace'",
+        "edit_instruction": "Add a pointer to where KPI definitions and measurement methods are described in the KB (e.g., sections 2.2, 2.6 or 3.3). If specific KPI calculations are not present in the KB, label the list as '(general background knowledge)'."
+      },
+      {
+        "target": "general",
+        "edit_instruction": "Search the KB for supporting excerpts (3.2, 3.3, 2.6, 5) and add explicit cross‑references where the section currently refers to procedures or templates. For any recommendation not present in the KB, mark it as 'general background knowledge'."
+      }
+    ],
+    "retrieval_queries": [
+      "Section 3.3 rubrika for AI‑generated outputs: full rubric text including scoring ranges for A–D and rules of escalation; combined workflow for LLM‑assisted grading; audit record recommended fields and recommended manual check count (10–20).",
+      "Section 3.2 prompt templates: examples and recommendations (length limits, citation requests, logging prompts) and guidance on substituting [OBOR],[ÚROVEŇ],[TÉMA].",
+      "Section 2.6 pilot checklist: concrete pilot size/duration examples, checklist items, and role descriptions for pilot implementation.",
+      "Section 5 (Ethics/privacy): recommended procedures for consent, anonymization, and the role/responsibilities of the data protection officer in course pilots."
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 4192,
+      "completion_tokens": 4752,
+      "total_tokens": 8944
+    },
+    "cost_usd": 0.010552,
+    "total_cost_usd": 0.2659409999999999,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

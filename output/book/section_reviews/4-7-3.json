@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several operational recommendations in the section are non‑trivial (SSO integration and role/permission mapping; RAG-related guidance on indexing, anonymization and storage of embeddings; audit/monitoring processes and escalation workflows) but lack explicit supporting citations to the KB excerpts. Per the grounding rules, these factual/technical recommendations must be backed by excerpts or run artifacts.",
+      "required_fix": "Add explicit citations (footnotes or inline references) to the KB passages that cover authentication/authorization/audit (e.g. the KB material covering SSO/IAM and audit trails), RAG architecture and privacy checklists (indexing, embeddings storage, anonymization), and operational/checklist templates for monitoring and escalation. If those KB excerpts are not already retrieved, run targeted retrievals for the KB sections on 'Autentizace, autorizace a auditní stopy' (integration with SSO/IAM), 'Architektura RAG' and the RAG privacy/GDPR checklist (9.4.1/9.4.2/8.5/9.4.3 in the outline)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Typographical/wording error: the phrase 'definujte role/opravy' is unclear and likely a typo (in Czech, 'opravy' is odd in this context).",
+      "required_fix": "Replace 'role/opravy' with a clearer term such as 'role/oprávnění' or 'role/permissions' (e.g. 'definujte role a oprávnění pro vyučující, asistenty a studenty')."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citation/footnote style is inconsistent: section uses \\\\footnote{Source: kb_...} inline which is acceptable, but new required citations (see grounding issue) must follow the same style and be added consistently. Also ensure special characters (non‑ASCII hyphens) render in the target LaTeX environment.",
+      "required_fix": "When adding new citations, use the same \\footnote{Source: ...} format used elsewhere in the document (or switch all to a unified \\cite system if the manuscript uses one). Check and normalize hyphens (use - or \\textendash{} where appropriate) so compilation is robust."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some 'general background knowledge' checklist items are high‑level; readers (IT teams, course guarantors) would benefit from one concrete example or brief stepwise guidance (e.g. mapping SSO groups to LMS roles; where embeddings are stored and retention considerations).",
+      "required_fix": "Add one short concrete example (1–2 bullets) for SSO->LMS role mapping and one for RAG data flow (where documents are indexed, where embeddings are stored, minimal retention/anonymization step). Back each example with KB citations."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Krátký checklist pro pilotní nasazení' contains several items marked as (general background knowledge) without KB support. While these are useful, some items (e.g. 'Navrhněte bezpečnostní pravidla pro zdroje použitých dat') imply specific legal/operational steps that are covered elsewhere in the KB (DPIA, DPA guidance).",
+      "required_fix": "Either (a) add KB citations for DPIA/DPA and RAG privacy guidance, or (b) explicitly label the items as 'local policy required' and point to the DPIA/DPA templates in the appendix (9.3 and 9.4 in the outline)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Fix typo: change 'definujte role/opravy' to 'definujte role a oprávnění' (or equivalent clearer Czech phrasing)."
+    },
+    {
+      "target": "Klíčové body k ověření před nasazením — first bullet (Licence a dostupnost nástrojů)",
+      "edit_instruction": "Keep existing footnote for Minecraft Education. No change needed to factual content."
+    },
+    {
+      "target": "Obecné provozní zásady — SSO and RAG bullets",
+      "edit_instruction": "Add explicit footnotes citing KB passages that describe SSO/IAM integration and audit trails (e.g. the KB section on 'Autentizace, autorizace a auditní stopy') and RAG architecture/privacy (e.g. 'Architektura RAG' and 'Checklist soukromí a GDPR pro RAG'). If exact KB excerpts are not available yet, run retrieval queries (see below) and insert the retrieved cite_keys into \\footnote{Source: ...} entries."
+    },
+    {
+      "target": "Krátký checklist pro pilotní nasazení — items about authentication, security rules and RAG",
+      "edit_instruction": "For items currently marked as (general background knowledge), either add supporting KB footnotes (DPIA, DPA, RAG privacy checklist), or explicitly label them 'local policy / consult IT/legal' and reference the DPIA and DPA templates in the appendix (9.3). Also add one concrete example bullet showing how an SSO group maps to an LMS role (e.g. 'SSO group \"course_teachers\" -> LMS role \"Teacher\" with X/Y permissions') and one short RAG dataflow example (document -> indexer -> embeddings store (encrypted) -> retriever -> model), each with citations."
+    },
+    {
+      "target": "LaTeX footnotes and hyphens",
+      "edit_instruction": "Ensure new footnotes use the same \\footnote{Source: kb_...} format. Normalize hyphens/dashes (use - or \\textendash) to avoid rendering issues. Run a LaTeX compile check for the section after edits."
+    }
+  ],
+  "retrieval_queries": [
+    "Autentizace autorizace auditní stopy SSO LMS integration 'AI - 101 tipu.pdf' or KB sections on authentication and audit",
+    "Retrieval‑Augmented Generation RAG architektura indexace embeddings anonymizace 'AI - 101 tipu.pdf' 'RAG blueprint' 'checklist soukromí'",
+    "DPIA DPA 'posouzení dopadu na ochranu osobních údajů' 'AI - 101 tipu.pdf' template nasazení ve výuce",
+    "Bezpečnostní a provozní checklisty monitoring audit eskalace 'AI - 101 tipu.pdf' 'auditní logy' 'monitoring chybnosti výstupů'"
+  ]
+}

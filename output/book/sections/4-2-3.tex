@@ -1,0 +1,12 @@
+% Integrace s LMS, SSO a enterprise nástroji
+Cíl: stručně popsat kroky k integraci enterprise AI služeb do výuky (LMS, SSO, interní zdroje).
+Kroky integrace — praktický postup
+\begin{enumerate}
+\item Prověřit licence/DPA/SLA a retenci dat; podepsat DPA před zapojením kurzů.
+\item Nastavit autentizaci přes VUT IdP (SAML/OAuth2/OIDC), role, logování a audity.
+\item Napojit LMS přes LTI/REST/webhooks; v MS‑ekosystému využít OneNote a převod rukopisu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\item Využít školní enterprise funkce (Minecraft Education, Copilot v appkách) v pilotech \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2,kb_ai_101_tipu_pdf_04e4a115_page_53_1}.
+\item Implementovat RAG/retrieval: indexace autorizovaných kolekcí, embeddings, testy leakage.
+\item Spustit mini‑pilot, měřit použitelnost a bezpečnost, dokumentovat prompty a provenance.
+\end{enumerate}
+Krátký checklist: licence a DPA; SSO a mapování rolí; minimalizovat odesílaná data; testovat Minecraft/OneNote/Copilot; auditování, metriky a rollback; plánovat pilot s fakultním IT a právním oddělením.

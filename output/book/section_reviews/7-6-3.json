@@ -1,0 +1,57 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX uses \\begin{para} ... \\end{para} — 'para' is not a standard LaTeX environment in common classes and may break compilation.",
+      "required_fix": "Replace the custom environment with a standard LaTeX construct (e.g. plain paragraph text, \\paragraph{...} or \\begin{quote}...\\end{quote}), or define the 'para' environment in the preamble."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several Czech wording issues/redundancies reduce clarity: '5 hlavních učení výsledků' is ungrammatical; '3 aktivační aktivity' is repetitive.",
+      "required_fix": "Correct the phrasing to standard Czech: e.g. '5 hlavních výukových výsledků' and '3 aktivizační aktivity'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Prompts are given but the section lacks at least one short example of expected output (a sample syllabus entry, one slide outline or one quiz question with solution) to show authors how to set output-format constraints.",
+      "required_fix": "Add 1–2 brief sample outputs (one-sentence or bullet-form) illustrating the expected structure/length for a generated sylabus week, a slide, or a quiz item. Alternatively, add an explicit instruction line to prompts recommending 'include format, length, and examples of expected output'."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section suggests requiring students' solution steps and rubrics for generated exercises, but it does not cross-reference the existing short rubric template in the contextual memory (the 3‑point rubric).",
+      "required_fix": "Add an explicit cross-reference to the short rubric (3 items: Autenticita a kontext, Proces a průkazné artefakty, Transparentnost AI a metareflexe) or instruct users to adapt that rubric when using generated exercises."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace '\\begin{para} ... \\end{para}' with plain paragraph text or a standard LaTeX construct; e.g. remove the environment wrappers and leave the paragraph content as normal text, or change to '\\paragraph{}' if a heading is intended."
+    },
+    {
+      "target": "Sylabus prompt",
+      "edit_instruction": "Fix the prompt wording to Czech: change '5 hlavních učení výsledků' to '5 hlavních výukových výsledků'. Consider adding: 'Výstup: seznam po týdnech (po 1–2 větách na týden), max. 300 slov.'"
+    },
+    {
+      "target": "90min lecture prompt",
+      "edit_instruction": "Change '3 aktivační aktivity' to '3 aktivizační aktivity'. Add suggested output format, e.g. 'Výstup: časová osa s bloky (minuty), bullet‑point osnovy slidů, každý slide 1–2 klíčové body.'"
+    },
+    {
+      "target": "Working sheets / quizzes",
+      "edit_instruction": "Add a short sample generated item (one example problem with stated difficulty and a short hint) to clarify expected structure. Also cross-reference the existing 'Pokrok v matematice' tool (kb_ai_101_tipu_pdf_page_8_1) as an example source."
+    },
+    {
+      "target": "Cross‑references",
+      "edit_instruction": "Add explicit cross-reference to the short rubric in the memory (Vzorová krátká rubrika (3 body) from section 7-5) and suggest using it for generated exercises and quizzes to ensure consistent assessment of process and transparency."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 51 Microsoft Designer guidance (confirm existing excerpt about Designer capabilities)",
+    "kb_ai_101_tipu_pdf page 8 'Pokrok v matematice' description (confirm use for generating math exercises and requiring solution steps)",
+    "kb_ai_101_tipu_pdf page 15 Minecraft Education usage examples (confirm availability of Hour of Code worlds and licensing note)",
+    "kb_ai_101_tipu_pdf page 3 Copilot/PowerPoint integration details (verify recommended compatibility statements for slide export / Copilot)"
+  ]
+}

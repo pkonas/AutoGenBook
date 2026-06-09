@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section contains several non‑trivial, specific recommendations (numeric rubric ranges such as '0–4' and '0–2', a suggested random sample of '10–20 %' for oral spot‑checks, and '3–4 milestones') that are presented as prescriptive guidance but are not supported by any of the provided RETRIEVED EXCERPTS. According to the grounding rules, such non‑trivial numeric guidance must be supported by a KB excerpt or else be omitted/qualified.",
+      "required_fix": "Either remove the specific numeric recommendations or mark them explicitly as illustrative examples (labelled 'example only / general background knowledge') and replace with a non‑numeric, evidence‑neutral formulation (e.g., 'use a small number of milestones' or 'sample a subset of submissions for oral checks'). If specific numbers are essential, retrieve and cite authoritative guidance or empirical support before keeping them."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some technical validation suggestions (e.g., 'kontrola hashů/metadata souborů') are plausible but not directly referenced in the provided KB excerpts. The KB does discuss verification of artefacts and repo‑specific artifacts, but not necessarily hashes/metadata explicitly.",
+      "required_fix": "Either cite a KB excerpt that mentions hashes/metadata or rephrase to a more general, supported statement such as 'use technical metadata and provenance checks (e.g., file timestamps, repo commits, checksums where available) to link outputs to inputs.'"
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body is mostly valid, but there are small stylistic issues: description items use a trailing '\\\\' after the item label which can introduce extra vertical space; multiple inline '(general background knowledge)' tags repeated within paragraphs may be better placed as a single footnote or paragraph tag.",
+      "required_fix": "Remove unnecessary '\\\\' after item labels in the description environment; consolidate repeated ' (general background knowledge)' markers (e.g., add one note near the start or end indicating which paragraphs are background rather than repeating after each small block)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several patterns and deployment steps are concise but lack short concrete examples or explicit links to existing templates in the KB (for instance, the syllabus text references a template but does not point to the AI Policy Template in the attachments). This reduces ease of adoption for readers.",
+      "required_fix": "Add brief cross‑references to the relevant KB items already present in the larger document (e.g., point readers to Appendix/Section 9.3 'AI Policy Template do sylabů' for the syllabus text, and to 9.4 'Vzor DPIA' for GDPR/DPIA notes). Alternatively, include one short concrete example per pattern (kept minimal and labelled as example)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section sometimes mixes 'general background knowledge' labels with prescriptive instructions (e.g., 'Jak nasadit:' steps). Per the memory/existing outline, some of these prescriptive steps are consistent with the broader manual, but the section does not explicitly reference the supporting parts (chapters 5.x and 9.x) that cover rubrics, DPIA, RAG, and policy templates.",
+      "required_fix": "Add explicit cross‑references to the supporting chapters/appendices in the manual (for example: link 'rubriky' to section 5.4/5.8 and DPIA to 9.4) or downgrade prescriptive steps to clearly labelled 'local adaptation suggestions' when no direct KB citation is available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "rubric scales paragraph (Process‑first assignment)",
+      "edit_instruction": "Replace numeric rubric fields 'sledovatelnost postupu (0–4), kvalita odůvodnění (0–4), validace a testy (0–4), reflexe o využití AI (0–2)' with a neutral example statement, e.g.: 'Navrhněte rubriku obsahující pole pro: sledovatelnost postupu, kvalitu odůvodnění, validaci a testy a reflexi o využití AI (přizpůsobitelné škále podle lokálních zvyklostí). Pokud chcete uvést konkrétní skórování, uveďte jej jako místní příklad nebo odkaz na fakultní šablonu.'"
+    },
+    {
+      "target": "Oral spot‑check paragraph",
+      "edit_instruction": "Remove the explicit '10–15min' and '10–20 %' prescription or mark it as an illustrative example. Replace with: 'Provádějte náhodný výběr odevzdaných prací pro krátké ústní ověření (doba a rozsah volitelně podle náročnosti úlohy a kapacit hodnotitelů).' Optionally add: 'Guidance on sampling strategies can be found in section 5.4/5.6 of the manual.'"
+    },
+    {
+      "target": "Artifact‑based validation sentence",
+      "edit_instruction": "Soften 'kontrola hashů/metadata souborů' to a more generally supported phrasing: 'ověřitelné technické stopy a metadata (např. repo commits, souborové timestampy, checksums kde relevantní) by měly být použity k propojení výsledků s původními daty; konkrétní techniky závisí na technické infrastruktuře kurzu.'"
+    },
+    {
+      "target": "General 'general background knowledge' markers",
+      "edit_instruction": "Consolidate repeated '(general background knowledge)' markers by placing a single note at the top or bottom of the section stating: 'Poznámka: Položky označené níže jsou navrženy jako obecné doporučení (general background knowledge) a vyžadují adaptaci na lokální pravidla a právní požadavky.' Then remove redundant inline tags."
+    },
+    {
+      "target": "Pilot/GDPR sentence at end",
+      "edit_instruction": "Add an explicit cross‑reference: '...doporučujeme pilotovat na malé skupině studentů a zohlednit GDPR/právní požadavky fakulty (viz vzor DPIA v příloze 9.4 a AI Policy Template v příloze 9.3) před masovým rozšířením.'"
+    }
+  ],
+  "retrieval_queries": [
+    "UCL design patterns AI‑aware assessment rubric example 'process-first' 'rubric' '0-4' 'UCL'",
+    "UCL guidance 'oral spot check' 'viva' sampling percentage guidance for academic integrity",
+    "UCL or public university pattern 'artifact-based' verification 'hash' 'metadata' 'repo commits' 'assignment verification'",
+    "UCL 'AI log' or 'prompt log' syllabus template phrasing and recommended fields"
+  ]
+}

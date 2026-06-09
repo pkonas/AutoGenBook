@@ -1,0 +1,49 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Poznámky označené jako \"general background knowledge\" jsou vloženy inline v závorkách u jednotlivých položek. To snižuje čitelnost LaTeXu a může rušit plynulost textu v tištěné/publikované verzi.",
+      "required_fix": "Přesunout texty označené jako 'general background knowledge' do samostatných poznámek pod čarou (footnotes) nebo do krátkého podpůrného odstavce pod seznamem."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce doporučuje pilotní aktivitu a reflexi, ale přímo nevyzývá k zahrnutí kontroly spravedlnosti a inkluze do závěrečné reflexe, i když je tato rubrika uvedena v kontextové paměti jako doporučený kontrolní bod.",
+      "required_fix": "Přidat jednu větu v závěrečném doporučení pro učitele: 'Při reflexi zařaďte kontrolní otázky pro spravedlnost a inkluzi (viz rubrika \"spravedlnost a inkluze\" v části 1‑3‑3).' (odkaz na interní rubriku místo nového externího tvrzení)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce zmiňuje kontrolu licencí a technickou připravenost, ale neodkazuje explicitně na existující provozní checklist (ověření modelu, test dotazů, fallback postupy) uvedený v jiné části příručky.",
+      "required_fix": "Přidat v závěru krátkou poznámku s odkazy na stávající provozní checklisty (sekce o provozním checklistu v části 1‑3‑4 a příloha 9.4 pro RAG), např. 'Před akcí proveďte standardní provozní checklist (ověření licence, test dotazů, fallback — viz 1‑3‑4 a příloha 9.4).'"
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Použití více \\\\footnote{} přímo v položkách itemize je funkční, ale může v některých LaTeX šablonách vést k nechtěnému formátování (např. přerušení odrážky nebo umístění čísla poznámky).",
+      "required_fix": "Zvážit přesunutí poznámek ke zdrojům do koncových poznámek nebo použít \\footnotemark / \\footnotetext konstrukci, případně uvést zdroje mimo itemize jako seznam poznámek."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "závěrečný doporučující odstavec",
+      "edit_instruction": "Přidejte větu doporučující zařadit do závěrečné reflexe kontrolní otázky k 'spravedlnosti a inkluzi' (odkaz na rubriku z části 1‑3‑3) a krátké připomenutí, aby učitelé před aktivitou prošli provozní checklist (ověření licence, test připojení, fallback postupy viz 1‑3‑4). Návrh textu: 'Doporučení pro reflexi: zhodnoťte přínosy a omezení nástroje a zařaďte kontrolu spravedlnosti a inkluze (viz rubrika v sekci 1‑3‑3). Před hodinou proveďte standardní provozní checklist (ověřte licence, funkčnost a fallback postupy; viz 1‑3‑4 a příloha 9.4).'"
+    },
+    {
+      "target": "každá položka itemize (Malování / Fotky, Minecraft, Asistivní aplikace)",
+      "edit_instruction": "Přesuňte poznámky označené jako 'general background knowledge' do jedné společné poznámky pod čarou po seznamu, nebo je formulujte jako krátký odrážkový doplněk pod seznamem s jasnou labelem 'General background knowledge'."
+    },
+    {
+      "target": "LaTeX footnotes",
+      "edit_instruction": "Zkontrolujte generování poznámek v použitém LaTeX šabloně. Pokud se objeví formátovací problémy, použijte \\footnotemark v položce a \\footnotetext{} ihned po ukončení itemize pro korektní umístění textu poznámky."
+    }
+  ],
+  "retrieval_queries": [
+    "DPIA checklist or vzor DPIA for AI in education in kb_ai_101_tipu.pdf (search for page with DPIA template or 'DPIA')",
+    "Provozní checklist / fallback checklist in kb_ai_101_tipu.pdf (search for page 36 or section 1-3-4)",
+    "Reference to rubrika 'spravedlnost a inkluze' in kb_ai_101_tipu.pdf (search for node 1-3-3 or phrase 'spravedlnost a inkluze')",
+    "Příloha 9.4 RAG blueprint in kb_ai_101_tipu.pdf (search for '9.4' or 'RAG')"
+  ]
+}

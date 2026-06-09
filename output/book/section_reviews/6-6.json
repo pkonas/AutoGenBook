@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The note recommending to check Office 365 A1/A3/A5 availability mentions A3/A5 specifically but cites kb_ai_101_tipu_pdf_04e4a115_page_3_1. The evidence that A3/A5 includes certain paid features (e.g. Minecraft Education) appears in kb_ai_101_tipu_pdf_04e4a115_page_15_2, not page_3_1.",
+      "required_fix": "Either change the citation to include kb_ai_101_tipu_pdf_04e4a115_page_15_2 for the A3/A5 claim or rephrase to a more generic recommendation (e.g. 'verify which paid school licenses your institution has') and keep the existing citation to page_3_1 for the general statement about Office 365 school variants."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The workflow steps and checklist are concise but could be made more actionable by adding a very short concrete example (e.g. example timing, what an AI pregrading report looks like, or a short teacher action checklist after receiving AI annotations).",
+      "required_fix": "Add a short illustrative example (1–2 sentences or a small numbered micro‑workflow) showing typical teacher actions after AI pregrading (e.g. review flagged steps, correct labels, assign remediation exercise), or include a sample screenshot caption placeholder if visuals will be provided later."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section mentions privacy/data handling in passing and labels some items as 'general background knowledge', but it doesn't explicitly cross‑reference the detailed DPIA/GDPR guidance elsewhere in the manual (Chapter 2).",
+      "required_fix": "Add a cross‑reference to the manual's GDPR/DPIA guidance (e.g. point readers to Chapter 2.2) or restate briefly that detailed steps for DPIA and data minimization are in Chapter 2 so instructors know where to look for institutional procedures."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses multiple \\cite keys which appear valid; ensure the bibliography includes the cited kb entries. No syntactic LaTeX errors were detected, but consider small formatting improvements (e.g. avoid trailing inline parenthetical notes inside itemize bullets).",
+      "required_fix": "Confirm the .bib contains the cited keys and consider moving 'general background knowledge' tags to footnotes or parenthetical comments outside of \\item text for cleaner rendering."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace the checklist bullet that currently cites kb_ai_101_tipu_pdf_04e4a115_page_3_1 and mentions Office 365 A1/A3/A5 with either (a) the same text but add kb_ai_101_tipu_pdf_04e4a115_page_15_2 as an additional citation for the A3/A5 claim, or (b) rephrase to 'verify which Office 365 school licenses (A1, A3, A5, etc.) your institution holds' and keep the page_3_1 citation for the general point."
+    },
+    {
+      "target": "Praktický pracovní postup pro jeden cyklus domácího úkolu",
+      "edit_instruction": "Add a 2–3 line concrete example after step 4, e.g.: 'Příklad: Učitel během 15–20 minut otevře AI přehled, potvrdí/opravená označení u 5–10 studentů, přiřadí 10min remediaci pro celou skupinu a individuální úlohy pro 3 studenty.' Keep this example clearly marked as illustrative."
+    },
+    {
+      "target": "Návrhy pro zařazení do domácích úkolů",
+      "edit_instruction": "Add a one‑line cross‑reference to the manual's GDPR/DPIA guidance: 'Viz také Kap. 2.2 (DPIA a ochrana osobních údajů) pro postupy při zpracování studentských dat.'"
+    },
+    {
+      "target": "general notes in itemize",
+      "edit_instruction": "Consider converting 'general background knowledge' inline notes into footnotes or parenthetical short notes (for cleaner LaTeX and clearer separation of cited claims vs. background statements)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 15 chunk 2 (to confirm Office 365 A3/A5 references and features included, e.g. Minecraft Education)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 8 full chunk (to re-check exact phrasing on Pokrok v matematice, OneNote and math.microsoft.com features for optional direct quotes or clarifications)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 3 chunk 1 (to confirm general statements about Office 365 school variants and Copilot availability)"
+  ]
+}

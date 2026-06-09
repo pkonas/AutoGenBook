@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section 6-4 in the LaTeX body omits some tools that are listed in the chapter outline / context memory for 6.4 (DeepL, ChatGPT, ELSA Speak). The current text lists Microsoft Translator, SeeingAI and Minecraft Education (all supported by cited KB excerpts), but does not mention DeepL, ChatGPT or ELSA Speak even though the outline indicates they should be addressed in 6.4.",
+      "required_fix": "Either add short entries for DeepL (machine translation), ChatGPT (conversational practice / simulations) and ELSA Speak (pronunciation training) with citations to supporting KB excerpts, or explicitly state that those commercial tools are out of scope for this section and refer the reader to a nearby section (e.g., 6.3 or 6.5) that covers them. If KB citations are not available, label these additions as 'general background knowledge'."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The practical scenario 'Živý přepis přednášky' and checklist reference enabling live transcription / sharing text but do not provide a concise, platform‑agnostic procedure or link to vendor documentation. The text currently notes as 'general background knowledge' that exact steps depend on platform, but readers may need a brief, actionable guidance.",
+      "required_fix": "Add a short, platform‑agnostic checklist (e.g., choose tool → check licence/permissions → obtain consent → enable captions/transcript → share link/display) and/or add a pointer to vendor documentation or to an institutional how‑to (if available). If no institutional how‑to exists, mark the step as 'platform specific — consult IT.'"
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The example activities are useful but lack explicit learning objectives and short assessment/feedback suggestions, which would help teachers integrate them into a lesson plan and align with the handbook's emphasis on milestone‑based workflows and rubrics.",
+      "required_fix": "For each example activity (e.g., 'Live captions + otázky', 'Role play v Minecraftu') add 1–2 concise learning objectives (what students should practice/achieve) and a suggested quick assessment cue (e.g., rubric items or 1–2 target feedback prompts). Mark any suggestions not supported by KB as 'general background knowledge'."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some checklist items and 'general background knowledge' notes refer to privacy/consent and recommendation to verify licences/DPA but do not point to the DPIA / DPA guidance in the handbook (chapter 2) which would be the authoritative place to cite.",
+      "required_fix": "Add cross‑references to the handbook's institutional/privacy guidance (e.g., chapter 2 sections on DPIA and DPA) where the checklist advises to 'Zajistěte souhlas a poučení o ochraně osobních údajů' and 'Ověřte dostupnost a licenci nástrojů'. If direct KB excerpts are not available in retrieval, mark cross‑references as internal handbook pointers."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the list of key tools, insert a short paragraph (1–2 sentences) naming DeepL (machine translation), ChatGPT (conversational practice / simulated dialogs) and ELSA Speak (pronunciation training). If KB evidence exists, add citations; otherwise mark these mentions as (general background knowledge)."
+    },
+    {
+      "target": "Praktické scénáře a doporučené postupy",
+      "edit_instruction": "For the 'Živý přepis přednášky' item, add a 4‑step platform‑agnostic mini‑checklist: (1) verify licence & accessibility settings; (2) obtain informed consent from participants if recording/transcribing; (3) enable live captions/transcript and confirm language settings; (4) share transcript link/display and archive or delete according to privacy policy. Label platform steps as general background where needed and add a cross‑reference to chapter 2 for DPIA/DPA guidance."
+    },
+    {
+      "target": "Krátké příklady aktivit",
+      "edit_instruction": "For each activity, add 1–2 explicit learning objectives and a short assessment cue, e.g., 'Live captions + otázky' — objective: identify key verbs and compare translations; assessment cue: student lists 3 target verbs and explains differences in translation. Mark as general background where not directly supported by KB."
+    },
+    {
+      "target": "Checklist",
+      "edit_instruction": "Add a cross‑reference note in the checklist: 'For detailed DPIA/DPA guidance and institutional templates see Chapter 2 (Ochrana soukromí) and Appendix 9.4 (Vzor DPIA).' If these exact references are to be linked, fetch the proper KB excerpts to cite."
+    }
+  ],
+  "retrieval_queries": [
+    "Find KB excerpts that mention DeepL, ELSA Speak, and ChatGPT (or other conversational agents) in the 'AI - 101 tipu.pdf' or other handbook sources to support adding them to section 6.4.",
+    "Retrieve KB passages or institutional guidance describing how to enable live captions/transcription (Microsoft Teams, Microsoft Translator, Word/PowerPoint live captions) with step‑by‑step or summary instructions.",
+    "Retrieve handbook excerpts on DPIA, DPA and consent procedures (chapter 2) that should be cross‑referenced from the checklist about recording/transcribing lectures and handling transcripts."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "Workflow step 'Definujte pravidla eskalace: po X iteracích hintů přepnout na lidského asistenta' contains an unresolved placeholder 'X' and gives no guidance. As written it is ambiguous for implementers.",
+      "required_fix": "Replace the placeholder with either (a) a configurable parameter plus guidance on how to choose/test it (e.g., pilot and adjust), or (b) a concrete recommendation only if supported by a KB excerpt. Do not invent a specific number without a citation; instead rephrase to say e.g. 'po několika (např. 2–3) iteracích — nastavit v pilotu a ověřit', or instruct readers to define the threshold in local pilot settings."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some pedagogical recommendations (e.g. 'zaznamenávejte často se opakující chyby pro následné úpravy výuky') are presented as instructions without an explicit cross‑reference to the KB excerpt that supports the recommendation; although plausible, these should be linked to relevant guidance in other sections (e.g. monitoring/registry of errors).",
+      "required_fix": "Add an explicit citation or cross‑reference to the relevant KB/page/section where monitoring of recurring errors or a 'registry of mistakes' is discussed (or label the sentence as general background knowledge). If no direct KB support exists, keep as 'general background knowledge' and add a short note to pilot and iterate."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Small LaTeX/style issues: the opening '\\paragraph{}' uses an empty title which is unusual (not an error but non‑informative). Footnotes appear inside list items — valid but can produce formatting issues in some templates. There is a misspelling inside a \\texttt prompt ('krátý' instead of 'krátký').",
+      "required_fix": "Either give the paragraph a short title or remove the empty \\paragraph{} if not used for formatting. Move footnotes to the end of the list or ensure the document class handles footnotes in lists. Fix typos (see suggested edits)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Some useful examples are missing: e.g. the 'Vytvoř rubriku ... Uveď příklad hodnocení (A/B/C)' prompt would be easier to reuse if the section included one small concrete sample rubric row or a short sample feedback message (2–3 lines) as an example.",
+      "required_fix": "Add one brief example rubriky row (with scoring and descriptors) and one short sample automated feedback message (2–3 actionable steps) to make templates immediately usable. If such examples exist elsewhere in the KB, add citations."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace 'po X iteracích hintů přepnout na lidského asistenta' with a non‑numeric, implementable instruction or a configurable example. Suggested phrasing: 'Definujte pravidlo eskalace (např. konfigurujte prahový počet nápověd — doporučeně nastavit a ověřit v pilotu; běžné pilotní hodnoty: 2–3 hinty). V dokumentu vysvětlete, kdo přebírá konverzaci a jaký je postup.' (Do not assert a single fixed number unless you can cite KB evidence.)"
+    },
+    {
+      "target": "prompt typo",
+      "edit_instruction": "Fix the typo in the assistant prompt: change 'nabídni krátý návod (max. 2 věty)' to 'nabídni krátký návod (max. 2 věty)'."
+    },
+    {
+      "target": "rubric example",
+      "edit_instruction": "Add a one‑row example to the rubric prompt section. For example (as an editable placeholder): 'Funkčnost (0–60): 60 = správná implementace všech požadavků; 40 = drobné chyby/nekompletní okraje; 20 = nefunkční nebo zásadní chyby.' Mark this example as illustrative and either cite a KB example or label as general background knowledge if not present in the KB."
+    },
+    {
+      "target": "office hours assistant prompt",
+      "edit_instruction": "Add a sample prompt for a hint‑bot/NPC adapted to gamified activities (Minecraft Education) to align with chapter content. Suggested instruction: include role, maximum hint length, socratic style, requirement to request a student's artifact (screenshot/postup) and an explicit escalation trigger. Phrase as a template and mark as general background knowledge unless you can cite a KB excerpt."
+    },
+    {
+      "target": "citations and cross‑refs",
+      "edit_instruction": "Where the text recommends 'zaznamenávejte často se opakující chyby' and similar operational monitoring, add a cross‑reference to the relevant earlier section(s) on monitoring, registry of errors or 'Provoz, transparentnost a etika' (e.g. section 4.1.5) or add an explicit KB footnote if available."
+    }
+  ],
+  "retrieval_queries": [
+    "Best practices or concrete guidance in the KB for number of hint iterations before escalation to human tutor (e.g. is there a recommended 1–3 hints threshold?)",
+    "KB excerpts or concrete examples of short feedback templates (2–3 concrete steps) for post‑consultation feedback to students",
+    "Any KB sample rubric rows or example rubriky for programming assignments (breakdown by functionality/readability/tests/documentation) to cite as example"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several checklist items and the final recommendation are marked as \"(general background knowledge)\" rather than cited. This is allowed under the grounding rules, but leaves these actionable items without an explicit KB citation in this section (even though similar recommendations appear elsewhere in the manual).",
+      "required_fix": "Either (a) add explicit citations to relevant KB excerpts for these items (e.g. DPIA/retention/consent guidance from the manual) or (b) keep the items but keep the \"general background knowledge\" label. Prefer (a) where the manual contains directly relevant guidance (see earlier chapters on GDPR, DPIA and pilots)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section uses \\cite{...} keys (kb_ai_101_tipu_pdf_04e4a115_page_8_1, _page_15_2, _page_36_1). If the bibliography / .bib file does not include these keys the LaTeX build will fail.",
+      "required_fix": "Ensure the bibliography includes matching entries for the cited keys, or replace \\cite calls with explicit short references or footnotes that point to the KB resource already available in the manual."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'SYSTEM' prompt template specifies an output length (~200–250 slov) and structure but the section does not show a short example of a filled output. Teachers may benefit from a concrete example to understand the expected tone and granularity.",
+      "required_fix": "Add one short example (approx. 120–180 words) produced from the system prompt using a fictitious student_submission and rubric, demonstrating the 2 praise sentences, 2 concrete improvement steps and 1 milestone recommendation. Mark the example clearly as illustrative."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "There is partial duplication with the checklist and workflows shown in earlier sections (e.g. 'Krátký checklist před spuštěním služby' appears earlier in the manual). Wording is consistent but duplication may confuse maintainers if versions diverge.",
+      "required_fix": "Harmonize wording with the earlier checklist (or reference the earlier checklist explicitly) to avoid divergence. If intentional duplication is needed for quick reference, add a one‑line note: 'Short checklist — see full checklist in section X.Y for details.'"
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The three short scenarios (A–C) are practical but do not indicate simple pilot success criteria or suggested metrics (e.g. teacher time saved, student satisfaction, error rates) which would help teams evaluate a pilot.",
+      "required_fix": "Add 2–3 suggested, easy‑to‑measure pilot metrics for each scenario (for example: % of assignments pre‑graded by AI requiring no teacher change; teacher prep time for a test; student reported clarity of feedback). If such metrics are described elsewhere in the manual, add a citation to that section."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the 'Vzorový systémový prompt' verbatim block, insert a short (one‑paragraph) illustrative output showing the expected structure (2 praise sentences / 2 concrete steps / 1 milestone) using a mock student answer and rubric. Label it 'Příklad výstupu (ilustrativní)'."
+    },
+    {
+      "target": "Krátký checklist před spuštěním služby",
+      "edit_instruction": "Either add explicit citations for items currently marked as '(general background knowledge)' by linking to the manual sections on data protection/DPIA and pilot evaluation, or keep the label but add a parenthetical pointer to the relevant section numbers (e.g. 'viz sekce 2.2 / 8.1')."
+    },
+    {
+      "target": "citations",
+      "edit_instruction": "Confirm that the .bib or bibliography includes entries for the three cited KB keys. If a central KB reference entry exists, consider replacing the three granular page keys with a single consistent citation and an internal pointer to the KB repository to simplify maintenance."
+    },
+    {
+      "target": "Krátké ukázky pracovních scénářů",
+      "edit_instruction": "For scenarios A–C, add 2–3 suggested pilot success metrics (simple, measurable) and a recommended pilot duration (e.g. 4–8 weeks) or sample cohort size (e.g. one course or 1–2 teaching groups). If this conflicts with other guidance, add a cross‑reference to the pilot guidance chapter."
+    }
+  ],
+  "retrieval_queries": [
+    "Provide KB excerpt(s) that give explicit guidance on pilot success metrics, recommended pilot duration and cohort size for AI tools in teaching (to support adding metrics for scenarios A–C).",
+    "Provide KB excerpt(s) that cover DPIA, consent and data retention recommendations for classroom AI pilots (to cite instead of 'general background knowledge').",
+    "Confirm canonical bibliographic entries (bib keys) for the cited KB resource 'AI - 101 tipu.pdf' so the LaTeX \\cite keys used here map to the manual bibliography."
+  ]
+}

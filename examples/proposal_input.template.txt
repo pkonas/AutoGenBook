@@ -1,0 +1,14 @@
+﻿Title: Example Grant Proposal Title
+Author: Your Name
+Language: English
+Summary: Short summary of the project purpose and expected impact.
+Objectives:
+- Objective 1
+- Objective 2
+Background:
+- Brief project background or prior work references.
+Constraints:
+- Budget range
+- Timeline
+Notes:
+- Any special requirements or formatting notes from the grant call.

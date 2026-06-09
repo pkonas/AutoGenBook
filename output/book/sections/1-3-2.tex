@@ -1,0 +1,26 @@
+\noindent\textbf{Co jsou embeddings?} \emph{(general background knowledge)} Vektorové embeddingy jsou numerické reprezentace slov, vět nebo dokumentů v‑dimenzionálním prostoru tak, aby podobné položky měly blízké vektory. Můžete si je představit jako souřadnice slov na mapě významů: slova se podobným významem leží blízko u sebe.\\
+
+\noindent\textbf{Pedagogická metafora a vizualizace} \emph{(general background knowledge)}: Představte si sada bodů v rovině (2D), kde body reprezentují slova nebo krátké texty. Studenti mohou v malém cvičení promítnout více‑rozměrné embeddingy do 2D pomocí PCA nebo t‑SNE a vizuálně hledat shluky témat — to pomáhá pochopit, že „podobnost“ je vektorová blízkost.\\
+
+\noindent\textbf{Praktické scénáře použití ve výuce} \emph{(general background knowledge)}:
+\begin{itemize}
+  \item Vyhledávání podobných materiálů: pro dotaz (např. krátký popis tématu) se spočtou embeddingy dotazu i dokumentů a vrátí se nejbližší dokumenty — rychlý způsob, jak studentům nabídnout relevantní doplňkové zdroje.
+  \item Clustering studentských odpovědí: embeddingy krátkých studentských textů lze seskupit (clustering) a identifikovat opakující se koncepty, nejasnosti nebo typické chyby ve třídě.
+  \item Základ pro RAG (retrieval‑augmented generation): indexace interních materiálů pomocí embeddingů umožní modelu nejprve „vyhledat“ relevantní pasáže a teprve pak generovat odpověď, čímž se zvyšuje relevance a kontrola nad zdroji.
+\end{itemize}
+
+\noindent\textbf{Krátký ukázkový workflow pro vyučující (praktické nasazení)} \emph{(general background knowledge)}:
+\begin{enumerate}
+  \item Připravte sadu krátkých dokumentů nebo odpovědí (např. abstrakty, výpisy z přednášek).
+  \item Vygenerujte embeddingy pro každý dokument a pro ukázkové dotazy (použijte dostupnou službu/model podle pravidel instituce).
+  \item Pro vizualizaci použijte redukci dimenzí (PCA/t‑SNE/UMAP) a ukažte výsledky studentům; nechte je interpretovat shluky.
+  \item Pro vyhledávání nastavte jednoduché rozhraní: při dotazu vypište top‑k relevantních dokumentů podle podobnosti.
+  \item Diskutujte omezení: embeddingy odrážejí data a model, se kterým byly vytvořeny — vždy ověřujte relevanci a přesnost návrhů.
+\end{enumerate}
+
+\noindent\textbf{Krátké didaktické tipy} \emph{(general background knowledge)}:
+\begin{itemize}
+  \item Začněte s malým datasetem (10–100 textů), aby studenti viděli jasné shluky a vztahy.
+  \item Použijte vizualizaci jako diskusní podnět — požádejte studenty, aby navrhli, proč se některé odpovědi seskupily dohromady.
+  \item Při zavádění RAG zdůrazněte transparentnost: vždy ukažte, které zdroje byly vybrány pro generovanou odpověď.
+\end{itemize}

@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several practical recommendations (anonymizace/pseudonymizace, redakce jmen, doporučený postup pro retenční lhůty) are supported by the handbook content but lack explicit in-text citations to the most relevant sections (2.2.2 / 9.3.3 / 9.4.1).",
+      "required_fix": "Add explicit footnotes or cross-references to the handbook excerpts that document anonymization/pseudonymization best practices (section 2.2.2), the DPIA template (section 9.3.3), and the RAG blueprint/checklist (section 9.4.1) for each corresponding bullet."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The DPIA / DPA bullet is annotated inline with '(general background knowledge)'. This inline tag is awkward in the checklist and may confuse readers about whether an action is required.",
+      "required_fix": "Replace the inline label with a short footnote pointing to the handbook templates (e.g., section 9.3.3) and/or to the institutional/legal guidance. Keep the checklist item actionable (e.g., 'Proveďte DPIA, pokud zpracováváte osobní údaje; viz vzor DPIA v sekci 9.3.3')."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Retention policy entry uses a placeholder 'doba uchování X měsíců' without guidance on how to choose a value or where to record it.",
+      "required_fix": "Replace the placeholder with an instruction to align retention periods with institutional policy or legal requirements and add a reference to the handbook sections that discuss retention/DPA/DPIA (e.g., 2.2/9.3/9.4). Example wording: 'nastavte retenční politiku v souladu s institucionálními pravidly (uved'te dobu a odůvodnění v dokumentaci projektu / viz sekce 9.3.3)'. (Do not invent numeric retention periods.)"
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnotes inside list items use human-readable labels like 'Source: sekce 9.3.1 (...)' while other footnotes point to kb_ai_101_tipu_pdf_page_3_1. Mixing free-text references and KB cite_keys may reduce consistency.",
+      "required_fix": "Standardize footnotes to either institution section references (e.g., 'viz sekce 9.3.1') or to KB cite_keys consistently. Ensure the LaTeX footnote text is short and consistent with the handbook citation style used elsewhere in the document."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist is practical but could be slightly more actionable for course guarantors: e.g., indicate who (role) should confirm each item and suggest a place to store evidence (LMS, project folder).",
+      "required_fix": "Add a short parenthetical or column indicating the responsible role for each 'Zařazení do zprovoznění' check item (např. 'Garantuje: garant předmětu / IT / právní oddělení') and a suggested evidence location (LMS/drive/path), or add this as a short companion note."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Mapování dat (co se bude indexovat) bullet",
+      "edit_instruction": "Add footnote referencing section 9.4.1 (Základní RAG blueprint / Architektura RAG) and to the earlier 'Architektura RAG pro kurzy' text that lists typical sources (LMS, prezentace, sylaby, FAQ) to ground the list of example sources. Example footnote: 'Viz sekce 9.4.1 (Architektura RAG) a doporučení o indexovaných zdrojích.'"
+    },
+    {
+      "target": "Minimalizace PII v indexu bullet",
+      "edit_instruction": "Add a footnote to section 2.2.2 (Anonymizace a pseudonymizace) and to 9.3.3 (vzorné DPIA) to support recommendations to pseudonymize and redact names. Replace any prescriptive numeric examples with a reference to institutional guidance (do not invent retention periods)."
+    },
+    {
+      "target": "DPIA / smlouvy o zpracování (DPA) bullet",
+      "edit_instruction": "Remove inline '(general background knowledge)' label. Instead, add a short actionable sentence and a footnote: 'Proveďte DPIA tam, kde RAG zpracovává osobní údaje; viz vzor DPIA v sekci 9.3.3.' Mark the item as required when personal data are processed."
+    },
+    {
+      "target": "Logging, retence a audit bullet",
+      "edit_instruction": "Replace 'doba uchování X měsíců' with: 'nastavte retenční lhůty v souladu s institucionální politikou (uved'te hodnotu a odůvodnění v dokumentu)'; add a footnote pointing to sections 2.2 (retence) and 9.3.3 (DPIA template) for evidence and templates."
+    },
+    {
+      "target": "Zařazení do zprovoznění kurzu — checklist pro garanty",
+      "edit_instruction": "Add a short responsibility column or parenthetical after each checklist item suggesting who should sign off (např. 'hotovo / chybí — kontrola: garant předmětu / IT / právní odd.'), and add a footnote linking to the 'Šablona: Krátký formulář pro studentskou deklaraci AI (LMS)' in memory (section 9.3.1) for the declaration item."
+    }
+  ],
+  "retrieval_queries": [
+    "kb: section 2.2.2 Anonymizace a pseudonymizace (text and recommended procedures)",
+    "kb: section 9.3.3 Vzorné DPIA (DPIA template for AI in teaching)",
+    "kb: section 9.4.1 Architektura RAG pro kurzy / checklist soukromí a GDPR pro RAG (supporting blueprint and checklist)",
+    "kb: institutional retention policy examples for student/course data (if available) or mention where retention guidance is stored in the handbook"
+  ]
+}

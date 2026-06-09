@@ -1,0 +1,6 @@
+Název: Mini průvodce AI ve výuce
+Obsah: Krátká ukázka struktury knihy a článku.
+Kapitoly:
+1. Úvod
+2. Praktické příklady
+Počet stran: 2

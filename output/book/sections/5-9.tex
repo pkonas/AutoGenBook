@@ -1,0 +1,75 @@
+Úvodní poznámka. Níže jsou zkrácené šablony, checklisty a prompty pro zavedení milestone‑based hodnocení a transparentní dokumentaci použití AI (požadavek na procesní artefakty) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}. Preferujte školní/enterprise řešení pro kontrolu dat a auditní stopy, pokud to technicky a právně jde \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+
+1) Rychlý checklist pro garanty předmětů (před spuštěním)
+\begin{itemize}
+  \item Uveďte v sylabu pravidla AI: povoleno/zakázáno, povinná deklarace a požadované artefakty (meziverze, commit logy, screenshoty) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Rozdělte závěrečnou úlohu na 1–3 milníky s jasnými výstupy a tím, co hodnotí AI vs. člověk.
+  \item Prověřte právní/technické podmínky ukládání dat (enterprise licence, DPA) \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Připravte studentské instrukce pro deklaraci AI a nahrávání artefaktů.
+\end{itemize}
+
+2) Vzorová položka do rubriky
+\begin{verbatim}
+Kritérium: Dokumentace postupu
+Popis: Odevzdejte meziverze / commit log / screenshoty.
+Max. bodů: 15
+Hodnocení: úplnost, srozumitelnost, návaznost verzí
+Deklarace AI: [Ano/Ne] Nástroj: [název] Role AI: [nápověda/generování/ověření]
+\end{verbatim}
+
+3) Jednoduchá rubrika (kopírovat do LMS)
+\begin{center}
+\begin{tabular}{p{6cm}p{1.5cm}p{6cm}}
+\hline
+Kritérium & Max. bodů & Poznámky \\
+\hline
+Kvalita řešení & 40 & Ověřitelné kroky v artefaktech \\
+Proces a transparentnost & 20 & Povinné artefakty \\
+Argumentace a reflexe & 20 & Krátká reflexe o roli AI \\
+Originalita & 10 & Lokální/datumové prvky oceňovány \\
+Formální náležitosti & 10 & Pole deklarace AI musí být vyplněno \\
+\hline
+\end{tabular}
+\end{center}
+
+4) Šablona deklarace AI (do sylabu/formuláře)
+\begin{verbatim}
+Deklarace použití AI: Uveďte, zda jste použili AI, nástroj a roli (nápověda/editace/generování).
+Popište ověření správnosti výsledků. Přiložte krátkou sebereflexi (max. 200 slov).
+\end{verbatim}
+
+5) Prompt‑knihovna pro asistenty hodnotitelů
+Pozn.: anonymizujte data nebo provozujte v enterprise prostředí před generováním komentářů \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\begin{verbatim}
+You are an assistant producing formative feedback.
+Input: (student_submission) (rubric) (declared_AI_use).
+Task: Up to 250 words:
+ - 2 sentences praising strongest parts (linked to rubric),
+ - 2 specific improvement suggestions (linked to rubric),
+ - 1 suggestion for next milestone,
+ - If AI was used: "Please verify [specific claim] & cite sources."
+Tone: constructive, actionable.
+\end{verbatim}
+
+6) Vzor workflow pro milestone‑based hodnocení
+\begin{enumerate}
+  \item Student odevzdá milník + artefakty + deklaraci AI.
+  \item Učitel / AI‑asistent v enterprise prostředí vygeneruje formativní komentáře dle rubriky.
+  \item Student upraví práci a odevzdá další milník; učitel validuje klíčové kroky.
+  \item Finální hodnocení zohlední proces, reflexi a kvalitu podle rubriky.
+\end{enumerate}
+Pozn.: Procesní artefakty snižují motivaci k nevhodnému použití AI a zvyšují ověřitelnost postupu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+7) Praktické doporučení pro multimodální úlohy
+Zaznamenávejte zdroje a postupy při generování/úpravě obrázků; některé nástroje umožňují nastavit poměry a stylizaci, což pomáhá reprodukovatelnosti. Požadujte logy práce s obrazovými výstupy \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+
+8) Jak začít rychle (shrnutí)
+\begin{itemize}
+  \item Přidejte do sylabu formulaci o deklaraci AI.
+  \item Zvolte 1–2 jasné milníky s definovanými výstupy a artefakty.
+  \item Připravte jednoduchou rubriku s polem pro AI deklaraci.
+  \item Ověřte možnosti LMS pro sběr meziverzí/commit logů.
+  \item Pilotujte s jednou sekcí a sbírejte zpětnou vazbu.
+\end{itemize}
+
+Odkazy: viz Přílohy 9.1 (Prompt Library) a 9.2–9.4 (šablony, DPIA, checklist); doporučení pro enterprise nasazení a volbu licencí viz kap. o institucionálním nasazení \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2,kb_ai_101_tipu_pdf_04e4a115_page_8_1}.

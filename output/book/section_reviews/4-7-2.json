@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Text uvádí konkrétní číselné délky aktivit (\"20–30min\", \"15–20 min\"), které nejsou podloženy žádným z poskytnutých excerptů. Podle pravidel musí být všechny ne‑triviální faktické nebo numerické tvrzení podloženy zdrojem nebo označeny jako obecné pedagogické doporučení.",
+      "required_fix": "Odstranit konkrétní číselné délky nebo je explicitně označit jako \"general background knowledge\" a/nebo dodat podkladový citát ze zdroje, který tyto doporučené délky uvádí."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "U Microsoft Designer chybí informace obsažená v KB, že některé funkce/omezení platí pouze pro soukromé Microsoft účty (věta v KB: \"Platí pouze pro soukromé účty Microsoft\"). Tato omezení nejsou v textu zmíněna.",
+      "required_fix": "Doplňte upozornění o omezení dostupnosti některých funkcí Designeru pro typ účtu (s odpovídající poznámkou/footnotou na kb_ai_101_tipu_pdf_page_51_1)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Instrukce \"Stáhněte/přistupte k Minecraft Education přes oficiální portál (viz zdroj).\" by byly užitečnější, byly‑li explicitně uvedeny adresy nebo přesnější navigační pokyny, protože KB uvádí konkrétní portál (education.minecraft.net).",
+      "required_fix": "V textu uvést konkrétní odkaz/URL nebo přesnou formulaci \"education.minecraft.net\" a připojit footnotu na kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Některé věty jsou označeny jako \"general background knowledge\" v textu (např. kroky u Copilota a závěrečné doporučení), jiné doporučené kroky (časové odhady aktivit) nejsou takto označené, přestože by měly být podle pravidel, pokud nejsou podloženy KB excerpty.",
+      "required_fix": "Konzistentně označit všechna pedagogická doporučení bez přímé podpory v KB jako \"general background knowledge\" nebo doplnit odpovídající citace."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "V textu jsou parenteticky uvedené štítky \"(general background knowledge)\" a inline poznámky k zdrojům — z hlediska jednotného stylu příručky by bylo lepší tato označení přesunout do poznámek pod čarou nebo sjednotit jejich formátování.",
+      "required_fix": "Upravte formátování: přesuňte označení \"general background knowledge\" do footnoty nebo použijte jednotný parentetický styl napříč sekcemi."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Minecraft Education — rychlý start a doporučená aktivita (časové odhady)",
+      "edit_instruction": "Odeberte konkrétní číselné délky \"20–30min\" a \"15–20 min\" nebo je předělejte na: \"krátká (cca 15–30 min) aktivita\" a přidejte footnotu označující, že jde o obecné pedagogické doporučení (general background knowledge), pokud nelze najít přímý citát v KB."
+    },
+    {
+      "target": "Minecraft Education — odkaz na portál",
+      "edit_instruction": "Upravte větu \"Stáhněte/přistupte k Minecraft Education přes oficiální portál (viz zdroj).\" na \"Stáhněte/přistupte na education.minecraft.net\" a přidejte footnotu s cite_key kb_ai_101_tipu_pdf_page_15_2."
+    },
+    {
+      "target": "Microsoft Designer — omezení účtů",
+      "edit_instruction": "Doplňte krátké upozornění: \"Pozn.: některé funkce Designeru platí pouze pro soukromé Microsoft účty.\" s footnotou pointing na kb_ai_101_tipu_pdf_page_51_1."
+    },
+    {
+      "target": "Obecné označení pedagogických doporučení",
+      "edit_instruction": "Projděte text a konzistentně označte každé doporučení, které není přímo podloženo excerptem, jako \"general background knowledge\" (buď parenteticky nebo jako footnote). Např. časové odhady, doporučené workflow pro diskusi/reflexi apod."
+    },
+    {
+      "target": "Formátování poznámek",
+      "edit_instruction": "Přesuňte inline poznámky \"(general background knowledge)\" do jednotných footnot nebo explicitně zformátujte všechny takové poznámky ve stejném stylu jako ostatní zdrojové footnoty v příručce."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_15_2 potvrzení o doporučených délkách hodin/aktivit (existuje v KB zmínka o 15–30min nebo jiných číselných doporučeních?)",
+    "kb_ai_101_tipu_pdf_page_51_1 ověření věty 'Platí pouze pro soukromé účty Microsoft' a podrobnosti omezení dostupnosti Designer funkcí pro školní/enterprise účty",
+    "kb_ai_101_tipu_pdf_page_3_1 doplnění detailů o dostupnosti Copilot Chat v rámci Office 365 A1 a případném omezení funkcí ve školní sadě"
+  ]
+}

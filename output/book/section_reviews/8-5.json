@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some operational recommendations (e.g. guidance for choosing an embedding model compatible with cloud/hybrid/on‑prem, and brief note about on‑prem licensing/HW) are currently stated as practical advice but lack an explicit pointer to the handbook excerpts that discuss local/on‑prem models and licensing.",
+      "required_fix": "Add explicit references to the relevant parts of the handbook (sections that discuss local/edge model options, licensing and operational requirements) or label these sentences explicitly as 'general background knowledge' if you prefer to keep them as non‑cited practical recommendations. If possible, cite the section(s) that cover local model options and license considerations."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The term number_of_chunks appears inline (in English) without a definition or guidance on how to choose a value. Readers may be unsure how many chunks to attach to a prompt and how that relates to model context window / token limits.",
+      "required_fix": "Add a short definition of 'number_of_chunks' and concrete guidance (e.g. tie chunk count to model context window and average chunk token size) or refer to a recommended heuristic. If specific numeric guidance is not available in the KB, mark the guidance as general background knowledge and suggest typical conservative defaults (as pedagogical guidance)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section is practical but could be more actionable for pedagogical readers: a concise worked example (end‑to‑end) showing ingestion → chunking → retrieval → prompt composition → example provenance snippet is missing.",
+      "required_fix": "Add a short, concrete worked example (2–3 chunks) with an example prompt template and example of how provenance is displayed in the response. Mark the example as illustrative and general background knowledge unless you can ground parts of it to KB excerpts."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX source contains \\\\cite{...} keys but the section does not indicate whether the bibliography with these keys is present in the final document; absence of BibTeX entries will produce unresolved citation warnings.",
+      "required_fix": "Ensure the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_44_2, kb_ai_101_tipu_pdf_04e4a115_page_15_2) exist in the main .bib or bibliography environment. If the citations are intended as illustrative only, consider marking them as inline parenthetical notes instead."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Most paragraphs are marked as (general background knowledge), but a few specific lines mix actionable instructions with that label inconsistently (e.g., some PoC steps include citations while adjacent checklist items do not).",
+      "required_fix": "Standardize labeling: either (a) mark all high‑level recommendations as 'general background knowledge' and only cite concrete tool examples, or (b) add citations for non‑trivial operational steps that are covered elsewhere in the handbook. This improves reader expectations about what is evidence‑backed vs. conventional best practice."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After 'Vytvoření embeddings a indexu: zvolte embedding model kompatibilní s provozním režimem (cloud/hybrid/on‑prem).', add a short parenthetical pointer such as '(see section on lokální a edge nasazení modelů for licensing and HW considerations)' or add the exact citation to the handbook subsection that covers on‑prem/local model considerations."
+    },
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace or augment 'nastavení maxima number_of_chunks pro prompt' with a brief definition: e.g. 'number_of_chunks — počet retrieval chunků připojených do promptu; volte jej s ohledem na průměrnou velikost chunku a kontextové okno modelu (např. pokud průměrný chunk ~500 tokens a model má 8k tokenů, připojte maximálně ~10–12 chunků). Mark this heuristic as general background guidance if not supported by KB.'"
+    },
+    {
+      "target": "Ukázkový, zjednodušený příklad indexace výukových materiálů",
+      "edit_instruction": "Add a minimal worked example (3–5 short bullets) illustrating: (1) one source (PowerPoint slide) → chunking into 2 chunks (each ~200 tokens), (2) retrieval returns top‑2 chunks, (3) prompt template showing where provenance lines (doc id + excerpt) are injected, and (4) example of what the LLM response with provenance looks like. Preface the example as 'illustrative only — general background knowledge'."
+    },
+    {
+      "target": "bibliography note",
+      "edit_instruction": "Add a small author/editor note at the end of the LaTeX body reminding editors to include the required bibliography entries for the cited KB keys or convert the citations to inline parenthetical notes if bibliography entries are not available."
+    }
+  ],
+  "retrieval_queries": [
+    "Search KB for 'lokální modely on‑prem licensing Mistral Llama local model licensing' or 'lokální a edge nasazení modelů' in the handbook",
+    "Search KB for 'chunking best practices token limits context window prompt composition RAG' or 'RAG chunk size guidance' in internal KB",
+    "Search KB for 'provenance display RAG responses best practices' or 'Audit & provenance retrieval responses' to ground recommended provenance UI/UX guidance"
+  ]
+}

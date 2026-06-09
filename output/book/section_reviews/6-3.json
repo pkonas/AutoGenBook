@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some commercial product examples (e.g., 'Grammarly, Hemingway', 'Draft Coach v řešeních typu Turnitin') are presented as examples but the section relies on a general note that their specific features are not present in the available KB. The product names themselves appear without the explicit '(general background knowledge)' tag applied to each example phrase, which may be read as an unsupported factual claim.",
+      "required_fix": "Explicitly mark the product-example phrases (Grammarly, Hemingway, Draft Coach / Turnitin) as '(general background knowledge)' or move them inside the sentence already labeled as (general background knowledge)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX source uses a few Unicode punctuation characters (e.g. non‑breaking hyphen) and commands like \\vspace and explicit line breaks (\\\\) inside a quote. These are not errors per se but might cause portability issues with some LaTeX toolchains or require package support.",
+      "required_fix": "Replace problematic Unicode characters with LaTeX-friendly input (e.g. use \\- or regular hyphen '-') and consider removing explicit \\vspace commands or ensuring the document preamble supports them. Keep line breaks inside quote minimal or use separate paragraphs for clarity."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section references the milestone‑based workflow and the declaration template (which exist elsewhere in the handbook) but does not show a short concrete example of a filled declaration or a sample assistant feedback (the prompt is given but no sample output).",
+      "required_fix": "Add one short concrete example: either (a) a filled-in student 'Deklarace použití AI' example (max ~50–100 words), or (b) an example of the assistant's ~250‑word feedback produced by the provided prompt, or both. If such examples are not grounded in the KB, mark them as (general background knowledge)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist and recommended workflows correctly emphasize retention/data agreements and human validation, but they do not explicitly point teachers to the exact handbook sections where the DPIA/DPA templates and prompt library live (the handbook contains those resources).",
+      "required_fix": "Add cross-references (section numbers or appendix keys) to the handbook resources (prompt library, DPA and DPIA templates, milestone templates) already present in the manual, or explicitly state where in the repository these templates can be found."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Tier 2 / Tier 3 product examples",
+      "edit_instruction": "Append '(general background knowledge)' immediately after the parenthetical product examples (e.g., 'např. Grammarly, Hemingway (general background knowledge)'; 'např. Draft Coach v řešeních typu Turnitin (general background knowledge)') to make the KB limitation explicit at the phrase level."
+    },
+    {
+      "target": "Vzorový prompt pro asistenta",
+      "edit_instruction": "Add a short illustrative example: provide a one-paragraph sample student_submission + rubric + declared_AI_use and then a sample assistant output (~80–120 words) that follows the prompt constraints. If the example is hypothetical, label it '(general background knowledge)'."
+    },
+    {
+      "target": "LaTeX source",
+      "edit_instruction": "Replace any non-ASCII non-breaking hyphens with standard hyphens '-' or LaTeX-safe commands; remove or reduce \\vspace usage and avoid explicit '\\\\' linebreaks inside the quote environment unless needed for formatting."
+    },
+    {
+      "target": "Checklist and references",
+      "edit_instruction": "Add explicit pointers to the handbook locations for the declaration template, prompt library, and DPA/DPIA templates (e.g., 'viz Příloha 9.1 Prompt Library' or similar). If you cannot add exact section numbers, write 'viz Přílohy - Prompt Library a DPA šablony' to guide the reader."
+    }
+  ],
+  "retrieval_queries": [
+    "Turnitin Draft Coach feature description Draft Coach Turnitin official documentation",
+    "Capabilities and limitations of Grammarly / Hemingway in educational settings (official documentation or handbook references)",
+    "Clarify mapping between 'Deklarace použití AI' template and handbook appendix: exact location of short AI declaration template in the manual (which appendix/page)",
+    "Example assistant output for the provided feedback prompt (sample from prompt library or handbook examples)"
+  ]
+}

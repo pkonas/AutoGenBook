@@ -1,0 +1,564 @@
+{
+  "doc_kind": "paper",
+  "file_path": "D:\\Scripts\\autogenbook\\out_paper\\Graph-Aware_Prompting_for_Reliable_Section_Generation.tex",
+  "counts_by_severity": {
+    "error": 1,
+    "warning": 53
+  },
+  "counts_by_type": {
+    "unknown_cite_key": 1,
+    "numeric_claim_no_evidence": 53
+  },
+  "issues": [
+    {
+      "issue_type": "unknown_cite_key",
+      "severity": "error",
+      "message": "Citation key 'web_varin_2013_statistical_modelling_of_citation_exchange_betwee' not present in known citations.",
+      "where": null,
+      "snippet": "\\cite{web_varin_2013_statistical_modelling_of_citation_exchange_betwee}",
+      "metadata": {
+        "cite_key": "web_varin_2013_statistical_modelling_of_citation_exchange_betwee"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 8",
+      "snippet": "eometry}%\n\\geometry{a4paper=True,margin=25mm}%\n\\usepackage{amsmath}%\n\\usepackage{a",
+      "metadata": {
+        "number": "25"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 68",
+      "snippet": "w itself proceeds in four stages.\nStage 1: an initial document graph is construct",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 69",
+      "snippet": "tended claims and length targets.\nStage 2: for each node the system retrieves can",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 70",
+      "snippet": "cores and provenance identifiers.\nStage 3: leaf and scheduled sections are genera",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 72",
+      "snippet": "uggestions and confidence scores.\nStage 4: validated JSON section outputs are ass",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": "h representation and scheduler (Section 3), the retrieval and constrained-generat",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": "trained-generation procedures (Sections 3.4–3.5), experimental design (Section 4), ",
+      "metadata": {
+        "number": "3.4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": "ned-generation procedures (Sections 3.4–3.5), experimental design (Section 4), empi",
+      "metadata": {
+        "number": "3.5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": " 3.4–3.5), experimental design (Section 4), empirical results (Section 5), and a ",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": "(Section 4), empirical results (Section 5), and a conservative discussion of stre",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": "ations, and future directions (Sections 6–7).%\n\n%\n\\section{Related Work}%\n\n\n%\nThi",
+      "metadata": {
+        "number": "6"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 90",
+      "snippet": "ions, and future directions (Sections 6–7).%\n\n%\n\\section{Related Work}%\n\n\n%\nThis ",
+      "metadata": {
+        "number": "7"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 174",
+      "snippet": "ream consistency. Remedies (in order): (1) local retry with adjusted prompts/evid",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 174",
+      "snippet": " retry with adjusted prompts/evidence, (2) upstream regeneration, (3) human-in-th",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 174",
+      "snippet": "s/evidence, (2) upstream regeneration, (3) human-in-the-loop. Retries are budgete",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 224",
+      "snippet": "tive):\n\\begin{verbatim}\n{\"source_id\":\"N123\",\"span_id\":\"N123.s5\",\n \"excerpt\":\"Prior",
+      "metadata": {
+        "number": "23"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 224",
+      "snippet": "batim}\n{\"source_id\":\"N123\",\"span_id\":\"N123.s5\",\n \"excerpt\":\"Prior work shows that ",
+      "metadata": {
+        "number": "23"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 226",
+      "snippet": " error in task Y.\",\n \"location\":{\"page\":4},\"source_type\":\"pdf\",\"score\":0.87}\n\\end",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 226",
+      "snippet": ":{\"page\":4},\"source_type\":\"pdf\",\"score\":0.87}\n\\end{verbatim}\n\nEvidence-aware prompts",
+      "metadata": {
+        "number": "0.87"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 293",
+      "snippet": "the document-graph formulation (Section 3.1), the basic unit for retrieval and gene",
+      "metadata": {
+        "number": "3.1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 297",
+      "snippet": "tiality procedures described in Section 4.6.\n\nLimitations. Because parts of the dat",
+      "metadata": {
+        "number": "4.6"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 299",
+      "snippet": " larger curated collections) in Section 6.%\n\n%\n\\subsection{Baselines and comparat",
+      "metadata": {
+        "number": "6"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 329",
+      "snippet": "n blocks that require the generator to (1) produce only the fields mandated by th",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 329",
+      "snippet": "he fields mandated by the JSON schema, (2) associate every non-trivial factual cl",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 329",
+      "snippet": "one or more evidence item indices, and (3) avoid speculation beyond the provided ",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 344",
+      "snippet": "lowing artifacts alongside this paper: (1) the JSON Schema files and exemplar val",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 344",
+      "snippet": "iles and exemplar valid section JSONs; (2) prompt templates and a small set of pr",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 344",
+      "snippet": "example pairs used during development; (3) the scheduler source and configuration",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 344",
+      "snippet": "ation files used in our reported runs; (4) a minimal retrieval index and scripts ",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 344",
+      "snippet": "he curated PDF set described in Section 4.1 (where licensing permits); and (5) the ",
+      "metadata": {
+        "number": "4.1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 344",
+      "snippet": "ion 4.1 (where licensing permits); and (5) the assembler code that maps validated",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 365",
+      "snippet": "ality, coherence, and citation quality (1–5); we report mean±SD and median/IQR.\n\n",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 365",
+      "snippet": "ity, coherence, and citation quality (1–5); we report mean±SD and median/IQR.\n\nAn",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 380",
+      "snippet": "family-wise procedures applied at alpha=0.05) and use the Benjamini–Hochberg procedu",
+      "metadata": {
+        "number": "0.05"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 413",
+      "snippet": "y evaluation metrics defined in Section~4.4: citation coverage, hallucination rate ",
+      "metadata": {
+        "number": "4.4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 424",
+      "snippet": "g followed the analysis plan in Section~4.5: two-sided paired t-tests when approxim",
+      "metadata": {
+        "number": "4.5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 434",
+      "snippet": "compute three primary per-run metrics: (1) citation coverage, defined as the frac",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 434",
+      "snippet": "ated with at least one source pointer; (2) hallucination rate, defined via refere",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 434",
+      "snippet": "found in the curated evidence set; and (3) reviewer-style score, the mean human-a",
+      "metadata": {
+        "number": "3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 438",
+      "snippet": "orrelation for nonparametric tests) and 95% confidence intervals. To limit the fals",
+      "metadata": {
+        "number": "95%"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 442",
+      "snippet": "linear baseline) with bootstrap-derived 95% confidence intervals to highlight direc",
+      "metadata": {
+        "number": "95%"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 463",
+      "snippet": "nnotation protocol described in Section~4.4. We measure (a) citation coverage (the ",
+      "metadata": {
+        "number": "4.4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 469",
+      "snippet": "ns and are discussed further in Section~6. Because run artifacts and numeric outp",
+      "metadata": {
+        "number": "6"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 469",
+      "snippet": "r each ablation are reported in Section~5.1 and in the supplementary materials.%\n\n%",
+      "metadata": {
+        "number": "5.1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 499",
+      "snippet": "n}%\n\n\n%\nThe results reported in Section~5 are interpreted here with caution and a",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 502",
+      "snippet": "l findings}\nThe evaluation (see Section~5) was intended to measure citation cover",
+      "metadata": {
+        "number": "5"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 502",
+      "snippet": "experimental scope described in Section~4: in particular, the datasets and retrie",
+      "metadata": {
+        "number": "4"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 505",
+      "snippet": "andard bibliographic form (see Sections~3.3 and~3.6 for design details).\n\n\\paragrap",
+      "metadata": {
+        "number": "3.3"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 505",
+      "snippet": "ibliographic form (see Sections~3.3 and~3.6 for design details).\n\n\\paragraph{Key li",
+      "metadata": {
+        "number": "3.6"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 510",
+      "snippet": "nternal notes and curated PDFs (Section~4.1). As a result, observed gains may not g",
+      "metadata": {
+        "number": "4.1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 527",
+      "snippet": "ocesses. Future work should prioritize (1) scaling retrieval to broader and highe",
+      "metadata": {
+        "number": "1"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 527",
+      "snippet": "to broader and higher-quality corpora, (2) integrating formal fact-checkers or mo",
+      "metadata": {
+        "number": "2"
+      }
+    },
+    {
+      "issue_type": "numeric_claim_no_evidence",
+      "severity": "warning",
+      "message": "Numeric claim without nearby evidence marker.",
+      "where": "line 527",
+      "snippet": "erifiers into the generation loop, and (3) evaluating the approach on larger, pub",
+      "metadata": {
+        "number": "3"
+      }
+    }
+  ],
+  "stats": {
+    "n_cites_found": 40,
+    "n_unknown_cites": 1,
+    "n_numeric_claims": 78,
+    "n_numeric_claims_without_evidence": 53,
+    "n_figures_referenced": 0,
+    "n_figures_missing": 0,
+    "numeric_claim_support_rate": 0.3205128205128205,
+    "cite_key_coverage_rate": 0.975
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several operational recommendations mention requirements for logs and GDPR‑compliant storage (\"Log konverzací a konfigurací (pro audit a ladění) uložený v souladu s GDPR‑požadavky\") but do not cite the relevant sections of the handbook that define GDPR procedures, DPIA or DPA requirements.",
+      "required_fix": "Add explicit cross‑references (or citations) to the handbook sections that cover GDPR/data processing and logging (e.g. section(s) on GDPR, DPIA and DPA such as 2.2, 2.2.4/2.2.5 or 8.3/9.7) so the reader can find prescriptive guidance for storing/auditing logs and retention/mini‑mization rules."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The student‑facing output recommendations are useful but abstract (e.g. 'Krátký, srozumitelný hint (1–3 věty)' and 'Diagnostický řádek nebo pole „pravděpodobná oblast chyby“'). There are no concrete examples or templates showing the expected phrasing, format or length.",
+      "required_fix": "Include 1–2 concrete example hints (one for a math next‑step hint and one for a conceptual hint) and a short template for the diagnostic row/field (e.g. labels, expected content, max length). Also show a template of the prompt/rule the assistant should follow when asking for upload of solution steps."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Escalation rules mention notifying an 'inspekční pracovník/kontakt katedry' and rollback/config changes; the handbook already contains related material (contacts, governance, rollback and monitoring in sections such as 4.2.4, 8.7 and 9.7). The new section does not cross‑reference these locations, which may lead to duplication or inconsistent procedures.",
+      "required_fix": "Add cross‑references to the institutional contacts and operational procedures in the handbook (e.g. 4.2.4 for rollback/monitoring, 8.7 for governance and 9.7 for contacts) and ensure the exact notification flow (who, how, SLA) is consistent with those sections."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX block appears syntactically balanced (itemize/enumerate). However the text uses \\cite{...} keys; the document must ensure the bibliography contains the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_8_1 and kb_ai_101_tipu_pdf_04e4a115_page_54_1).",
+      "required_fix": "Verify that the .bib or bibliography file includes entries for the cited keys and/or replace raw \\cite with internal cross‑references to the handbook if the external bib entry is not available."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The policy 'nesmí generovat kompletní hotová řešení pro hodnocené úlohy' is appropriate pedagogically but would benefit from an explicit operational definition (what counts as 'kompletní hotová řešení') and examples of permitted/forbidden behaviors, to avoid uneven enforcement.",
+      "required_fix": "Add a short definitional paragraph or cross‑reference to existing guidance (e.g. sections on AI tutor rules such as 6.1 and assessment policy in 5.2/5.3) that explains exceptions (e.g. practice problems not graded vs. graded summative tasks) and gives examples of acceptable hint vs. forbidden full solution."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Add two concrete example hints (one math procedural hint and one conceptual hint). For example: (a) Math hint: 'Zkuste izolovat proměnnou x na jedné straně rovnice; jak byste odečetli 3 od obou stran?' (1–2 věty). (b) Conceptual hint: 'Přemýšlejte, proč by tento algoritmus vedl k lepšímu uspořádání dat – jaký krok zajišťuje stabilitu výsledku?'"
+    },
+    {
+      "target": "diagnostic row",
+      "edit_instruction": "Provide a short template for the diagnostic field, e.g. 'Diagnóza: [oblast: algebraické manipulace] | Pravděpodobná chyba: nesprávná izolace proměnné | Doporučený další krok: nahrát mezikroky (0–5 kroků)'. Limit length to one succinct sentence for clarity."
+    },
+    {
+      "target": "escalation rule",
+      "edit_instruction": "Add a compact notification template and cross‑reference, e.g. 'Automatická notifikace -> předmět: Podezření na akademickou nesrovnalost; student: [ID]; důvod: [krátký popis]; přílohy: [konverzace, odevzdané postupy]. Viz kontakty a SLA v sekci 9.7 a rollback postup v 4.2.4.'"
+    },
+    {
+      "target": "GDPR/logging bullet",
+      "edit_instruction": "Add a parenthetical cross‑reference to the handbook GDPR guidance: 'Log konverzací a konfigurací (pro audit a ladění) uložený v souladu s GDPR‑požadavky (viz sekce 2.2, 8.3 a šablonu DPA v příloze 9.4).' If the manual uses different numbering, link to the corresponding GDPR/DPA sections."
+    }
+  ],
+  "retrieval_queries": [
+    "Pokrok v matematice page 8 (funkce, požadavek na nahrání postupu a diagnostika chyb)",
+    "Microsoft Learn mention page 54 (reference to Microsoft Learn as resource)",
+    "handbook GDPR logging guidance (sections on GDPR, DPIA, DPA and logging retention)",
+    "rollback and monitoring procedures for assistants (section 4.2.4) and contacts list (section 9.7)"
+  ]
+}

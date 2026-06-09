@@ -1,0 +1,97 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T153638Z",
+  "input": {
+    "section_title": "Šablony promptů a vzory pro přípravu lekcí a úloh",
+    "node_key": "3-2",
+    "section_latex": "Tato sekce nabízí sadu přenosných promptů a krátkých instrukcí pro jejich přizpůsobení v různých oborech a úrovních. Prompty jsou navrženy tak, aby je učitel mohl rychle vložit do LLM rozhraní nebo do automatizačního skriptu a upravit pouze zarážky v hranatých závorkách.\n\n\\begin{itemize}\n  \\item Lesson plan / osnovy (stručný prompt)\n\\begin{verbatim}\nYou are an expert instructor in [OBOR]. Create a 45‑minute lesson plan for [ÚROVEŇ studentů]\nwith: 1) jasné cíle učení (3 body), 2) hlavní témata (3–5 položek), 3) návrh aktivity (20 min),\n4) domácí úkol nebo krátká reflexe. Délka výstupu: max. 400 slov.\n\\end{verbatim}\n\n  \\item Zadání úlohy (student-facing)\n\\begin{verbatim}\nNapiš srozumitelné zadání pro studenty (CZ) v [OBORU], pro [ÚROVEŇ]. Obsah má obsahovat:\n1) kontext a cíle, 2) přesné instrukce k výstupu (formát, rozsah), 3) hodnoticí kritéria (stručně),\n4) doporučený čas na vypracování. Označ místo pro odevzdání a termín.\n\\end{verbatim}\n\n  \\item Generování příkladů s proměnnými (pro cvičení)\n\\begin{verbatim}\nProduce 8 variant of a practice exercise on [TÉMA] suitable for [ÚROVEŇ].\nFor each variant include: a) zadání, b) krátkou nápovědu (1–2 věty), c) klíč k řešení.\nMark each variant with ID (V1..V8).\n\\end{verbatim}\n\n  \\item Řešení krok‑za‑krokem (pro učitele / modelové odpovědi)\n\\begin{verbatim}\nProvide a step-by-step solution for the following problem: [TEXT PROBLÉMU].\nFor each step give a one‑sentence vysvětlení proč je krok správný. At the end include\na 2‑sentence summary of common student mistakes.\n\\end{verbatim}\n\n  \\item Generování vícečetných otázek (MCQ) s distraktory\n\\begin{verbatim}\nCreate 10 multiple-choice questions on [TÉMA] at [ÚROVEŇ].\nFor each Q include: question stem, 4 options, indicate correct option, and add a 1‑line rationale\nwhy distractors are incorrect.\n\\end{verbatim}\n\n  \\item Rubrika pro hodnocení (LLM-assisted grading)\n\\begin{verbatim}\nDraft a rubric for assessing short essay answers (max 300 slov) on [TÉMA].\nRubric should have 3–4 criteria (e.g., obsah, struktura, argumentace, citace) with 3 performance\nlevels (low/medium/high) and short descriptors for each level.\n\\end{verbatim}\n\\end{itemize}\n\nKrátké instrukce pro přizpůsobení promptů\n\\begin{itemize}\n  \\item Nahraďte hranaté zarážky ([OBOR], [ÚROVEŇ], [TÉMA]) konkrétními hodnotami; pro interdisciplinární kurzy uveďte více oborů oddělených čárkou.\n  \\item Omezte délku výstupu explicitně (slova nebo odstavce), pokud chcete generovat obsah, který se dá snadno zkontrolovat manuálně.\n  \\item Pro generování variant přidejte instrukci „make each variant unique in approach or numbers“ — usnadní to automatické rozdílení pro cvičící skupiny.\n  \\item Při nasazení do pilotu mějte připravené KPI a plán manuálního auditu / eskalace (definujte odpovědnou osobu) podle rychlého checklistu pilotu \\cite{2-6}.\n  \\item U chatbotů explicitně zahrňte metriky pro měření užitečnosti (počet dotazů, doba odpovědi, procento eskalací) a plán auditu odpovědí \\cite{2-5}.\n\\end{itemize}\n\nKrátké doporučení pro validaci a pilot\n\\begin{itemize}\n  \\item Před automatickým použitím kontrolujte několik vygenerovaných položek ručně a zapište časté chyby; upravujte prompt iterativně.\n  \\item Pokud používáte LLM pro předhodnocení, definujte jasná pravidla eskalace k manuální revizi a dokumentujte rozhodnutí v rubrice \\cite{2-6}.\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- LMS pluginy: Kategorie nástrojů pro automatizaci distribuce učiva, sběr odpovědí a rychlé nasazení; doporučení: testovat v sandboxu (from section only). (first: 3-1)\n- Chatboty (praktické nasazení): Kategorie chatbotů pro FAQ, konzultace a měření užitečnosti (počet dotazů, doba odpovědi, procento eskalací, audit odpovědí a spokojenost) (from section only). (first: 3-1)\n- Generátory otázek: Nástroje pro automatické generování testových položek; doporučení z sekce: provést ruční kontrolu 10–20 položek před použitím (from section only). (first: 3-1)\n- LLM-assisted grading: Použití LLM pro předhodnocení odpovědí s následným manuálním auditem a definovanými pravidly eskalace (from section only). (first: 3-1)\n- Skripty/webhooky/CSV: Lehké integrační skripty a formáty pro rychlé propojení nástrojů (webhooky, import/export CSV) pro rychlou integraci do stávajících procesů (from section only). (first: 3-1)\n- Rychlý checklist do 60 minut: Krátký postup pro rychlé vyzkoušení nástroje: 1) definujte cíl pilotu a 2–4 KPI; 2) vytvořte sandbox a udělte oprávnění; 3) nahrajte malý vzorek obsahu, proveďte kontrolní běh s 1–3 uživateli a sledujte metriky; 4) naplánujte eskalaci a určete odpovědnou osobu za manuální audit (from section only). (first: 3-1)\n\nCITATIONS:\n- 1 (node: 1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n- 2-4 (node: 2-4)\n- 2-5 (node: 2-5)\n- 2-6 (node: 2-6)\n\nOPEN THREADS:\n- Potřeba detailních postupů eskalace a rozdělení rolí v pilotu chatbota (section 2-6 definuje role obecně, ale chybí konkrétní postupy eskalace a odpovědností). (node: 2-6)\n- Potřeba konkrétních šablon promptů a přenosných technických integrací (sekce 3.1 uvádí kategorie a rychlé skripty, ale neobsahuje ukázkové prompty nebo konkrétní integrační šablony). (node: 3-1)\n- Potřeba ověřených případových studií a konkrétních příkladů nasazení (sekce 3.1 dává rychlý přehled nástrojů, ale neobsahuje případové studie s metrikami a výsledky). (node: 3-1)\n- Potřeba konkrétních skriptů/konfigurací pro Moo...",
+    "previous_sections": "The title of part 1 sections ago is Přehled praktických nástrojů a rychlého nastavení, and the content is as follows.\nKrátký přehled ověřených kategorií nástrojů a kdy je vyzkoušet:\n\nLMS pluginy (automatizace distribuce, sběr odpovědí, rychlé nasazení – test v sandboxu); Chatboty (FAQ, konzultace, měřit počet dotazů, dobu odpovědi, eskalace, audit a spokojenost) \\cite{2-5}; Generátory otázek (ruční kontrola 10–20 položek); LLM-assisted grading (předhodnocení + manuální audit a pravidla eskalace) \\cite{2-6}; Skripty/webhooky/CSV pro rychlou integraci.\n\nRychlý checklist do 60 minut: 1) Definujte cíl pilotu a 2–4 KPI \\cite{2-6}; 2) Vytvořte sandbox a udělte oprávnění \\cite{2-6}; 3) Nahrajte malý vzorek obsahu, proveďte kontrolní běh s 1–3 uživateli a sledujte metriky (u chatbotů viz výše) \\cite{2-5}; 4) Naplánujte eskalaci a odpovědnou osobu za manuální audit \\cite{2-6}.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": true,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "minor",
+        "description": "The validation guidance says 'Před automatickým použitím kontrolujte několik vygenerovaných položek ručně' but the earlier section (memory) recommends checking 10–20 items for question generators. The current wording is vaguer than the recommendation in the context memory.",
+        "required_fix": "Replace 'několik' with a quantified recommendation consistent with the memory, e.g. 'zkontrolujte 10–20 vygenerovaných položek ručně (pro generátory otázek)'; if different sample sizes are intended for other templates, state them explicitly and cite the relevant node (2-2..2-6) or label any other numbers as 'general background knowledge'."
+      },
+      {
+        "type": "consistency",
+        "severity": "major",
+        "description": "Open threads and context memory indicate a need for concrete escalation procedures and role assignments for pilots (section 2-6). The section currently notes 'plán manuálního auditu / eskalace (definujte odpovědnou osobu)' but does not provide a minimal template or cross-reference with section 2-6's roles, leaving implementers without actionable steps.",
+        "required_fix": "Add a short, concrete escalation template (e.g., trigger conditions, who to notify, stepwise actions, expected SLA for manual review) or explicitly cross-reference and link to section 2-6 with a clear pointer to the escalation procedure. If the detailed procedure is outside scope, mark this as an open dependency and point readers to section 2-6 and an action item to draft escalation scripts before pilot."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "The LaTeX body embeds multiple \\begin{verbatim}...\\end{verbatim} blocks inside an itemize environment. In standard LaTeX verbatim may not work reliably inside list environments unless specific packages or environments are used.",
+        "required_fix": "Either move the verbatim blocks out of the itemize (e.g., present prompts in separate displayed blocks), or replace with a listing environment that supports use inside lists (e.g., \\begin{lstlisting}...\\end{lstlisting} from the listings package), or wrap each verbatim in a minipage or use the package 'verbatimbox'. Document the required package(s) in a short LaTeX note."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "The section provides multiple templates but contains no filled examples. Users may find it hard to adapt prompts for specific subjects or levels without at least one concrete worked example.",
+        "required_fix": "Add one or two filled examples (preferably Czech-localized) — e.g., a completed 45‑minute lesson plan prompt for 'Fyzika, bakalářské' and one completed MCQ set or one filled 'Zadání úlohy' — so readers can see expected inputs and outputs."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "The guidance about manual auditing and KPI selection is useful but lacks quantified checks for other use cases (e.g., LLM-assisted grading audits). The memory includes specific quick-checklist steps and metrics for chatbots and pilots but this section does not fully reuse those numbers or guidance.",
+        "required_fix": "Explicitly align the audit recommendations with the quick checklist and chatbot metrics from the context memory: state recommended pilot KPIs (2–4 KPIs), sample sizes for sandbox runs (1–3 users as per quick checklist), and recommended chatbot metrics (počet dotazů, doba odpovědi, procento eskalací, audit odpovědí). Where specific sample sizes for LLM-assisted grading are not available in memory, either omit numeric recommendations or label them as 'general background knowledge'."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Language usage is inconsistent in prompts: some prompts specify Czech (CZ) while others default to English (e.g., 'Produce 8 variant...'). This may confuse implementers about which language to request from the LLM.",
+        "required_fix": "Make language explicit in every prompt template (e.g., append '(CZ)' or '(EN)' or allow a [JAZYK] placeholder) and add a short note about localization of terminology and student-facing phrasing."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "validation instruction paragraph",
+        "edit_instruction": "Replace 'Před automatickým použitím kontrolujte několik vygenerovaných položek ručně a zapište časté chyby; upravujte prompt iterativně.' with 'Před automatickým použitím kontrolujte ručně 10–20 vygenerovaných položek (pro generátory otázek) a zapište časté chyby; upravujte prompt iterativně.' and add a short parenthetical note linking this recommendation to the earlier guidance on generator checks in section 3.1."
+      },
+      {
+        "target": "pilot/escalation sentence",
+        "edit_instruction": "Expand 'Při nasazení do pilotu mějte připravené KPI a plán manuálního auditu / eskalace (definujte odpovědnou osobu) podle rychlého checklistu pilotu \\cite{2-6}.' into a compact escalation template: list trigger conditions (e.g., >X% incorrect/confusing responses, safety flag), immediate actions (suspend model output for affected items), who to contact (role titles, e.g., 'Course lead', 'Academic reviewer'), and target SLAs for manual review. If detailed steps live in 2-6, add a cross-reference 'viz sekce 2.6 – rozšířený postup eskalace'."
+      },
+      {
+        "target": "LaTeX prompt blocks",
+        "edit_instruction": "Replace verbatim blocks inside itemize with a LaTeX-safe approach. Option A: move each prompt block after the itemize as a separate \\begin{lstlisting} (require \\usepackage{listings}) block and reference it from the list. Option B: wrap each verbatim in a minipage to ensure compatibility. Add a short LaTeX note listing required packages."
+      },
+      {
+        "target": "templates section",
+        "edit_instruction": "Add at least one concrete, fully filled example per template type (e.g., lesson plan for 'Matematika, bakalářské', one Zadání úlohy in CZ, and one MCQ example) showing both the prompt input and an example model output (short). If including example outputs, label them as 'illustrative' and keep them short to avoid needing external verification."
+      },
+      {
+        "target": "language/localization note",
+        "edit_instruction": "Add a short note: 'Uveďte požadovaný jazyk pomocí [JAZYK] nebo explicitním označením (CZ/EN) v každém promptu; přizpůsobte tón (formální/neformální) podle úrovně studentů.'"
+      },
+      {
+        "target": "audit/KPI alignment",
+        "edit_instruction": "Explicitly reference the quick checklist: 'Definujte 2–4 KPI (viz rychlý checklist), vytvořte sandbox a proveďte kontrolní běh s 1–3 uživateli; pro chatboty sledujte počet dotazů, dobu odpovědi, procento eskalací a spokojenost \\cite{2-5}.'"
+      }
+    ],
+    "retrieval_queries": [
+      "Section 2-6: detailed escalation procedures and role responsibilities for pilot deployment (concrete stepwise template)",
+      "Section 3-1 or related nodes: recommended sample sizes for manual audits for LLM-assisted grading and generator outputs (beyond 'generátory otázek: 10–20')",
+      "Section 2-5: canonical chatbot metrics definitions and suggested thresholds or examples of KPI values used in pilots"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 4194,
+      "completion_tokens": 3686,
+      "total_tokens": 7880
+    },
+    "cost_usd": 0.0084205,
+    "total_cost_usd": 0.18587749999999997,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The instruction 'Nechte studenty projít připravený svět, sledovat chování jednoduchých agentů...' makes a non‑trivial claim (observing agent behaviour) that is not directly supported by the provided retrieved excerpt (kb_ai_101_tipu_pdf_page_15_2). The cited source discusses Minecraft Education and Hour of Code availability but does not explicitly describe observing 'agents' or their behaviour.",
+      "required_fix": "Either: (a) provide a supporting KB excerpt that explicitly mentions observing agent behaviour in Minecraft Education (and update the footnote to that excerpt), or (b) rephrase the sentence to a more clearly supported / generic formulation (e.g. 'nechte studenty projít připravený svět a diskutovat o tom, co ve světě vidí a jak by to mohlo ilustrovat principy učení AI') and label it as 'general background knowledge'."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section header for suggested short student activities indicates a duration of '10–30 minut', while the earlier context (Organizační rámec demonstrací / Přehled a cíle demonstrací) recommends demonstration + discussion blocks of '10–25 minut'.",
+      "required_fix": "Align the duration range with the guidance in the earlier section (preferably 10–25 minutes), or explicitly justify the broader range and mark the duration as 'general background knowledge' if it is flexible."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The tip 'Zařaďte aktivitu do sylabu s jasným výstupem: ... rozdíl mezi generováním a hledáním faktů.' is currently footnoted to kb_ai_101_tipu_pdf_page_15_2. That particular page supports using Minecraft Education and Hour of Code, but the specific pedagogical example (difference between generating and searching facts) is supported elsewhere in the context memory (Přehled a cíle demonstrací / 4-2-1). The citation in the section is therefore imprecise.",
+      "required_fix": "Update the footnote to reference the more appropriate KB excerpt (the 'Přehled a cíle demonstrací' / section 4-2-1) if available, or mark this pedagogical tip explicitly as 'general background knowledge'."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some pedagogical suggestions are brief and could benefit from a concrete example or explicit mapping to learning outcomes (e.g., what concrete student output demonstrates they 'understand' the AI principle).",
+      "required_fix": "Add one short concrete example per activity mapping the task to a measurable learning outcome (e.g. 'po aktivitě student bude schopen napsat 2 věty vysvětlující, jak ukázka ilustruje učení na příkladu') or mark such mappings as general background knowledge."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnote citations are written inline as 'Source: kb_ai_101_tipu_pdf_page_15_2' which is fine, but several footnotes point to the same source while the content draws on multiple KB sections (per context memory). This may mislead readers about the provenance of specific recommendations.",
+      "required_fix": "Adjust footnotes to point to the most specific supporting KB excerpt for each claim (or add an additional footnote where multiple sources support a statement). If the exact KB cite is not available, mark the item as 'general background knowledge'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace 'Nechte studenty projít připravený svět, sledovat chování jednoduchých agentů a po každé aktivitě vést krátkou diskusi o tom, jak se „učení“ v prostředí projevilo (co agent dělal, proč a jak by to změnili).' with a version that is either (a) explicitly supported by KB (and add that KB footnote), or (b) reworded and labeled as general background knowledge. Example rephrasing: 'Nechte studenty projít připravený svět a zaznamenat, co ve světě vidí; po aktivitě ved'te krátkou diskusi o tom, jak pozorované chování ilustruje principy učení AI (co se v ukázce stalo a proč).' \"(Mark this sentence as general background knowledge unless a supporting KB excerpt about 'agents' in Minecraft Education is provided.)\""
+    },
+    {
+      "target": "duration note",
+      "edit_instruction": "Change 'praktické, 10–30 minut' to 'praktické, 10–25 minut' to match the earlier recommended time frame in the chapter, or add a short justification for the extended upper bound (e.g., '10–30 minut přičetně rozšířené diskuse') and cite the relevant guidance."
+    },
+    {
+      "target": "footnotes",
+      "edit_instruction": "Review all footnotes and update them to reference the most specific supporting KB excerpts. In particular, point the 'syllabus / learning outcomes' tip to the 'Přehled a cíle demonstrací' (section 4-2-1) excerpt if available, or mark the tip as general background knowledge."
+    },
+    {
+      "target": "teacher tips",
+      "edit_instruction": "For each 'Krátké tipy pro lektora' bullet, add one short, concrete example of an observable student output (e.g., 'student by měl umět formulovat 2 kontrolní otázky k ověření správnosti AI výstupu') or label the recommendation as general background knowledge."
+    }
+  ],
+  "retrieval_queries": [
+    "Minecraft Education agents observe behavior 'agent' 'behaviour' 'Hour of Code' kb_ai_101_tipu_pdf",
+    "Přehled a cíle demonstrací 4-2-1 'difference between generating and searching facts' citation",
+    "KB excerpt mentioning 'agent' or 'NPC' behaviour in Minecraft Education for AI demonstrations"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section recommends sending tabular student data (including Jméno) to a model but does not include an explicit instruction to anonymize/pseudonymize or otherwise filter PII before sending to external models. Given institutional GDPR/privacy guidance in the memory (Filtrování PII), this is a substantive omission that affects safe use.",
+      "required_fix": "Add an explicit paragraph instructing users to remove or mask personally identifiable information (names, IDs, email addresses, sensitive scores) before sending data to external/cloud models, reference the repository's PII filtering guidance (Filtrování PII) and point readers to DPIA / anonymization templates in the appendix (9.3.3)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Footnotes in the section cite kb_ai_101_tipu_pdf_page_21_1 and kb_ai_101_tipu_pdf_page_21_2, but those exact excerpts were not provided among the retrieved excerpts included with the review inputs. This makes direct verification of those footnoted claims impossible from the provided retrieval set.",
+      "required_fix": "Either (a) include the page_21 excerpts in the KB retrievals so the footnotes can be verified, or (b) replace/augment those footnotes with currently-available KB citations (e.g., where the same prompt text appears in the prior section excerpt)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses verbatim environments inside an itemize environment. Depending on the LaTeX class and packages used, verbatim inside itemize can cause compilation issues or awkward spacing.",
+      "required_fix": "Replace verbatim environments inside itemize with a safe alternative: either (a) move the code blocks outside the itemize as separate paragraphs, or (b) use the Verbatim environment from the fancyvrb package (\\begin{Verbatim} ... \\end{Verbatim}) or lstlisting from listings, and ensure the preamble loads the needed package. Add a note to test compile the file."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The subsection 'Užitečné prompt‑vzory' is labeled '(general background knowledge)' but contains actionable prompt templates. It's unclear which templates are sourced from the KB and which are the author's general suggestions.",
+      "required_fix": "Explicitly mark each prompt that is directly taken from the KB (with a footnote to the exact page/chunk) and label any templates that are author-created as 'general background knowledge' or provide a sourcing footnote. Alternatively, remove the parenthetical label and add per-item sourcing notes."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends CSV/JSON outputs for LMS import but does not provide a small concrete example of a CSV header or a JSON schema for the feedback use case, which would improve usability for teachers implementing the workflow.",
+      "required_fix": "Add one short example CSV header and a minimal JSON object illustrating how feedback rows map to LMS fields (e.g., columns and a sample record). If such examples are not directly present in the KB, mark them as practical (author) examples or obtain supporting KB text."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Add a short privacy & PII warning after the first paragraph in 'Praktické šablony a postupy': 'Pozor na osobní údaje: před odesláním tabulek do externích modelů anonymizujte nebo pseudonymizujte jmenné a jiné identifikovatelné údaje (např. ID, emaily, citlivé poznámky). Viz zásady filtrování PII a vzor DPIA v přílohách.' Link this to the KB guidance on filtering PII and DPIA (see Terms / 9.3.3)."
+    },
+    {
+      "target": "footnotes / sourcing",
+      "edit_instruction": "Resolve missing retrievals: either include the actual text of kb_ai_101_tipu_pdf_page_21_1 and kb_ai_101_tipu_pdf_page_21_2 in the document's references or, if the same content is present earlier in the prompt library (as in the provided previous-section excerpt), add a cross-reference to that excerpt. Add per-prompt footnotes indicating source vs. 'general background knowledge'."
+    },
+    {
+      "target": "LaTeX blocks",
+      "edit_instruction": "Move each \\begin{verbatim}...\\end{verbatim} block out of the itemize list into its own paragraph, or replace with \\begin{Verbatim}...\\end{Verbatim} (fancyvrb) or \\begin{lstlisting}...\\end{lstlisting} (listings). Ensure the preamble loads the chosen package and test compilation."
+    },
+    {
+      "target": "Užitečné prompt‑vzory",
+      "edit_instruction": "For each prompt, add a one-word source tag: [KB-sourced] if it appears in the prompt library, or [author example] if newly proposed. Example: 'Shrnutí dlouhého textu ...' [KB-sourced] (or add the exact KB footnote)."
+    },
+    {
+      "target": "Export a import do LMS",
+      "edit_instruction": "Add a short concrete example: show a CSV header like 'Jméno,Kritéria,Shrnutí,Akce' and one sample row, and a minimal JSON example {\"name\":\"...\",\"criteria\":{\"porozumění\":2},\"feedback\":\"...\",\"action\":\"...\"}. If these exact examples are not in the KB, label them as practical examples and/or request KB evidence to ground them."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_21_1",
+    "kb_ai_101_tipu_pdf_page_21_2",
+    "kb_ai_101_tipu_pdf_page_8_8",
+    "If exact keys above are not available, please retrieve the KB excerpts that cover: (a) PII filtering / anonymization guidance for sending student data to external models, and (b) page(s) that include the prompt templates for formativní zpětná vazba and export formats (CSV/JSON) referenced in the footnotes."
+  ]
+}

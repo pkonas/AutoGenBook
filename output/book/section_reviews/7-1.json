@@ -1,0 +1,50 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several practical/obligatory items in the checklists refer to DPIA / DPA, enterprise licence verification and institutional integration but lack an explicit citation to the relevant KB excerpts (e.g. DPIA template, DPA checklist, institutional integration patterns). Some readers will expect direct pointers to the book sections that provide templates and legal/technical procedures.",
+      "required_fix": "Add explicit citations (or cross‑references) to the corresponding KB sections/excerpts that describe DPIA/DPA procedures, enterprise integration and the checklist templates (e.g. the DPIA template and the implementation/integration guidance). If those KB excerpts are not yet included, run targeted retrievals and then cite them."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The recommended 3‑step pilot workflow and the short checklist are high‑level. Readers may benefit from a concrete, minimal example pilot (inputs/outputs, one or two measurable metrics, and an explicit human validation rule) to illustrate how to fill the template.",
+      "required_fix": "Include a short worked example (one paragraph or boxed example) of a pilot plan using one of the prompt templates from earlier sections (e.g. the formativní zpětná vazba system prompt), or at minimum add a template table showing placeholders for 'input', 'output', 'metric', 'human validation rule'. Do not invent measurement numbers—either cite real results from KB excerpts or keep placeholders for local values."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses inline markers '(general background knowledge)' repeatedly. This is fine, but mixing parenthetical tags and citations may reduce readability in the compiled document. Also ensure all list environments are properly closed and the percent sign in '10\\% výstupů' is escaped (it currently is, but verify in compilation).",
+      "required_fix": "Consider moving the 'general background knowledge' label into a consistent footnote command or a short italicized note to improve compiled output. Double‑check compilation; if any nested lists cause warnings, adjust structure (e.g. use \\subsubsection* or \\paragraph for the 'Jak číst kazuistiku' heading)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Some checklist items are phrased as general questions (e.g. 'Je cíl pedagogicky kompatibilní...'). Pedagogical users (guarantors of courses) may prefer explicit decision prompts or minimal acceptance criteria to act on.",
+      "required_fix": "For each checklist question, add an optional 'Suggested acceptance criteria / example evidence' line (short bullet) to indicate what would count as a 'yes' for VUT (e.g. 'Alignment with course learning outcomes documented in syllabi; rubrics updated to include process evidence'). Keep these suggestions generic and avoid inventing institutional policy—prefer citing the book's rubric templates if available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "In the 'Krátký checklist pro posouzení přenositelnosti případu' section, append citations to the KB DPIA/DPA template and the institutional integration guidance. If those specific cite keys are available, add them after the relevant bullets; otherwise insert a short parenthetical 'viz kapitola 2.2 / 8.1' and replace with exact citations after retrieval."
+    },
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Add a one‑paragraph worked example immediately after the 3‑step pilot procedure. Use placeholders (Input: 'student submissions in LMS'; Output: 'AI pre‑graded comments + human review of 10%'); show 1–2 metrics (e.g. 'time to final grade: TBD; inter‑rater disagreement on AI suggestions') but do not invent numeric reductions—leave numeric fields as 'local baseline → pilot target'. Cross‑reference the formativní zpětná vazba system prompt from earlier sections."
+    },
+    {
+      "target": "latex body",
+      "edit_instruction": "Standardize how 'general background knowledge' is marked for readability: replace repeated inline parentheticals with a short footnote command \\footnote{general background knowledge — obsahuje obecné metodické doporučení} at the first occurrence and/or italicize the phrase where needed."
+    }
+  ],
+  "retrieval_queries": [
+    "DPIA template for AI in teaching (posouzení dopadů na ochranu osobních údajů) in the KB; search for 'DPIA' 'posouzení dopadů' 'AI ve výuce' in the handbook",
+    "KB excerpt for 'Smlouvy s poskytovateli a dohody o zpracování (DPA)' or checklist for DPA",
+    "Implementation and integration guidance for LMS/SSO/enterprise licences (section that supports technical requirements and integration checklist)",
+    "Prompt templates and system prompt 'Asistent pro formativní zpětnou vazbu' excerpt (to cross‑reference in the worked example)",
+    "Checklist for pilot end-to-end workflow (the short checklist before launching service) to cite directly"
+  ]
+}

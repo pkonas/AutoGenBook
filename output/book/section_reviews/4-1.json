@@ -1,0 +1,48 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "A reflexion suggestion („po aktivitě zařaďte krátkou reflexi, kde studenti popíšou, co agent ‚pozoroval‘ a jak se chování změnilo\") is cited to the Minecraft Education excerpt. The retrieved KB text recommends discussion and reflexion but does not use the exact phrasing about an 'agent' observing and changing behaviour. The current citation placement may suggest the precise phrasing is present in the cited source.",
+      "required_fix": "Either (a) remove or reword the quoted phrasing to align exactly with the source (e.g. 'diskutujte s žáky o tom, jak AI reagovala na podněty'), or (b) keep the pedagogical phrasing but mark it as (general background knowledge) and move the citation so it only covers the factual claim about Minecraft Education providing free Hour of Code worlds."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Krátký plán prvního interaktivního sezení' checklist is helpful but remains high level; it does not list concrete, measurable metrics for evaluating the pilot even though such metrics are discussed elsewhere in the manual.",
+      "required_fix": "Add a short bullet with 2–3 concrete pilot metrics (e.g. participation rate, number of validated solution procedures submitted, average teacher time to provide feedback) and mark them as (general background knowledge) or link them to the existing mini‑pilot guidance in the manual."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citations (\\cite{...}) are present in the LaTeX. Ensure the bibliography contains the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_36_1). Also check style consistency for Czech diacritics in LaTeX preamble and encoding.",
+      "required_fix": "Verify the .bib file includes the cited entries and the document uses UTF-8 (or appropriate) encoding so Czech characters render correctly. If the chapter uses a local citation macro, ensure these keys exist there."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Several pedagogical statements are correctly labeled as (general background knowledge), but the section mixes labelled background items with cited factual claims in close proximity, which could confuse readers about what is evidence vs. author recommendation.",
+      "required_fix": "Make the distinction clearer by grouping factual tool-descriptions (with citations) separately from general pedagogical recommendations. For example, keep the four bullets under 'Doporučené pedagogické cíle' but add a short sentence that these are instructor recommendations (general background knowledge)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "sentence about reflexion in Minecraft example",
+      "edit_instruction": "Move the citation \\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2} so it follows the factual claim that Minecraft Education provides free Hour of Code AI worlds. Rephrase the reflexion prompt as an explicit pedagogical suggestion labelled (general background knowledge), e.g. 'Praktický krok: stáhněte Minecraft Education a vyzkoušejte se studenty jednu ze zdarma dostupných hodin kódu; po aktivitě zařaďte krátkou reflexi (general background knowledge), např. aby studenti popsali, jak se chování v rámci světa změnilo.'"
+    },
+    {
+      "target": "Krátký plán prvního interaktivního sezení (checklist)",
+      "edit_instruction": "Add a new checklist item that lists concrete pilot metrics as (general background knowledge), e.g. 'Definujte 2–3 metriky: účast v aktivitě, počet validovaných postupů řešení, průměrný čas vyučujícího na poskytnutí zpětné vazby.' This aligns the plan with the mini‑pilot guidance elsewhere in the manual."
+    },
+    {
+      "target": "Doporučené pedagogické cíle block",
+      "edit_instruction": "Prepend a short clarifying sentence: 'Následující cíle jsou doporučením autorů příručky (general background knowledge) a měly by být lokalizovány podle konkrétního kurzu.' This clarifies that these items are recommendations rather than direct extractions from the cited KB."
+    },
+    {
+      "target": "Poznámka k rizikům a řízení kvality",
+      "edit_instruction": "Add an explicit cross-reference to the relevant chapter/section for GDPR and integrity (e.g. 'viz kapitola 2, Rizika a bezpečné používání ve výuce' or similar) so readers know where to find the detailed operational checklist. If a numbered cross-reference is not available in the LaTeX build yet, write 'viz kapitoly věnované rizikům, GDPR a akademické integritě (viz příručka)'."
+    }
+  ],
+  "retrieval_queries": []
+}

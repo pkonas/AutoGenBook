@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Step 1 gives a concrete column schema (Jméno, Silné stránky (body), Oblasti ke zlepšení (body), krátká poznámka učitele). The retrieved KB excerpt supports using a 'simple table' with names and basic characteristics but does not document this exact column schema.",
+      "required_fix": "Either (A) add a supporting citation from the KB that shows this exact suggested schema, or (B) change the wording to present the columns as an explicit suggestion / example and label them as 'suggested format (general background knowledge)'."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The checklist and pilot recommendation include concrete numbers and metrics (e.g. 'small group (10–30 students)', 'Monitorujte čas úspory a kvalitu zpětné vazby') that are not supported by the provided retrieved excerpts.",
+      "required_fix": "Either supply KB evidence for the numeric recommendation and the monitoring guidance, or rephrase these items as illustrative suggestions (e.g. 'pilot on a small group — e.g. 10–30 students — as an example') and label the monitoring guidance as practical advice / general background knowledge unless backed by a KB citation."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The 'Ochrana soukromí' bullet cites GDPR and internal rules but does not include a supporting KB citation. The handbook does include GDPR guidance elsewhere (chapter on ethics/GDPR), but that supporting citation is not present in this section's citations.",
+      "required_fix": "Add an explicit citation to the KB excerpt that covers GDPR/data protection (or to the handbook chapter covering GDPR), or explicitly mark this privacy note as 'general background knowledge' and cross‑reference the handbook's GDPR chapter for full guidance."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "There is a prompt example in this section (2–3 sentence feedback) and another, more procedural prompt template appears in the previous/other sections (prompt that identifies errors and gives exercises, with tags [Chyba], [Cvičení], [Požadavek]). The relation between these two templates is not clarified, which may confuse readers about which to use when.",
+      "required_fix": "Add a short cross‑reference note clarifying use cases for each template (e.g. 'use the 2–3 sentence template for student-facing formative comments; use the error/tagging template for analyzing procedural work or when you need targeted remediation prompts') and cite the prompt library (prompt repository) if available."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section describes a workflow but lacks a concise concrete before/after example showing an input table row and the resulting generated comment. The 'Praktický příklad' quotes the KB but does not show an explicit example mapping.",
+      "required_fix": "Add a short illustrative example (one CSV row -> generated 2–3 sentence comment). If the example is invented for clarity, label it 'illustrative example (general background knowledge)'; if a KB example exists, cite it."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses verbatim and quote environments correctly, and citation keys used in the section (\n\\cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2} and \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}) match the retrieved excerpts. No obvious syntax errors were detected.",
+      "required_fix": "No structural LaTeX fixes required. Optionally, ensure that the document bibliography includes the cited keys and that the verbatim block's contents are appropriate for the target build."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "workflow step 1",
+      "edit_instruction": "Rephrase the first step to mark column names as a suggested example (general background knowledge). Example: 'Sestavte strukturovaný zdroj dat (např. CSV/Excel). Návrh sloupců — Jméno; Silné stránky (bodově); Oblasti ke zlepšení (bodově); Krátká poznámka učitele — uvádějte toto jako příklad formátu, který můžete upravit podle potřeby (suggested example, general background knowledge).'"
+    },
+    {
+      "target": "pilot checklist",
+      "edit_instruction": "Either remove the exact sample size '10–30' or label it explicitly as an illustrative example: 'Vyzkoušejte workflow na malé skupině (např. 10–30 studentů) — toto číslo je pouze orientační; přizpůsobte velikost pilotu lokálním podmínkám.' If the handbook contains an evidence-based recommendation for sample size, add that citation."
+    },
+    {
+      "target": "privacy bullet",
+      "edit_instruction": "Modify the privacy bullet to reference the handbook GDPR guidance or mark as general background knowledge. Suggested text: 'Ochrana soukromí: při sdílení tabulek s údaji studentů dbejte zásad minimalizace a interních pravidel (viz kapitola o GDPR v příručce) — minimalizujte citlivé údaje. (If possible, add a precise KB citation to the GDPR section.)'"
+    },
+    {
+      "target": "prompt examples",
+      "edit_instruction": "Add a short clarifying sentence linking this prompt to the other prompt templates in the handbook (prompt library). E.g.: 'Tento ukázkový prompt je určen pro krátké, student‑facing komentáře; pro analytickou kontrolu postupu používejte šablonu z rubriky/prompt library, která označuje chyby tagy [Chyba]/[Cvičení]/[Požadavek].' Add a cross-reference to the prompt library (section 9.1) or the exact KB prompt if available."
+    },
+    {
+      "target": "add illustrative example",
+      "edit_instruction": "Insert a one‑row illustrative example showing an input CSV row and the generated 2–3 sentence feedback. Label it 'Ilustrační příklad (general background knowledge)' if not taken directly from the KB."
+    }
+  ],
+  "retrieval_queries": [
+    "Formativní hodnocení Copilot 'tabulka' 'generování komentářů' site:kb_ai_101_tipu_pdf_04e4a115 page",
+    "AI - 101 tipu.pdf GDPR ochrana soukromí studentských dat 'DPIA' 'page'",
+    "AI - 101 tipu.pdf prompt library 'formativní zpětná vazba' 'prompt' 'page'",
+    "AI - 101 tipu.pdf 'pilot' 'vyzkoušejte workflow' '10–30' 'page'"
+  ]
+}

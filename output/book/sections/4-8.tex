@@ -1,0 +1,49 @@
+Účel této sekce je nabídnout konkrétní pracovní postupy a doporučení, jak využít nástroje generativní AI pro rychlejší a škálovatelné poskytování zpětné vazby studentům, aniž by se výrazně zvýšila pracovní zátěž vyučujících. Níže jsou uvedeny ověřitelné příklady existujících nástrojů, praktické postupy a krátké šablony, které lze okamžitě vyzkoušet v kurzech.
+
+Praktické příklady nástrojů a jejich schopností
+\begin{itemize}
+  \item Pokrok v matematice (Microsoft Educational Accelerators): učitel vybere oblast, systém vygeneruje sadu příkladů a umožní žákům nahrát postup řešení; AI provede předběžné opravení a identifikuje oblast, kde došlo k chybě, přičemž učitel provede finální kontrolu a uzavření hodnocení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}. Tento přístup zdůrazňuje hodnotu zachycení postupu (process evidence) před pouhým výsledkem.
+  \item OneNote a převod rukopisu: nástroje v rodině Microsoft umí převést rukopisné rovnice na digitální výraz a podpořit zobrazení postupu či návrh opravy — užitečné pro sběr meziodevzdání a automatizovanou analýzu kroků \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Microsoft 365 Copilot / Copilot Chat: dostupnost Copilota v prostředí Office 365 umožňuje integrovat generativní AI přímo do běžných nástrojů (Word, OneNote, Forms), což usnadní generování komentářů ke studentským textům i přípravu hromadné formativní zpětné vazby \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+\end{itemize}
+
+Doporučený workflow pro kombinaci automatické zpětné vazby a lidské validace (general background knowledge)
+\begin{enumerate}
+  \item Navrhněte úlohu tak, aby studentské artefakty obsahovaly krok‑po‑kroku postup (fotky rukopisu, meziodevzdání, commit historii apod.). Toto umožní smysluplné automatické vyhodnocení a auditovatelnou kontrolu procesu.
+  \item Nastavte automatickou předkontrolu: AI provede rozpoznání formátu (OCR/rukopis), základní kontrolu správnosti výsledků a identifikaci typických chyb (např. chybné předpoklady, aritmetika, nesoulad mezi kroky).
+  \item Vydefinujte pravidla pro eskalaci: výsledky s nízkou jistotou, rozporné postupy nebo vysoce skórované chyby se propisují do fronty pro lidskou validaci.
+  \item Provádějte průběžné spot‑checky (např. 5–10\% odevzdaných prací) a kontrolujte kvalitu AI doporučení; učitelé tím udrží kontrolu nad standardem bez nutnosti opravovat každou práci ručně.
+  \item Shromažďujte metriky (čas na opravu, poměr automatických korekcí vs. eskalací, typy chyb) a periodicky dolaďujte prompty a pravidla systému.
+\end{enumerate}
+(Výše uvedený postup je označen jako general background knowledge — principy je třeba adaptovat na specifika předmětu a smluvní/ bezpečnostní požadavky.)
+
+Praktická pravidla pro snížení zátěže vyučujících (general background knowledge)
+\begin{itemize}
+  \item Automatizujte šablonové komentáře a opakující se drobné opravy; rezervujte ruční práci pro hlubší, hodnotící komentáře.
+  \item Používejte milestone‑based odevzdávání (meziodevzdání) tak, aby AI mohl včas odhalit a nasměrovat studenty, což snižuje počet pozdějších oprav.
+  \item Nastavte jasné SLA pro odpovědi AI (např. do 24 hodin) a komunikujte studentům, kdy mohou očekávat lidskou kontrolu.
+  \item Zvažte integraci s nástroji, které již používáte (Forms, OneNote, LMS), aby se minimalizovala administrativní režie.
+\end{itemize}
+
+Ukázkový jednoduchý prompt pro formativní automatickou zpětnou vazbu (kopírovatelný)
+\begin{quote}
+\begin{PromptBlock}
+
+Jsi asistent pro zpětnou vazbu. Analyzuj studentský postup a: 1) vypiš maximálně 3 konkrétní chyby nebo nejasnosti; 2) pro každou chybu navrhni krátké cvičení nebo kontrolní otázku (max. 2 věty); 3) pokud je postup neúplný, požádej o chybějící krok. Odpověď stručně označ tagy: [Chyba], [Cvičení], [Požadavek].
+\end{PromptBlock}
+
+\end{quote}
+Tento typ promtu lze nasadit jako součást předběžného „pre‑gradingu“ a zapojit do pravidla eskalace pro lidskou validaci. Vzorem podobného workflow je právě nástroj „Pokrok v matematice“, který kombinuje generování úloh, sběr postupu a předopravování AI, přičemž učitel finálně dokončí hodnocení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+Doporučení pro pilotní nasazení
+\begin{itemize}
+  \item Začněte na malém vzorku (1–2 semináře) a testujte spolehlivost AI‑feedbacku vs. lidského hodnocení.
+  \item Měřte dopad na časovou náročnost vyučujících a spokojenost studentů (krátký dotazník po pilotu).
+  \item Dokumentujte pravidla, která využití AI omezují nebo rozšiřují (transparency v sylabu) a informujte studenty, jakým způsobem je AI používána.
+\end{itemize}
+
+Krátké shrnutí
+\begin{itemize}
+  \item Nástroje v ekosystému Microsoft (Pokrok v matematice, OneNote, Copilot) již nabízejí konkrétní funkce, které usnadňují sběr postupu a automatickou předkontrolu, čímž umožňují škálování formativní zpětné vazby \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+  \item Klíčové je navrhnout úlohy tak, aby AI mohla smysluplně hodnotit proces (nikoli jen výsledek), a vždy mít definované pravidlo pro lidskou validaci tam, kde je to potřeba (general background knowledge).
+\end{itemize}

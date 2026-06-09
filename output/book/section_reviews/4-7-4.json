@@ -1,0 +1,64 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several bullets are currently labelled as parenthetical '(general background knowledge)'. That is acceptable under the grounding rules, but it is not explicit in the LaTeX output which statements are supported by KB excerpts and which are general background. This may confuse readers and reviewers expecting explicit citations for each non‑trivial recommendation.",
+      "required_fix": "Make the status explicit in the LaTeX: (a) add a short footnote or bracketing phrase for each 'general background knowledge' item stating 'general background knowledge — not cited in KB' or (b) add supporting KB citations where available. Keep the general background items short and practical."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The 'Rozhodnutí o škálování' step mentions GDPR/SSO/licences. The section cites kb_ai_101_tipu_pdf_page_15_2 for licences, but GDPR and DPIA guidance are covered elsewhere in the manual (Sections 2.2 and 9.3) and are not cross‑referenced here.",
+      "required_fix": "Add explicit cross‑references to the relevant manual sections (e.g., 'viz sekce 2.2 Ochrana soukromí a DPIA' and 'sekce 9.3 Vzorné DPIA') and, if preferred, add footnote citations pointing to KB excerpts that discuss DPIA/GDPR to ground the recommendation."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnote/citation formatting in the LaTeX snippet is inconsistent (some bullets have inline parenthetical notes; one item uses '(interní odkaz)'). The internal link is not a LaTeX reference command.",
+      "required_fix": "Use a consistent approach for citations and internal references: e.g. \\footnote{Source: kb_ai_101_tipu_pdf_page_8_1} for external KB citations and \\ref{sec:7} or \\hyperref for internal chapter links instead of the plain text '(interní odkaz)'. Ensure all footnotes compile correctly inside itemize/enumerate environments."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The recommended metrics list is concise but could be more actionable: for example, 'časová úspora' and 'využití a zapojení' are stated but no minimal measurement definition (formula or example) is provided.",
+      "required_fix": "Add a one‑line example for how to compute the metric (labelled as general background knowledge if not cited): e.g. 'Časová úspora = (průměrný čas přípravy před pilotem − průměrný čas po pilotu) / průměrný čas před ×100 %.' Mark such formulas as general guidance or cite KB if supporting excerpt exists."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The bullet 'Kvalita vygenerovaných materiálů — expertní hodnocení vzorku materiálů podle rubriky...' is pedagogically important but does not point to existing rubrics or template resources in the manual.",
+      "required_fix": "Add a cross‑reference to relevant sections that discuss rubrics/templates (e.g., section 3.7 'Automatické řešení a rubriky' and appendix 9.1 'Prompt Library' or 9.2 'Checklist a šablony'), or attach/point to a short sample rubric as an annex."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "For each bullet currently marked '(general background knowledge)', add a short LaTeX footnote: \\footnote{General background guidance; not directly cited in KB.} or replace the parenthetical label with that footnote so the reader can clearly see which points are KB‑sourced vs general guidance."
+    },
+    {
+      "target": "Kvalita vygenerovaných materiálů",
+      "edit_instruction": "Add a one‑sentence pointer to a rubric template in the manual: e.g. 'Viz sekce 3.7 pro strukturu rubrik a přílohu 9.1 pro šablony; doplňte zde krátký příklad položek rubriky (srozumitelnost, přesnost, didaktická přiměřenost).' If including the example rubric, label it as 'general background guidance' unless you can cite a KB excerpt."
+    },
+    {
+      "target": "Rozhodnutí o škálování",
+      "edit_instruction": "Insert an explicit cross‑reference to the GDPR/DPIA material: 'Při rozhodování viz také sekce 2.2 (DPIA) a 9.3 (vzorné DPIA a smlouvy DPA).' Replace the parenthetical 'licencí, SSO a GDPR postupů' with that cross‑reference and add a KB footnote for licences (kb_ai_101_tipu_pdf_page_15_2) as already present."
+    },
+    {
+      "target": "Postup pilotní evaluace — krok 2 and metrics",
+      "edit_instruction": "Add one short example formula for 'časová úspora' and one example indicator for 'engagement' (e.g., 'míra dokončení cvičení = počet dokončených / počet zadaných') and mark them as general background guidance or supply KB citations if available."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Replace '(interní odkaz)' with a LaTeX internal reference (\\ref or \\hyperref) to the chapter/section 7; ensure all \\footnote{Source: ...} entries are syntactically correct and consistent across itemize/enumerate."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf rubrika hodnocení kvality materiálů rubrics rubric 'kvalita vygenerovaných materiálů' page",
+    "kb_ai_101_tipu_pdf DPIA GDPR ochrana soukromí pilot nasazení 'DPIA' 'GDPR' page",
+    "kb_ai_101_tipu_pdf metriky zapojení engagement míra dokončení cvičení 'pokrok v matematice' page",
+    "kb_ai_101_tipu_pdf logy využití pilot sběr dat 'pilot' 'logy' 'využití' page",
+    "kb_ai_101_tipu_pdf šablony rubriky sekce 3.7 9.1 'rubrika' 'šablona' page"
+  ]
+}

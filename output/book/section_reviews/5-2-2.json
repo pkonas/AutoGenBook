@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Konkrétní doporučení rozsahu spot‑checku \"5–10 %\" v praktickém příkladu není podloženo citovaným kusem (kb_ai_101_tipu_pdf_04e4a115_page_8_1). Excerpt popisuje, že nástroj provede předběžné vyhodnocení a učitel finálně dokončí hodnocení, ale neuvádí explicitně rozsah spot‑checku 5–10 %.",
+      "required_fix": "Buď odstranit konkrétní číselný rozsah z textu, nebo jej jasně označit jako ilustrační/odborný návrh (např. \"ilustračně 5–10 % — upravte podle objemu a rizika\"), případně doplnit citaci/zdroj, který toto číslo podporuje."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Navržené váhy v rubrice (např. postup 50 %, výsledek 20 %, reflexe 30 %) nejsou přímo podloženy uvedenou referencí; v textu jsou označeny jako \"general background knowledge\", ale v souvislosti s pravidly 'NON-NEGOTIABLE GROUNDING' by to mělo být explicitně zformulováno.",
+      "required_fix": "Výslovně označit tento příklad jako ilustrační doporučení (např. \"ilustrační rozložení vah\") nebo doplnit odkaz na zdroj, který doporučení podporuje. Pokud zůstane jako doporučení bez zdroje, ponechte jasnou poznámku \"doporučení bez konkrétního zdroje\"."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Sekce doporučuje vyžadovat nahraný postup jako artefakt, ale nezmiňuje rizika a požadavky související s ochranou osobních údajů (GDPR/DPIA) a bezpečným uchováním těchto souborů. V textech příručky jinde (kapitola 2) se GDPR a DPIA probírají.",
+      "required_fix": "Doplnit krátkou poznámku s odkazem na relevantní oddíly příručky (např. sekce 2.2 nebo 2.4 podle číslování v rukopisu) upozorňující na potřebu posouzení zpracování osobních údajů, minimálního uchovávání a anonymizace při požadavku na nahrání artefaktů."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citace je vložena ve více místech; je třeba zajistit, aby použitá cite_key odpovídala bibliografii dokumentu a že citace skutečně existuje v .bib nebo v seznamu literatury.",
+      "required_fix": "Ověřit, že cite_key \"kb_ai_101_tipu_pdf_04e4a115_page_8_1\" je obsažena v bibliografii dokumentu; pokud ne, upravit cite_key tak, aby odpovídala položce v bibliografii."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce uvádí praktický příklad a checklist, ale chybí konkrétnější popis hodnoticích kritérií pro \"kvalitu postupu\" (např. měřitelné ukazatele: úplnost kroků, jasnost odůvodnění, správné využití metod), což by pomohlo vyučujícím při sestavování rubriky.",
+      "required_fix": "Doplnit 2–3 konkrétní návrhy kritérií pro hodnocení postupu (např. \"kompletnost kroků: chybějící kroky ne více než 1; správnost odůvodnění: logické odůvodnění každého přechodu mezi kroky; použití vhodné metody: identifikace a aplikace relevantní metody\"), nebo odkaz na šablonu rubriky v přílohách."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Praktický příklad — věta o spot‑checku",
+      "edit_instruction": "Upravit formulaci tak, aby číslo 5–10 % bylo jasně označeno jako ilustrační návrh, např.: \"učitel provede spot‑check u (ilustračně) 5–10 % prací — upravte rozsah podle velikosti třídy a rizika automatického hodnocení\". Alternativně odstranit konkrétní procentní rozsah."
+    },
+    {
+      "target": "Rubrika — příklad vah",
+      "edit_instruction": "Přidat předponu nebo poznámku: \"Ilustrační rozložení vah (bez konkrétního zdroje): postup 50 %, výsledek 20 %, reflexe 30 %.\" Nebo doplnit, že ideální rozložení závisí na cílech úlohy a doporučit, aby učitelé zdokumentovali odůvodnění váhování."
+    },
+    {
+      "target": "Sekce o požadavku na nahrání postupu",
+      "edit_instruction": "Doplnit krátké varování o ochraně osobních údajů a odkázat na příslušné oddíly příručky (např. \"viz sekce 2.2 Ochrana soukromí a DPIA\"). Navrhněte text: \"Pozor: požadavek na nahrání artefaktů může mít důsledky pro zpracování osobních údajů — zvažte minimalizaci dat, anonymizaci a uchovávání jen po nezbytně dlouhou dobu (viz sekce 2.2).\""
+    },
+    {
+      "target": "Checklist pro vyučující",
+      "edit_instruction": "Přidat položku: \"Jaké konkrétní validovatelné indikátory použiju pro hodnocení kvality postupu? (návrh: úplnost, řádné odůvodnění, správnost přechodů mezi kroky, samostatné rozhodnutí vs. opsané pasáže).\" Doporučit vložení krátké šablony rubriky do příloh."
+    },
+    {
+      "target": "Bibliografie / citace",
+      "edit_instruction": "Ověřit, že citace \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1} existuje v bibliografii. Pokud ne, přidat ji nebo nahradit platnou cite_key. Přidat také v textu explicitní poznámku, které části citeovaný dokument podporuje (např. \"viz AI - 101 tipu.pdf, str. 8: popis funkce 'Pokrok v matematice'\")."
+    }
+  ],
+  "retrieval_queries": [
+    "Pokrok v matematice postup nahrání postupů 'AI - 101 tipu.pdf' page 8",
+    "spot check percent '5-10%' assessment guidance 'spot‑check' 'AI ve výuce' doporučení",
+    "guidance on percentage sample for spot-checks automated grading 'spot check 5-10 percent' education assessment"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some practical recommendations (DPIA requirement, key DPA points, preference for enterprise/licenced variants) are consistent with the handbook content in memory/previous sections, but the section cites kb_ai_101_tipu_pdf_04e4a115_page_8_1 and _page_3_1 which are not present among the provided retrieved excerpts. The claims themselves are supported by the provided context memory (DPIA required at medium/high risk; DPA key points; favour enterprise eductional offers), however the inline citations point to pages that were not available in the retrieved excerpts bundle submitted for review.",
+      "required_fix": "Either (a) attach or reference the retrieved excerpts for page_8_1 and page_3_1 to satisfy explicit grounding, or (b) replace those \\\\cite keys with citations that match available excerpts or internal appendix references (e.g. the provided Appendix 9.4 'Vzor DPIA' and Appendix 9.7 'Kontakty a podpora VUT')."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The short incident 'cheat‑sheet' (Detect, Contain, Notify, Remediate) is useful but presented as unlabeled general background knowledge and lacks a pointer to the institutional incident response procedure or contact details.",
+      "required_fix": "Add an explicit reference or pointer to the university incident response playbook / contacts (Appendix 9.7) or to an internal IT/legal contact, and clarify when to escalate to faculty/university incident teams."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The checklist recommends performing a DPIA 'if pilot processes student data or has medium/high risk' but does not state the concise decision rule already given elsewhere in the handbook (that DPIA is required at medium and high risk).",
+      "required_fix": "Add a one‑line decision rule referencing the earlier section (2.2.4 / Appendix 9.4) such as: 'DPIA: povinné při středním a vysokém riziku — viz Vzor DPIA (příloha 9.4)'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist works as a one‑page practical item list, but could be more actionable for course designers by adding 1–2 concrete short examples (micro‑cases), e.g. a low‑risk pilot using anonymized quiz data vs. a high‑risk pilot collecting behavioral/assessment data.",
+      "required_fix": "Include 1–2 brief examples or point the reader to the online repository (ai.vut.cz) templates that illustrate low/medium/high risk cases and recommended measures."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure is valid (nested itemize, emphasis, citations). However, several bullets are annotated '(general background knowledge)' which is fine, but these parenthetical labels appear inline and may break visual compactness for a one‑page checklist.",
+      "required_fix": "Consider moving the '(general background knowledge)' labels into a short footnote or a preface sentence above the itemize environment to keep the checklist compact."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Under 'Před nasazením', add a single line pointing to internal templates: 'Viz Vzor DPIA (příloha 9.4) a šablony v online repozitáři ai.vut.cz; konzultujte s IT/GDPR (kontakty v příloze 9.7).' Replace at least one \\\\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1} occurrence with a citation to Appendix 9.4 or the repo where the DPIA template is stored."
+    },
+    {
+      "target": "incident cheat‑sheet",
+      "edit_instruction": "Expand the cheat‑sheet bullet to add: 'Escalace: pokud unikla PII nebo jde o ovlivnění hodnocení, okamžitě kontaktujte IT a právní oddělení (viz příloha 9.7). Použijte interní incident playbook.'"
+    },
+    {
+      "target": "examples",
+      "edit_instruction": "Add two ultra‑short examples (one line each) after the 'Během provozu kurzu' block: (1) 'Nízké riziko: anonymizované autoevaluace — stačí lokální anonymizace a minimální retence.' (2) 'Vysoké riziko: pilot sbírající behaviorální data a spojované identifikátory — vyžaduje DPIA, enterprise hosting nebo on‑prem, explicitní souhlas a DPA.'"
+    },
+    {
+      "target": "format",
+      "edit_instruction": "Move '(general background knowledge)' labels into a single prefatory sentence before the list: 'Poznámka: body označené jako \"general background knowledge\" jsou obecné zásady, nikoli interní šablony; pro implementaci použijte interní dokumenty v ai.vut.cz.'"
+    },
+    {
+      "target": "citations",
+      "edit_instruction": "Verify that the \\\\cite keys used (page_8_1, page_3_1) map to available entries in the .bib file or replace them with references to the handbook Appendices (9.4, 9.7) and the repo (ai.vut.cz) so the checklist is fully verifiable from the handbook materials."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 8 DPIA DPA incident response (to ground the cited page_8_1)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 3 recommendation enterprise licencované varianty educational offers (to ground cited page_3_1)",
+    "internal VUT repository ai.vut.cz DPIA template Vzor DPIA (appendix 9.4) and incident response contacts (appendix 9.7) for explicit text snippets to cite"
+  ]
+}

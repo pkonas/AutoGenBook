@@ -1,0 +1,80 @@
+Tato sekce přináší praktický, krok‑za‑krokem přístup pro výběr enterprise řešení a licencí pro potřeby fakulty nebo univerzity. Následující doporučení jsou formulována jako pracovní checklist a rozhodovací matice, které lze použít při jednání s poskytovateli i při přípravě business‑case pro vedení školy. Obsahuje jak obecné zásady, tak konkrétní praktické kroky k ověření klíčových smluvních a technických podmínek. (general background knowledge)
+
+\bigskip
+
+\textbf{Rychlý postup výběru (6 kroků)} (general background knowledge)
+\begin{enumerate}
+  \item Vyjasněte požadavky: rozsah uživatelů, typy zpracovávaných dat (osobní / citlivá / interní), požadované integrační body (LMS, SSO, repozitáře).
+  \item Identifikujte kandidáty: sestavte krátký seznam poskytovatelů (interní/on‑premise, cloudové enterprise nabídky, specializovaní dodavatelé).
+  \item Požádejte o dokumentaci: DPA/SLA, bezpečnostní whitepapers, certifikace, data residency možnosti a pracovní postupy zálohování/mazání.
+  \item Proveďte technické PoC: krátký pilotní test integrace s LMS/SSO a prověření běžných pracovních toků (přihlášení, logování, export auditních stop).
+  \item Zhodnoťte obchodní podmínky a náklady: základní TCO, licensing modely (per‑user / enterprise / API), běžné limity a škálovatelnost.
+  \item Formulujte doporučení a plán nasazení: včetně rolí (Data Steward, IT), harmonogramu, metrik úspěchu a plánů pro DPIA/legální kontrolu.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Praktická rozhodovací matice (návrh)} (general background knowledge)
+
+\noindent Pro každý kandidát ohodnoťte následující kritéria 1–5 (1 = slabé, 5 = výborné) a sečtěte:
+\begin{itemize}
+  \item Soulad s GDPR a možnosti DPA/SLA (právní záruky, uchovávání, audit).
+  \item Data residency a kontrola nad materiály (možnost regionálního uložení).
+  \item Integrace se stávajícím stackem (SSO, LMS, repozitáře).
+  \item Bezpečnost a provozní vlastnosti (šifrování, logování, incident response).
+  \item Podpora a SLA (reakční doby, onboarding, školení).
+  \item Funkčnost a vhodnost pro pedagogiku (přizpůsobitelné modely, tooling pro učitele).
+  \item Celkové náklady (licence + integrace + provoz).
+\end{itemize}
+
+\noindent Doporučení: kandidáty seřaďte podle součtu a pak prověřte top‑3 skrze piloty a právní review. (general background knowledge)
+
+\bigskip
+
+\textbf{Klíčové smluvní body k ověření v DPA / SLA} (general background knowledge, stručný checklist)
+\begin{itemize}
+  \item Role správce vs. zpracovatele a jasně definované odpovědnosti.
+  \item Data residency a právo požadovat mazání dat (retence, vymazání na vyžádání).
+  \item Pravidla pro práci s osobními a citlivými údaji, včetně subdodavatelů.
+  \item Auditní práva a možnosti bezpečnostního testování (red‑teaming).
+  \item Záruky dostupnosti a doby odezvy při incidentu (SLA).
+  \item Podmínky ukončení smlouvy a exportu dat v čitelném, strojově zpracovatelném formátu.
+\end{itemize}
+
+\bigskip
+
+\textbf{Technické aspekty k ověření v PoC} (general background knowledge)
+\begin{itemize}
+  \item Autentizace/SSO: lze použít univerzitní identitu (SAML/OAuth) bez duplicitních účtů?
+  \item Audit a logy: jsou dostupné záznamy aktivit a lze je dlouhodobě ukládat pro compliance?
+  \item Integrace s LMS: existují konektory/plug‑iny nebo API pro synchronizaci rozvrhů, uživatelů a artefaktů?
+  \item Schopnost používat interní zdroje bezpečně (RAG pattern): napojení na interní dokumenty bez exfiltrace.
+  \item Možnosti šifrování (in transit / at rest) a správa klíčů.
+\end{itemize}
+
+\bigskip
+
+\textbf{Poznámka k vendorům a zdrojům pro učení se od dodavatelů} \\
+Využijte oficiální dokumentaci a vzdělávací portály poskytovatelů pro rychlé nastudování možností produktů; příkladem je portál Microsoft Learn jako centrální, bezplatný zdroj dokumentace a kurzů pro produkty Microsoftu \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}. Podobně u vzdělávacích produktů (např. Minecraft Education) existují připravené edukační světy a materiály, které mohou sloužit jako inspirace pro pilotní scény používání AI ve výuce \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}. Pro matematické a didaktické nástroje v rámci ekosystému Microsoft jsou relevantní konkrétní funkce (např. „Pokrok v matematice“, OneNote, math.microsoft.com), které ukazují, jak integrace do školního prostředí může vypadat \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+
+\bigskip
+
+\textbf{Komentář ke „on‑premise“ vs. cloudovým enterprise řešením} (general background knowledge)
+\begin{itemize}
+  \item On‑premise / hybridní: vyšší kontrola nad daty a modely, vyšší provozní nároky (HW, zálohy, aktualizace).
+  \item Cloud enterprise: rychlejší nasazení, správa aktualizací dodavatelem, ale je potřeba ověřit DPA/data residency a možnosti izolace dat.
+\end{itemize}
+
+\bigskip
+
+\textbf{Doporučené výstupy z výběrového procesu} (general background knowledge)
+\begin{itemize}
+  \item Krátký souhrn (1–2 str.) s porovnáním top‑3 kandidátů dle matice.
+  \item Návrh pilotu (scope, metriky, doba trvání, zdroje).
+  \item Právní seznam požadavků pro DPA a technický checklist pro PoC.
+  \item Návrh rozpočtu TCO na první 3 roky včetně nákladů na integraci a provoz.
+\end{itemize}
+
+\bigskip
+
+Poznamenejte, že praktické nasazení vždy zohledňuje místní požadavky na ochranu osobních údajů, interní bezpečnostní politiky a provozní možnosti fakulty — před konečným rozhodnutím doporučujeme konzultaci s IT, právním oddělením a GDPR/PRIV kontaktem fakulty. (general background knowledge)

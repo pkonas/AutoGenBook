@@ -1,0 +1,62 @@
+Tato kazuistika shrnuje přístup k nasazení AI bota v rozsáhlém kurzu (např. CS50) zaměřeném na debuggingovou a stylistickou zpětnou vazbu studentům; podrobnosti níže jsou uvedeny jako general background knowledge tam, kde nejsou přímo podloženy interními zdroji nebo daty z repozitáře (general background knowledge).
+
+\medskip
+\textbf{Cíl a rozsah nasazení (general background knowledge)}\\
+Cílem je:
+\begin{itemize}
+  \item rychlá prvotní zpětná vazba na chyby v kódu (debugging hints);
+  \item stylistická a didaktická doporučení (readability, comments, naming);
+  \item snížení administrativní zátěže a zrychlení doby odezvy studentům.
+\end{itemize}
+
+\medskip
+\textbf{Pravidla použití a omezení (doporučené postupy)}\\
+Zásady komunikace studentům:
+\begin{itemize}
+  \item Bot dává nápovědy a diagnostiku, nesmí generovat kompletní řešení pro hodnocené úlohy (general background knowledge).
+  \item Studenti deklarují významné použití bota; interakce se logují pro audit s respektováním GDPR (anonymizace/pseudonymizace).
+  \item Eskalace: zásadní opravy prověří učitel nebo asistent před uzavřením hodnocení.
+\end{itemize}
+
+\medskip
+\textbf{Návrhový workflow pro instruktora (krok‑za‑krokem)}\\
+\begin{enumerate}
+  \item Definujte scénáře použití (debug hint, style suggestion, explain failing test) a pravidla povolení bota (general background knowledge).
+  \item Připravte a otestujte šablony promptů a konverzačních rolí na reprezentativních úkolech.
+  \item Integrujte s LMS/rozhraním; zajistěte SSO, logging a auditní záznamy.
+  \item Spusťte pilot v jedné sekci; sbírejte metriky (počet interakcí, doba do první nápovědy, eskalace, spokojenost).
+  \item Vyhodnoťte dopad na učení i integritu a upravte pravidla/prompting podle zjištění. Pozn.: ukázkové generování artefaktů je popsáno i pro jiné nástroje (např. Microsoft 365 Copilot) \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+\end{enumerate}
+
+\medskip
+\textbf{Praktické šablony promptů (příklady)}\\
+Vždy zahrňte kontext zadání a očekávanou úroveň odpovědi:
+\begin{itemize}
+  \item Debug hint (stručně): ``You are a debugging assistant for beginner CS students. Given this code and the failing test output, identify the most likely cause and suggest one concrete minimal change to fix it. Do not provide the full corrected solution; instead describe the change and why it works.''
+  \item Explain failing test: ``Explain in simple steps why the test fails, list up to three hypotheses ordered by likelihood, and suggest one small experiment the student can run to narrow down the cause.''
+  \item Style suggestion: ``Review the following function for readability and style. Provide up to five concise suggestions (naming, comments, complexity), and show a one‑line example of an improved variable name or comment.''
+\end{itemize}
+Šablony se ladí tak, aby bot neprodukoval kompletní řešení, pokud to pravidla kurzu zakazují (general background knowledge).
+
+\medskip
+\textbf{Dopady na akademickou integritu a mitigace rizik (general background knowledge)}\\
+Minimalizujte zneužití pomocí:
+\begin{itemize}
+  \item požadavku na procesní důkazy (commit history, postupy, krátké video walkthrough);
+  \item preferování časově omezených nebo in‑class hodnocení pro závěrečné části;
+  \item vyžadování reflexe a deklarace použití AI v odevzdáních.
+\end{itemize}
+
+\medskip
+\textbf{Měření úspěchu a doporučené metriky (pilot)}\\
+Sledujte operační, pedagogické a integritní metriky:
+\begin{itemize}
+  \item operační: počet interakcí, prům. délka relace, eskalace k lidem;
+  \item pedagogické: doba nápravy chyb u domácích úloh, studentská spokojenost;
+  \item integritní: počet porušení pravidel a důvody eskalací.
+\end{itemize}
+Nastavte cíle a prahy před pilotem a průběžně je revidujte.
+
+\medskip
+\textbf{Krátké doporučení pro garanta předmětu}\\
+Začněte malým, jasně ohraničeným pilotem s definovanými pravidly, dokumentovanou postupností (pilot → vyhodnocení → revize), transparentností vůči studentům a prověřováním zpracování citlivých údajů přes DPIA/DPA, pokud bot pracuje s osobními údaji (general background knowledge).

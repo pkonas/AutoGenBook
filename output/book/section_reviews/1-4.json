@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several operational recommendations (e.g., 'zapněte logování a auditní stopy tam, kde to lze', reference to reporting process at ai.vut.cz, and 'konzultujte IT a právní/GDPR oddělení') are appropriate but lack explicit inline citations to the relevant KB excerpts (institutional / repo / governance sections).",
+      "required_fix": "Add explicit citations to the relevant KB excerpts (e.g., institutional deployment, audit logging, repo documentation / 9.x appendices) next to these statements so each non‑trivial operational claim is directly supported by a provided excerpt."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The bullet 'Dopad na akademickou integritu: dostupnost generativních nástrojů...' is currently unlabeled by a supporting KB citation even though related material exists elsewhere in the manual (chapters on academic integrity and assessment).",
+      "required_fix": "Add a citation to the relevant section(s) on academic integrity and assessment (e.g., chapter/section addressing academic integrity, redesign of assessment) to ground this claim."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX source uses explicit line breaks ('\\\\') inside itemize items (checklist), which is unnecessary and can cause formatting warnings or inconsistent spacing in LaTeX. Also some \\emph{} markers are used inline which is acceptable but check consistency with document style.",
+      "required_fix": "Remove the trailing '\\\\' line breaks inside the itemize environment items (checklist). Ensure emphasis styling (\\emph{}) follows the guide's typographic conventions."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Audit a záznamy' step and the 'Praktické příklady mitigace' items are high-level. They would benefit from one or two brief concrete examples of what to monitor during a pilot (e.g., types of incidents, basic metrics), but such examples must either be drawn from KB or clearly labeled as 'general background knowledge'.",
+      "required_fix": "Either (a) add concrete monitoring metrics/examples citing the repository/templates if available, or (b) add a short sentence clearly labeling suggested metrics as 'general background knowledge' and point readers to the repo for concrete templates."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Checklist item asking 'Bude pilot monitorován a jaké metriky/incidenty hlásíme IT/GDPR týmu' references an online repo but does not point to a specific template or example. For pedagogical usability, include a pointer to the specific checklist/template in Přílohy or in the repo.",
+      "required_fix": "Add a parenthetical citation or explicit reference to the specific repo resource (e.g., Příloha number or repo path) that contains the monitoring/reporting templates."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Doporučená první bezpečnostní opatření -> 'Audit a záznamy' item",
+      "edit_instruction": "Add an inline citation to the institutional/governance excerpt (the section that discusses audit logs and SSO/audit) and add one short example sentence (labeled as 'general background knowledge') listing 2–3 example items to log during a pilot (e.g., who invoked AI, model version, timestamps, and any data export events). If the repository contains a template, point to Příloha 9.x or ai.vut.cz."
+    },
+    {
+      "target": "Praktické příklady mitigace -> Copilot/Forms item",
+      "edit_instruction": "Keep the existing reference to Microsoft 365 Copilot (kb_ai_101_tipu_pdf_04e4a115_page_36_1). Add an explicit note reminding teachers to review the generated questions and answer key (this is already present — add citation to the same excerpt next to the reminder)."
+    },
+    {
+      "target": "Checklist (Krátký checklist před spuštěním aktivity s AI)",
+      "edit_instruction": "Remove the '\\\\' line breaks at the end of itemize entries. Add inline citations for items that reference Příloha 9.4 (DPIA) and the repository (ai.vut.cz). For the last checklist item about monitoring, add a parenthetical pointer to the repository template (if available)."
+    },
+    {
+      "target": "Krátké shrnutí rizik -> 'Dopad na akademickou integritu' bullet",
+      "edit_instruction": "Add a citation to the manual's section on academic integrity / assessment redesign (chapter 5 or the relevant excerpt) to ground this point. If the text remains generic, label it explicitly as 'general background knowledge' (as done for 'halucinace' and 'zkreslení')."
+    },
+    {
+      "target": "Závěrem sentence referencing Přílohy 9.3–9.5 and repo",
+      "edit_instruction": "Add explicit citations to the KB excerpts describing Přílohy 9.3–9.5 and the repo (the context memory / appendices list) to make it clear where the practical templates live."
+    }
+  ],
+  "retrieval_queries": [
+    "Auditní logy / audit trails recommendations for institutional AI deployment (chapter 8.2 or governance sections) citation",
+    "Repository ai.vut.cz — exact location of monitoring/reporting templates and DPIA/DPA templates (Příloha 9.x) citation",
+    "Academic integrity and assessment redesign guidance for AI in teaching (chapter 5 or section on academic integrity) citation",
+    "DPA / data residency and provider contractual points for AI tools (chapter 8.3) citation"
+  ]
+}

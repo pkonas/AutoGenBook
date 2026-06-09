@@ -1,0 +1,70 @@
+Krátké shrnutí a cíl sekce
+
+Tato část popisuje praktické scénáře a technické vzory, jak napojit AI‑funkce do univerzitní infrastruktury (LMS, knihovny, repozitáře kódu, tooling pro vývoj) tak, aby byly splněny požadavky pedagogů i pravidla ochrany dat. Uvádíme konkrétní příklady, doporučené kroky pro PoC (pilot) a kontrolní seznamy pro spolupráci mezi katedrou a IT oddělením.
+
+Praktické příklady nástrojů a integrací (ilustrační, podpořené zdroji)
+\begin{itemize}
+  \item Využití herních edukačních světů (např. Minecraft Education) jako zdroje interaktivních materiálů — poznámka k licenci: některé edukační nástroje jsou součástí komerčních balíků (Minecraft Education je součástí Microsoft 365 A3/A5), proto je důležité ověřit smluvní podmínky a zpracování dat u poskytovatele \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Integrace nástrojů pro podporu výuky matematiky (např. OneNote s převodem rukopisu na rovnice, math.microsoft.com) do LMS pro sběr postupů a automatickou analýzu řešení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Zdroje pro technické školení a průvodce integrací (např. oficiální vzdělávací materiály Microsoft Learn) jako podpora pro IT týmy a učitele při zavádění nových funkcí \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}.
+\end{itemize}
+
+Architektury a vzory integrace (general background knowledge)
+\begin{itemize}
+  \item LMS connector pattern (general background knowledge): vytvoření vrstvy, která synchronizuje kurzy, uživatele a odevzdání mezi LMS (např. Moodle) a AI službou. Obvyklé komponenty: autentizace (SSO), API gateway, transformace dat (anonymizace/pseudonymizace) a auditní logy.
+  \item RAG / dokumentový indexer (general background knowledge): bezpečné indexování interních studijních materiálů (PDF, HTML, repository) do embeddings indexu s řízením přístupu a logováním retrieval událostí.
+  \item Webhook / grade sync (general background knowledge): volání webů pro synchronizaci výsledků a metadat (např. automatické importy hodnocení z AI‑asistentů do gradebooku LMS) s retry a idempotentní logikou.
+  \item Developer workflow a verzování promptů (general background knowledge): správa prompt šablon, verzí modelu a prompt‑logů v repozitáři (git), včetně review procesu a audit trailu pro reproducibilitu.
+\end{itemize}
+
+Doporučený PoC workflow pro katedru + IT (general background knowledge)
+\begin{enumerate}
+  \item Definujte pedagogický cíl pilotu: jasně popište, co má integrace přinést studentům a vyučujícím (např. rychlejší formativní zpětná vazba, interaktivní cvičení s Minecraft Education \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}).
+  \item Vyberte datové zdroje a rozsah: identifikujte, které materiály budou indexovány/nahrávány, a proveďte klasifikaci dat (veřejné vs. interní vs. osobní).
+  \item Smluvně zajistěte podmínky (DPA) a technické požadavky: data residency, šifrování, možnosti mazání logů (viz předchozí kapitola o ochraně dat — obsahuje checklist pro DPA) (general background knowledge).
+  \item Implementujte minimální integraci: nastavení SSO/IdP pro bezpečný přístup (general background knowledge), implementace connectoru do LMS (export/import uživatelů a kurzu), a jednoduchý webhook pro notifikace o dokončení zpracování.
+  \item Testování s omezenými daty: prověřte anonymizaci, audit logy a chování při chybách; ověřte, že nástroj nevrací citlivé informace mimo určený kontext.
+  \item Zapojení pedagogů a pilotních studentů: sběr zpětné vazby na použitelnost a kvalitu výsledků; iterativní úpravy.
+\end{enumerate}
+
+Konkrétní technické kontrolní body pro nasazení connectoru do LMS (general background knowledge)
+\begin{itemize}
+  \item Autentizace: preferovat univerzitní SSO (SAML/OAuth/OIDC) pro jednotné řízení identit a odvolání přístupu.
+  \item Minimální privilegia: service‑accounts a scopes omezené pouze na nezbytné API volání.
+  \item Anonymizace/pseudonymizace: před odesláním do externích služeb odstranit identifikátory, pokud to pedagogika dovolí.
+  \item Auditování: logovat kdo/ kdy/ které dokumenty byly poslány, které retrievaly byly provedeny a jaké odpovědi model vrátil (pro účely vyšetřování a GDPR).
+  \item Fail‑safe chování: pokud externí AI služba vrací chybu nebo dojde k incidentu, zajistit, aby do LMS neunikla neúplná nebo nesprávná data.
+\end{itemize}
+
+Příklady uplatnění v praxi (ilustrativní)
+\begin{itemize}
+  \item Integrace Minecraft Education do kurzu: ověřte, zda je školní licence (Microsoft 365 A3/A5) k dispozici a upravte přístup studentů podle smluvních podmínek; použijte připravené světy pro výuku AI a Hour of Code aktivity \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Sběr postupů z OneNote pro automatickou kontrolu řešení: nasměrujte studenty, aby odevzdávali postupy v OneNote (který umí konvertovat rukopis na digitální rovnice) a propojte export s analyzátorem chyb ve vyučovacím workflowu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+Doporučené role a odpovědnosti (general background knowledge)
+\begin{itemize}
+  \item Katedra / garant předmětu: definice pedagogických požadavků, ověření obsahu a schválení testovacích dat.
+  \item IT / integrátor: implementace connectorů, SSO, auditních logů a provozní podpory PoC.
+  \item GDPR / právní kontakty: posouzení DPA, data residency a DPIA (pokud potřebné).
+  \item Data Steward / AI‑governance: správa přístupů k interním indexům, pravidel pro retenci a audit.
+\end{itemize}
+
+Kde hledat další technické návody a školení (podložené zdroji)
+\begin{itemize}
+  \item Oficiální platformy s technickými kurzy a průvodci (např. Microsoft Learn) jsou vhodným zdrojem pro IT týmy i vyučující, kteří potřebují rychlé seznámení s konkrétními nástroji a možnostmi integrace \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}.
+  \item Dokumentace konkrétních nástrojů (LMS, cloud provider, enterprise AI) by měla být vždy konzultována před nasazením — zejména části týkající se DPA, residency a možností zákaznické správy klíčů.
+\end{itemize}
+
+Rychlý checklist pro spuštění pilotu (general background knowledge)
+\begin{enumerate}
+  \item Definovaný pedagogický cíl a metriky úspěchu.
+  \item Ověřená smlouva/DPA a klasifikace dat.
+  \item Implementovaný connector s SSO a auditováním.
+  \item Testy anonymizace a chování při incidentu.
+  \item Zapojená skupina pedagogů a pilotních studentů pro sběr zpětné vazby.
+\end{enumerate}
+
+Poznámka k rizikům a dalším krokům
+
+Při každé integraci dbejte na to, aby pedagogický přínos převýšil rizika spojená s ochranou dat a spolehlivostí výstupů. Doporučíme zahájit s omezeným PoC rozsahem (malá třída, anonymizovaná data), zdokumentovat rozhodnutí o residency a DPA a iterovat podle výsledků pilotu (general background knowledge). Pro konkrétní návody k nástrojům Microsoft (Minecraft Education, OneNote, math.microsoft.com) použijte odkazy a školení uvedené v příručce \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2,kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_54_1}.

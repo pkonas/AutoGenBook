@@ -1,0 +1,32 @@
+{
+  "title": "Mini průvodce AI ve výuce",
+  "summary": "Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důraz je kladen na praktické scénáře (automatizovaná zpětná vazba, adaptivní učení, asistenti pro výuku a analytika učení), s příklady fungujících implementací a jasnými kroky pro učitele. Součástí jsou i konkrétní tipy pro hodnocení efektivity a doporučení k etice, ochraně dat a inkluzi. Průvodce je určen především vysokoškolským učitelům a administrátorům.",
+  "n_pages": 1.5,
+  "target_readers": "vysokoškolští učitelé, školní administrátoři, tvůrci kurzů, pracovníci e‑learningu, studenti pedagogiky",
+  "equation_frequency_level": 1,
+  "do_consider_outline": true,
+  "do_consider_previous_sections": true,
+  "additional_requirements": "Krátká ukázka struktury knihy a článku. Zdůraznit fungující příklady z praxe univerzit a výhody AI pro výuku.",
+  "max_depth": 5,
+  "max_output_pages": 1.5,
+  "childs": [
+    {
+      "title": "Úvod",
+      "summary": "Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizované cesty). Nastíní hlavní otázky: jak AI zlepšuje učení a zpětnou vazbu, co je třeba zvážit při zavádění (pedagogické cíle, kvalita dat, ochrana soukromí), a jak hodnotit přínos. Úvod zmíní konkrétní, ověřitelné příklady z praxe (např. chatboty používané jako kursovní asistenti, autogradery v kurzech programování, adaptivní moduly v blended learningu) a připraví čtenáře na praktické kapitoly.",
+      "n_pages": 0.4,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Praktické příklady",
+      "summary": "Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřebné zdroje a metody pro měření efektivity.\nHlavní podtémata (příklady fungujících řešení):\n- Automatizovaná zpětná vazba a autogradery: použití pro programování (autograde systémy), testy s otevřenými odpověďmi (automatická kontrola struktur), rychlá formativní zpětná vazba, úspora času učitelům.\n- Adaptivní a personalizované učení: moduly, které přizpůsobují obsah a úlohy podle výkonu studenta (příklady kurzů, kde adaptivní cesty zvýšily udržení znalostí), doporučení pro nastavení parametrů a integraci se LMS.\n- Chatboti a virtuální asistenti pro studenty a učitele: praktické nasazení jako FAQ a 24/7 podpora, asistenti pro plánování lekcí a administrativu (příklad univerzitních nasazení chatbotů jako podpora učitelů), doporučení pro design dialogu a dohled člověka.\n- Podpora hodnocení a korektury: nástroje pro rychlé zpracování a kategorizaci studentských odpovědí, pomoc při hodnocení esejí (doplňkové nástroje, které zrychlují práci hodnotitelů, ne nahrazují odborné posouzení).\n- Learning analytics a podpora zásahů: dashboardy ukazující rizikové studenty, přehled angažovanosti v online aktivitách, jak využít data pro cílené intervence.\n- Tvorba a adaptace učebních materiálů: nástroje pro generování cvičení, vytvoření studijních opor a multimedia obsahu při zachování akademické kvality.\nKaždé téma obsahuje krátkou ukázku implementace, konkrétní přínosy (time‑saving, lepší personalizace, vyšší angažovanost) a seznam rizik (bias, kvalita dat, přehnané spoléhání se na automatizaci).",
+      "n_pages": 0.9,
+      "needsSubdivision": true
+    },
+    {
+      "title": "Zavedení do praxe, etika a hodnocení efektivity",
+      "summary": "Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany osobních údajů a transparentnosti (co nástroj dělá a jak jsou použita data). Sekce obsahuje rozhodovací strom pro výběr nástroje (úroveň technické podpory, soulad s LMS, dostupnost dat), návrhy metrik pro hodnocení přínosu (úspora času, zlepšení výsledků učení, spokojenost studentů) a příklady měření z praxe. Zvláštní pozornost věnována inkluzi (jak AI pomáhá adaptovat výuku pro různé potřeby) a rizikům (hnětení biasu, bezpečnost, akademická poctivost). Obsahuje také doporučení pro profesní rozvoj učitelů a zapojení fakultní administrativy.",
+      "n_pages": 0.2,
+      "needsSubdivision": false
+    }
+  ]
+}

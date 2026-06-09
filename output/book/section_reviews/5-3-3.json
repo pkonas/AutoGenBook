@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section makes specific numeric recommendations that are not supported by the provided retrieved excerpts or run artifacts: (a) 'výběr 3--5 artefaktů' and (b) the rubric percentages '35/35/20/10'. These are non‑trivial numeric claims and currently lack grounding in the KB excerpts supplied.",
+      "required_fix": "Either remove or rephrase these numeric recommendations as illustrative examples (e.g. 'doporučený rozsah: 3–5, konkrétní počet určí garant předmětu' and 'příklad rozdělení bodů — upravte podle předmětu') OR add explicit citations/excerpts from the KB that justify these exact numbers. If you want to keep concrete numbers, run a retrieval query to locate supporting text in the KB and insert the appropriate citation."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several pedagogical claims are currently marked '(general background knowledge)'. While some of these are acceptable as general pedagogical guidance, parts of the text that mention OneNote assisting handwriting conversion and collecting process evidence are supported by the KB (kb_ai_101_tipu_pdf_04e4a115_page_8_1). Other process‑evidence recommendations (drafts, timestamps, screenshots) are consistent with chapter themes but lack an explicit KB citation in this section.",
+      "required_fix": "Replace generic '(general background knowledge)' flags with explicit citations where the KB supports the claim (for example, cite the OneNote support excerpt already used). For claims without a direct excerpt, either (a) keep them as clearly labeled illustrative instructor guidance, or (b) retrieve supporting KB excerpts and insert citations."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Šablona krátké metareflexe' is functional but could be unclear for students without an example. No sample completed metareflexe or sample artefact list is provided to illustrate expected depth and length.",
+      "required_fix": "Add one short, fictional example of a completed metareflexe (1–2 paragraphs) and one example of required artefacts per submitted work (e.g., initial sketch, timestamped draft file, screenshot of an intermediate step). Label examples as illustrative."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure (enumerate/itemize) appears syntactically correct and percent signs are escaped as '\\,\\%'. However the section includes \\cite{...} references; ensure the bibliography entry keys used actually exist in the document's .bib file or replace with available citation macros.",
+      "required_fix": "Confirm that the citation key 'kb_ai_101_tipu_pdf_04e4a115_page_8_1' (and any other cite keys used) are present in the document's bibliography. If the exact page/key for a new supporting citation is added (see grounding fixes above), update the \\cite keys accordingly."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "No guidance is given on recommended spot‑check sampling rates or escalation rules referenced elsewhere in the memory (spot‑check example of 5–10% appears in the chapter memory). The section suggests 'spot‑check' but leaves instructors without a concrete recommendation.",
+      "required_fix": "Either (a) add an explicit, clearly labelled illustrative spot‑check rate (for example: 'ilustrační rozsah spot‑check: 5–10 %; upravte podle velikosti třídy') and back it up with a KB citation if available, or (b) state that the sample size should be decided locally and provide a short decision rule (e.g., lightweight random sample vs. risk‑based sampling). If you want to include the 5–10% example as a recommendation, retrieve the supporting excerpt from the KB and cite it."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Rephrase the first 'Co má portfolio obsahovat (minimum)' bullet from 'Výběr 3--5 prací reprezentujících studentův pokrok.' to: 'Výběr reprezentativních prací (např. 3–5 jako ilustrační rozsah; konkrétní počet určuje garant předmětu).' Mark the numeric range as an illustrative example, not a hard rule."
+    },
+    {
+      "target": "rubrika",
+      "edit_instruction": "Change the rubric header to explicitly label percentages as an example: 'Návrh jednoduché rubriky (procesně orientovaná) — ilustrační rozdělení': then keep the 35/35/20/10 figures but prepend a parenthetical '(ilustrační, přizpůsobte podle cíle a rozsahu předmětu)'. Alternatively, remove the exact percentages and provide qualitative weights (e.g. 'větší důraz na dokumentaci a reflexi, menší na formální náležitosti')."
+    },
+    {
+      "target": "citations",
+      "edit_instruction": "Where the text asserts that OneNote 'usnadňuje převod rukopisu a sběr postupů', keep the existing citation \\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}. For other process‑evidence recommendations (drafts, timestamps, screenshots), either add supporting KB citations or mark them as instructor best practice examples."
+    },
+    {
+      "target": "metareflexe template",
+      "edit_instruction": "Append a one‑paragraph example of a filled metareflexe beneath the template, labelled clearly as 'Příklad (ilustrační)': include brief statements about tool used, prompt description (if declared), verification steps and a learning‑outcome sentence. Keep it short (3–5 sentences)."
+    },
+    {
+      "target": "integrity note",
+      "edit_instruction": "Add one sentence to the 'Poznámka ke kontrole integrity' recommending how to choose a spot‑check sample (e.g. 'Volba velikosti spot‑checku závisí na počtu studentů a riziku; ilustračně 5–10 % může být vhodné pro středně velké kurzy — doplňte zdroj, pokud chcete jej uvést jako doporučení'). If you intend to include the 5–10% figure as a recommendation, retrieve and cite the KB excerpt that supports it."
+    }
+  ],
+  "retrieval_queries": [
+    "Find KB excerpts that recommend a specific number of artifacts (e.g., 3–5) for reflexive portfolios or an explicit recommended portfolio size.",
+    "Find KB excerpts or examples that provide an assessment rubric with numeric percentage breakdowns for reflexive portfolios or process‑oriented assessments.",
+    "Find KB text that explicitly recommends spot‑check sample sizes (e.g., the 5–10% illustrative guidance) or rules for spot‑check selection.",
+    "Retrieve any KB examples of completed metareflexe or templates with example filled answers to use as an illustrative example."
+  ]
+}

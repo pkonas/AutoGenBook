@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section uses \\cite{...} keys but does not ensure bibliography entries are present in the LaTeX file. If the main document does not include a .bib or manual \\bibitem entries for these keys, compilation will fail.",
+      "required_fix": "Ensure the cited keys (e.g. kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_53_2, kb_ai_101_tipu_pdf_04e4a115_page_8_1) are present in the document bibliography or replace \\cite with an explicit in‑text reference to the sourced KB excerpt."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some technical recommendations (TLS 1.2+/1.3, AES‑256, CMK, RAG retrieval logging) are presented without supporting citations. While these items are labelled as 'general background knowledge', they are non‑trivial technical claims that typically require authoritative references.",
+      "required_fix": "Either (a) add authoritative references (internal IT/security policy, NIST/EN guidance, or vendor security docs) for the cryptographic and logging baselines, or (b) further qualify them as institutional best‑practice recommendations and indicate they must be validated by the faculty IT/security team."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section cross‑references DPIA, DPA and audit/logging procedures that are covered elsewhere in the document (e.g. DPIA template in the Annex, Audit logging recommendations in section on authentication/authorization). However there is no explicit in‑text cross‑reference to those locations.",
+      "required_fix": "Add explicit cross‑references to the relevant internal sections/appendices (for example: refer to Annex 9.4 for the DPIA template and section 8.2 for audit/logging tests) so readers can find templates and concrete verification steps."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Many paragraphs/bullets are labelled 'general background knowledge'. This is acceptable, but the reader may not clearly know which items are mandatory checks for a PoC versus advisory best practices.",
+      "required_fix": "Mark each checklist item with its intended status: 'mandatory (consult legal/IT)', 'recommended', or 'optional for sensitive data' — or move mandatory items into a clearly labelled 'Required checks before PoC' subsection."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section suggests communicating data handling to students but does not include or point to a ready-to-use example sylabus text, even though a brief student‑oriented template exists elsewhere in memory.",
+      "required_fix": "Insert or link to the short, student‑oriented sylabus blurb (the TU Delft style example present in the document memory) as a concrete example for guarantors to adapt; alternatively, add a one‑line template and point to the AI Policy Template (Annex 9.3)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Poznámka k nástrojům ve výuce — ilustrativní příklady",
+      "edit_instruction": "Keep the three cited illustrative examples. Optionally add a one‑sentence framing that these are examples drawn from the KB excerpts (already cited) and that other vendor features may differ. Ensure the cited KB entries are included in the document bibliography."
+    },
+    {
+      "target": "Co zkontrolovat v DPA — praktické body",
+      "edit_instruction": "Mark each bullet with a status flag (e.g. 'mandatory — verify in DPA', 'recommended') and add an explicit reference line: 'See DPIA template in Annex 9.4 and DPA checklist in section 8.1/9.2.'"
+    },
+    {
+      "target": "Šifrování a technická opatření",
+      "edit_instruction": "Either (a) add citations to institutional/standards guidance for the recommended cryptographic baselines, or (b) rephrase to make them recommended defaults pending IT/security sign‑off (e.g. 'Recommend: TLS 1.2+ / TLS 1.3; consult IT for approved cipher suites')."
+    },
+    {
+      "target": "Praktický workflow pro sdílení citlivých materiálů v kurzu",
+      "edit_instruction": "Add one short PoC test case: 'Verify data deletion: instructor uploads pseudonymized student file → request deletion via provider UI/API → confirm provider deletion logs and absence in retrieval results.' Cross‑link this test to the audit/logging verification steps in section 8.2."
+    },
+    {
+      "target": "Závěrečné doporučení pro garanty a IT",
+      "edit_instruction": "Add a pointer to the student sylabus template (Annex 9.3) and to the DPIA template (Annex 9.4). Recommend running a small, data‑limited pilot and documenting the DPA/DPIA decision in an internal record kept with the course materials."
+    }
+  ],
+  "retrieval_queries": [
+    "Authoritative guidance or institutional templates for recommended TLS and encryption baselines for cloud services (e.g., TLS 1.2/1.3, AES‑256) — internal IT/security policy or NIST/EN standards",
+    "Sample DPA clauses for data residency and sub‑processor audit rights suitable for higher education institutions (EU/GDPR‑focused)",
+    "DPIA template and guidance for use of generative AI in teaching (university template or EU supervisory authority examples)",
+    "Concrete example wording for a short sylabus blurb about permitted AI use and AI‑log requirement (the TU Delft sample referenced in memory)"
+  ]
+}

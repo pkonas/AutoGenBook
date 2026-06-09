@@ -1,0 +1,59 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several practical recommendations are labelled as \"general background knowledge\" (e.g., účelové omezení, anonymizace/pseudonymizace, lidský validující krok). Labeling is acceptable, but some of these non-trivial operational recommendations are already described elsewhere in the KB (earlier sections) and could be strengthened by an explicit cross-reference to those sections or to supporting retrieved excerpts.",
+      "required_fix": "Where possible add cross-references to the relevant sections in this manual (e.g. 2.1 / 2.2 and the practical checklist or DPIA template in the appendices) or include supporting citations from the retrieved KB excerpts. If no excerpt is available, keep the \"general background knowledge\" label but add an explicit pointer like \"viz sekce 2.2 / příloha 9.4\" so the reader can find templates and detailed guidance."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The checklist and the 'Kdy zapojit bezpečnostní / PRIV týmy' list are concise but could be more actionable for practitioners (they don't give concrete examples of PII or an explicit threshold for when DPIA is needed).",
+      "required_fix": "Add 1–2 concrete examples of PII (e.g., student name + ID, photos, voice recordings, behavioral logs) and a short sentence clarifying thresholds (e.g., \"DPIA recommended/nezbytná pokud pilot sbírá citlivá data nebo pokud má systém automatizovaná rozhodnutí ovlivňující hodnocení\" — the latter point is already present but could be made explicit as a threshold). Mark any added specifics as general background knowledge or support them with a citation if available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section content aligns with previous sections (DPIA, minimalizace dat, repository ai.vut.cz). However, the note referring to the central repository (ai.vut.cz) is currently marked as general background knowledge; the rest of the manual already references that repository in several places.",
+      "required_fix": "Replace or augment the generic note with an explicit cross-reference to the earlier mention of the repository (e.g., \"viz Příloha 9 / sekce 9.9\" or to the 'online repozitář VUT' mention in the introduction) so users can find the actual templates. If you prefer to keep the standalone note, consider adding a brief list of what to look for in the repository (DPIA template, DPA checklist, sylabus formulations)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure is straightforward and should render correctly. A minor stylistic issue: some lists are preceded directly by a paragraph without an empty line which can affect some LaTeX styles, and the heading line before the first itemize is plain text rather than a LaTeX sectioning command (but that may be intentional).",
+      "required_fix": "Ensure a blank line before each \\begin{itemize}/\\begin{enumerate} and consider using a LaTeX sectioning command (e.g., \\subsubsection*{Základní principy}) if consistent with the document style. Otherwise no blocking LaTeX errors detected."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section is a concise orientation frame but could better serve practitioners by adding one short worked example (e.g., a low-risk pilot where no PII is transferred; a medium-risk pilot that uses pseudonymization) to illustrate application of the checklist.",
+      "required_fix": "Add one 2–3 sentence example per risk level (low / medium) showing how the checklist would be applied in practice, and where to escalate to PRIV/IT/legal. Label examples as general background knowledge or ground them in existing KB excerpts if available."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Before the itemize 'Základní principy', add a short LaTeX subsection heading consistent with the manual (e.g., \\subsubsection*{Základní principy}) to improve navigation."
+    },
+    {
+      "target": "Minimalizace a omezení typu dat",
+      "edit_instruction": "After the sentence that limits uploading sensitive data, add a parenthetical concrete example: '(např. jméno + studentské ID, fotografie, záznamy hlasu, průběhové behavioral logy)'. Mark this as general background knowledge or support with a KB excerpt."
+    },
+    {
+      "target": "Krátký praktický checklist",
+      "edit_instruction": "In checklist item 1–2, add a one-line example of a low‑risk activity (e.g., 'aktivita: generování anonymních diskusních otázek — PII není odesíláno') and a medium‑risk example (e.g., 'aktivita: adaptivní testování vyžadující sledování postupu — použít pseudonymizaci a provést DPIA')."
+    },
+    {
+      "target": "Poznámka o repozitáři",
+      "edit_instruction": "Replace 'Pro šablony DPIA, vzory DPA ... ai.vut.cz — jako živý zdroj' with an explicit cross‑reference to the manual appendix (e.g., 'viz Příloha 9.4 a 9.9 v této příručce / online repozitář VUT (ai.vut.cz)') so readers can locate templates quickly."
+    }
+  ],
+  "retrieval_queries": [
+    "ai.vut.cz DPIA template AI ve výuce VUT",
+    "documentation prompts model versions audit kb page 36 AI - 101 tipu.pdf",
+    "examples of PII in educational datasets guidance GDPR DPIA education",
+    "kb_ai_101_tipu page 8 full context data minimization uploading sensitive data"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "agent": "structure_subdivider",
+  "timestamp": "20260202T202431Z",
+  "input": {
+    "doc_kind": "paper",
+    "doc_title": "Graph-Aware Prompting for Reliable Section Generation",
+    "doc_summary": "We present a graph-guided prompting workflow for long-form scientific writing that prioritizes evidence and citation consistency. Our method constructs a document graph that encodes section dependencies and uses strict JSON schemas and evidence-aware prompts to generate and validate individual sections. At generation time, the system (1) builds a section graph and schedules leaf-first writing, (2) retrieves and injects relevant evidence for each section, (3) produces JSON-constrained section outputs, and (4) assembles a LaTeX manuscript with refs.bib. We evaluate the approach by comparing it to a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show improved citation coverage and reduced unsupported assertions while keeping edits and post-hoc audits straightforward via machine-readable outputs. We intentionally state conservative claims and require explicit source citations for all factual assertions. The paper contributes practical artifacts: a graph-based section scheduler, an evidence-injection protocol per section, and an audit-friendly JSON output format that integrates with standard LaTeX/bib workflows. Our experiments use internal notes and a small curated PDF set where available; metrics focus on citation fidelity and factual consistency rather than broad generalization.",
+    "target_audience": "ACL Workshop on Natural Language Generation",
+    "parent_title": "Experiments",
+    "parent_summary": "Describe experimental setup: two topical domains, baseline linear prompting comparator, datasets (internal notes and a small curated PDF set if available), and evaluation protocol. Specify metrics: citation coverage, hallucination rate (unsupported assertions), and reviewer score.",
+    "n_pages": 0.2,
+    "max_output_pages": 1.5,
+    "retrieved_context": "(none)"
+  },
+  "output": [
+    {
+      "title": "Experimental setup and datasets",
+      "summary": "Specify the two topical domains and dataset sources (internal notes and a small curated PDF set where available). Describe the baseline linear prompting comparator, the graph-guided pipeline variants being tested, runtime details (prompt variants, seeds, software/hardware), and how the section-graph scheduling and evidence-injection were applied during generation to produce JSON-constrained section outputs.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Evaluation protocol and metrics",
+      "summary": "Define the primary evaluation metrics (citation coverage, hallucination rate / unsupported assertions, and reviewer-style scores), the annotation and audit procedures used to label unsupported assertions and compute metrics, the scoring rubric for reviewer assessments, and how machine-readable JSON outputs and LaTeX/bib assembly were used to automate metric computation and enable post-hoc audits.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    }
+  ],
+  "meta": {
+    "run_id": "20260202T212346Z",
+    "usage": {
+      "prompt_tokens": 769,
+      "completion_tokens": 1090,
+      "total_tokens": 1859
+    },
+    "cost_usd": 0.00237225,
+    "total_cost_usd": 0.004794,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

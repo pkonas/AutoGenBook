@@ -1,0 +1,75 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Typo in Czech: the word 'nasadťe' (in 'Iterujte: ... nasadťe vítěznou variantu') appears to be misspelled.",
+      "required_fix": "Correct the spelling (proofread Czech diacritics and imperative forms) and recompile LaTeX to ensure no encoding issues (e.g., replace the misspelled token with the correct form)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The first bullet under 'Integrace s univerzitní infrastrukturou' is labeled 'general background knowledge' and has no KB citation. The text recommends planning integration with SSO and LMS and coordinating with IT — this is plausible but not explicitly cited to the provided retrieved excerpts.",
+      "required_fix": "Either add an explicit citation to the relevant KB source (the guide's sections on authentication/SSO and LMS integration, e.g. the parts listed under chapters 8.3/8.4 in the outline) or keep the sentence but keep the 'General background knowledge' label and consider softening the wording (e.g., 'Obecně doporučeno: ...')."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Many bullets cite the same source key (kb_ai_101_tipu_pdf_page_15_2). While several claims (Minecraft Education licensing, Hour of Code free worlds, Copilot examples) are supported by the retrieved excerpts, other operational details (A/B testing workflow, logging fields, specific metric names/durations) are drawn from other parts of the manual or the context memory rather than the single cited chunk.",
+      "required_fix": "Verify each bullet's citation: ensure that statements about metrics, A/B testing, logging schema and the 4–8 week pilot duration are linked to the appropriate KB pages or to the earlier sections already present in the document (e.g., the 'Trénink a vylepšování chování' / pilot workflow in previous sections). Add/correct footnotes to point at the KB locations that actually contain those recommendations (or mark them explicitly as 'general background knowledge' if not in the KB)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Pilot test-set is recommended but no concrete size or example items are given in this section (previous section mentions 'Pilotní test‑set (10+5)').",
+      "required_fix": "Add a concrete recommended size and short example (e.g., 'Pilotní test‑set (10+5): 10 typical queries + 5 edge/ambiguous queries') or cross-reference the exact guidance in the earlier section so readers know the expected scale and composition of the test-set."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Fail‑safe behavior is suggested, but the section does not include the canonical fail‑safe phrasing used elsewhere in the document ('Nevím — doporučuji konzultaci s vyučujícím'), nor an explicit cross‑reference to the QA/FEEDBACK/TUTOR role definitions.",
+      "required_fix": "Insert the canonical fail‑safe sentence (exact wording used in section 4-1-2 / the context memory) and add a cross‑reference to the section that defines QA/FEEDBACK/TUTOR roles so pilot teams use consistent phrasing and role behavior during iteration."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminology and artifact names (e.g., 'logovací schéma', 'variant ID', metric names) should match the naming used in earlier sections and in the Appendix prompt/library to avoid confusion.",
+      "required_fix": "Align naming with the terms used in previous sections (for example use the exact metric names and log fields from the 'Logovat klíčové metriky' guidance). Add a short sentence saying 'Use the log field names as defined in section X / appendix' or include the minimal schema inline."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnote formatting currently contains 'Source: kb_...' inside the \\\\footnote braces — ensure consistent citation style and that special characters in keys do not break LaTeX.",
+      "required_fix": "Normalize footnotes to a consistent citation format (or use \\cite if bibliography is used). Escape or simplify any underscores or special characters in footnote text to avoid LaTeX compilation warnings."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Před nasazením — rychlý checklist",
+      "edit_instruction": "Add an explicit cross‑reference to the earlier workflow that defines metrics and fail‑safe behavior (e.g., 'viz sekce Trénink a vylepšování chování / rolování instrukcí') and, for the pilot test‑set bullet, add the recommended size 'Pilotní test‑set (10+5)' as in the earlier checklist."
+    },
+    {
+      "target": "Integrace s univerzitní infrastrukturou (general background knowledge)",
+      "edit_instruction": "Either add a KB citation for SSO/LMS integration (the guide's sections on authentication/SSO and LMS integration) or rephrase to clearly mark this as general background knowledge and add 'Doporučená koordinace: oddělení IT, provisioning rolí a skupin.'"
+    },
+    {
+      "target": "Pilotní provoz — doporučený workflow (konkrétní kroky)",
+      "edit_instruction": "Insert the canonical fail‑safe sentence exactly as used elsewhere ('Nevím — doporučuji konzultaci s vyučujícím') as an explicit example under step 1 and add a short example log schema under step 4 (fields: variant_id, timestamp, user_id (pseudonym), query_text, response_text, repeated_flag, rating/notes)."
+    },
+    {
+      "target": "Krátký soubor provozních artefaktů k vytvoření",
+      "edit_instruction": "Add the suggested concrete artifact sizes and examples: 'Pilotní test‑set (10+5), A/B varianty instrukcí (min. 2 varianty s ID), logovací schéma (field list)'."
+    },
+    {
+      "target": "Iterujte ... nasadťe vítěznou variantu s rollback plánem",
+      "edit_instruction": "Fix the typo 'nasadťe' and consider rewriting to 'nasadte vítěznou variantu s rollback plánem' or another correct Czech imperative form after proofreading."
+    }
+  ],
+  "retrieval_queries": [
+    "AI - 101 tipu.pdf SSO LMS integrace (SSO, Moodle, Canvas) site:kb or internal",
+    "AI - 101 tipu.pdf pilotní provoz metriky 4–8 týdnů ‚pilotní test‑set (10+5)‘",
+    "AI - 101 tipu.pdf logging schema variant ID logování interakcí",
+    "AI - 101 tipu.pdf sekce o fail‑safe odpovědi 'Nevím — doporučuji konzultaci s vyučujícím'"
+  ]
+}

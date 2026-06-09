@@ -1,0 +1,53 @@
+{
+  "agent": "structure_subdivider",
+  "timestamp": "20260202T191727Z",
+  "input": {
+    "doc_kind": "paper",
+    "doc_title": "Graph-Aware Prompting for Reliable Section Generation",
+    "doc_summary": "We present a graph-guided prompting workflow for long-form scientific writing that prioritizes evidence and citation consistency. Our method constructs a document graph that encodes section dependencies and uses strict JSON schemas and evidence-aware prompts to generate and validate individual sections. At generation time, the system (1) builds a section graph and schedules leaf-first writing, (2) retrieves and injects relevant evidence for each section, (3) produces JSON-constrained section outputs, and (4) assembles a LaTeX manuscript with refs.bib. We evaluate the approach by comparing it to a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show improved citation coverage and reduced unsupported assertions while keeping edits and post-hoc audits straightforward via machine-readable outputs. We intentionally state conservative claims and require explicit source citations for all factual assertions. The paper contributes practical artifacts: a graph-based section scheduler, an evidence-injection protocol per section, and an audit-friendly JSON output format that integrates with standard LaTeX/bib workflows. Our experiments use internal notes and a small curated PDF set where available; metrics focus on citation fidelity and factual consistency rather than broad generalization.",
+    "target_audience": "ACL Workshop on Natural Language Generation",
+    "parent_title": "Methods",
+    "parent_summary": "Detail the graph construction (section graph and dependencies), the JSON schema for section outputs, evidence retrieval and ranking, evidence-aware prompt templates, leaf-first generation and assembly rules, and the LaTeX + refs.bib assembly process. Include conservative validation checks and failure modes.",
+    "n_pages": 0.4,
+    "max_output_pages": 1.5,
+    "retrieved_context": "(none)"
+  },
+  "output": [
+    {
+      "title": "Document graph construction and scheduling",
+      "summary": "Describe the section graph representation (nodes as sections/subsections, edges as dependency types), conventions for encoding dependency metadata, and the leaf-first scheduling strategy used to produce an ordered write plan. Specify ordering constraints, node prioritization heuristics, and how the scheduler handles optional or cross-cutting sections.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Evidence retrieval, ranking, and injection",
+      "summary": "Detail the evidence retrieval protocol per section (query formation and scope), ranking/scoring criteria for candidate snippets, and the mechanism for selecting and injecting evidence into generation prompts. Also cover evidence provenance tracking and minimal formatting requirements for injected items.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "JSON schema and evidence-aware prompt templates",
+      "summary": "Specify the JSON output schema used to represent generated sections (fields, types, and required citation entries), plus the evidence-aware prompt templates that enforce citation insertion and schema conformance during generation. Include schema validation points and examples of required fields without providing full schemas.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Assembly, validation, and failure modes",
+      "summary": "Explain the assembly process that converts JSON section outputs into a LaTeX manuscript with refs.bib, conservative validation checks applied (schema, citation coverage, unsupported-claim detection), and documented failure modes with remediation steps (e.g., re-retrieval, re-generation, manual audit).",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    }
+  ],
+  "meta": {
+    "run_id": "20260202T201710Z",
+    "usage": {
+      "prompt_tokens": 775,
+      "completion_tokens": 1023,
+      "total_tokens": 1798
+    },
+    "cost_usd": 0.00223975,
+    "total_cost_usd": 0.00612375,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

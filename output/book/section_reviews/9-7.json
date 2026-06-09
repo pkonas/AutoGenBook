@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The text suggests adding an internal link example 'ai.vut.cz' in 'Další zdroje... — viz repozitář a video tutoriály (doplnit interní odkaz, např. ai.vut.cz)'. Per the project grounding rules, you must not invent URLs or other institutional resources unless they are verified in the knowledge base or provided inputs.",
+      "required_fix": "Remove the example URL (ai.vut.cz) and either (a) leave a clear placeholder like '<interní odkaz na repozitář>' for the faculty to fill in, or (b) request the canonical internal repository URL from the maintainers and insert it after verification."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section recommends contacting 'IT Security Owner / Data Steward' for security incidents; this aligns with memory excerpts but does not cross‑reference the existing definitions/templates elsewhere in the manual (e.g. DPIA template 9.4, RAG blueprint 9.5, IT Security Owner mention in section 8‑7).",
+      "required_fix": "Add explicit cross‑references to relevant annexes/sections (e.g. 'viz vzor DPIA (9.4)', 'viz Základní RAG blueprint (9.5)', and 'IT Security Owner — viz sekce 8.7') so readers can quickly find supporting templates and role definitions."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The ticket template is generally good but omits a few practical fields that help triage (ticket category/tag, environment (prod/test), privacy classification — whether the request involves personal or sensitive data, and who to CC).",
+      "required_fix": "Extend the ticket template to include: ticket category (incident/feature/change), environment (production/test), privacy classification (contains personal/sensitive data: yes/no), recommended CC list (course guarantor, data steward, IT contact), and required SLA tag to assist automatic routing."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Inline parenthetical tags '(general background knowledge)' are embedded in list items. They are acceptable textually but may be better represented as comments or footnotes to avoid clutter in the user‑facing LaTeX output.",
+      "required_fix": "Either remove the inline '(general background knowledge)' markers from the LaTeX and document the provenance separately in editorial notes, or convert them to LaTeX comments (e.g. '% general background knowledge') so they don't appear in the compiled document."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Praktické poznámky pro katedry' recommends inserting the template into the syllabus but lacks a short example of the minimal contact block that should be pasted into a syllabus (e.g. 2–3 lines with role, email/alias, phone, ticket queue).",
+      "required_fix": "Add a one‑line syllabus contact example (placeholder values) showing the minimal information to include so departments can copy/paste it directly."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "last paragraph (Další zdroje...)",
+      "edit_instruction": "Replace 'viz repozitář a video tutoriály (doplnit interní odkaz, např. ai.vut.cz)' with a neutral placeholder: 'viz interní repozitář a video tutoriály (vložit zde oficiální interní odkaz na repozitář)'. If the canonical URL is available, insert it after verification."
+    },
+    {
+      "target": "ticket template (Jak žádat o technickou nebo metodickou podporu)",
+      "edit_instruction": "Add these fields to the enumerated ticket template: 7) Ticket category/tag (incident/feature/change), 8) Provozní prostředí (production/test), 9) Privacy classification (obsahuje osobní/sensitivní údaje: Ano/Ne), 10) Kdo má být CC (garant kurzu, Data Steward, IT contact). Renumber accordingly."
+    },
+    {
+      "target": "incident reporting (Základní postup hlášení bezpečnostního incidentu souvisejícího s AI)",
+      "edit_instruction": "Add a sentence cross‑referencing governance templates: 'Po ohlášení proveďte DPIA/vzor DPIA (viz příloha 9.4) a informujte IT Security Owner (viz sekce 8.7) pro další kroky.'"
+    },
+    {
+      "target": "Praktické poznámky pro katedry",
+      "edit_instruction": "Insert a one‑line syllabus contact example (placeholders): 'Kontakt pro AI‑podporu: Metodika — metodika@<fakulta>.vut.cz; IT/DevOps — it‑ai@<fakulta>.vut.cz; Bezpečnost/GDPR — gdpr@vut.cz; Ticket queue: <nazev_fronty>'."
+    },
+    {
+      "target": "LaTeX markers '(general background knowledge)'",
+      "edit_instruction": "Either remove visible markers or convert them to LaTeX comments. Example: replace '... (general background knowledge)' with '% provenance: general background knowledge' so the compiled document does not show these editorial tags."
+    }
+  ],
+  "retrieval_queries": [
+    "Oficiální interní repozitář s šablonami a video tutoriály VUT (canonical URL / repository name)",
+    "Oficiální kontaktní adresy / aliasy pro Metodické oddělení, IT/DevOps, E‑learning/LMS, Právní/GDPR a IT Security Owner na VUT",
+    "Existující SLA nebo IT incident handling guidelines na úrovni fakulty/univerzity (pokud jsou publikované) to cite recommended confirmation/response times"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section promises that technical details are covered in other parts of the guide but does not point the reader to specific sections. Readers (teachers) would benefit from explicit cross-references to the relevant technical subsections (e.g. where tokens/embeddings/training data are explained) and to where sample prompts (Copilot examples) are located.",
+      "required_fix": "Add explicit cross-references to the relevant sections in the manual (for example: 1.1.3 'Klíčové pojmy: tokens, embeddings, training data', 4.2.2.1 'Generování písemek pomocí Microsoft 365 Copilot ve Forms', and the Prompt Library in 9.1)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section references Copilot usage and a short workflow 'vygeneruj písemku' but contains no concrete example prompt or worked example. The Context memory notes this as an open thread.",
+      "required_fix": "Include at least one short example prompt for Microsoft 365 Copilot (or link directly to the existing example in 4.2.2.1) and add a brief worked example or a sample 'vygeneruj písemku' prompt in the text or as a footnote/reference to the Prompt Library (9.1)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The quick checklist for pilot use is practical but could explicitly mention verifying accuracy, pedagogical suitability, academic integrity, and privacy/GDPR considerations when preparing AI-generated materials.",
+      "required_fix": "Expand the checklist to explicitly include: (a) verify factual accuracy and sources; (b) check pedagogical suitability and alignment with learning outcomes; (c) assess academic integrity risks and required student guidance; and (d) review privacy/GDPR implications for any student data used."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The visible parenthetical labels '(general background knowledge)' appear inside the LaTeX body. These metadata markers may be undesirable in the rendered output.",
+      "required_fix": "Remove or relocate the '(general background knowledge)' labels from the visible LaTeX that will be rendered; keep them in the editor/metadata only."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Remove the visible parenthetical '(general background knowledge)'. Add one sentence with explicit cross-references: e.g. 'Technické pojmy (tokens, embeddings, training data) viz sekce 1.1.3; ukázky promptů a příklad pro Copilot viz 4.2.2.1 a Knihovna promptů (9.1).'"
+    },
+    {
+      "target": "section 'Co to znamená pro praxi ve třídě — tři stručné implikace'",
+      "edit_instruction": "Keep the three implications, but add a brief fourth bullet: '4) Výstupy se musejí ověřit z hlediska faktické přesnosti, pedagogické vhodnosti a souladu s pravidly akademické integrity.'"
+    },
+    {
+      "target": "Krátké, konkrétní příklady užitečné pro učitele",
+      "edit_instruction": "After the Microsoft 365 Copilot bullet, add a short parenthetical or footnote pointing to the concrete Copilot prompt example in section 4.2.2.1 (and/or add a one-line sample prompt such as the example referred to in the outline: 'Vytvoř test s 10 otázkami na matematiku na téma jednoduché lineární rovnice, úroveň: střední škola, formát: MCQ + 2 otevřené otázky'). If the exact text is available in KB, use that exact phrasing; otherwise add a pointer to 4.2.2.1 and the Prompt Library (9.1)."
+    },
+    {
+      "target": "Rychlý checklist pro pilotní použití modelu v hodině",
+      "edit_instruction": "Add an explicit checklist item or sub-bullets under step 3 (Verify) that instruct teachers to: 'a) ověřit faktickou správnost (zdrojovat, pokud možno), b) ověřit didaktickou vhodnost (úroveň/jazyk/formát), c) zhodnotit rizika akademické integrity a upravit zadání podle potřeby, d) zkontrolovat případné soukromé údaje a GDPR dopady.'"
+    }
+  ],
+  "retrieval_queries": [
+    "Retrieve KB excerpt or page that contains the concrete Copilot example prompts referenced for 'Generování písemek pomocí Microsoft 365 Copilot ve Forms' (section 4.2.2.1), including the sample prompt text if present.",
+    "Retrieve KB excerpt for the 'vygeneruj písemku' short workflow (worked example) so a concrete sample prompt/response pair can be inserted or linked.",
+    "Retrieve the specific KB excerpt for section 1.1.3 'Klíčové pojmy: tokens, embeddings, training data' so the section can be cross-referenced precisely (page/anchor to cite)."
+  ]
+}

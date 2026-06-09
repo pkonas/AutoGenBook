@@ -1,0 +1,48 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The phrase \"pozorovat chování vestavěných agentů\" (observe the behaviour of built‑in agents) is plausible but is not explicitly stated in the retrieved excerpt (kb_ai_101_tipu_pdf_page_15_2). The KB describes using Minecraft Education worlds to demonstrate how AI and machine learning work, but does not explicitly mention \"agents\".",
+      "required_fix": "Either rephrase to match the KB wording (e.g. \"pozorovat, jak se v prostředí projevují principy AI a učení\") or add a clarifying footnote linking to a supporting KB excerpt that explicitly mentions agents if such an excerpt is available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The practical activity omits recommended timing and explicit learning outcomes, while the surrounding chapter material (context memory) recommends an organisational/demo timebox (10–25 minutes) and clear outputs/expectations for demonstrations.",
+      "required_fix": "Add a short note with recommended duration and explicit learning objectives/outcomes for the activity, citing the organisational guidance from the surrounding sections (e.g. recommended demo block length 10–25 minutes and what students should be able to explain/observe afterwards)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body includes a bare URL reference to education.minecraft.net inside running text and uses multiple \\\\footnote commands. For more robust compilation and clearer rendering it is better to wrap the URL using \\url{} (requires \\usepackage{url}) or otherwise format the link consistently.",
+      "required_fix": "Replace plain education.minecraft.net with \\url{https://education.minecraft.net} (or format consistently via \\href) and check that the preamble includes the url or hyperref package. Ensure footnotes compile correctly in the enumerate environment."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section includes a short 'General background knowledge' list of example discussion questions, but these are not integrated into the main activity (timing, who asks, how to record reflections).",
+      "required_fix": "Integrate the suggested guided questions into the 'Reflexe a diskuse' step with brief facilitation notes (e.g. allocate 5–10 minutes, sample phrasing, suggestions for collecting student reflections) or explicitly label them as optional prompts for the teacher."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "item 3 (Realizace v hodině)",
+      "edit_instruction": "Rephrase the sentence to closely match the KB: change \"pozorovat chování vestavěných agentů — cílem je, aby žáci prakticky zažili, jak se v prostředí projevují principy učení a rozhodování\" to \"pozorovat, jak se v herním prostředí projevují principy AI a učení (např. jak se modely/agentové rozhodují)\" and keep the existing KB footnote (kb_ai_101_tipu_pdf_page_15_2)."
+    },
+    {
+      "target": "after enumerate (planning note)",
+      "edit_instruction": "Add one short sentence (or a new bullet) stating recommended timing and learning outcomes, supported by the chapter's organisation guidance: e.g. \"Doporučený časový rámec demonstrace + diskuse: 10–25 minut; očekávané výstupy: žák umí vysvětlit základní princip, kde herní model má omezení a navrhnout jednu situaci z reálného světa, kde by podobné chování nefungovalo.\" Reference the organisational guidance from the surrounding sections (demo timebox 10–25 min)."
+    },
+    {
+      "target": "Reflexe a diskuse",
+      "edit_instruction": "Expand this step by 1–2 sentences to indicate facilitation: allocate ~5–10 minutes for whole‑class discussion, pose 2–3 guided questions from the 'General background knowledge' block (e.g. \"Co udělá agent v situaci X?\", \"Jak byste agenta vylepšili?\"), and suggest a quick method to collect responses (thumbs up/down, brief written note, or one‑sentence exit ticket). Mark these prompts as pedagogical suggestions."
+    },
+    {
+      "target": "LaTeX link and footnotes",
+      "edit_instruction": "Replace the plain text 'education.minecraft.net' with a formatted URL: use \\url{https://education.minecraft.net} or \\href if hyperref is available. Verify the document preamble includes \\usepackage{url} or \\usepackage{hyperref} so the link compiles. Ensure footnotes inside enumerate compile properly (they generally do, but recommend a quick compile check)."
+    }
+  ],
+  "retrieval_queries": []
+}

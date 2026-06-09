@@ -1,0 +1,62 @@
+\medskip
+
+Tento oddíl popisuje praktické postupy pro rychlé vytvoření cvičení a pracovních listů s podporou generativní AI, základní přístupy k diferenciaci úloh pro různé úrovně studentů a kontrolní mechanismy pro ověřování kvality úloh a řešení.
+
+\subsection*{Rychlý pracovní postup pro generování pracovního listu}
+\begin{enumerate}
+  \item Definujte cílovou dovednost (1 věta) a požadovaný výstup (např. „vysvětlí postup řešení kvadratické rovnice“).
+  \item Vyberte formát úloh (vektor: krátké otázky / postupové úlohy / otevřené problémové úlohy / automaticky opravitelné MCQ).
+  \item Vygenerujte sadu variant (např. 8–12 příkladů) pomocí AI nástroje; u matematických úloh zvažte agenta, který k příkladům vygeneruje i očekávaný postup řešení (solution steps) — systém může předpřipravit indikaci, kde studenti často chybují \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Přidejte metainformace: obtížnost, klíčová kompetence, doporučený čas na vypracování a kontrolní otázky.
+  \item Validujte: zkontrolujte náhodnou podmnožinu příkladů ručně a u matematických úloh ověřte konzistenci kroků (viz kapitola níže).
+\end{enumerate}
+
+\subsection*{Specifika pro matematiku a sběr postupů}
+U aktivit zaměřených na matematiku je pedagogicky i prakticky velmi výhodné požadovat nahrání postupu řešení, nikoli jen konečného výsledku. Některé vzdělávací AI nástroje (např. nástroje označené jako „Pokrok v matematice“) umožňují učiteli vybrat oblast, generují příklady a zároveň sbírají i postupy žáků; AI pak předvyplní hodnocení a doplní indikaci, v jaké části postupu pravděpodobně došlo k chybě — učitel finálně dokončí hodnocení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}. To zvyšuje zaměření hodnocení na proces místo pouhého výsledku a usnadňuje diagnostiku chyb.
+
+\subsection*{Nástroje a integrace (praktické poznámky)}
+\begin{itemize}
+  \item OneNote a další nástroje pro převod rukopisu na digitální matematiku výrazně usnadňují sběr postupů a jejich automatické vyhodnocení; tyto funkce mohou rovněž exportovat rovnice a grafy pro další zpracování ve výukových platformách \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Webové služby například shromažďují sady úloh a doplňují je o metriky výkonu, které učiteli ukážou, jak si jednotliví studenti vedou v porovnání se třídou \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Pro textové materiály a pracovní listy lze využít nástroje s funkcí „shrnutí“ nebo přepisování tónu (např. integrované Copilot funkce v editoru) pro rychlou úpravu jazykové úrovně či formátu instrukcí \cite{kb_ai_101_tipu_pdf_04e4a115_page_14_1}.
+\end{itemize}
+
+\subsection*{Strategie diferenciace (lehké / standardní / náročné)}
+(Obecné doporučení — označeno jako general background knowledge.)
+\begin{itemize}
+  \item Lehké varianty: více vodítek v zadání, částečně vyplněné kroky, konkrétní nápovědy (hinty), kratší počet kroků.
+  \item Standardní varianty: plné zadání s jasnou strukturou očekávaného postupu; vyžaduje samostatné doplnění všech kroků.
+  \item Náročné varianty: otevřené problémy, aplikace konceptu v novém kontextu, úlohy vyžadující argumentaci nebo více mo­dálit (graf/diagram + text).
+  \item Praktický režim: při generování nechte AI vytvořit jedno „master“ zadání a poté automaticky generujte varianty s rozdílnou počáteční informací (více/ méně hintů) a s různými úrovněmi číselné složitosti.
+\end{itemize}
+
+\subsection*{Kontrolní mechanismy kvality a akademická integrita}
+\begin{enumerate}
+  \item Požadujte u zadání postupy řešení — umožní to detekovat parcely „kopírovaných“ odpovědí a podpoří hodnocení procesu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Používejte hybridní ověření: automatické testy pro konečné výsledky + ruční kontrola vybraných kroků u každého studenta.
+  \item Náhodné variování parametrů úloh s jednoczesným zachováním didaktického cíle snižuje motivaci ke sdílení hotových řešení mezi studenty.
+  \item V sylabu uveďte pravidla pro použití AI v domácích úkolech a požadavek na deklaraci, pokud student při vypracování použil nástroj AI (viz kapitola o etice a integritě).
+\end{enumerate}
+
+\subsection*{Praktické prompt‑šablony (copy \\ \& adapt) — general background knowledge}
+Níže několik kratkých vzorů, které lze zkopírovat a upravit pro konkrétní nástroj:
+\begin{verbatim}
+1) Vygeneruj 10 příkladů na téma "kvadratické rovnice" s řešením:
+ - 4 snadné (kroky vypsané), 4 standardní (kroky stručné), 2 náročné (otevřený problém).
+ - U každého příkladu uveď očekávaný čas: 5/10/20 min.
+2) Přepiš zadání pro 1. ročník Bc. jazyka: zjednoduš věty, přidej 2 kontrolní otázky.
+3) Vytvoř sadu 5 kontrolních otázek (MCQ) s klíčem a krátkým vysvětlením odpovědi.
+\end{verbatim}
+(Použití šablon je praktická pomůcka; výsledky vždy validujte manuálně.)
+
+\subsection*{Krátký checklist pro nasazení pracovního listu s AI}
+\begin{itemize}
+  \item Jasně definované vzdělávací cíle a forma odevzdání (výsledek vs. proces).
+  \item Vyžádání postupu řešení tam, kde má proces hodnotu — zejména u matematiky \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Automatické generování variant a ruční kontrola náhodné části výstupu.
+  \item Zahrnutí informací o tom, zda je AI při tvorbě úlohy použita (transparentnost).
+  \item Integrace s nástroji pro sběr rukopisu / převod rovnic (OneNote apod.) podle potřeby \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+\medskip
+Poznámka: uvedené postupy kombinují příklady z reálných edukačních nástrojů (viz „Pokrok v matematice“ a integrace převodu rukopisu) a praktické pedagogické doporučení; vždy ověřujte generované úlohy před distribucí studentům \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_14_1,kb_ai_101_tipu_pdf_04e4a115_page_15_2}.

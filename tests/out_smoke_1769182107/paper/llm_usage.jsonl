@@ -1,0 +1,2 @@
+{"timestamp": "20260123T154803Z", "label": "paper_json", "model": "openai/gpt-5-mini", "usage": {"prompt_tokens": 351, "completion_tokens": 1121, "total_tokens": 1472}, "cost_usd": 0.00232975, "total_cost_usd": 0.00232975, "total_tokens": 1472, "extra": {"stage": "paper_json"}}
+{"timestamp": "20260123T154815Z", "label": "structure_subdivider", "model": "openai/gpt-5-mini", "usage": {"prompt_tokens": 852, "completion_tokens": 940, "total_tokens": 1792}, "cost_usd": 0.002093, "total_cost_usd": 0.00442275, "total_tokens": 3264, "extra": {"mode": "paper"}}

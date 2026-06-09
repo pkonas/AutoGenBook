@@ -1,0 +1,56 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Illustrative spot‑check sampling rate is inconsistent with the memory/TERMS note. The section text uses \"ilustračně 5–10 %\", while the TERMS excerpt records the first suggested range as 4–8%.",
+      "required_fix": "Choose a single illustrative range and make it consistent across the document (either update this section to 4–8 % or update the TERMS note to 5–10 %). Add a short justification (e.g. 'illustrative range') and ensure the percent formatting is consistent (e.g. '5–10\\%')."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some practical recommendations (e.g. the workflow item 1 example mentioning Copilot in Notepad) lack an explicit in‑text citation even though a supporting KB excerpt exists. Other procedural recommendations (declaration template, required artifacts) are marked as 'general background knowledge' but would benefit from cross‑references to existing templates in the manual (appendix items) to strengthen grounding.",
+      "required_fix": "Add the existing KB citation next to the Copilot/Notepad example (use the provided RID kb_ai_101_tipu_pdf_04e4a115_page_14_1). Add cross‑references to the manual's appendices where relevant (e.g. AI Policy Template in appendix 9.3, Prompt Library in 9.1) or state explicitly that these templates are in the appendices."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Small LaTeX/typographic issues: missing space in '2–3větnou' (should be '2–3 větnou' or better '2–3větnou' normalized), inconsistent hyphenation (e.g. use of both en‑dash and nonbreaking hyphen), and inconsistent phrasing ('Copilot v Poznámkovém bloku: Copilot v Notepadu...' is repetitive).",
+      "required_fix": "Fix spacing (e.g. '2–3větnou' → '2–3 větnou'), standardize hyphenation to use nonbreaking hyphens where appropriate, remove redundant phrases, and check percent LaTeX encoding (e.g. '5--10\\%' or '5–10\\%') for consistency with document conventions."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The inline markers 'general background knowledge' appear inside the body text. This breaks flow and may confuse readers. The declaration template omits an explicit field about consent/data processing and storage of exported AI conversations (GDPR consideration was mentioned elsewhere in the manual).",
+      "required_fix": "Remove inline 'general background knowledge' tags from the main text; if needed, move them to editor notes or footnotes. Add a short field in the declaration template for 'Souhlas se zpracováním / poznámka o ochraně osobních údajů' (consent/processing note) and cross‑reference the GDPR/DPIA guidance (chapter 2.2) so teachers know to handle conversation exports appropriately."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "workflow item 1 (first bullet)",
+      "edit_instruction": "Add an explicit citation to the Copilot in Notepad support excerpt right after the example: include reference kb_ai_101_tipu_pdf_04e4a115_page_14_1. Remove the redundant repetition 'Copilot v Poznámkovém bloku: Copilot v Notepadu' and rewrite to one concise sentence (e.g. 'Copilot v Poznámkovém bloku: nabízí operace jako přepsání jinými slovy, shrnutí, zkrácení nebo změnu tónu (viz \\cite{kb_ai_101_tipu_pdf_04e4a115_page_14_1}).')."
+    },
+    {
+      "target": "spot‑check sentence",
+      "edit_instruction": "Resolve the inconsistent illustrative range. Prefer a single phrasing such as: 'Provádějte náhodné spot‑checky (ilustračně 5–10 %) artefaktů...' and ensure the same value appears in the TERMS note. Add a parenthetical note: '(ilustrativní rozsah—upravte podle velikosti kurzu)' to signal it is an example, not a hard rule."
+    },
+    {
+      "target": "Šablona deklarace použití AI",
+      "edit_instruction": "Add one line for data/consent: 'Souhlas se zpracováním / poznámka o ochraně osobních údajů: (např. souhlasím se sdílením exportu konverzace pro účely hodnocení; anonymizovat citlivé údaje)'. Add a cross‑reference to chapter 2.2 (GDPR guidance) or to appendix 9.4 (Vzor DPIA) so teachers know where to find processing guidance."
+    },
+    {
+      "target": "inline 'general background knowledge' markers",
+      "edit_instruction": "Remove the inline 'general background knowledge' labels from the visible text. If needed for editors, move them to margin notes or an editorial footnote indicating which statements are broadly accepted practice rather than KB‑sourced assertions."
+    },
+    {
+      "target": "typography/LaTeX fixes",
+      "edit_instruction": "Correct spacing issues (e.g. '2–3větnou' → '2–3 větnou'), unify dash usage (en‑dash for ranges), and ensure percent signs are encoded consistently in LaTeX (e.g. '5–10\\%'). Run a quick compile check to ensure enumerate/itemize environments render correctly."
+    }
+  ],
+  "retrieval_queries": [
+    "AI Policy Template sylab VUT 'deklarace použití AI' template",
+    "spot‑check sampling rate guidance 'spot‑check' percentage education assessment",
+    "examples of AI use declaration templates for assignments export conversation prompt"
+  ]
+}

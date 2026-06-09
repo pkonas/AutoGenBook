@@ -1,0 +1,124 @@
+{
+  "agent": "context_memory",
+  "timestamp": "20260123T153642Z",
+  "input": {
+    "context_memory_json": "{\n  \"terms\": {\n    \"Nástroje pro učitele\": {\n      \"definition\": \"asistenti pro přípravu obsahu, autogradery, generátory cvičení a multimédií. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Nástroje pro studenty\": {\n      \"definition\": \"adaptivní moduly, konverzační chatboty a systémy průběžné zpětné vazby. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Chatboti jako kurzoví asistenti\": {\n      \"definition\": \"Ilustrační příklad: chatboti používaní jako kurzoví asistenti. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Autogradery\": {\n      \"definition\": \"Ilustrační příklad/nástroj pro učitele: autogradery pro hodnocení kódu. Praktické nasazení zahrnuje cíle (zrychlení rutinního hodnocení, okamžitá zpětná vazba, uvolnění času vyučujícímu), specifické kroky zavedení (příprava testovacích sad s okrajovými případy a peer review, volba LMS‑kompatibilního nástroje a pilotování, pravidlo lidského přezkumu pro sporné/otevřené odpovědi) a metriky pro měření přínosu (čas ručního hodnocení, opravy testů, spokojenost studentů, A/B piloty). (from section only)\",\n      \"first_seen_node\": \"2-1\"\n    },\n    \"Adaptivní moduly\": {\n      \"definition\": \"Ilustrační příklad/nástroj pro studenty: moduly měnící obtížnost podle výkonu studenta. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Praktické kapitoly (obsah)\": {\n      \"definition\": \"Scénáře nasazení s postupem a integrací do LMS, ověřené příklady, tipy pro piloty a škálování, doporučení pro měření účinnosti, řízení rizik, ochranu údajů a etiku. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Automatizovaná zpětná vazba a podpora hodnocení\": {\n      \"definition\": \"Praktické nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí; účel: zrychlit rutinní hodnocení, poskytovat okamžitou zpětnou vazbu a uvolnit čas vyučujícímu. (from section only)\",\n      \"first_seen_node\": \"2-1\"\n    },\n    \"Kroky zavedení autograderů\": {\n      \"definition\": \"Krátký postup zavedení: 1) definovat typy úloh a připravit testovací sady včetně okrajových případů a peer review testů; 2) vybrat nástroj kompatibilní s LMS, integrovat do workflow odevzdání a pilotovat na malé skupině; 3) nastavit pravidlo lidského přezkumu pro sporné či otevřené odpovědi a iterovat podle zjištěných chyb. (from section only)\",\n      \"first_seen_node\": \"2-1\"\n    }\n  },\n  \"citations\": [\n    {\n      \"source_id\": \"node_1\",\n      \"node\": \"1\",\n      \"section\": \"Úvod\"\n    },\n    {\n      \"source_id\": \"node_2-1\",\n      \"node\": \"2-1\",\n      \"section\": \"Automatizovaná zpětná vazba a podpora hodnocení\"\n    }\n  ],\n  \"figures\": [],\n  \"tables\": [],\n  \"open_threads\": [\n    {\n      \"issue\": \"Jak AI podporuje učení a zpětnou vazbu; jak definovat výukové cíle a metriky úspěchu?\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Požadavky na kvalitu a ochranu dat, souhlas studentů, inkluze a praktické postupy pro vyhodnocování dopadu\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Konkrétní kroky pro integraci nástrojů (autogradery, chatboti, adaptivní moduly) do LMS a postupy pilotních nasazení\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Konkrétní technické požadavky a příklady nástrojů kompatibilních s různými LMS (pluginy, API, provozní testovací prostředí) nejsou v sekci specifikovány.\",\n      \"node\": \"2-1\"\n    },\n    {\n      \"issue\": \"Kritéria a prahy pro eskalaci na lidský přezkum (které typy chyb/odpovědí vždy eskalovat) nejsou konkretizovány.\",\n      \"node\": \"2-1\"\n    },\n    {\n      \"issue\": \"Šablony metrik a metodika pro měření přínosu (stanovení baseline, návrh A/B piloty, měření spokojenosti) chybí.\",\n      \"node\": \"2-1\"\n    }\n  ]\n}",
+    "section_title": "Adaptivní a personalizované učení",
+    "node_key": "2-2",
+    "section_latex": "Úvodní poznámka: Níže shrnuté kroky a doporučení pro nasazení adaptivních modulů — praktické vodítko, které je třeba ověřit na místních datech a infrastruktuře (general background knowledge).\nCíl: nabídnout studentům individuální výukové cesty podle výkonu a potřeb, zvýšit efektivitu učení a udržení znalostí.\n\\begin{enumerate}\n\\item Definujte výukové cíle a rozdělte obsah do krátkých modulů s měřitelným mastery; \\item Navrhněte větve (nápravné, rozšiřující, opakovací) a pravidla adaptace (prahy, opakování, spacing); \\item Zajistěte datové zdroje, anonymizaci, integraci s LMS a pilotujte na malé skupině.\n\\end{enumerate}\nPilot: malá+kontrolní skupina, průběžné monitorování, rychlé iterace a dokumentace rozhodnutí pro škálování.\nMěřítka: pre/post skóre, udržení, engagement (čas/aktivita), míra dokončení, podpora a kvalita reakcí.\nRizika a zásady: cold start a záložní cesta, riziko zkreslení a nutnost auditu, ochrana dat; návrh obsahu: krátké kroky, jasná kritéria mastery, vysvětlení doporučení a možnost přepnutí; šablona modulu: cíl, mapování, pravidla, data, pilot.",
+    "book_outline_text": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "terms_added": [
+      {
+        "term": "Adaptivní a personalizované učení",
+        "definition": "Praktické kroky a doporučení pro nasazení adaptivních modulů: definovat výukové cíle, dělit obsah do krátkých modulů s měřitelným mastery; navrhnout větve (nápravné, rozšiřující, opakovací) a pravidla adaptace (prahy, opakování, spacing); zajistit datové zdroje, anonymizaci, integraci s LMS a pilotovat na malé skupině. Obsahuje návrhy pilotu, metrik a rizik/zásad. (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Větve adaptace",
+        "definition": "Konkrétní typy cest v adaptivním modulu uvedené v sekci: nápravné, rozšiřující a opakovací větve pro řízení dalšího postupu studenta. (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Pravidla adaptace",
+        "definition": "Parametry řízení adaptace zmíněné v sekci: prahy, opakování a spacing (rozestupy opakování). (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Mastery (měřitelné mastery)",
+        "definition": "Požadavek na krátké moduly s měřitelnými kritérii pro dosažení mastery (sekce doporučuje rozdělit obsah do modulů s měřitelným mastery). (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Pilot (adaptivní moduly)",
+        "definition": "Doporučený přístup k ověření: pilot na malé + kontrolní skupině s průběžným monitorováním, rychlými iteracemi a dokumentací rozhodnutí pro škálování. (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Měřítka pro adaptivní moduly",
+        "definition": "Navržená metrika pro hodnocení pilotu: pre/post skóre, udržení, engagement (čas/aktivita), míra dokončení, podpora a kvalita reakcí. (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Rizika a zásady (adaptivní učení)",
+        "definition": "Upozornění uvedená v sekci: cold start a potřeba záložní cesty, riziko zkreslení a nutnost auditu, ochrana dat; návrh obsahu zahrnuje krátké kroky, jasná kritéria mastery, vysvětlení doporučení a možnost přepnutí. (from section only)",
+        "first_seen_node": "2-2"
+      },
+      {
+        "term": "Šablona modulu (adaptivní)",
+        "definition": "Krátká šablona doporučená v sekci: cíl, mapování, pravidla, data, pilot. (from section only)",
+        "first_seen_node": "2-2"
+      }
+    ],
+    "terms_updated": [
+      {
+        "term": "Adaptivní moduly",
+        "old_definition": "Ilustrační příklad/nástroj pro studenty: moduly měnící obtížnost podle výkonu studenta. (from section Úvod)",
+        "new_definition": "Ilustrační příklad/nástroj pro studenty: moduly měnící obtížnost podle výkonu studenta; doporučené kroky zavedení zahrnují: definovat výukové cíle a dělit obsah do krátkých modulů s měřitelným mastery; navrhnout větve (nápravné, rozšiřující, opakovací) a pravidla adaptace (prahy, opakování, spacing); zajistit datové zdroje, anonymizaci, integraci s LMS a pilotovat na malé skupině. (from section 2-2; clarification)",
+        "reason": "clarification or correction"
+      }
+    ],
+    "citations_used": [
+      {
+        "cite_key_or_rid": "2-2",
+        "where": "Adaptivní a personalizované učení (sekce)",
+        "type": "kb"
+      }
+    ],
+    "open_threads": [
+      {
+        "thread": "Potřeba specifikovat konkrétní prahy a algoritmické pravidla adaptace (konkrétní hodnoty pro 'prahy', politiku opakování a spacing), které sekce pouze uvádí jako požadavek.",
+        "suggested_future_node": "2-2"
+      },
+      {
+        "thread": "Řešení cold startu a návrh záložní (fallback) cesty pro studenty při nasazení adaptivního systému nejsou konkretizovány.",
+        "suggested_future_node": "2-2"
+      },
+      {
+        "thread": "Konkrétní technické postupy pro integraci datových zdrojů a anonymizace s různými LMS (API, datové schémata, zabezpečení) chybí a vyžadují rozpracování.",
+        "suggested_future_node": "2-2"
+      },
+      {
+        "thread": "Postupy auditu proti zkreslení (bias) a standardizovaná metodika pro provádění auditů v pilotu nejsou popsány podrobněji.",
+        "suggested_future_node": "2-2"
+      }
+    ],
+    "consistency_flags": [
+      {
+        "type": "terminology",
+        "description": "Dvojí pokrytí pojmu adaptivní moduly/Adaptivní a personalizované učení mezi Úvodem (term 'Adaptivní moduly') a novou sekcí 2-2 může vést k duplicitě; doporučeno sjednotit definici a odkazovat na podrobnosti v 2-2.",
+        "severity": "low"
+      },
+      {
+        "type": "claim",
+        "description": "Sekce uvádí cíl 'zvýšit efektivitu učení a udržení znalostí' jako záměr; není zde empirické ověření — požadavek na lokální ověření na datech a infrastruktuře je explicitně uveden.",
+        "severity": "medium"
+      },
+      {
+        "type": "terminology",
+        "description": "Rizika a zásady (data protection, audit) se překrývají s předchozími otevřenými tématy o ochraně dat a inkluzi; je potřeba sjednotit doporučení a odkazy mezi sekcemi.",
+        "severity": "medium"
+      }
+    ],
+    "retrieval_queries": [
+      "konkrétní prahy adaptivního systému 'thresholds' 'spacing' 'repetition' pedagogical values evidence",
+      "postupy řešení cold-start v adaptivním učení příklady implementací pilotních záložních cest",
+      "best practices anonymizace a integrace student data s LMS API anonymization guidance",
+      "metodika auditu biasu pro adaptivní vzdělávací systémy a šablony auditu"
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 3008,
+      "completion_tokens": 3045,
+      "total_tokens": 6053
+    },
+    "cost_usd": 0.006842,
+    "total_cost_usd": 0.062846,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

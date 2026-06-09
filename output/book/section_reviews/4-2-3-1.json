@@ -1,0 +1,51 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section describes a practical activity but does not explicitly link the activity to the learning outcomes presented earlier in the document (section with example learning outcomes in 4-2-1 / context memory).",
+      "required_fix": "Add an explicit sentence mapping the Minecraft activity to one or more of the example learning outcomes (e.g., recognizing model failure/halucinace, interpreting AI outputs, methods for verification) so readers can see how the activity supports the stated objectives."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Praktický postup' gives high-level steps but lacks practical teaching details (time estimate, example teacher prompts for the guided discussion, suggested assessment or artifact to collect).",
+      "required_fix": "Include an estimated duration for the demo + discussion (consistent with the document's recommended demo block length), add 2–3 example questions/prompts teachers can use during the guided discussion, and suggest a simple, collectable student artifact (e.g., short written reflection or checklist) to support assessment."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section mentions licensing (free Hour of Code vs. paid content in Microsoft 365 A3/A5) which is supported by the retrieved excerpt, but it does not explicitly instruct teachers to verify local licensing/IT availability.",
+      "required_fix": "Add a short cautionary note to verify school licensing and local availability with IT/administration before planning the activity, and reference the existing mention of A3/A5 in the KB excerpt (kb_ai_101_tipu_pdf_page_15_2 / 7.6.1)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure is valid, but footnotes all reference the same source repeatedly. This is acceptable but could be consolidated for readability.",
+      "required_fix": "Optionally consolidate repeated identical footnotes by placing a single footnote at the end of the paragraph or the itemize block referencing kb_ai_101_tipu_pdf_page_15_2 to reduce redundancy."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the opening paragraph, add a short sentence explicitly linking the activity to learning outcomes from section 4-2-1 (e.g., 'Tuto aktivitu lze zařadit pro dosažení následujících výstupů: rozpoznání selhání modelu, interpretace výstupů AI a návrhy postupů pro ověření výsledků.'). Ensure this cross-reference is phrased as an internal link to the earlier learning outcomes rather than a new factual claim."
+    },
+    {
+      "target": "Praktický postup (itemize)",
+      "edit_instruction": "Add a preliminary bullet before installation: 'Ověřte dostupnost licence a technické podmínky (viz poznámku o Microsoft 365 A3/A5); domluvte s IT přístup pro třídu.' Reference the KB source already cited (kb_ai_101_tipu_pdf_page_15_2)."
+    },
+    {
+      "target": "Praktický postup (itemize)",
+      "edit_instruction": "Append to the itemize block a bullet with implementation details for teachers: estimated duration (e.g., 10–25 minut na demo + diskusi, per document guidance), 2–3 example guided‑discussion prompts (e.g., 'Co se stalo, když model udělal chybu? Jak bychom to ověřili? Kde by tento přístup fungoval nebo nefungoval mimo hru?'), and a suggestion for a brief student artifact (např. krátká reflexe nebo checklist). Phrase duration as consistent with the document's general recommendation rather than as a new external fact."
+    },
+    {
+      "target": "footnotes",
+      "edit_instruction": "Consolidate repeated identical footnotes: replace multiple identical \\\\footnote entries within the itemize with a single footnote at the end of the list pointing to kb_ai_101_tipu_pdf_page_15_2 to improve readability."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_15_2 (full chunk) — to re-check exact phrasing about free Hour of Code lessons, license A3/A5 and the download URL education.minecraft.net",
+    "search for KB evidence of recommended demo block length '10–25 minutes' in the document (to support adding estimated duration)"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Inline percent signs (%) are used inside itemize items as comments (e.g. \"... generovaných textů. % general background knowledge\"). In LaTeX a percent starts a comment and will remove the remainder of the line from the compiled output which may hide intended short notes or text.",
+      "required_fix": "Remove or relocate inline '%' comments from the content lines. If a visible note is intended in the printed PDF, replace '%' with an inline parenthetical (e.g. '(general background knowledge)') or move the comment to a TeX comment on its own line before the environment."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some pedagogical terms and recommendations are used without an explicit supporting excerpt: e.g. 'SMART' for learning outcomes and 'úroveň Bloomovy taxonomie' are requested in prompts but no KB excerpt defining SMART/Bloom is provided in the section.",
+      "required_fix": "Either (a) mark these as 'general background knowledge' in the prompt templates (so readers know definitions are general pedagogy), or (b) add a short footnote or cross‑reference to a KB entry defining SMART and Bloom taxonomy if available in the handbook."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section advises saving templates to a central repository and planning quarterly reviews (already present in context memory), but the section only marks this as 'general background knowledge' rather than cross-referencing the recommended practice elsewhere in the manual.",
+      "required_fix": "Add an explicit cross-reference (e.g. 'viz. doporučená praxe v kapitole 3 / TERMS') or a footnote pointing to the handbook section that documents the recommended storage/versioning and quarterly review workflow to improve discoverability and internal consistency."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section gives useful prompt templates but lacks an explicit pointer that syllabi generated with these prompts should also include AI‑usage policy wording, transparency and academic integrity rules (covered elsewhere in the manual).",
+      "required_fix": "Add a short sentence after the Sylabus template advising to include the course's AI policy / transparency clause and link to the AI policy templates (section 9.3 or 2.4 in this handbook). Example: 'Nezapomeňte do sylabu vložit formulaci o povoleném/zakázaném používání AI a požadavky na deklaraci — viz šablona politiky v přílohách.'"
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "LaTeX comments in itemize lines",
+      "edit_instruction": "Remove trailing inline '%' commentary from content lines. If you want human-only notes, place them as TeX comments on their own line before the itemize environment. If you want visible short tags in the rendered document, replace '%' comments with parenthetical notes, e.g. '(general background knowledge)'."
+    },
+    {
+      "target": "Bullet about saving templates and quarterly reviews",
+      "edit_instruction": "Add an explicit cross-reference / footnote to the handbook location that prescribes saving templates and quarterly revisions (the chapter's recommended practice / TERMS). For example: add a footnote 'viz doporučená praxe pro ukládání a aktualizaci šablon v kapitole 3' (or exact internal reference available in the manual)."
+    },
+    {
+      "target": "Sylabus prompt (item 1) and 'Jak prompty používat' paragraph",
+      "edit_instruction": "Add one sentence reminding authors to include AI usage/transparency wording and academic integrity instructions in the generated syllabus and link to the AI policy templates in the appendices (section 9.3). Example addition: 'Při vkládání do sylabu doplňte formulaci o pravidlech použití AI a požadavku na deklaraci (viz šablona AI policy v přílohách).'"
+    },
+    {
+      "target": "Prompts that request pedagogical taxonomies (SMART, Bloom)",
+      "edit_instruction": "Either label 'SMART' and 'Bloomova taxonomie' explicitly as 'general background knowledge' in the prompt templates, or add short explanatory footnotes / references to avoid implying that the handbook provides those definitions here."
+    }
+  ],
+  "retrieval_queries": [
+    "Definice SMART učebních výstupů (Specific Measurable Achievable Relevant Time‑bound) evidence",
+    "Bloomova taxonomie úrovně — krátké vysvětlení pro pedagogy",
+    "Kde v příručce je doporučení pro ukládání šablon a kvartální revize (search for 'kvartální revize' or 'Ukládání a aktualizace šablon')",
+    "Šablona AI policy pro sylabus (search for 'AI policy do sylabů' or 'šablona sylabu' in the handbook)"
+  ]
+}

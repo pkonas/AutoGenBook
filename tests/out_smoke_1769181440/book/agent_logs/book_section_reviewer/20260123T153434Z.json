@@ -1,0 +1,77 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T153434Z",
+  "input": {
+    "section_title": "Přehled praktických nástrojů a rychlého nastavení",
+    "node_key": "3-1",
+    "section_latex": "Krátký přehled ověřených kategorií nástrojů a kdy je vyzkoušet:\n\n\\begin{itemize}\n  \\item LMS pluginy (integrace do Moodle/Canvas): vhodné, když chcete automatizovat distribuci materiálů, sběr odpovědí a základní reporting. Rychlé nasazení (obecné doporučení): aktivovat plugin v testovacím kurzu, nastavit přístup pro jedno demo cvičení a ověřit import/export CSV. (obecná background knowledge)\n  \\item Chatboty pro studenty: nasadíte je pro FAQ, rychlé konzultace a předběžné tutorování; při pilotu sledujte kvantitativní metriky i kvalitu odpovědí — např. počet dotazů, dobu odpovědi, procento eskalací a audit odpovědí + spokojenost uživatelů \\cite{2-5}. Při pilotu uplatněte zásadu „začněte malé“ a stanovte měřitelné KPI \\cite{2-6}.\n  \\item Generátory testových otázek a materiálů: vhodné pro rychlé vytvoření verzí zadání a inspiraci při přípravě. Při prvním testu zkontrolujte kvalitu 10–20 vygenerovaných položek ručně. (obecná background knowledge)\n  \\item Nástroje pro asistované hodnocení (LLM-assisted grading): použijte je tam, kde chcete zrychlit předhodnocení a navrhování skóre; vždy plánujte manuální audit a pravidla pro eskalaci nesrovnalostí \\cite{2-6}.\n  \\item Jednoduché skripty a integrace (webhooky, CSV import/export): rychlé řešení pro automatizaci toku dat mezi nástroji a LMS; nasazení obvykle zabere hodiny a lze je nejprve otestovat v samostatném sandboxu. (obecná background knowledge)\n\\end{itemize}\n\nRychlé nastavení „do 60 minut“ — univerzální checklist (shrnutí doporučení):\n\\begin{enumerate}\n  \\item Definujte jasný cíl pilotu a 2--4 KPI, které budete měřit \\cite{2-6}.\n  \\item Vytvořte testovací prostor (sandbox kurzu nebo kanál) a udělte oprávnění testovacím uživatelům \\cite{2-6}.\n  \\item Nahrajte malý vzorek obsahu (několik otázek, několik FAQ) a proveďte kontrolní běh s jedním až třemi uživateli (manuální audit výsledků). (obecná background knowledge)\n  \\item Sledujte základní metriky a sepište první poznatky pro další iteraci (zvláště u chatbotů sledujte metriky uvedené v předchozím bodě) \\cite{2-5}.\n  \\item Naplánujte postup eskalace a osobu zodpovědnou za manuální audit výsledků během pilotu \\cite{2-6}.\n\\end{enumerate}\n\nPoznámka: konkrétní technické kroky (konfigurace API klíčů, mapování polí v CSV, nastavení práv v LMS) závisí na vybraném nástroji a měly by být provedeny podle dokumentace poskytovatele. (obecná background knowledge)",
+    "context_memory_excerpt": "TERMS:\n- Metriky pro chatbota: Doporučené kvantitativní metriky: počet dotazů, doba odpovědi, procento eskalací; kvalitativní ukazatele: audit odpovědí a spokojenost uživatelů. (from section only) (first: 2-5)\n- Doporučený pilotní postup (chatbot): Kroky pro pilot: definice cíle, sběr znalostí, volba technologie, nastavení metrik, školení dohledu a vyhodnocení; zásada: začínejte malé s lidským dohledem a iterujte podle zjištěných výsledků. (from section only) (first: 2-5)\n- Bezpečnostní a etické požadavky pro chatbota: Požadavky uvedené v sekci: transparentnost použití chatbota vůči uživatelům, ochrana osobních údajů a jasně definovaná odpovědnost za obsah a eskalace. (from section only) (first: 2-5)\n- Praktický pilot: Obecné doporučení pro spuštění malého pilotu: začněte malé s jasným cílem; vyberte 2–4 měřitelné KPI; vymezte rozsah (kurzy/studenti, typ úloh, délka); nastavte technické i organizační kroky s jasnými odpovědnostmi. (from section only) (first: 2-6)\n- Šablona časového plánu (pilot): Příklad časového plánu pilotu (8 týdnů): Týden 0 — definice cíle, metriky, tým; Týdny 1–2 — technická příprava a naplnění dat; Týdny 3–6 — běh pilotu a průběžné vyhodnocení; Týden 7 — sběr zpětné vazby; Týden 8 — rozhodnutí o rozšíření nebo ukončení. (from section only) (first: 2-6)\n- Rychlý checklist a role pro pilot: Krátký checklist rizik a kroků: zajistit ochranu dat a získání souhlasů, provádět manuální audit kvality výstupů, monitorovat zátěž a možné zaujatosti, zajistit transparentnost a mít plán eskalace. Doporučené role: pedagogický garant, IT, dozor kvality, koordinátor pilotu a zástupce studentů. (from section only) (first: 2-6)\n\nCITATIONS:\n- 1 (node: 1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n- 2-4 (node: 2-4)\n- 2-5 (node: 2-5)\n- 2-6 (node: 2-6)\n\nOPEN THREADS:\n- Potřeba odvozených, oborově specifických pilotních protokolů a KPI šablon (sekce poskytuje obecný 8týdenní template, ale chybí doménově specifické metriky a postupy). (node: 2-6)\n- Potřeba standardizované...",
+    "previous_sections": "The title of part 1 sections ago is Praktický pilot a checklist nasazení, and the content is as follows.\n\\noindent\\textit{Poznámka: níže uvedené body jsou obecná doporučení a měly by být ověřeny lokálním pilotem před plošným nasazením.}\n\nKrátce: začněte malé s jasným cílem, vyberte 2–4 měřitelné KPI, vymezte rozsah (kurzy/studenti, typ úloh, délka) a nastavte technické i organizační kroky s jasnými odpovědnostmi.\n\nŠablona časového plánu: Týden 0: definice cíle, metriky, tým; 1--2: technická příprava a naplnění dat; 3--6: běh pilotu a průběžné vyhodnocení; 7: sběr zpětné vazby; 8: rozhodnutí o rozšíření/ukončení.\n\nRychlý checklist a role: zajistit ochranu dat a souhlasy, manuální audit kvality, monitorovat zátěž a zaujatost, transparentnost a plán eskalace; role: pedagogický garant, IT, dozor kvality, koordinátor pilotu, zástupce studentů.\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 2.0)\n  - Krátká příručka zaměřená na praktické využití umělé inteligence v univerzitní výuce. Poskytuje věcné vysvětlení možností AI, ukazuje ověřené příklady z praxe na různých univerzitách, a nabízí konkrétní šablony a postupy pro nasazení v kurze…\n  1.Úvod (pages: 0.6)\n    - Stručné představení cíle průvodce a definice AI v kontextu vysokoškolské výuky. Vysvětlení klíčových přínosů pro univerzity (personalizace, škálovatelnost, zrychlení tvorby materiálů, podpora hodnocení) a doporučení, jak začít s malými pilo…\n  2.Případové studie z univerzit (praktické příklady) (pages: 0.6)\n    - Konkrétní ověřené příklady nasazení AI na univerzitách: adaptivní úlohy v online kurzech (příklady z MOOC a LMS), automatizované hodnocení krátkých odpovědí a kódů (příklady z technických a humanitních fakult), generování výukových materiál…\n    2.1.Adaptivní úlohy v MOOC a LMS (pages: 0.1)\n      - Popis konkrétních scénářů adaptivního zadávání úloh v online kurzech (MOOC i lokální LMS). Ke každému příkladu: cíle, model adaptivity (jednoduchá pravidla vs. ML), doporučené metriky pro vyhodnocení, kroky nasazení a tipy pro malý pilot.\n    2.2.Automatizované hodnocení krátkých odpovědí (pages: 0.1)\n      - Praktické příklady použití nástrojů pro automatické hodnocení otevřených odpovědí v humanitních i odborných kurzech. Obsahuje popis požadavků, návrh metrik kvality, implementační postup a doporučení pro validaci proti ručnímu hodnocení.\n    2.3.Automatizované hodnocení kódu v technických kurzech (pages: 0.1)\n      - Příklady řešení pro automatické vyhodnocení programovacích úloh (testovací sady, statická analýza, hodnocení kvality). Ke každému případu jsou uvedeny cíle, postup nasazení v kurzu, návrh metrik a praktické tipy pro integraci do hodnocení.\n    2.4.Generování výukových materiálů a testových otázek (pages: 0.1)\n      - Ukázky, jak AI generuje učební texty, shrnutí, příklady a otázky k testům. Ke každému příkladu: očekávané přínosy, rizika kvality a biasu, proces kontroly obsahu, a jednoduchý pilotní postup pro ověření použitelnosti.\n    2.5.Chatboti pro studentské konzultace a tutorování (pages: 0.1)\n      - Konkrétní nasazení chatbotů jako podpory konzultací (FAQ, krokové návody, tutorování). Obsahuje popis rolí chatbota, metody měření užitečnosti, bezpečnostní a etické aspekty a doporučené kroky pro nasazení pilotu.\n    2.6.Praktický pilot a checklist nasazení (pages: 0.1)\n      - Kompaktní průvodce krok za krokem pro zřízení malého pilotu na pracovišti: definice cíle, výběr ukazatelů úspěchu, technické a organizační kroky, šablona časového plánu a checklist rizik a potřebných rolí.\n  3.Nástroje, šablony a konkrétní postupy pro učitele (pages: 0.4)\n    - Přehled praktických nástrojů a šablon, které používají univerzity (LMS pluginy, LLM-based grading aides, generátory testů, chatboty pro studenty). Obsahuje doporučené nastavení, ukázkové šablony promptů pro přípravu lekcí a úloh, vzory rubr…\n    3.1.Přehled praktických nástrojů a rychlého nastavení (pages: 0.1)\n      - Kondenzovaný seznam ověřených kategorií nástrojů (LMS pluginy, chatboty, generátory testů, nástroje pro asistované hodnocení) s doporučením, kdy je který typ vhodný a jaké základní nastavení provést, aby šel nástroj vyzkoušet během jedné ho…\n    3.2.Šablony promptů a vzory pro přípravu lekcí a úloh (pages: 0.1)\n      - Sada konkrétních, přenosných promptů a strukturovaných šablon pro tvorbu osnov, přípravu zadání, generování příkladů a řešení; obsahuje krátké instrukce pro přizpůsobení promptů různým oborům a úrovním studentů.\n    3.3.Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted) (pages: 0.1)\n      - Praktické vzory rubrik pro hodnocení výstupů částečně nebo zcela generovaných AI, krokový workflow pro kombinované (člověk + LLM) hodnocení, a ukázky, jak dokumentovat rozhodnutí o bodování pro audit a zveřejnění studentům.\n    3.4.Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom (pages: 0.1)\n      - Kompaktní soubor rychle nasaditelných nápadů: co skript řeší, jaké jsou vstupy/výstupy, a odkazy na šablony (např. webhook, import/export CSV, základní automatizace zadání), aby učitel mohl během pár hodin zprovoznit integraci v běžném pros…\n  4.Implementace v kurzu: plánování a řízení rizik (pages: 0.3)\n    - Konkrétní krokový plán pro zavedení AI do kurzu: identifikace učebních cílů vhodných pro AI, návrh pilotu, zapojení studentů a získání zpětné vazby, školení týmu a technická integrace. Popis kontroly kvality výstupů a postupů pro minimaliza…\n  5.Etika, ochrana soukromí a ověřování výstupů (pages: 0.1)\n    - Praktická doporučení pro zajištění etického nasazení AI: ochrana osobních údajů studentů, souhlas se zpracováním dat, transparentnost použití AI v kurzu, a postupy pro prevenci a řešení zneužití (školní politika, doporučení k uchovávání záz…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": false,
+    "issues": [
+      {
+        "type": "consistency",
+        "severity": "major",
+        "description": "The 'do 60 minut' quick checklist omits an explicit step to ensure data protection and obtaining participant consent. Previous sections and the context memory explicitly list 'zajistit ochranu dat a získání souhlasů' as a required checklist item for pilots, so this omission creates an inconsistency across the document.",
+        "required_fix": "Add a clear checklist item in the 60‑minute checklist requiring verification of data protection measures and consent (or use of anonymized test data), with a pointer to follow institutional/privacy policies (cite node 2-6)."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Several bullets end with the parenthetical marker '(obecná background knowledge)', mixing Czech and English and potentially confusing readers about which statements are evidence‑based versus general advice.",
+        "required_fix": "Standardize these markers (preferably in Czech) and add a short preface explaining that marked items are general background recommendations rather than citations to source nodes."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "minor",
+        "description": "The quick checklist refers to 'sledovat základní metriky' but doesn't list the concrete recommended chatbot metrics in that checklist entry. The metrics exist elsewhere in the document/memory (počet dotazů, doba odpovědi, procento eskalací, audit odpovědí, spokojenost uživatelů).",
+        "required_fix": "Explicitly list the recommended chatbot metrics inline in the checklist (and cite node 2-5) so the 60‑minute checklist is actionable without flipping to other sections."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "The LaTeX body uses mixed-language parenthetical tags and typographic quotes; while not syntactically invalid, these could reduce typesetting consistency or clarity in the compiled document.",
+        "required_fix": "Replace mixed-language markers with a consistent Czech phrase (e.g., '(obecné pozadí)') and ensure consistent use of ASCII or TeX-safe punctuation for reproducible compilation."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "paragraph hint",
+        "edit_instruction": "In the 'Rychlé nastavení „do 60 minut“' enumerate, insert a new first or second item: 'Zajistěte ochranu osobních údajů a získání souhlasů účastníků (nebo použijte anonymizovaná/testovací data). Potvrďte, že konfigurace nástrojů neexfiltruje citlivá data — konzultujte IT/PRIVACY. \\cite{2-6}'."
+      },
+      {
+        "target": "bullet markers",
+        "edit_instruction": "Replace every occurrence of '(obecná background knowledge)' with a single standardized Czech phrase such as '(obecné pozadí)' and add a one-sentence preface before the itemize/enumerate blocks: 'Poznámka: položky označené \"(obecné pozadí)\" jsou souhrnná doporučení, která nejsou výslovně citována v této sekci.'"
+      },
+      {
+        "target": "checklist item 4",
+        "edit_instruction": "Expand checklist item 4 to explicitly name the chatbot metrics: 'Sledujte základní metriky (např. počet dotazů, dobu odpovědi, % eskalací; kvalitativně: audit odpovědí a spokojenost uživatelů) a sepište první poznatky pro další iteraci. \\cite{2-5}'."
+      },
+      {
+        "target": "LMS plugin bullet",
+        "edit_instruction": "Consider adding a short caveat (with citation if available) about permissions and backups: 'Před aktivací ověřte práva uživatelů a zálohování kurzu v testovacím prostoru.' If no citation available, mark as '(obecné pozadí)'."
+      }
+    ],
+    "retrieval_queries": [
+      "Templates or institutional guidance for data protection and consent procedures specific to short educational AI pilots (pilotní souhlasy, anonymizace testovacích dat) — to support checklist wording and citation.",
+      "Evidence or guidance references for typical deployment times of simple integrations (webhook/CSV scripts) and LMS plugins — to substantiate phrases like 'nasazení obvykle zabere hodiny'.",
+      "Domain-specific pilot KPI templates (e.g., for STEM vs. humanities courses) to address the open thread requesting derived, domain-specific pilot protocols and KPI examples."
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T161831Z",
+    "usage": {
+      "prompt_tokens": 3850,
+      "completion_tokens": 3025,
+      "total_tokens": 6875
+    },
+    "cost_usd": 0.0070125,
+    "total_cost_usd": 0.16321724999999998,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

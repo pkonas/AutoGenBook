@@ -1,0 +1,75 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "major",
+      "description": "Typographical error in Czech: 'uvedťe' in the data flow bullet is misspelled.",
+      "required_fix": "Correct 'uvedťe' to 'uveďte' in the line: 'Tok dat: sběr → ukládání → přístup → retention → mazání (uvedťe lokace dat: VUT cloud / externí poskytovatel).' and make language consistent (see next issue)."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "Inconsistent language use: the word 'retention' appears in an otherwise Czech text (should use Czech equivalent).",
+      "required_fix": "Replace 'retention' with a Czech term such as 'uchovávání' or 'retence' so the bullet reads e.g. 'Tok dat: sběr → ukládání → přístup → uchovávání → mazání'."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "Ambiguous/duplicate acronym 'DPA/DPA' in the list of contractual controls (section 3).",
+      "required_fix": "Clarify the intended term. If meaning is 'Data Processing Agreement', use 'DPA (smlouva o zpracování osobních údajů)' or if intending to reference both DPA and DPIA, write 'DPA / DPIA' with short parenthetical explanations."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several recommended technical and contractual measures in section 3 (e.g. 'SSO + role‑based access', 'auditní logy', 'šifrování v klidu i v přenosu', 'DPA body') are presented as recommendations but are not consistently marked as 'general background knowledge' and lack inline linkage to the handbook sections that justify them.",
+      "required_fix": "Either mark these items explicitly as 'general background knowledge' or add cross-references to the relevant earlier handbook sections (e.g. 2.2 / 8.2 / 8.3) to ground the recommendations."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section already contains some items marked '(general background knowledge)', but not all normative-sounding recommendations are flagged consistently.",
+      "required_fix": "Consistently annotate general best-practice advice with '(general background knowledge)' where the template is giving non‑legal, advisory recommendations rather than institution-specific mandatory requirements."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The template suggests saving completed DPIAs to ai.vut.cz but provides no explicit instruction on folder structure, access permissions or retention of those documents.",
+      "required_fix": "Add a short note suggesting where to store completed DPIAs (e.g. a shared repository path or team) and to set appropriate access controls and retention consistent with faculty policy, or reference the 'Kontakty a podpora VUT' appendix for repository rules."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist and workflow are practical but would benefit from a short, fully filled example DPIA or a link to a sample (the 'Příloha' gives a brief example, but a completed example would help).",
+      "required_fix": "Recommend adding a short completed example DPIA (one‑page filled sample) or a link to a repository example in the Příloha to illustrate expected level of detail."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Fix typos and language consistency: change 'uvedťe' → 'uveďte' and 'retention' → 'uchovávání' (or 'retence')."
+    },
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Clarify contractual item: replace 'Smluvní zajištění: DPA/DPA body s poskytovatelem (uchovávání, mazání, možnost auditu).' with 'Smluvní zajištění: DPA (smlouva o zpracování osobních údajů) — klíčové body: podmínky uchovávání, mazání, právo na audit a popis rolí správce/zpracovatele.'"
+    },
+    {
+      "target": "section 3 items",
+      "edit_instruction": "Either mark each technical/organizational control as '(general background knowledge)' or add inline cross-references to handbook sections that support them (e.g. reference 2.2, 8.2, 8.3 for IAM, encryption, DPA)."
+    },
+    {
+      "target": "Příloha / end-note",
+      "edit_instruction": "Add a short instruction where to save completed DPIA files (suggested repository path and who has access) or point to the repository described in 9.9; and suggest including one completed example DPIA in the Příloha or repository."
+    },
+    {
+      "target": "gendered language",
+      "edit_instruction": "Consider neutral wording for roles (e.g. 'učitelé/asistenti' or 'učitel/ka, asistent/ka') for consistency with other sections, or keep current form if consistent with style guide."
+    }
+  ],
+  "retrieval_queries": [
+    "VUT internal DPIA / DPA guidance (where are templates and repository rules for ai.vut.cz?)",
+    "GDPR criteria when a DPIA is mandatory (high risk processing) authoritative source",
+    "Key clauses to include in a Data Processing Agreement (DPA) for cloud AI providers (audit, retention, data residency, deletion)",
+    "Best practices for storing institution DPIA documents and setting access controls (repository guidance)"
+  ]
+}

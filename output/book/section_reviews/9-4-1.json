@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several specific technical claims (e.g. 'retriever returns links + krátké úryvky', 'generativní model vrátí odpověď spolu s referencemi na zdroje') are plausible but not explicitly backed by the provided RETRIEVED EXCERPTS. The outline/context does include RAG blueprint and mentions indexation/metadata and audit logs, but the section should add explicit cross‑references to those parts (8.3, 8.5 / 9.4.1) to satisfy the non‑trivial grounding rule.",
+      "required_fix": "Add explicit citations / cross‑references to the RAG blueprint and security/audit sections (e.g. 9.4.1 and 8.3 / 8.8) for statements about returned references, audit logging and orchestration responsibilities; or rephrase those sentences as 'recommended behaviour' and label them as general background knowledge (if no direct citation available)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminology should be consistent with the rest of the manual (e.g. the outline uses 'uložiště' / 'indexace, verze dokumentů, metadata'). The section uses 'Uložistě' (typo) in a couple of places.",
+      "required_fix": "Fix typos and align terms: change 'Uložistě' -> 'Uložiště' and ensure 'indexace', 'verzování' and 'metadata' use the same Czech forms as in other sections."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX is generally correct, but the use of \\vspace inside a flow of short paragraphs and repeated \\noindent lines is stylistic and may conflict with document class formatting. Also ensure footnotes in itemize render as intended in the target class.",
+      "required_fix": "Either keep current simple formatting or replace repeated \\noindent+\\vspace with section/subsection/paragraph commands consistent with the main document style. Verify footnotes inside itemize render correctly; if not, move the \\footnote to end of item text or use \\footnotemark/\\footnotetext pair."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Zjednodušený datový tok' is concise but omits an explicit PII / redaction step and human‑in‑the‑loop verification steps which are recommended elsewhere in the manual (DPIA / audit checklist).",
+      "required_fix": "Add a step after indexation describing sanitization/pseudonymization of PII (or a check for it) and explicitly state that model outputs must be human‑verified before use in assessment contexts; reference the DPIA / checklist sections (Vzorné DPIA and 9.4.2)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Practical integration bullets reference appropriate KB items (OneDrive/Office365, Pokrok v matematice, Minecraft Education), but the section would benefit from a short concrete example (teacher workflow or sample prompt/policy) to help practitioners translate architecture into classroom practice.",
+      "required_fix": "Add one short, concrete example: e.g. teacher indexes a lecture PDF in LMS → how a typical query from a student flows through the retriever → sample augmented prompt (high level) → how teacher verifies and records references (linking this to the students' required declaration templates)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Hlavní komponenty — Knowledge store line",
+      "edit_instruction": "Correct spelling to 'Uložiště znalostí' and add a short parenthetical citation pointer to the RAG blueprint (9.4.1) indicating support for versioning and metadata fields."
+    },
+    {
+      "target": "Hlavní komponenty — Retriever line",
+      "edit_instruction": "Either cite the RAG blueprint for the behaviour (retriever returning relevant passages and source links) or rephrase to 'typicky retriever vybere relevantní pasáže a identifikátory zdrojů (doporučeno: vracet krátké úryvky pro kontext a odkaz na dokument) — viz RAG blueprint 9.4.1 / 8.5.'"
+    },
+    {
+      "target": "Zjednodušený datový tok",
+      "edit_instruction": "Insert an additional step between (1) and (2) or after (1): 'Po indexaci: provést kontrolu a redakci PII (pseudonymizace/anonimizace) v uložených metadatech a dokumentech; záznamy o provedených úpravách se uchovají v auditní stopě.' Reference the DPIA checklist (Vzorné DPIA) and privacy checklist (9.4.2). Also append to step (4): 'Výstupy modelu by měly obsahovat referenční odkazy a být potvrzeny lidským ověřením; orchestrátor uchovává auditní záznam dotazu, použitých zdrojů a verze indexu.'"
+    },
+    {
+      "target": "Praktické integrační body for teachers",
+      "edit_instruction": "Add one concrete mini‑example (2–3 short sentences) showing how a teacher would add a lecture PDF to the LMS, mark it for indexing, and use the RAG assistant to generate study questions — include a brief note to check generated content and retain references (link to 'Pokrok v matematice' / Microsoft tools where relevant)."
+    },
+    {
+      "target": "Doporučení pro nasazení",
+      "edit_instruction": "Add explicit pointers to existing sections: 'Pro DPA/DPIA viz Vzorné DPIA (sekce 9.3.3 / kapitola 8.2–8.3). Omezte ukládání PII (viz checklist 9.4.2), používejte lidské ověření výsledků a nastavte auditní logy (viz 8.3).'"
+    }
+  ],
+  "retrieval_queries": [
+    "Section 9.4.1 'Architektura RAG pro kurzy' full text or excerpt (indexace, verze dokumentů, metadata, retriever behaviour)",
+    "Section 8.3 'Autentizace, autorizace a auditní stopy' details on audit logging and orchestrator responsibilities",
+    "Section 9.4.2 'Checklist soukromí a GDPR pro RAG' (PII handling, anonymizace/pseudonymizace, retention)",
+    "Vzorné DPIA section text (DPIA template / recommended steps) to cite for DPIA recommendation"
+  ]
+}

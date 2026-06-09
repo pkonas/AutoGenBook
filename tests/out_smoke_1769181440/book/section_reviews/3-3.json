@@ -1,0 +1,66 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The rubric lists specific numeric score ranges (0–4, 0–2) as if prescriptive. The memory/context does not contain these exact scales as authoritative; they appear as an example template only in the new section.",
+      "required_fix": "Explicitly mark the rubric scoring ranges as an illustrative example (e.g. \"příklad/šablona — upravte kritéria a škálu bodování podle předmětu/instituce\"). Alternatively cite a source in the knowledge base that supports these exact ranges. Do not present them as universally required."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The workflow step suggests using an \"LLM skóre shody s referencí\" as a threshold for automatic pre-evaluation. The context includes general LLM-assisted grading guidance but does not provide a specific recommended scoring metric or threshold.",
+      "required_fix": "Qualify this as an example option (e.g. \"např. LLM skóre shody s referencí — jako příklad metriky pro předhodnocení\") or point readers to retrieve/localize a validated metric and calibration procedure before using it in production. Add a citation to an internal node that discusses LLM-assisted grading if available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The recommendation to manually check 10–20 random cases appears in other sections of the memory (e.g. prompt templates and generators). In the current section the advice is labelled as \"general background knowledge\" but lacks an explicit inline citation to the earlier checklist.",
+      "required_fix": "Add an inline citation to the relevant node (e.g. the prompt/templates or pilot checklist node such as 3-1 or 3-2) where the 10–20 manual-check guidance is stated, or repeat the justification briefly and keep the 'general background knowledge' label."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses Unicode en-dashes for numeric ranges (e.g. \"0–4\"). Some LaTeX toolchains prefer explicit -- for ranges. Nested itemize/enumerate looks syntactically fine but verify encoding/packages.",
+      "required_fix": "Replace Unicode en-dashes in numeric ranges with LaTeX-compatible '--' (e.g. '0--4') or ensure the document preamble declares UTF-8 input handling (\\usepackage[utf8]{inputenc}) and that the target build supports Unicode."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section is practical but would benefit from a short concrete example: a filled example rubric row, a sample prompt used for LLM pre-evaluation, and an example audit log entry.",
+      "required_fix": "Add one minimal worked example (one student answer, LLM pre-score + comment, human correction and final score) and a short sample prompt template referencing 3-2 so readers can see the full loop. If no vetted example is available yet, mark this as an open TODO and request retrieval of case studies."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Vzorná rubrika (the rubric block)",
+      "edit_instruction": "Prepend a short qualifier: '(Příklad/šablona — ilustrační bodové rozsahy; upravte podle předmětu/institucionálních pravidel)'. Optionally add an inline reference to rubric documentation node 2-6 if it contains institutional rules."
+    },
+    {
+      "target": "Krokový workflow heading",
+      "edit_instruction": "Keep the existing 'označeno jako general background knowledge' label, but change individual items that propose specific metrics (e.g. 'LLM skóre shody s referencí') to read 'např. (jako příklad metriky) LLM skóre shody s referencí' and add a parenthetical note recommending pilot calibration and KPI setting (refer to pilot checklist node such as 3-1/3-2)."
+    },
+    {
+      "target": "Doporučení pro nasazení",
+      "edit_instruction": "Add an inline citation to the quick pilot/checklist guidance in the memory (e.g. node 3-1 or 3-2) for the 'zkontrolujte 10–20 náhodných případů ručně' sentence, or re-label the sentence explicitly as '(příklady z praxe — minimalní kontrola 10–20 případů)'."
+    },
+    {
+      "target": "Šablony promptů a související nastavení",
+      "edit_instruction": "Add a pointer 'viz sekce 3-2' directly after the sentence that references structured prompts, to make the cross-reference explicit in the LaTeX text (\\cite{3-2} is present; add 'viz 3-2' or duplicate the citation at the sentence-end)."
+    },
+    {
+      "target": "LaTeX numeric ranges",
+      "edit_instruction": "Replace Unicode en-dashes in numeric ranges with LaTeX '--' (e.g. change '0–4' to '0--4') or ensure the document preamble includes UTF-8 support."
+    },
+    {
+      "target": "Add example",
+      "edit_instruction": "Insert one short worked example (single answer -> LLM pre-score + comment -> human correction -> final score and audit-log entry). If a vetted example is not available in the KB, mark this as TODO and request retrieval of case studies or exemplar rubrics."
+    }
+  ],
+  "retrieval_queries": [
+    "Proveďte vyhledání v uzlech 2-6, 3-1, 3-2 a 2-5: příklady rubrik a skórovacích škál použitých v LLM-assisted grading, ukázkové auditní záznamy a doporučené metriky/KPI pro pilot.",
+    "Vyhledejte v KB ukázkové prompt šablony pro předhodnocení LLM a doporučení k omezení délky výstupu (node 3-2).",
+    "Získejte případové studie nebo krátké příklady nasazení LLM-assisted grading (uzly 2-2..2-6) vhodné jako vyplněné ukázky v této sekci."
+  ]
+}

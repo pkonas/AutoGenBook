@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section presents the 'Jill Watson' case as an illustrative example but does not cite any primary sources or concrete, verifiable facts about the original Georgia Tech deployment (e.g., course context, concrete results, timeline, implementing organisation). Non‑trivial factual claims or numeric results about the original case must be supported by repository excerpts or external references.",
+      "required_fix": "Either (a) add verifiable citations/excerpts for any concrete historical or quantitative claims about the original Jill Watson deployment (course size, measured impact, implementer, timeline, measured outcome metrics), or (b) explicitly restrict statements to high‑level, clearly labelled 'general background knowledge' and add a note that specific historical/quantitative details are omitted and must be pulled from the repository before publication. Add a recommended retrieval query to fetch the primary case sources."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The 'Struktura kazuistiky' enumerated fields mirror the methodology from the earlier 'Úvod a metodika případových studií' section, but there is no explicit cross‑reference. For readers, it may appear duplicated or disconnected.",
+      "required_fix": "Add an explicit cross‑reference (e.g., point to the chapter/section where the methodological structure is defined, such as 'Úvod a metodika případových studií') so readers can find the canonical description and templates."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body begins with a commented Czech note ('% Poznámka: popis této kazuistiky...'). Leaving editorial comments as LaTeX comments in the final document may be undesirable and could be missed by compilers/readers.",
+      "required_fix": "Either remove the comment or convert it into an author note or footnote in the LaTeX output (e.g., \\footnote{...}) if it must appear in the rendered document but separately from the main text."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The text refers to 'repozitáři příručky' and a template 'která je dostupná v repozitáři příručky' but does not provide a precise cross‑reference to where the template is stored (e.g., appendix entry or repository path).",
+      "required_fix": "Add a precise cross‑reference to the repository entry (e.g., Appendix 9.9 / 'Repozitář, video tutoriály a mechanismus aktualizací') or instruct the editor to insert the repository path or file name for the template."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The recommended pilot workflow and checklists are high level and useful, but the section lacks an explicit instruction to document 'stop/go' criteria (thresholds) for scaling/termination of the pilot and a clear owner responsible for ongoing maintenance (who updates the knowledge base, who audits logs).",
+      "required_fix": "Add an explicit bullet to the pilot steps requiring the definition of stop/go criteria with measurable thresholds and to name the role(s) responsible for maintenance and auditing (e.g., course guarantor, IT data steward). If thresholds are institution‑specific, indicate them as placeholders to be filled by the pilot team."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "At the start of the 'Shrnutí případu' add an explicit statement: 'This section intentionally avoids unsourced historical or quantitative claims; include here only verifiable facts retrieved from the repository.' If concrete historical/quantitative details about Jill Watson are to be included, insert citations (author, year, or repository file) immediately after each factual claim."
+    },
+    {
+      "target": "Struktura kazuistiky",
+      "edit_instruction": "Add a parenthetical cross‑reference: '(viz Úvod a metodika případových studií, sekce 7.1)' or use a LaTeX \\ref to the canonical section so readers can find the detailed methodological description and templates."
+    },
+    {
+      "target": "Doporučený postup pro pilotní nasazení",
+      "edit_instruction": "Add an extra step between current steps 6 and 7: '6a. Define stop/go criteria for scaling: specify numerical thresholds for key metrics (e.g., average response time target, acceptable escalation rate) and who authorises scale‑up or termination.' Also add a line specifying the named role(s) responsible for knowledge base updates and audit review."
+    },
+    {
+      "target": "Repozitář reference",
+      "edit_instruction": "Replace the generic 'šablona ... dostupná v repozitáři příručky' with a precise cross‑reference to the repository appendix (e.g., 'viz příloha 9.9 – Repozitář, video tutoriály a mechanismus aktualizací') or insert the exact filename/path from the repo."
+    },
+    {
+      "target": "LaTeX comment",
+      "edit_instruction": "Either delete the initial LaTeX comment line or convert it into a visible author note (e.g., \\marginpar or \\footnote) if it should appear in the rendered document for reviewers."
+    }
+  ],
+  "retrieval_queries": [
+    "Georgia Tech 'Jill Watson' case study original publication 'Jill Watson' Georgia Tech outcomes implementation details",
+    "Jill Watson Georgia Tech number of students instructor email reduction analytics",
+    "Georgia Tech 'Jill Watson' IBM Watson involvement original press release or paper"
+  ]
+}

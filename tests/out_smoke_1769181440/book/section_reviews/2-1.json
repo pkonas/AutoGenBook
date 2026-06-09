@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section (and the outline/open threads) promise a definition of 'AI v kontextu vysokoškolské výuky' and concrete, ověřené případové studie / šablony, but the current text does not include that definition nor any referenced, verifiable case studies or concrete prompt/templates. This is an inconsistency with the guide's outline and the previously recorded open threads.",
+      "required_fix": "Either (a) add a short, sourced definition of AI in the context of university teaching (or explicitly cross‑reference the Úvod section where that definition appears), and include at least one verified example/case study or a clear pointer to where such case studies and templates are stored; or (b) remove/soften any language that promises case studies/templates here and point readers to the specific section(s) that contain them. Any added factual claims must be supported by an excerpt/citation from the KB."
+    },
+    {
+      "type": "latex",
+      "severity": "major",
+      "description": "Percent signs ('%') appear unescaped (e.g. '80 %', '50 %'). In LaTeX a percent sign starts a comment unless escaped as '\\%'. There is also at least one probable typo ('nasadťe') that may break compilation or is incorrect orthographically.",
+      "required_fix": "Escape all percent signs (e.g. '80\\%', '50\\%'). Fix typographical errors (e.g. correct 'nasadťe') and verify that all non-ASCII characters are encoded correctly for the document's LaTeX engine. Re-run a LaTeX compile check after edits."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section refers to pilot design and metrics that overlap with guidance given in other parts of the guide (e.g. 'malý pilot 5–30 studentů, 4–8 týdnů') but does not explicitly cross-reference the relevant checklist and first-week schedule found in the context memory (Den 0 / Den 1–7).",
+      "required_fix": "Add explicit cross-references to the 'Jak začít s malým pilotem' checklist and the 'Krátké doporučení pro první týden nasazení' (or restate the key steps briefly) so readers can follow the same procedural template across sections. Ensure the cited \u001a\\cite{1}\u001a indeed points to the same node referenced in the KB."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some operational recommendations are brief and would benefit from a short concrete example or template (e.g. sample LMS rule syntax, an example trigger for providing a hint, a template for defining diagnostic test thresholds and remediation content).",
+      "required_fix": "Include one short, concrete example per scenario (a 1–2 line LMS rule example for Scenario A, a sample hint trigger rule for Scenario B, and a short description of required data features for Scenario C). If space/approval prevents full examples here, add a pointer to the 'Tools, templates and prompts' section where such artifacts will be provided."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section suggests manual audit of adaptive outputs but does not specify the auditing procedure. The guide's earlier 'Základní pravidla pro ověřování výstupů' recommends stratified random sampling and other checks.",
+      "required_fix": "Add a short sentence recommending a specific auditing procedure (e.g. 'ruční verifikace náhodného vzorku, stratifikovaného podle obtížnosti a typu adaptace, min. N položek týdně') or explicitly reference the 'Základní pravidla pro ověřování výstupů' section so implementers know which audit rules to follow."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph: Scénář A — adaptivní doplňkové cvičení (pravidla)",
+      "edit_instruction": "Escape percent signs and make the LMS rule example explicit. Replace 'pokud student <80 % v diagnostickém testu, nabídnout sadu 3 cvičení; pokud <50 %, přidat krátké vysvětlení' with e.g. 'pokud student má <80\\% v diagnostickém testu, nabídnout sadu 3 doplňkových cvičení; pokud <50\\%, přidat krátké instrukční vysvětlení (remediální text ~200 slov)'. Add an inline cross-reference: 'viz Jak začít s malým pilotem — malý pilot (5–30 studentů, 4–8 týdnů) \\cite{1}'."
+    },
+    {
+      "target": "paragraph: Scénář B — personalizované hinty během domácích úkolů",
+      "edit_instruction": "Escape percent signs if any, and add a short example trigger. For instance: 'Trigger (příklad): po 3 neúspěšných pokusech nebo po >10 minutách bez pokroku nabídnout nápovědu úrovně 1; další nápovědu po dalších 2 pokusech.' Also reference the verification checklist for auditing hints' pedagogical quality."
+    },
+    {
+      "target": "paragraph: Scénář C — adaptivní cesta v kurzu pomocí ML (pokročilejší)",
+      "edit_instruction": "Add a short note labelling the statement 'model ML predikuje riziko neúspěchu' as a design pattern/general background knowledge unless supported by a KB excerpt. Recommend concrete data features required (e.g. 'interakční logy, skóre průběžných testů, časy řešení úloh') and add the deployment sequence: 'retrospektivní analýza → modelování na historických datech → ověření na holdout → A/B pilot + ruční audit'. Cross-reference the guide's advice to validate model outputs against human audit."
+    },
+    {
+      "target": "top matter / opening paragraph",
+      "edit_instruction": "Either insert a short definition of 'AI v kontextu vysokoškolské výuky' (or add a pointer: 'Definice AI a obecné přínosy viz Úvod, sekce 1') to satisfy the outline promise. Do not invent new sourced claims; if the definition is not in the KB, flag for retrieval."
+    },
+    {
+      "target": "LaTeX compilation",
+      "edit_instruction": "Globally replace all occurrences of '%' used as a symbol with '\\%' and run a LaTeX compile; correct the typographical error 'nasadťe' (confirm preferred Czech spelling) and ensure all citations (\\cite{1}) match the bibliography entries."
+    }
+  ],
+  "retrieval_queries": [
+    "Fetch the Úvod section (node:1) content that defines 'AI v kontextu vysokoškolské výuky' so the reviewer can ensure the new section either includes or correctly references that definition.",
+    "Fetch any KB excerpts or case studies referenced by node:1 that provide verified examples of adaptive tasks in MOOC/LMS, or templates/prompts for adaptive rules/hints to ground Scenario A–C concretely.",
+    "Fetch the 'Základní pravidla pro ověřování výstupů a akademickou integritu' snippet to add a precise recommended auditing procedure (stratification, sample sizes, frequency) rather than a generic statement."
+  ]
+}

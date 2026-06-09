@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Quote blocks use explicit line breaks \\\\ and inline ‘(general background knowledge)’ markers inside the quote which breaks LaTeX best practice and can produce awkward spacing. Repeated use of \\paragraph may not match document styling (run‑in headings vs. subsectioning).",
+      "required_fix": "Replace \\\\ inside quote environments with proper paragraph breaks (blank line or \\par). Move the repeated '(general background knowledge)' markers out of the quote text (e.g., a single parenthetical line before the examples) or format them consistently. Consider using \\subsection or \\subsubsection for main headings if consistent with document style."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The text repeatedly inserts the label '(general background knowledge)' in many places (including inside quoted prompt templates). This reduces readability and may look cluttered in the rendered document.",
+      "required_fix": "Consolidate the general‑background label: add a short note at the start of the section that some statements are 'general background knowledge' and remove the in‑line repetition. For prompt templates, annotate the whole prompt block once (above or below) rather than inside each quote."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "A small number of practical recommendations are marked as general background knowledge but would benefit from explicit cross‑references to templates/appendices already present in the handbook (e.g., AI declaration template, prompt library, checklist). Providing these links would improve verifiability and usability.",
+      "required_fix": "Add explicit cross‑references to the handbook appendices: Prompt Library (Appendix 9.1), AI Policy / declaration templates (Appendix 9.3), and the milestone/milestone‑based workflow or verification interview description in the memory section. If those items are in the KB, add citations to the exact appendix pages or sections."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminology varies: the section uses both 'verifikační rozhovor' and context elsewhere uses 'ověřovací rozhovor'. Such variation can confuse readers.",
+      "required_fix": "Standardize on a single Czech term throughout the chapter (preferably 'ověřovací rozhovor' as used in context memory) and update all occurrences to match."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Possible typo in the first bullet: 'nahrát/sklíčit postupy' — 'sklíčit' looks like a typographical error or nonstandard verb.",
+      "required_fix": "Replace 'sklíčit' with a clearer verb such as 'sdílet' or rephrase to 'nahrát / sdílet postupy (screenshoty, mezi‑verze, commit‑history)'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends formats for requested evidence (snímky postupu, mezi‑verze, commit‑history) but does not provide a short concrete example/template of the required submission format for students. Teachers may implement inconsistent evidence collection without a template.",
+      "required_fix": "Include a short example box or template describing the required submission format (e.g., 'Submit: 1) final answer, 2) PDF of step‑by‑step solution with timestamps or commit history, 3) short reflection 100–200 words, 4) declaration of AI use'). Cross‑reference the 'Šablona deklarace AI (krátká)' from the handbook."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph Klíčová pravidla chování tutora (bullet 1)",
+      "edit_instruction": "Correct 'nahrát/sklíčit postupy' to 'nahrát / sdílet postupy (screenshoty, mezi‑verze, commit‑history)'. Add a short parenthetical example of accepted file types (PDF, image, link to repo)."
+    },
+    {
+      "target": "Ukázkové prompty (all quote blocks)",
+      "edit_instruction": "Remove inline '\\\\' and the in‑quote '(general background knowledge)'. Instead, add a single note above the prompt examples: 'Poznámka: následující prompty jsou obecné šablony (general background knowledge). Upravte je pro konkrétní kurz.' Ensure the prompt quotes contain only the prompt text."
+    },
+    {
+      "target": "Kontrolní checklist for učitele",
+      "edit_instruction": "Add explicit cross‑references to the handbook appendices: mention 'viz Appendix 9.3: AI Policy Template' for declaration wording and 'viz Appendix 9.1: Prompt Library' for prompt examples. Also standardize the term 'ověřovací rozhovor' if relevant here."
+    },
+    {
+      "target": "LaTeX structure",
+      "edit_instruction": "Replace repeated \\paragraph headings with \\subsection or \\subsubsection to match the rest of the book's hierarchy, if appropriate. Remove innecesary manual line breaks (\\\\) inside quote environments and use blank lines (paragraphs) instead."
+    },
+    {
+      "target": "Add example submission template",
+      "edit_instruction": "Insert a concise example of the required submission format for process‑oriented tasks (1–4 bullet list): e.g., (1) final answer; (2) step‑by‑step PDF or images; (3) short commit history or time‑stamped drafts; (4) AI use declaration (link to Appendix 9.3)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf prompt library appendix 9.1 prompt šablony",
+    "kb_ai_101_tipu_pdf AI Policy Template appendix 9.3 'Deklarace použití AI' page",
+    "kb_ai_101_tipu_pdf description 'ověřovací rozhovor' verification interview milestone workflow",
+    "kb_ai_101_tipu_pdf pages containing examples of required evidence (commit history, mezi‑verze, screenshot) for mathematics/progress in mathematics feature"
+  ]
+}

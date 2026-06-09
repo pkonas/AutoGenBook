@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "The section is presented as a kazuistika but does not follow the case‑study structure prescribed in the handbook (institution & course context; AI solution detail; measured results/evidence; explicit 'lessons learned'). In particular, there is no 'Výsledky a evidence' field with any measured or documented outcomes or an explicit statement that no measured data are available.",
+      "required_fix": "Add the missing standardized fields from the methodology (Instituce a kontext kurzu; AI řešení — nástroj, konfigurace, integrace; Implementace — fáze nasazení, role lidí, technická integrace; Výsledky a evidence; Lessons learned). If no empirical results are available in the repository, explicitly state that measured outcomes are not available and mark all outcome claims as 'general background knowledge' or remove them."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several operational recommendations refer to GDPR/DPIA/DPA and to pilot metrics but do not include explicit citations to the relevant handbook sections (although the handbook contains matching content). For readers to verify and follow up, the section should cite the exact handbook chapters/sections (e.g. DPIA/DPA guidance, pilot duration guidance, metrics templates).",
+      "required_fix": "Add explicit citations to the handbook sections that cover DPIA/DPA (chapter 2.2.*), pilot guidance (e.g. recommendation for a 6–8 week pilot appears elsewhere in the manual), and prompt libraries or Copilot examples (already cited once). If repository evidence exists about CS50 specifically, cite it or label claims as 'general background knowledge'."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX issues that may cause compilation errors or poor typography: underscores used for emphasis (e.g. _debug hint_) can break compilation; inline prompts include backticks and unescaped special characters and should be handled with a verbatim or \\\\texttt/\\emph wrapper; the \\cite command is used but no bibliography entry is shown in this excerpt.",
+      "required_fix": "Replace underscores with \\emph{...} or \\textit{...}; wrap multi‑line or code‑like prompt examples in a verbatim-like environment (\\begin{verbatim}...\\end{verbatim}) or \\texttt{}; ensure the cited key (kb_ai_101_tipu_pdf_04e4a115_page_36_1) has an entry in the document bibliography or convert the reference to an explicit footnote with the KB identifier."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Prompt examples are given in English inside a Czech document without a note. This may confuse readers about intended language of deployment or whether the prompts should be localized.",
+      "required_fix": "Either provide Czech translations of the example prompts or add a short note stating that the examples are in English and should be localized when deploying the bot in Czech-speaking courses."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The 'Návrhový workflow pro instruktora' recommends launching a pilot and collecting specific metrics but does not tie the recommendation to the handbook's previously stated pilot timeline (6–8 týdnů) or to the standardized metric set/definitions described elsewhere.",
+      "required_fix": "Explicitly align the pilot recommendation with the handbook's pilot guidance (e.g. the 6–8 week pilot recommendation), and either reuse the metric names and definitions from the handbook or cite the relevant checklist/prompt library entries to avoid ambiguity."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "overall structure",
+      "edit_instruction": "Reformat the kazuistika to match the handbook's case‑study template (Instituce a kontext kurzu; Cíl a pedagogické metriky; AI řešení; Implementace; Výsledky a evidence; Lessons learned; Odkazy a zdroje). If evidence is missing, insert a short 'Data availability' note stating that no measured outcomes are present in the repository and keep outcome statements flagged as 'general background knowledge'."
+    },
+    {
+      "target": "latex_body — emphasis and prompts",
+      "edit_instruction": "Replace instances of underscore emphasis (e.g. _debug hint_) with \\emph{debug hint} or \\textit{debug hint}. Put the prompt examples into a verbatim or \\texttt environment to avoid special character issues; alternatively, escape LaTeX special characters inside prompts. Ensure the \\cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1} key is present in the document bibliography or change to a footnote referencing the KB identifier."
+    },
+    {
+      "target": "citations and grounding",
+      "edit_instruction": "Add explicit citations to handbook sections for DPIA/DPA (chapter 2.2.* — DPIA and DPA guidance) and for pilot recommendations (the 6–8 week pilot recommendation appears in earlier guidance). If you can locate any internal repository evidence about the CS50 deployment (metrics, pilot duration, measured outcomes), insert those citations in the 'Výsledky a evidence' field; if not, add a sentence explicitly labeling all outcome claims as 'general background knowledge'."
+    },
+    {
+      "target": "prompt examples language note",
+      "edit_instruction": "Either translate the sample prompts into Czech or prepend the prompt examples with a note: 'Sample prompts are shown in English; localize to Czech for deployment.'"
+    },
+    {
+      "target": "pilot guidance paragraph",
+      "edit_instruction": "In 'Návrhový workflow' step 4 (Spusťte pilot), add a sentence aligning the pilot duration with the handbook recommendation (e.g. 'Doporučená délka pilotu: 6–8 týdnů — viz metodická příručka') or cite the exact section that recommends pilot length."
+    }
+  ],
+  "retrieval_queries": [
+    "Find repository evidence or KB excerpt describing the Harvard CS50 AI bot deployment results, metrics collected, or any public case study text for CS50 (for use in 'Výsledky a evidence').",
+    "Retrieve handbook excerpts for DPIA and DPA guidance (chapter 2.2, especially 2.2.4 Posouzení dopadů na ochranu osobních údajů (DPIA) and 2.2.5 Smlouvy s poskytovateli a dohody o zpracování (DPA)) to cite in the section.",
+    "Retrieve the handbook excerpt that recommends a 6–8 week pilot (where the 6–8 week pilot recommendation appears) so the pilot recommendation in this section can be aligned and cited.",
+    "Locate the prompt library entry (Prompt Library / Prompt templates) that corresponds to the example prompts or Copilot example (kb_ai_101_tipu_pdf_04e4a115_page_36_1) to support the citation and ensure consistent keys for bibliography."
+  ]
+}

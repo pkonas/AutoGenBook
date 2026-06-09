@@ -1,0 +1,78 @@
+% (Tělo sekce: Facilitace diskuzí s AI — sokratovský dialog a adaptivní vysvětlování)
+Krátké shrnutí a cíle (general background knowledge).
+\begin{itemize}
+  \item Cíl: vést studenty k hlubšímu porozumění pomocí řízených otázek místo jednoduchého poskytování odpovědí; ukázat, jak lze AI použít jako sokratovského partnera a nástroj pro adaptivní vysvětlování na několika úrovních složitosti.
+  \item Výstup: studenti umějí argumentovat vlastními slovy, reflektovat mezikroky řešení a rozpoznat omezení generovaných odpovědí.
+\end{itemize}
+
+Praktický workflow před hodinou (general background knowledge).
+\begin{enumerate}
+  \item Definujte učební cíl diskuse (co chcete, aby studenti vysvětlili/pochopili).
+  \item Připravte krátký scénář nebo artefakt (kód, úloha, fragment textu) jako výchozí podnět pro AI a studenty.
+  \item Zvolte režim práce (celá třída vs. skupiny) a připravte instrukce pro záznam postupu (poznámky, screenshoty, nahrávky).
+  \item Pokud plánujete živou demonstraci s vizualizací nebo simulací, připomeňte, že Minecraft Education nabízí hotové světy pro výuku principů AI včetně obsahu Hour of Code (bezplatně dostupného) — zbytek obsahu je součástí školní licence Microsoft 365 A3/A5 \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}. 
+\end{enumerate}
+
+Základní role AI v sokratovském dialogu (general background knowledge).
+\begin{itemize}
+  \item „Sokratovský kouč“: klade otevřené otázky, navrhuje dílčí kroky, vyhodnocuje konzistenci odpovědí.
+  \item „Diagnostik“: identifikuje mezery v postupu studenta a navrhuje cvičení či hinty.
+  \item „Vizualizátor“: generuje doplňkové schéma nebo obrázek k vysvětlení; k těmto účelům lze v průběhu debriefu použít nástroje jako Designer pro rychlou tvorbu ilustrací a porovnání více stylistických variant \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+\end{itemize}
+
+Šablony promptů (praktické, copy‑paste ready).
+\begin{itemize}
+  \item System (role): 
+\begin{PromptBlock}
+
+You are a Socratic tutor for university students. Do NOT provide full solutions; instead ask 2--4 guiding questions that reveal the next logical step. Use simple language and request justification for each step.
+\end{PromptBlock}
+
+  \item User (student prompt, příklad): 
+\begin{PromptBlock}
+
+I have this partial solution to problem X: [vložit stručný popis]. Help me find my next step.
+\end{PromptBlock}
+
+  \item Assistant (model output — očekávaný formát): otázky číslované, každá s krátkým vysvětlením proč je relevantní; na konci výzva: \texttt{Which of these do you want to try first?}
+\end{itemize}
+
+Adaptivní vysvětlování: ELI5 / ELI15 / ELI25 — návrh scénářů (general background knowledge).
+\begin{enumerate}
+  \item Představte tři požadavky ve svém promptu: 
+\begin{PromptBlock}
+
+Explain this concept (a) like I'm 5, (b) like I'm 15, (c) like I'm 25. For each, keep length under 50/150/300 words respectively and give one short analogy.
+\end{PromptBlock}
+
+  \item Použijte ELI varianty k diferenciaci: studenti začnou s ELI5 pro intuitivní uchopení, poté ELI15 pro střední úroveň abstrakce a nakonec ELI25 pro technickou syntézu a kritickou reflexi.
+  \item Moderujte: vyzvěte studenty, aby pro každou úroveň napsali jednu kontrolní otázku, kterou by položili modelu — tím trénují kritické čtení odpovědí (general background knowledge).
+\end{enumerate}
+
+Příklad hodinové aktivity (45--60 min, adaptováno z doporučených časových rámců).
+\begin{enumerate}
+  \item 5--10 min: úvod a zadání problému; ukažte artefakt (kód, výňatek textu).
+  \item 15--25 min: studenti v malých skupinách vedou dialog s AI podle šablon (sokratovský režim), sbírají otázky a návrhy kroků.
+  \item 10--15 min: skupiny prezentují závěry; facilitator vybere jednu odpověď a vsadí ji proti generované vizualizaci nebo simulaci (pokud je relevantní).
+  \item 5--10 min: debrief — reflexe, co AI přidala, kde selhala, které otázky byly klíčové.
+\end{enumerate}
+
+Moderování a zajištění kvality výstupů (general background knowledge).
+\begin{itemize}
+  \item Požadujte od modelu, aby vždy uváděl zdůvodnění kroků a případné předpoklady; neakceptujte anonymní tvrzení bez odkazu na postup.
+  \item Učitel by měl vzorkovat a anotovat příklady halucinací nebo nevhodných rad pro kvartální revizi pilotu (general background knowledge). Pokud používáte adaptivní cvičení, můžete doplnit o požadavek na nahrání postupu studenta — u podobných nástrojů je právě postup klíčový pro diagnostiku a návrhy dalšího procvičování \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Používejte generované vizuály jako pomocný materiál, nikoliv jako jediný zdroj; při porovnání variant ukažte studentům, jak změna promptu mění výsledek \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+  \item V případě živých simulací/logování, zaznamenávejte hlavní dotazy a verze promptů pro pozdější analýzu (general background knowledge).
+\end{itemize}
+
+Rychlé tipy pro učitele (pragmatické).
+\begin{itemize}
+  \item Nasaďte jasná pravidla: AI smí navrhovat kroky, ale student musí vždy ukázat vlastní mezikroky a rozhodnutí (general background knowledge).
+  \item Na první pilot zvažte použít Minecraft Education pro názornou demonstraci principů agentního chování nebo jednoduché „Hour of Code“ lekce — tyto lekce jsou volně dostupné a pomáhají vizualizovat algoritmické chování agentů \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Při využití multimédií (obrázky, schémata) mějte záložní plán, pokud generování selže; Designer lze využít pro rychlé generování a porovnání stylů ilustrací během debriefu \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+\end{itemize}
+
+Poznámka o etice a transparenci (general background knowledge).
+\begin{itemize}
+  \item Informujte studenty o použití AI při facilitaci diskuse a požadujte krátké sebezprávy o tom, jak studenti AI použili ve své reflexi (deklarace použití).
+\end{itemize}

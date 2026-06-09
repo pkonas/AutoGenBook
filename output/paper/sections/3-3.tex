@@ -1,0 +1,17 @@
+This section specifies the structured JSON schema that section-level generators must produce to enable machine-parseable outputs, explicit evidence pointers for nontrivial assertions, and provenance metadata for auditing.
+Core schema (key fields):
+\begin{itemize}
+\item \texttt{section\_id}, \texttt{heading} (required); \texttt{role}, \texttt{target\_length} (optional).
+\item \texttt{claims} (required): objects with \texttt{claim\_id}, \texttt{claim\_text}, \texttt{assertion\_type}, and \texttt{evidence\_slots} (pointers to retrieval spans).
+\item \texttt{paragraphs} (required): ordered paragraphs with \texttt{paragraph\_id}, \texttt{text}, and \texttt{spans} mapping substrings to claims/evidence via character offsets.
+\item \texttt{citation\_slots} (optional), \texttt{provenance} (required: \texttt{retrieval\_hits}, \texttt{retrieval\_query}, optional \texttt{generator\_confidence}).
+\item \texttt{validation\_issues}, \texttt{assembly\_hints} (optional).
+\end{itemize}
+Minimal validation rules:
+\begin{enumerate}
+\item Required fields and types: \texttt{section\_id}, \texttt{heading}, \texttt{claims}, \texttt{paragraphs}, \texttt{provenance}.
+\item If \texttt{assertion\_type} == \texttt{"asserted"} then \texttt{evidence\_slots} MUST be non-empty.
+\item Span offsets MUST be within paragraph text and reference existing \texttt{claim\_id}s or \texttt{evidence\_slot}s; each referenced \texttt{evidence\_slot} MUST map to \texttt{provenance.retrieval\_hits}.
+\item Output MUST be valid UTF-8 JSON and pass the declared schema validator before assembly.
+\end{enumerate}
+Integration and rationale: separating claims from presentation enables verification and citation alignment; we avoid dynamic JSON-Schema features for validator robustness \cite{web_attouche_2025_elimination_of_annotation_dependencies_in_valida} and build on prior work in schema extraction and modular frameworks \cite{web_li_2020_schema_extraction_on_semi_structured_data,web_wang_2025_llmatch_a_unified_schema_matching_framework_with}. Evidence pointers support audits and human review but do not guarantee source correctness; empirical validation is reported in Section~5.

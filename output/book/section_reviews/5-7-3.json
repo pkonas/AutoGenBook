@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Checklist contains a placeholder 'minimálně X\\% odevzdání' for random human checks. No retrieved excerpt in the inputs provides a recommended percentage value or a rule for choosing it.",
+      "required_fix": "Remove the placeholder or replace it with a qualified instruction (e.g. 'statistically or risk‑based sample; decide % based on cohort size and risk assessment') or add a supporting citation from the knowledge base that recommends a concrete sampling rate."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Statement 'zapojení studentů do vzájemného hodnocení sníží pracovní zátěž a zvýší zpětnou vazbu' (peer‑review reduces workload and increases feedback) is not directly supported by the provided retrieved excerpts. The outline mentions peer‑review as part of scaling strategies (5.7.3) but does not provide an explicit evidence sentence claiming reduced workload/increased feedback.",
+      "required_fix": "Either add a direct KB citation that supports the claimed effects of peer‑review, or rephrase and label it as 'general background knowledge' (e.g. 'peer‑review can help distribute assessment effort and broaden feedback channels; monitor quality via moderation')."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The workflow step 'AI generuje/předhodnotí → student/peer review → učitel finalizuje' is concise but could be ambiguous about responsibilities, decision thresholds, and escalation (when teacher must re-mark).",
+      "required_fix": "Add a short clarification or example (with citation to kb_ai_101_tipu_pdf_page_8_1 which supports AI pre‑evaluation with teacher finalization) that specifies who resolves disagreements, when human re‑review is triggered (e.g. disagreement above X score variance — see previous major issue about X%), and how to escalate suspected integrity issues."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX contains an unresolved placeholder 'X\\%' inside an itemize bullet. Footnotes reference KB cite_keys but the document should ensure they correspond to the bibliography or an internal reference list.",
+      "required_fix": "Replace the placeholder with a concrete phrasing (see grounding issue) or remove it. Verify footnote keys are matched to the reference list in the full document build."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Section suggests capturing metrics ('čas na hodnocení, shoda AI–učitel, četnost oprav') but does not define these metrics or give examples how to compute/interpret them. Non-trivial metric names and measurement methods should be specified for operational use.",
+      "required_fix": "Either add brief, sourced definitions/examples for each metric (e.g. what 'shoda AI–učitel' means operationally and a method to compute it) or mark them as items to be defined in the pilot plan. If adding concrete metric definitions, include supporting KB citations or empirical sources."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "checklist",
+      "edit_instruction": "Replace 'Plánujte náhodné lidské kontroly (minimálně X\\% odevzdání nebo definované případy rizika)' with: 'Plánujte pravidelné náhodné lidské kontroly — použijte buď statisticky reprezentativní vzorek nebo výběr založený na riziku; stanovte rozsah vzorku podle velikosti kurzu a dostupných zdrojů a uveďte to v pilotním protokolu.' Add a footnote prompting the editor to insert a KB citation if a recommended percentage is available."
+    },
+    {
+      "target": "item 1 (Kombinovat automatické testy s lidskou kontrolou)",
+      "edit_instruction": "Keep the existing footnote to kb_ai_101_tipu_pdf_page_8_1 but rephrase the causal sentence to align with the excerpt: 'Nechat AI předběžně ohodnotit výběr úloh a indikovat oblasti chyb; vyučující provádí závěrečné posouzení (viz kb_ai_101_tipu_pdf_page_8_1).' This removes a causal overclaim and ties the claim to the retrieved excerpt."
+    },
+    {
+      "target": "item 3 (Peer‑review)",
+      "edit_instruction": "Either add a KB citation that supports the claimed benefits of peer‑review for workload and feedback, or change the sentence to: 'Zvážit zapojení studentů do vzájemného hodnocení jako způsob redistribuce části hodnoticí zátěže; kvalitu výsledků monitorovat a agregovat pomocí automatických nástrojů.' Mark as general background knowledge if no citation is available."
+    },
+    {
+      "target": "metrics bullet",
+      "edit_instruction": "Expand 'Zaznamenávejte metriky (čas na hodnocení, shoda AI–učitel, četnost oprav)' with brief operational notes: define each metric (e.g. 'shoda AI–učitel: podíl případů, kde AI a učitel dávají stejnou kategorii/skóre; měřeno jako procento shody v pilotním vzorku') or flag these as items requiring concrete definitions in the pilot protocol."
+    },
+    {
+      "target": "Poznámka o technické integraci",
+      "edit_instruction": "Keep as 'general background knowledge' but cross‑reference the 'Nastavení LMS a workflow odevzdávání' and 'Pole pro postupy a CI (LMS)' entries from the context memory so readers know detailed technical fields are described elsewhere in the manual."
+    }
+  ],
+  "retrieval_queries": [
+    "KB: recommended sampling rates for human audit of automated grading / 'statistické vzorkování' guidance in AI assessment KB",
+    "KB: evidence or guidance that peer‑review reduces instructor grading workload and increases feedback quality in large courses",
+    "KB: examples or templates for rubrics that support integration of AI pre‑grading and human finalization (rubric fields for 'Transparentnost použití AI', 'Proces', 'Reflexe')",
+    "KB: concrete metric definitions and examples for 'AI–teacher agreement' and other evaluation metrics used in pilot studies of automated grading"
+  ]
+}

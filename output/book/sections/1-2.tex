@@ -1,0 +1,45 @@
+Tato sekce krátce porovnává tři rodiny přístupů v AI, které pedagogům pomohou zvolit vhodnou didaktiku a aktivity: pravidlové systémy, klasické strojové učení a moderní velké jazykové modely (LLM). Následující technické odlišení a pedagogické důsledky jsou uvedeny stručně tak, aby je bylo možné přímo aplikovat při návrhu výuky.
+
+Krátké technické rozlišení (general background knowledge)
+\begin{itemize}
+  \item Pravidlové systémy (rule‑based): chovají se podle explicitně definovaných pravidel a rozhodovacích stromů; jsou relativně předvídatelné a snadno vysvětlitelné, ale křehké vůči nepředvídaným vstupům.
+  \item Klasické strojové učení (supervised/feature‑based): modely se učí z označených dat, jejich chování závisí na zvolené reprezentaci (features) a dostupnosti trénovacích příkladů; vhodné pro úlohy s dobře strukturovanými vstupy a jasnými cíli.
+  \item Velké jazykové modely (LLM, generativní modely): škálované modely předtrénované na rozsáhlých textech, které provádějí predikci tokenů a generují plynulý text či jiné multimodální výstupy; silné v generování a zobecnění vzorů, zároveň méně přímo vysvětlitelné. (general background knowledge)
+\end{itemize}
+
+Pedagogické důsledky — co použít k čemu
+\begin{itemize}
+  \item Kdy preferovat pravidlové systémy: pokud chcete demonstrovat deterministické chování, kontrolovatelné rozhodovací cesty nebo stavový stroj (např. logika herní mechaniky, kontrola vstupů), pravidla jsou vhodná pro názorné ukázky a cvičení zaměřená na interpretaci.
+  \item Kdy preferovat klasické ML: při úlohách, kde existují dobře očíslovaná data a jasná metrika (např. klasifikace senzorických dat, předpovědi založené na měřeních), je vhodné ukázat proces sběru dat, tvorbu featureů a evaluaci modelu.
+  \item Kdy využít LLM a generativní AI: pro tvorbu textových materiálů, návrh variant úloh, generování vysvětlení v různých úrovních složitosti nebo rychlé vytvoření zadání a kvízů — LLM zvyšují produktivitu přípravy a umožňují experimenty s adaptivními odpověďmi. Konkrétně: rychlé vytvoření kvízu s pomocí Microsoft 365 Copilot + Forms je praktický příklad využití AI pro tvorbu testů a úloh \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+Praktické ukázky a aktivita do výuky
+\begin{enumerate}
+  \item Demonstrace: pravidla vs. učení v Minecraft Education (podpora konceptů)
+    \begin{itemize}
+      \item Cíl: studentům názorně ukázat rozdíl mezi explicitní logikou (pravidly) a chováním navrženým učením či adaptací.
+      \item Postup (stupeň připravenosti: nízký až střední): stáhněte Minecraft Education a spusťte jednu z volně dostupných hodin z Hour of Code, které jsou zaměřené na AI; nechte studenty upravovat jednoduchá pravidla chování agenta a diskutujte, jak by se chování lišilo, kdyby agent „učil“ své reakce z dat \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+      \item Diskuse: porovnejte předvídatelnost, opakovatelnost a možnosti vysvětlení chování v obou přístupech.
+    \end{itemize}
+
+  \item Rychlý experiment: vytvoření a validace kvízu pomocí Copilot + Forms
+    \begin{itemize}
+      \item Cíl: prakticky ukázat pedagogům, jak generativní AI urychlí tvorbu a jaký je potřeba krok lidské validace.
+      \item Postup (10–30 minut): v Microsoft Forms aktivujte Copilot, zadejte parametrizovaný prompt (např. úroveň kurzu, počet otázek, formát), vygenerované otázky pečlivě zkontrolujte a upravte podle didaktických cílů \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+      \item Ověření: přidejte krok, kde studenti nahrávají postup řešení (pokud je to podstatné), nebo nastavte časově omezené in‑class verze úloh (viz kapitola o hodnocení).
+    \end{itemize}
+
+  \item Vizuální rozdíly: generování grafiky v Designer jako ilustrace generativních přístupů
+    \begin{itemize}
+      \item Použití: ukázat, že generativní nástroje v oblasti grafiky (např. Designer) mohou rychle vytvořit různé varianty vizuálů a přizpůsobit poměry stran či styly; vhodné pro tvorbu materiálů a vizuální diferenciaci výukových listů \cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.
+      \item Didaktická poznámka: vždy zkontrolujte autorské a licenční podmínky pro použití v kurzu a upravte vygenerované výstupy z hlediska pedagogického záměru.
+    \end{itemize}
+\end{enumerate}
+
+Doporučení pro učitele (general background knowledge)
+\begin{itemize}
+  \item Volte technologii podle cíle učení: pro vysvětlení deterministických pravidel použijte pravidlové systémy; pro ukázku procesu učení a práce s daty zvolte klasické ML; pro tvorbu textů, adaptivních vysvětlení a rychlé přípravy materiálů využijte LLM.
+  \item Validace a transparentnost: při použití generativní AI vždy plánujte krok lidské kontroly a informujte studenty o využití AI v materiálech (viz kapitola o etice a GDPR).
+  \item Aktivně zapojte reflexi: dejte studentům úkol porovnat výstupy více přístupů (pravidla vs. ML vs. generativní model) a popsat rozdíly ve spolehlivosti, interpretovatelnosti a vhodnosti pro konkrétní úlohy.
+\end{itemize}

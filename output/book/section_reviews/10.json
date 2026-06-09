@@ -1,0 +1,71 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several actionable pointers mention repository assets, DPIA/DPA templates and syllabi templates but do not cite the relevant chapters/appendices where these artifacts are described. Non‑trivial references to available templates and DPIA/DPA artifacts should be backed by pointers to the repo/appendix content.",
+      "required_fix": "Add citations or cross‑references to the relevant sections/appendices (e.g. Prompt Library (kap. 9.1), AI Policy Template do sylabů (kap. 9.3), Vzor DPIA (kap. 9.4) and Repozitář, video tutoriály (kap. 9.9)) where readers can find the mentioned templates and DPIA/DPA guidance."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Inline annotations \"(general background knowledge)\" appear inside running text and inside itemize entries. These labels break flow and are not standard in a finalized LaTeX conclusion.",
+      "required_fix": "Remove inline \"(general background knowledge)\" tokens from the user‑facing LaTeX. If the labels are needed for editorial tracking, move them to comments (%) or to an editorial note rather than the published text."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The checklist items repeat some recommendations from the main bullets (e.g. start small pilots), and the checklist gives no concrete example KPIs although it mentions 'měřitelné metriky'.",
+      "required_fix": "Either remove duplicated guidance or rephrase checklist to be strictly actionable. Add 1–2 example KPIs (with short labels) such as: student engagement (participation rate %), average time to grade per assignment (min), and quality of feedback (rubric score). If these KPIs are not in the repo, mark them as suggested examples and point readers to the repo for KPI templates."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The paragraph 'Pozvánka k participaci a udržování praxe' is marked as general background knowledge and presented in parentheses; formatting differs from surrounding sections and cross‑references to the 'living document' repository could be more explicit.",
+      "required_fix": "Format the invitation as a short paragraph or subheading, remove the parenthetical label, and add a cross‑reference/citation to the repository section (kap. 9.9) so readers know where to contribute."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The conclusion recommends measuring impacts on 'učení i integritu hodnocení' but does not point to the specific measurement instruments or rubrics available in the guide (e.g. milestone rubrics, declaration fields).",
+      "required_fix": "Add brief pointers to the relevant sections with rubrics and assessment templates (e.g. kap. 5.4 Rubriky, kap. 9.9/9.1 for prompt/rubric templates) or include 1–2 exemplar rubric items in the checklist."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first paragraph (opening summary)",
+      "edit_instruction": "Keep as is but consider adding a single cross‑reference to the overall scope (e.g. 'viz kapitoly 1–6 a přílohy 9.x') to reinforce that the conclusion synthesizes the guide's content."
+    },
+    {
+      "target": "sentence about Minecraft Education",
+      "edit_instruction": "No change to claim, but consider appending the specific citation already present (\\cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}) with a parenthetical note 'viz kap. 4.3' to point readers to the chapter that describes live demonstrations."
+    },
+    {
+      "target": "sentence about Microsoft tools ('Pokrok v matematice' / 'Pokrok ve čtení')",
+      "edit_instruction": "Keep the existing citations. Optionally add 'viz kap. 6.6 a kap. 4.3' to link to the chapters that discuss these tools (supporting material already present in the guide)."
+    },
+    {
+      "target": "checklist — third bullet (sylaby/transparency)",
+      "edit_instruction": "Replace '(general background knowledge)' with a cross‑reference: 'uprate sylaby tak, aby obsahovaly pravidla pro používání AI a povinnost deklarace (viz kap. 2.6 a přílohy).' Add citation to kap. 2.6 and 9.3 where AI Policy Template is located."
+    },
+    {
+      "target": "checklist — first bullet (pilots & metrics)",
+      "edit_instruction": "Add 2–3 concrete KPI examples after the text, e.g. 'Příklad metrik: míra účasti studentů (%), průměrná doba hodnocení (min) a kvalita zpětné vazby dle rubriky (1–4).' If KPI templates exist in the repo, add a cross‑reference to kap. 9.1/9.9."
+    },
+    {
+      "target": "checklist and paragraph labels '(general background knowledge)'",
+      "edit_instruction": "Remove all parenthetical 'general background knowledge' labels from the LaTeX body. If editorial provenance must be kept, convert them into LaTeX comments (%) or an editorial footnote outside the main text."
+    },
+    {
+      "target": "Pozvánka k participaci",
+      "edit_instruction": "Reformat as a short paragraph or subsubsection. Replace the parenthetical label with: 'Tento materiál je navržen jako „living document“ (viz repozitář, kap. 9.9). Sdílejte šablony a případové studie prostřednictvím issues nebo pull requestů.'"
+    }
+  ],
+  "retrieval_queries": [
+    "kapitola 9.1 Prompt Library 'kb_ai_101_tipu' prompt library templates",
+    "Vzor DPIA (kap. 9.4) 'kb_ai_101_tipu' DPIA template page",
+    "AI Policy Template do sylabů (kap. 9.3) 'kb_ai_101_tipu' sylab template",
+    "Repozitář, video tutoriály a mechanismus aktualizací (kap. 9.9) 'kb_ai_101_tipu' repo access instructions"
+  ]
+}

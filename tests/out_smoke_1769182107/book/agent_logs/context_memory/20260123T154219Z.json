@@ -1,0 +1,120 @@
+{
+  "agent": "context_memory",
+  "timestamp": "20260123T154219Z",
+  "input": {
+    "context_memory_json": "{\n  \"terms\": {\n    \"Nástroje pro učitele\": {\n      \"definition\": \"asistenti pro přípravu obsahu, autogradery, generátory cvičení a multimédií. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Nástroje pro studenty\": {\n      \"definition\": \"adaptivní moduly, konverzační chatboty a systémy průběžné zpětné vazby. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Chatboti jako kurzoví asistenti\": {\n      \"definition\": \"Rozšířené: chatboti fungují jako 24/7 FAQ a první linie podpory; doporučené kroky zahrnují vymezení rolí a eskalací, sběr scénářů a šablon dialogů (20–50), pilot v LMS s fallback, použití intent‑slot šablon, nastavení prahů nejistoty pro eskalaci, technické požadavky (autentizace, auditní logy, anonymizace) a monitorování přesnosti, eskalací a spokojenosti. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Autogradery\": {\n      \"definition\": \"Ilustrační příklad/nástroj pro učitele: autogradery pro hodnocení kódu. Praktické nasazení zahrnuje cíle (zrychlení rutinního hodnocení, okamžitá zpětná vazba, uvolnění času vyučujícímu), specifické kroky zavedení (příprava testovacích sad s okrajovými případy a peer review, volba LMS‑kompatibilního nástroje a pilotování, pravidlo lidského přezkumu pro sporné/otevřené odpovědi) a metriky pro měření přínosu (čas ručního hodnocení, opravy testů, spokojenost studentů, A/B piloty). (from section only)\",\n      \"first_seen_node\": \"2-1\"\n    },\n    \"Adaptivní moduly\": {\n      \"definition\": \"Ilustrační příklad/nástroj pro studenty: moduly měnící obtížnost podle výkonu studenta; doporučené kroky zavedení zahrnují: definovat výukové cíle a dělit obsah do krátkých modulů s měřitelným mastery; navrhnout větve (nápravné, rozšiřující, opakovací) a pravidla adaptace (prahy, opakování, spacing); zajistit datové zdroje, anonymizaci, integraci s LMS a pilotovat na malé skupině. (from section 2-2; clarification)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Praktické kapitoly (obsah)\": {\n      \"definition\": \"Scénáře nasazení s postupem a integrací do LMS, ověřené příklady, tipy pro piloty a škálování, doporučení pro měření účinnosti, řízení rizik, ochranu údajů a etiku. (from section Úvod)\",\n      \"first_seen_node\": \"1\"\n    },\n    \"Automatizovaná zpětná vazba a podpora hodnocení\": {\n      \"definition\": \"Praktické nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí; účel: zrychlit rutinní hodnocení, poskytovat okamžitou zpětnou vazbu a uvolnit čas vyučujícímu. (from section only)\",\n      \"first_seen_node\": \"2-1\"\n    },\n    \"Kroky zavedení autograderů\": {\n      \"definition\": \"Krátký postup zavedení: 1) definovat typy úloh a připravit testovací sady včetně okrajových případů a peer review testů; 2) vybrat nástroj kompatibilní s LMS, integrovat do workflow odevzdání a pilotovat na malé skupině; 3) nastavit pravidlo lidského přezkumu pro sporné či otevřené odpovědi a iterovat podle zjištěných chyb. (from section only)\",\n      \"first_seen_node\": \"2-1\"\n    },\n    \"Adaptivní a personalizované učení\": {\n      \"definition\": \"Praktické kroky a doporučení pro nasazení adaptivních modulů: definovat výukové cíle, dělit obsah do krátkých modulů s měřitelným mastery; navrhnout větve (nápravné, rozšiřující, opakovací) a pravidla adaptace (prahy, opakování, spacing); zajistit datové zdroje, anonymizaci, integraci s LMS a pilotovat na malé skupině. Obsahuje návrhy pilotu, metrik a rizik/zásad. (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Větve adaptace\": {\n      \"definition\": \"Konkrétní typy cest v adaptivním modulu uvedené v sekci: nápravné, rozšiřující a opakovací větve pro řízení dalšího postupu studenta. (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Pravidla adaptace\": {\n      \"definition\": \"Parametry řízení adaptace zmíněné v sekci: prahy, opakování a spacing (rozestupy opakování). (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Mastery (měřitelné mastery)\": {\n      \"definition\": \"Požadavek na krátké moduly s měřitelnými kritérii pro dosažení mastery (sekce doporučuje rozdělit obsah do modulů s měřitelným mastery). (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Pilot (adaptivní moduly)\": {\n      \"definition\": \"Doporučený přístup k ověření: pilot na malé + kontrolní skupině s průběžným monitorováním, rychlými iteracemi a dokumentací rozhodnutí pro škálování. (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Měřítka pro adaptivní moduly\": {\n      \"definition\": \"Navržená metrika pro hodnocení pilotu: pre/post skóre, udržení, engagement (čas/aktivita), míra dokončení, podpora a kvalita reakcí. (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Rizika a zásady (adaptivní učení)\": {\n      \"definition\": \"Upozornění uvedená v sekci: cold start a potřeba záložní cesty, riziko zkreslení a nutnost auditu, ochrana dat; návrh obsahu zahrnuje krátké kroky, jasná kritéria mastery, vysvětlení doporučení a možnost přepnutí. (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Šablona modulu (adaptivní)\": {\n      \"definition\": \"Krátká šablona doporučená v sekci: cíl, mapování, pravidla, data, pilot. (from section only)\",\n      \"first_seen_node\": \"2-2\"\n    },\n    \"Chatboti a virtuální asistenti\": {\n      \"definition\": \"Účel: 24/7 FAQ, první linie podpory a asistent pro opakující se úkony v akademickém prostředí; pedagogické přínosy při správném návrhu a monitorování. Doporučený postup zahrnuje: vymezit role a eskalace, sesbírat 20–50 scénářů a šablony dialogů, pilot v LMS s fallback, monitorovat logy a upravovat intenty a governance. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Role a eskalace (chatboti)\": {\n      \"definition\": \"Doporučení vymezit role a pravidla eskalace (např. citlivé údaje nebo změny známek vždy eskalovat na člověka). (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Scénáře a šablony dialogů\": {\n      \"definition\": \"Zásada sesbírat 20–50 scénářů a šablony dialogů; navrhovat dialogy jako intent‑slot šablony, zobrazovat zdroj a možnost kontaktu. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Prahy nejistoty (escalation thresholds)\": {\n      \"definition\": \"Požadavek definovat prahy nejistoty pro okamžitou eskalaci (pravidla, kdy chatbot předá konverzaci člověku). (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Technické požadavky (chatboti)\": {\n      \"definition\": \"Požadavky uvedené v sekci: integrace s LMS, autentizace a řízení přístupu, auditní logy, anonymizace a jasné zásady retence. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Monitorování (chatboti)\": {\n      \"definition\": \"Doporučené metriky a postupy monitorování: přesnost (lidský audit), míra eskalací, spokojenost uživatelů a pravidelné lidské kontroly. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Etika a soukromí (chatboti)\": {\n      \"definition\": \"Požadavek transparentního informování uživatelů, nabídnutí opt‑out a bezpečného kanálu pro citlivé záležitosti. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    },\n    \"Kontrolní seznam pro pilot (chatboti)\": {\n      \"definition\": \"Checklist pro pilot: ověřené FAQ/odpovědi, pravidla eskalace a kontaktní osoby, ochrana dat a mechanismus auditu. (from section only)\",\n      \"first_seen_node\": \"2-3\"\n    }\n  },\n  \"citations\": [\n    {\n      \"source_id\": \"node_1\",\n      \"node\": \"1\",\n      \"section\": \"Úvod\"\n    },\n    {\n      \"source_id\": \"node_2-1\",\n      \"node\": \"2-1\",\n      \"section\": \"Automatizovaná zpětná vazba a podpora hodnocení\"\n    },\n    {\n      \"source_id\": \"2-2\",\n      \"node\": \"2-2\",\n      \"section\": \"Adaptivní a personalizované učení\"\n    },\n    {\n      \"source_id\": \"2-3\",\n      \"node\": \"2-3\",\n      \"section\": \"Chatboti a virtuální asistenti pro studenty a učitele\"\n    }\n  ],\n  \"figures\": [],\n  \"tables\": [],\n  \"open_threads\": [\n    {\n      \"issue\": \"Jak AI podporuje učení a zpětnou vazbu; jak definovat výukové cíle a metriky úspěchu?\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Požadavky na kvalitu a ochranu dat, souhlas studentů, inkluze a praktické postupy pro vyhodnocování dopadu\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Konkrétní kroky pro integraci nástrojů (autogradery, chatboti, adaptivní moduly) do LMS a postupy pilotních nasazení\",\n      \"node\": \"1\"\n    },\n    {\n      \"issue\": \"Konkrétní technické požadavky a příklady nástrojů kompatibilních s různými LMS (pluginy, API, provozní testovací prostředí) nejsou v sekci specifikovány.\",\n      \"node\": \"2-1\"\n    },\n    {\n      \"issue\": \"Kritéria a prahy pro eskalaci na lidský přezkum (které typy chyb/odpovědí vždy eskalovat) nejsou konkretizovány.\",\n      \"node\": \"2-1\"\n    },\n    {\n      \"issue\": \"Šablony metrik a metodika pro měření přínosu (stanovení baseline, návrh A/B piloty, měření spokojenosti) chybí.\",\n      \"node\": \"2-1\"\n    },\n    {\n      \"issue\": \"Potřeba specifikovat konkrétní prahy a algoritmické pravidla adaptace (konkrétní hodnoty pro 'prahy', politiku opakování a spacing), které sekce pouze uvádí jako požadavek.\",\n      \"node\": \"2-2\"\n    },\n    {\n      \"issue\": \"Řešení cold startu a návrh záložní (fallback) cesty pro studenty při nasazení adaptivního systému nejsou konkretizovány.\",\n      \"node\": \"2-2\"\n    },\n    {\n      \"issue\": \"Konkrétní technické postupy pro integraci datových zdrojů a anonymizace s různými LMS (API, datové schémata, zabezpečení) chybí a vyžadují rozpracování.\",\n      \"node\": \"2-2\"\n    },\n    {\n      \"issue\": \"Postupy auditu proti zkreslení (bias) a standardizovaná metodika pro provádění auditů v pilotu nejsou popsány podrobněji.\",\n      \"node\": \"2-2\"\n    },\n    {\n      \"issue\": \"Specifikovat konkrétní hodnoty/pravidla pro 'prahy nejistoty' (kdy přesně eskalovat) a sladit je s kritérii eskalace uvedenými u autograderů.\",\n      \"node\": \"2-3\"\n    },\n    {\n      \"issue\": \"Dodat ukázkové intent‑slot šablony a několik konkrétních dialogových příkladů z navrhovaných 20–50 scénářů, aby pilot mohl použít replikovatelnou šablonu.\",\n      \"node\": \"2-3\"\n    },\n    {\n      \"issue\": \"Upřesnit technické integrace s konkrétními LMS (API, autentizační toky, role a oprávnění), včetně návrhu fallback architektury.\",\n      \"node\": \"2-3\"\n    },\n    {\n      \"issue\": \"Stanovit konkrétní zásady retence a anonymizace logů (doba uchování, pseudonymizace) kompatibilní s právními/regulačními požadavky (např. GDPR).\",\n      \"node\": \"2-3\"\n    },\n    {\n      \"issue\": \"Definovat metriky a metodiku měření monitorovaných ukazatelů (jak přesně provádět lidský audit přesnosti, jak nastavit prahové hodnoty pro míru eskalací nebo uspokojení uživatelů).\",\n      \"node\": \"2-3\"\n    }\n  ]\n}",
+    "section_title": "Learning analytics a podpora cílených intervencí",
+    "node_key": "2-4",
+    "section_latex": "\\noindent Poznámka: následující stručný scénář nasazení learning analytics a zásahů je general background knowledge a slouží jako šablona přizpůsobitelná místním podmínkám.\n\\noindent Účel: rychle identifikovat studenty s klesající angažovaností a spustit předem definované podpůrné zásahy (e‑mail, konzultace, doporučené materiály); pilot 4–8 týdnů, upravovat prahy.\n\\noindent Požadované datové zdroje: LMS (přihlášení, návštěvy, dokončení úkolů, diskuse), hodnocení, aktivita u e‑learningových objektů, administrativní údaje (jen eticky/legálně).\n\\noindent Doporučené metriky: frekvence přihlášení týdně, \\% dokončených povinných aktivit, trend průběžného skóre, interakce s materiály.\n\\noindent Dashboard a upozornění: seznam rizikových studentů s filtry (kurz/skupina/období), krátký komentář, upozornění instruktorovi — ne plně automatické zásahy.\n\\noindent Plán zásahů: automatický e‑mail s nabídkou podpory, manuální ověření instruktorem, personalizovaná doporučení nebo schůzka s tutorem.\n\\noindent Vyhodnocení: měřte změny metrik a průběžných známek před/po, používejte A/B piloty nebo historické kontroly a krátké průzkumy spokojenosti.\n\\noindent Etika a checklist: sbírejte jen nezbytná data, informujte studenty a umožněte opt‑out, zajistěte bezpečné ukládání, omezení přístupu, retenci, schválení etiky a připravené šablony zásahů a eskalace.",
+    "book_outline_text": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "terms_added": [
+      {
+        "term": "Learning analytics",
+        "definition": "Scénář nasazení analytiky pro rychlou identifikaci studentů s klesající angažovaností a spuštění předem definovaných podpůrných zásahů; pilot 4–8 týdnů s úpravou prahů. (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Cílené intervence / zásahy",
+        "definition": "Předem definované podpůrné zásahy aktivované po identifikaci rizikových studentů: automatický e‑mail, nabídka konzultace, personalizovaná doporučení materiálů; proces zahrnuje manuální ověření instruktorovi před plným zapojením. (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Požadované datové zdroje (learning analytics)",
+        "definition": "Datové zdroje doporučené pro analytiku: LMS (přihlášení, návštěvy, dokončení úkolů, diskuse), hodnocení, aktivita u e‑learningových objektů a administrativní údaje (pouze eticky/legálně dostupné). (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Doporučené metriky (learning analytics)",
+        "definition": "Návržené metriky angažovanosti: frekvence přihlášení týdně, % dokončených povinných aktivit, trend průběžného skóre a interakce s materiály. (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Dashboard a upozornění (learning analytics)",
+        "definition": "Seznam rizikových studentů s filtry (kurz/skupina/období), krátkým komentářem a upozorněním instruktorovi; zásadně neplně automatické zásahy (instruktor rozhoduje o dalším kroku). (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Plán zásahů (learning analytics)",
+        "definition": "Doporučený workflow: automatické upozornění/e‑maily s nabídkou podpory → manuální ověření instruktorem → personalizovaná doporučení nebo schůzka s tutorem. (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Vyhodnocení (learning analytics)",
+        "definition": "Návrh vyhodnocení účinku: měřit změny metrik a průběžných známek před/po zásahu; používat A/B piloty nebo historické kontroly a krátké průzkumy spokojenosti. (from section only)",
+        "first_seen_node": "2-4"
+      },
+      {
+        "term": "Etika a checklist (learning analytics)",
+        "definition": "Etický checklist pro analytiku: sbírat jen nezbytná data, informovat studenty a umožnit opt‑out, zajistit bezpečné ukládání, omezení přístupu, retenci, schválení etiky a mít připravené šablony zásahů a eskalace. (from section only)",
+        "first_seen_node": "2-4"
+      }
+    ],
+    "terms_updated": [],
+    "citations_used": [
+      {
+        "cite_key_or_rid": "2-4",
+        "where": "learning analytics a podpora cílených intervencí section",
+        "type": "kb"
+      }
+    ],
+    "open_threads": [
+      {
+        "thread": "Specifikovat konkrétní prahy a algoritmická pravidla pro detekci rizikových studentů (konkrétní hodnoty pro metriky a pravidla spouštění zásahů jsou uvedeny obecně, ale chybí detailní prahy/algoritmy).",
+        "suggested_future_node": "2-4 detail: thresholds and detection algorithms"
+      },
+      {
+        "thread": "Technické detaily integrace datových zdrojů z LMS (API, datová schémata, anonymizace/pseudonymizace, zabezpečení a politika retence) nejsou v sekci popsány a vyžadují doplnění.",
+        "suggested_future_node": "Technická příloha: datové integrace a zabezpečení (pro 2-4)"
+      },
+      {
+        "thread": "Metodika provádění A/B pilotů a statistické testování efektu zásahů (stanovení baseline, velikost vzorku, metriky významnosti) není v sekci rozpracována.",
+        "suggested_future_node": "Metodika pilotů a měření efektivity (doplněk k 2-4)"
+      },
+      {
+        "thread": "Konkrétní právní/etické postupy (např. implementace GDPR‑kompatibilních zásad retence a postupů opt‑out) jsou zmíněny obecně, ale chybí implementační šablony a schválení postupu.",
+        "suggested_future_node": "Právní a etické zásady pro learning analytics (doplněk k 2-4)"
+      },
+      {
+        "thread": "Stávající otevřené otázky o požadavcích na kvalitu dat a souhlas studentů (z hlavního open thread bloku) jsou nyní částečně adresovány v 2-4, ale vyžadují detailní procedury a technické specifikace.",
+        "suggested_future_node": "2-4 followup: procedury kvality dat a souhlasů"
+      }
+    ],
+    "consistency_flags": [
+      {
+        "type": "terminology",
+        "description": "Různé sekce používají 'zásah', 'intervence' a 'plán zásahů' zaměnitelně — doporučit sjednocení terminologie (např. vždy 'zásah / intervence') napříč kapitolami.",
+        "severity": "low"
+      },
+      {
+        "type": "terminology",
+        "description": "Pilotní délky se liší podle sekcí (adaptivní moduly doporučují malé piloty bez přesné délky, 2-4 navrhuje 4–8 týdnů) — doporučit explicitní harmonizaci pilotních doporučení v části 'Zavedení do praxe'.",
+        "severity": "low"
+      },
+      {
+        "type": "claim",
+        "description": "Sekce uvádí, že zásahy nejsou plně automatické (manuální ověření instruktorem) — sladit s jinými komponentami (chatboti/autogradery), kde jsou definovány prahy eskalace, aby nedošlo k nejasnostem v odpovědnosti.",
+        "severity": "medium"
+      }
+    ],
+    "retrieval_queries": [
+      "Best practices for setting thresholds and detection algorithms for at‑risk students using engagement metrics (examples of numeric thresholds or statistical methods).",
+      "Technical integration patterns for LMS-based learning analytics: API endpoints, data schemas, anonymization/pseudonymization approaches and retention policy examples.",
+      "Templates for consent notices, intervention email templates, and ethics-committee approval language for university learning analytics (GDPR‑compatible examples)."
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 5317,
+      "completion_tokens": 3336,
+      "total_tokens": 8653
+    },
+    "cost_usd": 0.00800125,
+    "total_cost_usd": 0.111645,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

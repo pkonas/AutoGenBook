@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several checklist items and recommendations (e.g., 'Identifikace halucinací a biasů', 'Transparentnost promptu', 'Pedagogická hodnota') are plausible pedagogical guidance but are not explicitly cited to supporting KB excerpts in this section. Some related material exists elsewhere in the handbook (e.g. halucinace, rubric guidance, prompt library) and should be cross‑referenced or footnoted to strengthen grounding.",
+      "required_fix": "Add explicit citations (existing KB excerpt keys or section references) to support checklist items or state them explicitly as 'general background knowledge' with a short justification and cross‑reference to the relevant chapter/KB excerpt (e.g. 1.3.2 for halucinace, 9.1 for prompt templates, 4.1.5/4.3.2 for prompt transparency)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The practical scenarios are stepwise but lack at least one concrete example prompt and a short sample rubric/template for the 'Peer review přes AI' scenario. Without an example prompt/rubric, teachers may find it harder to adopt the workflow.",
+      "required_fix": "Include one short example prompt for the AI feedback step and a compact example rubric (e.g., 3–4 rubric criteria with short descriptors) or point to an existing prompt/rubric in the prompt library (9.1)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The latex_body uses Unicode punctuation (e.g. nonstandard hyphen characters '‑', Czech opening/closing quotes „…“) and explicit \\footnote{Source: ...} tokens. Depending on the LaTeX engine and preamble (utf8, fontenc), some of these characters may compile incorrectly.",
+      "required_fix": "Ensure the document preamble enables UTF‑8 (\\usepackage[utf8]{inputenc} or XeLaTeX/Lualatex) or normalize the hyphens (replace '‑' with '-' or LaTeX --/--- as appropriate). Keep the \\footnote commands but ensure the citation keys match the handbook's citation style."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Inline tags '(general background knowledge)' appear in multiple bullets. In other parts of the handbook, similar material is either cited or marked differently. The labeling here is inconsistent with other sections which use cross‑refs to chapters/KB IDs.",
+      "required_fix": "Either remove the inline '(general background knowledge)' markers and replace them with explicit cross‑references to handbook sections or KB excerpts, or keep the markers but add a brief note explaining why the label is used and where to find the canonical KB support (e.g. point to sections 1.3.x, 4.1.x, 9.1)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklist and 'procedura při podezření na nekvalitní AI‑výstup' are good, but could be strengthened by recommending concrete time allocations and assessment actions (e.g., how many random fact‑checks per assignment, whether prompt storage should be mandatory metadata in LMS). The section currently gives recommendations but not operational thresholds.",
+      "required_fix": "Either add concrete operational suggestions (e.g., 'spot‑check X% of submissions per assignment or at least N per class' — only if supported by KB or local policy) or explicitly keep the guidance high‑level and cross‑reference related operational checklists in the handbook (e.g., 9.2, 5.4). If no KB support is available for thresholds, keep statements qualitative and label them as 'local operational suggestion'."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "intro paragraph",
+      "edit_instruction": "Add a parenthetical citation to the Minecraft Education recommendation referencing the provided KB excerpt: append ' (viz. kb_ai_101_tipu_pdf_page_15_2)' after the sentence that mentions Minecraft Education; keep the existing footnote but add the explicit cross‑reference for clarity."
+    },
+    {
+      "target": "peer review scenario",
+      "edit_instruction": "Add a short example AI prompt and a sample compact rubric. Example prompt (teacher→AI): 'Analyze the following student essay according to this rubric: clarity (0–3), argumentation (0–3), evidence and citations (0–2), missing steps (0–2). Provide: (a) numbered improvement suggestions, (b) suggested 1‑sentence summary the student can use, (c) confidence level for major factual claims.' Also add a 4‑item rubric table (one line per criterion with short descriptors). If the handbook has a prompt template in 9.1, cross‑reference it (kb_ai_101_tipu_pdf_page_... or section 9.1)."
+    },
+    {
+      "target": "checklist items",
+      "edit_instruction": "Insert inline cross‑references or footnotes for checklist items where the handbook contains related material: e.g., for 'Přesnost faktů' cross‑reference section 1.3.2 (halucinace); for 'Transparentnost promptu' cross‑reference 4.1.5 and 9.1 (prompt library); for 'Generování testů' link to kb_ai_101_tipu_pdf_page_36_1. Use the existing KB cite keys where available."
+    },
+    {
+      "target": "general background labels",
+      "edit_instruction": "Replace repeated parenthetical '(general background knowledge)' tags with either explicit cross‑references to the corresponding handbook sections or a single footnote explaining that these items are pedagogical best practices summarized from the handbook and pointing the reader to the relevant chapters (e.g., 'see chapters 1.3, 3.6, 4.1, 9.1')."
+    },
+    {
+      "target": "latex_body punctuation",
+      "edit_instruction": "Normalize hyphen characters: replace any Unicode '‑' (U+2011/U+2010) with standard ASCII '-' or LaTeX '--' as appropriate for ranges and hyphenation; ensure the document preamble supports UTF‑8 or instruct editor to compile with XeLaTeX/LuaLaTeX so Czech characters and curly quotes compile correctly."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_15_2 (to support Minecraft Education recommendation already cited)",
+    "kb_ai_101_tipu_pdf_page_36_1 (to support Microsoft 365 Copilot / Forms test generation statement already cited)",
+    "kb_ai_101_tipu_pdf relevant chunks for halucinace (section 1.3.2) to ground 'Identifikace halucinací a biasů' checklist item",
+    "kb_ai_101_tipu_pdf prompt library (section 9.1) to link sample prompt and rubric templates"
+  ]
+}

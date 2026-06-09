@@ -1,0 +1,42 @@
+Contemporary neural text generators enable rapid composition of long-form documents, but they do not by themselves guarantee that produced assertions are verifiable or that supporting sources are cited.
+Automated long-form generation systems can produce unsupported or inaccurate statements, invent citations, or omit references that a human author would provide.
+For workflows that target scholarly or otherwise high-assurance outputs, these failure modes are unacceptable: authors need explicitly verifiable claims, machine-parseable evidence links, and a reproducible audit trail that supports downstream checking and revision.
+
+This work is motivated by that practical need.
+We investigate whether structuring the generation process around an explicit document graph improves the reliability, citation quality, and verifiability of section-level outputs.
+Intuitively, a document graph makes section boundaries, dependencies, and evidence flow explicit, allowing retrieval and generation modules to operate with richer context than linear prompting alone.
+
+Concretely, we represent a draft document as a directed graph G = (V,E) in which each node v $\in V$ corresponds to a section (or subsection) and edges e $\in E$ encode inter-section relations such as dependency, evidence-flow, refinement, or contrast.
+Each node is annotated with a small schema of attributes: target length, rhetorical role (e.g., background, method, result), local goals or claims, and a placeholder for attached evidence pointers.
+Edges carry typed metadata that indicate, for example, that section A supplies background evidence for section B, or that section C refines claims made in section D.
+
+The document graph plays three operational roles in the proposed workflow.
+First, it constrains generation ordering via a scheduler that respects dependencies: nodes are generated in a topologically consistent order, leaves may be produced first, and independent subgraphs can be parallelized when safe.
+The scheduler also supports prioritized re-generation when upstream edits change evidence or claims.
+Second, the graph informs retrieval by producing context-aware queries for each node: a node's query is constructed from its local goals plus summaries of upstream supporting nodes, enabling focused retrieval that takes inter-section context into account.
+Third, the graph governs assembly by mapping structured section outputs into a coherent LaTeX manuscript: citation pointers are resolved into a consolidated refs.bib, citation identifier conflicts and cross-reference consistency are resolved deterministically, and provenance metadata is embedded to yield an auditable record.
+
+The workflow itself proceeds in four stages.
+Stage 1: an initial document graph is constructed from a high-level outline or template; human authors or automated outline parsers provide node headings and annotations such as intended claims and length targets.
+Stage 2: for each node the system retrieves candidate evidence items from curated internal notes and a collection of small PDFs; retrieved items are ranked and attached to nodes as evidence pointers, along with retrieval scores and provenance identifiers.
+Stage 3: leaf and scheduled sections are generated under constrained prompts that require JSON-compliant outputs: explicit fields include title, an array of abstracted claims, a sequence of paragraphs with span indices, citation slots that reference evidence pointer IDs and include span-level start/end indices, and provenance metadata that records retrieval identifiers and timestamps.
+In this stage each factual claim must either be linked to at least one supporting evidence pointer or be explicitly labeled as speculative; generators may also return ranked evidence suggestions and confidence scores.
+Stage 4: validated JSON section outputs are assembled into a single LaTeX manuscript and a unified refs.bib; the assembler deterministically canonicalizes citation keys, resolves duplicate references, replaces pointer IDs with bibkeys in \cite commands, and emits a machine-readable audit manifest that maps each asserted claim span to the supporting retrieval items.
+
+For evaluation we ask: how does graph-guided sectioning affect coherence, citation coverage, and factual consistency relative to a baseline linear prompting pipeline?
+We compare the graph-guided pipeline to a linear baseline across two topical domains.
+Measured outcomes include citation coverage (fraction of non-speculative claims with attached evidence), hallucination rate (estimated via reference-based checks that verify whether cited sources actually support claimed facts), automated factual-consistency metrics where applicable, and blind reviewer assessments of coherence, usefulness, and verifiability.
+To encourage conservative outputs, we enforce a generation regime in which section generators must attach supporting evidence for factual claims or mark them as speculative; low-confidence or low-recall retrievals are surfaced to authors rather than allowing unsupported assertions to propagate.
+
+This paper makes three primary contributions.
+First, we introduce a document-graph formulation for long-form generation that encodes section hierarchy, dependency types, and explicit evidence links.
+Second, we present a section scheduler and evidence-injection mechanism that together produce JSON-constrained section outputs with fine-grained provenance.
+Third, we describe an assembly procedure that converts section-level JSON into a LaTeX manuscript with a consolidated refs.bib and an embedded audit trail suitable for downstream verification and iterative revision.
+
+We also acknowledge important sources of uncertainty and limits to generality.
+Section headings and rhetorical roles do not uniformly indicate citation intent across disciplines, so section-aware citation signals can be noisy and require cautious interpretation \cite{web_thelwall_2019_should_citations_be_counted_separately_from_each}.
+Retrieval modules that operate on flat corpora can miss fragmented, dispersed, or multi-hop evidence; prior work suggests that explicitly graph-structured retrieval can help identify and combine such evidence items \cite{web_mongiov_2021_graph_based_retrieval_for_claim_verification_ove}.
+Finally, structured and cryptographically-aware evidence records are increasingly discussed for regulated audit settings; these approaches underscore the importance of durable, machine-verifiable provenance for high-assurance deployments and inform our audit-trail design choices \cite{web_kao_2025_quantum_adversary_resilient_evidence_structures_}.
+
+In sum, this introduction motivates a graph-guided prompting workflow that prioritizes verifiability and auditability in long-form generation.
+The remainder of the paper details the document-graph representation and scheduler (Section 3), the retrieval and constrained-generation procedures (Sections 3.4–3.5), experimental design (Section 4), empirical results (Section 5), and a conservative discussion of strengths, limitations, and future directions (Sections 6–7).

@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Několik klíčových vět odkazuje na zdroj kb_ai_101_tipu_pdf_page_36_1 (footnoty), ale konkrétní výňatek z této stránky není součástí RETRIEVED EXCERPTS v tomto vstupu (i když obsah citovaný z této stránky je obsažen v předchozím oddílu paměti). Pro auditovatelnost by bylo lepší přidat explicitní extrakt/odkaz na page 36 do retrieved excerpts.",
+      "required_fix": "Připojte konkrétní Retrieved Excerpt pro kb_ai_101_tipu_pdf_page_36_1 nebo nahraďte/nebo doplňte text přímým citátem z dostupných excerptů (pokud už je to v paměti), aby všechny netriviální tvrzení měly přímou podporu ve vstupních extraktech."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Použití prostředí verbatim uvnitř enumerate/itemize může v některých LaTeX konfiguracích (bez doplňkových balíčků) způsobit kompilaci nebo formátovací problémy. Dále jsou v textu verbatim bloky obklopeny uvozovkami — esteticky i programově může být lepší uvozovky odstranit.",
+      "required_fix": "Zvažte použití package listings nebo \\\\begin{lstlisting} nebo nahrazení verbatim bloků prostředím \\texttt nebo ukázkovým blokem s menším rizikem (nebo přidejte poznámku, že dokument předpokládá balíček pro verbatim v rámci enumerate). Odstraňte nadbytečné vnější uvozovky v blocích s promptem."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Zkratky/úrovně ELI5 / ELI15 / ELI25 jsou použity bez krátkého vysvětlení v rámci této sekce (i když jsou popsány jinde v příručce). Čtenář, který přeskakuje mezi přílohami, by mohl mít nejasnost.",
+      "required_fix": "Doplňte jednovětou poznámku (např. 'ELI5 = velmi zjednodušené, ELI15 = střední úroveň, ELI25 = pokročilá úroveň') nebo odkaz na sekci, kde jsou tyto úrovně vysvětleny (např. 4.4.1)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce doporučuje specifikovat formát výstupu (Moodle/Word/Forms), ale nechává nepopsané, jaký konkrétní formát/předloha by měl být výsledkem (např. strukturovaný CSV pro import do Moodle/Forms nebo .docx pro Word).",
+      "required_fix": "Přidejte krátký příklad očekávané struktury výstupu pro každý z uvedených formátů (např. 'pro Forms: otázka; typ; volby; správná odpověď; vysvětlení' nebo odkaz na příklad ze sekce 3.6/9.1.3)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Obsah přílohy částečně duplikuje text z hlavních kapitol (např. opakovaně se objevuje 3‑krokový workflow), což není chybná informace, ale může vést k redundanci v dokumentu.",
+      "required_fix": "Buď zachovat (s tím, že jde o 'quick reference') a explicitně to označit, nebo redukovat opakování tím, že v příloze použijete stručnou reference větu typu 'viz kapitola 1.1' a ponecháte zde pouze rychlé šablony a příklady."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "U prvního odstavce (Krátké shrnutí a rychlý postup) přidejte krátkou větu: 'Tento rychlý postup je shrnut z hlavního textu (viz sekce \"Úvod a rychlý návod k použití knihovny\" — kb_ai_101_tipu_pdf_page_36_1).'"
+    },
+    {
+      "target": "verbatim prompt blocks",
+      "edit_instruction": "Odstraňte vnější uvozovky kolem celých verbatim bloků a/nebo přeformátujte bloky jako \\begin{lstlisting} ... \\end{lstlisting} s poznámkou o nutnosti balíčku listings, aby byly LaTeX‑kompatibilní ve všech build‑pipelines."
+    },
+    {
+      "target": "ELI levels line",
+      "edit_instruction": "Doplňte krátké vysvětlení: 'ELI5 = velmi jednoduché (vysvětlit jako pro 5leté), ELI15 = střední úroveň, ELI25 = detailní/pokročilé vysvětlení.' nebo přidejte odkaz na sekci 4.4.1."
+    },
+    {
+      "target": "format outputs tip",
+      "edit_instruction": "U položky 'V promptu vždy explicitně specifikujte ... formát výstupu' přidejte ukázkovou strukturu pro Forms a Moodle (1–2 řádky), např. 'Forms import: otázka | typ | možnost A | možnost B | správná | poznámka'."
+    },
+    {
+      "target": "footnotes",
+      "edit_instruction": "Zkontrolujte a případně sjednoťte styl footnot (např. 'Source: kb_ai_101_tipu_pdf_page_36_1') a přidejte, pokud je možné, přímo citát nebo krátký výňatek z page 36 k posílení traceability."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 36 chunk (kb_ai_101_tipu_pdf_page_36_1) — full excerpt for the 3-step workflow and prompt‑library quick guide",
+    "kb_ai_101_tipu_pdf page 36 example prompt for Forms/Moodle output format (to get concrete expected output structure)",
+    "kb_ai_101_tipu_pdf section that defines ELI5/ELI15/ELI25 (likely section 4.4.1) — short excerpt"
+  ]
+}

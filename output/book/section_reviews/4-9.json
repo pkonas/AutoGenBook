@@ -1,0 +1,66 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The sentence in 'Edukace a komunikace' claims that \"integrace Copilot funkcí do Word/OneNote/Forms výrazně liší od jednoduchých chatbotů; prověřte konkrétní funkce před použitím\" — this is a non‑trivial factual statement that currently cites kb_ai_101_tipu_pdf_04e4a115_page_8_1, but the most directly relevant support for Copilot in Office apps appears to be in other KB pages (e.g. page_3_1) that are not present among the provided retrieved excerpts. According to the grounding rules, non‑trivial factual claims must be supported by an excerpt or run artifact.",
+      "required_fix": "Either add a supporting citation from the KB (e.g. the chunk that documents Copilot availability/integration in Word/OneNote/Forms) or reword the sentence to a clearly labelled general background statement without asserting the specific product integration. If adding the citation, include the exact cite_key used elsewhere in the document."
+    },
+    {
+      "type": "latex",
+      "severity": "major",
+      "description": "LaTeX contains likely compilation/formatting errors: the sequence 'Q\\\\ \\&A' inside an item likely produces an unintended line break and an extra '\\\\'. Also the escaped quote sequence \\\"general background knowledge\\\" is non‑standard in prose and may cause issues depending on the LaTeX engine/package set; the string 'monitioring' is misspelled.",
+      "required_fix": "Replace 'Q\\\\ \\&A' with 'Q\\&A' (single escaped ampersand, no manual '\\\\'). Replace occurrences of \\\"...\\\" with proper LaTeX quotes (e.g. ``...'' or \\texttt{...}) or remove the escaping if not necessary. Fix spelling 'monitioring' -> 'monitoring'. Recompile to ensure no LaTeX errors."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Some bullets mix labelled 'general background knowledge' at heading and bullet levels inconsistently (e.g. the heading 'Transparentnost a informovaný souhlas (general background knowledge)' while some bullets inside also repeat the tag). The document uses both parentheses tagging and inline notes.",
+      "required_fix": "Standardize how 'general background knowledge' is marked (either only at the section heading or at individual bullets) and ensure consistency across all checklist items. Consider moving a short explanatory note at the top explaining the meaning of the tag."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The checklist suggests spot‑checks and SLA metrics but does not include a concrete illustrative range for spot‑check sampling (the rest of the manual elsewhere suggests 5–10% as an example).",
+      "required_fix": "Add a concise illustrative example (e.g. 'spot‑check 5–10% of AI‑graded works as an initial setting') and cite the supporting KB chunk or internal section that recommends that range, or label it explicitly as an example."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Smluvní a licenční požadavky' bullet correctly cites Minecraft Education licensing, but other practical recommendations (e.g. preferring DPAs, retention rules) are not linked to a specific KB excerpt in this section even though the manual contains a DPIA/DPA checklist elsewhere.",
+      "required_fix": "Add citations to the relevant KB/manual sections for DPIA/DPA guidance (e.g. references to the DPIA template or section 2.2.x in the manual) or explicitly mark those bullets as 'general background knowledge' to comply with the grounding rules."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace 'Q\\\\ \\&A' with 'Q\\&A' (i.e. remove the extra '\\\\'). Example: '... pro které aktivity bude AI nástroj použit (Q\\&A, live demonstrace, ...).' Verify LaTeX compiles after change."
+    },
+    {
+      "target": "spelling",
+      "edit_instruction": "Fix typo 'monitioring' -> 'monitoring' in the 'Provozní připravenost a monitioring' heading (change heading to 'Provozní připravenost a monitoring')."
+    },
+    {
+      "target": "quoting/tag",
+      "edit_instruction": "Replace instances of \\\"general background knowledge\\\" with typographically standard LaTeX quotes or a clear parenthetical note. E.g. change '(general background knowledge)' to '(general background knowledge)' without backslash escaping, or use ``general background knowledge'' if you prefer typographic quotes."
+    },
+    {
+      "target": "evidence addition",
+      "edit_instruction": "For the sentence about Copilot integration in Word/OneNote/Forms, either: (a) add a citation to the KB chunk documenting Copilot in Office (suggested cite_key: kb_ai_101_tipu_pdf_04e4a115_page_3_1) or (b) reword to a labelled general background statement: 'V Microsoft ekosystému mohou existovat integrované Copilot funkce v Office aplikacích — prověřte konkrétní funkce a licencování před použitím (general background knowledge).' If you add a citation, ensure the cite_key matches the retrieved KB entry."
+    },
+    {
+      "target": "spot-check example",
+      "edit_instruction": "Add an illustrative spot‑check range to the 'Pravidla eskalace a lidská validace' or 'Provozní připravenost' bullets, e.g. 'Provádějte průběžné spot‑checky kvality AI výstupů (ilustrativně 5–10% odevzdaných prací) ...' and add a supporting citation to the KB or internal section that gives this example (section referencing pre‑grading/spot‑check)."
+    },
+    {
+      "target": "citations for contractual/DPIA bullets",
+      "edit_instruction": "Add citations to the manual's DPIA/DPA/checklist sections (e.g. references to 2.2.4 'Vzor DPIA' and 2.2.5 'Smlouvy s poskytovateli') next to the bullets on DPIA, data mapping and DPA preference."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 3 Copilot Office Word OneNote Forms citation (to support Copilot integration claim)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 8 additional chunks referencing spot‑check percent or guidance for sample sizes (5–10%)",
+    "kb_ai_101_tipu_pdf_04e4a115 sections 2.2.4 2.2.5 DPIA and DPA checklist chunks (to support DPIA/DPA bullets)"
+  ]
+}

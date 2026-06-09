@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Sekce obsahuje konkrétní časové odhady (např. „5–10 min“, „10–15 min“) a další pedagogická doporučení prezentovaná jako součást kroku‑za‑kroku, které nejsou explicitně podpořeny poskytnutými retrieved excerpts. Podle pravidel musí být každé netriviální číselné doporučení nebo fakt podloženo excerptem nebo označeno jako obecné pedagogické doporučení.",
+      "required_fix": "Buď odstranit nebo upravit všechny konkrétní časové odhady tak, aby byly označeny jako \"doporučené časování (pedagogické vodítko) — general background knowledge\" nebo je nahradit neutrál‑ním textem bez čísel. Pokud chcete ponechat čísla, doplňte přímý citát/podklad z KB nebo jiného run artefaktu."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce neodkazuje explicitně na dříve uvedené principy scaffolding/adaptivního vysvětlení (ELI‑úrovně, kontrolní body, vrstvení), které jsou v paměti kontextu a které by měly být v praktických workflowu doplněny pro konzistenci napříč kapitolou.",
+      "required_fix": "Přidat do každého workflow krátký krok (1 věta) odkazující na použití principů z oddílu 'Principy adaptivního vysvětlení' / checklistu (např. 'Před aktivitou definujte ELI‑úroveň a 1–2 formativní kontrolní body' s poznámkou, že odkazuje na interní sekci). Použít formulaci v souladu s existujícími výstupy (např. 'definujte cílovou ELI‑úroveň')."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Kroky ve workflow někdy předpokládají další provozní/etické kroky (např. kontrola soukromí/dat žáků při použití Forms nebo ukládání postupů) které nejsou explicitně zmíněny. To může vést k opomenutí GDPR/akademické integrity během pilotu.",
+      "required_fix": "Přidat stručnou poznámku u workflow (zejména u 'Pokrok v matematice' a 'Copilot ve Forms') upozorňující na nutnost ověření soukromí/dat a pravidel akademické integrity (odkázat na příslušné kapitoly v příručce, např. GDPR / akademická integrita)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX používá ručně psané \\\\footnote{Source: ...} s cite_key; stylisticky by bylo konzistentnější využít jednotný způsob citační poznámky (nebo alespoň jedním stylem označit všechny zdroje). Nejedná se o chybu, ale o doporučení pro konzistenci výstupu v publikaci.",
+      "required_fix": "Buď ponechat současné footnoty, nebo upravit všechny poznámky zdrojů do jednotného formátu (např. \\footnote{kb_ai_101_tipu_pdf_page_15_2})."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Minecraft Education — krok 2 a 4 (časování a diskuse)",
+      "edit_instruction": "Upravte text tak, aby časová doporučení byla explicitně označena jako pedagogické vodítko: např. 'Krátce (doporučeně ≈5–10 min) představte...' změnit na 'Krátké úvodní seznámení (pedagogické doporučení) — představte žákům cíle aktivity a hlavní principy strojového učení.' Dále přidejte větu: 'Po aktivitě zařaďte diskusi/reflexi; délku si stanovte podle třídy.'"
+    },
+    {
+      "target": "Všechny workflow kroky",
+      "edit_instruction": "Přidejte na začátek každého workflow krátký řádek: 'Zkontrolujte ELI‑úroveň a vložte 1–2 formativní kontrolní body (viz principy adaptivního vysvětlení).' Odkažte (textově) na oddíl s principy (např. 'viz sekce \"Principy adaptivního vysvětlení\"')."
+    },
+    {
+      "target": "Pokrok v matematice — krok 2",
+      "edit_instruction": "Doplňte explicitní poznámku o ochraně dat a o tom, že požadavek na nahrání postupu může vyžadovat souhlas nebo interní pravidla (odkázat na kapitolu o GDPR/ochraně osobních údajů v příručce). Pokud nechcete odkaz, přidejte: 'Pozn.: ověřte zásady ochrany osobních údajů a pravidla akademické integrity před požadavkem na nahrávání postupu.'"
+    },
+    {
+      "target": "Copilot ve Forms — krok 4",
+      "edit_instruction": "Místo obecného doporučení 'proveďte rychlou kontrolu kvality' navrhněte konkrétní kontrolní checklist (3 body): (1) ověřit správnost klíčových faktů/odpovědí, (2) zkontrolovat vhodnost obtížnosti podle věku/úrovně, (3) upravit formulace nejasných otázek. Uveďte, že ověření je nutné — lze odkazat na obecnou sekci o ověřování výstupů AI."
+    }
+  ],
+  "retrieval_queries": [
+    "Najdi v KB explicitní doporučení časování pro pilotní aktivity s Minecraft Education nebo Hour of Code (jestli existuje přesný návrh délky úvodu/diskuse).",
+    "Najdi v KB konkrétní doporučení nebo checklist pro kontrolu kvality AI‑generovaných testů (Microsoft 365 Copilot ve Forms) — zda je v KB uveden postup verifikace výstupu.",
+    "Najdi v KB zdroje/pasáže, které přímo propojují použití 'Pokrok v matematice' s GDPR/ochranou soukromí studentů nebo s požadavky na souhlas při ukládání postupů."
+  ]
+}

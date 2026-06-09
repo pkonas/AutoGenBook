@@ -1,0 +1,91 @@
+Tato sekce shrnuje ověřené prompt šablony a scénáře pro interaktivní hodiny (Q\\ \&A, sokratovský kouč, simulace, generování cvičení, automatické opravování). Níže jsou stručné účely, doporučený postup nasazení a kopírovatelné prompt‑bloky.
+
+Pravidla nasazení (krátce)
+\begin{itemize}
+  \item Definujte roli asistenta a transparentně ji oznamte studentům.
+  \item Testujte prompty na malém vzorku otázek a dolaďte styl odpovědí.
+  \item U úloh citlivých na podvádění požadujte doložení postupu (fotky rukopisu, meziodevzdání). \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}
+\end{itemize}
+
+1) Asistent pro Q\\ \&A
+\begin{itemize}
+  \item Účel: rychlé faktické odpovědi, odkazy na materiály, návrhy dalšího kroku.
+  \item Role: stručné odpovědi; žádat doplňující informace namísto kompletních řešení.
+\end{itemize}
+Prompt:
+\begin{quote}
+\begin{PromptBlock}
+
+Jsi asistent kurzu [NÁZEV PŘEDMĚTU]. Odpovídej stručně (max. 3 věty) a vždy připoj 1 doporučený zdroj z kurzu (slide/kapitola). Pokud dotaz vyžaduje řešení krok po kroku, nejprve vyžádej studentský postup.
+\end{PromptBlock}
+
+\end{quote}
+
+2) Sokratovský kouč
+\begin{itemize}
+  \item Účel: vést studenta otázkami, rozkládat problém, žádat vysvětlení kroků.
+  \item Role: klást otevřené otázky a hinty, neposkytovat kompletní řešení.
+\end{itemize}
+Prompt:
+\begin{quote}
+\begin{PromptBlock}
+
+Hraj roli sokratovského kouče. Když student zadá problém, polož 3 postupné otázky, které vedou k rozkladu problému, a na závěr nabídni jeden konkrétní hint (ne řešení). Po každé odpovědi studenta požádej o zdůvodnění kroku.
+\end{PromptBlock}
+
+\end{quote}
+
+3) Simulace rozhovorů / ústních zkoušek
+\begin{itemize}
+  \item Účel: trénink odpovědí a simulace obhajoby; po simulaci generovat zpětnou vazbu podle rubriky.
+\end{itemize}
+Prompt:
+\begin{quote}
+\begin{PromptBlock}
+
+Simuluj zkoušejícího na úrovni [bakalář/magistr], polož studentovi 5 otázek k tématu [TÉMA], očekávej odpověď 1–2 minuty a po každé odpovědi poskytněte 3-bodové shrnutí hodnocení (obsah, jasnost, hloubka) podle této rubriky: [vložit kritéria].
+\end{PromptBlock}
+
+\end{quote}
+
+4) Generování cvičení a kvízů
+\begin{itemize}
+  \item Užitečné pro rychlé vytvoření in‑class úloh nebo domácích cvičení; možné integrovat s Forms pro automatickou tvorbu kvízů. \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}
+\end{itemize}
+Prompt:
+\begin{quote}
+\begin{PromptBlock}
+
+Vytvoř test na téma [TÉMA] pro studenty [ROČNÍK/ÚROVEŇ], 10 otázek: 6x ABC, 2x pravda/nepravda, 2x otevřené (max. 80 slov). U každé ABC otázky uveď správnou odpověď a krátké vysvětlení (1 věta).
+\end{PromptBlock}
+
+\end{quote}
+
+5) Automatické opravování postupů (matematika, technické obory)
+\begin{itemize}
+  \item Workflow: studenti nahrají postup (foto/text); nástroj označí chyby a navrhne cílené cvičení a nápravu. \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}
+\end{itemize}
+Prompt:
+\begin{quote}
+\begin{PromptBlock}
+
+Analyzuj tento studentský postup (vložený text/obrázek). Vyjmenuj 3 konkrétní chyby nebo nejistoty, u každé navrhni krátké cvičení (max. 2 věty) k odstranění problému. Pokud je postup neúplný, vyžádej chybějící krok.
+\end{PromptBlock}
+
+\end{quote}
+
+Mini‑workflow nasazení
+\begin{enumerate}
+  \item Zvolte scénář (Q\\ \&A, kouč, simulace).
+  \item Připravte a otestujte 3–5 promptů mimo třídu.
+  \item Ve třídě vysvětlete pravidla interakce a transparentnost AI.
+  \item Po interakci shromážděte krátkou reflexi (1–2 otázky) a upravte prompty.
+\end{enumerate}
+
+Doplňkové poznámky
+\begin{itemize}
+  \item Pro vizuální materiály lze rychle generovat piktogramy a diagramy (např. nástroje v ekosystému Microsoft).
+  \item Preferujte sběr procesu (drafty, meziodevzdání) před pouhým odevzdáním finální odpovědi pro věrné hodnocení a prevenci zneužití AI. \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}
+\end{itemize}
+
+Poznámka k licencím a integracím: při plánování plného provozu zvažte enterprise varianty nástrojů a integraci s LMS/SSO (viz kapitola o integraci a enterprise řešeních).

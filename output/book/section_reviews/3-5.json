@@ -1,0 +1,72 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Several procedural recommendations (e.g. the 5–step 'Rychlý workflow pro tvorbu kvízu' and the 'Postup pro rychlé vytvoření item banky') are presented as factual guidance but lack explicit grounding citations. Some of these are pedagogical best practices rather than claims specific to a cited tool and are not labeled as 'general background knowledge'.",
+      "required_fix": "Either add supporting references (e.g. cross‑references to the handbook sections that justify these workflows, such as the chapter 3 quick checklist or chapter 5 on formative feedback) or explicitly mark these workflows as 'general background knowledge' / practical recommendations."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The numeric recommendation 'min. 5–10\\% automaticky ohodnocených záznamů' for random manual checks is given without citation or explanation of its provenance.",
+      "required_fix": "Provide a citation or source for this threshold (if it comes from institutional guidance or literature). If no citation is available, rephrase to a qualified recommendation (e.g. 'doporučeně: náhodné ruční kontroly, např. 5–10\\% závislé na riziku') or mark as 'general background knowledge/practice'."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Statement 'U otevřených textových odpovědí lze použít AI pro předběžné ohodnocení podle definovaných rubrik' is plausible and consistent with other parts of the handbook but is not explicitly cited here.",
+      "required_fix": "Add an explicit cross‑reference to the handbook section that discusses AI for formative feedback / rubrics (e.g. section 5.5 or 5.4), or mark the sentence as 'general background knowledge'."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The subsection header 'Praktické prompt‑šablony (copy \\\\ \\& adapt)' uses a '\\\\' linebreak in the subsection title. Using '\\\\' in a section title can produce layout warnings or unintended line breaks in some LaTeX classes.",
+      "required_fix": "Remove the '\\\\' or replace it with a short title (e.g. 'Praktické prompt‑šablony (copy & adapt)') or place a manual line break using a safer construct; ensure the verbatim block remains intact."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Rychlý workflow' and 'Generování MCQ' steps are concise but could be more actionable by specifying exact metadata fields (e.g. a canonical list for item metadata) and by providing an explicit small worked example of one MCQ (question + distractors + metadata).",
+      "required_fix": "Add a short example MCQ with the recommended metadata fields filled in (difficulty, Bloom level, estimated time, prerequisites) or append a template that users can copy."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends generating 3 plausible distractors for MCQs but does not suggest practices for validating distractor plausibility (e.g. piloting items, item analysis, distractor choice statistics).",
+      "required_fix": "Add a short note recommending pilot testing and simple item analysis (e.g. checking distractor selection frequencies) or mark this suggestion as general background practice."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Rychlý workflow pro tvorbu kvízu (entire enumerated list)",
+      "edit_instruction": "Either add a parenthetical cross‑reference to the handbook's Quick checklist (section 3‑1) and/or to the chapter on assessment (section 5) to ground the workflow, or append the phrase '(general background knowledge / pedagogical recommendation)' to the heading."
+    },
+    {
+      "target": "Validace kvality a integrita hodnocení (item containing 'min. 5–10\\%')",
+      "edit_instruction": "Replace the hard numeric recommendation with a qualified phrasing if no citation is available: e.g. 'Náhodné ruční kontroly (doporučeně několik procent automaticky ohodnocených záznamů, např. 5–10\\%, v závislosti na riziku)'. Optionally add a citation or cross‑reference to institutional guidance if available."
+    },
+    {
+      "target": "Praktické prompt‑šablony subsection title",
+      "edit_instruction": "Remove the '\\\\' linebreak inside the subsection title to avoid LaTeX warnings; use 'Praktické prompt‑šablony (copy & adapt) — general background knowledge' instead."
+    },
+    {
+      "target": "Generování MCQ a item banky (practical)",
+      "edit_instruction": "Add one short, concrete MCQ example with metadata (question, options A–D, correct answer, 1–2 sentence explanation, Bloom level, estimated time) so readers can copy/adapt it directly."
+    },
+    {
+      "target": "Automatické hodnocení otevřených odpovědí a matematických postupů",
+      "edit_instruction": "Add an explicit cross‑reference to the handbook sections describing AI for formative feedback and the 'Pokrok v matematice' tool (cite kb_ai_101_tipu_pdf_04e4a115_page_8_1) to ground claims about AI pre‑scoring and the workflow of AI pregrading + teacher finalization."
+    },
+    {
+      "target": "Automatické hodnocení programovacích úloh (shrnutí praktik)",
+      "edit_instruction": "Add a brief suggestion to include CI/test infrastructure examples or a pointer to Appendix/examples (if available), or mark the list explicitly as 'general background knowledge'."
+    }
+  ],
+  "retrieval_queries": [
+    "evidence or guidance for recommended percentage of random manual checks for automatically graded records (e.g., best practice guidelines, institutional recommendations, or literature supporting 5–10%)",
+    "references in the handbook about using AI for preliminary grading of open text responses and rubrics (search for sections 5.4/5.5 or formative feedback examples mentioning automated rubrics)",
+    "examples or recommendations for validating MCQ distractors (pilot testing, item analysis, distractor analysis) suitable for inclusion in the handbook"
+  ]
+}

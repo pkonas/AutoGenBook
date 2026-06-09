@@ -1,0 +1,76 @@
+% Poznámka pro čtenáře:
+% Položky a technické kroky v této sekci jsou převážně praktickými návrhy pro návrh a provoz Retrieval‑Augmented Generation (RAG) systémů nad interními materiály.
+% Pokud není uveden explicitní citát na konkrétní zdroj, považujte tvrzení za "general background knowledge" (praktické doporučení spojené s běžnými integračními vzory).
+
+Úvodní shrnutí (general background knowledge).
+RAG (Retrieval‑Augmented Generation) architektura kombinuje indexaci interních dokumentů a rychlé vyhledávání relevantních pasáží s generativním jazykovým modelem tak, aby model mohl „doplňovat“ své odpovědi o kontext z interních zdrojů. Níže uvádíme doporučené komponenty, bezpečnostní opatření a praktický PoC workflow pro nasazení na úrovni katedry nebo fakulty (general background knowledge).
+
+Klíčové komponenty RAG (general background knowledge)
+\begin{itemize}
+  \item Ingestní vrstva: sběr zdrojů (PDF, HTML, prezentace, OneNote stránky, repozitáře kódu, exporty z LMS).
+  \item Preprocessing a čištění: konverze formátů, odstranění metadat, segmentace dokumentů do jednotlivých chunků.
+  \item Anonymizace / Pseudonymizace: odstranění nebo zástupné znaky pro citlivé identifikátory před indexací.
+  \item Embeddings \\ \& index: výpočet vektorových embeddingů pro jednotlivé chunk‑y a uložení do vyhledávacího vektorového úložiště (vector store).
+  \item Retrieval vrstva: dotazy vůči indexu, relevance‑scoring a filtrování výsledků podle oprávnění.
+  \item Prompt orchestration / answer synthesis: skládání kontextu (retrieved passages) do promptu pro LLM, pravidla pro ukázání provenance a omezení délky.
+  \item Audit \\ \& logging: zaznamenávání retrieval událostí (kdo/co/ kdy), uchování provenance a verzování indexů pro forenzní účely.
+  \item Governance \\ \& access control: SSO/RBAC pro řízení přístupu k indexu a retencím dat.
+\end{itemize}
+
+Praktický PoC workflow pro katedru (general background knowledge)
+\begin{enumerate}
+  \item Definice rozsahu a cílů: vyberte sadu dokumentů a konkrétní pedagogický scénář (FAQ pro kurz, sumarizace laboratorních protokolů, doplňování studijních materiálů).
+  \item Klasifikace dat: označte, které zdroje jsou interní, veřejné nebo obsahují osobní údaje; podle toho naplánujte anonymizaci a retenci.
+  \item Implementace ingestu: např. export OneNote stránek nebo PowerPoint prezentací z repozitáře kurzu a konverze do textového formátu \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_44_2}.
+  \item Vytvoření embeddings a indexu: zvolte embedding model kompatibilní s provozním režimem (cloud/hybrid/on‑prem).
+  \item Nastavení retrieval pravidel: omezení výsledků podle kurzu/katedry, filtrování citlivých entit a nastavení maxima number_of_chunks pro prompt.
+  \item Testování přesnosti a bezpečnosti: kontrola zda retrieval nevrací citlivé údaje mimo kontext; validace návratů lidským recenzentem.
+  \item Nasazení v omezeném pilotu: malá skupina pedagogů a studentů, sběr zpětné vazby a metrik (relevance, chybovost, incidenty).
+  \item Rozšíření a provoz: zavedení auditních procedur, DPA/DPIA kroky dle potřeby a plán retencí.
+\end{enumerate}
+
+Ukázkový, zjednodušený příklad indexace výukových materiálů
+\begin{enumerate}
+  \item Sběr zdrojů: exportujte učební prezentace (PowerPoint), OneNote stránky s řešením úloh a průvodní dokumenty kurzu. (OneNote obsahuje nástroje pro převod rukopisu do digitální podoby vhodné k indexaci) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Normalizace: převod PPT/OneNote do textu, rozdělení na odstavce/sekce, odstranění připomínek s osobními údaji.
+  \item Embeddings: spočítejte embedding pro každý chunk a uložte do zabezpečeného vector store (s přístupovým řízením).
+  \item Retrieval + LLM: při dotazu nejprve proveďte retrieval, přiložte několik nejrelevantnějších excerptů s jasnou poznámkou o provenance do promptu a spusťte generaci v LLM.
+  \item Validace výsledku: u pedagogů/nebo automatizovaného validačního kroku ověřte, zda odpověď nekonkretizuje citlivé interní údaje mimo kontext.
+  \item Příklady zdrojů vhodných pro indexaci: výukové slidy, zadání cvičení, lab instrukce, FAQ kurzu; edukační světy (např. Minecraft Education) mohou sloužit jako obsahová složka pro didaktické aktivity, které je možné indexovat jako metadata kurzu \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\end{enumerate}
+
+Bezpečnostní mitigace rizika úniku informací (general background knowledge)
+\begin{itemize}
+  \item Minimalizace ingestu: indexovat pouze to, co je nezbytné pro pedagogický cíl.
+  \item Pseudonymizace před indexací: nahradit identifikátory, pokud to pedagogika dovolí.
+  \item Přístupové filtry při retrieval: výsledky omezit podle rolí a kontextu (kurs, rok studia).
+  \item Red‑teaming a testovací retrievaly: simulovat útoky a nežádoucí dotazy, abyste odhalili nečekané leakage scénáře.
+  \item Provenance v odpovědích: vždy zobrazit, ze kterých dokumentů byly úryvky použity.
+  \item Human‑in‑the‑loop pro citlivé dotazy: například žádosti týkající se osobních údajů nebo bezpečnostních postupů musí vracet pouze předem schválené kanály.
+\end{itemize}
+
+Volba nasazení: cloud vs. hybrid vs. on‑prem (general background knowledge)
+\begin{itemize}
+  \item Cloud (rychlé nasazení, škálovatelnost): vhodné pro rychlé PoC a menší rizika s daty; vyžaduje silný DPA a data residency kontrolu.
+  \item Hybrid: index běží lokálně, inference v cloud nebo opačně; kompromis mezi bezpečností a výkonem.
+  \item On‑prem / lokální modely: vyšší kontrola nad daty a nižší dependency na třetích stranách; vyžaduje vyšší provozní kapacity a licenční posouzení (modely, HW).
+\end{itemize}
+
+Integrace s existující infrastrukturou a užitečné poznámky
+\begin{itemize}
+  \item Napojení na LMS: použijte connector pattern pro synchronizaci kurzů a oprávnění (general background knowledge).
+  \item SSO a audit: používejte univerzitní SSO (SAML/OIDC) a logujte retrieval akce pro forenzní účely (general background knowledge).
+  \item Školení pedagogů a dokumentace: zajistěte krátké návody pro učitele jak interpretovat RAG výstupy a jak vyžadovat provenance; v případě nástrojů Microsoft lze využít dostupné školení a dokumentaci (např. průvodce a školicí materiály pro Copilot a Microsoft 365) \cite{kb_ai_101_tipu_pdf_04e4a115_page_44_2,kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+Krátký checklist před spuštěním pilotu RAG (general background knowledge)
+\begin{itemize}
+  \item Definovaný pedagogický cíl a seznam indexovaných zdrojů.
+  \item Prověřená DPA/DPIA cesta pro zpracování interních dat.
+  \item Mechanismy anonymizace/pseudonymizace aktivní před indexací.
+  \item Přístupové řízení (SSO/RBAC) a auditování retrieval událostí.
+  \item Testovací scénáře pro odhalení leakage a plán rollbacku.
+  \item Zapojení pilotních pedagogů a jasný plán sběru metrik a zpětné vazby.
+\end{itemize}
+
+Závěrem: RAG přináší silný nástroj pro zpřístupnění interních znalostí v konverzačním prostředí, ale jeho bezpečné nasazení vyžaduje plánování ingestu, anonymizaci, řízení přístupu a auditování. Pro konkrétní technické kroky doporučujeme koordinaci mezi garantem předmětu, IT oddělením a GDPR/právním oddělením fakulty (general background knowledge).

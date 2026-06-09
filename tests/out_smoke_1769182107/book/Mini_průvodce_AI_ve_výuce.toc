@@ -1,0 +1,9 @@
+\babel@toc {czech}{}\relax 
+\contentsline {chapter}{\numberline {1}Úvod}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Praktické příklady}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Automatizovaná zpětná vazba a podpora hodnocení}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Adaptivní a personalizované učení}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Chatboti a virtuální asistenti pro studenty a učitele}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Learning analytics a podpora cílených intervencí}{3}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Tvorba a adaptace učebních materiálů pomocí AI}{4}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Zavedení do praxe, etika a hodnocení efektivity}{5}{chapter.3}%

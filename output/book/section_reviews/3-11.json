@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "In the 'Copilot v Poznámkovém bloku' section, the first implementation step ('Shromáždit dílčí textové fragmenty...') lacks an explicit source footnote, whereas the subsequent steps and practical note are footnoted to kb_ai_101_tipu_pdf_page_14_1. The step's content is present in the retrieved excerpt and should be cited for full grounding.",
+      "required_fix": "Add a footnote reference {Source: kb_ai_101_tipu_pdf_page_14_1} to the first enumerate item under 'Copilot v Poznámkovém bloku'."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The subsection 'Shrnutí poučení a hlavní překážky' mixes one bullet with a source footnote and two bullets labeled as '(general background knowledge)'. The labeling is inconsistent and may confuse readers about which statements are directly supported by KB excerpts versus general guidance.",
+      "required_fix": "Either (a) add supporting KB citations where available for the second and third bullets, or (b) format all bullets consistently, clearly marking which are 'general background knowledge' and which are KB‑sourced (e.g., move the parenthetical label into a consistent footnote or paragraph preamble)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Formatting choices (explicit '\\\\' after \\textbf lines, placement of footnotes mid-sentence) are valid LaTeX but could lead to small layout issues or reduce readability in the compiled document.",
+      "required_fix": "Consider removing unnecessary '\\\\' after \\textbf headings (use paragraph breaks) and place footnote markers immediately after the sentence punctuation to ensure stable typesetting and clearer association of sources."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section lists concrete examples and high-level implementation steps but lacks a short, concrete example prompt or a minimal set of pilot evaluation metrics (even as templates) to help teachers start a pilot quickly.",
+      "required_fix": "Add one short example prompt for each scenario (labelled as coming from the Prompt Library / Appendix) and insert 2–3 suggested pilot metrics (e.g., time saved preparing materials, student satisfaction/engagement, % artefacts with process logs). If these are not KB‑sourced, mark them explicitly as 'general background knowledge' or link to the Prompt Library in the Přílohy with the appropriate citation."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Copilot v Poznámkovém bloku — Klíčové kroky implementace, item 1",
+      "edit_instruction": "Add a footnote to item 1 referencing the Copilot in Notepad example: \\footnote{Source: kb_ai_101_tipu_pdf_page_14_1} so all implementation steps are explicitly grounded."
+    },
+    {
+      "target": "Shrnutí poučení a hlavní překážky",
+      "edit_instruction": "Make the provenance of each bullet explicit. For bullets that are KB‑sourced, add footnotes (e.g., first bullet already cites kb_ai_101_tipu_pdf_page_15_2). For the two 'general background knowledge' bullets, either add supporting citations if available or keep the 'general background knowledge' label but format it consistently (e.g., add a short preface 'Following items are general background knowledge:' before the list)."
+    },
+    {
+      "target": "Overall LaTeX structure",
+      "edit_instruction": "Replace '\\\\' after \\textbf headings with paragraph breaks (blank line) and move footnote markers to the end of the sentence where the cited claim appears. This will improve compiled layout and the perceived linkage between claims and sources."
+    },
+    {
+      "target": "Practical aids (new small paragraph at end of section)",
+      "edit_instruction": "Insert a brief, KB‑grounded cross-reference to the Prompt Library (Přílohy) with page/section pointer (e.g., 'viz. Příloha: Prompt Library, sekce 9.1') and add one short example prompt per scenario (if present in the Prompt Library). If the prompts are editorial suggestions rather than KB excerpts, label them as 'general background knowledge' or 'editorial example'."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_14_1",
+    "kb_ai_101_tipu_pdf_page_15_2",
+    "kb_ai_101_tipu_pdf_page_8_1",
+    "kb_ai_101_tipu_pdf_prompt_library (or appendix 9.1) — locate example prompts and page reference in source PDF"
+  ]
+}

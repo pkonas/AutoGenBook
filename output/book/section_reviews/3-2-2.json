@@ -1,0 +1,70 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Několik klíčových tvrzení/odkazů je označeno jako „General background knowledge“ místo aby přímo ukazovalo na relevantní části KB. Např. zmínka o vzorech textu do sylabu (\"vzory najdete v přílohách kapitoly\") a kategorizace pravidel používání AI (zakázáno / povoleno s deklarací / AI‑povinné) jsou v KB, ale v textu chybí konkrétní citace na odpovídající oddíly (např. 9.3 a 2.3/5.4).",
+      "required_fix": "Nahradit/nebo doplnit obecné footnoty konkrétními odkazy na příslušné části příručky (konkrétně: oddíl 9.3 — 'AI policy do sylabů' / 9.3.1 — 'Doporučené formulace pro sylabus', a oddíl 2.3 nebo 5.4 pro kategorizaci pravidel použití AI). Pokud jsou dostupné přímé excerpty, vložit krátkou citaci nebo poznámku 'Source: sekce 9.3' místo obecného označení."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Tvrdění o doporučeném poměru/role automatických nástrojů vs. lidské kontroly (\"Při hodnocení kombinujte automatické nástroje s lidskou kontrolou — AI může předpřipravit návrhy ...\") je pedagogické doporučení, které má oporu ve více částech KB (např. 5.6, 5.7.3), ale v textu mu chybí explicitní reference.",
+      "required_fix": "Přidat odkaz(y) na relevantní části kapitoly (např. 5.6 'Nástroje pro podporu hodnocení a workflow' a 5.7.3 'Škálování hodnocení a automatizace') nebo uvést krátkou poznámku, že doporučení vychází z těchto oddílů."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce zmiňuje \"vzory najdete v přílohách kapitoly\", ale neupřesňuje, které šablony z knihovny promptů/šablon (9.1 / 9.2 / 9.3) jsou relevantní pro konkrétní body (např. šablony pro rubriky, šablony pro AI policy do sylabu).",
+      "required_fix": "Upřesnit odkaz na konkrétní položky z příloh (např. 'viz 9.3.1 Doporučené formulace pro sylabus' nebo 'viz 9.2 Checklist a šablony pro redesign předmětu')."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Použití \\\\footnote{General background knowledge} je syntakticky v pořádku, ale pro reprodukovatelnost a kontrolu zdrojů by bylo lepší použít explicitní \\\\footnote{Source: sekce X.Y (kb reference)} nebo standardní \\cite mechanismus, pokud existuje bibliografie.",
+      "required_fix": "Upravit footnoty tak, aby obsahovaly konkrétní zdrojové klíče (např. \\footnote{Source: kapitola 9.3 — AI policy do sylabů}) nebo nahradit footnoty \\cite{...} a zajistit odpovídající položku v bibliografii."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce je užitečný checklist, ale chybí konkrétní vzorové položky (např. konkrétní příklady 4–6 měřitelných výstupů, ukázková položka do rubriky pro transparentnost AI nebo krátký ukázkový text do sylabu). To ztěžuje okamžité použití pro lektory.",
+      "required_fix": "Doplnit 1–2 konkrétní příklady měřitelných výstupů a jednu ukázkovou formulaci do rubriky (např. položka 'transparentnost AI: student jasně popíše, jaké nástroje použil a přiloží prompt a verze výstupu') a krátkou ukázku textu do sylabu (může vycházet z 9.3.1)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Termín 'AI‑povinné' není v textu vymezen operativně — není jasné, co to znamená pro odevzdání/klasifikaci (musí student použít AI, nebo je AI součástí pracovního postupu?), ani jak se má deklarovat.",
+      "required_fix": "Doplnit krátkou definici 'AI‑povinné' (např. 'úloha, kde se od studenta výslovně očekává použití konkrétního AI nástroje pro část procesu; student musí přiložit prompt, verzi modelu a krátkou reflexi') a dát příklad z KB (odkaz na 2.3/9.3)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "po položce 'Rozhodněte pravidla používání AI v předmětu' (footnote General background knowledge)",
+      "edit_instruction": "Nahraďte footnotu konkrétní referencí: \\footnote{Source: kapitola 2.3 'Akademická integrita v éře AI a kategorizace úloh' a 9.3.1 'Doporučené formulace pro sylabus'}. Přidejte krátký příklad textu do sylabu (1–2 věty) převzatý/odvozený z 9.3.1."
+    },
+    {
+      "target": "sekce 'Vyberte nástroje a nastavte pilotní workflow' (tři footnoty se správnými cite_keys)",
+      "edit_instruction": "Ujistěte se, že každá footnote používá explicitní cite_key tak, jak jsou v KB poskytnuty (např. \\footnote{Source: kb_ai_101_tipu_pdf_page_8_1} pro 'Pokrok v matematice', \\footnote{Source: kb_ai_101_tipu_pdf_page_15_2} pro Minecraft Education, \\footnote{Source: kb_ai_101_tipu_pdf_page_54_1} pro Microsoft Learn). Pokud formát příručky používá jiný citační styl, přizpůsobit tomu."
+    },
+    {
+      "target": "krátké praktické tipy (obě footnoty označené 'General background knowledge')",
+      "edit_instruction": "Doplňte odkazy na konkrétní oddíly příručky, které tyto rady podporují (např. ukládání šablon a kvartální revize — viz 3.1/3.2.1; kombinace automatického a lidského hodnocení — viz 5.6/5.7.3). Případně zkraťte formulaci a označte ji jako 'pedagogická rada (general background) — podporováno v sekcích 3.1, 5.6'."
+    },
+    {
+      "target": "část 'Definujte klíčové kompetence a měřitelné výstupy'",
+      "edit_instruction": "Přidejte 2 konkrétní příklady SMART výstupů (např. 'Navrhne experiment měřitelným způsobem: definuje hypotézu, proměnné a postup měření; ověřeno předložením protokolu a diskuse výsledků' a 'Interpetačně vyhodnotí data: identifikuje klíčové trendy a navrhne minimálně dva alternativní vysvětlovací modely; ověřeno krátkou prezentací'). Uveďte poznámku 'viz šablony výukových cílů v 3.2.1/9.1.2'."
+    },
+    {
+      "target": "část 'Navrhněte rubriky a kontrolní body'",
+      "edit_instruction": "Přidejte jednu ukázkovou položku do rubriky: 'Transparentnost AI (0–5): 0 = žádná deklarace; 3 = deklarovány nástroje + prompt; 5 = doplněna reflexe o vlivu AI na výsledek a přiložené artefakty (prompty, verze modelu)'. Uveďte odkaz na 5.4 a 9.3.1."
+    }
+  ],
+  "retrieval_queries": [
+    "Sekce 9.3 'AI policy do sylabů' - vzory formulací do sylabu, 9.3.1 Doporučené formulace pro sylabus (požadované excerpty)",
+    "Sekce 2.3 'Akademická integrita v éře AI' - kategorizace úloh (zakázáno / povoleno s deklarací / vyžadováno AI‑povinné) a doporučené politiky",
+    "Sekce 5.6 a 5.7.3 - doporučení k použití automatických nástrojů v hodnocení a kombinaci s lidskou kontrolou (konkrétní texty podporující tvrzení)",
+    "Přílohy 9.1/9.2 - šablony pro výukové cíle a rubriky (konkrétní příklady měřitelných výstupů a ukázkové rubriky)",
+    "Konkrétní části KB s ukázkami textu do sylabu (9.3.1) a vzorem deklarace použití AI"
+  ]
+}

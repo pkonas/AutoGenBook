@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The latex_body contains inline editorial annotations like \"(general background knowledge)\" after the opening paragraph and several checklist headings. These are likely notes for the author and should not appear in the published LaTeX.",
+      "required_fix": "Remove all parenthetical annotations such as \"(general background knowledge)\" from the LaTeX source so the text is clean for publication."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section refers to appendices/templates with the phrase \"viz část Přílohy\" but does not point to specific appendix items. The rest of the manual (Outline / Přílohy) contains concrete entries (e.g., Vzor DPIA, AI Policy Template, Prompt Library).",
+      "required_fix": "Add explicit cross-references to the relevant appendix items (for example: Vzor DPIA, Vzor DPA, AI Policy Template, Prompt Library) so readers can immediately find the templates mentioned."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The checklists are practical but lack an explicit field for assignment of responsibility and deadlines, which reduces actionability for departmental staff.",
+      "required_fix": "For each checklist add a mandatory bullet to specify the responsible role/person, target completion date, and contact for escalation (e.g., IT, GDPR/legal)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses \\cite entries whose keys match retrieved KB excerpts. Ensure corresponding BibTeX entries or bibliography items exist in the document so the citations compile correctly.",
+      "required_fix": "Verify that the bibliography contains entries for the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_8_1, kb_ai_101_tipu_pdf_04e4a115_page_51_1) or replace \\cite with internal cross-references if these are in an internal annex."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Remove the parenthetical marker \"(general background knowledge)\". Replace the sentence 'Níže uvedené checklisty jsou navrženy jako výchozí rámec; detailní šablony naleznete v přílohách příručky (viz část Přílohy).' with 'Níže uvedené checklisty jsou navrženy jako výchozí rámec; detailní šablony (Vzor DPIA, Vzor DPA, AI Policy Template, Prompt Library) najdete v přílohách příručky.'"
+    },
+    {
+      "target": "each checklist (DPIA, DPA, pilot, sylabus)",
+      "edit_instruction": "Add a final enumerated/itemized bullet: 'Určit odpovědnou osobu/roli a termín dokončení; kontaktní osoba pro eskalaci (IT / právní / GDPR).' This makes each checklist directly actionable."
+    },
+    {
+      "target": "DPIA checklist",
+      "edit_instruction": "Consider appending a line that cross-references the DPIA template in the appendices: 'Viz příloha: Vzor DPIA (sekce Přílohy).' Use the exact appendix label used in the manual (e.g., 9.4) if available."
+    },
+    {
+      "target": "Rychlé odkazy a inspirace z praxe",
+      "edit_instruction": "Keep the three \\cite references but ensure the bibliography contains matching entries. Optionally add a short parenthetical note after each cited example linking it to the appendices or earlier sections (e.g., 'viz sekce 1.7 / příloha 9.1')."
+    },
+    {
+      "target": "LaTeX cleanup",
+      "edit_instruction": "Remove remaining editorial annotations in headings (e.g., '(general background knowledge)') and verify consistent use of enumerate vs. itemize. Ensure compilation by checking that all citation keys are defined in the document bibliography."
+    }
+  ],
+  "retrieval_queries": []
+}

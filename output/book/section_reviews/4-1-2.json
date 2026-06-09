@@ -1,0 +1,74 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The numeric recommendation in the pilot test checklist — \"Ověřit chování na 10 reálných studentských dotazech a 5 ‚edge case‘ dotazech\" — is a non‑trivial, specific claim but has no supporting excerpt or footnote in the provided retrieved excerpts or memory. According to the grounding rules, non‑trivial numeric recommendations must be supported or labeled as an example.",
+      "required_fix": "Either add a supporting citation to the KB (if the 10/5 numbers are present there), or rephrase to make the numbers explicit examples (e.g. \"např. 10 reálných dotazů a 5 edge case\"), or remove the specific numbers and replace with a citation‑backed or more generic guideline (e.g. \"ověřit na sadě reálných a edge‑case dotazů podle velikosti kurzu\")."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some checklist lines and checks (for example, \"Zkontrolovat, že asistent vždy uvede zdroj (kapitola/sekce) nebo použije fail‑safe odpověď\") are reasonable but lack an explicit supporting citation in this section. While related themes appear elsewhere in the KB (e.g. need for source citation and human verification), the section does not footnote them consistently.",
+      "required_fix": "Add footnotes to relevant KB excerpts that support the requirement to cite sources / use fail‑safe responses, or explicitly mark these bullets as \"general background knowledge\" to comply with grounding rules."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The QA template's logging instruction is narrower than the audit/logging fields recommended in the memory/context excerpt (which recommends fields such as prompt, model/service/version, date/time, validator, decision). The template only mentions appending the original user query and chosen source id.",
+      "required_fix": "Expand the template's 'Log' instruction to include the broader recommended audit fields (prompt, model/service/version, timestamp, validator, decision) or reference the checklist in the document that defines the required audit fields."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "System prompt templates instruct the assistant to \"cite section/page\" but do not provide a concrete example or format for how to present citations (e.g. 'Kapitola X, str. Y' or 'Section: ..., Page: ...'). This can lead to inconsistent implementations.",
+      "required_fix": "Add a short example of the expected citation format and an example of the fail‑safe reply (the section already gives a Czech fail‑safe string — consider showing it as the canonical phrasing)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX uses verbatim blocks for the system prompts which is acceptable, but the document does not show an explicit recommendation for escaping or encoding non‑ASCII characters. Also, use of footnotes inside itemize environments is fine but when compiled might need package settings for proper footnote placement.",
+      "required_fix": "Confirm document encoding (UTF‑8) and that the LaTeX preamble supports Czech characters (babel/polyglossia). Optionally recommend using \\texttt or a dedicated prompt environment instead of verbatim if further formatting is desired."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The pilot checklist lacks explicit pass/fail thresholds or acceptance criteria (e.g., what constitutes acceptable % of sourced answers, acceptable response latency, or target satisfaction score), which reduces its utility for operational evaluation.",
+      "required_fix": "Add suggested measurable thresholds or guidance on setting them (e.g. 'define acceptable SLA for first response based on course needs, or set minimal acceptable student satisfaction target') or indicate these should be defined per course context."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Krátký testovací checklist pro pilot — první bullet",
+      "edit_instruction": "If the 10/5 numbers are not present in the KB, rephrase to an example: 'Ověřit chování na sadě reálných dotazů a edge‑case dotazů (např. ~10 reálných a ~5 edge case — přizpůsobit velikosti kurzu).' Alternatively add a footnote citing the KB excerpt that supports these exact numbers."
+    },
+    {
+      "target": "Krátký testovací checklist — second bullet",
+      "edit_instruction": "Add footnote or cross‑reference to the KB guidance recommending source citation and fail‑safe behavior, or explicitly label this bullet as 'general background knowledge' if no KB citation exists."
+    },
+    {
+      "target": "ROLE: Kurzový Q&A asistent (QA) — Log line",
+      "edit_instruction": "Expand the log instruction to: 'Log: append original user query, prompt snapshot, chosen source id, model/service/version, timestamp, and (if applicable) human validator and decision, to the audit field (see checklist for required audit fields).' Optionally add a footnote referencing the checklist for audit fields in the memory/context excerpt."
+    },
+    {
+      "target": "System prompt templates — citation format",
+      "edit_instruction": "Add one short example showing expected citation output, e.g. 'If answer in materials, reply: \"(Zdroj: Kapitola X, str. Y) — 1–2 sentence summary.\"' (mark as example, not as KB fact)."
+    },
+    {
+      "target": "Pilot checklist — acceptance criteria",
+      "edit_instruction": "Add guidance to define measurable thresholds per pilot (e.g. target SLA for time_to_first_answer, target % of answers with valid source citation, target student satisfaction range) or instruct teams to specify their acceptance criteria before testing."
+    },
+    {
+      "target": "LaTeX preamble note",
+      "edit_instruction": "Add a short admonition for the LaTeX preamble: ensure UTF‑8 encoding and Czech language support (babel/polyglossia), and confirm verbatim blocks compile with the chosen document class."
+    }
+  ],
+  "retrieval_queries": [
+    "Pilotní checklist počet reálných dotazů 10 5 'pilot' 'checklist' 'AI - 101 tipu.pdf' page 15",
+    "auditní záznam pole prompt model verze čas validátor rozhodnutí 'prompt audit' 'AI - 101 tipu.pdf' page 8",
+    "zdrojování odpovědí 'cite section/page' 'AI - 101 tipu.pdf' 'zdroj' 'kapitola' 'strana'",
+    "Microsoft Designer multimédia 'designer.microsoft.com' 'AI - 101 tipu.pdf' page 51",
+    "recommendation test checklist pilot 'edge case' 'students' 'AI - 101 tipu.pdf'"
+  ]
+}

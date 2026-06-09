@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section makes several normative factual claims about when DPIA and DPA are 'commonly recommended' for pilots and sharing student data and cites kb_ai_101_tipu_pdf_page_8_1 and kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_page_12_1. The provided RETRIEVED EXCERPTS do include chunks from kb_ai_101_tipu_pdf (pages 7, 8, 15) but those excerpts do not show explicit guidance about DPIA/DPA. The kb_malinka... citation is referenced in the section but no corresponding retrieved excerpt was provided. Per the grounding rules, non‑trivial claims must be supported by an excerpt or run artifact.",
+      "required_fix": "Either supply the supporting excerpts (e.g., kb_malinka page 12 and the exact kb_ai_101 page/chunk that discusses DPIA/DPA), or rephrase the statements to clearly mark them as general guidance / recommendations and reference only material that is actually available (e.g., the VUT DPIA template in Appendix 9.4)."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several specific recommendations (e.g., 'pro piloty ověřte DPIA/DPA s lidským dohledem (metodika, IT/GDPR)') are cited to kb_ai_101_tipu_pdf_page_8_1 and kb_malinka..., but the available kb_ai_101 excerpts (pages provided) do not visibly contain those statements. This creates a mismatch between citation keys and the actual provided evidence.",
+      "required_fix": "Verify that the cited page numbers indeed contain the claimed recommendations; if not, update citations to point to the correct excerpt(s) or remove/qualify the claims."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section largely repeats recommendations already present in the previous 'Anonymizace a pseudonymizace' section (e.g., same 3‑step quick workflow). Repetition is not harmful but could be tightened to avoid redundancy.",
+      "required_fix": "Either consolidate overlapping content with the previous section (reference it) or explicitly state that this is a concise DPIA‑focused checklist building on the anonymization guidance."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Doporučená (ukázková) struktura DPIA dokumentu' is labelled '(general background knowledge)', but readers may still expect a short mapping to VUT resources (e.g., the appendix template) or clear decision thresholds for when a DPIA is mandatory vs. recommended.",
+      "required_fix": "Add a sentence pointing to the VUT template (Appendix 9.4) and clarify that the listed structure is a practical checklist (or explicitly state it is only illustrative). If possible, provide a short decision rule (e.g., when photos/sensitive data/automated decision‑making are involved) — but only if a supporting excerpt is provided; otherwise, recommend consulting GDPR/IT."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX is syntactically valid for basic formatting, but the inline parenthetical '(general background knowledge)' appears outside LaTeX formatting and might disrupt rendering consistency in the compiled document.",
+      "required_fix": "Wrap parenthetical notes consistently (e.g., as a footnote or \textit{...}) or move them to a short prefatory sentence so that the LaTeX block remains uniform."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Practical examples are brief; pedagogical users (busy lecturers) would benefit from a one‑page quick DPIA decision checklist and an explicit pointer to who to contact at VUT (methodika, IT, GDPR) and to the template in the appendix.",
+      "required_fix": "Add a one‑line pointer to the VUT contacts (Appendix 9.7) and to the DPIA template (Appendix 9.4). Provide a condensed one‑page checklist or a clear 'If/Then' decision tree (but only include concrete decision thresholds if supported by an excerpt)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Replace the current opening sentence with a cautious, verifiable phrasing: 'Před zahájením pilotního nasazení generativní AI v kurzu proveďte jednoduchou kontrolu datového toku a zvažte potřebu DPIA. Pro piloty a při sdílení studentských dat s externími poskytovateli doporučujeme konzultovat IT/metodické oddělení a GDPR specialistu; pokud dostupné, použijte šablonu DPIA (viz Příloha 9.4).' Remove or verify the existing citations to kb_ai_101_page_8_1 and kb_malinka if supporting excerpts cannot be provided."
+    },
+    {
+      "target": "bullet list of DPIA structure",
+      "edit_instruction": "Keep the list but prepend: 'Následující položky jsou ilustrativní (general background knowledge). Použijte je jako základ pro vyplnění formální šablony DPIA (Příloha 9.4).' Consider formatting this note as italicized LaTeX text or a footnote for consistency."
+    },
+    {
+      "target": "practical tips / 'Praktické tipy pro rychlé rozhodnutí'",
+      "edit_instruction": "Soften prescriptive language unless supported by a retrieved excerpt. E.g., 'Pokud projekt zahrnuje sdílení studentských fotografií, citlivé údaje nebo automatizované rozhodování bez lidského dohledu, považujte DPIA za pravděpodobně nutnou a konzultujte GDPR/IT/metodické oddělení před pilotem.' Replace existing citations with correct ones after verification."
+    },
+    {
+      "target": "citations",
+      "edit_instruction": "Verify and update all citation keys: ensure kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_page_12_1 and the kb_ai_101_tipu_pdf_page_* citations actually contain the claimed text. If the supporting content is not present on the cited pages, either change the page numbers to match the supporting excerpts or remove the unsupported citation."
+    },
+    {
+      "target": "examples section",
+      "edit_instruction": "Expand each short example to 1–2 concrete lines: include what fields are recorded, where they are stored, and the default action (e.g., 'externí export dat zakázán bez DPA — kontaktujte IT/GDPR'). Only add such prescriptive items if corresponding evidence can be cited; otherwise phrase as 'recommended to' and point to contacts/template."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf page 12 DPIA DPA konzultace",
+    "kb_ai_101_tipu_pdf DPIA DPA posouzení dopadů ochrana osobních údajů 'DPIA' 'DPA' site: (pdf)",
+    "VUT metodicka prirucka 'Vzor DPIA' Příloha 9.4 text of template",
+    "Internal VUT guidance contacts IT GDPR metodika DPIA pilotni nasazeni generativni AI"
+  ]
+}

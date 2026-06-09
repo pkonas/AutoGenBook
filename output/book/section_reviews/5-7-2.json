@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some procedural recommendations (e.g. items 1, 2, 4, 6) are well aligned with the handbook but lack explicit inline references to the corresponding KB sections or templates. The section already marks some statements as \"general background knowledge\", but other specific operational recommendations (required metadata fields, required artefacts, rubric items) are supported by the memory/context (e.g. rubriky, povinné artefakty, DPIA templates).",
+      "required_fix": "Add explicit citations (or cross‑references) to the relevant KB sections or templates in the Methodická příručka: e.g. refer to the checklist and artefact list (sections referenced under 5.* and 9.3 in the outline) for the required metadata and artefacts, and to the DPIA/template repository (9.3.3) for DPIA guidance."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "A wording/typo appears twice: 'hodicí rubriky' (in the main list and the checklist). This may be a misspelling or inconsistent term compared with earlier sections that use 'hodicí / hodnoticí rubriky' or 'hodnoticí'.",
+      "required_fix": "Correct the term to the intended Czech phrasing (e.g. 'hodnoticí rubrika' or 'hodicí rubrika' as consistent with the rest of the document) and ensure the same term is used throughout the chapter."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure uses enumerate, quote and itemize environments correctly, but the inline \\\\footnote{Source: kb_ai_101_tipu_pdf_page_8_1} inside an enumerate item should be checked for compilation context (packages, paragraph breaks) and consistent citation style across the chapter.",
+      "required_fix": "Ensure the document preamble includes necessary packages for footnotes and that the footnote style and placement are consistent with the rest of the book. Consider moving the footnote reference to a nearby sentence if the compiler complains about footnotes in lists."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The checklist and student communication template do not explicitly state retention periods, access logging, or redaction/obfuscation requirements for multimedia artefacts (screenshots, videos) that may include personal data.",
+      "required_fix": "Add a short sentence referencing GDPR/best practice (minimal retention period, access logging, redaction/anonymization of third‑party personal data) and point readers to the DPIA template and GDPR checklist (9.3.3 and 9.4.2 in the outline) for details."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section prescribes 'pole pro deklaraci použití AI' and 'Transparentnost použití AI' in rubrics but does not include a short concrete example rubric item (scoring or phrasing) or an example of the AI‑declaration prompt that students should fill.",
+      "required_fix": "Include one concise exemplar rubric line (e.g. wording and point allocation) and a short example of the AI declaration form field (what exact fields to request: tool name, prompt, output file), or cross‑reference the existing rubriky/templates in the KB (5.4 and 9.3.1)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Add inline cross‑references to the handbook KB for the main operational items: reference the artefact list and rubric templates (section 5.4 / 9.3.1), DPIA and DPIA template (section 9.3.3), and storage/access requirements (section 9.4.3). Example: after the sentence about required metadata, add a parenthetical cross‑reference to the artefact checklist (rubriky/povinné artefakty)."
+    },
+    {
+      "target": "student communication quote",
+      "edit_instruction": "Add one brief clarifying sentence instructing students how long submitted materials will be retained and that they should avoid including third‑party personal data in videos/screenshots (or redact it). Cross‑reference the DPIA guidance."
+    },
+    {
+      "target": "checklist for garanty",
+      "edit_instruction": "Replace the ambiguous term 'hodicí rubriky' with the consistent term used elsewhere in the handbook (e.g. 'hodnoticí rubriky' or the exact term used in section 5.4), and add an item pointing to the DPIA and DPA templates in the appendix (9.3)."
+    },
+    {
+      "target": "Rubriky and metadata item",
+      "edit_instruction": "Include one short exemplar rubric item for 'Transparentnost použití AI' with suggested point allocation (e.g. 'Transparentnost použití AI — deklarace nástroje, rozsah pomoci a přiložené výstupy — 5 bodů') or add an explicit cross‑reference to the rubric templates in 5.4 / 9.3.1."
+    },
+    {
+      "target": "footnote",
+      "edit_instruction": "Ensure the footnote citing kb_ai_101_tipu_pdf_page_8_1 is formatted consistently with other citations in the book; consider adding further footnotes to support the metadata and artifact recommendations (link to KB pages that list required artefacts)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 36 artefakty metadata commit screenshot video prompt field (to get the explicit KB text that lists required artefacts and metadata)",
+    "kb_ai_101_tipu_pdf page 8 pre‑grading AI and human final confirmation (to support the footnote and wording)",
+    "methodicka prirucka DPIA vzor 9.3.3 (DPIA template) for precise phrasing on retention, redaction and required steps",
+    "methodicka prirucka 5.4 rubriky transparentnost sample rubric wording and point allocation"
+  ]
+}

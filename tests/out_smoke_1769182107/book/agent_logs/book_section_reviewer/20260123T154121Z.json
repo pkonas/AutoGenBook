@@ -1,0 +1,93 @@
+{
+  "agent": "book_section_reviewer",
+  "timestamp": "20260123T154121Z",
+  "input": {
+    "section_title": "Learning analytics a podpora cílených intervencí",
+    "node_key": "2-4",
+    "section_latex": "\\noindent\nPoznámka: následující stručný scénář nasazení learning analytics a zásahů je uveden jako general background knowledge (není podložen konkrétními výňatky z KB v tomto uzlu) a slouží jako praktická šablona, kterou lze přizpůsobit místním podmínkám.\n\n\\medskip\n\n\\noindent\nÚčel a krátký scénář nasazení:\n\\begin{itemize}\n  \\item Cíl: rychle identifikovat studenty s klesající angažovaností a spustit předem definované podpůrné zásahy (e‑mail, pozvánka na konzultaci, doporučené opakovací materiály).\n  \\item Základní workflow (praktický postup):\n    \\begin{enumerate}\n      \\item Sestavte datový kanvas: seznam dostupných zdrojů a polí (viz níže).\n      \\item Navrhněte klíčové metriky angažovanosti a prahové hodnoty pro upozornění.\n      \\item Postavte jednoduchý dashboard s filtrem podle kurzu/ročníku a automatickým upozorněním instruktorům.\n      \\item Definujte zásahy a eskalační cestu (kdo kontaktuje studenta, jaký kanál).\n      \\item Pilotujte na jednom modulu po 4–8 týdnech, sledujte metriky a upravujte prahy.\n    \\end{enumerate}\n\\end{itemize}\n\n\\noindent\nPožadované datové zdroje (přehled):\n\\begin{itemize}\n  \\item LMS: přihlašování do kurzu, návštěvy stránek, dokončení úkolů, zápisy do diskuzí.\n  \\item Hodnocení: průběžné skóre z testů a domácích úkolů.\n  \\item Aktivita v e‑learningových objektech: čas strávený u videí, dokončení modulů.\n  \\item Administrativní údaje: zápis do kurzu, demografické proměnné (pouze pokud je to eticky a právně povoleno).\n\\end{itemize}\n\n\\noindent\nDoporučené metriky angažovanosti (praktičtější formulace):\n\\begin{itemize}\n  \\item Frekvence přihlášení do LMS za týden.\n  \\item Procento dokončených povinných aktivit/modulů.\n  \\item Trend průběžného skóre (klesající/rostoucí směr).\n  \\item Interakce s učebními materiály (např. počet zhlédnutí videa, příspěvků v diskuzích).\n\\end{itemize}\n\n\\noindent\nNávrh dashboardu a upozornění:\n\\begin{itemize}\n  \\item Zobrazte seznam „vystupujících“ studentů s hlavními metrikami a krátkým komentářem k riziku.\n  \\item Umožněte filtrování podle kurzu, skupiny a období.\n  \\item Implementujte upozornění pro instruktora, nikoli automatické zásahy bez lidské kontroly.\n\\end{itemize}\n\n\\noindent\nPlán zásahů (příklad kroků):\n\\begin{enumerate}\n  \\item Automatické e‑mailové upozornění studentovi s nabídnutím podpory a odkazy.\n  \\item Manuální ověření instruktorem (kontrola záznamů, krátký telefonát nebo konzultace).\n  \\item Personalizované doporučení studijních zdrojů nebo plán setkání s tutorem.\n\\end{enumerate}\n\n\\noindent\nVyhodnocení efektivity zásahů (stručné doporučení, general background knowledge):\n\\begin{itemize}\n  \\item Měřte krátkodobé změny v metrikách angažovanosti a průběžných známkách před a po zásahu.\n  \\item Použijte jednoduché A/B piloty tam, kde je to možné, nebo srovnání s historickými kontrolními skupinami.\n  \\item Sledujte i kvalitu zkušenosti studentů (krátké průzkumy spokojenosti).\n\\end{itemize}\n\n\\noindent\nEtika a právní upozornění (stručně):\n\\begin{itemize}\n  \\item Sbírejte a zpracovávejte pouze nezbytná data; transparentně informujte studenty o účelu a možnostech opt‑out.\n  \\item Zajistěte bezpečné ukládání dat, omezení přístupu a zásady retence v souladu s interními pravidly a platnou legislativou.\n  \\item Preferujte zásahy s lidským dohledem a kontrolou, aby se předešlo škodlivým automatickým rozhodnutím.\n\\end{itemize}\n\n\\medskip\n\n\\noindent\nKrátký kontrolní seznam pro pilot:\n\\begin{itemize}\n  \\item definované datové zdroje a přístupy;\n  \\item jasné metriky a prahové hodnoty pro upozornění;\n  \\item připravené šablony zásahů a eskalace;\n  \\item plán měření efektivity a sběru zpětné vazby;\n  \\item schválení etiky a zásad ochrany dat.\n\\end{itemize}",
+    "context_memory_excerpt": "TERMS:\n- Scénáře a šablony dialogů: Zásada sesbírat 20–50 scénářů a šablony dialogů; navrhovat dialogy jako intent‑slot šablony, zobrazovat zdroj a možnost kontaktu. (from section only) (first: 2-3)\n- Prahy nejistoty (escalation thresholds): Požadavek definovat prahy nejistoty pro okamžitou eskalaci (pravidla, kdy chatbot předá konverzaci člověku). (from section only) (first: 2-3)\n- Technické požadavky (chatboti): Požadavky uvedené v sekci: integrace s LMS, autentizace a řízení přístupu, auditní logy, anonymizace a jasné zásady retence. (from section only) (first: 2-3)\n- Monitorování (chatboti): Doporučené metriky a postupy monitorování: přesnost (lidský audit), míra eskalací, spokojenost uživatelů a pravidelné lidské kontroly. (from section only) (first: 2-3)\n- Etika a soukromí (chatboti): Požadavek transparentního informování uživatelů, nabídnutí opt‑out a bezpečného kanálu pro citlivé záležitosti. (from section only) (first: 2-3)\n- Kontrolní seznam pro pilot (chatboti): Checklist pro pilot: ověřené FAQ/odpovědi, pravidla eskalace a kontaktní osoby, ochrana dat a mechanismus auditu. (from section only) (first: 2-3)\n\nCITATIONS:\n- node_1 (node: 1)\n- node_2-1 (node: 2-1)\n- 2-2 (node: 2-2)\n- 2-3 (node: 2-3)\n\nOPEN THREADS:\n- Dodat ukázkové intent‑slot šablony a několik konkrétních dialogových příkladů z navrhovaných 20–50 scénářů, aby pilot mohl použít replikovatelnou šablonu. (node: 2-3)\n- Upřesnit technické integrace s konkrétními LMS (API, autentizační toky, role a oprávnění), včetně návrhu fallback architektury. (node: 2-3)\n- Stanovit konkrétní zásady retence a anonymizace logů (doba uchování, pseudonymizace) kompatibilní s právními/regulačními požadavky (např. GDPR). (node: 2-3)\n- Definovat metriky a metodiku měření monitorovaných ukazatelů (jak přesně provádět lidský audit přesnosti, jak nastavit prahové hodnoty pro míru eskalací nebo uspokojení uživatelů). (node: 2-3)",
+    "previous_sections": "The title of part 1 sections ago is Chatboti a virtuální asistenti pro studenty a učitele, and the content is as follows.\n\\begin{flushleft}\nÚčel: chatboty v akademickém prostředí slouží jako 24/7 FAQ, první linie podpory a asistent pro opakující se úkony; pedagogické přínosy při správném návrhu a monitorování.\nDoporučený postup: 1) vymezit role a eskalace (citlivé údaje, změny známek => člověk), 2) sesbírat 20–50 scénářů a šablony dialogů, 3) pilot v LMS s fallback, 4) monitorovat logy, upravovat intenty a škálovat governance.\nNávrh dialogů: používejte intent‑slot šablony, zobrazujte zdroj a možnost kontaktu; definujte prahy nejistoty pro okamžitou eskalaci.\nTechnické požadavky: integrace s LMS, autentizace a řízení přístupu, auditní logy, anonymizace a jasné zásady retence.\nMonitorování: sledujte přesnost (lidský audit), míru eskalací, spokojenost uživatelů a zavádějte pravidelné lidské kontroly.\nEtika a soukromí: transparentně informujte uživatele, nabídněte opt‑out a bezpečný kanál pro citlivé záležitosti.\nKontrolní seznam pro pilot: ověřené FAQ/odpovědi, pravidla eskalace a kontaktní osoby, ochrana dat a mechanismus auditu.\n\\end{flushleft}\n\n",
+    "toc_and_summary": "Mini průvodce AI ve výuce (pages: 1.5)\n  - Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důr…\n  1.Úvod (pages: 0.4)\n    - Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizov…\n  2.Praktické příklady (pages: 0.9)\n    - Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřeb…\n    2.1.Automatizovaná zpětná vazba a podpora hodnocení (pages: 0.2)\n      - Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS…\n    2.2.Adaptivní a personalizované učení (pages: 0.2)\n      - Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pil…\n    2.3.Chatboti a virtuální asistenti pro studenty a učitele (pages: 0.2)\n      - Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad…\n    2.4.Learning analytics a podpora cílených intervencí (pages: 0.2)\n      - Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené m…\n    2.5.Tvorba a adaptace učebních materiálů pomocí AI (pages: 0.2)\n      - Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a m…\n  3.Zavedení do praxe, etika a hodnocení efektivity (pages: 0.2)\n    - Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany o…",
+    "retrieved_context": "(none)"
+  },
+  "output": {
+    "ok_to_keep": false,
+    "issues": [
+      {
+        "type": "grounding",
+        "severity": "major",
+        "description": "Většina doporučení (datové zdroje, metriky, workflow, návrh dashboardu, plán zásahů, vyhodnocení efektivity) není podložena žádnými výňatky z KB v tomto uzlu. I když horní poznámka označuje text jako 'general background knowledge', konkrétní procedurální a metrické tvrzení jsou netriviální a podle pravidel musí být buď podpořena výňatky nebo jednoznačně označena jako obecné pozadí a zkrácena.",
+        "required_fix": "Buď připojit odpovídající KB výňatky/citace pro každé klíčové doporučení (datové zdroje, definice metrik, doporučené prahy, postupy A/B testů, zásady retence), nebo v textu explicitně označit jednotlivé položky jako 'general background knowledge' a zjednodušit je tak, aby neobsahovaly nereferencované faktické tvrzení. Preferované: načíst relevantní uzly (např. node_2-1..2-3, node_1) a vložit ověřitelné výňatky."
+      },
+      {
+        "type": "pedagogy",
+        "severity": "major",
+        "description": "Sekce neplní otevřené požadavky z kontextové paměti: chybí ukázkové intent‑slot šablony a konkrétní dialogové příklady (open thread), chybí konkrétní doporučení k technickým integracím a zásadám retence/anonymizace.",
+        "required_fix": "Dodat minimálně 3–5 ukázkových intent‑slot šablon a 2–3 konkrétní dialogové příklady pro intervence; přidat technické poznámky o integraci s LMS (požadované datové body, autentizační toky, fallback) a návrh zásad retence/anonymizace (nebo odkazy na KB s těmito pravidly). Pokud nejsou dostupné výňatky, jasně to označit a nechat jako action‑item pro získání důkazů."
+      },
+      {
+        "type": "consistency",
+        "severity": "minor",
+        "description": "Sekce obecně koresponduje s předchozím oddílem o chatbotech, ale chybí explicitní vazba na již definované 'prahy nejistoty' a checklist pro pilot z paměti (které se v kontextu objevují).",
+        "required_fix": "Přidat explicitní cross‑reference k sekci 'Chatboti a virtuální asistenti' k prahům eskalace a checklistu pilotu, případně přidat krátkou větu, že prahy eskalace chatbota a prahy upozornění learning analytics by měly být sladěné."
+      },
+      {
+        "type": "latex",
+        "severity": "minor",
+        "description": "LaTeX je v zásadě korektní, ale doporučení formálně označit část, která je 'general background knowledge', tak aby to bylo jasné i v samotném sazebním výstupu (např. zvýraznit poznámku nebo použít prostředí 'note').",
+        "required_fix": "Úvodní poznámku zapracovat do výraznějšího LaTeX prostředí (např. \\begin{quote} ... \\end{quote} nebo \\textbf{}), aby byl v tisku jasně viditelný a nešel přehlednout."
+      },
+      {
+        "type": "clarity",
+        "severity": "minor",
+        "description": "Některé metriky a kroky jsou formulovány obecně (např. 'Trend průběžného skóre', 'Prahové hodnoty pro upozornění', 'A/B piloty') bez definice časového okna, metody výpočtu nebo minimálního vzorku, což znesnadňuje opakovatelnost pilotu.",
+        "required_fix": "Doplnit krátká doporučení nebo šablony pro operacionalizaci (např. navrhnout výpočet 'trend' jako skluzný průměr za poslední 2–4 týdny a postup nastavení prahů na základě historické distribuce). Pokud tato doporučení nejsou podporována KB, označit je jako obecné návrhy k ověření."
+      }
+    ],
+    "suggested_edits": [
+      {
+        "target": "opening note",
+        "edit_instruction": "Zdůrazněte LaTeX formátováním, že celý scénář je 'general background knowledge' (např. \\begin{quote} ... \\end{quote}) a u každé klíčové sekce přidejte krátkou poznámku 'není podloženo výňatky z KB'."
+      },
+      {
+        "target": "Požadované datové zdroje",
+        "edit_instruction": "Uveďte konkrétní pole (např. timestamp přihlášení, user_id/pseudonym, course_id, activity_type, duration_seconds, assessment_score) nebo poznámku, že konkrétní schéma bude specifikováno po přístupu k LMS API. Pokud nejsou dostupné KB výňatky, označte tyto položky jako obecné příklady."
+      },
+      {
+        "target": "Doporučené metriky angažovanosti",
+        "edit_instruction": "Pro každou metriku přidejte krátkou definici (jak se počítá) a návrh časového okna (např. 'Frekvence přihlášení do LMS za týden — počet unikátních dnů v posledních 7 dnech'). Pokud tato operacionalizace není v KB, označte ji jako návrh k ověření."
+      },
+      {
+        "target": "Plán zásahů",
+        "edit_instruction": "Dodat jednu nebo dvě ukázkové šablony zpráv (automatický e‑mail) a alespoň 3 intent‑slot šablony pro dialogy (např. 'Nabídka konzultace' s intent=offer_consult, slots={course, week, availability}). Pokud nemáte KB ukázky, uveďte je jako 'navržené šablony (general background knowledge)'."
+      },
+      {
+        "target": "Vyhodnocení efektivity zásahů",
+        "edit_instruction": "Přesněji popsat, co měřit a jak (krátkodobé změny v metrikách, doba sledování, základní statistické porovnání) nebo připojit odkaz na KB/metodiku. Pokud takový materiál v KB není, uveďte tento bod jako doporučený plán sběru dat a analýzy, nikoli jako ověřený postup."
+      },
+      {
+        "target": "Kontrolní seznam pro pilot",
+        "edit_instruction": "Doplnit položky z kontextové paměti (scénáře a šablony dialogů, prahy nejistoty, technické požadavky) a uvést odpovědné role za každý bod (např. datový inženýr, pedagóg, zástupce ochrany dat)."
+      }
+    ],
+    "retrieval_queries": [
+      "Vyhledat v KB konkrétní ukázky learning analytics dashboardů a popisy použitých metrik (jak byly definovány a vypočítány) pro identifikaci 'at‑risk' studentů.",
+      "Získat z KB ukázkové intent‑slot šablony a dialogové scénáře (20–50) pro zásahy a komunikaci se studenty (node_2-3 nebo související uzly).",
+      "Poskytnout v KB doporučení nebo právní/technické zásady pro retenci, pseudonymizaci a zabezpečení studentských dat kompatibilní s GDPR.",
+      "Najít v KB příklady technické integrace learning analytics s běžnými LMS (požadovaná API pole, autentizační toky, role/opravení, fallback architektura).",
+      "Hledat v KB ověřené metodiky vyhodnocení efektivity zásahů (A/B designy, minimální velikost vzorku, metriky) pro vzdělávací intervence."
+    ]
+  },
+  "meta": {
+    "run_id": "20260123T163016Z",
+    "usage": {
+      "prompt_tokens": 3605,
+      "completion_tokens": 3441,
+      "total_tokens": 7046
+    },
+    "cost_usd": 0.00778325,
+    "total_cost_usd": 0.10102599999999999,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

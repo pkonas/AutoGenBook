@@ -1,0 +1,56 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section follows the 'ELI' layering from earlier (ELI5/15/25) but does not mention the practice of saving used prompts and requiring a short student reflection after AI activities — a practice already recommended in the context memory (section 4-3-4). For internal consistency across the guide, this practice should be cross-referenced here.",
+      "required_fix": "Add a short sentence (or bullet) instructing teachers to save the actual prompt used and to require a brief student reflection after activities using these templates, with a cross‑reference to the section on storing prompts and reflexe (section 4-3-4)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some operational recommendations (require upload of solution procedure; Copilot Forms can generate tests including marking correct answers and explanations) are currently supported by footnotes but could be made more explicit by inline citations to the KB excerpts already in memory (kb_ai_101_tipu_pdf_page_8_1 and kb_ai_101_tipu_pdf_page_36_1).",
+      "required_fix": "Add inline citations (or explicitly name the supporting KB items) next to the sentences that refer to 'Pokrok v matematice' and Microsoft 365 Copilot in Forms so readers can quickly verify the claims (use cite keys kb_ai_101_tipu_pdf_page_8_1 and kb_ai_101_tipu_pdf_page_36_1)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnotes are used inside itemize/quote blocks and immediately after parenthetical recommendations. While valid in many LaTeX setups, some document classes or conversion pipelines may reorder or misplace footnotes inside certain environments (quote/itemize).",
+      "required_fix": "Move footnotes to the end of the enclosing paragraph or immediately after the sentence outside the quote/itemize environment, or ensure the document class supports footnotes in these environments. Verify rendering after change."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The templates are practical but would benefit from explicit guidance on expected difficulty, estimated time per exercise, and what teacher artefacts to collect (e.g., expected student output format, rubric hints). The 'Pokrok v matematice' excerpt shows teachers can request upload of procedures—this suggests adding explicit instructions for other subjects as well.",
+      "required_fix": "Add a short 'Praktické poznámky' bullet: indicate for each generated exercise template to (a) specify estimated time to complete, (b) expected student deliverable (answer only vs. full procedure), and (c) suggested rubric points. Cite kb_ai_101_tipu_pdf_page_8_1 as support for requiring upload of procedures in math tools."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the opening 'Krátké instrukce...' paragraph add one sentence: 'Ukládejte použitý prompt a požadujte krátkou studentskou reflexi po aktivitě (viz sekce „Ukládání promptů a povinná reflexe“), aby se zvýšila pedagogická hodnota a traceability použití AI.' Cross‑reference to section 4-3-4."
+    },
+    {
+      "target": "ELI templates",
+      "edit_instruction": "Add a short note below the ELI25 template: 'Uveďte také očekávanou délku/doba výuky a úroveň obtížnosti (např. 15 min / střední obtížnost).' This makes teacher expectations explicit."
+    },
+    {
+      "target": "Generování cvičení s postupem",
+      "edit_instruction": "Explicitly append to the template: 'Uveďte, zda žáci mají nahrát i postup řešení (doporučeno pro matematiku a technické předměty).' Add inline citation to kb_ai_101_tipu_pdf_page_8_1."
+    },
+    {
+      "target": "Microsoft Copilot prompt example",
+      "edit_instruction": "Next to the Copilot (Forms) example, add a parenthetical citation: '(viz kb_ai_101_tipu_pdf_page_36_1 — Copilot ve Forms umí vytvořit test včetně označení správných odpovědí a vysvětlení)'."
+    },
+    {
+      "target": "footnote placement",
+      "edit_instruction": "Relocate the two \\\\footnote{Source: ...} markers so they appear immediately after the sentence they support and outside quote/itemize environments to avoid LaTeX rendering issues."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 8 'Pokrok v matematice' details about requiring upload of procedure",
+    "kb_ai_101_tipu_pdf page 36 Microsoft 365 Copilot Forms example and wording about generating tests containing correct answers and explanations",
+    "section 4-3-4 'Ukládání promptů a povinná reflexe' text to cite exact recommended phrasing for saving prompts and student reflection"
+  ]
+}

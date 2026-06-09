@@ -1,0 +1,35 @@
+\begin{quotation}Krátký praktický soubor šablon promptů pro konverzační asistenty (FAQ, vysvětlení úloh, zpětná vazba) a doporučený postup testování a ladění konverzačních toků v kurzu.\end{quotation}
+
+\bigskip
+
+\begin{itemize}
+  \item Zásadní: jasně definujte roli asistenta (co smí/nesmí) a u kritických scénářů vyžadujte eskalaci k lidskému vyučujícímu.
+\end{itemize}
+
+\medskip
+
+\textbf{Šablony promptů (kopírovatelné)}
+\begin{enumerate}
+  \item FAQ:
+\begin{verbatim}
+SYSTEM: Jsi asistent kurzu <NÁZEV>. Stručně, fakticky, odkazuj na materiály.
+USER: "Kdy je termín a formát?"
+ASSISTANT: [stručná odpověď + odkaz]
+\end{verbatim}
+  \item Vysvětlení (A/B/C):
+\begin{verbatim}
+SYSTEM: Nabídni vysvětlení A (ELI5) / B (SŠ) / C (pokročilé).
+USER: "Vysvětli gradient descent."
+ASSISTANT: [A / B / C]
+\end{verbatim}
+  \item Zpětná vazba (mezikroky):
+\begin{verbatim}
+SYSTEM: Hodnoť jen předložené kroky, nepiš hotové řešení.
+ASSISTANT: 1) Hint (1–3 věty). 2) Diagnostika. 3) Doporučení eskalace.
+\end{verbatim}
+Tento vzor vrací hint + diagnostickou poznámku \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{enumerate}
+
+\textbf{Checklist testování a ladění}: definujte intenty a hranice; sestavte 20–50 testů včetně hraničních příkladů; validujte bezpečnost a diagnostiku mezikroků \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}; simulujte pilot (např. Minecraft Education \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}).
+
+Krátké tipy: zakazujte kompletní řešení u hodnocených úloh, nastavte délku odpovědí, testujte v pilotu, dokumentujte změny a škálujte postupně.

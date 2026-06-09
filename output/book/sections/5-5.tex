@@ -1,0 +1,57 @@
+% Text těla sekce (bez nadpisu)
+Formativní hodnocení s podporou AI — praktický přístup a doporučení pro pedagogy.
+
+Úvodní poznámka: AI může ulehčit hromadné generování textových komentářů a formativní zpětné vazby, pokud je proces správně strukturován a vždy obsahuje lidskou validaci. Praktický princip ilustruje postup, kdy má učitel připravenou jednoduchou tabulku s názvy studentů a základními charakteristikami; tuto tabulku lze použít jako vstupní data pro asistent typu Copilot, který na jejím základě vygeneruje detailní formulace zpětné vazby \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.
+
+Konkrétní workflow (krátce, krok po kroku)
+\begin{enumerate}
+  \item Sestavte strukturovaný zdroj dat: tabulka (např. CSV/Excel) se sloupci jako Jméno, Silné stránky (body), Oblasti ke zlepšení (body), krátká poznámka učitele (volitelné).
+  \item Vytvořte přesnou instrukci pro asistent (prompt) s požadovaným stylem a délkou komentářů (např. „stručně, pozitivně, 2–3 věty“). Viz příklad níže.
+  \item Požádejte asistenta o vygenerování komentářů pro všechny záznamy a export výsledku zpět do tabulky.
+  \item Proveďte lidskou revizi: opravte faktické chyby, upravte tón a zajistěte konzistenci. AI návrhy jsou východiskem, nikoli hotovým produktem \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.
+  \item Distribuujte studentům formativní komentáře spolu s případnými krátkými doporučeními pro další kroky.
+\end{enumerate}
+
+Praktický příklad (inspirováno ukázkou v KB)
+\begin{quote}
+V příkladu učitel vytvoří tabulku s jmény a základními charakteristikami žáků a následně pošle Copilotovi požadavek: „Můžeš mi pro následující žáky vygenerovat detailní formativní hodnocení?“ — výsledky se potom dolaďují podle potřeby \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.
+\end{quote}
+
+Ukázkový prompt pro generování zpětné vazby (kopírujte a upravte podle potřeby)
+\begin{verbatim}
+Jsi asistent pro učitele. Pro každého žáka vytvoř 2-3 věty formativní zpětné vazby:
+1) jedna věta shrne silnou stránku;
+2) jedna věta navrhne konkrétní krok pro zlepšení;
+3) udržuj tón pozitivní a konkrétní.
+Formát: Jméno: <komentář>
+\end{verbatim}
+
+Nástroje a scénáře (ověřené poznatky z KB)
+\begin{itemize}
+  \item Použití Copilotu pro hromadné generování textové zpětné vazby je prakticky realizovatelné pomocí strukturovaného vstupu (tabulka) a následné lidské kontroly \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.
+  \item Pro předměty zaměřené na procvičování matematiky existují specializované funkce (např. „Pokrok v matematice“), které generují cvičné příklady, umožňují vyžadovat nahrání postupu a poskytují učiteli pohledy na oblasti, kde žák chyboval; tyto nástroje mohou být zdrojem artefaktů pro formativní hodnocení (postupy žáků jako důkaz) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Digitální nástroje jako OneNote umožňují převod rukopisných rovnic na digitální formu včetně zobrazení postupu; to usnadňuje sběr procesních artefaktů u matematických úloh \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+Doporučené zásady bezpečného a efektivního nasazení
+\begin{itemize}
+  \item Human‑in‑the‑loop: vždy osvojte rutinu lidské revize generovaných komentářů před jejich odesláním studentům \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.
+  \item Struktura vstupů: čím přesněji a více strukturovaně vstup připravíte, tím konzistentnější a užitečnější budou výstupy.
+  \item Jasné instrukce pro formátování: nastavte očekávaný tón, délku a konkrétní komponenty (silná stránka / návrh zlepšení).
+  \item Ochrana soukromí: při sdílení tabulek s údaji studentů dbejte pravidel GDPR a interních pravidel; minimalizujte citlivé údaje.
+\end{itemize}
+
+Krátký checklist pro pilot na katedře (praktické kroky)
+\begin{enumerate}
+  \item Vyzkoušejte workflow na malé skupině (10–30 studentů) a sbírejte zpětnou vazbu učitele i studentů.
+  \item Definujte standardizovaný formát vstupní tabulky a šablonu promptu.
+  \item Stanovte postupy lidské kontroly a zodpovědnosti (kdo finalizuje komentáře).
+  \item Monitorujte čas úspory a kvalitu zpětné vazby (srovnání s manuálními komentáři).
+\end{enumerate}
+
+Poznámka o dalších nástrojích (general background knowledge)
+\begin{itemize}
+  \item Některé platformy pro hromadné hodnocení a anotaci (např. Gradescope) rovněž podporují automatizaci částí hodnocení a lze je kombinovat s AI‑podporou pro generování komentářů; toto je obecné pozorování a záleží na konkrétní integraci a licencích (general background knowledge).
+\end{itemize}
+
+Závěrem: AI je v oblasti formativního hodnocení užitečný akcelerátor rutinních textových úkonů, zejména generování individualizovaných komentářů; klíčem k úspěchu je kvalitní strukturovaný vstup, přesné instrukce pro asistenta a povinná lidská validace konečných výstupů \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2,kb_ai_101_tipu_pdf_04e4a115_page_8_1}.

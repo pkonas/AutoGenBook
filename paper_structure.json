@@ -1,0 +1,41 @@
+{
+  "title": "Mini průvodce AI ve výuce",
+  "abstract": "Tento mini průvodce poskytuje kompaktní a praktickou ukázku struktury knihy či článku zaměřeného na použití umělé inteligence (AI) ve výuce. Cílem je nabídnout čtenáři rychlý přehled klíčových témat, konkrétní příklady aplikací v třídě a návrhy jednoduché implementace, které učitelé, školní vedení i tvůrci učebních materiálů mohou okamžitě využít. Text klade důraz na praktickou hodnotu: jak AI nástroje podpoří přípravu lekcí, diferencované učení, hodnocení a interakci se studenty, ale zároveň upozorňuje na důležité etické a organizační aspekty včetně ochrany osobních údajů, transparentnosti a digitální gramotnosti. Průvodce je navržen jako dvoustránkový formát vhodný pro rychlé seznámení, workshopové materiály nebo předmluvu k rozsáhlejšímu materiálu. Obsahuje stručný úvod k tématu a soustředěnou sekci praktických příkladů s konkrétními scénáři, doporučenými nástroji a tipy pro adaptaci podle věku a předmětu. Tento dokument usnadní učitelům první krok směrem k efektivnímu a odpovědnému využívání AI ve škole.",
+  "keywords": [
+    "AI ve výuce",
+    "praktické příklady",
+    "učitelé",
+    "implementace",
+    "etika v AI",
+    "učební scénáře"
+  ],
+  "target_venue": "krátký průvodce / pedagogický workshop",
+  "contributions": [
+    "Kompaktní návrh dvoustranné struktury knihy či článku o AI ve výuce",
+    "Sada praktických příkladů a scénářů pro okamžité nasazení v hodinách",
+    "Doporučení pro etické a organizační aspekty implementace AI ve škole"
+  ],
+  "citation_style": "bibtex",
+  "max_depth": 3,
+  "max_output_pages": 2,
+  "sections": [
+    {
+      "title": "Úvod",
+      "summary": "Stručné představení role umělé inteligence ve vzdělávání, cíle průvodce, cílové publikum a stručný přehled obsahu. Vysvětlení, proč je kompaktní formát užitečný pro učitele a co mohou čtenáři očekávat od praktických příkladů.",
+      "n_pages": 0.6,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Related Work",
+      "summary": "Unable to confirm novelty due to missing related work.",
+      "n_pages": 1.0,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Praktické příklady",
+      "summary": "Konkrétní, krátké scénáře použití AI v třídě: příprava lekcí, personalizované úkoly, automatizované hodnocení, podpora zpětné vazby a nápady pro projekty žáků. Pro každý scénář jsou uvedeny doporučené nástroje, kroky implementace, možné úpravy podle věku žáků a poznámky k etice a ochraně dat.",
+      "n_pages": 1.4,
+      "needsSubdivision": true
+    }
+  ]
+}

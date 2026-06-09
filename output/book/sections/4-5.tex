@@ -1,0 +1,89 @@
+Gamifikace nabízí bohaté možnosti, jak zvýšit angažovanost studentů pomocí úkolů typu escape room, role‑playing scénářů nebo interaktivních kvízů. Dvě konkrétní technologická doporučení, která lze na VUT snadno využít, jsou (1) použití Minecraft Education pro názorné, herně založené aktivity a (2) využití Microsoft 365 Copilota v kombinaci s Forms pro rychlé generování elektronických písemek a kvízů. Minecraft Education obsahuje předpřipravené světy a lekce včetně materiálů „Hour of Code“, které usnadňují didaktické nasazení herních aktivit ve výuce \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}. Microsoft 365 Copilot lze v prostředí školních Office 365 použít jako integrovaný nástroj a jeho kombinace s Forms umožňuje generování kompletních testů včetně označení správných odpovědí a doplňujících vysvětlení \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1, kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+
+Praktické vzory použití
+\begin{enumerate}
+  \item Escape room (rychlý přehled, general background knowledge):
+    \begin{itemize}
+      \item Navrhněte 4–6 „stanovišť“ (puzzle), která vyžadují kombinaci logického myšlení, práce s textem/kódem a týmové komunikace.
+      \item Pro každé stanoviště připravte primární hádanku a 2–3 postupné nápovědy (hints), které se odhalují podle času nebo podle správných mezikroků.
+      \item Použijte Copilot k vygenerování variant hintů a k diagnostice typických chyb (např. rozdílné nápovědy pro začátečníky vs. pokročilé) — tento postup je uveden níže jako šablona promptu (general background knowledge).
+    \end{itemize}
+
+  \item Role‑playing (rychlý přehled, general background knowledge):
+    \begin{itemize}
+      \item Vytvořte scénář s jasně definovanými rolemi (student jako inženýr, klient, etický poradce apod.) a úkolem, který musí tým vyřešit.
+      \item Konfigurujte Copilot jako „NPC“ (non‑player character) se zvláštní osobností/odbornostní rolí, aby poskytoval reakce ověřitelné proti zadaným pravidlům (general background knowledge).
+    \end{itemize}
+
+  \item Generování kvízů a elektronických písemek s Microsoft 365 Copilot + Forms:
+    \begin{enumerate}
+      \item Využití: Microsoft 365 Copilot v kombinaci s Forms dokáže vytvořit test obsahující různé typy otázek (ABC, pravda/nepravda, otevřené), označit správné odpovědi a často doplnit vysvětlení volby správné odpovědi \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+      \item Dostupnost: školní verze Office 365 zahrnuje webového Copilota a některé školy mají přístup k Microsoft 365 Copilot v rámci školních licencí \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+      \item Příklad promptu (copy‑paste ready, převzato z praktických ukázek):
+        \begin{quote}
+          
+\begin{PromptBlock}
+
+Vygeneruj mi test na hodinu zeměpisu na téma Austrálie, test bude obsahovat otázky na základní geografické oblasti, bude pro žáky 8. ročníku základní školy v České republice, test bude mít 10 otázek, 4 otázky budou typu ABC, 4 otázky typu pravda/nepravda a 2 otázky otevřené.
+\end{PromptBlock}
+
+        \end{quote}
+        Tento typ promptu ilustruje, že výsledkem je hotový test včetně různých formátů otázek a často i krátkých vysvětlení správných odpovědí \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+    \end{enumerate}
+\end{enumerate}
+
+Šablony promptů a doporučené postupy pro Copilot + Forms
+\begin{itemize}
+  \item Základní prompt pro rychlý kvíz (čeština, copy‑paste):
+    \begin{quote}
+      
+\begin{PromptBlock}
+
+Vytvoř test s 10 otázkami na téma [TÉMA]. Požadavky: pro [úroveň studentů], 6 otázek typu ABC, 2 pravda/nepravda, 2 otevřené; u každé otázky uveď klíč k odpovědi a 1–2 větami zdůvodni správnou odpověď.
+\end{PromptBlock}
+
+    \end{quote}
+    (Varianta promptu vychází z použitých příkladů v pramenech; Copilot v prostředí Forms obvykle vrátí strukturovaný soubor otázek a odpovědí, který lze přímo vložit do Forms \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.)
+  \item Prompt pro generování nápověd (hints) pro escape room (general background knowledge):
+    \begin{quote}
+      
+\begin{PromptBlock}
+
+Pro hádanku: [stručný popis hádanky] vygeneruj tři postupné nápovědy. 1) velmi nápovědná (pro studenty, kteří jsou ztracení), 2) mírná nápověda, 3) pouze drobný tip, který usměrní myšlení. Každou nápovědu napiš v max. 20–40 slovech.
+\end{PromptBlock}
+
+    \end{quote}
+  \item Prompt pro nastavení „NPC“ v role‑play (general background knowledge):
+    \begin{quote}
+      
+\begin{PromptBlock}
+
+Chovej se jako [role], tvůj tón je [formální/informální], odpovídej stručně (max. 60 slov). Pokud student dává nesprávné argumenty, polož 2 kontrolní otázky místo opravy.
+\end{PromptBlock}
+
+    \end{quote}
+\end{itemize}
+
+Bezpečnostní a pedagogické poznámky (stručně)
+\begin{itemize}
+  \item Transparentnost: informujte studenty předem, že aktivita využívá AI (Copilot nebo jiné nástroje) a jaké výstupy jsou očekávány/akceptovatelné (general background knowledge).
+  \item Validace obsahu: vygenerované otázky, nápovědy a vysvětlení vždy ověřte pedagogicky; Copilot může generovat syntakticky korektní, ale obsahově nepřesné formulace — proto kontrola garantem je nezbytná \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+  \item Licence a přístup: před použitím zkontrolujte dostupnost Copilota v rámci školních licencí Office 365 a nastavení Forms; některé funkce generativní AI jsou dostupné v závislosti na zakoupené verzi produktu \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.
+  \item Doporučení pro pilot: začněte s jednou herní aktivitou jako pilotem (1–2 týmy) a sbírejte metriky angažovanosti a zpětnou vazbu studentů pro kvartální revizi materiálů (general background knowledge).
+\end{itemize}
+
+Rychlý checklist pro realizaci gamifikované aktivity s Copilotem (general background knowledge)
+\begin{enumerate}
+  \item Definujte vzdělávací cíl aktivity a očekávané výstupy.
+  \item Vyberte formát (escape room / role‑play / kvíz) a naplánujte časovou osu.
+  \item Připravte podklady (scénáře, hádanky, datové soubory) a zadejte Copilotu jasné prompty pro generování otázek, hintů nebo NPC odpovědí.
+  \item Ověřte a upravte vygenerovaný obsah; prověřte správnost faktů a vhodnost jazyka.
+  \item Nasazení: vložte otázky do Forms (nebo jiné platformy), nastavte pravidla zveřejnění nápověd a měření úspěšnosti.
+  \item Po aktivitě: vyhodnoťte průběh, zaznamenejte chyby/hallucinace, aktualizujte prompty a materiály pro další běh.
+\end{enumerate}
+
+Poznámka o doplnění zdrojů
+\begin{itemize}
+  \item Pro inspiraci při použití Minecraft Education a Hour of Code viz dostupné předpřipravené světy v Minecraft Education, které usnadňují zapojení herních prvků do výuky \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Pro rychlé generování kvízů a elektronických písemek je praktickou možností kombinace Microsoft 365 Copilot a Forms, která umí vytvořit test včetně odpovědí a krátkých vysvětlení \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+\end{itemize}

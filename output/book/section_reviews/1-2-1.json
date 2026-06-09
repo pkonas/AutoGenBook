@@ -1,0 +1,67 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Most factual statements are labeled as \"general background knowledge\", which complies with the grounding rules. However, the inline label '(general background knowledge)' appears repeatedly inside itemize bullets, which is awkward in the LaTeX and reduces readability. Also the section does not cite existing KB examples (e.g. Minecraft Education, 'Pokrok v matematice', Copilot) that would make the pedagogical recommendations more concrete and grounded in the handbook's sources.",
+      "required_fix": "Replace inline '(general background knowledge)' tags with a single footnote or short prefatory sentence clarifying that the paragraph is general background. Where practical, add cross-references/citations to the relevant KB excerpts (e.g. kb_ai_101_tipu_pdf_page_15_2 for Minecraft Education, kb_ai_101_tipu_pdf_page_8_1 for 'Pokrok v matematice', kb_ai_101_tipu_pdf_page_14_1 for Copilot examples)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses repeated inline annotations within itemize environments. This can break visual flow and may be undesirable in the final PDF. Also there is an inconsistent verb form in the short teacher checklist (\"nasadíte jednoduchý pravidlový filtr\" — stylistically preferable to use an imperative list or consistent infinitive/imperative forms).",
+      "required_fix": "Move the 'general background knowledge' note to a footnote or to the paragraph header. Make the teacher checklist verbs consistent (use infinitive or imperative for all steps)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The checklist for teachers is short and useful, but step (4) mixes tense and style with earlier steps and is slightly vague about data protection (it lists 'anonymizujte' but does not reference the handbook's GDPR/DPIA guidance).",
+      "required_fix": "Rewrite the checklist into consistent imperative verbs (e.g. 1) definujte jasný cíl; 2) zjistěte, zda lze cíl popsat pravidly nebo vyžaduje učení z dat; 3) sbírejte a anonymizujte data — viz sekce 2.2 o anonymizaci a DPIA; 4) nasaďte (or 'nasaďte') jednoduchý pravidlový filtr jako první vrstvu a poté otestujte ML model na vybraném vzorku studentů). Add a cross‑reference to the DPIA/anonymization guidance (section 2.2 in the outline)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The final sentence says the summary 'navazuje na další část o velkých jazykových modelech (LLM)'. The section should include a clearer cross-reference to the exact sub-section in the outline (1.2.2) so readers can easily follow.",
+      "required_fix": "Add an explicit pointer such as: 'Viz podsekce 1.2.2 Velké jazykové modely (LLM) pro detaily.'"
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section discusses pedagogical use cases in general terms but would be more actionable if one or two concise classroom examples (drawn from the handbook KB) were included or referenced.",
+      "required_fix": "Add 1–2 short classroom examples or cross-references: e.g. rule-based validation for form inputs (link to practical checklist/examples in chapter 3 or tool examples), and 'Pokrok v matematice' as an ML example (kb_ai_101_tipu_pdf_page_8_1)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Replace the inline '(general background knowledge)' at the end of the paragraph with a short footnote: e.g. 'Tato část slouží jako obecný kontext; detailní příklady a nástroje viz kap. 1.2.2 a 4.2.' and add a cross-reference to sub-sections 1.2.2 (LLM) and 4.2 (live demonstrace / Copilot)."
+    },
+    {
+      "target": "Systémy založené na pravidlech itemize",
+      "edit_instruction": "Remove the parenthetical '(general background knowledge)' from each bullet. If you want to mark the whole list as background, add a single footnote after the list heading. Add (optional) short example reference: 'Typické použití ve výuce: kontrola formálních pravidel (např. syntaktická validace zadání...) — viz také praktické ukázky v sekci 4.2.'"
+    },
+    {
+      "target": "Tradiční strojové učení itemize",
+      "edit_instruction": "Remove repeated inline '(general background knowledge)'. For the 'Příklady technik' bullet add a parenthetical reference to further reading or glossary if available (e.g. 'viz. Glossář / kapitola 9.5' or add KB excerpt if desired)."
+    },
+    {
+      "target": "Praktické implikace pro pedagogickou praxi — teacher checklist",
+      "edit_instruction": "Rewrite list into consistent imperative/instructional steps (4 steps). Add a parenthetical cross‑reference after step 3 to the handbook's section on anonymization and DPIA (section 2.2). For step 4, change 'nasadíte' to 'nasaďte' or 'nasadit' to keep consistent verb form. Optionally include 'Otestujte řešení na malém pilotu a zkontrolujte výstupy ručně' as an extra safety step."
+    },
+    {
+      "target": "Final sentence linking to LLM section",
+      "edit_instruction": "Replace 'Toto shrnutí navazuje na další část o velkých jazykových modelech (LLM)...' with 'Toto shrnutí navazuje na podsekci 1.2.2 (Velké jazykové modely, LLM), kde jsou popsány hlavní rozdíly a jejich implikace do výuky.'"
+    },
+    {
+      "target": "Add grounded examples",
+      "edit_instruction": "Insert short cross-references/citations to KB excerpts (do not invent sources). Suggested insertions: mention 'Pokrok v matematice' as an ML pedagogical example (cite: kb_ai_101_tipu_pdf_page_8_1), Minecraft Education as an illustrative interactive example (cite: kb_ai_101_tipu_pdf_page_15_2), and Copilot/Forms for automatic test generation (cite: kb_ai_101_tipu_pdf_page_14_1 and relevant 4.2.* outline nodes)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_8_1 Pokrok v matematice — short excerpt to cite as an example of ML in teaching",
+    "kb_ai_101_tipu_pdf_page_15_2 Minecraft Education — excerpt to cite as a pedagogical example for demonstrating ML/AI",
+    "kb_ai_101_tipu_pdf_page_14_1 Copilot in Notepad / Copilot examples — excerpt to cite for automated test generation and tool examples",
+    "kb_ai_101_tipu_pdf_page_51_1 OneNote / Designer — excerpt to cite for tool examples mentioned elsewhere"
+  ]
+}

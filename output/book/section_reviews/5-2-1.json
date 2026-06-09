@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Many statements are tagged as \"(general background knowledge)\" rather than being explicitly grounded in the handbook's chapters or specific KB excerpts. The section's core claims (definition of autenticita, benefits of authentic tasks, milestone/rubric recommendations, and use of Copilot‑type agents) are consistent with the rest of the manuscript, but the inline labels prevent clear traceability to the KB (e.g. chapter 5.2.1, redesign checklist, and the Copilot recommendation that appears elsewhere).",
+      "required_fix": "Replace the generic \"(general background knowledge)\" markers with explicit cross‑references or citations to the relevant parts of the handbook (e.g. 5.2.1 for the definition of autenticita; 5.1/5.3.4/5.4 for pedagogical rationale, milestone‑based assessment and declaration of AI; and the Copilot/Copilot‑type agent recommendation referencing the KB cite key currently used in earlier sections). If a KB excerpt is not yet available for the Copilot claim, add the retrieval query (see below) and include the supporting excerpt or remove the specific tool reference."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminology and control measures used in this section (e.g. 'spot‑check', 'pravidla eskalace', 'předkontrola') appear in context memory but are not cross‑referenced here. The section proposes a 5–10% spot‑check which must match the canonical value used elsewhere.",
+      "required_fix": "Add explicit cross‑references to the previously defined terms (pre‑grading / předkontrola; pravidla eskalace; spot‑check) and ensure the 5–10% example matches the canonical wording and phrasing used across the chapter (or state it as an illustrative example)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The section includes citation keys (e.g. \\cite{kb_ai_101_tipu_pdf_04e4a115_page_48_1}) that must exist in the document bibliography; otherwise compilation will fail or the citation will be unresolved. No other LaTeX syntax errors were detected, but the use of parenthetical labels \"(general background knowledge)\" inside LaTeX paragraphs looks like editorial markup rather than final text.",
+      "required_fix": "Ensure that all \\cite keys used here are present in the .bib file or replace the keys with appropriate cross‑references (e.g. 'see Chapter 5.1' or 'viz. KB, str. 48'). Remove editorial markers or convert them to footnotes/inline notes that are LaTeX‑safe."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The illustrative example is useful but remains schematic. It omits an explicit note on data protection / GDPR risks when students analyse local laboratory data, and does not map milestones to measurable learning outcomes.",
+      "required_fix": "Add a short sentence in the example (or a footnote) about privacy considerations and the requirement to follow institutional GDPR procedures (link to Chapter 2.2 / DPIA template). Also add a brief mapping table or line showing how each milestone maps to one or two measurable learning outcomes or assessment criteria (e.g. Milestone 1 -> methodology and sourcing; Milestone 2 -> data analysis competence; Milestone 3 -> communication and reflection)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Rubric percentages and checks are reasonable but presented without an explanation of how they align to course learning objectives or to the milestone‑based assessment approach advocated elsewhere.",
+      "required_fix": "Add a one‑line justification for the suggested rubric split (e.g. why process/reflection gets 50% in total) or present the example rubric as 'illustrative' and point readers to Chapter 5.4 for rubric templates and to the Prompt Library/Appendices for copy‑paste rubric variants."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Replace the '(general background knowledge)' tags. For the definition paragraph, append '— viz. kap. 5.2.1' or cite the KB entry. For the two bullets under 'Proč přehodnotit...', add a short citation to the chapter intro (5.1) or 5.2.1 to show consistency with the handbook rationale."
+    },
+    {
+      "target": "Postup redesignu úlohy směrem k autenticity (praktický návod)",
+      "edit_instruction": "In step 4, keep the Copilot‑agent suggestion but change the inline citation to point to the exact KB place (e.g. 'viz kap. 3.4 / doporučení o Copilot‑type agentech (KB, str. 48)'). If the KB excerpt is not yet available, either remove the specific page cite or add the retrieval query to fetch the supporting excerpt."
+    },
+    {
+      "target": "Krátký ilustrativní příklad (schematicky)",
+      "edit_instruction": "Add one sentence about data protection (e.g. 'Pozn.: při použití lokálních dat dbejte na anonymizaci a postupujte podle kap. 2.2 (DPIA)') and add a short mapping line linking each milestone to explicit learning outcomes and the rubric fields."
+    },
+    {
+      "target": "Rychlý checklist pro vyučující při návrhu autentické úlohy",
+      "edit_instruction": "Add explicit cross‑references for 'pilot' and 'spot‑check' (e.g. 'viz definice spot‑check v sekci 5.5 nebo v přílohách') and ensure the Copilot citation key matches the bibliography or is phrased as guidance ('zvažte využití Copilot‑type agentů; viz doporučení o nástrojích pro plánování')."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 48 chunk 1 (support for 'Copilot‑type agents' recommendation and citation kb_ai_101_tipu_pdf_04e4a115_page_48_1)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 44 chunk 2 (already retrieved: supports Copilot/PowerPoint example — confirm placement)",
+    "kb_ai_101_tipu_pdf_04e4a115 chapter 5.4 or page containing rubric templates / declaration of AI examples (to ground the rubric/declaration guidance)"
+  ]
+}

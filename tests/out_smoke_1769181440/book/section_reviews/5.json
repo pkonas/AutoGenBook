@@ -1,0 +1,59 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Termín \"konzervativní prompty\" není v textu definován; čtenářům by pomohlo krátké vysvětlení a explicitní odkaz na strukturované prompty (sekce 3.3 / node 3-3), které jsou v paměti zmíněny.",
+      "required_fix": "Doplnit krátkou definici \"konzervativního promptu\" a uvést nebo odkázat na konkrétní vzor strukturovaného promptu (např. s placeholdery [OBOR],[ÚROVEŇ],[TÉMA] podle sekce 3.3)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Postupy pro náhodné kontroly a eskalaci zmiňují poměr kontrolovaných prací a prahové hodnoty, ale nedávají vodítko, jak tyto hodnoty nastavit (text zůstává příliš obecný).",
+      "required_fix": "Doplnit krátké vodítko, jak instituce může nastavit sampling/thresholds (např. na základě rizika, počtu studentů nebo KPI) nebo jasně označit, že konkrétní počty/prahy je třeba stanovit lokálně a odkázat na místo, kde budou uvedeny konkrétní příklady (po získání důkazů)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce odkazuje na rubriky a auditing (viz 3.3), ale v textu chybí konkrétní ukázka rubriky nebo krátká poznámka o tom, co by rubrika měla obsahovat (např. kritéria pro A–D).",
+      "required_fix": "Buď vložit krátký příklad položek rubriky (nebo šablonní položky) z 3.3, nebo explicitně odkázat na konkrétní podsekci/šablonu 3.3, aby čtenář věděl, kde najít vzory."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "V části \"Auditní záznam — minimální povinné položky\" je v položce použito explicitní zalomení řádku \"\\\\\" uvnitř \\itemize; to může být zbytečné nebo způsobit varování při kompilaci. Obecně drobné stylistické LaTeX problémy (nepotřebné \\newline/\\\\ v položkách).",
+      "required_fix": "Odstranit zbytečné \"\\\\\" v položkách itemize; použít jeden \\item na každou položku bez explicitních zalomení řádků, případně použít \\begin{description} pokud jsou potřeba delší popisy."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Záznamy promptů jsou povoleny/logovány, ale není v textu explicitně uvedeno, jak naložit s PII obsaženým v promptu (redakce/anonymizace) ani kdy je nutný souhlas studentů pro logování obsahu promptů.",
+      "required_fix": "Doplnit krátkou větu, že při logování promptů je třeba redigovat osobní údaje nebo získat informovaný souhlas; případně odkázat na sekci o ochraně osobních údajů (node 4)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Prvek: bullet 'Prevence zneužití a kvalita výstupů'",
+      "edit_instruction": "Nahradit frázi 'používejte konzervativní prompty' textem typu: 'používejte konzervativní, strukturované prompty (tj. omezující instrukce, které redukují riziko generování nevhodného obsahu). Viz také sekce 3.3: doporučené strukturované prompty s placeholdery [OBOR],[ÚROVEŇ],[TÉMA] a omezenou délkou.' (odkaz na node 3-3 z paměti)."
+    },
+    {
+      "target": "Auditní záznam — položky",
+      "edit_instruction": "Odstranit zbytečný '\\\\' a zajistit, aby každý požadovaný atribut byl samostatnou \\item položkou. Přidat krátký doplněk k 'použité prompt/parametry modelu (logované)': '... (redigujte PII nebo logujte pouze s informovaným souhlasem)'."
+    },
+    {
+      "target": "Oddíl: 'Dvoustupňové hodnocení' a 'Náhodné a rizikově řízené kontroly'",
+      "edit_instruction": "Doplnit větu s metodikou pro určení rozsahu náhodných kontrol a prahů eskalace: buď (A) explicitně uvést, že konkrétní procenta/prahy si stanoví instituce dle lokálních rizik/KPI (a uvést kritéria pro rozhodnutí), nebo (B) vložit konkrétní příklad/šablonu prahů pokud je dostupný v 3.3. Pokud nejsou k dispozici empirické hodnoty, ponechat to jako lokální volbu s doporučením pro pilot (malý procentní vzorek + iterace)."
+    },
+    {
+      "target": "Checklist před spuštěním pilotu",
+      "edit_instruction": "Přidat odkaz/poznámku 'viz šablona rubrik a ukázkové rubriky v sekci 3.3' u položky 'připravte rubriky a pravidla eskalace', aby bylo jasné, kde najít konkrétní šablony."
+    }
+  ],
+  "retrieval_queries": [
+    "Konkrétní šablony rubrik (A–D) uvedené v sekci 3.3 nebo v node 3-3: text rubriky / pole / příklady položek.",
+    "Doporučení nebo běžné praxe pro míru náhodných kontrol a prahů eskalace v automatizovaném hodnocení (pokud jsou uvedeny v KB nebo v node 3-3/3-4/4).",
+    "Doporučené doby uchovávání auditních záznamů a vzory politik pro retenci (pokud jsou v KB / node 4).",
+    "Pokyny k logování promptů: jak anonymizovat/redigovat PII v logovaných promptech a právní/politické požadavky na souhlas (pokud dostupné v node 4 nebo 3-3)."
+  ]
+}

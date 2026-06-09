@@ -1,0 +1,66 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The entry for 'Microsoft 365 Copilot — agent \"Výzkumník\"' cites kb_ai_101_tipu_pdf_04e4a115_page_48_1, but the current set of provided RETRIEVED EXCERPTS does not include the actual excerpt text for page_48_1. The claim itself matches the 'Previous sections excerpt' summary, yet the direct supporting excerpt is missing from the retrieved bundle.",
+      "required_fix": "Attach or provide the retrieved excerpt for kb_ai_101_tipu_pdf_04e4a115_page_48_1 (page 48) or replace the inline citation with a citation that corresponds to an excerpt already present in the retrieval bundle."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX contains an escaped ASCII quote sequence agent \\\"Výzkumník\\\". While syntactically valid, it is stylistically inconsistent with Czech typography (guillemets) and with how other entries use bold text. Also the top short description mixes a dash and an em dash usage.",
+      "required_fix": "Replace agent \\\"Výzkumník\\\" with a typographically consistent form (e.g. agent „Výzkumník\" or \\texttt{Výzkumník}) and normalize dash usage. Verify that all citation keys compile with the document's bibliography."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several entries are marked '(general background knowledge)' and remain short. For pedagogical reuse, the entries for 'Tokeny' and 'Embeddings' would benefit from a one‑line concrete classroom micro‑activity or example (e.g. a 2–5 sentence example to demonstrate tokenization or embedding similarity search).",
+      "required_fix": "Add one short concrete activity/example to the 'Tokeny' and 'Embeddings' items (kept brief and clearly flagged as pedagogical suggestion / general background knowledge)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The 'Rychlá praktická poznámka' suggests '10min demonstrace v Minecraft Education' as an example. The source material recommends Minecraft Education and Hour of Code activities but does not specify a 10‑minute length. The pilot guidelines elsewhere recommend 30–90 min pilots.",
+      "required_fix": "Either qualify the suggested duration as an illustrative example (e.g. 'krátká — např. 10–20 min demonstrační ukázka') or align it with the pilot durations given elsewhere (30–90 min). Add or adjust a citation if asserting a recommended duration from the KB."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section mixes English tool names and Czech descriptions (e.g., 'Pokrok v matematice (Microsoft)') which is consistent with the rest of the manual, but the parenthetical labeling of some items (company in parentheses) is applied inconsistently across entries.",
+      "required_fix": "Standardize naming: either include vendor in parentheses for all vendor‑specific tools (e.g., 'Minecraft Education (Microsoft)') or omit vendor parentheticals consistently."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Tokeny item",
+      "edit_instruction": "Add one short classroom micro‑activity (1 sentence) such as: 'Ukázka: vezměte jednoduchou větu a ukažte studentům, jak se rozdělí na tokeny — porovnejte počet tokenů a počet slov, abyste ilustrovali dopad na délku promptu.' Keep flagged as (general background knowledge)."
+    },
+    {
+      "target": "Embeddings item",
+      "edit_instruction": "Add a one‑line practical tip: 'Ukázka: vyhledání 2–3 podobných dokumentů k otázce v učebním repozitáři pomocí embeddingů — demonstrujte výsledky a krátce diskutujte jejich kvalitu.'"
+    },
+    {
+      "target": "Microsoft 365 Copilot entry",
+      "edit_instruction": "Either attach the retrieved excerpt text for kb_ai_101_tipu_pdf_04e4a115_page_48_1 or replace the citation with an available supporting excerpt. If attaching the excerpt is not possible, qualify the statement as a pedagogical recommendation and keep citation in the previous sections."
+    },
+    {
+      "target": "Practical note durations",
+      "edit_instruction": "Change '10min demonstrace' to 'krátká demonstrace (např. 10–20 min)' or refer readers to the pilot guidance (30–90 min) for fuller pilots, and add a short parenthetical note linking to the pilot checklist or akční plán."
+    },
+    {
+      "target": "LaTeX quotes and dashes",
+      "edit_instruction": "Replace agent \\\"Výzkumník\\\" with Czech guillemets or \\texttt{}, and ensure em/en dashes are used consistently (use -- for en‑dash or --- for em‑dash depending on style). Confirm that all \\cite keys match the bibliography and compile correctly."
+    },
+    {
+      "target": "Naming consistency",
+      "edit_instruction": "Standardize vendor parentheticals across tool entries (either include vendor for each vendor tool or omit them). For example, change 'Minecraft Education' to 'Minecraft Education (Microsoft)' if choosing to include vendors."
+    }
+  ],
+  "retrieval_queries": [
+    "Provide the excerpt for kb_ai_101_tipu_pdf_04e4a115_page_48_1 (Microsoft 365 Copilot, agent 'Výzkumník') to ground the Copilot claim.",
+    "Provide excerpts that define or illustrate RAG and embeddings in the KB (search for 'RAG', 'Retrieval‑Augmented Generation', 'embeddings' in ai_101_tipu.pdf or related KB docs) to link the glossary definitions to source text.",
+    "Provide an excerpt that states recommended pilot durations or micro‑activity durations (e.g., 10–20 min) if the guide includes recommended times, to ground the suggested durations."
+  ]
+}

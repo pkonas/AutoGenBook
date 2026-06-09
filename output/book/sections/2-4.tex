@@ -1,0 +1,28 @@
+Toto krátké shrnutí uvádí klíčové body, které by měli pedagogové a garanty předmětů znát při zohlednění evropského AI Act (2024) v kontextu výuky. Vzhledem k rozsahu a rychlému vývoji legislativy následující tvrzení slouží jako stručná orientace; konkrétní právní výklad konzultujte s právním oddělením (general background knowledge).
+
+\begin{itemize}
+  \item Hlavní principy AI Act (stručně): legislativa pracuje s rizikově‑orientovaným přístupem k AI systémům, zavádí povinnosti transparentnosti vůči uživatelům a požadavky na odpovědnost poskytovatelů u systémů považovaných za „vysoké riziko“ (general background knowledge).
+  \item Povinnosti transparentnosti: u generativních systémů mohou existovat požadavky na informování uživatele, že výstup pochází od AI, a na dokumentaci datových zdrojů a použitých bezpečnostních opatření (general background knowledge).
+  \item Dopady na poskytovatele a instituce: pro systémy s vyšším rizikem mohou platit povinnosti provést posouzení souladu, zavést lidský dozor, vést záznamy (logs) pro audit a zajistit mechanismy pro řešení škod či chyb (general background knowledge).
+\end{itemize}
+
+Praktické implikace pro výuku a nasazení AI na VUT (doporučené kroky)
+\begin{enumerate}
+  \item Klasifikujte konrétní edukační scénáře podle rizika: rozlište jednoduché podpůrné nástroje (např. generování prezen­tací) od řešení, která zpracovávají studentská osobní či citlivá data nebo která ovlivňují hodnocení — pro tyto případy uvažujte přísnější režim řízení rizik (general background knowledge).
+  \item DPIA při středním či vysokém riziku: pokud je v projektu zpracováváno studentské PII nebo jiné citlivé údaje, zahrňte posouzení dopadů na ochranu osobních údajů (DPIA) již do plánování pilotu; výsledky DPIA by měly ovlivnit technické a smluvní požadavky vůči poskytovateli \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item Preferujte enterprise/licencované varianty tam, kde chcete centrální správu uživatelů, SLA a lepší kontrolu nad daty; enterprise balíčky často nabízejí administrativní nástroje a integrace užitečné pro akademické prostředí \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+  \item Minimalizace PII v indexech a RAG: při použití retrieval‑augmented řešení omezte množství indexovaných osobních údajů, pseudonymizujte data tam, kde je to možné, a nastavte pravidla pro revizi a mazání indexovaných záznamů (general background knowledge).
+  \item Transparentnost do sylabů a komunikace se studenty: do sylabů uveďte, zda a kde je AI používána, jaké jsou limity (ověřování faktů, lidská validace) a jak mají studenti deklarovat použití AI při odevzdávání prací (general background knowledge).
+  \item Smlouvy a technické požadavky: při výběru dodavatele požadujte DPA/SLA s ustanoveními o retenci dat, sub‑procesorech, auditních záznamech a incident response; výsledky DPIA použijte jako podklad pro tyto požadavky \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+\end{enumerate}
+
+Krátký checklist pro garanta předmětu (rychlé kroky)
+\begin{enumerate}
+  \item Zmapovat scénáře použití AI ve výuce a označit jejich potenciální riziko (nízké / střední / vysoké) (general background knowledge).
+  \item Pokud je riziko střední či vysoké: spustit DPIA a zapojit právní/PRIV týmy \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item V sylabu explicitně uvést pravidla pro použití AI a požadavek na deklaraci tam, kde je to relevantní (general background knowledge).
+  \item Preferovat enterprise řešení pro scénáře vyžadující správu uživatelů, logování a SLA; v jiných případech zvážit lokální/on‑premise variantu (general background knowledge; \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}).
+  \item Definovat lidský dozor (human‑in‑the‑loop) pro všechny výstupy AI, které mají dopad na hodnocení nebo rozhodování o studentech (general background knowledge).
+\end{enumerate}
+
+Poznámka: tento přehled je záměrně nízkoslovný a zaměřený na přenos do interních politik předmětů. Pro detailní právní výklad a závazné požadavky vyhledejte oficiální znění AI Act a konzultaci s právním oddělením VUT (general background knowledge).

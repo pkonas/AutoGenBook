@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Most domain‑specific claims are correctly labeled as 'general background knowledge' or are supported by citations to the retrieved KB (Minecraft Education, OneNote/math.microsoft.com, Microsoft Learn). However, a few actionable technical recommendations (e.g., exact components listed under 'LMS connector pattern', 'Webhook / grade sync' retry/idempotency, and the suggested audit/log fields) are presented without an explicit supporting citation. They are currently labeled as 'general background knowledge' which is acceptable, but stronger grounding would improve verifiability.",
+      "required_fix": "Either add supporting citations for those technical recommendations from the KB/repository (or other allowed sources), or keep them but retain the explicit 'general background knowledge' label and consider adding a short note that these are recommended patterns rather than prescriptive requirements."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section references 'viz předchozí kapitola o ochraně dat — obsahuje checklist pro DPA' but does not give an explicit cross‑reference (section number/title). The earlier parts of the manual do include an 'Ochrana dat, DPA a data residency' section, so the pointer is valid but vague.",
+      "required_fix": "Replace 'viz předchozí kapitola' with a precise cross‑reference (e.g., 'viz kapitola 1.3 Ochrana dat, DPA a data residency' or 'kapitola 2.2' depending on final numbering) to make navigation explicit and verifiable."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX body is generally valid, but the plain text line 'Krátké shrnutí a cíl sekce' appears outside of any sectioning command and may be unintended. Also some headings like 'Poznámka k rizikům a dalším krokům' are not marked up as subsection/paragraph environments.",
+      "required_fix": "Wrap the section summary in a LaTeX sectioning or paragraph command (e.g., \\section*{Integrace do univerzitní infrastruktury} followed by \\paragraph{Krátké shrnutí a cíl sekce}), or remove the stray line if redundant. Consider marking the 'Poznámka k rizikům...' as \\subsection* or \\paragraph for consistency."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some practical items are high‑level and could benefit from concrete examples or templates (e.g., an example minimal audit log schema or suggested SSO attributes to pass to connectors). The 'Doporučený PoC workflow' mentions metrics and testing but does not suggest concrete success metrics or sample test cases.",
+      "required_fix": "Add 2–3 illustrative examples: (1) a minimal audit log field list (timestamp, user_id_pseudonym, doc_id_hash, action, retrieval_context, model_id, response_hash), labeled as illustrative; (2) sample success metrics for a PoC (e.g., time to feedback, teacher time saved, % of correctly anonymized submissions); and (3) 1–2 minimal test cases for anonymization and fail‑safe behavior. Mark these as examples and, if possible, support them by adding references or labeling as general background knowledge."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends pedagogical engagement and pilot participation but does not link to the milestone templates and prompt‑log templates referenced elsewhere in memory/context. Those artifacts exist in the manual (TU Delft templates, prompt‑log).",
+      "required_fix": "Add explicit references to the internal templates in the manual (e.g., 'viz. TU Delft milestone template (sekce 9.x) a prompt‑log šablona (sekce 7.x)') or include short inline examples of the prompt‑log fields to encourage adoption."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first paragraph / summary",
+      "edit_instruction": "Replace the standalone line 'Krátké shrnutí a cíl sekce' with a proper LaTeX paragraph or section heading (e.g., \\paragraph{Krátké shrnutí a cíl sekce} ...) and expand one or two sentences to explicitly state the intended audience (katedra, IT, GDPR/ právníci) and primary outcome of the section (operational checklist and PoC recipe)."
+    },
+    {
+      "target": "Architektury a vzory integrace",
+      "edit_instruction": "Keep the items labeled '(general background knowledge)', but add one short sentence prefacing the list: 'Níže uvedené vzory jsou doporučené integrační patterny; ověřte je se svým IT/architektem a právním oddělením.' For each bullet, consider adding a one‑line illustrative example or a pointer to internal blueprint (e.g., 'viz RAG blueprint v příloze 9.5')."
+    },
+    {
+      "target": "Doporučený PoC workflow",
+      "edit_instruction": "Add a small bullet or parenthetical with sample PoC success metrics (e.g., 'metriky: průměrný čas zpětné vazby, spokojenost pedagogů, % správně anonymizovaných odevzdání') and one sample test case for anonymization (e.g., 'odevzdání s identifikátorem — očekávaný výstup: ID removed; original hash stored in internal audit log'). Label these as illustrative."
+    },
+    {
+      "target": "Kontrolní body pro nasazení connectoru",
+      "edit_instruction": "Add an illustrative minimal audit log field list and mark it as an example: 'Illustrative audit fields: timestamp, action (upload/retrieve), pseudonym_user_id, document_hash, model_id, retrieval_context_id, response_hash, actor_service_account'. Keep this optional and labeled as 'příklad'."
+    },
+    {
+      "target": "Cross‑references",
+      "edit_instruction": "Replace vague cross‑references like 'viz předchozí kapitola o ochraně dat' with explicit references to the chapter/subsection numbers/titles present in the manual (e.g., 'viz kapitola 2.2 Ochrana dat, DPA a data residency')."
+    }
+  ],
+  "retrieval_queries": [
+    "LMS connector pattern SSO API gateway anonymization audit logs best practices university integration",
+    "grade sync webhook idempotent retry best practices LMS integration",
+    "example audit log fields for RAG retrieval GDPR logging 'retrieval events' 'audit' university",
+    "prompt‑log template TU Delft prompt‑log šablona"
+  ]
+}

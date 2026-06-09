@@ -1,0 +1,54 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The mapping between the example percentage weights and the numeric subscales is ambiguous in the 'Programovací úloha / projekt' rubric. The text gives example weights (Správnost 50%, Proces 30%, Kódová kvalita 20%), but the listed numeric maxima (Správnost 0–50; Doklad procesu 0–15; Transparentnost 0–5; Kódová kvalita 0–30) are not explicitly connected to those weight buckets (e.g. whether 'Proces 30%' is the sum of Doklad procesu + Transparentnost).",
+      "required_fix": "Make explicit how the numeric subscales map to the example percentage weights (either show how subscales sum to the weight, or present a single consistent set of maxima that directly reflect the example weights). Add a short worked example showing how raw rubric scores convert to percentage grade for the project."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The placeholder 'Požadujte minimálně X commitů nebo screencast vývoje' is left as 'X', which is not actionable for instructors.",
+      "required_fix": "Replace 'X' with guidance on how instructors should set that requirement (e.g. instruct to define a minimum based on task scope and provide criteria for 'small/medium/large' assignments), or include an explicit instruction asking the course team to specify the concrete number in the syllabus/assignment template."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citations are present (e.g. \\cite{kb_ai_101_tipu_pdf_page_36_1}, \\cite{kb_ai_101_tipu_pdf_page_8_1}, \\cite{kb_ai_101_tipu_pdf_page_15_2}). The section assumes matching bibliography entries exist elsewhere in the document. Percent signs are properly escaped, and range dashes use --, so LaTeX constructs in the body look correct.",
+      "required_fix": "Ensure the corresponding bibliography entries (bibitems) for the cited keys are present in the document's bibliography. If the document will be exported without a bibliography, replace the \\cite{...} calls with inline parenthetical references to the source document (e.g. 'viz AI - 101 tipu, str. 36') or include a short footnote identifying the source."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some rubric numeric ranges differ from the 'standard AI‑aware items' introduced earlier (the general proposal used Transparentnost 0–5, Originalita 0–10, Doklad procesu 0–5). The section adapts these for specific task types but does not explicitly state that subscale maxima may be adjusted per task.",
+      "required_fix": "Add a short clarifying sentence noting that the base scales are recommendations and may be rescaled or combined for particular task types; recommend documenting any rescaling alongside the rubric so graders understand conversions."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends asking for process evidence and reflexive items (good practice), but does not include a small worked example showing how to evaluate a submission that uses AI (e.g. scoring an essay with declared AI usage and attached drafts).",
+      "required_fix": "Add one brief worked example (one paragraph or a short table — or a short LaTeX example) illustrating how rubric items are scored and aggregated when a student provides an AI declaration and process evidence; alternatively, add a short checklist for graders with example comments."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Programovací úloha / projekt paragraph",
+      "edit_instruction": "Clarify how the numeric maxima map to the example percentage weights. For example, add a sentence like: 'V tomto příkladu se Proces (30 %) skládá z Dokladu procesu (0–15) a Transparentnosti (0–5); výsledné skóre procesu se převede na procentní váhu podle součtu obou položek.' Then include a one‑line worked example converting raw rubric scores to final percent grade."
+    },
+    {
+      "target": "Doklad procesu bullet ('Požadujte minimálně X commitů...')",
+      "edit_instruction": "Replace the placeholder 'X' with a directive to instructors: e.g. 'stanovte minimální počet commitů nebo jiný měřitelný indikátor podle rozsahu úlohy (uvedení konkrétních hodnot do zadání); alternativně akceptujte screencast či issue tracker s časovou osou.' Do not invent specific numeric defaults unless supported elsewhere in the guide."
+    },
+    {
+      "target": "Implementation recommendations (citations)",
+      "edit_instruction": "Add a short authoring note to ensure the bibliography contains entries for the cited keys (kb_ai_101_tipu_pdf_page_36_1, kb_ai_101_tipu_pdf_page_8_1, kb_ai_101_tipu_pdf_page_15_2). If the master document will be compiled without a .bib file, convert the \\cite{...} uses to parenthetical source mentions consistent with the guide's referencing style."
+    },
+    {
+      "target": "Concluding paragraph (final sentence)",
+      "edit_instruction": "Add a one‑sentence pointer to operational materials (e.g. 'Viz také šablony do sylabů a checklisty v přílohách kapitoly 2.6 a 5.9 pro konkrétní texty a šablony deklarací'), or otherwise reference where instructors can find ready‑to‑use templates within the handbook."
+    }
+  ],
+  "retrieval_queries": []
+}

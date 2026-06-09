@@ -1,0 +1,57 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The text gives examples of test/question splits for Copilot/Forms prompts but does not standardize which example/prompt template to use. The retrieved KB example (page 36) shows a 10-question split 4×ABC / 4×pravda‑nepravda / 2×otevřené, while the context memory includes a prompt‑šablona with 6×ABC / 2×pravda‑nepravda / 2×otevřené. This discrepancy can confuse readers about the recommended default template.",
+      "required_fix": "Choose and state one canonical example (or explicitly present both as alternatives) and add a cross‑reference to the Prompt Library (příloha 9.1) where the canonical template is stored. If both variants are kept, label them as 'example A' and 'example B' and indicate tradeoffs for item balance."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section recommends operational practices (e.g., spot‑checks, escalation rules, evaluation of pedagogical benefit) but does not reference the related checklist or metrics from the Implementační checklist / monitoring sections that already exist in the manual.",
+      "required_fix": "Add explicit cross‑references to the Implementační checklist (Part 1) and the monitoring metrics (e.g., 'Měřte metriky pilotu: spolehlivost, poměr eskalací, doba řešení incidentů a spokojenost uživatelů') so readers can find the recommended success criteria and monitoring steps."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some practical steps are high level (e.g., 'Vedení hodiny: praktická aktivita ... následná diskuse'). Teachers may benefit from a short checklist or success criteria (duration, expected prep time, group size, evaluation questions) for each pilot to run and evaluate it reproducibly.",
+      "required_fix": "Add a 1–2 sentence 'quick checklist' or bullets for each pilot example listing: target audience (year/level), approximate time required (prep + in‑class), minimum pilot group size, and 2–3 evaluation questions for pedagogical impact."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Citations are present (\\cite{...}) but the section does not include an explicit note to ensure the corresponding bib entries are included in the document bibliography. Also, the LaTeX uses \\medskip and \\textbf which are fine but the section does not define a label for cross‑referencing.",
+      "required_fix": "Ensure the bibliography contains the cited keys (kb_ai_101_tipu_pdf_04e4a115_page_15_2, kb_ai_101_tipu_pdf_04e4a115_page_36_1, kb_ai_101_tipu_pdf_04e4a115_page_8_1). Consider adding \\label{sec:case‑studies} after the title for internal references."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The conclusion encourages consulting IT and GDPR teams for contracts/licenses but does not point to the concrete DPA/licence checklist items already present elsewhere in the manual (e.g., 'Smluvní a licenční požadavky' in the Implementační checklist).",
+      "required_fix": "Add a parenthetical pointer to the relevant checklist items (e.g., 'viz Implementační checklist: Smluvní a licenční požadavky') so implementers know where to find the contractual checklist."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the Copilot + Forms paragraph, insert a short boxed example (or verbatim prompt) referencing the Prompt Library in Appendix 9.1. Example: 'Příklad promtu: „Vygeneruj test o 10 otázkách na téma X: 6×ABC, 2×pravda/nepravda, 2×otevřené; u každého ABC uveď správnou odpověď a jednověté vysvětlení.“ Viz Prompt Library (příloha 9.1).' If you prefer the 4/4/2 split from the KB example, make that explicit and note both variants as options."
+    },
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "In the 'Pokrok v matematice' pilot steps, add a concrete recommendation for spot‑checks and escalation numbers (e.g., 'Provádějte náhodné spot‑checky 5–10 % odevzdaných prací a definujte eskalační kritéria: nízká jistota AI, neúplný postup nebo rozporné výsledky'). This aligns the example with the monitoring guidance elsewhere in the manual."
+    },
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "For each pilot example add a two‑line 'How to evaluate pilot success' note that points to measurable metrics from the Implementační checklist (e.g., pedagogický přínos, spolehlivost výstupů, podíl eskalací, časové úspory pro vyučujícího). Add a cross‑reference to the relevant checklist section."
+    },
+    {
+      "target": "bibliography hint",
+      "edit_instruction": "Add a reminder in LaTeX comments to include the cited KB entries in the .bib file and to run BibTeX / biber, e.g., '% Ensure kb_ai_101_tipu_pdf_04e4a115_page_15_2 etc. are present in the bibliography'. Also add '\\label{sec:case-studies}' under the title for cross‑refs."
+    }
+  ],
+  "retrieval_queries": [
+    "Confirm canonical prompt‑template recommended for 10‑question tests in the Prompt Library: which split (6×ABC/2×T/F/2×open or 4×ABC/4×T/F/2×open) is stored in Appendix 9.1 of the manual?",
+    "Locate the explicit spot‑check guidance (recommended percentage) and escalation examples in the KB/manual (the memory mentions 5–10% as an illustration) to cite the exact phrasing/location for inclusion in the 'Pokrok v matematice' pilot steps."
+  ]
+}

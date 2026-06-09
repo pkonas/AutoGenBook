@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The opening sentence presents a definition of 'Personalizace' without marking it as general background knowledge or providing a supporting citation from the retrieved KB.",
+      "required_fix": "Either add an explicit citation from the KB that supports this definition, or mark the sentence as (General background knowledge)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Step 1 of the practical procedure ('Vyberte oblast nebo kompetenci ...') is a reasonable pedagogical instruction but is not supported by a KB excerpt or labeled as general background knowledge.",
+      "required_fix": "Either add a supporting citation from the KB for this recommended first step, or mark it as (General background knowledge)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Step 4 cites kb_ai_101_tipu_pdf_page_7_1, which documents identification of problematic words in the reading tool. The step's example ('chybějící dovednost v určitém kroku') generalizes beyond the reading-specific example cited.",
+      "required_fix": "Either (a) add the page_8_1 citation (which documents math/procedure-related diagnostics) alongside page_7_1 to support the broader claim, or (b) rephrase the example to be explicitly tied to the reading-case from page_7_1 (e.g. 'např. problémová slova u čtení')."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The text refers repeatedly to 'nástroj' without naming concrete examples that are present in the KB (e.g. 'Pokrok v matematice', 'Pokrok ve čtení'), which would help readers map recommendations to the documented tools.",
+      "required_fix": "Insert explicit examples from the KB where appropriate (with correct citations): e.g. mention 'Pokrok v matematice' for math-adaptive generation (cite kb_ai_101_tipu_pdf_page_8_1) and 'Pokrok ve čtení' for reading diagnostics (cite kb_ai_101_tipu_pdf_page_7_1)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The paragraph- and item-level labels for 'General background knowledge' are inconsistent: the first paragraph lacks this label while one bullet does include it. For clarity and consistency in LaTeX, these should be applied uniformly.",
+      "required_fix": "Either mark all non-KB-supported high-level claims as (General background knowledge) in the LaTeX body, or add inline citations where claims are supported. Ensure the placement of the parenthetical label does not break LaTeX lists or citation formatting."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "opening paragraph",
+      "edit_instruction": "Mark the definitional sentence as general background knowledge (e.g. append '(General background knowledge)') or add a supporting KB citation. Example: 'Personalizace znamená ... (General background knowledge)'."
+    },
+    {
+      "target": "Praktický postup, step 1",
+      "edit_instruction": "Either add a supporting citation or label this step as (General background knowledge). Alternatively, make it concrete by referencing the workflow pattern used in the KB tools (e.g. 'Vyberte oblast (např. algebraické výrazy, viz Pokrok v matematice)') and cite kb_ai_101_tipu_pdf_page_8_1."
+    },
+    {
+      "target": "Praktický postup, step 4",
+      "edit_instruction": "Adjust the citation or phrasing so the example aligns with the cited evidence. Option A: add citation to kb_ai_101_tipu_pdf_page_8_1 in addition to page_7_1 to justify 'slabiny v určitém kroku'. Option B: rephrase the example to explicitly refer to reading ('např. problémová slova u čtení') and keep citation to kb_ai_101_tipu_pdf_page_7_1."
+    },
+    {
+      "target": "Důsledky for hodnocení bullet 1",
+      "edit_instruction": "If this bullet is intended as general pedagogical guidance, label it '(General background knowledge)' inline (so readers can distinguish it from KB-supported claims)."
+    },
+    {
+      "target": "Throughout section",
+      "edit_instruction": "Where 'nástroj' or 'systém' is mentioned, consider inserting concrete KB-backed examples: 'Pokrok v matematice' (cite kb_ai_101_tipu_pdf_page_8_1) and 'Pokrok ve čtení' (cite kb_ai_101_tipu_pdf_page_7_1) to improve traceability for readers."
+    }
+  ],
+  "retrieval_queries": [
+    "Find KB excerpts that explicitly define 'personalizace' in educational assessment context",
+    "Retrieve excerpts mentioning 'Pokrok v matematice' and details about setting parameters (uploading procedure, difficulty settings) from the KB",
+    "Retrieve excerpts describing 'Pokrok ve čtení' and the mechanism for identifying problematic words from the KB"
+  ]
+}

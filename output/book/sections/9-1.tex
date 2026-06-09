@@ -1,0 +1,176 @@
+\medskip
+
+Krátké vysvětlení: níže je kolekce 20+ copy‑\\ \&‑paste promptů (šablon) rozdělených podle účelu: plánování lekcí, generování cvičení a kvízů, formativní zpětné vazby, rubrik a scénářů pro interaktivní hodiny. Prompty jsou navrženy pro rychlé upravení podle oboru, úrovně studentů a výukového cíle. Některé příklady odkazují na nástroje zmíněné v této příručce \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2,kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_7_1}.
+
+\medskip
+
+\textbf{A. Plánování lekcí a sylabů}
+
+\begin{enumerate}
+  \item \textbf{90minutová přednáška — timeboxed plán}
+  \begin{verbatim}
+You are an instructional designer. Create a 90-min plan on: [TÉMA].
+Split into 4–6 segments with: time, 1–3 objectives, activity, materials.
+Add 3 short homework tasks with expected times.
+Audience: [Bakalář/Magistr/PhD], prior knowledge: [..]
+  \end{verbatim}
+  \item \textbf{Generování sylabu (ECTS‑kompatibilní)}
+  \begin{verbatim}
+Generate a course syllabus: [NÁZEV].
+Include: 3–6 learning outcomes, 12 weekly topics, assessment weights,
+recommended literature, short AI policy.
+Target audience: [level].
+  \end{verbatim}
+  \item \textbf{Differenciace cvičení podle úrovně}
+  \begin{verbatim}
+Create Easy/Standard/Advanced variants of an exercise on [TÉMA]:
+For each: task, time, hints, answer outline.
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{B. Generování cvičení, kvízů a testovacích případů}
+
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item \textbf{MCQ banka — variabilita obtížnosti}
+  \begin{verbatim}
+Generate 10 MCQs on [TÉMA].
+For each: question, 4 options (1 correct), short explanation, difficulty.
+Output JSON: id, question, options[], correct_index, explanation, difficulty.
+  \end{verbatim}
+  \item \textbf{Time‑boxed in‑class writing}
+  \begin{verbatim}
+Create a 20-min in-class writing prompt on [TÉMA].
+Include 1–2 directed questions, a short rubric (<=5 items), and 3 sample responses.
+  \end{verbatim}
+  \item \textbf{Programátorský úkol + testovací případy}
+  \begin{verbatim}
+Design a programming assignment: [NÁZEV].
+Provide: statement, I/O spec, 6 unit tests (including edges), complexity limits, solution outline.
+Language: [Python/Java/C++].
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{C. Formativní zpětná vazba a komentáře}
+
+\begin{enumerate}
+  \setcounter{enumi}{6}
+  \item \textbf{Rychlá konzistentní zpětná vazba ke krátkému textu}
+  \begin{verbatim}
+You are a feedback assistant. Given student's answer provide:
+1) 2-sentence summary; 2) 3 strengths; 3) 3 actionable suggestions;
+4) suggested grade band w/ justification.
+Criteria: [clarity, argumentation, sources]
+  \end{verbatim}
+  \item \textbf{Komentáře ke kódu (code review)}
+  \begin{verbatim}
+Review code: list critical bugs/security, perf improvements, style notes,
+and 3 unit tests to add. Include short remediation suggestions.
+Code: [VLOŽIT]
+  \end{verbatim}
+  \item \textbf{Šablona pro studentovu sebereflexi o použití AI}
+  \begin{verbatim}
+Student reflection template:
+1) AI tools used; 2) what AI generated (paste if possible);
+3) how modified/verified; 4) lessons learned; self-rating 1–5 on reliance.
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{D. Rubriky a hodnoticí šablony}
+
+\begin{enumerate}
+  \setcounter{enumi}{9}
+  \item \textbf{Rubrika pro procesní hodnocení}
+  \begin{verbatim}
+Create rubric for: [NÁZEV].
+Dimensions: Process documentation, Correctness, Reproducibility, Reflection on AI.
+For each: Excellent/Good/Satisfactory/Needs improvement descriptors and weights.
+  \end{verbatim}
+  \item \textbf{Milestone‑based assessment template}
+  \begin{verbatim}
+Define 3 milestones for [NÁZEV]: deliverable, acceptance criteria, reviewer, date window.
+Include checklist for evidence of process.
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{E. Interaktivní hodiny a speciální nástroje}
+
+\begin{enumerate}
+  \setcounter{enumi}{11}
+  \item \textbf{Scénář pro Minecraft Education — úvod do AI}
+  \begin{verbatim}
+Design a 45-min Minecraft Education activity demonstrating an AI concept.
+Include: learning objective, step-by-step tasks with times, discussion Qs, homework.
+  \end{verbatim}
+  \textit{Pozn.: využijte připravené světy a školní licence \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.}
+  \item \textbf{Matematické procvičování — integrace s Microsoft nástroji}
+  \begin{verbatim}
+Prepare 20 practice problems in [oblast matematiky].
+For each: problem, answer, hint for common error, and import notes for "Progress in Math".
+  \end{verbatim}
+  \textit{Funkce umožňují nahrávání postupu pro hodnocení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.}
+  \item \textbf{Převod rukopisu na digitální cvičení — OneNote}
+  \begin{verbatim}
+Student instructions: write solution by hand in OneNote, convert to digital, submit,
+and attach short reflection. Include expected file format/screenshot placeholders.
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{F. RAG / indexing — tvorba krátkých context chunks}
+
+\begin{enumerate}
+  \setcounter{enumi}{15}
+  \item \textbf{Chunking interního dokumentu pro RAG}
+  \begin{verbatim}
+Split text into context chunks (max 250 words).
+For each: chunk_id, title, 2 keypoints, 1-sentence summary for embedding.
+Text: [VLOŽIT DLOUHÝ DOKUMENT]
+  \end{verbatim}
+  \item \textbf{Prompt pro bezpečnostní filtrování před ingestem}
+  \begin{verbatim}
+Scan document for PII/confidential passages to redact before indexing.
+Return: line numbers, reason, suggested redaction.
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{G. Šablony pro pravidla a komunikaci se studenty}
+
+\begin{enumerate}
+  \setcounter{enumi}{17}
+  \item \textbf{Text do sylabu — AI policy}
+  \begin{verbatim}
+Insert into syllabus: short policy (allowed/forbidden), requirement to declare AI use,
+and consequences for misuse. Keep 100–150 words, formal tone.
+  \end{verbatim}
+  \item \textbf{Oznámení o nasazení AI asistenta v kurzu}
+  \begin{verbatim}
+Draft email announcing AI assistant: purpose, capabilities, limits, how to report issues, privacy rules.
+  \end{verbatim}
+\end{enumerate}
+
+\medskip
+
+\textbf{H. Rychlý checklist pro adaptaci šablon}
+
+\begin{itemize}
+  \item Uveďte úroveň (BSc/MSc/PhD), cílové kompetence a formát odevzdání před použitím.
+  \item Rozhodněte, zda je AI povolena, deklarovaná nebo zakázaná — upravte prompty.
+  \item Při práci s interními daty nejprve spustit filtrovací prompt pro PII.
+  \item Pro workshopy s Minecraft/Microsoft nástroji využijte školní licence a odkazy v příručce \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2,kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+\medskip
+
+Závěr: šablony jsou vstupní sadou — otestujte je v pilotu, upravte dle lokálních pravidel (DPA/DPIA) a uložte verzi v repozitáři pro opakované použití. Pro ukázky viz online repozitář příručky.

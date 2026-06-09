@@ -1,0 +1,50 @@
+Úvodní poznámka: Technické obory (laboratoře, programovací a projektové předměty) kladou zvláštní důraz na ověřitelnost výsledků a sledovatelnost procesu. Níže jsou praktické doporučení a krátké checklisty, které lze přímo adaptovat při redesignu zadání a nastavení hodnocení.
+
+Nastavení zadání — zásady
+\begin{itemize}
+  \item Požadujte procesní artefakty: mezi‑verze, krátké zápisky, ukázky mezikroků nebo logy spuštění — u matematických/technických úloh lze vyžadovat nahrání postupu řešení (step‑by‑step) jako podmínku odevzdání \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Časové a místní omezení: tam, kde je to pedagogicky oprávněné, volte časově omeřené in‑class či supervised úlohy kombinované s následnou reflexí studenta (general background knowledge).
+  \item Jasné metriky pro hodnocení procesu: definujte milestone‑based artefakty (např. návrh, prototyp, testy, závěrečná zpráva) a přiřaďte váhy v rubrice (general background knowledge).
+\end{itemize}
+
+Ověřitelnost práce (praktická doporučení)
+\begin{itemize}
+  \item U programovacích úloh preferujte odevzdání v repozitářích nebo prostředí, která zachovávají historii změn (commit log, issue/ticket artefakty) — tyto artefakty zvyšují důvěru v originalitu řešení a usnadňují hodnocení procesu (general background knowledge).
+  \item Pro numerické a experimentální úlohy upřednostněte použití lokálních dat nebo repozitářově identifikovatelných datasetů/konfigurací, aby výsledky byly reprodukovatelné (general background knowledge).
+  \item Pokud je v kurzu využito automatizované generování úloh či predikce chyb (např. platformy generující cvičné příklady), nastavte povinnost nahrání postupu tak, aby byl kladen důraz na proces nad pouhým výsledkem \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+\end{itemize}
+
+Workflow pro korekci kódu a hodnocení procesu
+\begin{enumerate}
+  \item Automatizované testy a statická analýza: nakonfigurujte CI pipeline, která spustí základní testy, linting a metriky pokrytí (general background knowledge).
+  \item AI jako před‑filter: použijte asistenta k vygenerování návrhů komentářů k běžným chybám nebo k shrnutí výstupu testů; finální rozhodnutí a hodnocení vždy provádí člověk (princip „teacher finalizes grading“ platí i pro generativní nástroje) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Lidská validace a škálování: nastavte pravidla, kdy lidský hodnotitel provede plnou revizi (náhodné spot‑checks, projekty nad určitou hranicí složitosti apod.) — tím se kombinuje efektivita automatizace s odpovědností učitele (general background knowledge).
+  \item Dokumentace procesu v hodnocení: v rubrice měřte kvalitu procesu (dostatečnost mezikroků, testy, komentáře v kódu), schopnost odůvodnit rozhodnutí a metakognici (general background knowledge).
+\end{enumerate}
+
+Integrace s LMS, SSO a enterprise nástroji — praktické poznámky
+\begin{itemize}
+  \item Pokud využíváte nástroje, které generují úlohy či předpřipravené materiály (např. některé vzdělávací akcelerátory pro matematiku), nastavení toku odevzdání by mělo vyžadovat nahrání procesních artefaktů a jasnou odpovědnost vyučujícího za finální hodnocení \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Volba enterprise/integračních řešení a autentizace (SSO) usnadní řízení přístupů a auditování používání nástrojů; detaily integrace závisí na místních IT procesech a licencech (general background knowledge).
+  \item Uživatelům doporučujeme využít existujících oficiálních vzdělávacích kanálů a dokumentace poskytovatelů (např. Microsoft Learn pro Microsoft‑stack) při zavádění nových funkcionalit a školení učitelů \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}.
+\end{itemize}
+
+Krátký checklist pro zavedení do praxe (katedra / garant předmětu)
+\begin{enumerate}
+  \item Definujte požadované procesní artefakty pro každé odevzdání (meziverze, postupy, testy).
+  \item Nasadťe automatické testy a základní CI kroky pro okamžitou kontrolu funkčnosti (general background knowledge).
+  \item Určete pravidla pro AI‑assisted pre‑review a pro lidskou finální validaci (kdo, kdy, jak).
+  \item Aktualizujte sylabus: pole pro deklaraci použití AI a pokyny pro odevzdání procesních artefaktů.
+  \item Pilotujte workflow na malé skupině a vyhodnoťte jak kvalitu, tak provozní zatížení vyučujících (general background knowledge).
+\end{enumerate}
+
+Vzory promptů a krátká ukázka (general background knowledge)
+\begin{verbatim}
+Jsi asistent učitele pro předměty programování. Pro každé odevzdání vygeneruj:
+1) Shrnutí výsledků CI (passed/failed tests).
+2) Tři nejpravděpodobnější příčiny případných selhání.
+3) Doporučení pro studenta, jak opravit chybu (konkrétní kroky).
+Formát: Student: <shrnutí> | Chyby: <1,2,3> | Doporučení: <body>
+\end{verbatim}
+
+Závěrem: v technických oborech je klíčové kombinovat automatizaci (testy, CI, před‑review nástroji) s povinnou lidskou validací a se zaměřením na procesní důkazy. Pro matematické a technické cvičení využijte funkcionality platforem, které umožňují požadovat nahrání postupu řešení; učitel pak finalizuje hodnocení a rozhoduje o pedagogické akceptaci automatizovaných návrhů \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1,kb_ai_101_tipu_pdf_04e4a115_page_54_1}.

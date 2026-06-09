@@ -1,0 +1,68 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Sekce obsahuje konkrétní URL/host 'ai.vut.cz' jako příklad centrálního \"living\" repozitáře. Ve zdrojovém KB / retrieved excerpts není uvedena konkrétní doména a pravidla zakazují vymýšlet URL nebo jiné konkrétní odkazy.",
+      "required_fix": "Odstranit nebo nahradit 'např. ai.vut.cz' neutrálním odkazem, např. 'interní repozitář VUT (viz sekce 9.7: Kontakty, podpora VUT a repozitář)'. Pokud skutečná doména existuje, doplnit ověřitelný zdroj/excerpt."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Některé doporučené metriky a postupy (konkrétní metriky latence/dostupnosti/nákladů, způsob měření 'míra zodpovězených dotazů s ověřitelnými zdroji') nejsou explicitně odcitovány z retrieved excerpts. I když jsou v souladu s obecnými tématy v KB (8.7, 9.4.*), chybí přímé cross‑reference.",
+      "required_fix": "Buď doplnit krátké cross‑reference na relevantní kapitoly (např. 8.7 Řízení nákladů a metriky využití; 9.4.3 Bezpečnostní a provozní checklisty), nebo jasně označit tyto položky jako 'doporučené metriky (general background knowledge)'."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminologie: sekce používá 'Data Steward' (singulár) zatímco v outline/memory se setkáváme s 'Data Stewards' / role Data Stewards. Drobné nesoulady v množném/čísle rolí mohou způsobit nejasnost odpovědností.",
+      "required_fix": "Ujednotit terminologii s ostatními částmi příručky (doporučeně 'Data Steward' jako role; v případě více osob použít 'Data Stewards'). Přidat krátkou poznámku o preferovaném názvosloví nebo odkaz na 8.1 Strategie a governance."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX tělo začíná jedním řádkem '% (general background knowledge)' (komentář) a poté následuje český text mimo environmnet. To funguje, ale poznámka na konci 'Poznámka: ... (general background knowledge)' je v prostém textu mimo itemize — může být lepší ji formálně uvést jako poznámku nebo footnote pro konzistenci s ostatními přílohami.",
+      "required_fix": "Buď ponechat komentář na začátku a přesunout poznámku jako \\footnote nebo \\paragraph{Poznámka:}, nebo explicitně označit celý blok jako 'general background knowledge' v rámci textu (např. \\paragraph{Poznámka}). Zkontrolovat diakritiku a případné nevhodné unicode znaky v LaTeXu (není kritická chyba, pouze doporučení)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Sekce poskytuje dobrý high‑level checklist, ale chybí krátké konkrétní ukázky (např. příklad KPI s konkrétní metrikou a cílovou hodnotou, ukázka retenční politiky s konkrétním časovým rozsahem, jednoduchý testovací checklist pro A/B testy). To znesnadňuje praktické nasazení bez další editace.",
+      "required_fix": "Doplnit 1–2 krátké příklady: a) minimální KPI tabulka (metrika + způsob měření + frekvence reportingu), b) vzor retenční politiky (např. 'indexované kurzy: retence 2 roky, anonymizovaná studentská data: 6 měsíců' — pokud se přidá, uvést jako příklad a doporučit konzultaci s GDPR/DPA), c) jednoduchý testovací checklist pro nasazení aktualizace modelu (smoke tests, A/B design, kontrola PII, revize DPIA). Pokud konkrétní číselné hodnoty nejsou v KB, označit je jako 'příklad'."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce uvádí 'Pravidelný reporting: kvartální souhrn KPI pro garanty a IT' a 'Kvartální roadmapa a governance', což je v souladu s KB (kvartální revize), ale chybí odkaz na konkrétní šablony/reporty v přílohách (např. Prompt Library, checklisty v kapitole 9).",
+      "required_fix": "Doplnit explicitní cross‑reference na přílohy: např. 'viz 9.1 Prompt Library a 9.2 Checklist a šablony pro redesign předmětu' a na sekci 9.7 (repozitář s aktualizacemi), aby čtenář věděl, kde najít šablony reportingu a checklisty."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "V první větě odstranit 'např. ai.vut.cz' a nahradit: '(např. interní repozitář VUT — viz sekce 9.7: Kontakty, podpora VUT a repozitář s aktualizacemi)'."
+    },
+    {
+      "target": "item 'Plán aktualizací modelů a indexů'",
+      "edit_instruction": "Přidat za položku krátké cross‑reference: 'Viz také 9.3.3 (Vzorné DPIA) pro postupy kontroly PII a 9.4.3 (Bezpečnostní a provozní checklisty) pro nasazovací testy.'"
+    },
+    {
+      "target": "item 'Metriky úspěchu a kvality odpovědí'",
+      "edit_instruction": "Upravit nadpis nebo úvodní větu tak, aby bylo jasné, že jde o doporučené metriky (general background knowledge). Dále doplnit malý příklad KPI tabulky (řádek: metrika, způsob měření, cílová hodnota, frekvence reportingu) nebo odkaz na šablony v přílohách (9.1 / 9.2)."
+    },
+    {
+      "target": "Poznámka na konci",
+      "edit_instruction": "Přesunout text 'Poznámka: výše uvedené body jsou uvedeny jako obecné pracovní postupy (general background knowledge)...' dovnitř LaTeXu jako \\paragraph{Poznámka:} nebo \\footnote{}, aby byla poznámka jednoznačně součástí formátovaného dokumentu."
+    },
+    {
+      "target": "nový dodatek",
+      "edit_instruction": "Přidat krátký 'příklad nasazení' (1–2 odstavce) s ukázkovým pilotním plánem: 'Pilot: 1 kohorta, 6–8 týdnů, KPI: dostupnost > 99 %, prům. latence < X ms (nebo kategoricky: nízká/střední/vysoká), sběr uživatelské spokojenosti pomocí krátkého dotazníku po každé iteraci' — číselné hodnoty uvést jako příklad a označit je jasně jako ilustrační. Připojit odkaz na relevantní šablony v kapitole 9."
+    }
+  ],
+  "retrieval_queries": [
+    "Najdi v KB explicitní ukázky nebo šablony KPI/metrik pro RAG nebo enterprise AI (latence, dostupnost, cost per query) — relevantní výřezy z kapitol 8.7, 9.4 a příloh 9.x.",
+    "Najdi v KB existující texty nebo vzory reportů/šablon pro kvartální revizi roadmapy a governance (sekce 9.7 nebo 8.1).",
+    "Najdi v KB doporučený text nebo šablonu pro DPIA checking proces při aktualizaci indexů (sekce 9.3.3 / 2.2.3)."
+  ]
+}

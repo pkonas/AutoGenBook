@@ -1,0 +1,13 @@
+This subsection summarizes the aggregate quantitative comparison between the graph-guided and baseline linear prompting pipelines across the primary evaluation metrics defined in Section~4.4: citation coverage, hallucination rate (reference-based), and reviewer-style score.
+Results are reported as means with standard deviations computed across the evaluation set and are presented in Table~\ref{tab:aggregate-results}; per-domain aggregates were pooled and paired comparisons used matched document/topic pairs.
+
+\begin{table}[t]
+\centering\small\begin{tabular}{lcccc}\toprule
+Metric & Baseline (mean $\pm$ std) & Graph-guided (mean $\pm$ std) & p-value & Test \\ \midrule
+Citation coverage (\%) & --- & --- & --- & --- \\ Hallucination rate (\%) & --- & --- & --- & --- \\ Reviewer-style score (1--5) & --- & --- & --- & --- \\ \bottomrule
+\end{tabular}
+\caption{Aggregate comparison of the baseline and graph-guided prompting pipelines. Numerical entries are placeholders to be populated with means $\pm$ std and associated p-values and tests.}\label{tab:aggregate-results}
+\end{table}
+
+Statistical testing followed the analysis plan in Section~4.5: two-sided paired t-tests when approximate normality holds, otherwise Wilcoxon signed-rank tests; confidence intervals via nonparametric bootstrap as needed; multiple-comparison adjustments used Benjamini--Hochberg with FDR $\alpha=0.05$.
+All summaries, exact test statistics, effect-size estimates (Cohen's $d$ or rank-biserial), per-domain breakdowns, reproducible scripts, and evaluation logs are provided in the appendix. No numeric claims about superiority or statistical significance are made here until the artifacts and the populated table accompany the manuscript.

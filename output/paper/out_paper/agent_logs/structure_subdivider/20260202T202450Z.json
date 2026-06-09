@@ -1,0 +1,47 @@
+{
+  "agent": "structure_subdivider",
+  "timestamp": "20260202T202450Z",
+  "input": {
+    "doc_kind": "paper",
+    "doc_title": "Graph-Aware Prompting for Reliable Section Generation",
+    "doc_summary": "We present a graph-guided prompting workflow for long-form scientific writing that prioritizes evidence and citation consistency. Our method constructs a document graph that encodes section dependencies and uses strict JSON schemas and evidence-aware prompts to generate and validate individual sections. At generation time, the system (1) builds a section graph and schedules leaf-first writing, (2) retrieves and injects relevant evidence for each section, (3) produces JSON-constrained section outputs, and (4) assembles a LaTeX manuscript with refs.bib. We evaluate the approach by comparing it to a baseline linear prompting pipeline on two topical domains, measuring citation coverage, hallucination rate, and reviewer-style scores. Results show improved citation coverage and reduced unsupported assertions while keeping edits and post-hoc audits straightforward via machine-readable outputs. We intentionally state conservative claims and require explicit source citations for all factual assertions. The paper contributes practical artifacts: a graph-based section scheduler, an evidence-injection protocol per section, and an audit-friendly JSON output format that integrates with standard LaTeX/bib workflows. Our experiments use internal notes and a small curated PDF set where available; metrics focus on citation fidelity and factual consistency rather than broad generalization.",
+    "target_audience": "ACL Workshop on Natural Language Generation",
+    "parent_title": "Discussion",
+    "parent_summary": "Analyze why graph-guided scheduling affects coherence and citation placement, limitations (dataset scale, domain transfer, reliance on retrieval quality), and implications for auditability and reproducibility. Propose mitigations and future extensions.",
+    "n_pages": 0.15,
+    "max_output_pages": 1.5,
+    "retrieved_context": "(none)"
+  },
+  "output": [
+    {
+      "title": "Analysis: How graph-guided scheduling affects coherence and citation placement",
+      "summary": "Explain mechanisms by which a section graph and leaf-first scheduling influence narrative coherence, local coherence between linked sections, and the timing/location of citation insertion. Outline how evidence-aware prompts and JSON-constrained outputs interact with scheduling to reduce unsupported assertions and improve placement of citations within argument chains.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Limitations and failure modes",
+      "summary": "Detail empirical and methodological limitations: dataset scale and curation constraints, domain transfer risks, dependence on retrieval quality and coverage, and potential sources of citation mismatch or propagated errors across the graph. Note practical limitations for runtime and human-in-the-loop editing.",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    },
+    {
+      "title": "Implications for auditability, reproducibility, and future extensions",
+      "summary": "Discuss how JSON outputs and graph structure support audits and reproducible edits; propose mitigations for identified limitations (improved retrieval, hybrid human–AI review, adaptive graph priors) and outline concrete future extensions (cross-document graphs, larger curated corpora, integration with citation-tracking tools).",
+      "n_pages": 0.1,
+      "needsSubdivision": false
+    }
+  ],
+  "meta": {
+    "run_id": "20260202T212346Z",
+    "usage": {
+      "prompt_tokens": 763,
+      "completion_tokens": 1113,
+      "total_tokens": 1876
+    },
+    "cost_usd": 0.00241675,
+    "total_cost_usd": 0.00721075,
+    "model": "openai/gpt-5-mini",
+    "temperature": 0.2
+  }
+}

@@ -1,0 +1,42 @@
+Krátké shrnutí rizik (co mít na paměti)
+\begin{itemize}
+  \item Soukromí a právní rizika: nasazení generativní AI může zahrnovat zpracování osobních údajů studentů (konverzace, odevzdané soubory, logy). Před pilotem proveďte posouzení dopadů (DPIA) a zvažte minimální sběr dat a pseudonymizaci — toto by mělo být součástí plánování nasazení \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}. 
+  \item Nesprávné nebo vymyšlené výstupy („halucinace“): modely mohou generovat přesvědčivě znějící, leč nepravdivé informace. (Tento jev stručně označujeme jako halucinace; níže najdete doporučení k mitigaci.) \emph{(general background knowledge)}
+  \item Zkreslení (bias): odpovědi modelu odrážejí vzory v tréninkových datech, což může vést k systematickému zkreslení obsahu nebo reprezentace určitých skupin. \emph{(general background knowledge)}
+  \item Dopad na akademickou integritu: dostupnost generativních nástrojů mění motivace i postupy studentů; je potřeba upravit zadání a hodnoticí postupy tak, aby měřily žádané kompetence.
+  \item Provozní rizika a bezpečnost: úniky dat do třetích stran, nevhodné sdílení interních materiálů (indexace interních dokumentů bez kontroly), chybné konfigurace enterprise nastavení.
+\end{itemize}
+
+Doporučená první bezpečnostní opatření (praktický návod — krok za krokem)
+\begin{enumerate}
+  \item Plánování a DPIA: před nasazením popište rozsah zpracování (co se bude posílat do modelu, kde se ukládá, kdo k tomu má přístup) a proveďte DPIA; pro výuku využijte vzor DPIA z přílohy (Příloha 9.4) jako kontrolní seznam. Dokumentujte také očekávané přínosy a zmírňující opatření (pseudonymizace, retence, šifrování) \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item Začněte malým pilotem se zřejmými hranicemi: navrhněte dvoufázové aktivity — fáze A bez AI (nezávislé řešení), fáze B s AI pro rozšíření a reflexi — a porovnejte výsledky a bezpečnostní rizika před škálováním \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item Minimalizace a lidská kontrola: omezte, které typy dat se posílají k externím poskytovatelům; pro automatizované hodnocení zachovejte konečnou lidskou kontrolu — učitel by měl finálně potvrdit nebo upravit návrhy AI (příklad v nástroji pro matematiku, kde AI předpřipraví hodnocení a učitel je výsledně finalizuje) \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}.
+  \item Transparentnost vůči studentům: předem oznamte, kde a jak AI využíváte (v sylabu, viz Příloha 9.3), jaké typy dat se budou zpracovávat a jaká opatření byla přijata (DPIA, anonymizace). Doporučené texty a šablony najdete v přílohách.
+  \item Audit a záznamy: zapněte logování a auditní stopy tam, kde to lze (kdo co dotazoval, jaké verze modelu byly použity), a průběžně revidujte chování systému během pilotu.
+\end{enumerate}
+
+Praktické příklady mitigace (konkrétní scénáře)
+\begin{itemize}
+  \item Cvičení s automatickou nápovědou: nastavte aktivitu tak, aby studenti nejprve samostatně vytvořili řešení; teprve poté mohou použít AI k rozšíření nebo kontroverznímu rozboru nápadů — takto vidíte rozdíl ve schopnostech a zároveň omezíte přímé kopírování výstupů AI \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item Testy a kvízy generované Copilot/Forms: použijte nástroje typu Microsoft 365 Copilot pro návrh otázek, ale ponechte kontrolu nad finální sadou otázek a klíčem učiteli; systém může velmi rychle vytvořit návrh testu, učitel však musí zkontrolovat přesnost a vhodnost otázek \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.
+  \item Vysvětlení AI principů studentům: pro praktickou demonstraci principu tréninku a limitů modelu lze využít vzdělávací světy (např. Minecraft Education) jako názorný doplněk při diskusi o tom, odkud model „čerpá“ informace \cite{kb_ai_101_tipu_pdf_04e4a115_page_15_2}.
+\end{itemize}
+
+Krátký checklist před spuštěním aktivity s AI (pro vyučujícího)
+\begin{itemize}
+  \item Mám popsaný účel zpracování a provedenou DPIA (Příloha 9.4)? \\
+  \item Jsou citlivá data (osobní údaje, fotografie, zdravotní údaje) vyloučena nebo pseudonymizována? \\
+  \item Je zřejmá role člověka v procesu (kdo finalizuje hodnocení / schvaluje výstupy)? \cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1} \\
+  \item Jsou studenti informováni o použití AI a existují jasné požadavky na deklaraci využití nástroje (šablona v Příloze 9.3)? \\
+  \item Bude pilot monitorován a jaké metriky/incidenty hlásíme IT/GDPR týmu (viz online repozitář ai.vut.cz pro proces hlášení a další šablony)? 
+\end{itemize}
+
+Poznámky k hodnocení rizik a další kroky
+\begin{itemize}
+  \item Nasazení AI není binary problém — zaměřte se na řízené experimenty s jasným plánem monitorování rizik a s možností rychlého stažení řešení, pokud se objeví nepřijatelná rizika \cite{kb_malinka_chatgpt_ve_vyuce_dva_roky_pote_2024_pdf_90bc3aaf_page_12_1}.
+  \item Využijte interní šablony a repozitář (ai.vut.cz) pro rychlý přístup k DPIA/DPA vzorům, šablonám do sylabů a video tutoriálům — to zkracuje dobu potřebnou k bezpečnému pilotu a usnadňuje dokumentaci.
+  \item U citlivých nebo klíčových rozhodnutí (pracovní toky zahrnující osobní údaje, rozsáhlé sdílení interních materiálů) konzultujte IT a právní/GDPR oddělení fakulty před spuštěním.
+\end{itemize}
+
+Závěrem: cílem je nezákazovat nástroje, ale nasazovat je s rozmyslem — plánujte, dokumentujte, minimalizujte data a ponechte lidské rozhodování jako poslední instanci. \emph{(Praktické šablony a kontrolní seznamy najdete v Přílohách 9.3–9.5 a v online repozitáři.)}

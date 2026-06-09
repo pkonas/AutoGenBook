@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Key definitional sentences (what an LLM is; tokens; embeddings; pretraining/fine‑tuning; inference/context window) are presented as factual claims but are not directly supported by the provided RETRIEVED EXCERPTS. They are labelled as 'general background knowledge' in the section, which is acceptable, but the document should either point readers to an internal glossary or add a reference for these definitions.",
+      "required_fix": "Add an explicit cross‑reference to the internal glossary (section 9.5) after these definitions, or attach an internal KB citation that supports these definitions. If external sourcing is desired, include retrieval queries to fetch supporting references."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Examples given (Minecraft Education, Copilot/Notepad, 'Pokrok v matematice') are supported by the RETRIEVED EXCERPTS, but the links/footnotes appear only for some instances. Ensure every cited example that relies on KB material has a corresponding footnote.",
+      "required_fix": "Add/verify footnotes for all concrete examples that are grounded in the KB (e.g., 'Pokrok v matematice' already footnoted, 'Copilot in Notepad' footnoted; ensure Minecraft Education footnote is present and points to kb_ai_101_tipu_pdf_page_15_2)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX snippet is a fragment (paragraphs, itemize, enumerate and \\\\footnote usage) and appears syntactically fine at a fragment level. However, the footnotes use 'Source: kb_...' tags — ensure these are acceptable in the final LaTeX compilation style and that the document preamble supports footnotes in this fragment.",
+      "required_fix": "Confirm the document class/preamble will support these footnotes; optionally convert the 'Source: kb_...' footnotes to \\\\cite or to a consistent bibliographic format if the rest of the manual uses a bibliography."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Jak to funguje v praxi (jednoduchý workflow pro učitele)' steps are brief and useful, but could be improved by a 1–2 line concrete prompt example or a cross‑reference to the Prompt Library to help teachers apply the workflow immediately.",
+      "required_fix": "Add a short illustrative example prompt (or reference to Prompt Library 9.1) and indicate where teachers can find ready‑made prompt templates in the manual."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section repeatedly labels material as 'general background knowledge', which is appropriate for pedagogy. Still, the reader guidance could be stronger: point to where in the manual to find more technical details (e.g., sections 1.3 for limitations, 9.5 glossary, 9.1 prompt library).",
+      "required_fix": "Insert explicit 'See also' cross‑references (section numbers or names) to the glossary (9.5), limitations (1.3), and prompt templates (9.1) to guide readers who want to dive deeper or to find ready‑to‑use artifacts."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the short definitions (Co je LLM; Klíčové pojmy), add a short parenthetical cross‑reference: '(Viz také slovník pojmů, sekce 9.5, pro jednoduché definice a příklady.)' or a sentence 'Pro konkrétní prompt šablony viz Knihovnu promptů, sekce 9.1.'"
+    },
+    {
+      "target": "Jak to funguje v praxi (workflow)",
+      "edit_instruction": "Add one short example prompt (one sentence) illustrating step 1, e.g.: 'Příklad promptu: \"Shrň kapitolu o derivacích pro studenty 1. ročníku, 3 body, s krátkými příklady\" — (viz také šablonu v sekci 9.1).' If adding a concrete example is not desirable, instead add a cross‑reference to Prompt Library 9.1."
+    },
+    {
+      "target": "Omezení a pozornostní body",
+      "edit_instruction": "Add a brief 'see' pointer at the end: 'Podrobněji viz sekce 1.3 (Možnosti a omezení) pro praktické postupy detekce halucinací a práce s cut‑off daty.'"
+    },
+    {
+      "target": "footnotes",
+      "edit_instruction": "Verify each concrete KB example has a footnote pointing to the relevant kb_ai_101_tipu_pdf page. Add/adjust footnotes: Minecraft Education -> kb_ai_101_tipu_pdf_page_15_2; Copilot/Notepad -> kb_ai_101_tipu_pdf_page_14_1; Pokrok v matematice -> kb_ai_101_tipu_pdf_page_8_1."
+    }
+  ],
+  "retrieval_queries": [
+    "authoritative short definition: 'Large language model predicts next token' source or internal glossary entry for LLM tokens embeddings pretraining fine-tuning inference context window",
+    "KB source describing 'halucinace' (hallucination) in generative AI and mitigation strategies",
+    "Internal KB or guideline reference for 'context window' / 'cut-off date' explanation appropriate for pedagogical audience"
+  ]
+}

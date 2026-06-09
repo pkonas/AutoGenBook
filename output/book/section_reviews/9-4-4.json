@@ -1,0 +1,53 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Most bullets are phrased as 'general background knowledge' and therefore are not directly supported by a retrieved excerpt. Although labelling them as background is acceptable, the section would be stronger if key contractual points (DPA, data residency, deletion rights, SLA metrics, on‑prem vs multitenant tradeoffs) were explicitly cross‑referenced to the existing chapters or KB excerpts that discuss them.",
+      "required_fix": "Add explicit cross‑references to relevant parts of the manual (e.g. section 8.2 'Výběr enterprise řešení a smluvní požadavky', 9.4.2 'Checklist soukromí a GDPR pro RAG', and 2.2/9.3.x where DPA/DPIA are discussed). If you want to keep new detailed contractual recommendations, retrieve and cite supporting KB evidence."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The phrase 'možnost vymazání indexovaných materiálů a loggerů' is slightly ambiguous (what exactly should be deletable: embeddings/indexes, raw documents, audit logs?).",
+      "required_fix": "Clarify the intended scope (e.g. 'smazání indexovaných dokumentů/embeddings a/nebo auditních logů') and, if applicable, indicate retention windows or conditions under which deletion is allowed (or cross‑refer to DPIA/checklist)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The bullet 'Doporučené otázky pro právní oddělení' promises a 'rychlý seznam' but does not include concrete example questions to enable copy‑paste use by legal teams.",
+      "required_fix": "Either include a short, concrete copy‑pasteable list of 6–8 sample contractual/legal questions (e.g. existence of DPA, subcontractor list, audit rights, data deletion procedures, incident reporting timelines, liability/indemnity, data residency) OR cross‑reference the editable policy templates in 9.3.x and the DPA checklist in 9.4.2. If adding specific sample questions, retrieve supporting KB excerpts or mark them as general background knowledge."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Footnote format is plain-text 'Source: kb_ai_101_tipu_pdf_page_15_2' within \\\\footnote{...}. Other parts of the document use the same plain 'Source:' style, but consistency across the appendix should be checked.",
+      "required_fix": "Ensure the citation style of this footnote matches the rest of the manual (either keep plain 'Source: ...' for KB notes or convert to the project citation macro used elsewhere). No change required if consistent."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first item (Minecraft Education footnote)",
+      "edit_instruction": "Keep the existing factual claim and footnote (supported by kb_ai_101_tipu_pdf_page_15_2). Add a parenthetical cross‑reference to section 7.6.1 or 9.4.4 where licenses are discussed, e.g. '...Microsoft 365 A3/A5) (viz. sekce 7.6.1 a 9.4.4).'"
+    },
+    {
+      "target": "bullet on data processing conditions",
+      "edit_instruction": "Replace 'vymazání indexovaných materiálů a loggerů' with clarified wording such as 'možnost vymazání indexovaných dokumentů/embeddings a auditních logů (upřesnit, které logy jsou zahrnuty)'. Add cross‑reference to 9.4.2 'Checklist soukromí a GDPR pro RAG' and to the DPIA template in 9.3.3."
+    },
+    {
+      "target": "bullet 'Doporučené otázky pro právní oddělení'",
+      "edit_instruction": "Either expand in‑place with a concise copy‑pasteable list of sample legal questions (6–8 items) OR add: 'Viz šablony v 9.3.x pro plné znění.' If adding sample questions, mark them as 'general background knowledge' unless you provide supporting KB citations."
+    },
+    {
+      "target": "final bullet on pilotní licence a škálování",
+      "edit_instruction": "Add one short operational checklist item referencing existing pilot guidance: 'ověřte logging/retenci, role přístupu, DPA, a metriky spotřeby' and cross‑reference 7.6.5 (pilotní nasazení a metriky) and 8.7 (řízení nákladů)."
+    }
+  ],
+  "retrieval_queries": [
+    "DPA educational provider clauses sample university KB or templates (audit rights, subcontractors, data deletion, data residency)",
+    "SLA examples for SaaS AI services uptime, response times, RTO/RPO recommendations for educational institutions",
+    "Best practice contractual language for deletion of indexed materials/embeddings and audit log retention in RAG deployments",
+    "References in the KB for pilot licensing and scaling recommendations for enterprise AI services (pilot cohorts, metrics to collect)"
+  ]
+}

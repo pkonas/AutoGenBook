@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section is presented as a 'Krátký přehled evropského AI Act (2024)' but contains no citations to the AI Act text, official EU guidance, or other authoritative sources about the AI Act. Key factual claims (e.g., 'rizikově‑orientovaný přístup', 'povinnosti transparentnosti', 'požadavky na odpovědnost poskytovatelů u systémů považovaných za „vysoké riziko“') are labeled only as 'general background knowledge' and are not supported by retrieved excerpts in the KB.",
+      "required_fix": "Either (A) add specific, verifiable citations to the AI Act (official text) or authoritative summarizing guidance (European Commission, European Data Protection Board, or similar) for each non‑trivial claim about obligations and classifications; or (B) substantially rephrase the section to make it explicitly a very short informal orientation (keeping only minimal, clearly labeled background statements) and move any definite legal assertions out, with a clear instruction to consult legal counsel and the official AI Act text. Do not present legal obligations as authoritative without citations."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several practical recommendations refer to legal or compliance requirements (e.g., when DPIA is required, what obligations apply to 'vysoké riziko' systems, transparency duties for generative systems). While the section cites internal KB items for DPIA and enterprise guidance in some places, the link between those recommendations and the AI Act obligations is not grounded by evidence from the retrieved KB or official sources.",
+      "required_fix": "For recommendations that rely on AI Act obligations (e.g., when to apply stricter regimes), add explicit references showing the nexus (official AI Act articles or EU guidance). If no such source is available in the KB, mark those recommendations clearly as internal institutional best practice (general background) and avoid implying they are direct legal mandates from the AI Act."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section references DPIA and DPA/SLA and cites kb_malinka_chatgpt... and kb_ai_101_tipu... which are present in the KB, but cross‑references to the handbook's other sections (e.g., the DPIA template in 9.4, or the detailed DPIA guidance in 2.2.4) are not explicit. This may confuse readers on where to find the supporting templates/guidance.",
+      "required_fix": "Add explicit internal cross‑references to the relevant sections in the handbook (e.g., 'viz sekce 2.2.4 Vzor DPIA' or 'příloha 9.4: Vzor DPIA') so readers can find the supporting templates and procedures."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "There are a few typos and small issues in the LaTeX body that affect readability: 'konrétní' should be 'konkrétní'; inconsistent hyphenation (e.g., 'prezen­tací' contains a soft hyphen); some list items include parenthetical citation placements that may break line formatting.",
+      "required_fix": "Fix spelling errors ('konrétní' → 'konkrétní'), remove stray soft hyphens, and ensure citation macros are placed consistently (preferably at sentence end) to avoid LaTeX linebreak issues."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Praktické implikace' and 'Checklist' are high‑level; readers (pedagogy leads/garants) may need concrete, short examples of what counts as 'nízké / střední / vysoké' riziko in a course context.",
+      "required_fix": "Add 2–3 brief, concrete examples for each risk level (e.g., 'Nízké: generování anonymních slideů; Střední: feedback system that processes student IDs; Vysoké: automated grading that affects grades or processes special categories of personal data') or reference the handbook sections with exemplar scenarios."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends 'Transparentnost do sylabů' but does not provide a sample phrasing or point to the existing 'AI Policy Template into sylabi' (9.3), which would be practical for implementers.",
+      "required_fix": "Include a short sample sentence for the syllabus (or a pointer to 9.3) so guarantors can copy/adapt it quickly."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Hlavní principy AI Act (stručně) paragraph",
+      "edit_instruction": "Either add a citation to the AI Act (official text or an authoritative EU summary) after the sentence, or change the sentence to: 'High‑level orientation (general background knowledge): the AI Act is commonly described as adopting a risk‑based approach to AI systems; consult the official AI Act text and legal counsel for precise obligations.' Keep explicit legal claims out unless cited."
+    },
+    {
+      "target": "Povinnosti transparentnosti bullet",
+      "edit_instruction": "If you intend to assert concrete duties (e.g., obligation to inform users that content originates from AI), add a supporting citation to an AI Act article or EU guidance. Otherwise rephrase to: 'Obecně se doporučuje informovat uživatele o původu automaticky generovaného obsahu; ověřte závazky v oficiálním znění AI Act a s právním oddělením (general background knowledge).'"
+    },
+    {
+      "target": "DPIA při středním či vysokém riziku item",
+      "edit_instruction": "Keep the existing citation to kb_malinka_chatgpt..., but also add an explicit cross‑reference to handbook section 2.2.4 (Posouzení dopadů na ochranu osobních údajů) and to the DPIA template in appendix 9.4. Fix spelling 'Klasifikujte konrétní' → 'Klasifikujte konkrétní'."
+    },
+    {
+      "target": "Checklist for guarant",
+      "edit_instruction": "Add 2–3 one‑line concrete examples for risk classification (low/medium/high). Insert a line 'See appendix 9.3 for syllabus templates and 9.4 for DPIA template'."
+    },
+    {
+      "target": "Smlouvy a technické požadavky bullet",
+      "edit_instruction": "Clarify that DPA/SLA requirements are institutional best practice supported by the KB citations; add cross‑reference to section 8.3 'Ochrana dat, DPA a data residency' for detailed contractual points."
+    }
+  ],
+  "retrieval_queries": [
+    "Official text EU AI Act 2024 summary obligations risk‑based approach generative AI transparency obligations 'high risk' definition",
+    "European Commission Q&A or guidance on AI Act transparency obligations for synthetic content and obligations for providers (2023/2024)",
+    "Guidance on how AI Act applies to education sector or automated decision‑making in grading under AI Act 'education' 'grading' 'high risk'",
+    "Interplay between GDPR DPIA obligations and EU AI Act requirements for high‑risk AI systems authoritative guidance"
+  ]
+}

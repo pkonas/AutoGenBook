@@ -1,0 +1,61 @@
+Krátké shrnutí a účel sekce (general background knowledge): tato část popisuje praktické kroky a kontrolní body pro bezpečné nasazení autentizace, autorizace a správy identit při zavádění enterprise AI řešení na úrovni fakulty/univerzity. Důraz je na využití univerzitní identity (SSO), jasné role‑/právové modely (RBAC), provisioning uživatelů a auditování aktivit pro účely bezpečnosti a souladu s předpisy. V konkrétních krocích níže jsou uvedeny ověřitelné testy pro PoC i provozní doporučení (general background knowledge).
+
+Rychlý kontrolní seznam pro PoC a nasazení (general background knowledge)
+\begin{itemize}
+  \item Ověřte podporu univerzitních identit (SSO): zkontrolujte, zda lze propojit poskytovatele s autentizačním protokolem, který používáte (SAML, OAuth2/OIDC) a zda není potřeba vytvářet lokální duplicate účty.
+  \item Provisioning a deprovisioning: vyzkoušejte automatické provisioning flow (SCIM nebo jiný mechanizmus), včetně okamžitého zablokování a mazání oprávnění při ukončení zaměstnaneckého/student‑vztahu.
+  \item Role a oprávnění (RBAC): navrhněte minimální sadu rolí (správce, správce dat / Data Steward, garant předmětu, lektor/asistent, student) a ověřte, že každá role má nejmenší nutná oprávnění.
+  \item Auditní logy a tracing: zkontrolujte dostupnost auditních záznamů pro přihlášení, změny rolí, přístupy k citlivým materiálům a volání API; ověřte možnost exportu logů pro dlouhodobé ukládání a forenzní analýzu.
+  \item Integrace s LMS / dalšími systémy: proveďte test synchronizace uživatelů a rolí do LMS (např. Moodle), ověřte mapping rolí a oprávnění mezi systémy.
+  \item Bezpečnostní limity a metriky: definujte metriky (počet neúspěšných přihlášení, počet změn práv, počet přístupů k interním dokumentům) a nastavte alertování pro podezřelé události.
+\end{itemize}
+
+Praktické ověřovací testy pro PoC (general background knowledge)
+\begin{enumerate}
+  \item End‑to‑end SSO: přihlášení uživatele přes univerzitní SSO, ověření atributů (e‑mail, instituce, role) přenesených do poskytovatele, a návrat bez vytvoření duplicitního lokálního účtu.
+  \item SCIM / provisioning: vytvoření testovacího uživatele v IdP → automatické vytvoření účtu u poskytovatele → změna role v IdP → ověření propagace změny → deaktivace v IdP → ověření odebrání přístupu.
+  \item Role enforcement: pokus uživatele s nižší rolí o akci vyžadující vyšší oprávnění (např. export interních dokumentů, správa instancí) a kontrola, že je akce zamítnuta a zaznamenána v logu.
+  \item Auditní integrita: simulace administrativní změny (změna rolí, mazání zdroje) a ověření, že událost má časové razítko, identifikaci uživatele, originační IP a možnost exportu do centralizovaného SIEMu.
+  \item Export a retence logů: ověření, že logy lze exportovat v strojově čitelném formátu (JSON/CSV) a že je možné nastavit retenční politiku odpovídající interním požadavkům na compliance.
+\end{enumerate}
+
+Návrh minimálního modelu rolí a oprávnění (general background knowledge)
+\begin{itemize}
+  \item Super‑admin (IT): správa integrací, auditních nastavení, SLA konfigurací.
+  \item Data Steward / správce obsahu: (meta)řízení indexace interních zdrojů pro RAG, zásahy do přístupových politik k citlivým dokumentům.
+  \item Garant předmětu / Lektor: vytváření a správa předmětových asistentů (GPTs), delegování rolí asistentům, přístup k analyzám kurzu.
+  \item Asistent (TA): provozní úkony (moderace, zpětná vazba), omezené administrativní akce.
+  \item Student / koncový uživatel: standardní přístup k povolenému obsahu, nutnost přihlášení přes SSO a povinnost akceptovat podmínky používání.
+\end{itemize}
+
+Auditní logy — doporučené položky k zaznamenávání (general background knowledge)
+\begin{itemize}
+  \item Události přihlášení / odhlášení (user id, čas, zdroj IP, metoda autentizace).
+  \item Změny rolí a oprávnění (kdo změnil, původní a nové oprávnění, čas).
+  \item Přístupy k interním zdrojům (kdo, co, kdy, zda došlo k exportu nebo sdílení).
+  \item Volání rozhraní modelu (kde relevantní: který uživatel/instrument volal API, požadované zdroje); u RAG scén logovat retrieval události pro forenzní kontrolu.
+  \item Administrativní akce (konfigurace, nasazení nových asistentů, mazání dat).
+\end{itemize}
+
+Doporučení k retenci a exportu logů (general background knowledge)
+\begin{itemize}
+  \item Definujte retenční politiku v souladu s interními pravidly a GDPR; oddělte krátkodobé operational logy a dlouhodobé auditní stopy.
+  \item Zajistěte možnost exportu logů ve strojově čitelném formátu pro archivaci a předání při incidentu.
+  \item Zařaďte logy do centralizovaného SIEM pro korelaci a alertování bezpečnostního týmu.
+\end{itemize}
+
+Doporučené postupy při navrhování integrace (general background knowledge)
+\begin{itemize}
+  \item Preferujte univerzitní SSO (SAML/OIDC) před lokálními účty; minimalizuje to správu hesel a usnadní deprovisioning.
+  \item Implementujte princip nejmenších oprávnění (least privilege) a pravidelné revize rolí.
+  \item Při napojení interních materiálů přes RAG řešení omezte přístup modelu k minimálnímu potřebnému scope a logujte retrieval operace.
+  \item Zapojte IT, bezpečnostní tým a GDPR/PRIV kontakty fakulty již do fáze PoC — právní a bezpečnostní požadavky ovlivní volbu nastavení a retence dat.
+\end{itemize}
+
+Odkazy a zdroje pro další nastudování
+\begin{itemize}
+  \item Využijte oficiální dokumentaci poskytovatelů a školicí portály (např. Microsoft Learn) pro detailní návody k nastavení SSO, provisioning a auditních rozhraní \cite{kb_ai_101_tipu_pdf_04e4a115_page_54_1}.
+  \item Konzultujte interní IT a právní oddělení před schválením provozu; u větších nasazení doporučujeme navázat na RFP/SLA vzory popsané v kapitole o výběru enterprise řešení (sekce 8.1) (general background knowledge).
+\end{itemize}
+
+Krátké shrnutí pro garanta předmětu (general background knowledge): před nasazením požadujte PoC zahrnující SSO, provisioning a auditní testy; zajistěte jasné role a dokumentované postupy pro deprovisioning; do sylabu a komunikačních materiálů uveďte, jak budou přístupy spravovány a kde se studenti mohou obrátit v případě problémů s přístupem.

@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "major",
+      "description": "Several occurrences use 'Q\\\\ \\&A' (double backslash) which in LaTeX produces a line break and likely is unintended; should be 'Q\\&A'. Also check consistent escaping of ampersands and use of \\texttt within quote environments.",
+      "required_fix": "Replace all 'Q\\\\ \\&A' with 'Q\\&A' and verify other LaTeX escapes (ampersands, backslashes). Run a quick LaTeX compile check of this section to ensure no stray line breaks or malformed environments."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "Typo in 'Simulace rozhovorů a ústních zkoušek' paragraph: 'trénink viválních odpovědí' — 'viválních' is unclear / likely incorrect.",
+      "required_fix": "Correct the word to 'verbálních' (or another intended adjective) and re-read the sentence for fluency."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The sentence recommending Microsoft Designer for quick creation of visuals is currently labeled as general background knowledge but has no explicit inline citation in this section. Context memory contains a Designer citation (kb_ai_101_tipu_pdf_04e4a115_page_51_1) but that excerpt is not included in the retrieved excerpts shown.",
+      "required_fix": "Either add the explicit citation to the Designer reference (kb_ai_101_tipu_pdf_04e4a115_page_51_1) next to the statement, or rephrase to a more generic, clearly labeled background note without implying a specific source."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Several prompt blocks contain placeholders (e.g. [vložit kritéria], [NÁZEV PŘEDMĚTU], [TÉMA]). While placeholders are acceptable, the section lacks a short filled example showing how to replace them (especially for the simulation rubriky).",
+      "required_fix": "Add one concrete example: a filled-in prompt plus a minimal example rubric (3 criteria) to illustrate how instructors should populate placeholders, or refer to an existing rubric in the book (with a precise cross‑reference)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The simulation prompt asks to 'očekávej odpověď 1–2 minuty a po každé odpovědi poskytněte 3 bodové shrnutí hodnocení...' — phrasing mixes imperative forms and could be clearer about who performs which step (simulated examiner vs. instructor reviewing results).",
+      "required_fix": "Clarify the workflow: indicate that the assistant should pose the questions, expect student replies of ~1–2 minutes, and then the assistant should generate a 3‑point assessment according to the rubric. Consider adding who validates the assistant's assessments (teacher)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "LaTeX: all occurrences of Q\\\\ \\&A",
+      "edit_instruction": "Replace with 'Q\\&A'. Ensure \\& is used to typeset '&' and remove stray double backslashes which create line breaks. Check the document compiles without errors."
+    },
+    {
+      "target": "Simulace rozhovorů paragraph",
+      "edit_instruction": "Replace 'trénink viválních odpovědí' with 'trénink verbálních odpovědí' and rephrase the last sentence to clarify who generates the rubric-based feedback (assistant generates draft feedback; instructor reviews/approves)."
+    },
+    {
+      "target": "Doplňkové poznámky about Designer",
+      "edit_instruction": "Add explicit citation \\cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1} after the Designer mention, or reword to a neutral background note if citation cannot be provided."
+    },
+    {
+      "target": "Simulace prompt",
+      "edit_instruction": "Provide a short filled example replacing placeholders, e.g.: 'Simuluj zkoušejícího na úrovni bakalář, polož studentovi 5 otázek k tématu Newtonovy zákony, očekávej odpověď ~1–2 minuty a po každé odpovědi vygeneruj 3bodové shrnutí: (1) obsah, (2) jasnost, (3) hloubka) podle rubriky: ...' — include a minimal rubric for guidance."
+    },
+    {
+      "target": "General wording and consistency",
+      "edit_instruction": "Standardize voice (imperative vs. descriptive) across prompts and instructions. Where statements are 'general background knowledge' keep them brief and consistently labeled; where factual claims about specific tools are made, add the matching citation from the KB or mark as background and remove the tool name."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 51 Designer citation (to add explicit support for Designer claim)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 8 Pokrok v matematice (confirm existing citation context)",
+    "kb_ai_101_tipu_pdf_04e4a115 page 36 Microsoft 365 Copilot + Forms (confirm prompt example formatting)"
+  ]
+}

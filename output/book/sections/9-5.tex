@@ -1,0 +1,37 @@
+\paragraph{Stručný přehled} Krátký, opakovatelný PoC blueprint pro nasazení Retrieval‑Augmented Generation (RAG) v kurzu; cíl: rychle ověřit pedagogický přínos při řízení rizik a ochraně dat.
+
+\paragraph{Krokový PoC workflow (katedra)} \begin{enumerate}
+  \item Definovat pedagogický cíl, typy dotazů, výstupy a metriky.
+  \item Klasifikovat zdroje (interní / veřejné / PII) a vyloučit citlivé soubory.
+  \item Navrhnout anonymizaci, pseudonymizaci a pravidla retence/mazání.
+  \item Ingest/index: export → preprocessing/chunking → embeddings → index (on‑prem/hybrid/cloud).
+  \item Nastavit retrieval (filtrování podle kurzu/role, max. kontext, re‑ranking) a vybrat LLM.
+  \item Testovat přesnost a bezpečnost: lidská validace, leakage testy; iterovat prompt/retrieval.
+  \item Pilot s malou skupinou; sběr zpětné vazby a úpravy politik.
+  \item Zavést provozní procedury: audit, DPA/DPIA, zodpovědnosti, rollback a monitoring.
+\end{enumerate}
+
+\paragraph{Základní architektonické komponenty} \begin{itemize}
+  \item Zdrojové soubory: slides, skripta, zadání, FAQ, lab návody.
+  \item Preprocessing/chunking, embeddings (volba podle bezpečnosti) a index/retrieval (filtrování, re‑ranking).
+  \item LLM + prompt layer s guardraily a monitorování/audit logy.
+\end{itemize}
+
+\paragraph{Bezpečnostní a etické body} \begin{itemize}
+  \item Proveďte DPIA; zajistěte DPA a jasné data‑residency podmínky.
+  \item Minimalizujte ingest: nevkládat student. poznámky bez pseudonymizace; vyloučit fotografie/medical.
+  \item IAM a audit: SSO + role‑based přístup; auditní logy pro IT/garanta.
+  \item Lidská validace u rozhodnutí s dopadem; leakage testing/red‑teaming před nasazením.
+\end{itemize}
+
+\paragraph{Role vyučujícího} Kurátor zdrojů, ověřovatel kvality indexu, definovatel retrievalu a poskytovatel lidské verifikace; zodpovědný za komunikaci se studenty.
+
+\paragraph{Doporučené scénáře použití} FAQ asistent, shrnutí přednášek, vyhledávání ve skriptech, nápověda k labům s odkazy.
+
+\paragraph{Rychlé checklisty před pilotem} \begin{itemize}
+  \item Pedagogický cíl a metriky? \underline{\hspace{4cm}} \item Klasifikace zdrojů a anonymizace? \underline{\hspace{3cm}}
+  \item DPA/DPIA schváleny? \underline{\hspace{3cm}} \item Auditní logy a role‑based přístup nastaveny? \underline{\hspace{3cm}}
+  \item Plán lidské validace existuje? \underline{\hspace{3cm}}
+\end{itemize}
+
+\noindent Poznámka: blueprint navržen jako krátký, opakovatelný plán přizpůsobitelný předmětu; po pilotu doplnit technickou dokumentaci a SLA.

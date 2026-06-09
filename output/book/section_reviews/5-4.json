@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Typo in Czech: the imperative form 'Nasadťe' is incorrect and may break readability. Also verify diacritics and hyphenation (e.g. 'Nasadťe postup pilotně ...').",
+      "required_fix": "Replace 'Nasadťe' with correct Czech form, e.g. 'Nasaďte postup pilotně na malé skupině (modul/seminář)...'. Do a quick pass for other minor diacritic/typo issues."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The 'Povinné pole pro deklaraci AI' template repeats content that appears in earlier sections ('Šablona deklarace (stručně)'). The section does not explicitly cross-reference the earlier summary entry.",
+      "required_fix": "Add an explicit cross-reference or short citation to the earlier summary (e.g. 'viz sekce 5.1 / Šablona deklarace (stručně)') so readers see this is the same canonical template already summarized in the guide."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The guidance asks for a 'krátký popis metody ověření' but gives no concrete examples of verification methods. This may leave implementers uncertain what counts as adequate verification.",
+      "required_fix": "Include 2–4 concrete examples of acceptable verification methods (phrasing as recommendations), e.g. 'testovací případy a jejich výsledky; srovnání s referenčním řešením; zdrojová data a kontrolní skripty; spuštěné logy/CI výstupy' — label these as illustrative suggestions."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The prompt example is placed in a raw verbatim environment. In some LaTeX builds or style files the verbatim environment inside the document may require an explicit package or may not be the preferred formatting for prompt text.",
+      "required_fix": "Recommend using a dedicated listing environment (e.g. package 'listings' or 'minted') for the prompt block, or ensure the preamble includes the verbatim/listings package so the example renders as intended."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section mentions spot‑checks and escalation but provides only a short note about 'mechanism spot‑checků a eskalace'. There is no brief guidance on concrete steps to take if a declaration is missing or appears inconsistent.",
+      "required_fix": "Add a short procedural note (2–3 bullets) about handling missing/insufficient declarations: e.g. require resubmission with clarification; perform spot-check/audit and interview; escalate repeated or serious cases to academic integrity officer. Reference earlier checklist items about escalation where appropriate."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "single-word / small-phrase",
+      "edit_instruction": "Correct 'Nasadťe postup pilotně na malé skupině (modul/seminář) ...' to 'Nasaďte postup pilotně na malé skupině (modul/seminář) ...' (or 'Nasadte' if diacritics are intentionally omitted)."
+    },
+    {
+      "target": "Povinné pole pro deklaraci AI (enumerate)",
+      "edit_instruction": "Add a short parenthetical example for item 4 'Jak bylo ověřeno' such as '(např. stručný popis testovacích případů, porovnání s referencí, zdrojová data nebo logy spuštění) — ilustrační příklady'. Mark these examples as illustrative."
+    },
+    {
+      "target": "Milestone‑based hodnocení — krok za krokem, step 3",
+      "edit_instruction": "Expand step 3 with brief examples of acceptable verification evidence: 'např. malé testovací suite, CSV se vstupy a výstupy, odkazy na repozitář s commit historií, krátké video ukázky běhu prototypu'. Label them as suggested examples (not normative requirements)."
+    },
+    {
+      "target": "Kontrolní postupy / spot‑checky",
+      "edit_instruction": "Add 2–3 bullets giving concrete escalation steps when declarations are missing or inconsistent: 1) ask student for clarification and resubmission within X days; 2) schedule a short oral check (5–10 min) to verify process; 3) if unresolved, escalate to course guarantor/academic integrity office. Cross-reference 'Implementační tipy' or relevant policy sections."
+    },
+    {
+      "target": "Prompt example formatting",
+      "edit_instruction": "Replace raw \\begin{verbatim}...\\end{verbatim} with a note recommending use of a listings/minted environment (or ensure verbatim package in preamble), so the prompt renders predictably in the final PDF."
+    }
+  ],
+  "retrieval_queries": []
+}

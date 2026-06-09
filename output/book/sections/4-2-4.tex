@@ -1,0 +1,15 @@
+\begin{flushleft}Krátký praktický návod pro provozní údržbu AI asistentů a monitorování chyb v kontextu kurzů a pilotů na VUT; doporučeno krátké piloty a dokumentace promptů/provenance.\end{flushleft}
+\begin{itemize}
+  \item Pravidelné monitorování: metriky dostupnosti/latence/error rate; vzorkovat kvalitu výstupů (halucinace) a ukládat anotované ukázky; sledovat odesílání citlivých dat.
+  \item Verzování promptů a modelů: uchovávat prompty s konfigurací a časovou známkou, vést changelog; verzovat metadata modelu pro možnost rollbacku.
+  \item Provenance: anonymizované logy dotazů/odpovědí s kontextem (ID úkolu, verze promptu) a zaznamenat, které dokumenty byly retrieved.
+  \item Incidenty a rollback:
+    \begin{enumerate}
+      \item izolace služby (read‑only / maintenance) a zabránění zápisům obsahujícím citlivá data;
+      \item revert na poslední „safe“ verzi promptu/modelu a spuštění smoke tests;
+      \item root‑cause analýza, rozhodnutí o dalším postupu a informování vyučujících, IT a GDPR/právního oddělení s dokumentací.
+    \end{enumerate}
+  \item Testy a metriky: automatizované smoke/acceptance testy pro kritické scénáře a měření uživatelských metrik pilotů (účast, zpětná vazba, spokojenost).
+  \item Revize: kvartální kontrola promptů, modelů a DPA/SLA, vyřazení zastaralých promptů/indexů a aktualizace dokumentace pro vyučující.
+\end{itemize}
+\begin{flushleft}Poznámka: využít enterprise funkce pro lepší audit a řízení přístupu a vždy ověřit smluvní podmínky a retenci dat \cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1}.\end{flushleft}

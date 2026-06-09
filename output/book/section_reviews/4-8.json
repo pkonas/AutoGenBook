@@ -1,0 +1,56 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section discusses automated pre‑grading that processes student artefacts (images, handwriting, etc.) and proposes operational rules (escalation, spot checks, metrics). Because this involves processing student personal data, the section should explicitly reference and link to the guide's existing GDPR / DPIA / data‑handling guidance so readers know to follow institutional requirements.",
+      "required_fix": "Add an explicit cross‑reference to the privacy/DPIA checklist and institutional data handling guidance (chapter 2.2 and the DPIA template in the appendices) and add a short checklist bullet in this section that instructs teachers to perform a DPIA or consult Data Protection/IT before enabling image/OCR uploads or third‑party processing of student artefacts."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The recommended workflow and practical rules are labelled as 'general background knowledge', but some readers may not realise which items are institutionally required (e.g., SLA, escalation thresholds, spot‑check rate).",
+      "required_fix": "Clarify which items are optional pedagogical suggestions vs. which should be enforced (for pilots) by adding a short prefix (e.g., 'Recommended pilot practice:' vs. 'Institutional requirement — check with GDPR/IT:'). Give a concrete example for an escalation rule (e.g., 'escalate when confidence < X or when contradictory steps detected'), or explicitly state that exact numerical thresholds should be defined locally during pilot."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The sample prompt for formativní automatickou zpětnou vazbu is useful, but it could be made explicitly consistent with other prompt templates in the manual (e.g., the 'Automatické opravování postupů' and 'Asistent pro Q&A' prompts referenced elsewhere).",
+      "required_fix": "Add a short note pointing readers to the prompt library (appendix / section 9.1) and suggest a minor variant of the prompt that includes an instruction to avoid giving full solutions (to protect academic integrity) — or explicitly require the assistant to ask for the student's own attempt before providing solution steps."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX appears syntactically fine overall, but the section contains inline phrase 'general background knowledge' inside headings/paragraphs rather than as a formal LaTeX note or footnote; this may be stylistically inconsistent with other sections.",
+      "required_fix": "Either convert the 'general background knowledge' labels to a consistent LaTeX remark environment or use italicized parenthetical note to match the style used elsewhere in the document."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "After the first paragraph of the 'Doporučený workflow...' add a short sentence and citation pointer: 'Pozn.: tento workflow pracuje se studentskými osobními údaji (fotky rukopisu, meziodevzdání). Před pilotem ověřte soulad s pravidly ochrany osobních údajů a zvažte provedení DPIA (viz kapitola 2.2 a příloha: Vzor DPIA).' (Add a cross‑reference to chapter 2.2 and the DPIA template in the appendices.)"
+    },
+    {
+      "target": "Doporučený workflow — eskalace item",
+      "edit_instruction": "Replace the generic 'Vydefinujte pravidla pro eskalaci' bullet with a brief, concrete example plus a note to adapt locally. Suggested wording: 'Vydefinujte pravidla pro eskalaci (příklad: eskalovat ke kontrole učitele, pokud AI confidence < 0.7, pokud jsou mezi kroky rozpory, nebo pokud jsou nalezeny bezpečnostně citlivé informace). Konkrétní prahy určete během pilotu a zdokumentujte je.'"
+    },
+    {
+      "target": "Praktická pravidla — SLA item",
+      "edit_instruction": "Make the SLA guidance explicit and linkable: 'Nastavte jasné SLA pro odpovědi AI a lidskou validaci (např. AI odpoví do 24 hodin; vyučující/validátor odpoví na eskalované případy do N pracovních dnů — definujte N lokálně).' Add a sentence recommending to record timestamps and audit logs to support spot checks and compliance."
+    },
+    {
+      "target": "Ukázkový prompt",
+      "edit_instruction": "Add one sentence after the prompt: 'Variant: přidejte instrukci \"Neposkytuj kompletní řešení; pokud student žádá řešení, nejprve vyžádej postup\" pro lepší ochranu akademické integrity (viz šablony v sekci 4‑7 a 9.1).' Also add a pointer to the 'Automatické opravování postupů' prompt in the prompt library."
+    },
+    {
+      "target": "Krátké shrnutí",
+      "edit_instruction": "Add a final bullet reminding readers to consult institutional guidance: 'Před zapojením cloudových služeb nebo nahráváním studentských obrázků ověřte dohody o zpracování dat s poskytovatelem (DPA) a konzultujte IT/GDPR tým — viz kapitola 2.2 a příloha 9.4.'"
+    }
+  ],
+  "retrieval_queries": [
+    "citations or excerpts from the KB about DPIA and GDPR guidance for using AI tools in education (DPIA template, data minimization, pseudonymization) from 'AI - 101 tipu.pdf' or the manual",
+    "text in the KB that defines acceptable thresholds or recommendations for AI confidence/similarity scoring and escalation rules for automated grading workflows",
+    "existing prompt templates in the prompt library (section 9.1) that correspond to the 'Automatické opravování postupů' and 'Asistent pro Q&A' so we can link them explicitly"
+  ]
+}

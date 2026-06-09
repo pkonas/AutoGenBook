@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The stepwise time estimates (e.g. “(5–10 minut)”, “(3–5 minut)”, etc.) are stated as concrete numeric values but there is no supporting excerpt in the provided KB that justifies these specific durations. Per grounding rules, numeric claims must be supported or explicitly marked as general/background estimates.",
+      "required_fix": "Either provide KB evidence for these time estimates or change the wording to make them clearly orientational (e.g. “orientačně 5–10 minut — general background knowledge”) and add a brief note that actual time depends on experience and complexity."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The advice to 'verify that the exported file preserves fonts and contrast (readability on mobile/PC)' is practical but not supported by a KB excerpt. The section uses a footnote to kb_ai_101_tipu_pdf_page_51_1 for related Designer capabilities, but that excerpt does not discuss font embedding or LMS compatibility specifics.",
+      "required_fix": "Either cite a KB excerpt that explicitly supports this advice, or label the statement as 'general background knowledge' and, if possible, give a concise actionable check (e.g. open exported PDF on mobile and in PPTX on another machine) rather than an unsupported factual claim."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section mentions Gamma and Microsoft Designer; while Designer statements are supported by kb_ai_101_tipu_pdf_page_51_1, the characterization of Gamma as 'nástroj pro rychlé interaktivní prezentace, vhodné pro lesson‑planning' is only present in the memory as 'general background knowledge'. The section mixes supported Designer citations with unsourced statements about Gamma.",
+      "required_fix": "Mark the Gamma description explicitly as 'general background knowledge' (or add an internal KB cross‑reference if available). Keep the Designer statements tied to the existing page_51_1 citation."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section gives useful high‑level tips but does not reference the related differentiation/didactic artefacts present in the KB (e.g. the 'Checklist pro učitele — diferenciace' and the 'Prompt pro tiered nápovědy'), which would help teachers adapt slides for mixed‑ability groups.",
+      "required_fix": "Add cross‑references to the KB's differentiation checklist and the tiered hint prompt template (or briefly state where to find them in the handbook) so readers can easily apply those resources when preparing the 'aktivační úloha' and alternative activities."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX structure (enumerate/itemize/footnote) looks syntactically fine, but the footnotes embed plain 'Source: kb_...' labels rather than formal citations. This is acceptable for an internal handbook, but note that if a bibliography is required later the footnotes should be aligned with the book's citation style.",
+      "required_fix": "Optional: if the handbook uses a bibliography/citation macro, convert plain footnote text to the project's citation commands; otherwise keep as-is but ensure consistency with other sections."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "time estimates in enumerate items",
+      "edit_instruction": "Change all concrete minute ranges to explicit orientational labels. Example edit for step 1: replace '(5–10 minut)' with '(orientačně 5–10 minut — orientační odhad; závisí na zkušenosti a rozsahu tématu)'. Apply analogous wording to other steps."
+    },
+    {
+      "target": "step 4 footnote / Designer reference",
+      "edit_instruction": "Keep the footnote citing kb_ai_101_tipu_pdf_page_51_1 for prompt→image and aspect ratio guidance. Add a short parenthetical: '(viz kb_ai_101_tipu_pdf_page_51_1 — informace o prompt→image a volbě poměru stran v Microsoft Designeru)'."
+    },
+    {
+      "target": "step 5 (export advice)",
+      "edit_instruction": "Mark the export/readability guidance as general background knowledge: e.g. 'Ověřte čitelnost a export (2–5 minut) — orientační postup a obecná doporučení (general background knowledge): zkontrolujte PDF i PPTX na mobilu/PC a ověřte, že jsou čitelné; pokud potřebujete záruku zachování fontů, použijte embed fonts při exportu nebo PDF/A).'"
+    },
+    {
+      "target": "pedagogical tips / activation slide",
+      "edit_instruction": "Add a brief cross‑reference to the KB's differentiation checklist and tiered hint prompts. Suggested short sentence: 'Pro přizpůsobení úlohy různým úrovním studentů viz Checklist pro učitele — diferenciace a šablony pro tiered nápovědy v příručce (viz příslušné oddíly knihy).' Mark this sentence as linking to internal KB resources rather than an external citation."
+    },
+    {
+      "target": "add a short example 20‑minute slide outline",
+      "edit_instruction": "Optionally add a compact example labeled as general background knowledge, e.g.: 'Příklad pro ~20min: 1) Learning outcome + agenda (1 slide), 2) Klíčový koncept A (2 slides), 3) Klíčový koncept B (2 slides), 4) Krátká aktivační úloha — instrukce + časovač (1 slide), 5) Shrnutí + další kroky (1 slide). (general background knowledge)'. This makes the guidance more actionable while clearly marking it as an orientational suggestion."
+    }
+  ],
+  "retrieval_queries": [
+    "Evidence or internal KB excerpts that recommend typical time budgets for rapid slide deck authoring (e.g. 20–40 minutes total) to ground the numeric estimates.",
+    "Any KB excerpt or authoritative guidance on export best practices for LMS compatibility (PDF/PPTX), specifically on embedding fonts and preserving contrast/readability in exports.",
+    "Internal KB pages that contain the 'Checklist pro učitele — diferenciace' and the 'Prompt pro generování tiered nápověd' so the section can add explicit cross‑references."
+  ]
+}

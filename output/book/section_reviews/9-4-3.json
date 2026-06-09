@@ -1,0 +1,57 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Některé položky obsahují ne‑triviální doporučení (např. 'Functional tests: ověření autentizace, autorizace, šifrování, logování a zálohování.' a 'Security tests: ...') bez odkazu nebo explicitního označení jako 'general background knowledge'. Podle groundingu musí být každé netriviální tvrzení buď podloženo excerptem / artefaktem nebo jasně označeno jako obecné (general background knowledge).",
+      "required_fix": "Označit tyto testovací podbody explicitně jako '(general background knowledge)' nebo přidat relevantní zdroj/footnote (např. odkaz na sekci 'Bezpečnostní opatření, checklisty a provozní šablony' v kapitole 8 nebo na 'Checklist soukromí a GDPR pro RAG' v přílohách)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Footnoty používají 'kb_ai_101_tipu_pdf_page_3_1' a 'sekce \"Checklist soukromí a GDPR pro RAG\"', ale v dodaných retrieved excerpts chybí explicitní výpis stránky 3. Některé podpůrné informace však jsou dostupné v context memory (sekce 9.4.2 / předchozí 'Checklist soukromí a GDPR pro RAG').",
+      "required_fix": "Ujednotit odkazy: buď přesně citovat interní sekci příručky (např. 'viz sekce 9.4.2 — Checklist soukromí a GDPR pro RAG'), nebo připojit/načíst konkrétní excerpt (page 3) do KB a aktualizovat footnoty tak, aby každé netriviální tvrzení mělo jasný zdroj."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Použití symbolu pro nezaškrtnuté políčko jako '$\\square$' vyžaduje balíček amssymb nebo jiný vhodný symbol; v některých LaTeX préamblech to může selhat. Dále: v položce 'Role a odpovědnosti' není u prvního \\item oddělen nový textový blok (pravděpodobně OK, ale může u některých kompilátorů způsobit varování).",
+      "required_fix": "Doporučit v preambuli dokumentu zahrnout \\usepackage{amssymb} nebo nahradit '$\\square$' bezpečnějším '\\(\\square\\)'/\\textopenbox{}. Pro čistotu zdrojového kódu doporučit explicitní odřádkování po každém \\item nebo použití balíčku enumitem pro lepší formátování."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Úvodní věta uvádí, že položky jsou 'praktická doporučení (general background knowledge)', ale některé položky nejsou označeny konzistentně (viz issue o testech). To může čtenáře mást, které body jsou volné doporučení a které jsou odvozené z interních KB/legislativy.",
+      "required_fix": "Buď: (a) explicitně označit všechny položky, které jsou pouze obecnými doporučeními, jako '(general background knowledge)'; nebo (b) pro klíčové právní/právně závazné body (DPA/DPIA, reporting osobních údajů) přidat jasnou poznámku 'viz sekce X' s odpovídajícím zdrojem."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce definuje role a odpovědnosti obecně, ale chybí doporučení pro konkrétní eskalační SLA (čas do reakce/informování garanta/právníka) nebo příklad kontaktního listu. Pro provoz v kurzu by to zlepšilo použitelnost.",
+      "required_fix": "Doplnit vzorový kontakt/eskalační flow (alespoň v grochu: 'alarm -> IT do X hodin -> garant do Y hodin -> právník do Z hodin') nebo odkázat na interní šablonu kontaktního listu v přílohách (sekce 9.7)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "U položky 'Testovací postupy před spuštěním' přidejte explicitní označení u každého pod‑bulletu: např. 'Functional tests (general background knowledge): ...', 'Security tests (general background knowledge): ...'. Alternativně přidejte footnotu s odkazem na sekci 8.8 nebo 9.4.2, která dané testy popisuje."
+    },
+    {
+      "target": "footnotes",
+      "edit_instruction": "Upravte footnoty tak, aby místo 'Source: kb_ai_101_tipu_pdf_page_3_1' uváděly interní sekci (např. 'viz sekce 9.4.2 — Checklist soukromí a GDPR pro RAG') nebo připojte chybějící excerpt page_3 do KB a aktualizujte cite_key konzistentně."
+    },
+    {
+      "target": "latex hint",
+      "edit_instruction": "V README/preambule dokumentu doporučte zahrnout \\usepackage{amssymb} nebo nahradit '$\\square$' variantou kompatibilní s defaultním balíčkem (např. \\textopenbox nebo \\(\\square\\)). Zvažte použití enumitem pro konzistentní odsazení a lepší vzhled vnořených seznamů."
+    },
+    {
+      "target": "roles section",
+      "edit_instruction": "Do části 'Role a odpovědnosti' doplňte krátký vzor eskalačního schématu (časy reakce/SLA) a příklad kontaktního listu, nebo přidejte footnotu 'viz sekce 9.7 pro kontaktní list a podporu VUT'."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 3 (DPA / DPIA / checklist soukromí) — explicitní excerpt pro podložení footnoty kb_ai_101_tipu_pdf_page_3_1",
+    "Interní sekce 'Checklist soukromí a GDPR pro RAG' (9.4.2) — plné znění checklistu pro citaci v části 'Testovací postupy' a rychlém před‑spuštěcím seznamu"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section recommends verifying institutional/licensing access but cites only the Minecraft Education example (kb_ai_101_tipu_pdf_page_15_2). Other relevant KB statements about checking access to Microsoft Designer / Copilot in Microsoft 365 (mentioned elsewhere in the manual) are not cited here.",
+      "required_fix": "Add a supporting citation to the relevant KB excerpt(s) about Designer/Copilot licensing and recommended Microsoft Learn resources (e.g., kb_ai_101_tipu_pdf_page_51_1 and kb_ai_101_tipu_pdf_page_54_1) when advising readers to verify tool access/licences."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The workflow mentions 'vestavěné nástroje jako Malování s Copilotem nebo aplikaci Fotky' which is grounded (kb_ai_101_tipu_pdf_page_53_1), but the surrounding manuscript (other sections) contains additional related guidance (e.g., Designer workflows and pre-export checklist). The section does not explicitly cross-reference those existing checklists.",
+      "required_fix": "Add a short cross-reference to the existing Microsoft Designer workflow/checklist (section 3.5.3 / KB citations) to maintain coherence across the chapter and avoid duplication."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX fragment uses enumerate/itemize and footnotes — syntactically fine — but it repeats the section title as plain text before the body. This is redundant if the document class or surrounding macros already render the title.",
+      "required_fix": "If the surrounding template already outputs the section title, remove the duplicated plain-text title line; otherwise keep but consider using a sectioning macro (e.g., \\section{}) consistent with the rest of the document."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The practical workflow is high-level and lacks a short concrete example (e.g., recommended export formats for common presentation targets, or a one-line example prompt for generative image services).",
+      "required_fix": "Either add a very short concrete example (clearly labeled as 'general background knowledge') — e.g., 'export PNG for raster slides; use SVG for scalable icons' — or keep the workflow intentionally high-level but note where to find more concrete guidance (cross-reference to export checklist in section 3.5.3 or KB)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends documenting sources/licenses for generative outputs but could be more explicit about transparency toward students (which is covered elsewhere in the manual).",
+      "required_fix": "Add a brief pointer recommending teachers to include a short note in the course materials/syllabus about use of AI-generated visuals (or cross-reference the syllabus/AI policy templates in the appendix, e.g., 9.3)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Krátké shrnutí / první odrážka o licencích",
+      "edit_instruction": "When advising to 'ověřte, zda máte právo nástroj využít v institucionálním kontextu', add a citation to the KB guidance about verifying Copilot/Designer access and licenses (kb_ai_101_tipu_pdf_page_51_1) and to Microsoft Learn resources for Designer (kb_ai_101_tipu_pdf_page_54_1)."
+    },
+    {
+      "target": "Praktický, krátký workflow — položka 'Rychlé generování / předúprava'",
+      "edit_instruction": "After the sentence about built-in tools (Malování / Fotky), add a short parenthetical: '(viz. kb_ai_101_tipu_pdf_page_53_1 pro přehled funkcí ve Windows Malování a Fotkách)'. Keep mention of external generative services (DALL·E, Midjourney) but retain the existing label 'general background knowledge'."
+    },
+    {
+      "target": "Praktický, krátký workflow — položka 'Export a vložení do prezentace'",
+      "edit_instruction": "Add one short concrete recommendation (marked as general background knowledge), e.g.: 'Pro rastrové obrázky preferujte PNG pro lepší kvalitu průhlednosti; pro ikony zvažte SVG (vektor) pro škálovatelnost.' Alternatively, cross-reference the export checklist in the Microsoft Designer section (3.5.3)."
+    },
+    {
+      "target": "Krátké doporučení pro zachování konzistence designu",
+      "edit_instruction": "Add a short cross-reference to the manual's appendix on syllabus/AI policy templates (9.3) for documenting use of generative visuals and licenses when sharing materials outside VUT."
+    },
+    {
+      "target": "LaTeX header",
+      "edit_instruction": "If the document structure already renders section titles, remove the duplicate plain-title line at the start of latex_body; otherwise wrap the title with the appropriate sectioning macro consistent with the rest of the source (e.g., \\subsection{Generativní obrazové nástroje a integrace vizuálů})."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_page_51_1 Microsoft Designer licensing Copilot verify access",
+    "kb_ai_101_tipu_pdf_page_54_1 Microsoft Learn Designer resources",
+    "kb_ai_101_tipu_pdf_page_53_1 Malování Fotky Copilot AI functions (to confirm exact phrasing if more grounding needed)"
+  ]
+}

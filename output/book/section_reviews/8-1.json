@@ -1,0 +1,70 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Sekce obsahuje několik věcných srovnávacích tvrzení (např. 'On‑premise / hybridní: vyšší kontrola nad daty, vyšší provozní nároky' nebo 'Cloud enterprise: rychlejší nasazení, ...'), která nejsou explicitně podložena jedním z poskytnutých retrieved excerpts. Některé konkrétní odkazy (Microsoft Learn, Minecraft, Pokrok v matematice) mají správné citace, ale jiné obecné tvrzení postrádají přímo přiřazenou podporu.",
+      "required_fix": "Buď doplnit relevantní citace k těmto tvrzením z KB (nebo jiného ověřitelného zdroje), nebo explicitně označit tyto odstavce jako 'general background knowledge' (jak už částečně je) a zkrátit je tak, aby neobsahovaly neověřitelné faktické nároky."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Sekce odkazuje na aktivity (DPIA, právní review, RAG, Data Steward apod.), které jsou podrobněji rozvedeny v jiných částech příručky (viz outline/context). Nicméně v textu chybí explicitní křížové odkazy na konkrétní přílohy či kapitoly (např. DPIA šablona 2.2.4 nebo RAG blueprint 9.5, kontakty 9.7).",
+      "required_fix": "Přidat krátké křížové odkazy na relevantní kapitoly/přílohy (čísla sekcí / štítky), aby čtenář věděl, kde najít podrobné šablony a kontakty."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "V LaTeXu jsou použity \\\\cite{...} k odkazu na zdroje — zkontrolujte, že odpovídající položky jsou zahrnuty v bibliografii. Také by bylo užitečné přidat \\\\label pro tuto sekci (např. \\label{sec:strategie-vyberu}), aby bylo možné na ni spolehlivě odkazovat z jiných částí dokumentu.",
+      "required_fix": "Doplnit bibliografické záznamy pro použité cite_key a přidat \\label{...} u nadpisu. Ujistit se, že speciální znaky v cite_key sedí s .bib položkami."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Rozhodovací matice a checklisty jsou užitečné, ale chybí praktický příklad (vyplněný řádek/ukázka) nebo doporučené váhy kritérií a prahové hodnoty pro výběr (např. kdy zvažovat compliance nad cenou). Bez toho může být aplikace matice nejasná pro implementátory.",
+      "required_fix": "Přidat krátký příklad vyplněné matice (fiktivní 3 kandidáti) a doporučenou metodu vážení kritérií (např. ukázkové váhy nebo postup pro rozhodování mezi dvěma kandidáty s podobnými skóre)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce uvádí 'Návrh rozpočtu TCO na první 3 roky' jako doporučený výstup, ale neobsahuje konkrétní rozpis položek TCO (co zahrnout: licence, integrace, provoz, školení, rezervy).",
+      "required_fix": "Doplnit krátký vzorový seznam komponent TCO (capex/opex položky) a ukázkový jednoduchý excel‑style rozpis nebo odkaz na šablonu v přílohách."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "úvodní odstavec",
+      "edit_instruction": "Jasně označte, které věty jsou obecnými doporučeními (general background knowledge) a které obsahují konkrétní tvrzení podložená citacemi. Přidejte větu 'Viz též kapitolu 2.2.4 (Vzor DPIA) a přílohu 9.5 (RAG blueprint) pro šablony a podrobné postupy.'"
+    },
+    {
+      "target": "sekce 'Poznámka k vendorům a zdrojům pro učení se od dodavatelů'",
+      "edit_instruction": "Zachovejte existující citace k Microsoft Learn a Minecraft. Přidejte krátkou větu s explicitním odkazem na sekci 9.7 'Kontakty a podpora VUT' pro získání pomoci s enterprise implementací a na sekci 2.2.5 pro 'Smlouvy s poskytovateli a DPA'."
+    },
+    {
+      "target": "Praktická rozhodovací matice (návrh)",
+      "edit_instruction": "Doplňte ukázkový, fiktivní příklad s 3 kandidáty (mínimálně jeden řádek vyplněný) a navrhněte doporučené váhy kritérií (např. GDPR compliance 25 %, Integrace 20 %, Bezpečnost 20 %, Náklady 15 %, Funkčnost 20 %). Uveďte krátký postup: sečtěte vážené skóre a proveďte právní/technický PoC top‑3."
+    },
+    {
+      "target": "Klíčové smluvní body k ověření v DPA / SLA",
+      "edit_instruction": "Doporučte konkrétní doplňky: minimální doba uchovávání logů, formát exportu dat (JSON/CSV) a doba pro vymazání na vyžádání. Pokud tyto detaily nelze univerzálně tvrdit, přidejte poznámku 'lokální požadavky se liší — použijte vzor DPA v příloze 9.4'."
+    },
+    {
+      "target": "Technické aspekty k ověření v PoC",
+      "edit_instruction": "Doplňte krátký seznam konkrétních testů pro PoC, např.: (1) ověření SSO flow s testovacím fakulty účtem; (2) export auditních logů za 7 dní a validace formátu; (3) test RAG dotazu s interním dokumentem a zkontrolovat, že model neukládá dotaz/zdroj mimo index; (4) měření latence při zatížení 50 současných uživatelů."
+    },
+    {
+      "target": "Doporučené výstupy z výběrového procesu",
+      "edit_instruction": "Přidejte vzorový rozpis TCO pro 3 roky (krátká tabulka nebo bulletlist): licence (rok1/rok2/rok3), integrace (jednorázové), hosting/infra (měsíčně), monitoring & incident response, školení, rezervy na rozvoj. Uveďte, že šablona TCO je dostupná v příloze nebo repozitáři."
+    },
+    {
+      "target": "LaTeX bibliografie a label",
+      "edit_instruction": "Zkontrolujte, že cite_key používané v textu odpovídají položkám v .bib souboru. Přidejte \\label{sec:strategie-vyberu} pod nadpis a případně krátký \\ref odkaz z jiných sekcí."
+    }
+  ],
+  "retrieval_queries": [
+    "Dokumenty nebo části KB, které popisují trade‑offs mezi on‑premise/hybridním a cloud enterprise nasazením (bezpečnost, provozní nároky, náklady) pro AI/LLM v univerzitním prostředí",
+    "Příklady vyplněných rozhodovacích matic nebo RFP evaluací (vendor selection matrix) pro výběr enterprise AI řešení ve vzdělávacím sektoru",
+    "Šablona nebo příklad TCO rozpisu (licence, integrace, provoz, školení) pro nasazení enterprise softwaru na univerzitní úrovni"
+  ]
+}

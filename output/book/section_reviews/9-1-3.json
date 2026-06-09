@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "The section describes sending a table with student names and attributes to Copilot to generate formative feedback but does not explicitly warn about privacy/GDPR risks or recommend anonymization/pseudonymization and minimal data sharing. Given other parts of the handbook address PII handling and GDPR, the omission is a significant safety/legal gap.",
+      "required_fix": "Add an explicit caution and practical instruction to anonymize or pseudonymize student data (or use initials/IDs) before sending anything to external models; note that only minimal data necessary should be shared and that outputs must be reviewed by a human. Cross-reference the handbook sections on PII filtering / anonymization and GDPR (e.g. sections covering 'Filtrování PII' and 2.2 anonymizace/pseudonymizace). Support this edit with the existing KB excerpts: kb_ai_101_tipu_pdf_page_21_2 (example workflow) and the handbook GDPR/PII guidance in the memory (sections 2.2 and 'Filtrování PII')."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses \\begin{verbatim} blocks inside an itemize environment. In some LaTeX setups verbatim inside itemize can cause compilation issues (verbatim is a fragile environment).",
+      "required_fix": "Either move the verbatim blocks out of the itemize (e.g., place them after the itemize as separate displayed blocks), wrap them in a safe environment (e.g., use the 'listings' package and \\begin{lstlisting}), or enclose each verbatim block in a \\begin{minipage}{\\linewidth} (or similar) so it compiles reliably."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The CSV/table templates are useful but could be more concrete: e.g., include a recommended example header row and a sample CSV row for different question types (MCQ, open, T/F) so users can directly copy/paste into Excel or LMS import format.",
+      "required_fix": "Add a short illustrative example: a CSV header line (e.g. Otázka, Typ, Odp1, Odp2, Odp3, Odp4, Správná, Vysvětlení, ID) and one example row for an ABCD and one for an open question (with empty Odp2–4 as appropriate). Mention that exact required columns depend on target tool (Kahoot/Moodle) and to check the tool's import spec."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section currently mentions 'Copilot' behavior and examples but does not explicitly link back to the general 3‑step workflow for using the prompt library described earlier in the handbook (select template, adapt parameters, run and check).",
+      "required_fix": "Add a one‑sentence reminder (with reference to the prompt library intro) to adapt parameters (level, tone, format) before running prompts and to perform sample verification and iteration as part of the 3‑step workflow (consistent with the earlier section on using the prompt library)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "Under 'Generování formativní zpětné vazby z dat o studentech' insert a clear privacy caution. Suggested wording (Czech): 'Upozornění: před odesláním údajů do externích modelů anonymizujte nebo pseudonymizujte studenty (použijte ID nebo iniciály) a sdílejte pouze nezbytné metriky; vždy provádějte lidskou kontrolu výstupů. Viz sekce o ochraně osobních údajů a filtrování PII v příručce.' Reference: kb_ai_101_tipu_pdf_page_21_2 and handbook sections 2.2 / \"Filtrování PII\" in memory."
+    },
+    {
+      "target": "LaTeX blocks",
+      "edit_instruction": "Replace verbatim blocks inside itemize with either (a) \\begin{lstlisting}..\\end{lstlisting} (require \\usepackage{listings}) or (b) move each \\begin{verbatim} block outside the surrounding \\begin{itemize} and label them as 'Příklad promptu' so they are standalone blocks and avoid fragile environment issues."
+    },
+    {
+      "target": "CSV example",
+      "edit_instruction": "Add an explicit CSV header example and one sample row for MCQ and one for an open question. For example: 'CSV header: Otázka,Typ,Odp1,Odp2,Odp3,Odp4,Správná,Vysvětlení,ID' and a sample MCQ row and an open-question row (leaving Odp2‑4 blank). Note: remind readers to adapt columns to the target LMS/Kahoot import spec (tools differ)."
+    },
+    {
+      "target": "workflow reminder",
+      "edit_instruction": "Add a brief reminder sentence near the top: 'Před spuštěním přizpůsobte parametry (úroveň, délka, tón), vyžádejte konkrétní formát výstupu a po vygenerování ověřte vzorek otázek — viz úvod do knihovny promptů (3‑krokový postup).' This ties the section to the prompt library guidance in prior sections."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf page 21 privacy student data Copilot anonymize pseudonymize",
+    "kb_ai_101_tipu_pdf page 21 formativní hodnocení Copilot practical example",
+    "handbook section 2.2 anonymizace pseudonymizace GDPR guidance (student data)"
+  ]
+}

@@ -1,0 +1,144 @@
+\begin{thebibliography}{10}
+
+\bibitem{2210.05512v1}
+Amin Abolghasemi, Arian Askari, and Suzan Verberne.
+\newblock On the interpolation of contextualized term-based ranking with bm25
+  for query-by-example retrieval.
+\newblock {\em arXiv}, 2022.
+\newblock RID=RID:web:paper:e8e45c3a26d0.
+
+\bibitem{2411.18583v1}
+Nurshat~Fateh Ali, Md.~Mahdi Mohtasim, Shakil Mosharrof, and T.~Gopi Krishna.
+\newblock Automated literature review using nlp techniques and llm-based
+  retrieval-augmented generation.
+\newblock {\em arXiv}, 2024.
+\newblock RID=RID:web:paper:111c6a0a4efd.
+
+\bibitem{2012.11405v2}
+Sophia Althammer, Sebastian Hofstatter, and Allan Hanbury.
+\newblock Cross-domain retrieval in the legal and patent domains: a
+  reproducibility study.
+\newblock {\em arXiv}, 2020.
+\newblock RID=RID:web:paper:205839d1d153.
+
+\bibitem{2503.11288v1}
+Lyes Attouche, Mohamed-Amine Baazizi, Dario Colazzo, Giorgio Ghelli, Stefan
+  Klessinger, Carlo Sartiani, and Stefanie Scherzinger.
+\newblock Elimination of annotation dependencies in validation for modern json
+  schema.
+\newblock {\em arXiv}, 2025.
+\newblock RID=RID:web:paper:4e549dbb2756.
+
+\bibitem{2202.12849v3}
+Lyes Attouche, Mohamed-Amine Baazizi, Dario Colazzo, Giorgio Ghelli, Carlo
+  Sartiani, and Stefanie Scherzinger.
+\newblock Witness generation for json schema.
+\newblock {\em arXiv}, 2022.
+\newblock RID=RID:web:paper:9bf006e3c429.
+
+\bibitem{2307.10034v2}
+Lyes Attouche, Mohamed-Amine Baazizi, Dario Colazzo, Giorgio Ghelli, Carlo
+  Sartiani, and Stefanie Scherzinger.
+\newblock Validation of modern json schema: Formalization and complexity.
+\newblock {\em arXiv}, 2023.
+\newblock RID=RID:web:paper:a39b57e906ed.
+
+\bibitem{2401.03648v2}
+Keping Bi, Xiaojie Sun, Jiafeng Guo, and Xueqi Cheng.
+\newblock Reproducibility analysis and enhancements for multi-aspect dense
+  retriever with aspect learning.
+\newblock {\em arXiv}, 2024.
+\newblock RID=RID:web:paper:836292b4cadf.
+
+\bibitem{2510.20303v1}
+Jan Buchmann and Iryna Gurevych.
+\newblock Citation failure: Definition, analysis and efficient mitigation.
+\newblock {\em arXiv}, 2025.
+\newblock RID=RID:web:paper:194cc05ba640.
+
+\bibitem{2201.04672v1}
+Hejie Cui, Jiaying Lu, Yao Ge, and Carl Yang.
+\newblock How can graph neural networks help document retrieval: A case study
+  on cord19 with concept map generation.
+\newblock {\em arXiv}, 2022.
+\newblock RID=RID:web:paper:c3f69a669000.
+
+\bibitem{2506.20844v2}
+Xingyu Deng, Xi~Wang, and Mark Stevenson.
+\newblock The next phase of scientific fact-checking: Advanced evidence
+  retrieval from complex structured academic papers.
+\newblock {\em arXiv}, 2025.
+\newblock RID=RID:web:paper:39127bbf4f25.
+
+\bibitem{2301.05174v2}
+Mariya Hendriksen, Svitlana Vakulenko, Ernst Kuiper, and Maarten de~Rijke.
+\newblock Scene-centric vs. object-centric image-text cross-modal retrieval: A
+  reproducibility study.
+\newblock {\em arXiv}, 2023.
+\newblock RID=RID:web:paper:98d83212b104.
+
+\bibitem{2303.16010v1}
+Parag Khanna, Elmira Yadollahi, Marten Bjorkman, Iolanda Leite, and Christian
+  Smith.
+\newblock User study exploring the role of explanation of failures by robots in
+  human robot collaboration tasks.
+\newblock {\em arXiv}, 2023.
+\newblock RID=RID:web:paper:1d7b0d6c7ab9.
+
+\bibitem{2007.03177v2}
+Rahul Pandey, Hemant Purohit, Carlos Castillo, and Valerie~L. Shalin.
+\newblock Modeling and mitigating human annotation errors to design efficient
+  stream processing systems with human-in-the-loop machine learning.
+\newblock {\em arXiv}, 2020.
+\newblock RID=RID:web:paper:17fdbb9c7b8a.
+
+\bibitem{2103.16669v3}
+Koustav Rudra, Zeon~Trevor Fernando, and Avishek Anand.
+\newblock An in-depth analysis of passage-level label transfer for contextual
+  document ranking.
+\newblock {\em arXiv}, 2021.
+\newblock RID=RID:web:paper:09114d7a3f95.
+
+\bibitem{1903.07547v1}
+Mike Thelwall.
+\newblock Should citations be counted separately from each originating section.
+\newblock {\em arXiv}, 2019.
+\newblock RID=RID:web:paper:1e98a812f12d.
+
+\bibitem{2102.11903v2}
+Mohamed Trabelsi, Zhiyu Chen, Brian~D. Davison, and Jeff Heflin.
+\newblock Neural ranking models for document retrieval.
+\newblock {\em arXiv}, 2021.
+\newblock RID=RID:web:paper:560b45c2a6f6.
+
+\bibitem{2012.11740v1}
+Thomas van Dongen, Gideon~Maillette de~Buy~Wenniger, and Lambert Schomaker.
+\newblock Schubert: Scholarly document chunks with bert-encoding boost citation
+  count prediction.
+\newblock {\em arXiv}, 2020.
+\newblock RID=RID:web:paper:f01cfad6741d.
+
+\bibitem{2506.13776v1}
+Kevin~L. Wei, Patricia Paskov, Sunishchal Dev, Michael~J. Byun, Anka Reuel,
+  Xavier Roberts-Gaal, Rachel Calcott, Evie Coxon, and Chinmay Deshpande.
+\newblock Recommendations and reporting checklist for rigorous \& transparent
+  human baselines in model evaluations.
+\newblock {\em arXiv}, 2025.
+\newblock RID=RID:web:paper:d3630099f333.
+
+\bibitem{2408.12398v1}
+Weijia Zhang, Mohammad Aliannejadi, Jiahuan Pei, Yifei Yuan, Jia-Hong Huang,
+  and Evangelos Kanoulas.
+\newblock A comparative analysis of faithfulness metrics and humans in citation
+  evaluation.
+\newblock {\em arXiv}, 2024.
+\newblock RID=RID:web:paper:1209f949a07d.
+
+\bibitem{2212.10423v1}
+Yucheng Zhou, Tao Shen, Xiubo Geng, Chongyang Tao, Guodong Long, Can Xu, and
+  Daxin Jiang.
+\newblock Fine-grained distillation for long document retrieval.
+\newblock {\em arXiv}, 2022.
+\newblock RID=RID:web:paper:75e6224b3e50.
+
+\end{thebibliography}

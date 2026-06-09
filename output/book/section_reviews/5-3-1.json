@@ -1,0 +1,61 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The claim that OneNote converts handwritten equations is cited correctly (\n\\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}) and matches KB excerpts, but the two identical citations appear in the section. Ensure the bibliography contains the referenced key and avoid duplicated identical citations unless intentional.",
+      "required_fix": "Keep the OneNote sentence, but ensure the cited key exists in the bibliography. If both citations refer to the same source, keep only one citation in nearby repeated mentions or clarify different pages if intended."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section mentions 'náhodný spot‑check nahrávek/odpovědí (např. malé procento zkoušených)' but does not specify a percentage. Earlier material in memory recommends an illustrative spot‑check range of 5–10%.",
+      "required_fix": "Align phrasing with the earlier recommendation by either explicitly suggesting the illustrative 5–10% range or adding a cross‑reference to the section that discusses spot‑check sampling guidance."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Typo/wording issue: the word 'szkice' in 'zápisky, szkice, OneNote sešity' appears misspelled or non‑idiomatic in Czech.",
+      "required_fix": "Replace 'szkice' with a correct Czech term such as 'náčrtky' or 'skici' (choose the preferred Czech spelling) to improve readability."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses Unicode punctuation (e.g. non‑standard hyphens like 'warm‑up' with a U+2011) and Czech diacritics. These are usually fine, but may cause issues in some LaTeX toolchains or when using older fonts/encodings.",
+      "required_fix": "Normalize special hyphens to standard LaTeX constructs (e.g. use 'warm\\mbox{-}up' or 'warm-up' or an explicit \\textendash{} where appropriate) and ensure the document preamble declares UTF‑8 input encoding (\\usepackage[utf8]{inputenc}) or the appropriate font encoding so Czech diacritics compile correctly."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The practical steps recommend preparing 'strukturální' questions and 2–3 follow‑ups, but no concrete examples are given. Readers (lecturers/assistants) could benefit from 1–2 short discipline‑agnostic examples or one example per common field (e.g., programming, math, lab work).",
+      "required_fix": "Add 2–4 brief example main questions with follow‑ups (label them as examples) to illustrate what a 'strukturální' question and its follow‑ups look like in practice."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Příprava otázek a scénářů paragraph",
+      "edit_instruction": "Add 2–3 short example 'strukturální' questions with 1–2 sample live follow‑ups. Example (math): 'Vysvětlete krok za krokem řešení rovnice X; proč tento krok? Co se stane, když parametr a>0?' Example (programování): 'Popište algoritmus, který jste zvolili; které složitostní úskalí jste zvažovali? Jak byste ho upravili pro velká data?' Mark these as examples."
+    },
+    {
+      "target": "Požadavek na procesní artefakty paragraph",
+      "edit_instruction": "Replace 'szkice' with 'náčrtky' (or 'skici') and add brief allowed file types/formats (e.g., photos of paper, OneNote pages, PDF scans). Also add a short sentence reminding to minimize collected personal data and follow local GDPR rules when requesting artifacts (or reference the GDPR/ethics chapter)."
+    },
+    {
+      "target": "Doporučení pro praxi a logistiku — spot‑check sentence",
+      "edit_instruction": "Make the spot‑check guidance consistent with earlier material: explicitly suggest an illustrative range 'např. 5–10 %' (or state 'viz sekce o spot‑checku' if you prefer to cross‑reference) and remind readers to adapt the exact scope to local policies."
+    },
+    {
+      "target": "Citations",
+      "edit_instruction": "Ensure the citation key 'kb_ai_101_tipu_pdf_04e4a115_page_8_1' is present in the bibliography and remove duplicated identical inline citations when not necessary. If the two citations refer to different pages, adjust keys to point to the correct pages."
+    },
+    {
+      "target": "LaTeX punctuation and encoding",
+      "edit_instruction": "Add a note (or implement) to use UTF‑8 input encoding in the document preamble (\\usepackage[utf8]{inputenc}) and replace nonstandard hyphens with LaTeX‑friendly constructs (e.g. use '-' or '\\textendash{}' or 'warm\\mbox{-}up') to ensure reliable compilation."
+    }
+  ],
+  "retrieval_queries": [
+    "Confirm the recommended illustrative spot‑check percentage in the KB (is 5–10% explicitly recommended and where?)",
+    "Provide the exact bibliographic entry for 'AI - 101 tipu.pdf' used as cite_key kb_ai_101_tipu_pdf_04e4a115_page_8_1 to ensure correct bibliography formatting and page reference."
+  ]
+}

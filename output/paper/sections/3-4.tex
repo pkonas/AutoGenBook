@@ -1,0 +1,26 @@
+This section describes the per-node evidence retrieval pipeline and evidence-aware prompt templates used to instruct section-level generators.
+Design goals: (i) surface high-relevance spans per section node, (ii) present compact, machine-readable evidence that generators can cite, (iii) force explicit handling of absent evidence via a controlled failure token.
+We mark general observations about retrieval–generation interactions as "general background knowledge" \cite{web_huo_2023_retrieving_supporting_evidence_for_generative_qu}.
+
+Pipeline overview:
+Inputs: node meta (id, heading, role, target length), local context from neighboring nodes, and optional user seeds; output: ranked span pointers (span-level granularity).
+Retrieval is treated as pointers for downstream verification rather than authoritative truth \cite{web_huo_2023_retrieving_supporting_evidence_for_generative_qu}.
+Query construction combines heading+role, neighbor summaries, claim templates, and user keywords into 1–3 sentence prompts; low-utility facets may need augmentation \cite{web_macavaney_2018_overcoming_low_utility_facets_for_complex_answer}.
+Sources: heterogeneous collections (internal notes, preprocessed PDFs, optional structured metadata); all content indexed into spans with provenance.
+Ranking and filtering: score, deduplicate, enforce minimal provenance; return top-K or an explicit empty-result marker.
+
+Retrieved-item representation: compact JSON-like records with required fields source_id, span_id, excerpt (truncated), location, source_type, and optional score.
+Example (illustrative):
+\begin{verbatim}
+{"source_id":"N123","span_id":"N123.s5",
+ "excerpt":"Prior work shows that technique X reduces error in task Y.",
+ "location":{"page":4},"source_type":"pdf","score":0.87}
+\end{verbatim}
+
+Evidence-aware prompts combine: an instruction block (required output schema and failure tokens), the retrieved-item list, and a constrained-response directive enforcing citation and failure handling.
+Citation format: canonical pointer [SRC:source_id|span:span_id] and a structured citations[] array; claims must include at least one provenance pointer or "no-evidence".
+Failure tokens: "no-evidence" requires a 1–2 sentence rationale; "uncertain" allows citing spans with confidence labels; tokens are validated automatically \cite{web_wang_2025_derag_black_box_adversarial_attacks_on_multiple_}.
+
+Post-generation checks: JSON schema conformance, pointer-to-retrieved-item matching, non-empty rationales for "no-evidence"; fallback heuristics (broaden queries, expand sources, or produce conservative text with "no-evidence") reduce hallucination risk.
+Limitations: reliability depends on corpus coverage and indexing; sparse coverage yields more "no-evidence" and conservative prose \cite{web_macavaney_2018_overcoming_low_utility_facets_for_complex_answer}.
+Summary: span-level, machine-readable evidence is injected into prompts; generators must attach provenance or explicit failure tags, enabling auditability and downstream verification \cite{web_huo_2023_retrieving_supporting_evidence_for_generative_qu}.

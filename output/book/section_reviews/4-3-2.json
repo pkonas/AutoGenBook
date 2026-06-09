@@ -1,0 +1,59 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The LaTeX text contains many inline markers \"(general background knowledge)\" after sentences. While these are fine as author notes, they may be interpreted as placeholders for citations. Some sentences make actionable recommendations (e.g. require verification of AI outputs) that, if presented as factual claims, should either be supported by a KB excerpt or kept explicitly as pedagogical recommendations.",
+      "required_fix": "Remove or relocate the inline \"(general background knowledge)\" tags (e.g. move them to a single note paragraph or metadata). Where a non-trivial factual claim is presented (not an instructional recommendation), add a supporting footnote to an available KB excerpt; otherwise keep as explicit pedagogical guidance."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section repeats the Minecraft Education recommendation twice (in the 'před hodinou' checklist and in the 'Poznámka k volbě nástrojů'). This creates redundancy and slightly bloats the section.",
+      "required_fix": "Consolidate the Minecraft Education reference: keep one concise mention in the toolkit/note paragraph and in the checklist refer to that note (or add a single footnote reference) to avoid duplication."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The fragment lacks a \\\\section / \\\\subsection command (it begins with a comment and bolded heading). Also the text includes straight Unicode curly quotes which may require proper inputenc/utf8 handling in some build setups.",
+      "required_fix": "Wrap the title with an explicit LaTeX sectioning command consistent with the document (e.g. \\section{Role učitele a pravidla moderace} or \\subsection{...} depending on hierarchy). Ensure the document encoding supports the used quotes or replace them with LaTeX-safe quotation marks (`` '' or \\glqq / \\grqq)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The guidance is pedagogically sound but fairly high-level; teachers may benefit from a very short, concrete verification checklist (concrete checks to apply when AI gives an answer) and one example of a brief intervention script to use when an AI answer is incorrect.",
+      "required_fix": "Add a concise 3‑point verification checklist under 'Během hodiny' (e.g. presence of a cited source, quick cross-check against a trusted resource, plausibility check) and a one‑sentence example intervention script. Keep these as pedagogical recommendations (no new factual claims)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Stručné vymezení role (first paragraph)",
+      "edit_instruction": "Replace the inline parenthetical '(general background knowledge)' with a short footnote at the end of the paragraph stating: 'Tento odstavec představuje pedagogické doporučení; viz obecné principy uvedené v oddílu 4.3 a kapitole 1 příručky.'"
+    },
+    {
+      "target": "Během hodiny — moderace a intervence",
+      "edit_instruction": "Insert a short concrete verification checklist (3 bullets) after the first item, with suggested wording in Czech, e.g.: \\begin{itemize} \\item Zda odpověď uvádí zdroje nebo odkazy (pokud jde o faktické tvrzení). \\item Krátké cross‑check: porovnejte klíčové tvrzení s jedním důvěryhodným zdrojem (učebnice, oficiální web). \\item Jednoduchá plausibility check: zkontrolujte konzistenci čísel/časových údajů a logiky vysvětlení. \\end{itemize} Mark these as pedagogical recommendations (no external citation required)."
+    },
+    {
+      "target": "Jazyk / terminologie",
+      "edit_instruction": "Replace the phrase 'možnost nesprávných (halucinačních) odpovědí' with 'možnost nesprávných (halucinací) odpovědí' for more common Czech usage. (Keep as editorial change.)"
+    },
+    {
+      "target": "LaTeX heading",
+      "edit_instruction": "Add an explicit sectioning command consistent with the surrounding document, e.g. replace the initial comment and bold title with: \\subsection{Role učitele a pravidla moderace} (or \\section if appropriate)."
+    },
+    {
+      "target": "Poznámka k volbě nástrojů",
+      "edit_instruction": "Consolidate the Minecraft Education references: keep the detailed explanatory paragraph here with the footnote to kb_ai_101_tipu_pdf_page_15_2, and in the checklist item refer to 'viz Poznámka k volbě nástrojů' instead of repeating the full explanation."
+    },
+    {
+      "target": "Praktický šablonový text",
+      "edit_instruction": "Optionally add one short example of how a student should document AI use on submission (one line example): 'Ve své práci jsem použil(a) AI pro návrh osnovy (část A); ověřil(a) jsem tvrzení X v [zdroj] a upravil(a) jsem formulaci takto: ...' Mark this as an optional pedagogical template."
+    }
+  ],
+  "retrieval_queries": [
+    "checklist ověřování výstupů AI pedagogické doporučení kb_ai_101_tipu",
+    "kb_ai_101_tipu page 8 teacher final grading 'finální hodnocení provádí učitel' confirmation"
+  ]
+}

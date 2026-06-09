@@ -1,0 +1,15 @@
+This section defines evaluation metrics, the annotation schema, and adjudication rules to ensure reproducibility (precise metric defs, label manual, and combining automated retrieval with manual review) \cite{web_duru_an_2022_global_contentious_politics_database_glocon_anno,web_miok_2020_bayesian_methods_for_semi_supervised_text_annota,web_yao_2023_readme_bridging_medical_jargon_and_lay_understan}.
+
+Metrics: we report citation coverage, hallucination rate, and blind reviewer scores. For extracted claims C,
+\[
+\mathrm{coverage}=\frac{\big|\{c\in C:\text{supporting sources}(c)\neq\varnothing\}\big|}{|C|},
+\qquad
+\mathrm{hallucination\_rate}=\frac{\big|\{c\in C:\text{label}(c)=\text{``Hallucinated''}\}\big|}{|C|}.
+\]
+Reviewer score: independent reviewers rate factuality, coherence, and citation quality (1–5); we report mean±SD and median/IQR.
+
+Annotation schema (per-claim): JSON fields \texttt{claim\_id}, \texttt{section\_id}, \texttt{span}, \texttt{label}$\in\{Supported,Unsupported,Contradicted,NotVerifiable,Hallucinated\\}$, \texttt{supporting\_sources}, \texttt{annotator\_id}, \texttt{notes}.
+
+Procedure: two independent annotators; senior annotator adjudicates disagreements; pre-adjudication agreement (e.g., Cohen's kappa) is reported. Claims are proposed by automated heuristics (segmentation + syntactic/lexical filters) and may be edited/split by annotators; automated retrieval supplies candidate source spans which annotators accept/reject/add \cite{web_yao_2023_readme_bridging_medical_jargon_and_lay_understan}.
+
+Reporting: show sample sizes, mean±SD (and median/IQR for reviewer scores) and per-domain breakdowns. Limitations: metrics depend on the evidence pool and annotator judgments; we accompany results with retrieval-quality diagnostics and inter-annotator statistics.

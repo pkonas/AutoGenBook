@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Věta „v promptu specifikujte očekávanou délku vysvětlení u otevřených odpovědí a případně požádejte o označení úrovně obtížnosti nebo klíčových slov pro automatické značkování při importu do LMS či dalších nástrojů.\" není explicitně podpořena poskytnutými RETRIEVED EXCERPTS. Zdrojová ukázka (kb_ai_101_tipu_pdf_page_21_1) dokládá možnost změny formátu výstupu a konverzi do tabulky, ale nekonstatuje přímo doporučení o specifikaci délky vysvětlení, úrovně obtížnosti nebo klíčových slov pro tagování při importu do LMS.",
+      "required_fix": "Buď tuto větu odstranit, nebo ji přepsat a jasně označit jako „general background knowledge / doporučení“ (tj. netvrdit, že to dokument explicitně popisuje). Pokud chce redaktor zachovat doporučení, přidat poznámku, že jde o obecné doporučení pro práci s prompty (ozn., např. „general background knowledge: ...\") a/nebo doplnit konkrétní citaci, pokud je k dispozici."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "Sekce popisuje, jak nechat Copilota vygenerovat kompletní písemku, ale výslovně neuvádí důležité pedagogické a provozní upozornění přítomná v předchozích částech příručky (ověření správnosti výstupů, transparentnost vůči studentům, pravidla akademické integrity, fail‑safe/eskalační postupy). To je v rozporu s dřívějšími částmi manuálu, které tyto body doporučují (viz context memory excerpt – 'Provoz, transparentnost a etika (asistent)' a 'Ověřování výstupů, etika a akademická integrita').",
+      "required_fix": "Doplnit krátké, jasné varování/instrukci: 1) vždy lidské ověření vygenerovaných otázek a klíče (kontrola faktické správnosti a vhodnosti pro konkrétní třídu), 2) informace o transparentnosti použití AI v sylabu a komunikaci se studenty, 3) doporučení vést záznam chyb/nevhodných odpovědí. Tyto doplňky je možné podpořit odkazem na relevantní části příručky (sekce o provozu/transparentnosti a o ověřování výstupů)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Nesoulad v terminologii: v textu se používá označení typů otázek jako 'ABC' v kroku 1, zatímco v citech a v KB se často používá 'ABCD' (page 21).",
+      "required_fix": "Ujednotit terminologii (např. použít 'ABCD' nebo 'více možností / MCQ') a případně krátce vysvětlit, že lze mít 3–4 možnosti u MCQ (pokud je to třeba)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX blok v zásadě vypadá korektně, ale doporučení/varování by mělo být buď explicitně zahrnuto do textu nebo jako poznámka pod čarou, aby při tisku/pdf exportu bylo jasné, že výstupy vyžadují lidské ověření (viz pedagogické upozornění výše).",
+      "required_fix": "Přidat do LaTeX těla krátkou poznámku (např. \\\\footnote) s upozorněním na ověření výstupů a transparentnost. Pokud nechcete měnit hlavní text, aspoň přidat jednu poznámku pod čarou s odkazem na relevantní sekce příručky."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Krok 3 zmiňuje import do Kahoot či úpravy v Excelu, ale chybí konkrétní ukázková formulace příkazu, která v KB existuje jako příklad ('Můžeš mi tento test předělat do formátu tabulky... Označ správné odpovědi tučně.').",
+      "required_fix": "Doporučuji přidat tu větu jako přímý ukázkový prompt (citovaný z kb_ai_101_tipu_pdf_page_21_1), aby uživatel mohl přímo zkopírovat/použít příkaz pro reformatování do tabulky/.csv."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Krátké praktické tipy paragraph",
+      "edit_instruction": "Nahraďte větu: \"Krátké praktické tipy: v promptu specifikujte očekávanou délku vysvětlení ...\" verzí označenou jako doporučení obecné povahy, např.: \"(General background knowledge) Můžete také v promptu specifikovat požadovanou délku vysvětlení nebo úroveň obtížnosti; tato nastavení jsou obecné tipy pro práci s prompty a nemusí být explicitně popsaná v ukázce Copilota v KB.\""
+    },
+    {
+      "target": "Za konec sekce (po vzoru promptu)",
+      "edit_instruction": "Přidejte krátké pedagogické varování (1–2 věty) a uveďte odkazy na interní sekce příručky: například \"Upozornění: Vždy lidsky ověřte vygenerovaný test a klíč odpovědí před nasazením; zabezpečte transparentnost použití AI v sylabu a vedte záznam chyb/nevhodných odpovědí.\" (Podpořeno sekcemi příručky o provozu/transparentnosti a ověřování výstupů – viz context memory / previous sections excerpt.) Doporučeno vložit jako samostatný odstavec nebo poznámku pod čarou."
+    },
+    {
+      "target": "Krok 1 (typy otázek)",
+      "edit_instruction": "Upravte 'ABC' na 'ABCD (MCQ)' nebo obecně 'více možností (MCQ, např. 4 možnosti—ABCD)', aby to bylo konzistentní s terminologií v kb_ai_101_tipu_pdf_page_21_1."
+    },
+    {
+      "target": "Krok 3 (reformat do tabulky)",
+      "edit_instruction": "Doplňte konkrétní ukázkovou formulaci z KB jako použitelné SVOJE promptu, např.: \"Můžeš mi tento test předělat do formátu tabulky, kde v prvním sloupci budou otázky a v dalších sloupcích možné odpovědi. Označ správné odpovědi tučně.\" (citace: kb_ai_101_tipu_pdf_page_21_1)."
+    },
+    {
+      "target": "LaTeX footnote / poznámka",
+      "edit_instruction": "Přidejte footnote v LaTeXu s krátkou poznámkou: 'Všechny automaticky vygenerované položky musí být před použitím v hodnocení manuálně ověřeny. Viz sekce o provozu, transparentnosti a ověřování výstupů v příručce.'"
+    }
+  ],
+  "retrieval_queries": [
+    "Copilot Forms specifikovat délku vysvětlení prompt 'length of explanation' site:kb 'Copilot' 'Forms' 'explanation length'",
+    "Copilot Forms specify difficulty level or keywords for tagging LMS import kb 'Copilot' 'Forms' 'difficulty' 'tag' 'keywords'",
+    "kb_ai_101_tipu 'ověřování výstupů' 'Copilot' 'Forms' ověření testů",
+    "kb_ai_101_tipu page 21 full chunk for exact phrasing about table conversion and prompts"
+  ]
+}

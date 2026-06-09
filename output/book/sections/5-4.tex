@@ -1,0 +1,77 @@
+Tato sekce shrnuje praktické rubriky a postupy pro transparentní hodnocení v prostředí s možností použití generativní AI. Cílem je hodnotit nejen konečný produkt, ale i proces, ověřování výsledků a reflexi použití AI.
+
+Principy a požadavky
+\begin{itemize}
+  \item Každé zadání s možností použití AI musí obsahovat pole „Deklarace použití AI“ s povinnými položkami (viz níže).
+  \item Hodnocení zahrnuje procesní artefakty (milníky, drafty, logy) vedle výsledku; u vybraných výstupů požadujte stručnou verifikaci.
+  \item Formativní podpora nástroji (např. Copilot) může učiteli šetřit čas, vždy však vyžadujte lidské přezkoumání \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.
+\end{itemize}
+
+Povinné pole pro deklaraci AI (šablona)
+\begin{enumerate}
+  \item Použité nástroje a verze.
+  \item Prompt nebo export konverzace.
+  \item Co bylo převzato a co upraveno.
+  \item Jak bylo ověřeno (stručně).
+  \item Reflexe: 2–3 věty o vlivu AI na postup a výsledek.
+\end{enumerate}
+
+Rubrika — klíčové položky
+\begin{description}
+  \item[Proces a dokumentace] Kvalita milníků, draftů a logů; sledovatelnost postupu.
+  \item[Deklarace AI a verifikace] Kompletní deklarace + stručné doklady ověření.
+  \item[Technická kvalita] Správnost řešení, argumentace, metodika.
+  \item[Reflexe a etika] Sebereflexe role AI, etické úvahy.
+  \item[Originalita a aplikace] Originalita a lokální uplatnění poznatků.
+\end{description}
+
+Návrh vah (ilustrační)
+\begin{itemize}
+  \item Proces a dokumentace: 25\,\%
+  \item Deklarace AI a verifikace: 10\,\%
+  \item Technická kvalita: 45\,\%
+  \item Reflexe a etika: 10\,\%
+  \item Originalita a aplikace: 10\,\%
+\end{itemize}
+
+Milestone‑based hodnocení — implementační vzor
+\begin{enumerate}
+  \item Definujte 3–5 milníků s konkrétními výstupy (návrh, prototyp, testy, závěrečná zpráva + reflexe).
+  \item U každého milníku určete váhu a požadované artefakty (draft, log, export konverzace).
+  \item Požadujte pro každý milník „Deklaraci AI“ a krátkou verifikaci (testy, zdroje, porovnání).
+  \item Zaveďte formativní kontrolní body s komentáři učitele/TA a provádějte náhodné spot‑checky (např. 5–10\,\%).
+\end{enumerate}
+
+Příklad rozložení milníků (ilustrativně)
+\begin{itemize}
+  \item A: Návrh a plán verifikace (10\,\%).
+  \item B: Prototyp a logy použití (30\,\%).
+  \item C: Testy a verifikace výsledků (30\,\%).
+  \item D: Závěrečná zpráva + deklarace AI + reflexe (30\,\%).
+\end{itemize}
+
+Praktická šablona pro formativní zpětnou vazbu (kopírovatelný prompt)
+\begin{verbatim}
+Jsi asistent pro zpětnou vazbu. Analyzuj studentský postup a:
+1) vypiš max. 3 konkrétní chyby nebo nejasnosti;
+2) pro každou chybu navrhni krátké cvičení nebo kontrolní otázku (max. 2 věty);
+3) pokud chybí krok, požádej o doplnění.
+Označ tagy: [Chyba], [Cvičení], [Požadavek].
+\end{verbatim}
+
+Kontrolní seznam pro zavedení rubriky
+\begin{enumerate}
+  \item Do sylabu přidejte pole „Deklarace AI“ a očekávání ke každému milníku.
+  \item Připravte rubriku pro proces, deklaraci AI a verifikaci.
+  \item Pilotujte postup na malé skupině a sbírejte zpětnou vazbu od studentů i TA.
+  \item Stanovte mechanismus spot‑checků a eskalace podezření na neférové použití.
+  \item Dokumentujte pilot a upravte rubriku před plošným nasazením.
+\end{enumerate}
+
+Krátké doporučení k transparentnosti
+\begin{itemize}
+  \item Studentům jasně sdělte, kde je AI povolena a jak bude její použití hodnoceno.
+  \item Povinné deklarace a dokumentace promptů/konverzací zvyšují ověřitelnost a podporují zodpovědné používání nástrojů.
+\end{itemize}
+
+Poznámka: Hromadné generování formulací formativní zpětné vazby nástroji typu Copilot může ušetřit čas; vždy však vyžadujte lidskou validaci generovaných komentářů \cite{kb_ai_101_tipu_pdf_04e4a115_page_21_2}.

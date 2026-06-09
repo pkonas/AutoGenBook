@@ -1,0 +1,473 @@
+{
+  "terms": {
+    "Personalizace": {
+      "definition": "Přizpůsobení úloh a nápovědy studentům jako jeden z klíčových přínosů AI ve výuce (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').",
+      "first_seen_node": "1"
+    },
+    "Škálovatelnost": {
+      "definition": "Možnost automatizace opakovaných úkonů za účelem zvýšení efektivity výuky (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').",
+      "first_seen_node": "1"
+    },
+    "Rychlejší tvorba materiálů": {
+      "definition": "Použití generátorů a šablon k urychlení přípravy osnov, příkladů a testů; očekávané přínosy mohou zahrnovat i snadnou adaptaci úrovní a generování variant testů (rozšíření podle sekce 'Generování výukových materiálů a testových otázek').",
+      "first_seen_node": "2-4"
+    },
+    "Podpora hodnocení": {
+      "definition": "Asistence u krátkých odpovědí a testů s cílem ušetřit čas hodnotitelů (z textu sekce 'Obecné podkladové informace — klíčové přínosy AI ve výuce').",
+      "first_seen_node": "1"
+    },
+    "Malý pilot": {
+      "definition": "Pilotní nasazení s jasným cílem, úzkou oblastí a malou skupinou 5–30 studentů, trvající obvykle 4–8 týdnů, s průběžným sběrem dat a zpětné vazby; praktická šablona časového plánu uvádí detailní 8‑týdenní rozvrh (viz node 2-6). Při návrhu malého pilotu zahrnout také explicitně definované role a plán komunikace se studenty (clarification from node 4).",
+      "first_seen_node": "4"
+    },
+    "Checklist pro posouzení vhodnosti nástroje": {
+      "definition": "Krátký seznam kritérií: vstupy/výstupy odpovídají výukovým cílům a lze je lidsky auditovat; splňuje ochranu osobních údajů a umožňuje verzování pro audit; je uživatelsky přívětivý (školení <= 2 hod) (z textu sekce 'Rychlý checklist pro posouzení vhodnosti nástroje').",
+      "first_seen_node": "1"
+    },
+    "Pravidla pro ověřování výstupů a akademickou integritu": {
+      "definition": "Soubor doporučení: ručně verifikovat náhodný vzorek generovaných odpovědí (zvážit stratifikaci podle obtížnosti); požadovat zdroje nebo krátké vysvětlení od AI; transparentně informovat studenty o použití AI; kombinovat detekci plagiátů s procesními stopami a dokumentovat postupy pro audit (z textu sekce 'Základní pravidla pro ověřování výstupů a akademickou integritu').",
+      "first_seen_node": "1"
+    },
+    "Krátké doporučení pro první týden nasazení": {
+      "definition": "Konkrétní kroky pro počáteční týden: Den 0 informovat studenty a získat souhlas; Den 1–7 školení (30–60 min) a zkušební úkol; po týdnu vyhodnotit data a upravit nastavení (z textu sekce 'Krátké doporučení pro první týden nasazení').",
+      "first_seen_node": "1"
+    },
+    "Adaptivní úlohy": {
+      "definition": "Úlohy, které upravují obtížnost, počet nebo typ zpětné vazby podle výkonu studenta (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+      "first_seen_node": "2-1"
+    },
+    "Scénář A — doplňkové cvičení (pravidla)": {
+      "definition": "Cíl: doplnit cvičení podle diagnostiky; příklad pravidel v textu: <80% → 3 cvičení; <50% → přidat vysvětlení. Doporučené metriky: měřte čas, zlepšení skóre a míru dokončení. Doporučený pilot: 5--30 studentů, 4--8 týdnů (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+      "first_seen_node": "2-1"
+    },
+    "Scénář B — personalizované hinty (pravidla + jednoduché statistiky)": {
+      "definition": "Triggery založené na čase, neúspěšných pokusech nebo chybovém skóru; doporučené metriky: počet hintů, změna času do dokončení a spokojenost (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+      "first_seen_node": "2-1"
+    },
+    "Scénář C — adaptivní cesta (ML)": {
+      "definition": "Použití ML k predikci rizika neúspěchu a přesměrování studentů na remedial obsah; doporučený postup: začít retrospektivní analýzou, provést A/B pilot s validací; tipy zahrnují jasné metriky, začít s pravidly, transparentnost a ruční audit výstupů (z textu sekce 'Adaptivní úlohy v MOOC a LMS').",
+      "first_seen_node": "2-1"
+    },
+    "Automatizované hodnocení krátkých odpovědí": {
+      "definition": "Sekce uvádí obecná doporučení (označeno jako \"general background knowledge\"): požadavky před nasazením (jasně definovaná rubrika; anonymizovaná testovací/validační sada s ručními hodnoceními; souhlas a ochrana osobních údajů; technické rozhraní pro export/import a protokolování); metriky (shoda s lidským hodnocením, konzistence a užitnost pro učitele/studenty); postup nasazení (stanovte cíle a rubriku, připravte validační vzorky, vyberte nástroj a předzpracování, spusťte pilot s lidskou kontrolou, vyhodnoťte systematické odchylky a dokumentujte pravidla pro audit); validace/pilot (porovnejte distribuce skóre, analyzujte případy rozdílů, zvažte kombinovaný workflow - automatika jako návrh, finále člověk, informujte studenty; uchovávejte záznamy rozhodnutí pro pozdější zlepšování).",
+      "first_seen_node": "2-2"
+    },
+    "Požadavky před nasazením (automatizované hodnocení krátkých odpovědí)": {
+      "definition": "Jasně definovaná rubrika pro krátké odpovědi; anonymizovaná testovací/validační sada s ručními hodnoceními; souhlas a ochrana osobních údajů; technické rozhraní pro export/import a protokolování.",
+      "first_seen_node": "2-2"
+    },
+    "Metriky pro automatizované hodnocení krátkých odpovědí": {
+      "definition": "Shoda s lidským hodnocením, konzistence a užitnost pro učitele/studenty (jak uvádí sekce jako doporučené metriky).",
+      "first_seen_node": "2-2"
+    },
+    "Postup nasazení a validace (automatizované hodnocení krátkých odpovědí)": {
+      "definition": "Postup: stanovte cíle a rubriku, připravte validační vzorky, vyberte nástroj a předzpracování, spusťte pilot s lidskou kontrolou, vyhodnoťte systematické odchylky a dokumentujte pravidla pro audit; při validaci porovnejte distribuce skóre, analyzujte případy rozdílů a zvažte kombinovaný workflow (automatika jako návrh, finále člověk); informujte studenty a uchovávejte záznamy rozhodnutí.",
+      "first_seen_node": "2-2"
+    },
+    "Automatizované hodnocení kódu": {
+      "definition": "Sekce popisuje cíle, klíčové komponenty, metriky hodnocení a rychlý checklist pro nasazení automatického vyhodnocení programovacích úloh v technických kurzech (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Cíle automatizovaného hodnocení kódu": {
+      "definition": "Rychlá verifikace funkčnosti, konzistentní kontrola chyb a okamžitá zpětná vazba studentům, přičemž učitelé se mohou soustředit na design a komplikovanější hodnocení (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Klíčové komponenty hodnocení kódu": {
+      "definition": "Testovací sada (unit/integrace, chybové stavy), statická analýza, metriky kvality a lidský dohled (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Návrh nasazení (kód)": {
+      "definition": "Jasná rubrika (co automaticky vs. ručně), validační anonymní vzorek, workflow odevzdání → automatické testy → učitelova kontrola a malý pilot (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Metriky a hodnocení systému (kód)": {
+      "definition": "Shoda s ručním hodnocením, flaky tests, pokrytí a míra nutného lidského zásahu jako doporučené metriky pro vyhodnocení kvality automatizovaného hodnocení kódu (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Tipy pro nasazení (kód)": {
+      "definition": "Používat automatiku pro repetitivní úlohy, dokumentovat hranice automatizace, řešit fluktuaci testů a zvážit nástroje pro detekci plagiátorství (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Rychlý checklist pro automatizované hodnocení kódu": {
+      "definition": "Krátký seznam položek: rubrika, testy/lintery, validační vzorek, komunikace se studenty, plán auditu (z textu sekce 'Automatizované hodnocení kódu v technických kurzech').",
+      "first_seen_node": "2-3"
+    },
+    "Generování výukových materiálů a testových otázek": {
+      "definition": "Sekce popisuje použití AI pro tvorbu učebních textů, shrnutí/cheat sheetů, ilustrovaných příkladů a testových položek; upozorňuje, že doporučení jsou obecná (\"general background knowledge\") a musí být ověřena lokálním pilotem.",
+      "first_seen_node": "2-4"
+    },
+    "Možné výstupy (generování materiálů)": {
+      "definition": "Výstupy zahrnují učební texty, shrnutí/cheat sheety, ilustrované příklady a testové položky (z textu sekce 'Generování výukových materiálů a testových otázek').",
+      "first_seen_node": "2-4"
+    },
+    "Očekávané přínosy (generování materiálů)": {
+      "definition": "Očekávané přínosy zmíněné v sekci: rychlejší tvorba materiálů, snadná adaptace úrovní a generování variant testů.",
+      "first_seen_node": "2-4"
+    },
+    "Hlavní rizika a kontrolní body (generování materiálů)": {
+      "definition": "Uvedená rizika a kontrolní body: faktické chyby, opomenutí kontextu nebo bias, a nesoulad s učebními cíli; doporučuje ověřit fakta, pedagogické sladění, jazyk a autorská práva.",
+      "first_seen_node": "2-4"
+    },
+    "Pilotní postup pro generování materiálů": {
+      "definition": "Doporučený malý pilot: používat reference, generovat 2–3 varianty, revidovat a otestovat s vybranými studenty; součástí jsou ukázkové prompty (200slovné shrnutí, krok‑za‑krokem příklad, MCQ).",
+      "first_seen_node": "2-4"
+    },
+    "Ukázkové prompty (sekce)": {
+      "definition": "Sekce uvádí přenosné šablony promptů (lesson plan, zadání úlohy, cvičení s variantami, řešení krok‑za‑krokem, MCQ a rubrika) používající zarážky [OBOR],[ÚROVEŇ],[TÉMA]; doporučuje omezit délku výstupu. Doplněno o použití strukturovaných promptů pro hodnocení (včetně logování promptu v auditním záznamu) a doporučení zahájit pilot s ruční kontrolou (10–20 kontrol) před plným nasazením; dále odkazuje na potřebu KPI a pravidel eskalace (from section only).",
+      "first_seen_node": "3-3"
+    },
+    "Chatboti pro studentské konzultace a tutorování": {
+      "definition": "Nasazení chatbotů začínat omezeným pilotem se zaměřením na jasný rozsah (např. FAQ, navigace k materiálům nebo orientační tutorování); doporučené role: FAQ/logistika, pedagogický tutor, krokový asistent a jasná eskalace na člověka. Měření zahrnuje kvantitativní metriky (počet dotazů, doba odpovědi, procento eskalací) a kvalitativní ukazatele (audit odpovědí, spokojenost uživatelů). Důraz na transparentnost, ochranu osobních údajů a definovanou odpovědnost. Doporučený pilotní postup: definice cíle, sběr znalostí, volba technologie, nastavení metrik, školení dohledu a vyhodnocení — začít malé s lidským dohledem a iterovat podle výsledků. (from section only)",
+      "first_seen_node": "2-5"
+    },
+    "Role chatbotů (FAQ/logistika, pedagogický tutor, krokový asistent, eskalace)": {
+      "definition": "Specifikace typických rolí chatbota: FAQ/logistika (orientace a administrativní dotazy), pedagogický tutor (vysvětlení konceptů), krokový asistent (průvodce postupy) a mechanismus jasné eskalace na lidského člena týmu. (from section only)",
+      "first_seen_node": "2-5"
+    },
+    "Metriky pro chatbota": {
+      "definition": "Doporučené kvantitativní metriky: počet dotazů, doba odpovědi, procento eskalací; kvalitativní ukazatele: audit odpovědí a spokojenost uživatelů. (from section only)",
+      "first_seen_node": "2-5"
+    },
+    "Doporučený pilotní postup (chatbot)": {
+      "definition": "Kroky pro pilot: definice cíle, sběr znalostí, volba technologie, nastavení metrik, školení dohledu a vyhodnocení; zásada: začínejte malé s lidským dohledem a iterujte podle zjištěných výsledků. (from section only)",
+      "first_seen_node": "2-5"
+    },
+    "Bezpečnostní a etické požadavky pro chatbota": {
+      "definition": "Požadavky uvedené v sekci: transparentnost použití chatbota vůči uživatelům, ochrana osobních údajů a jasně definovaná odpovědnost za obsah a eskalace. (from section only)",
+      "first_seen_node": "2-5"
+    },
+    "Praktický pilot": {
+      "definition": "Obecné doporučení pro spuštění malého pilotu: začněte malé s jasným cílem; vyberte 2–4 měřitelné KPI; vymezte rozsah (kurzy/studenti, typ úloh, délka); nastavte technické i organizační kroky s jasnými odpovědnostmi. (from section only)",
+      "first_seen_node": "2-6"
+    },
+    "Šablona časového plánu (pilot)": {
+      "definition": "Příklad časového plánu pilotu (8 týdnů): Týden 0 — definice cíle, metriky, tým; Týdny 1–2 — technická příprava a naplnění dat; Týdny 3–6 — běh pilotu a průběžné vyhodnocení; Týden 7 — sběr zpětné vazby; Týden 8 — rozhodnutí o rozšíření nebo ukončení. (from section only)",
+      "first_seen_node": "2-6"
+    },
+    "Rychlý checklist a role pro pilot": {
+      "definition": "Krátký checklist rizik a kroků: zajistit ochranu dat a získání souhlasů, provádět manuální audit kvality výstupů, monitorovat zátěž a možné zaujatosti, zajistit transparentnost a mít plán eskalace. Doporučené role: pedagogický garant, IT, dozor kvality, koordinátor pilotu a zástupce studentů. (from section only)",
+      "first_seen_node": "2-6"
+    },
+    "LMS pluginy": {
+      "definition": "Kategorie nástrojů pro automatizaci distribuce učiva, sběr odpovědí a rychlé nasazení; doporučení: testovat v sandboxu (from section only).",
+      "first_seen_node": "3-1"
+    },
+    "Chatboty (praktické nasazení)": {
+      "definition": "Kategorie chatbotů pro FAQ, konzultace a měření užitečnosti (počet dotazů, doba odpovědi, procento eskalací, audit odpovědí a spokojenost) (from section only).",
+      "first_seen_node": "3-1"
+    },
+    "Generátory otázek": {
+      "definition": "Nástroje pro automatické generování testových položek; doporučení z sekce: provést ruční kontrolu 10–20 položek před použitím (from section only).",
+      "first_seen_node": "3-1"
+    },
+    "LLM-assisted grading": {
+      "definition": "Použití LLM pro předhodnocení odpovědí s následným manuálním auditem a definovanými pravidly eskalace (from section only).",
+      "first_seen_node": "3-1"
+    },
+    "Skripty/webhooky/CSV": {
+      "definition": "Lehké integrační skripty a formáty pro rychlé propojení nástrojů (webhooky, import/export CSV) pro rychlou integraci do stávajících procesů; zahrnuje také API skript pro automatizaci zadání a integrace GitHub Classroom s CI pro spouštění testů, sběr artefaktů a zasílání výsledků do gradebooku; doporučeno ověřit v sandboxu s 1–3 uživateli a logovat chyby s postupy pro manuální zásah. (clarification from node 3-4)",
+      "first_seen_node": "3-4"
+    },
+    "Rychlý checklist do 60 minut": {
+      "definition": "Krátký postup pro rychlé vyzkoušení nástroje: 1) definujte cíl pilotu a 2–4 KPI; 2) vytvořte sandbox a udělte oprávnění; 3) nahrajte malý vzorek obsahu, proveďte kontrolní běh s 1–3 uživateli a sledujte metriky; 4) naplánujte eskalaci a určete odpovědnou osobu za manuální audit (from section only).",
+      "first_seen_node": "3-1"
+    },
+    "Šablony promptů a vzory pro přípravu lekcí a úloh": {
+      "definition": "Přenosné prompty pro učitele s hranatými zarážkami [OBOR], [ÚROVEŇ], [TÉMA] — zahrnují lesson plan, zadání úlohy, cvičení s variantami, řešení krok‑za‑krokem, MCQ a rubriku; určeno k vložení do LLM nebo skriptu, s doporučením upravit zarážky a explicitně omezit délku výstupu pro snadnou kontrolu; pro varianty přidat instrukci 'make each variant unique...'; pro chatboty zahrnout metriky a plán auditu (odkazuje na postupy z 2-5); před nasazením provést manuální kontrolu, stanovit KPI a pravidla eskalace podle pilotního checklistu a dokumentovat rozhodnutí v rubrice (odkazuje na 2-6). (from section only)",
+      "first_seen_node": "3-2"
+    },
+    "Rubrika pro hodnocení AI‑generovaných výstupů": {
+      "definition": "Vzorná rubrika pro hodnocení výstupů částečně/zcela generovaných AI: A – místná správnost 0–4; B – struktura/argumentace 0–4; C – originalita/citace 0–2 (AI kontrola); D – forma/jazyk 0–2; pravidla eskalace mají být uvedena a dokumentována v rubrice (from section only).",
+      "first_seen_node": "3-3"
+    },
+    "Kombinovaný workflow (LLM-assisted grading)": {
+      "definition": "Krok‑za‑krok workflow pro kombinované hodnocení: nastavte prahy pro automatické předhodnocení; LLM označí low‑confidence položky; přiřaďte podprahové/označené položky a náhodné vzorky člověku; lidský hodnotitel upraví skóre a rozhodne o eskalaci; provádějte porovnání korekcí, pilot a KPI (from section only).",
+      "first_seen_node": "3-3"
+    },
+    "Auditní záznam pro hodnocení": {
+      "definition": "Požadované položky auditního záznamu pro LLM-assisted workflow: ID práce, datum/čas, verze rubriky, prompt a parametry, automatické skóre a indikátor jistoty, lidské skóre/komentář, důvod eskalace a konečné rozhodnutí; dále: před pilotem připravit zásady ochrany dat, rubriky, logování, definované role a školení dohledu (clarification; combines prior definition with explicit fields and pre-pilot příprava as stated in section 5).",
+      "first_seen_node": "5"
+    },
+    "Strukturované prompty pro hodnocení": {
+      "definition": "Používejte strukturované prompty s nahrazením zarážek [OBOR],[ÚROVEŇ],[TÉMA]; omezte délku podle doporučení; logujte použité prompty do auditního záznamu (from section only).",
+      "first_seen_node": "3-3"
+    },
+    "Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom": {
+      "definition": "Krátký přehled rychle nasaditelných skriptů a integrací: webhook pro FAQ/chatbot (HTTP POST → JSON); import/export CSV pro LMS; API skript pro automatizaci zadání; GitHub Classroom + CI (spouštění testů, sběr artefaktů, export výsledků do gradebooku). Doporučený pilot: validace v sandboxu s 1–3 uživateli, logování chyb a krátký postup pro manuální zásah. (from section only)",
+      "first_seen_node": "3-4"
+    },
+    "Řízení rizik při implementaci AI": {
+      "definition": "Opatření uvedená v sekci: fact‑check vrstvy, detekce plagiátorství, používání konzervativních promptů, minimalizace sdílení dat a zajištění souhlasu od zúčastněných (from section only).",
+      "first_seen_node": "4"
+    },
+    "Školení a zapojení studentů": {
+      "definition": "Krátké školení pro vyučující a hodnotitele; transparentnost vůči studentům a aktivní sběr zpětné vazby (from section only).",
+      "first_seen_node": "4"
+    },
+    "Monitorování a iterace": {
+      "definition": "Pravidelné sledování KPI uvedených v sekci: shoda AI vs. člověk, čas na poskytnutí feedbacku, spokojenost uživatelů a míra eskalací; následné pravidelné revize a úpravy workflowů (from section only).",
+      "first_seen_node": "4"
+    },
+    "Krátká šablona pilotního plánu": {
+      "definition": "Kompaktní pilotní šablona uvedená v sekci obsahující pole: Cíl pilotu; Rozsah; KPI; Role; Kontrola kvality / auditní záznam (povinné položky viz výše); Plán komunikace & Harmonogram (from section only).",
+      "first_seen_node": "4"
+    },
+    "Minimalizace sdílených dat a informovaný souhlas": {
+      "definition": "Pravidlo: minimalizujte sdílená data a získejte informovaný souhlas od účastníků (from section only).",
+      "first_seen_node": "5"
+    },
+    "Anonymizace výstupů": {
+      "definition": "Praktický krok: anonymizujte výstupy před dalším zpracováním nebo sdílením (from section only).",
+      "first_seen_node": "5"
+    },
+    "Transparentnost použití AI": {
+      "definition": "Požadavek: transparentně komunikujte použití AI, její roli, omezení a pravidla hodnocení a auditu studentům a dalším zúčastněným (from section only).",
+      "first_seen_node": "5"
+    },
+    "Řízení přístupu a doba uchovávání": {
+      "definition": "Nastavte řízení přístupu k datům a pravidla pro dobu uchovávání; uchovávejte kritické záznamy auditovatelně (from section only).",
+      "first_seen_node": "5"
+    },
+    "Logování promptů a parametrů": {
+      "definition": "Praktický krok: logujte použité prompty a parametry modelu jako součást auditní stopy (from section only).",
+      "first_seen_node": "5"
+    },
+    "Fact‑check vrstvy a detekce plagiátorství": {
+      "definition": "Zahrňte vrstvy pro ověřování faktů a nástroje pro detekci plagiátorství v procesu zajišťování kvality výstupů (from section only).",
+      "first_seen_node": "5"
+    },
+    "Dvoustupňové hodnocení": {
+      "definition": "Doporučený model hodnocení: 1) automatizované skórování podle jasné rubriky; 2) lidské kontroly pro eskalace a náhodné ověření; kombinujte automatické nástroje s lidskou verifikací u klíčových rozhodnutí (from section only).",
+      "first_seen_node": "5"
+    },
+    "Auditní záznam — požadované položky (sekce 5)": {
+      "definition": "U každého posudku uchovávejte: ID, datum/čas, verzi rubriky, prompt/parametry, automatické skóre a jistotu, lidské skóre, důvod eskalace a konečné rozhodnutí; před pilotem připravte zásady ochrany dat, rubriky, logování, role a školení (from section only).",
+      "first_seen_node": "5"
+    },
+    "Příprava před pilotem — zásady a školení": {
+      "definition": "Před spuštěním pilotu připravte zásady ochrany dat, rubriky, pravidla logování, definované role a školení dohledu (from section only).",
+      "first_seen_node": "5"
+    }
+  },
+  "citations": [
+    {
+      "source_id": "1",
+      "node": "1",
+      "section": "Úvod"
+    },
+    {
+      "source_id": "2-2",
+      "node": "2-2",
+      "section": "Automatizované hodnocení krátkých odpovědí"
+    },
+    {
+      "source_id": "2-3",
+      "node": "2-3",
+      "section": "Automatizované hodnocení kódu v technických kurzech"
+    },
+    {
+      "source_id": "2-4",
+      "node": "2-4",
+      "section": "Generování výukových materiálů a testových otázek"
+    },
+    {
+      "source_id": "2-5",
+      "node": "2-5",
+      "section": "Chatboti pro studentské konzultace a tutorování"
+    },
+    {
+      "source_id": "2-6",
+      "node": "2-6",
+      "section": "Praktický pilot a checklist nasazení"
+    },
+    {
+      "source_id": "3-2",
+      "node": "3-2",
+      "section": "Šablony promptů a vzory pro přípravu lekcí a úloh"
+    },
+    {
+      "source_id": "3-3",
+      "node": "3-3",
+      "section": "Rubriky a pracovní postupy pro hodnocení (včetně LLM-assisted)"
+    },
+    {
+      "source_id": "3-4",
+      "node": "3-4",
+      "section": "Jednoduché skripty a integrace pro Moodle, Canvas a GitHub Classroom"
+    },
+    {
+      "source_id": "4",
+      "node": "4",
+      "section": "Implementace v kurzu: plánování a řízení rizik"
+    },
+    {
+      "source_id": "5",
+      "node": "5",
+      "section": "Etika, ochrana soukromí a ověřování výstupů"
+    }
+  ],
+  "figures": [],
+  "tables": [],
+  "open_threads": [
+    {
+      "issue": "Sekce slibuje definici AI v kontextu vysokoškolské výuky, ale v předloženém textu tato definice chybí.",
+      "node": "1"
+    },
+    {
+      "issue": "Potřeba konkrétních, ověřených případových studií a příkladů implementace (slibováno v outline).",
+      "node": "1"
+    },
+    {
+      "issue": "Potřeba konkrétních šablon, promptů a technických integrací (slibováno v outline), které rozpracují obecná doporučení z úvodu.",
+      "node": "1"
+    },
+    {
+      "issue": "Detailní postupy pro zajištění etiky, ochrany osobních údajů a auditovatelnosti (úvod uvádí zásady, ale ne procedury).",
+      "node": "1"
+    },
+    {
+      "issue": "Potřeba konkrétních, ověřených případových studií adaptivních úloh (sekce obsahuje praktické scénáře, ale ne ověřené case studies).",
+      "node": "2-1"
+    },
+    {
+      "issue": "Potřeba konkrétních šablon a technických integrací pro nasazení adaptivity (sekce uvádí pravidla a tipy, ale ne šablony/promptů nebo integrace do LMS).",
+      "node": "2-1"
+    },
+    {
+      "issue": "Detailní postupy pro validaci a audit ML-driven adaptivity včetně metrik kvality a postupu ručního auditu (sekce doporučuje retrospektivní analýzu a A/B pilot, ale neuvádí detailní validační procedury).",
+      "node": "2-1"
+    },
+    {
+      "issue": "Sekce popisuje požadavky a postupy pro automatizované hodnocení krátkých odpovědí, ale chybějí konkrétní, ověřené případové studie, ukázkové rubriky a technické šablony pro implementaci (slibováno v outline).",
+      "node": "2-2"
+    },
+    {
+      "issue": "Sekce uvádí, že doporučení jsou 'general background knowledge' a měly by být ověřeny lokálním pilotem — potřeba zapsat standardizovaný protokol pilotu a metriky pro porovnání mezi pracovišti.",
+      "node": "2-2"
+    },
+    {
+      "issue": "Chybí konkrétní, ukázkové rubriky pro automatizované hodnocení kódu (včetně příkladů, co se hodnotí automaticky vs. ručně).",
+      "node": "2-3"
+    },
+    {
+      "issue": "Potřeba ukázkových testovacích sad, linter konfigurací a konkrétních příkladů CI konfigurace pro řešení flaky tests a zajištění reprodukovatelnosti.",
+      "node": "2-3"
+    },
+    {
+      "issue": "Chybějí konkrétní postupy a nástroje pro detekci plagiátorství v kódu a jejich integrace do navrženého workflow.",
+      "node": "2-3"
+    },
+    {
+      "issue": "Potřeba standardizovaného protokolu pilotní validace a metrik (benchmarks) pro porovnání mezi pracovišti při zavádění automatizovaného hodnocení kódu.",
+      "node": "2-3"
+    },
+    {
+      "issue": "Potřeba konkrétních šablon a technických integrací pro nasazení generování materiálů (sekce uvádí ukázkové prompty, ale chybějí přenosné šablony a integrace do LMS/CI).",
+      "node": "2-4"
+    },
+    {
+      "issue": "Potřeba standardizovaného protokolu pilotu a metrik pro ověření kvality generovaných materiálů mezi pracovišti (sekce doporučuje malý pilot s 2–3 variantami, ale neuvádí metriky ani přesný protokol).",
+      "node": "2-4"
+    },
+    {
+      "issue": "Nutnost zpracovat procedury pro ověřování faktů, řešení biasu a řízení autorských práv pro generované materiály (sekce identifikuje rizika a kontrolní body, ale nepopisuje detailní procedury).",
+      "node": "2-4"
+    },
+    {
+      "issue": "Potřeba konkrétních šablon pilotu, ukázkových promptů a technických integrací pro nasazení chatbotů (sekce uvádí obecný postup pilota a metriky, ale neobsahuje přenosné šablony ani integrace do LMS).",
+      "node": "2-5"
+    },
+    {
+      "issue": "Detailní postupy pro eskalaci na člověka a přiřazení odpovědnosti (sekce zmiňuje jasnou eskalaci a definovanou odpovědnost, ale chybí konkrétní postupy a role).",
+      "node": "2-5"
+    },
+    {
+      "issue": "Konkrétní check‑listy pro ochranu osobních údajů a transparentnost při nasazení chatbotů (sekce uvádí potřebu ochrany údajů a transparentnost, ale nepopisuje procedury nebo požadované souhlasy).",
+      "node": "2-5"
+    },
+    {
+      "issue": "Potřeba odvozených, oborově specifických pilotních protokolů a KPI šablon (sekce poskytuje obecný 8týdenní template, ale chybí doménově specifické metriky a postupy).",
+      "node": "2-6"
+    },
+    {
+      "issue": "Potřeba standardizovaného pilotního protokolu pro automatizované hodnocení kódu (sekce dává obecný checklist a časový plán, chybí konkrétní metriky a validační postupy pro kód).",
+      "node": "2-6"
+    },
+    {
+      "issue": "Potřeba přizpůsobit obecný pilotní checklist pro generování materiálů a uvést přesné metriky kvality a protokol ověřování (section 2-6 poskytuje základ, ale je nutné specifikovat pro 2-4).",
+      "node": "2-6"
+    },
+    {
+      "issue": "Potřeba detailních postupů eskalace a rozdělení rolí v pilotu chatbota (section 2-6 definuje role obecně, ale chybí konkrétní postupy eskalace a odpovědností).",
+      "node": "2-6"
+    },
+    {
+      "issue": "Potřeba konkrétních šablon promptů a přenosných technických integrací (sekce 3.1 uvádí kategorie a rychlé skripty, ale neobsahuje ukázkové prompty nebo konkrétní integrační šablony).",
+      "node": "3-1"
+    },
+    {
+      "issue": "Potřeba ověřených případových studií a konkrétních příkladů nasazení (sekce 3.1 dává rychlý přehled nástrojů, ale neobsahuje případové studie s metrikami a výsledky).",
+      "node": "3-1"
+    },
+    {
+      "issue": "Potřeba konkrétních skriptů/konfigurací pro Moodle/Canvas/GitHub Classroom (sekce zmiňuje skripty/webhooky/CSV, ale neuvádí hotové šablony).",
+      "node": "3-1"
+    },
+    {
+      "issue": "Potřeba přenosných technických šablon a integrace promptů do skriptů/LMS (např. hotové prompty + ukázkové skripty/webhooky pro Moodle/Canvas/GitHub Classroom) — sekce poskytuje šablony promptů, ale ne technické integrační vzory.",
+      "node": "3-2"
+    },
+    {
+      "issue": "Potřeba konkrétních, publikovaných příkladů promptů s očekávanými vzory výstupů a doporučenými rubrikami (aktuální sekce popisuje strukturu a doporučení, ale neobsahuje plné ukázky promptů a očekávané výstupy pro rychlé nasazení).",
+      "node": "3-2"
+    },
+    {
+      "issue": "Potřeba doménově specifických, ukázkových rubrik (např. programování vs. esejové odpovědi) — současná vzorná rubrika je obecná.",
+      "node": "3-3"
+    },
+    {
+      "issue": "Nutnost standardizované technické specifikace auditního záznamu a jeho integrace do LMS/CI (konkrétní formát, anonymizace, retenční pravidla).",
+      "node": "3-3"
+    },
+    {
+      "issue": "Detailní postupy eskalace a přiřazení odpovědností v kombinovaném workflow (kdo rozhoduje o finálním skóre, SLA pro lidské kontroly).",
+      "node": "3-3"
+    },
+    {
+      "issue": "Potřeba ověřovacích pilotních protokolů a metrik pro validaci kombinovaného workflow (statistické metriky, velikosti vzorku, akceptační prahy).",
+      "node": "3-3"
+    },
+    {
+      "issue": "Sekce naznačuje rychlé skripty/integrace, ale neobsahuje konkrétní ukázkové šablony kódu, CI workflow ani CSV šablony pro Moodle/Canvas; potřeba rozšířit o reálné příklady.",
+      "node": "3-4"
+    },
+    {
+      "issue": "Chybí detailní postupy mapování výsledků z CI/GitHub Classroom do gradebooku LMS včetně formátu, chybového handlování a auditního logování — slib v outline (3.4) zůstává nevyřešen.",
+      "node": "3-4"
+    },
+    {
+      "issue": "Sekce odkazuje na rubriky a auditní záznamy (viz 3.3), ale konkrétní rubriky a šablony auditních záznamů nejsou v textu obsaženy.",
+      "node": "4"
+    },
+    {
+      "issue": "Sekce poskytuje krátkou šablonu pilotního plánu, ale chybí oborově specifické pilotní šablony a metriky pro porovnání mezi pracovišti.",
+      "node": "4"
+    },
+    {
+      "issue": "Sekce zmiňuje plánování a řízení rizik, avšak chybí konkrétní technické integrační šablony (např. ukázkové implementace do LMS/CI) pro nasazení pilotu.",
+      "node": "4"
+    },
+    {
+      "issue": "Potřeba konkrétních šablon souhlasů a formulářů pro informovaný souhlas a detailních politik doby uchovávání a přístupových práv (sekce 5 uvádí potřebu, ale neobsahuje šablony či právní/domenové parametry).",
+      "node": "5"
+    },
+    {
+      "issue": "Potřeba konkrétních auditních šablon (strojově čitelný formát auditního záznamu, příklady CSV/JSON polí a ukázkové záznamy) — sekce 5 uvádí požadované položky, ale ne formát ani příklady.",
+      "node": "5"
+    },
+    {
+      "issue": "Potřeba ukázkových rubrik a eskalačních pravidel přizpůsobených různým typům úloh (krátké odpovědi, kód, generované materiály) — sekce 5 doporučuje dvoustupňové hodnocení, ale neobsahuje doménově specifické rubriky.",
+      "node": "5"
+    }
+  ]
+}

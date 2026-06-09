@@ -1,0 +1,66 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Drobná pravopisná/typografická chyba v položce checklistu: 'Nasadťe automatické testy...' není správně. Také nekonzistentní použití termínu 'mezi‑verze' vs. 'meziverze'.",
+      "required_fix": "Opravte pravopis na 'Nasaďte automatické testy...' a sjednoťte termín (např. 'meziverze' nebo 'mezi verze') napříč textem."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Věta 'AI jako před‑filter: použijte asistenta k vygenerování návrhů komentářů...' je konktrétním doporučením pro workflow korekce kódu. Přímý důkaz pro použití AI jako pre‑filtru v korekci kódu není obsažen ve poskytnutých RETRIEVED EXCERPTS; existuje však relevantní podpora pro princip 'učitel finalizuje hodnocení' v kb_ai_101_tipu_pdf_04e4a115_page_8_1.",
+      "required_fix": "Buď explicitně označit toto doporučení jako 'general background knowledge' (pokud nemáte další citaci), nebo doplnit konkrétní citaci/odkaz z KB, která řeší AI‑assisted pre‑review nebo workflow pro automatickou předkorekturu (např. stránka s doporučením pro lidskou finální validaci)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Některé body v checklistu a v 'Workflow pro korekci kódu' jsou obecné a mohou být pro čtenáře příliš vágní (např. 'Určete pravidla pro AI‑assisted pre‑review a pro lidskou finální validaci (kdo, kdy, jak)').",
+      "required_fix": "Doplňte krátké příklady konkrétních pravidel (např. 'lidská revize pro projekty s váhou > 30 % nebo náhodné spot‑checky 10 %', 'všechny selhané CI buildy musí prověřit člověk') nebo odkaz na šablonu pravidel/rubriky."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Chybí konkrétní ukázka rubriky nebo krátký příklad milestone‑based rozložení vah pro technické zadání (milestone: návrh, prototyp, testy, závěrečná zpráva).",
+      "required_fix": "Přidat krátkou vzorovou tabulku/rubriku (3–4 milníky + doporučené váhy) nebo alespoň jeden konkrétní příklad, jak rozdělit body mezi milníky (např. návrh 20 %, implementace 40 %, testy 25 %, dokumentace 15 %)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Terminologie a odkazy na jiné části kapitoly jsou v některých bodech nejednoznačné (např. checklist v této sekci neodkazuje explicitně na doporučený pěti‑bodový pracovní postup uvedený v 5-1 / 'Redesign hodnocení — doporučený pracovní postup').",
+      "required_fix": "Přidat krátkou poznámku/křížový odkaz na sekci 5-1 (Redesign hodnocení) a uvést, že navržené implementační kroky by měly být rámovány tímto postupem (mapovat milníky k pilotu a formalizaci sylabů)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Nastavení zadání — zásady / první bullet",
+      "edit_instruction": "Zachovat obsah, ale přidat za větu 'Požadujte procesní artefakty...' krátké upřesnění: 'např. meziverze (commit history), krátké poznámky k postupům, logy běhů testů' a sjednotit termín na 'meziverze'."
+    },
+    {
+      "target": "Krátký checklist pro zavedení do praxe (katedra / garant předmětu) / bod 2",
+      "edit_instruction": "Opravte pravopis 'Nasadťe' na 'Nasaďte' a doplňte jeden kratší praktický příklad CI kroku (např. 'CI: spouštění unit testů + základní linting na push do hlavní větve'). Označte tento příklad jako 'general background knowledge' pokud není citováno."
+    },
+    {
+      "target": "Workflow pro korekci kódu a hodnocení procesu / bod 2 (AI jako před‑filter)",
+      "edit_instruction": "Buď přidejte '(general background knowledge)' na konec položky, nebo doplňte citaci z KB, která podporuje použití AI jako před‑filtru; zároveň explicitně uveďte, že 'finální rozhodnutí a hodnocení vždy provádí člověk' a krátce uveďte pravidlo pro eskalaci (např. 'všechny neprošlé testy a vyloučené případy posoudit ručně')."
+    },
+    {
+      "target": "Integrace s LMS, SSO a enterprise nástroji — praktické poznámky / poslední bullet",
+      "edit_instruction": "Zachovat odkaz na Microsoft Learn (citace kb_ai_101_tipu_pdf_04e4a115_page_54_1) a přidat větu: 'Doporučujeme konzultovat dostupné kurzy na Microsoft Learn při nastavování konkrétních integrací.'"
+    },
+    {
+      "target": "Vzor promptů a krátká ukázka",
+      "edit_instruction": "Ke stávajícímu verbatim bloku doplňte krátký komentář, že jde o ukázku (general background knowledge) a navrhněte, aby učitelé testovali prompt na malé sadě reálných příkladů před hromadným nasazením."
+    },
+    {
+      "target": "Závěrečná věta",
+      "edit_instruction": "Zachovat závěr, ale přidat k odkazu na citace explicitní poznámku, které body z KB podporují klíčové doporučení (např. že požadavek na nahrání postupu řešení je zmíněn v kb_ai_101_tipu_pdf_04e4a115_page_8_1)."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf pre-review AI grading 'pre-review' 'teacher finalizes' page",
+    "kb_ai_101_tipu_pdf CI pipeline linting tests 'automatizované testy' 'CI' 'kód' page",
+    "kb_ai_101_tipu_pdf page 21 Copilot generování komentářů 'teacher finalizes grading' 'formative feedback'"
+  ]
+}

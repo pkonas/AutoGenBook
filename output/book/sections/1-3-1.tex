@@ -1,0 +1,28 @@
+% (Tělo sekce: Co jsou tokens a jak je chápat v pedagogickém kontextu)
+
+% Stručné vysvětlení (označeno jako obecné znalosti)
+\noindent\textbf{Co je token?} \emph{(general background knowledge)} Token je v kontextu velkých jazykových modelů základní jednotka textu, kterou model zpracovává. Token nemusí odpovídat přesně slovu nebo písmenku — může to být celé slovo, jeho část nebo symbol; závisí to na použitém tokenizéru.\\
+
+% Jednoduchá pedagogická metafora
+\noindent\textbf{Metafora pro studenty} \emph{(general background knowledge)}: Představte si tokeny jako stavební cihly věty. Některé cihly jsou malé (krátké části slov), jiné větší (celá slova). Stejně jako při stavění modelu z cihel, počet cihel ovlivní, kolik materiálu (textu) lze najednou postavit — model má limit, kolik tokenů zmůže v jednom „posloupnosti“.\\
+
+% Praktický příklad (označeno jako obecné znalosti)
+\noindent\textbf{Krátký příklad rozdělení věty} \emph{(general background knowledge)}: Věta „Dobrý den, jak se máte?“ může být tokenizována do několika tokenů, přičemž interpunkce a koncovky mohou tvořit samostatné tokeny u některých tokenizérů. (Pozn.: přesné rozdělení závisí na konkrétním modelu/tokenizéru.)\\
+
+% Důsledky pro promptování — praktické tipy (označeno jako obecné znalosti)
+\noindent\textbf{Praktické důsledky pro pedagoga a promptování} \emph{(general background knowledge)}:
+\begin{itemize}
+  \item Kratší a cílené prompty — jasně formulované instrukce a příklady vedou obvykle k přesnějším odpovědím; dlouhé nepřehledné prompty mohou obsahovat irelevantní kontext a zvýšit riziko chyb nebo „odbočení“ od úkolu.
+  \item Limit kontextu — modely mají omezení počtu tokenů, která mohou zpracovat najednou; při velmi dlouhých učebních materiálech je vhodné použít postupy jako rozdělení na menší části nebo RAG (retrieval‑augmented generation). 
+  \item Validace výstupu — vždy zkontrolujte fakta a didaktickou vhodnost vygenerovaného textu (lidská kontrola jako povinný krok při použití AI v přípravě materiálů).
+\end{itemize}
+
+% Ukázka reálného použití promptu (podpořené KB)
+\noindent\textbf{Krátký ukázkový workflow} (použití v praxi): zadejte do nástroje jasný prompt s požadovaným formátem (např. „Vytvoř test s 10 otázkami, 4× ABC, 4× pravda/nepravda, 2× otevřené“); vygenerovaný obsah pečlivě zkontrolujte a upravte podle didaktických cílů — tento postup je ilustrován u Microsoft 365 Copilot, který dokáže na základě takového promptu vytvořit kompletní test včetně označení správných odpovědí a vysvětlení \cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1}.\\
+
+% Krátké doporučení pro výuku
+\noindent\textbf{Doporučení pro výuku}:
+\begin{itemize}
+  \item Předveďte studentům jednoduchou ukázku tokenizace jako aktivitu (ukázat různé výsledky u různých nástrojů) a diskutujte, proč to ovlivňuje chování modelu. \emph{(general background knowledge)}
+  \item Vysvětlete omezení kontextu a nechte studenty navrhnout, jak dělit rozsáhlý text pro spolehlivou práci s modelem. \emph{(general background knowledge)}
+\end{itemize}

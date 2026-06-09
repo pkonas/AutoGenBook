@@ -1,0 +1,57 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "V položce \"LLM + prompt layer\" jsou uvedeny konkrétní příklady guardrailů (např. \"instrukce nevyzrazovat PII, preferovat odkaz na zdroj\"). Takové konkrétní doporučení v textu není v dodaných retrieved excerpts explicitně citováno ani označeno jako \"general background knowledge\".",
+      "required_fix": "Buď označit tento konkrétní příklad jako (general background knowledge), nebo přidat k němu křížový odkaz na relevantní části příručky (např. sekce o governance/transparentnosti / RAG architektuře: 8.7, 8.5 nebo přílohy 9.1/9.3), kde jsou guardraily a transparentnost diskutovány."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Krok 4 (Implementovat ingest a indexaci) popisuje základní tok (export → preprocessing → chunking → embeddings → index) bez stručného navedení na konkrétní technické detaily (metadata, doporučené pole, odkazy na detailní strategie chunkingu nebo způsob uložení indexu). Implementujícím týmům by pomohly konkrétní překryvné odkazy nebo poznámky.",
+      "required_fix": "Přidat krátkou poznámku/křížový odkaz: \"Technické detaily (metadata schema, strategie chunkingu, volba embedding modelu a úložiště indexu) viz sekce 8.5 a 8.6 nebo technická příloha\". Pokud nechcete přidávat detaily sem, alespoň odkázat na relevantní přílohy (9.1 / 8.5)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Krok 1 a Krok 6 uvádějí metriky (např. přesnost odpovědí, čas do odpovědi, spokojenost studentů), ale chybí navedení, kde jsou v příručce šablony/metodika pro sběr těchto metrik (např. prompt/eval šablony nebo návrh experimentálního protokolu).",
+      "required_fix": "Doplnit krátkou poznámku: \"Viz Prompt Library a eval šablony v příloze 9.1 a vzor DPIA/ checklisty v 9.4 pro návrh metrik a sběru dat\" nebo vložit odkaz na konkrétní šablony/metodiku pro pilotní měření."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "Formátovací volba pro prázdná pole v checklistu používá \\underline{\\hspace{...}}. V některých LaTeX šablonách to může způsobit rozdílné vertikální zarovnání nebo přetečení (např. v narrow columns).",
+      "required_fix": "Zvážit použití robustnějších LaTeX patternů pro prázdné vyplňovací pole (např. \\makebox[4cm]{\\hrulefill}) nebo poznámku o kompatibilitě s cílovou šablonou. Pokud chcete zachovat jednoduchost, ponechte, ale ověřit render v cílové šabloně."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "U položky \"LLM + prompt layer\" doplňte buď závěrečnou poznámku \"(general background knowledge)\" k příkladům guardrailů, nebo přidejte křížový odkaz: \"(viz sekce 8.7 Governance / 8.5 Architektura RAG a příloha 9.1 Prompt Library)\"."
+    },
+    {
+      "target": "Implementovat ingest a indexaci",
+      "edit_instruction": "Přidejte jednu nebo dvě věty odkazující na technické detaily: např. \"Pro doporučené metadata schema, strategie chunkingu a volbu embedding/modelu viz sekce 8.5 (Architektura RAG) a 8.6 (lokální/edge provoz).\""
+    },
+    {
+      "target": "Krok 1 a Krok 6 (metriky)",
+      "edit_instruction": "Doplňte text o odkaz na přílohy s šablonami měření: \"Pro ukázkové šablony metrik a evaluace pilotu viz Prompt Library (9.1) a vzor DPIA/checklisty (9.4).\""
+    },
+    {
+      "target": "Rychlé checklisty před pilotem",
+      "edit_instruction": "Upravit LaTeX prázdná pole: zvážit nahrazení \\underline{\\hspace{Xcm}} konstrukcí výrazem \\makebox[Xcm]{\\hrulefill} nebo jiným stabilnějším řešením pro cílovou LaTeX šablonu; přidat krátkou poznámku \"Ověřte render v cílové šabloně\"."
+    },
+    {
+      "target": "Role vyučujícího / Transparentnost",
+      "edit_instruction": "Doporučuji přidat jednu větu explicitněji navazující na přílohu s šablonou do sylabu: \"Vyučující by měl do sylabu zahrnout krátké oznámení o použití RAG (viz AI Policy Template, 9.3).\" (to je v souladu se zbytkem příručky)."
+    }
+  ],
+  "retrieval_queries": [
+    "Kde v KB jsou příklady guardrailů pro LLM prompt layer (instrukce nevyzrazovat PII, citace zdrojů) — relevantní excerpty z kapitol 8.x nebo 9.x?",
+    "Technické doporučení pro chunking/metadata v RAG architektuře — konkrétní fragmenty z sekce 8.5 (Architektura RAG) nebo příloh, které popisují chunk velikost, metadata schema a volbu embeddingů.",
+    "Šablona textu do sylabu / AI Policy Template v příloze 9.3, kterou lze odkázat pro transparentní oznámení studentům.",
+    "Eval šablony nebo prompt/evaluation příklady pro měření přesnosti RAG asistenta a sběr uživatelské spokojenosti (viz Prompt Library 9.1 nebo eval checklists)."
+  ]
+}

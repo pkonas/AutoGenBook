@@ -1,0 +1,86 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section title mixes English and Czech ('In‑class writings a time‑boxed psaní'), which is inconsistent with the rest of the handbook that uses Czech section titles.",
+      "required_fix": "Use a single language for the title (preferably Czech to match surrounding sections), e.g. 'In‑class writings — časově omezené psaní' or fully Czech 'Časově omezené in‑class psaní'."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Several prescriptive recommendations present as facts (e.g. specific suggested duration '20--40 minut', mandatory artifacts like 'časové razítko odevzdání') are not supported by any retrieved excerpt or memory entry. Non‑trivial procedural prescriptions must be supported or explicitly labeled as general background knowledge.",
+      "required_fix": "Either add a supporting citation from the KB or literature for the recommended durations and the requirement for time‑stamps, or rephrase these recommendations as instructor suggestions and mark them clearly as 'general background knowledge' or 'doporučení' in the text."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The instruction to use OneNote/LMS as collection channels is repeated and cited once; while OneNote's handwriting conversion is supported by an excerpt, the more general claim that 'OneNote/LMS mohou být použity jako kanál pro tento sběr' lacks an explicit citation.",
+      "required_fix": "Either add an explicit cross‑reference to the KB excerpt about OneNote's handwriting support (kb_ai_101_tipu_pdf_04e4a115_page_8_1) the second time the tool is mentioned, or rephrase the sentence to make it clearly an operational suggestion supported by the cited OneNote feature."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The inline marker '(general background knowledge)' appears inside the LaTeX body as plain text; it may not render as intended and interrupts flow.",
+      "required_fix": "Replace inline parenthetical labels with a LaTeX footnote (\\footnote{}) or remove them from the body and document justification of 'general background knowledge' in an editorial note outside the LaTeX environment."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Rubric guidance is high‑level (suggested rubric items) but lacks a concrete example or score bands; readers may find it hard to implement without a sample rubric or link.",
+      "required_fix": "Either include an example rubric (or a template) with scoring bands, or add an explicit cross‑reference to chapter sections that provide rubrics (e.g., section 5.4 'Rubriky, transparentnost a milestone‑based hodnocení')."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section recommends asking students to report 'co bylo nejasné a jaký krok by opravily' but does not link this practice to the chapter's emphasis on metacognition and process assessment.",
+      "required_fix": "Add an explicit cross‑reference to the chapter's metacognition principle (5.2.6 Metakognice) and suggest alignment of the short metareflexe prompt with the course's rubric or milestone plan."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The suggestion to require artifacts like 'fotky pracovní plochy' and 'časové razítko odevzdání' as means of verifying authenticity is reasonable but not supported by a cited KB excerpt.",
+      "required_fix": "Either provide a supporting citation or present these as optional instructor practices, and add a cross‑reference to institutional guidance on data protection and GDPR (e.g., sections 2.2 / 5.7) when suggesting collection of such artifacts."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "title",
+      "edit_instruction": "Make the title language consistent with the handbook. For example, change to fully Czech: 'Časově omezené in‑class psaní (time‑boxed writings)'. Keep the English term in parentheses if helpful."
+    },
+    {
+      "target": "first paragraph",
+      "edit_instruction": "Either supply a supporting citation for the characterization of time‑boxed writings or mark the sentence as a pedagogical recommendation. If kept as general background knowledge, move '(general background knowledge)' to a footnote: e.g. '\\footnote{Tato pasáž je doporučením pedagogické praxe, nikoli výzkumným závěrem.}'"
+    },
+    {
+      "target": "Praktický postup — item 1 (Příprava zadání)",
+      "edit_instruction": "If you want to keep the explicit duration '20--40 minut', add a supporting source or rephrase: 'Doporučená doba (např. 20–40 minut) — přizpůsobte podle rozsahu úlohy.' Mark as recommendation if no citation is available."
+    },
+    {
+      "target": "Praktický postup — item 2 (Technický režim odevzdání)",
+      "edit_instruction": "Ensure the OneNote claim is explicitly tied to the KB citation already included. Consider duplicating the citation next to the sentence 'OneNote usnadňuje převod rukopisných zápisků...' or replace with an explicit cross‑reference to the KB entry: '\\cite{kb_ai_101_tipu_pdf_04e4a115_page_8_1}'."
+    },
+    {
+      "target": "Praktický postup — item 4 (Hodnocení)",
+      "edit_instruction": "Add either a short example rubric or a cross‑reference to section 5.4 which discusses rubrics and milestone‑based assessment. If an example rubric is added, keep it minimal and avoid inventing numerical scales beyond what exists elsewhere in the handbook."
+    },
+    {
+      "target": "Poznámka k ověřování a integritě",
+      "edit_instruction": "Add a cross‑reference to sections dealing with GDPR and academic integrity (e.g., 2.2 'Ochrana soukromí a GDPR‑kompatibilní postupy' and 5.7 'Etika, GDPR a akademická integrita v kontextu hodnocení') when recommending collection of photos/time‑stamps, to remind readers to check institutional rules."
+    },
+    {
+      "target": "general background labels in body",
+      "edit_instruction": "Convert inline '(general background knowledge)' labels into a single editorial footnote at the start or end of the section explaining which sentences are pedagogical recommendations rather than KB‑sourced claims."
+    },
+    {
+      "target": "cross‑references to chapter terms",
+      "edit_instruction": "Add internal cross‑references to related handbook items: link the rubric/assessment guidance to section 5.4; link escalation/spot‑check practices to the context memory terms 'Pravidla eskalace' and 'Spot‑check' (which recommend spot‑checks of roughly 5–10%). This improves coherence with other sections."
+    }
+  ],
+  "retrieval_queries": [
+    "Evidence or KB support for recommended duration of in‑class time‑boxed writing tasks (e.g., guidelines recommending 20–40 minutes) in the handbook or practice guides",
+    "Best practices or guidance (KB) about requiring timestamps or photos of student workspace for authenticity verification in assessments",
+    "Example rubric for process‑oriented assessment or sample scoring bands for items such as 'proces a logika; úplnost mezikroků; metareflexe' within the handbook"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "pedagogy",
+      "severity": "major",
+      "description": "Section omits an explicit recommendation to include a short on‑site/oral verification step (10–15 minutes, structured ~5 questions) to verify student understanding of key steps. This check is recommended elsewhere in the document (context memory / previous sections) and is important for AI‑aware assessment designs.",
+      "required_fix": "Add a clear bullet (e.g. under step 4 or step 5) recommending a short on‑site/oral verification phase (10–15 min, structured 5 questions) for selected assignments, with a cross‑reference to the earlier section that describes this practice (section 7‑5 / 'Orální / krátké on‑site ověření')."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section refers to 'upravené rubriky' but does not include a concrete example. A short illustrative rubric (3‑point example) exists in the handbook and would improve usability for garanty.",
+      "required_fix": "Include the brief 3‑point exemplar rubric (Autenticita a kontext 0–1, Proces a průkazné artefakty 0–1, Transparentnost AI a metareflexe 0–1) or add a pointer to the exact location (e.g. section 7‑5 / 'Vzorová krátká rubrika (3 body)') so readers can copy/adapt it."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The closing note refers to 'příslušných kapitolách příručky' for SSO/LMS/DPIA details but does not point to specific chapters or templates available elsewhere in the handbook. Explicit cross‑references would improve navigability and ensure consistency with prior material.",
+      "required_fix": "Replace or augment the vague pointer with explicit references to relevant sections (for example: section 7.6.1 for technical prerequisites, section 9.3 for DPIA templates, and section 8.3 for authentication/audit) so implementers can quickly find the detailed workflows and templates."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX uses several '\\\\' line breaks inside enumerate items and mixes spacing commands (\\smallskip/\\medskip). While not fatal, this may produce inconsistent spacing or warnings during compilation.",
+      "required_fix": "Remove unnecessary '\\\\' after item text; use paragraph breaks or \\vspace commands consistently. Check footnote placement inside enumerate items to ensure correct compilation."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Labels 'general background knowledge' vs 'faktické doporučení' appear but there is no legend explaining their intended meaning or evidentiary status. Readers may be uncertain how strictly they should follow each item.",
+      "required_fix": "Add a short legend at the start of the section clarifying that 'faktické doporučení' are supported by specific handbook sources (with footnotes) and 'general background knowledge' are recommended pedagogical practices that are not claimed to be source‑verified."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "after step 4 (Redesign zadání)",
+      "edit_instruction": "Insert an additional bullet: 'Zahrňte krátkou on‑site/ústní verifikaci (10–15 minut, ~5 strukturovaných otázek) jako součást závěrečného hodnocení vybraných úloh pro ověření porozumění procesu řešení (viz sekce 7‑5: Orální/krátké on‑site ověření).' Ensure this references the handbook section that describes the practice."
+    },
+    {
+      "target": "rubric / checklist area",
+      "edit_instruction": "Add the short exemplar rubric (3 body) or a one‑line example and a cross‑reference: 'Vzorová krátká rubrika (0–1 body pro každou položku): Autenticita a kontext; Proces a průkazné artefakty; Transparentnost AI a metareflexe — viz sekce 7‑5 / 5.3.1–5.3.3 for full templates.'"
+    },
+    {
+      "target": "closing note",
+      "edit_instruction": "Replace 'příslušných kapitolách příručky' with explicit cross‑references, e.g. 'viz sekce 7.6.1 (předběžné technické požadavky), sekce 8.3 (autentizace a auditní stopy) a příloha 9.3 (vzorné DPIA)'."
+    },
+    {
+      "target": "section header / top of latex_body",
+      "edit_instruction": "Add a short legend explaining the label conventions used: one sentence clarifying that items marked 'faktické doporučení' are supported by specific KB sources (footnoted) and items marked 'general background knowledge' are recommended pedagogical practices not directly cited."
+    },
+    {
+      "target": "LaTeX formatting",
+      "edit_instruction": "Remove unnecessary '\\\\' occurrences inside enumerate items and ensure consistent use of spacing commands (use blank lines or \\smallskip rather than manual '\\\\'). Verify compilation and footnote placement in the enumerate environment."
+    }
+  ],
+  "retrieval_queries": []
+}

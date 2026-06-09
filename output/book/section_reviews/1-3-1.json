@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "Key technical statements about what a 'token' is (that it may be a whole word, part of a word, or a symbol, and that tokenization depends on the tokenizer) are presented as 'general background knowledge' but currently have no supporting KB excerpt or citation. Per the grounding rules, non‑trivial technical claims should be supported or explicitly minimized/omitted.",
+      "required_fix": "Add at least one supporting reference from the knowledge base (or an internal authoritative source) that defines tokens and explains tokenizer behaviour (preferably one that covers subword tokenization). If no supporting KB excerpt is available, shorten the text to a minimal definition and keep the 'general background knowledge' label, or explicitly state that this is a simplified classroom description."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The claim 'Limit kontextu — modely mají omezení počtu tokenů' and the suggestion to use RAG are pedagogically correct but lack an explicit supporting citation from the repo/KB (the outline references RAG in other sections but no excerpt is attached here).",
+      "required_fix": "Add a citation to the RAG blueprint or another internal KB excerpt that explains context window limits and RAG (e.g., point to Appendix 9.5 or section 8.5 if a supporting excerpt is available). If that excerpt is not available, explicitly mark this sentence as 'general background knowledge' and consider adding a short pointer to the companion RAG blueprint in the repo (without inventing external URLs)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses a \\\\ linebreak after many paragraphs and includes a \\cite{kb_ai_101_tipu_pdf_04e4a115_page_36_1} citation key, but no corresponding bibliography entry is included in the snippet. This may produce a LaTeX compile warning/error.",
+      "required_fix": "Ensure the citation key used is present in the document bibliography (BibTeX or the local bibitems). If the intent is an inline reference to the internal KB, consider adding a consistent bibentry for 'AI - 101 tipu.pdf' with the correct cite_key, or change the inline citation to a parenthetical note pointing to the repo (e.g., 'viz AI‑101 tipy, str. 36') if adding a bibentry is not feasible."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The short tokenization example (sentence 'Dobrý den, jak se máte?') is vague — it states that tokenization may split punctuation and endings into separate tokens but doesn't show a concrete tokenization output. For pedagogical use, an explicit tokenized example (visual) improves clarity.",
+      "required_fix": "Add a concrete tokenization example produced by a real tokenizer (ideally one used/available in the repository or a commonly used tokenizer) or, if a concrete tokenizer cannot be cited, keep the example as an explicit exercise for students (e.g., 'activity: compare outputs from two tokenizers and discuss differences'). If adding a tokenizer example, include a supporting KB excerpt or note that the example is an illustrative classroom exercise (general background knowledge)."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Pedagogical suggestions are useful but could be more actionable: activity descriptions lack time estimates, learning objectives, and success criteria for the suggested classroom exercises (e.g., tokenization demo, prompt workflow).",
+      "required_fix": "Add brief teaching notes for each suggested activity: estimated time, intended learning outcome, and one simple success criterion (e.g., students can explain why different tokenizers produce different token counts). Keep these notes concise and, where they assert learning outcomes, mark them as pedagogical recommendations (general background knowledge)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "First paragraph ('Co je token?'): add a supporting KB citation that defines tokens for LLMs (for example, an internal doc or canonical KB page about tokenization). If such a citation is unavailable, rephrase to an even shorter classroom definition and keep the '(general background knowledge)' label. Example edit instruction: 'Replace current paragraph with a one‑sentence simplified definition and add reference to KB entry on tokenization or explicitly mark as classroom simplification.'"
+    },
+    {
+      "target": "Krátký příklad rozdělení věty",
+      "edit_instruction": "Either (A) include an explicit tokenization output for the sentence using a named tokenizer available in the repo (with a supporting KB excerpt), or (B) convert the paragraph into a short student activity: 'Activity: compare tokenization of this sentence using two tools and report differences' (include expected time and learning outcome)."
+    },
+    {
+      "target": "Praktické důsledky pro pedagoga a promptování",
+      "edit_instruction": "Add a short reference or pointer to the RAG blueprint or the sections in the handbook that cover context window limits (e.g., 'viz Appendix 9.5 Základní RAG blueprint'). If a KB excerpt is available for RAG, insert its citation next to 'RAG (retrieval‑augmented generation)'."
+    },
+    {
+      "target": "Krátký ukázkový workflow",
+      "edit_instruction": "Keep the Copilot example but ensure the inline citation key used is present in the document bibliography. Optionally add a 1–2 line teaching note: estimated time for the workflow (e.g., 10–20 minutes), and one success criterion (e.g., test contains specified number/type of questions and was validated by teacher)."
+    },
+    {
+      "target": "LaTeX/bibliography",
+      "edit_instruction": "Add the corresponding BibTeX or \\bibitem entry for the cite key 'kb_ai_101_tipu_pdf_04e4a115_page_36_1' (and any other KB citations) or convert the \\cite to an inline text reference if adding the bibliography is not possible."
+    }
+  ],
+  "retrieval_queries": [
+    "definition of token and tokenizer in LLMs canonical source (OpenAI or HuggingFace) — tokenization/subword tokenization explanation",
+    "example tokenization outputs (including for Czech) using common tokenizers (Byte Pair Encoding / SentencePiece / GPT tokenizer) for sentence 'Dobrý den, jak se máte?'",
+    "authoritative description of context window / token limits and role of RAG in handling long documents (internal RAG blueprint or external summary)",
+    "confirming excerpt for Microsoft 365 Copilot Forms test generation (AI - 101 tipu.pdf page 36) to ensure citation and bib entry are consistent"
+  ]
+}

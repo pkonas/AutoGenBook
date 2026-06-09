@@ -1,0 +1,69 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section's requirements for mandatory artefacts list a \"Deklarace použití AI (pokud byla použita): nástroj, verze, stručný prompt/účel.\" This is weaker than the repository/memory guidance which requires a more precise declaration (including the exact prompt and relevant outputs/postupy). The memory explicitly states: 'povinné artefakty a metadata ... deklarace použití AI, která uvádí název nástroje, přesný prompt a relevantní výstupy/postupy.'",
+      "required_fix": "Replace the current short-form AI declaration requirement with a requirement that students include the exact prompt(s) used (or a reproducible prompt template), tool name and version, and relevant AI outputs/artefacts (e.g., returned text, model responses, generated files) or a clear description of how the AI was used. Cite the corresponding KB guidance in the doc or mark as 'general background knowledge' if kept as a recommendation."
+    },
+    {
+      "type": "grounding",
+      "severity": "major",
+      "description": "The section omits operational security/GDPR requirements present in the context memory. The memory requires a central, faculty/IT-managed encrypted storage with access control and logging for submitted artefacts, and mentions DPIA/random checks as part of integrity procedures. The current section's 'Checklist pro garanty' does not mention encrypted storage, access logging, or DPIA.",
+      "required_fix": "Add a dedicated bullet (under 'Doporučený rychlý checklist pro garanty předmětů' and/or 'Povinné artefakty a metadata') requiring submission/storage of artefacts to a central, encrypted faculty-managed repository with restricted access and audit logging; include a note to consider DPIA and procedures for random reproducibility checks and escalation. Reference the memory guidance (security, academic integrity and GDPR)."
+    },
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The section specifies a recommended demo/video length (\"Krátké video nebo demo (1–3 min)\"), but the retrieved KB only indicates that a short video or screenshot is acceptable without stipulating a duration.",
+      "required_fix": "Either remove the specific duration, or justify it by adding a supporting citation. If duration is desirable, phrase it as a recommendation (e.g., 'preferably short, ~1–3 min') and mark as general background if no KB citation is available."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "The section's phrasing mixes 'stručné prompt/účel' and later 'Použijte obhajoby také k ověření deklarací AI...' The guidance in memory emphasizes precise provenance and detailed metadata (commit/branch, logs, exact prompts).",
+      "required_fix": "Harmonize wording to emphasize provenance: require commit hash/branch, CI report/export, run logs (stdout/stderr), and precise AI declaration (exact prompt or reproducible prompt template), so the obhajoba can verify provenance against stored artefacts."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some bullets are labelled '(General background knowledge)' within the LaTeX body text. While acceptable as internal notes, having these markers inline may confuse readers of the final PDF and mix provenance labels with content.",
+      "required_fix": "Remove or relocate inline '(General background knowledge)' labels to margin notes or a preface, and keep the section content presented as actionable recommendations. If retained, clarify what 'General background knowledge' denotes (e.g., 'recommended best practice, not normative requirement')."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section outlines rubrics at a high level (process, code quality, reproducibility, documentation, individual contribution) but does not include an example rubric or minimal scoring template, which would help implementers adopt the recommendations.",
+      "required_fix": "Add a short exemplar rubric (or point to the prompt/rubric templates in the KB) with sample criteria and weightings for team projects and lab assignments, or include a reference to the appendix/prompt library where templates are stored."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Povinné artefakty a metadata (doporučený minimální soubor)",
+      "edit_instruction": "Change the AI declaration bullet to: 'Deklarace použití AI (pokud byla použita): název nástroje a verze, přesný prompt(y) nebo reprodukovatelná šablona promptu, klíčové AI výstupy (uložené soubory/odpovědi) a stručný popis, jak byly výstupy použity v řešení.' Add a requirement to include commit hash/branch and CI report/artifact links."
+    },
+    {
+      "target": "Doporučený rychlý checklist pro garanty předmětů",
+      "edit_instruction": "Insert a bullet: 'Zajistit centrální šifrované úložiště spravované fakultou/IT pro odevzdané artefakty a metadata s řízeným přístupem a auditním logováním; posoudit potřebu DPIA; nastavit postupy pro náhodné reprodukovatelné kontroly a eskalaci podezření.'"
+    },
+    {
+      "target": "Krátké video nebo demo (1–3 min) bullet",
+      "edit_instruction": "Either remove the explicit duration or reword to: 'Krátké video nebo demo (např. ~1–3 min) ukazující fungující řešení — délka je orientační; hlavní je přehlednost a možnost ověřit funkčnost během obhajoby.' Mark as recommendation if no KB citation available."
+    },
+    {
+      "target": "Rubriky pro týmovou práci a procesní hodnocení",
+      "edit_instruction": "Add: 'U rubriky zahrnout položky pro Transparentnost použití AI, Proces (commity, CI výsledky), a Reflexe (sebehodnocení a popis rozhodnutí). Přidejte vzorové váhy (např. 40% technický výstup, 30% proces, 20% dokumentace/prehled, 10% individuální příspěvek) jako výchozí návrh.'"
+    },
+    {
+      "target": "Inline '(General background knowledge)' labels",
+      "edit_instruction": "Remove inline labels from the main LaTeX body or move them to a short note at the start of the section specifying which bullets are normative vs. recommended background."
+    }
+  ],
+  "retrieval_queries": [
+    "Povinné artefakty deklarace použití AI přesný prompt 'deklarace použití AI' kb_ai_101_tipu_pdf",
+    "šifrované úložiště přístup logování povinné artefakty GDPR 'Řízení přístupu a bezpečné úložiště' kb_ai_101_tipu_pdf",
+    "DPIA a náhodné kontroly reprodukovatelnosti 'Checklist pro garanty — zabezpečení a integrita' kb_ai_101_tipu_pdf",
+    "povinné video demo délka 'video' 'krátké video' kb_ai_101_tipu_pdf"
+  ]
+}

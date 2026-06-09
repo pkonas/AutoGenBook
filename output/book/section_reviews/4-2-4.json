@@ -1,0 +1,63 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Některé konkrétní provozní doporučení jsou dobře fundované, ale chybí explicitní odkaz na související části příručky nebo KB (např. verzování promptů a model‑metadat, automatizované smoke/acceptance testy). Princip dokumentace promptů/provenance je v příručce zmíněn, ale doporučení o konkrétních polích metadat a verzování by mělo odkazovat na relevantní sekce (např. 4.2.4 / 8.5 / 9.9).",
+      "required_fix": "Přidat explicitní cross‑reference (citaci) na příslušné části příručky (např. 4.2.4 Provozní údržba, 8.5 Architektura RAG, 9.9 Mechanismus aktualizací) nebo krátce uvést, jaká metadata se doporučují uložit (viz suggested_edits)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Sekce uvádí dobrá doporučení, ale postrádá praktické příklady (konkrétní schéma provenance, pole verzovacího záznamu, vzor incident‑logu, příklad smoke testu). Pro čtenáře (vyučující / IT) by to zjednodušilo implementaci.",
+      "required_fix": "Doplnit krátké příklady: minimální pole pro provenance a prompt‑verzování, ukázkový incident checklist a příklad smoke testu (viz suggested_edits)."
+    },
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "V textu jsou některé body označené jako '(general background knowledge)' zatímco jiné podobné obecné doporučení tímto označením nejsou: nekonzistentní značení kategorie poznámky.",
+      "required_fix": "Upravit označení všech čistě všeobecných/obecných best‑practice položek konzistentně (např. přidat '(general background knowledge)' tam, kde jde o obecné ops postupy, nebo odstranit tam, kde je podložené interními sekcemi)."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "LaTeX obsahuje platné prostředí (flushleft, itemize, enumerate) a citaci se zdá korektní. Nicméně doporučuji explicitně použít \\\\ nebo prázdný řádek mezi flushleft a následujícím itemize pro konzistentní sazbu v některých dokumentclass‑ech.",
+      "required_fix": "Zkontrolovat sazbu v cílovém dokumentu; v případě layoutu s odstavci nahradit vnější \\begin{flushleft}...\\end{flushleft} prostým textovým odstavcem nebo přidat prázdný řádek/\\\\ před itemize."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce správně odkazuje na mini‑pilot a metriky, ale chybí explicitní napojení metriksběru na roli garanta předmětu (kdo report sbírá/jak často) — text uvádí, že sběr reportů je součástí mini‑pilotu, ale neuvádí formát/reportovací frekvenci.",
+      "required_fix": "Doplnit doporučený reporting (např. týdenní/kvartální report s metrikami: účast, čas na poskytnutí zpětné vazby, míra chybových odpovědí) a komu se zasílá (garant/podpora IT)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "Verzování promptů a modelů (bullet)",
+      "edit_instruction": "Přidat short cross‑reference na sekce 4.2.4 a 9.9 a navrhnout minimální metadata: {prompt_id, prompt_text (or diff), role(system/user), temperature, max_tokens, retrieval_settings, model_provider, model_version, cut_off_date, fine_tune_tag, author, timestamp, changelog_link}."
+    },
+    {
+      "target": "Provenance a záznamy konverzací (bullet)",
+      "edit_instruction": "Doplnit konkrétní návrh anonymizačního postupu (pseudonymizace uživatelského ID, maskování citlivých polí) a příklad pole provenance záznamu: {conversation_id, task_id, prompt_version, retrieved_doc_ids, model_meta, timestamp, outcome_label}."
+    },
+    {
+      "target": "Postup pro incidenty a rollback (enumerate)",
+      "edit_instruction": "Přidat ukázkový incident‑log template (krátký): {incident_id, detected_at, severity, affected_component, initial_action, reverted_to_version, smoke_test_results, RCA_summary, notified_roles, remediation_deadline} a odkaz na krok 'oznámení zainteresovaným rolím' (kdo přesně na VUT)."
+    },
+    {
+      "target": "Automatizace testů a metrik kvality (bullet)",
+      "edit_instruction": "Doplnit příklad smoke testů: kontrola formátu odpovědi (JSON schema), test latence (p99 < X ms), kontrola, že response neobsahuje zakázané entity (PII regex). Uvést doporučený četnost spuštění (např. při deploy / denně pro klíčové služby)."
+    },
+    {
+      "target": "Poznámka o enterprise funkcích (koncová poznámka)",
+      "edit_instruction": "Nechat citaci \\cite{kb_ai_101_tipu_pdf_04e4a115_page_3_1} jak je, případně přidat další cite_key na stránku s RAG/integrací (8.5) pokud budete odkazovat na enterprise RAG funkcionality."
+    }
+  ],
+  "retrieval_queries": [
+    "verzování promptů provenance best practices \"prompt versioning\" site:internal OR KB",
+    "smoke tests for LLM deployments checklist \"smoke test\" LLM monitoring",
+    "examples of provenance fields for RAG retrieved_doc_ids prompt metadata",
+    "quarterly review update mechanism AI pilot \"quarterly updates\" \"mechanism for updates\" kb_ai_101_tipu_pdf"
+  ]
+}

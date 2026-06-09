@@ -1,0 +1,112 @@
+{
+  "graph": {
+    "title": "Mini průvodce AI ve výuce",
+    "summary": "Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důraz je kladen na praktické scénáře (automatizovaná zpětná vazba, adaptivní učení, asistenti pro výuku a analytika učení), s příklady fungujících implementací a jasnými kroky pro učitele. Součástí jsou i konkrétní tipy pro hodnocení efektivity a doporučení k etice, ochraně dat a inkluzi. Průvodce je určen především vysokoškolským učitelům a administrátorům.",
+    "n_pages": 1.5,
+    "target_readers": "vysokoškolští učitelé, školní administrátoři, tvůrci kurzů, pracovníci e‑learningu, studenti pedagogiky",
+    "additional_requirements": "Krátká ukázka struktury knihy a článku. Zdůraznit fungující příklady z praxe univerzit a výhody AI pro výuku.",
+    "equation_frequency_level": 1,
+    "do_consider_outline": true,
+    "do_consider_previous_sections": true,
+    "max_depth": 5,
+    "max_output_pages": 1.5,
+    "author": ""
+  },
+  "nodes": {
+    "book": {
+      "title": "Mini průvodce AI ve výuce",
+      "summary": "Krátký praktický průvodce zaměřený na použití umělé inteligence ve vysokoškolské výuce. Text dává konkrétní příklady ověřených řešení z praxe univerzit, vysvětluje jejich pedagogické přínosy a poskytuje doporučení pro zavedení do kurzů. Důraz je kladen na praktické scénáře (automatizovaná zpětná vazba, adaptivní učení, asistenti pro výuku a analytika učení), s příklady fungujících implementací a jasnými kroky pro učitele. Součástí jsou i konkrétní tipy pro hodnocení efektivity a doporučení k etice, ochraně dat a inkluzi. Průvodce je určen především vysokoškolským učitelům a administrátorům.",
+      "n_pages": 1.5,
+      "needsSubdivision": true
+    },
+    "1": {
+      "title": "Úvod",
+      "summary": "Přehled cílů průvodce zaměřený na kontext vysokého školství. Stručně vysvětlí základní pojmy AI a rozdíl mezi nástroji pro učitele (asistenti, autogradery, nástroje pro tvorbu obsahu) a nástroji pro studenty (adaptivní systémy, personalizované cesty). Nastíní hlavní otázky: jak AI zlepšuje učení a zpětnou vazbu, co je třeba zvážit při zavádění (pedagogické cíle, kvalita dat, ochrana soukromí), a jak hodnotit přínos. Úvod zmíní konkrétní, ověřitelné příklady z praxe (např. chatboty používané jako kursovní asistenti, autogradery v kurzech programování, adaptivní moduly v blended learningu) a připraví čtenáře na praktické kapitoly.",
+      "n_pages": 0.4,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\1.tex"
+    },
+    "2": {
+      "title": "Praktické příklady",
+      "summary": "Konkrétní scénáře použití AI ve vysokoškolské výuce s popisem účelu, průběhu použití, požadovaných nástrojů, ověřených implementací na univerzitách, očekávaných přínosů a možných omezení. Každý scénář obsahuje krátký postup zavedení, potřebné zdroje a metody pro měření efektivity.\nHlavní podtémata (příklady fungujících řešení):\n- Automatizovaná zpětná vazba a autogradery: použití pro programování (autograde systémy), testy s otevřenými odpověďmi (automatická kontrola struktur), rychlá formativní zpětná vazba, úspora času učitelům.\n- Adaptivní a personalizované učení: moduly, které přizpůsobují obsah a úlohy podle výkonu studenta (příklady kurzů, kde adaptivní cesty zvýšily udržení znalostí), doporučení pro nastavení parametrů a integraci se LMS.\n- Chatboti a virtuální asistenti pro studenty a učitele: praktické nasazení jako FAQ a 24/7 podpora, asistenti pro plánování lekcí a administrativu (příklad univerzitních nasazení chatbotů jako podpora učitelů), doporučení pro design dialogu a dohled člověka.\n- Podpora hodnocení a korektury: nástroje pro rychlé zpracování a kategorizaci studentských odpovědí, pomoc při hodnocení esejí (doplňkové nástroje, které zrychlují práci hodnotitelů, ne nahrazují odborné posouzení).\n- Learning analytics a podpora zásahů: dashboardy ukazující rizikové studenty, přehled angažovanosti v online aktivitách, jak využít data pro cílené intervence.\n- Tvorba a adaptace učebních materiálů: nástroje pro generování cvičení, vytvoření studijních opor a multimedia obsahu při zachování akademické kvality.\nKaždé téma obsahuje krátkou ukázku implementace, konkrétní přínosy (time‑saving, lepší personalizace, vyšší angažovanost) a seznam rizik (bias, kvalita dat, přehnané spoléhání se na automatizaci).",
+      "n_pages": 0.9,
+      "needsSubdivision": true
+    },
+    "3": {
+      "title": "Zavedení do praxe, etika a hodnocení efektivity",
+      "summary": "Praktické kroky pro implementaci AI v kurzech: plánování (cíle výuky, metriky úspěchu), pilotní nasazení, školení učitelů, zapojení studentů a iterativní zlepšování. Doporučení pro tvorbu interních pravidel (governance), zajištění ochrany osobních údajů a transparentnosti (co nástroj dělá a jak jsou použita data). Sekce obsahuje rozhodovací strom pro výběr nástroje (úroveň technické podpory, soulad s LMS, dostupnost dat), návrhy metrik pro hodnocení přínosu (úspora času, zlepšení výsledků učení, spokojenost studentů) a příklady měření z praxe. Zvláštní pozornost věnována inkluzi (jak AI pomáhá adaptovat výuku pro různé potřeby) a rizikům (hnětení biasu, bezpečnost, akademická poctivost). Obsahuje také doporučení pro profesní rozvoj učitelů a zapojení fakultní administrativy.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\3.tex"
+    },
+    "2-1": {
+      "title": "Automatizovaná zpětná vazba a podpora hodnocení",
+      "summary": "Popis praktických nasazení autograderů a nástrojů pro rychlé zpracování studentských odpovědí. Obsahuje účel použití, krok‑za‑krokem postup zavedení pro programovací úlohy i otevřené odpovědi, požadované technologie a integrační body do LMS, ukázku krátké implementace, metody měření úspory času a kvality hodnocení a seznam běžných rizik a mitigací (např. chyby v testovacích sadách, potřeba lidského dohledu).",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\2-1.tex"
+    },
+    "2-2": {
+      "title": "Adaptivní a personalizované učení",
+      "summary": "Praktický průvodce pro nasazení adaptivních modulů: definování výukových cest, nastavení parametrů přizpůsobení výkonu studenta, požadavky na data a integraci se stávajícím LMS. Obsahuje krátký implementační scénář, doporučené kroky pro pilotní test, ukazatele efektivity (např. metriky učení a udržení), a popis možných omezení a zásad návrhu obsahu pro personalizaci.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\2-2.tex"
+    },
+    "2-3": {
+      "title": "Chatboti a virtuální asistenti pro studenty a učitele",
+      "summary": "Návod pro praktické použití chatbotů jako FAQ, 24/7 podpory a asistentů pro administrativní úkony: návrh dialogů, definice rolí a pravidel eskalace k člověku, technické požadavky a způsoby nasazení v akademickém prostředí. Obsahuje příklad pracovního postupu pro zavedení, metody monitorování kvality odpovědí a doporučení pro dohled a ochranu soukromí.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\2-3.tex"
+    },
+    "2-4": {
+      "title": "Learning analytics a podpora cílených intervencí",
+      "summary": "Konkrétní scénář vytvoření dashboardu a pracovních postupů pro identifikaci rizikových studentů a plánování zásahů. Popis požadovaných datových zdrojů, návrh klíčových metrik angažovanosti, praktický postup nasazení analytiky a doporučené metody vyhodnocení zásahů. Součástí jsou také upozornění na etické a právní aspekty práce s daty.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\2-4.tex"
+    },
+    "2-5": {
+      "title": "Tvorba a adaptace učebních materiálů pomocí AI",
+      "summary": "Praktické postupy pro generování cvičení, tvorbu studijních opor a multimediálního obsahu s kontrolou akademické kvality: výběr nástrojů, workflow pro editaci a validaci vytvořeného materiálu, ukázková implementace pro jeden modul kurzu a metody měření přínosu (čas tvorby, zpětná vazba studentů). Upozornění na rizika spojená s kvalitou a autorskými právy a doporučení pro kontrolu obsahu.",
+      "n_pages": 0.2,
+      "needsSubdivision": false,
+      "content_file_path": "D:\\Scripts\\autogenbook\\out_smoke_1769182107\\book\\sections\\2-5.tex"
+    }
+  },
+  "edges": [
+    [
+      "book",
+      "1"
+    ],
+    [
+      "book",
+      "2"
+    ],
+    [
+      "book",
+      "3"
+    ],
+    [
+      "2",
+      "2-1"
+    ],
+    [
+      "2",
+      "2-2"
+    ],
+    [
+      "2",
+      "2-3"
+    ],
+    [
+      "2",
+      "2-4"
+    ],
+    [
+      "2",
+      "2-5"
+    ]
+  ]
+}

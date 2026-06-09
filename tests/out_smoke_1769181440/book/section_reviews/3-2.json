@@ -1,0 +1,72 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The validation guidance says 'Před automatickým použitím kontrolujte několik vygenerovaných položek ručně' but the earlier section (memory) recommends checking 10–20 items for question generators. The current wording is vaguer than the recommendation in the context memory.",
+      "required_fix": "Replace 'několik' with a quantified recommendation consistent with the memory, e.g. 'zkontrolujte 10–20 vygenerovaných položek ručně (pro generátory otázek)'; if different sample sizes are intended for other templates, state them explicitly and cite the relevant node (2-2..2-6) or label any other numbers as 'general background knowledge'."
+    },
+    {
+      "type": "consistency",
+      "severity": "major",
+      "description": "Open threads and context memory indicate a need for concrete escalation procedures and role assignments for pilots (section 2-6). The section currently notes 'plán manuálního auditu / eskalace (definujte odpovědnou osobu)' but does not provide a minimal template or cross-reference with section 2-6's roles, leaving implementers without actionable steps.",
+      "required_fix": "Add a short, concrete escalation template (e.g., trigger conditions, who to notify, stepwise actions, expected SLA for manual review) or explicitly cross-reference and link to section 2-6 with a clear pointer to the escalation procedure. If the detailed procedure is outside scope, mark this as an open dependency and point readers to section 2-6 and an action item to draft escalation scripts before pilot."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body embeds multiple \\begin{verbatim}...\\end{verbatim} blocks inside an itemize environment. In standard LaTeX verbatim may not work reliably inside list environments unless specific packages or environments are used.",
+      "required_fix": "Either move the verbatim blocks out of the itemize (e.g., present prompts in separate displayed blocks), or replace with a listing environment that supports use inside lists (e.g., \\begin{lstlisting}...\\end{lstlisting} from the listings package), or wrap each verbatim in a minipage or use the package 'verbatimbox'. Document the required package(s) in a short LaTeX note."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section provides multiple templates but contains no filled examples. Users may find it hard to adapt prompts for specific subjects or levels without at least one concrete worked example.",
+      "required_fix": "Add one or two filled examples (preferably Czech-localized) — e.g., a completed 45‑minute lesson plan prompt for 'Fyzika, bakalářské' and one completed MCQ set or one filled 'Zadání úlohy' — so readers can see expected inputs and outputs."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The guidance about manual auditing and KPI selection is useful but lacks quantified checks for other use cases (e.g., LLM-assisted grading audits). The memory includes specific quick-checklist steps and metrics for chatbots and pilots but this section does not fully reuse those numbers or guidance.",
+      "required_fix": "Explicitly align the audit recommendations with the quick checklist and chatbot metrics from the context memory: state recommended pilot KPIs (2–4 KPIs), sample sizes for sandbox runs (1–3 users as per quick checklist), and recommended chatbot metrics (počet dotazů, doba odpovědi, procento eskalací, audit odpovědí). Where specific sample sizes for LLM-assisted grading are not available in memory, either omit numeric recommendations or label them as 'general background knowledge'."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Language usage is inconsistent in prompts: some prompts specify Czech (CZ) while others default to English (e.g., 'Produce 8 variant...'). This may confuse implementers about which language to request from the LLM.",
+      "required_fix": "Make language explicit in every prompt template (e.g., append '(CZ)' or '(EN)' or allow a [JAZYK] placeholder) and add a short note about localization of terminology and student-facing phrasing."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "validation instruction paragraph",
+      "edit_instruction": "Replace 'Před automatickým použitím kontrolujte několik vygenerovaných položek ručně a zapište časté chyby; upravujte prompt iterativně.' with 'Před automatickým použitím kontrolujte ručně 10–20 vygenerovaných položek (pro generátory otázek) a zapište časté chyby; upravujte prompt iterativně.' and add a short parenthetical note linking this recommendation to the earlier guidance on generator checks in section 3.1."
+    },
+    {
+      "target": "pilot/escalation sentence",
+      "edit_instruction": "Expand 'Při nasazení do pilotu mějte připravené KPI a plán manuálního auditu / eskalace (definujte odpovědnou osobu) podle rychlého checklistu pilotu \\cite{2-6}.' into a compact escalation template: list trigger conditions (e.g., >X% incorrect/confusing responses, safety flag), immediate actions (suspend model output for affected items), who to contact (role titles, e.g., 'Course lead', 'Academic reviewer'), and target SLAs for manual review. If detailed steps live in 2-6, add a cross-reference 'viz sekce 2.6 – rozšířený postup eskalace'."
+    },
+    {
+      "target": "LaTeX prompt blocks",
+      "edit_instruction": "Replace verbatim blocks inside itemize with a LaTeX-safe approach. Option A: move each prompt block after the itemize as a separate \\begin{lstlisting} (require \\usepackage{listings}) block and reference it from the list. Option B: wrap each verbatim in a minipage to ensure compatibility. Add a short LaTeX note listing required packages."
+    },
+    {
+      "target": "templates section",
+      "edit_instruction": "Add at least one concrete, fully filled example per template type (e.g., lesson plan for 'Matematika, bakalářské', one Zadání úlohy in CZ, and one MCQ example) showing both the prompt input and an example model output (short). If including example outputs, label them as 'illustrative' and keep them short to avoid needing external verification."
+    },
+    {
+      "target": "language/localization note",
+      "edit_instruction": "Add a short note: 'Uveďte požadovaný jazyk pomocí [JAZYK] nebo explicitním označením (CZ/EN) v každém promptu; přizpůsobte tón (formální/neformální) podle úrovně studentů.'"
+    },
+    {
+      "target": "audit/KPI alignment",
+      "edit_instruction": "Explicitly reference the quick checklist: 'Definujte 2–4 KPI (viz rychlý checklist), vytvořte sandbox a proveďte kontrolní běh s 1–3 uživateli; pro chatboty sledujte počet dotazů, dobu odpovědi, procento eskalací a spokojenost \\cite{2-5}.'"
+    }
+  ],
+  "retrieval_queries": [
+    "Section 2-6: detailed escalation procedures and role responsibilities for pilot deployment (concrete stepwise template)",
+    "Section 3-1 or related nodes: recommended sample sizes for manual audits for LLM-assisted grading and generator outputs (beyond 'generátory otázek: 10–20')",
+    "Section 2-5: canonical chatbot metrics definitions and suggested thresholds or examples of KPI values used in pilots"
+  ]
+}

@@ -1,0 +1,8 @@
+This section gives compact, annotated templates showing the JSON schema for leaf sections, how claim-level evidence pointers are attached, an evidence manifest, and the mapping used to assemble JSON-constrained sections into LaTeX with an external bibliography.  
+Illustrative JSON and manifest formats encode claim arrays with opaque evidence URIs (evidence://...), plus provenance fields (retrieval_queries, retriever_snapshot_id) permitting programmatic resolution and audit.  
+In LaTeX assembly we preserve evidence URIs as footnotes or resolve them to BibTeX keys during a final pass; keeping pointers explicit supports both human inspection and automated checking.  
+A resolver manifest maps evidence URIs to doc_id, source, page/span and optional checksum so checkers can re-fetch and compare claimed spans.  
+Evidence retrieval is central to verification pipelines and motivates attaching machine-resolvable pointers to each claim \cite{web_chen_2023_complex_claim_verification_with_evidence_retriev}.  
+Intended automated checks include ensuring non‑trivial claims have evidence, rehydrating pointers to extract spans, and flagging mismatches for human review.  
+Examples here are illustrative placeholders (no run artifacts included); in the final paper we will replace them with anonymized, real outputs and inline failure‑mode annotations.  
+Anticipated failure modes include missing or misresolved pointers and fragmented claims; mitigations to be evaluated include stricter schema validation, span-similarity checks, and claim‑merging heuristics.

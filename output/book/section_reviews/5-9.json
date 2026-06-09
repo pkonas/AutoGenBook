@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Some legal/technical claims (explicit mention of 'DPA', 'data residency' and general guidance about enterprise licences providing audit trails) are referenced to kb_ai_101_tipu_pdf_04e4a115_page_15_2. The provided excerpt for that page discusses Microsoft licensing and examples (e.g. Minecraft Education) but the small excerpt included does not explicitly show text about DPA or data residency. While related guidance exists elsewhere in the manual (context memory includes DPIA/DPA guidance), the specific lines in this section would be clearer if they cited the more directly relevant pages (e.g. sections on DPA/DPIA/data residency) or Příloha 9.4.",
+      "required_fix": "Replace or supplement the current citation (page_15_2) with the page(s) that explicitly discuss DPA/DPIA and data residency (for example the DPIA / DPA guidance pages or appendix 9.4) or reword to a qualified statement (e.g. 'consider DPA/data residency where applicable') and cite the exact KB pages."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The prompt in the prompt‑library is in English while the rest of the section is in Czech. This may reduce usability for Czech‑speaking instructors who expect copy‑pasteable Czech prompts or localized templates.",
+      "required_fix": "Provide a Czech translation of the example prompt or add a short note recommending localization and giving a Czech example to paste into LMS/API."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "The section prescribes that the AI declaration field 'must be filled' in the rubric table and suggests using process artefacts to deter misuse, but it does not cross‑reference the operational steps to follow if a student fails to declare AI or if declarations appear inconsistent with artefacts.",
+      "required_fix": "Add a short cross‑reference to the procedural steps for suspected misuse (e.g. 'Postup při podezření na nevhodné použití AI' described earlier) and/or include a brief example workflow (request missing artefacts -> interview -> document outcome) with a citation to the earlier section outlining these steps."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX uses verbatim blocks and a tabular inside center. These are generally fine but may require the document to include standard verbatim support; long lines in verbatim may overflow in narrow layouts. The tabular uses fixed p{..} widths—depending on the document class/margins these may need tuning.",
+      "required_fix": "Confirm the main document includes verbatim (standard LaTeX does) and consider adding a Czech translation for the verbatim prompt blocks. Optionally suggest using narrower lines or lstlisting for better line wrapping, and test the p{6cm}/p{1.5cm} column widths in the final layout; adjust if overflow occurs."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "For the sentence 'Zajistěte technickou a právní proveditelnost ukládání dat (enterprise licence, DPA) před nasazením', add an explicit citation to the DPIA/DPA guidance (e.g. Příloha 9.4 or the chapter section on DPA/data residency) or rephrase to: 'Zajistěte technickou a právní proveditelnost ukládání dat — ověřte DPA, data residency a případně proveďte DPIA — před nasazením (viz Příloha 9.4).'"
+    },
+    {
+      "target": "prompt library",
+      "edit_instruction": "Provide a Czech localized version of the example feedback prompt (copy‑paste ready) or add a short translation below the English original to improve usability for Czech instructors."
+    },
+    {
+      "target": "rubric / procedure",
+      "edit_instruction": "Add one sentence linking the rubric requirement 'Pole pro deklaraci AI musí být vyplněno' to the operational 'postup při podezření' (earlier in the manual). Example: 'Nedodání deklarace nebo nejasnosti řešte dle Postupu při podezření na nevhodné použití AI (viz sekce 5.?) — zkontrolujte artefakty, vyžádejte pohovor, dokumentujte závěr.' Include a citation to the relevant procedural section."
+    },
+    {
+      "target": "latex blocks",
+      "edit_instruction": "Test the verbatim blocks for line overflow; if layout problems occur, either shorten lines or replace verbatim with lstlisting (with breaklines) or add a note that these snippets are intended to be copy‑pasted and may be reformatted by the repository tooling."
+    }
+  ],
+  "retrieval_queries": [
+    "Locate KB pages/paragraphs that explicitly discuss DPA, data residency, DPIA and enterprise licence benefits for AI in education (e.g. sections referenced as Příloha 9.4, 2.2.4, 8.3 or similar).",
+    "Provide the KB excerpt that lists the operational 'Postup při podezření na nevhodné použití AI' (step‑by‑step procedure) so it can be cited directly from this section.",
+    "Fetch the KB excerpt(s) that explicitly state enterprise licences provide audit logs/audit trail and recommended contractual points (DPA/SLA) for use in educational deployments."
+  ]
+}

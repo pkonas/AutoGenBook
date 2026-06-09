@@ -1,0 +1,56 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "consistency",
+      "severity": "minor",
+      "description": "Section 2-6 repeats recommendations that overlap with the earlier 'Chatboti pro studentské konzultace a tutorování' material (section 2.5 in the outline). The overlap is consistent but the section does not explicitly cross-reference the chatbot-specific metrics and roles already described in 2.5.",
+      "required_fix": "Add an explicit cross-reference to the chatbot pilot guidance (section 2.5) and state which recommendations are shared, to avoid duplication and to strengthen internal consistency."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The 'Výběr ukazatelů úspěchu' item gives examples of KPIs but does not explicitly list the concrete, commonly used chatbot metrics (number of queries, response time, % escalations, audit agreement, user satisfaction) that appear in the context memory. Readers may miss a direct mapping between the listed KPIs and the chatbot-focused metrics used elsewhere.",
+      "required_fix": "Explicitly enumerate the recommended quantitative and qualitative metrics (as used in the chatbot section) and suggest a short template for how to record them (metric name, baseline, target, measurement method)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "The section recommends choosing 2–4 KPIs and defines a timeline but does not include a short example of a success-criterion statement or a placeholder template for KPI targets (e.g., 'reduce escalation rate vs baseline' or 'achieve X% agreement with manual grading').",
+      "required_fix": "Add a brief, editable example of a success-criterion statement and a short KPI-target placeholder (without inventing numeric thresholds) so teams know how to operationalize 'definované ukazatele úspěchu'."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "The LaTeX body uses a global note that the content is 'general background knowledge' at the top, but some subsection headings also include '(general background knowledge)'. This is not an error, but may be redundant. There are non‑ASCII hyphen characters (e.g., 'krok‑za‑krokem') and n‑dashes in ranges (e.g., '1–2') which are valid in LaTeX but could cause inconsistency across encodings.",
+      "required_fix": "Either mark each list explicitly as background knowledge or keep a single note at the top. Optionally normalize hyphens/dashes for consistency with the rest of the document (use -- for ranges if document uses plain ASCII LaTeX conventions) or ensure the source encoding supports the characters."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "first paragraph / Krátce:",
+      "edit_instruction": "Add a parenthetical cross-reference: 'Viz také sekce 2.5 (Chatboti pro studentské konzultace a tutorování) pro chatbot‑specifické metriky a role.' This will make it clear which recommendations are shared and where to find detailed chatbot metrics."
+    },
+    {
+      "target": "Výběr ukazatelů úspěchu (item list)",
+      "edit_instruction": "Expand the KPI examples into a short bulleted template: list common quantitative metrics (počet dotazů, průměrná doba odpovědi, % eskalací, počet vyřešených dotazů bez eskalace) and qualitative metrics (audit vzorků, shoda s ručním hodnocením, spokojenost studentů). Add columns/placeholders: 'Baseline / Target / Metoda měření / Frekvence vyhodnocení'."
+    },
+    {
+      "target": "Krátká šablona časového plánu",
+      "edit_instruction": "Add one sentence after the timeline: 'Ke každému časovému bodu přiřaďte konkrétní výstupy a zodpovědné osoby (např. 'Týden 1–2: technická příprava — výstup: testovací dataset; zodpovědný: IT').' Provide this as a short fill‑in template rather than prescribing fixed durations."
+    },
+    {
+      "target": "Checklist rizik a kontrolních opatření",
+      "edit_instruction": "Add one actionable control per risk, e.g. after 'Ochrana dat a souhlasy' add: 'konkrétní krok: ověřit požadavky GDPR s právním oddělením a definovat anonymizační postup pro pilotní data.' Keep these as actionable placeholders that local teams must fill in."
+    },
+    {
+      "target": "General wording",
+      "edit_instruction": "Where the document makes procedural claims, ensure the phrasing keeps them labelled as 'general background knowledge' (or rephrase to 'Doporučení' / 'Vzorek postupu'), so they remain clearly advisory and require local validation."
+    }
+  ],
+  "retrieval_queries": [
+    "examples of common KPI templates for chatbot pilots in education (number of queries, response time, escalation rate, audit agreement, user satisfaction)",
+    "best practices for pilot timelines for educational AI tools (recommended milestones and outputs per week)",
+    "data protection checklist items relevant for educational pilots (consent, anonymization, retention policy) to convert risks into actionable controls"
+  ]
+}

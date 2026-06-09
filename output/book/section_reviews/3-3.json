@@ -1,0 +1,42 @@
+{
+  "ok_to_keep": false,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "The sentence 'Např. některé nástroje umí vytvořit slide deck přímo do školní šablony nebo generovat obrázky pro výuku \\cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}.' bundles two claims but cites only kb_ai_101_tipu_pdf_04e4a115_page_51_1. The retrieved excerpt for page_51_1 supports the claim about generating images and aspect ratios (Designer), but the claim about creating slide decks directly into a school template is supported elsewhere in the document (previous sections cite page_44_2). The current in-line citation is therefore incomplete/mismatched.",
+      "required_fix": "Split the combined claim and provide correct citations: cite page_51_1 for the image/aspect-ratio point and cite the page that documents slide‑deck → school template export (e.g., kb_ai_101_tipu_pdf_04e4a115_page_44_2) for the slide deck claim, or rephrase to only claim what page_51_1 supports."
+    },
+    {
+      "type": "clarity",
+      "severity": "major",
+      "description": "The line 'Varianta pro 45/30 minut: zachovejte poměr expozice : aktivita : závěr ≈ 30:50:20 (v minutách)' is internally inconsistent: the listed numbers sum to 100 and cannot be expressed 'v minutách' for 45 or 30 minute lessons. This is confusing for instructors.",
+      "required_fix": "Replace '(v minutách)' with a correct qualifier (e.g., 'v procentech' or 'v poměru') and add brief guidance or an example of how to convert the 30:50:20 ratio to a 45‑minute and 30‑minute session (or remove the minutes mention altogether)."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Some timebox boundaries in the 90‑minute breakdown overlap visually without spaces (e.g., '0--10 min', '10--25 min'). This is acceptable but could be clearer if formatted consistently or if transition expectations (e.g., time for moving between activities) are mentioned.",
+      "required_fix": "Optionally add brief guidance about transitions (e.g., 1–2 min buffer for group reorganization) or make the time ranges explicitly non-overlapping (0–10, 10–25 means next block starts at 10)."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph containing slide deck / images sentence",
+      "edit_instruction": "Split into two sentences and correct citations. Example instruction: 'Použijte AI k generování vizuálů (např. nástroje jako Designer umějí generovat obrázky a nastavit poměr stran \\cite{kb_ai_101_tipu_pdf_04e4a115_page_51_1}). Některé nástroje také umí vložit obsah přímo do školní/slajdové šablony (viz sekce o nástrojích pro prezentace \\cite{kb_ai_101_tipu_pdf_04e4a115_page_44_2}).' (Replace with exact citation keys available in the KB.)"
+    },
+    {
+      "target": "Varianta pro 45/30 minut sentence",
+      "edit_instruction": "Rephrase to avoid 'v minutách' and either present the ratio as percentages or show concrete converted times. Example instruction: 'Varianta pro 45/30 minut: zachovejte poměr expozice : aktivita : závěr ≈ 30:50:20 (v %). Příklad: pro 45 min → cca 14:23:9 min (zaokrouhlete podle potřeby); pro 30 min → cca 9:15:6 min.' If you prefer not to include conversion numbers, simply state 'v %' and add 'zkracujte bloky aktivního cvičení; preferujte jedno jasné výstupové zadání.'"
+    },
+    {
+      "target": "timeboxing section",
+      "edit_instruction": "Add a short note about transition time between activities (1–2 min) so instructors plan realistic handovers; optionally show one worked example converting the 90 min plan into a 45 min plan by halving or by applying the stated ratio."
+    }
+  ],
+  "retrieval_queries": [
+    "kb_ai_101_tipu_pdf_04e4a115 page 44",
+    "kb_ai_101_tipu_pdf_04e4a115 page 51",
+    "kb_ai_101_tipu_pdf_04e4a115 page 8"
+  ]
+}

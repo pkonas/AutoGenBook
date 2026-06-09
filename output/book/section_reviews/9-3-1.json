@@ -1,0 +1,52 @@
+{
+  "ok_to_keep": true,
+  "issues": [
+    {
+      "type": "grounding",
+      "severity": "minor",
+      "description": "Úvodní formulace o povinné transparentní deklaraci AI není explicitně podložená konkrétním odkazem v textu. Ve zbytku příručky (sekce o politice do sylabů a transparentnosti) jsou taková doporučení, ale v tomto konkrétním LaTeX bloku chybí přímá reference.",
+      "required_fix": "Přidat krátkou poznámku/footnote u úvodní věty odkazující na příslušnou část metodické příručky (např. 2.4 Transparentnost / 9.3.1 Doporučené formulace pro sylabus), aby byla formulace jasně podpořena vnitroknihovním zdrojem."
+    },
+    {
+      "type": "clarity",
+      "severity": "minor",
+      "description": "Sekce ‚Konkrétní nástroje a příklady‘ uvádí Microsoft 365 Copilot a ‚Pokrok v matematice‘, ale neupřesňuje dostupnost/licencování (některé funkce mohou být součástí školních licencí nebo placených doplňků). To může vést k nedorozumění při kopírování textu do sylabu.",
+      "required_fix": "Doplnit jednou větou upozornění o nutnosti ověření licenční dostupnosti u vybraných nástrojů (např. Minecraft Education má část obsahu v placené školní licenci; Microsoft Copilot má varianty/omezení) a opatřit tuto poznámku odkazem na příslušné části příručky nebo na poznámky o licencích."
+    },
+    {
+      "type": "latex",
+      "severity": "minor",
+      "description": "V LaTeX těle jsou použity \\footnote{} uvnitř položek itemize a komentáře (%) — to je povolené, ale může způsobit nečekané umístění poznámek pod čarou v některých kompilátorech. Dále je použití \\underline{\\hspace{7cm}} pevné šířky; může to špatně vypadat v různých šablonách sylabu.",
+      "required_fix": "Zvážit přesunutí poznámek pod čarou mimo itemize (nebo použití \\footnotemark / \\footnotetext) pokud se objeví problémy při kompilaci; nahradit \\underline{\\hspace{7cm}} např. konstrukcí \\makebox[7cm]{\\hrulefill} nebo ponechat pole LMS jako prázdné místo bez pevné šířky."
+    },
+    {
+      "type": "pedagogy",
+      "severity": "minor",
+      "description": "Sekce obsahuje užitečné šablony, ale chybí krátké příklady adaptace pro summativní vs. formativní úlohy (např. konkrétní znění pro povolení AI v domácím cvičení vs. zákaz při závěrečné písemce). Kontext příručky takové rozdíly doporučuje jinde.",
+      "required_fix": "Přidat 1–2 velmi krátké varianty (1–2 věty) formulací do sylabu: jedna pro formativní úlohy (povolené s deklarací + požadavek na reflexi) a jedna pro sumativní hodnocení (zákaz nebo přísně omezené s monitoringem), s odkazem na příslušné šablony v příručce."
+    }
+  ],
+  "suggested_edits": [
+    {
+      "target": "paragraph hint",
+      "edit_instruction": "U úvodní věty přidejte footnote: \"Source: sekce o transparentnosti/politice do sylabů v metodické příručce (např. 2.4 / 9.3.1)\" tak, aby bylo zřejmé, že povinnost deklarace vychází z doporučení příručky."
+    },
+    {
+      "target": "Konkrétní nástroje a příklady (itemize)",
+      "edit_instruction": "Za text o Microsoft 365 Copilot a 'Pokrok v matematice' přidejte krátké varování: '(Ověřte dostupnost a licenční podmínky ve vaší instituci.)' a odkázat na poznámky o licencích v příručce (např. část o dostupnosti Microsoft nástrojů)."
+    },
+    {
+      "target": "Povinná studentská deklarace (šablona pro LMS)",
+      "edit_instruction": "Přidat jednu alternativní větu pro sumativní úlohy: 'Pro sumativní (závěrečná) hodnocení je použití generativní AI zakázáno / omezeno — viz instrukce u zadání.' a pro formativní úlohy: 'Povolené s deklarací a stručnou reflexí (max. 200 slov).' Oboje označit krátkou referencí na šablony rubrik (sekce 5.x)."
+    },
+    {
+      "target": "LaTeX footnotes",
+      "edit_instruction": "Pokud kompilace vrací chyby nebo poznámky pod čarou se špatným umístěním, přesuňte \\footnote{...} mimo itemize nebo použijte \\footnotemark / \\footnotetext párování; u deklarace v LMS raději ponechejte placeholder bez pevné šířky (nebo použijte \\makebox)."
+    }
+  ],
+  "retrieval_queries": [
+    "Doporučené formulace do sylabu povinná deklarace AI (sekce 9.3.1 nebo 2.4 v příručce)",
+    "Licencování Microsoft 365 Copilot dostupnost a rozdíly (zdroj z příručky, např. oddíl o Copilot/Forms/licence)",
+    "Konkrétní doporučení pro formulace pro summativní vs formativní úlohy v sylabu (příklady v příručce)"
+  ]
+}
