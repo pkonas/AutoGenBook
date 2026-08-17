@@ -1,0 +1,171 @@
+name: Build AutoGenBook Open WebUI Companion
+
+on:
+  push:
+    branches:
+      - feature/openwebui-companion-installer
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: autogenbook-openwebui-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unpack integration source
+        run: python tools/unpack_openwebui_bundle.py
+      - name: Install test dependencies
+        run: python -m pip install -e "./companion[dev]"
+      - name: Compile and test
+        run: |
+          python -m compileall -q companion/src installer build
+          python build/validate_pipe.py integrations/openwebui/autogenbook_pipe.py
+          pytest companion/tests -q
+      - name: Build companion wheel
+        run: python -m build --wheel --outdir dist/test-wheel companion
+      - name: Validate wheel
+        run: python -m pip install --force-reinstall dist/test-wheel/*.whl && autogenbook-companion doctor --source-dir .
+
+  platform-build:
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows-x64
+            package_format: zip
+          - os: ubuntu-latest
+            platform: linux-x64
+            package_format: tar.gz
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unpack integration source
+        run: python tools/unpack_openwebui_bundle.py
+      - name: Install build tools
+        run: python -m pip install build
+      - name: Build fully resolved wheelhouse
+        shell: bash
+        run: |
+          mkdir -p dist/wheelhouse dist/wheels
+          python -m build --wheel --outdir dist/wheels companion
+          python -m pip wheel --wheel-dir dist/wheelhouse -r requirements.txt
+          python -m pip wheel --wheel-dir dist/wheelhouse ./companion
+          cp dist/wheels/*.whl dist/wheelhouse/
+      - name: Download standalone Python runtime
+        shell: bash
+        run: |
+          python build/build_release.py fetch-python \
+            --platform "${{ matrix.platform }}" \
+            --output dist/python-runtime \
+            --archive-output "dist/python-${{ matrix.platform }}.tar.gz" \
+            --metadata-output "dist/python-${{ matrix.platform }}.json"
+      - name: Populate standalone runtime
+        shell: bash
+        run: |
+          python build/prepare_runtime.py \
+            --runtime-root dist/python-runtime \
+            --wheelhouse dist/wheelhouse \
+            --requirements requirements.txt \
+            --resolved-output "dist/resolved-packages-${{ matrix.platform }}.txt"
+      - name: Build installer stage
+        shell: bash
+        run: |
+          python build/build_release.py stage \
+            --repo-root . \
+            --output "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
+            --platform "${{ matrix.platform }}" \
+            --runtime-root dist/python-runtime \
+            --wheelhouse dist/wheelhouse \
+            --commit "${{ github.sha }}" \
+            --python-metadata "dist/python-${{ matrix.platform }}.json"
+      - name: Smoke-test bundled runtime
+        shell: bash
+        run: |
+          if [ "${{ matrix.platform }}" = "windows-x64" ]; then
+            PY="dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/runtime/python/python.exe"
+          else
+            PY="dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/runtime/python/bin/python3"
+          fi
+          "$PY" -m autogenbook_companion.cli doctor \
+            --home "dist/doctor-home" \
+            --source-dir "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/app"
+      - name: Build portable installer archive
+        shell: bash
+        run: |
+          python build/build_release.py package \
+            --source "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
+            --output "dist/AutoGenBook-OpenWebUI-Portable-${{ matrix.platform }}.${{ matrix.package_format }}" \
+            --format "${{ matrix.package_format }}"
+      - name: Build native Windows installer
+        if: matrix.platform == 'windows-x64'
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          $Stage = (Resolve-Path "dist/AutoGenBook-OpenWebUI-windows-x64").Path
+          $Output = (Resolve-Path "dist").Path
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DStageDir=$Stage" "/DOutputDir=$Output" "/DAppVersion=0.1.0" "installer/autogenbook-openwebui.iss"
+      - name: Build complete reproducibility package
+        shell: bash
+        run: |
+          python build/build_release.py full-build \
+            --repo-root . \
+            --stage-dir "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
+            --output-dir dist \
+            --platform "${{ matrix.platform }}" \
+            --extra dist/wheelhouse \
+            --extra "dist/python-${{ matrix.platform }}.tar.gz" \
+            --extra "dist/python-${{ matrix.platform }}.json" \
+            --extra "dist/resolved-packages-${{ matrix.platform }}.txt"
+      - name: Build release checksums
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          root = Path('dist')
+          candidates = []
+          for pattern in (
+              'AutoGenBook-OpenWebUI-Setup-*.exe',
+              'AutoGenBook-OpenWebUI-Portable-*.*',
+              'AutoGenBook-OpenWebUI-Full-Build-*.zip',
+          ):
+              candidates.extend(root.glob(pattern))
+          lines=[]
+          for path in sorted(set(candidates)):
+              h=hashlib.sha256(path.read_bytes()).hexdigest()
+              lines.append(f'{h}  {path.name}')
+          (root / 'SHA256SUMS-release.txt').write_text('\n'.join(lines)+'\n', encoding='utf-8')
+          print('\n'.join(lines))
+          PY
+      - name: Upload platform artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-openwebui-${{ matrix.platform }}
+          path: |
+            dist/AutoGenBook-OpenWebUI-Setup-*.exe
+            dist/AutoGenBook-OpenWebUI-Portable-${{ matrix.platform }}.*
+            dist/AutoGenBook-OpenWebUI-Full-Build-${{ matrix.platform }}.zip
+            dist/SHA256SUMS-release.txt
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
