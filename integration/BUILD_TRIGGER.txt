@@ -1,0 +1,4 @@
+AutoGenBook Open WebUI Companion build trigger
+Bundle SHA256: e14938bafe3fcd9532a37fe7631e2fad8ad7cd1e6389afcfd0fa151ea7fd3e75
+Protocol version: 1
+Companion version: 0.1.0
