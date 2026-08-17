@@ -24,35 +24,22 @@ jobs:
         run: |
           python tools/unpack_openwebui_bundle.py
           python tools/patch_openwebui_build.py
-      - name: Build source inspection archive
+      - name: Build complete source inspection archive
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import os
-          import shutil
-          root = Path('.')
-          out = Path('dist/source-inspection')
-          out.mkdir(parents=True, exist_ok=True)
-          for name in ('companion', 'build', 'installer', 'integrations'):
-              src = root / name
-              if src.exists():
-                  shutil.copytree(src, out / name, dirs_exist_ok=True)
-          for name in ('requirements.txt', 'README.md', 'main.py', 'book_builder.py', 'openrouter_llm.py', 'mcp_gateway.py'):
-              src = root / name
-              if src.exists():
-                  shutil.copy2(src, out / name)
-          for path in out.rglob('*'):
-              try:
-                  os.utime(path, (315532800, 315532800), follow_symlinks=False)
-              except OSError:
-                  pass
-          shutil.make_archive('dist/AutoGenBook-OpenWebUI-Integration-Source', 'gztar', out)
-          PY
+          mkdir -p dist
+          tar \
+            --exclude=.git \
+            --exclude=dist \
+            --exclude=output \
+            --exclude='integration/openwebui_bundle.part*.b64' \
+            --mtime='1980-01-01 UTC' \
+            --sort=name \
+            -czf dist/AutoGenBook-OpenWebUI-Complete-Source.tar.gz .
       - name: Upload source inspection artifact
         uses: actions/upload-artifact@v4
         with:
-          name: autogenbook-openwebui-integration-source
-          path: dist/AutoGenBook-OpenWebUI-Integration-Source.tar.gz
+          name: autogenbook-openwebui-complete-source
+          path: dist/AutoGenBook-OpenWebUI-Complete-Source.tar.gz
           if-no-files-found: error
           compression-level: 0
           retention-days: 7
