@@ -1,0 +1,53 @@
+name: Announce AutoGenBook Open WebUI Build Run
+
+on:
+  push:
+    branches:
+      - feature/openwebui-companion-installer
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Locate workflow runs for this commit
+        id: locate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          result=''
+          for attempt in $(seq 1 30); do
+            result=$(gh api --method GET "repos/${GITHUB_REPOSITORY}/actions/runs" \
+              -f head_sha="${GITHUB_SHA}" -f per_page=100 \
+              --jq '[.workflow_runs[] | {id,name,path,status,conclusion,head_sha,html_url,created_at,updated_at}]')
+            if echo "$result" | jq -e 'any(.[]; .path == ".github/workflows/build-openwebui-windows-complete.yml")' >/dev/null; then
+              break
+            fi
+            sleep 5
+          done
+          echo "$result" > /tmp/runs.json
+          cat /tmp/runs.json
+          jq -e 'any(.[]; .path == ".github/workflows/build-openwebui-windows-complete.yml")' /tmp/runs.json >/dev/null
+
+      - name: Publish run IDs on build-state branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch build-state \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/build-state
+          mkdir -p /tmp/build-state/build-state
+          jq --arg source_sha "$GITHUB_SHA" \
+             --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+             '{source_sha:$source_sha,generated_at:$generated_at,runs:.}' \
+             /tmp/runs.json > /tmp/build-state/build-state/latest-openwebui-build.json
+          cd /tmp/build-state
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-state/latest-openwebui-build.json
+          git commit -m "Record Open WebUI build runs for ${GITHUB_SHA}" || exit 0
+          git push origin HEAD:build-state
