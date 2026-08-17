@@ -11,8 +11,11 @@ EXPECTED_SHA256 = "e14938bafe3fcd9532a37fe7631e2fad8ad7cd1e6389afcfd0fa151ea7fd3
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    encoded = root / "integration" / "openwebui_bundle.tar.gz.b64"
-    payload = base64.b64decode(encoded.read_text(encoding="ascii"))
+    parts = sorted((root / "integration").glob("openwebui_bundle.part*.b64"))
+    if not parts:
+        raise RuntimeError("Integration bundle parts were not found.")
+    encoded = "".join(part.read_text(encoding="ascii").strip() for part in parts)
+    payload = base64.b64decode(encoded, validate=True)
     digest = hashlib.sha256(payload).hexdigest()
     if digest != EXPECTED_SHA256:
         raise RuntimeError(f"Integration bundle hash mismatch: {digest}")
