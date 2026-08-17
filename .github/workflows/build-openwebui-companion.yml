@@ -1,4 +1,4 @@
-name: Build AutoGenBook Open WebUI Companion
+name: Build AutoGenBook Open WebUI Complete Offline Installer
 
 on:
   push:
@@ -10,49 +10,57 @@ permissions:
   contents: read
 
 concurrency:
-  group: autogenbook-openwebui-${{ github.ref }}
+  group: autogenbook-openwebui-complete-offline-${{ github.ref }}
   cancel-in-progress: true
 
 env:
   PYTHONUTF8: "1"
   PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PIP_NO_INPUT: "1"
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Unpack integration source
+      - name: Unpack and patch integration source
         run: |
           python tools/unpack_openwebui_bundle.py
           python tools/patch_openwebui_build.py
+          python tools/patch_complete_offline.py
       - name: Install test dependencies
         run: python -m pip install -e "./companion[dev]"
       - name: Compile and test
         run: |
-          python -m compileall -q companion/src installer build
+          python -m compileall -q companion/src installer build autogenbook tools
           python build/validate_pipe.py integrations/openwebui/autogenbook_pipe.py
           pytest companion/tests -q
-      - name: Build companion wheel
-        run: python -m build --wheel --outdir dist/test-wheel companion
-      - name: Validate wheel
-        run: python -m pip install --force-reinstall dist/test-wheel/*.whl && autogenbook-companion doctor --source-dir .
+      - name: Build and validate Companion wheel
+        run: |
+          python -m pip install build
+          python -m build --wheel --outdir dist/test-wheel companion
+          python -m pip install --force-reinstall dist/test-wheel/*.whl
+          autogenbook-companion doctor --source-dir .
 
   platform-build:
     needs: test
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
         include:
           - os: windows-latest
             platform: windows-x64
-            package_format: zip
+            installer_label: autogenbook-openwebui-offline-installer-windows-x64
+            fullbuild_label: autogenbook-openwebui-full-build-windows-x64
           - os: ubuntu-latest
             platform: linux-x64
-            package_format: tar.gz
+            installer_label: autogenbook-openwebui-offline-installer-linux-x64
+            fullbuild_label: autogenbook-openwebui-full-build-linux-x64
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -61,18 +69,58 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Unpack integration source
+      - name: Unpack and patch integration source
+        shell: bash
         run: |
           python tools/unpack_openwebui_bundle.py
           python tools/patch_openwebui_build.py
-      - name: Install build tools
-        run: python -m pip install build
-      - name: Build fully resolved wheelhouse
+          python tools/patch_complete_offline.py
+      - name: Install native build prerequisite on Linux
+        if: matrix.platform == 'linux-x64'
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libportaudio2
+      - name: Set up TinyTeX
+        uses: r-lib/actions/setup-tinytex@v2
+      - name: Install the complete TeX toolchain
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil, subprocess, sys
+          tlmgr = shutil.which('tlmgr') or shutil.which('tlmgr.bat')
+          kpsewhich = shutil.which('kpsewhich') or shutil.which('kpsewhich.exe')
+          if not tlmgr or not kpsewhich:
+              raise SystemExit('TinyTeX executables were not added to PATH')
+          packages = [
+              'collection-basic', 'collection-latex', 'collection-latexrecommended',
+              'collection-latexextra', 'collection-fontsrecommended', 'collection-luatex',
+              'collection-langczechslovak', 'collection-mathscience', 'collection-pictures',
+              'physics', 'listingsutf8', 'xurl', 'beamer', 'babel-czech', 'hyphen-czech',
+          ]
+          command = [tlmgr, 'install', *packages]
+          if sys.platform == 'win32' and tlmgr.lower().endswith(('.bat', '.cmd')):
+              command = ['cmd', '/c', *command]
+          subprocess.run(command, check=True)
+          root_command = [kpsewhich, '-var-value=TEXMFROOT']
+          if sys.platform == 'win32' and kpsewhich.lower().endswith(('.bat', '.cmd')):
+              root_command = ['cmd', '/c', *root_command]
+          root = subprocess.check_output(root_command, text=True).strip()
+          if not root:
+              raise SystemExit('TEXMFROOT was empty')
+          Path('dist').mkdir(exist_ok=True)
+          Path('dist/tinytex-root.txt').write_text(root, encoding='utf-8')
+          print(root)
+          PY
+      - name: Build fully resolved target-platform wheelhouse
         shell: bash
         run: |
           mkdir -p dist/wheelhouse dist/wheels
+          python -m pip install build wheel
           python -m build --wheel --outdir dist/wheels companion
-          python -m pip wheel --wheel-dir dist/wheelhouse -r requirements.txt
+          cat requirements.txt integration/offline-requirements.txt > dist/runtime-requirements.txt
+          python -m pip wheel --wheel-dir dist/wheelhouse -r dist/runtime-requirements.txt
           python -m pip wheel --wheel-dir dist/wheelhouse ./companion
           cp dist/wheels/*.whl dist/wheelhouse/
       - name: Download standalone Python runtime
@@ -83,13 +131,13 @@ jobs:
             --output dist/python-runtime \
             --archive-output "dist/python-${{ matrix.platform }}.tar.gz" \
             --metadata-output "dist/python-${{ matrix.platform }}.json"
-      - name: Populate standalone runtime
+      - name: Populate standalone runtime exclusively from wheelhouse
         shell: bash
         run: |
           python build/prepare_runtime.py \
             --runtime-root dist/python-runtime \
             --wheelhouse dist/wheelhouse \
-            --requirements requirements.txt \
+            --requirements dist/runtime-requirements.txt \
             --resolved-output "dist/resolved-packages-${{ matrix.platform }}.txt"
       - name: Build installer stage
         shell: bash
@@ -102,24 +150,46 @@ jobs:
             --wheelhouse dist/wheelhouse \
             --commit "${{ github.sha }}" \
             --python-metadata "dist/python-${{ matrix.platform }}.json"
-      - name: Smoke-test bundled runtime
+      - name: Vendor Pandoc, FFmpeg, TinyTeX, PortAudio and Czech Piper voice
         shell: bash
         run: |
-          if [ "${{ matrix.platform }}" = "windows-x64" ]; then
-            PY="dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/runtime/python/python.exe"
-          else
-            PY="dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/runtime/python/bin/python3"
+          TINY_ROOT=$(cat dist/tinytex-root.txt)
+          python tools/vendor_offline_tools.py \
+            --stage "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
+            --runtime-root dist/python-runtime \
+            --tinytex-root "$TINY_ROOT" \
+            --platform "${{ matrix.platform }}" \
+            --resolved-packages "dist/resolved-packages-${{ matrix.platform }}.txt"
+          mkdir -p dist/offline-assets
+          cp -R "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/tools/piper" dist/offline-assets/
+          if [ -d "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/tools/lib" ]; then
+            cp -R "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/tools/lib" dist/offline-assets/
           fi
-          "$PY" -m autogenbook_companion.cli doctor \
-            --home "dist/doctor-home" \
-            --source-dir "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/app"
-      - name: Build portable installer archive
+          python - <<'PY'
+          from pathlib import Path
+          import tarfile
+          platform = '${{ matrix.platform }}'
+          root = Path('dist/tinytex-root.txt').read_text(encoding='utf-8').strip()
+          with tarfile.open(f'dist/tinytex-{platform}.tar.gz', 'w:gz') as archive:
+              archive.add(root, arcname='tinytex')
+          PY
+      - name: Verify complete stage without network access
         shell: bash
+        env:
+          PIP_NO_INDEX: "1"
+          HTTP_PROXY: "http://127.0.0.1:9"
+          HTTPS_PROXY: "http://127.0.0.1:9"
+          ALL_PROXY: "http://127.0.0.1:9"
+          NO_PROXY: "127.0.0.1,localhost"
         run: |
-          python build/build_release.py package \
-            --source "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
-            --output "dist/AutoGenBook-OpenWebUI-Portable-${{ matrix.platform }}.${{ matrix.package_format }}" \
-            --format "${{ matrix.package_format }}"
+          python tools/verify_offline_stage.py \
+            --stage "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
+            --output "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/OFFLINE-VERIFICATION.json"
+          python - <<'PY'
+          from pathlib import Path
+          from tools.vendor_offline_tools import write_hashes
+          write_hashes(Path('dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}'))
+          PY
       - name: Build native Windows installer
         if: matrix.platform == 'windows-x64'
         shell: pwsh
@@ -127,10 +197,24 @@ jobs:
           choco install innosetup --no-progress -y
           $Stage = (Resolve-Path "dist/AutoGenBook-OpenWebUI-windows-x64").Path
           $Output = (Resolve-Path "dist").Path
-          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DStageDir=$Stage" "/DOutputDir=$Output" "/DAppVersion=0.1.0" "installer/autogenbook-openwebui.iss"
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DStageDir=$Stage" "/DOutputDir=$Output" "/DAppVersion=0.2.0" "installer/autogenbook-openwebui.iss"
+          Move-Item "dist/AutoGenBook-OpenWebUI-Setup-Windows-x64.exe" "dist/AutoGenBook-OpenWebUI-Offline-Installer-windows-x64.exe"
+      - name: Build Linux offline installer archive
+        if: matrix.platform == 'linux-x64'
+        shell: bash
+        run: |
+          python build/build_release.py package \
+            --source "dist/AutoGenBook-OpenWebUI-linux-x64" \
+            --output "dist/AutoGenBook-OpenWebUI-Offline-Installer-linux-x64.tar.gz" \
+            --format tar.gz
       - name: Build complete reproducibility package
         shell: bash
         run: |
+          if [ "${{ matrix.platform }}" = "windows-x64" ]; then
+            INSTALLER="dist/AutoGenBook-OpenWebUI-Offline-Installer-windows-x64.exe"
+          else
+            INSTALLER="dist/AutoGenBook-OpenWebUI-Offline-Installer-linux-x64.tar.gz"
+          fi
           python build/build_release.py full-build \
             --repo-root . \
             --stage-dir "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}" \
@@ -139,37 +223,219 @@ jobs:
             --extra dist/wheelhouse \
             --extra "dist/python-${{ matrix.platform }}.tar.gz" \
             --extra "dist/python-${{ matrix.platform }}.json" \
-            --extra "dist/resolved-packages-${{ matrix.platform }}.txt"
-      - name: Build release checksums
+            --extra "dist/tinytex-${{ matrix.platform }}.tar.gz" \
+            --extra "dist/resolved-packages-${{ matrix.platform }}.txt" \
+            --extra dist/runtime-requirements.txt \
+            --extra dist/offline-assets \
+            --extra "$INSTALLER"
+          mv "dist/AutoGenBook-OpenWebUI-Full-Build-${{ matrix.platform }}.zip" \
+             "dist/AutoGenBook-OpenWebUI-Complete-Full-Build-${{ matrix.platform }}.zip"
+      - name: Split installer and full build into downloadable verified parts
         shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib
-          root = Path('dist')
-          candidates = []
-          for pattern in (
-              'AutoGenBook-OpenWebUI-Setup-*.exe',
-              'AutoGenBook-OpenWebUI-Portable-*.*',
-              'AutoGenBook-OpenWebUI-Full-Build-*.zip',
-          ):
-              candidates.extend(root.glob(pattern))
-          lines=[]
-          for path in sorted(set(candidates)):
-              h=hashlib.sha256(path.read_bytes()).hexdigest()
-              lines.append(f'{h}  {path.name}')
-          (root / 'SHA256SUMS-release.txt').write_text('\n'.join(lines)+'\n', encoding='utf-8')
-          print('\n'.join(lines))
-          PY
-      - name: Upload platform artifacts
+          if [ "${{ matrix.platform }}" = "windows-x64" ]; then
+            INSTALLER="dist/AutoGenBook-OpenWebUI-Offline-Installer-windows-x64.exe"
+          else
+            INSTALLER="dist/AutoGenBook-OpenWebUI-Offline-Installer-linux-x64.tar.gz"
+          fi
+          python tools/split_artifact.py \
+            --input "$INSTALLER" \
+            --output-dir dist/chunks/installer \
+            --chunk-size-mib 400 \
+            --label "${{ matrix.installer_label }}"
+          python tools/split_artifact.py \
+            --input "dist/AutoGenBook-OpenWebUI-Complete-Full-Build-${{ matrix.platform }}.zip" \
+            --output-dir dist/chunks/fullbuild \
+            --chunk-size-mib 400 \
+            --label "${{ matrix.fullbuild_label }}"
+          mkdir -p dist/release-metadata
+          cp dist/chunks/installer/*.json dist/chunks/installer/join-* dist/release-metadata/
+          cp dist/chunks/fullbuild/*.json dist/chunks/fullbuild/join-* dist/release-metadata/
+          cp "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/manifest.json" dist/release-metadata/package-manifest.json
+          cp "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/OFFLINE-VERIFICATION.json" dist/release-metadata/
+          cp "dist/AutoGenBook-OpenWebUI-${{ matrix.platform }}/tools/toolchain.json" dist/release-metadata/
+          cp "dist/resolved-packages-${{ matrix.platform }}.txt" dist/release-metadata/
+      - name: Upload release metadata
         uses: actions/upload-artifact@v4
         with:
-          name: autogenbook-openwebui-${{ matrix.platform }}
-          path: |
-            dist/AutoGenBook-OpenWebUI-Setup-*.exe
-            dist/AutoGenBook-OpenWebUI-Portable-${{ matrix.platform }}.*
-            dist/AutoGenBook-OpenWebUI-Full-Build-${{ matrix.platform }}.zip
-            dist/SHA256SUMS-release.txt
+          name: autogenbook-${{ matrix.platform }}-release-metadata
+          path: dist/release-metadata
           if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 001
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part001
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part001
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 002
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part002
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part002
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 003
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part003
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part003
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 004
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part004
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part004
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 005
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part005
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part005
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 006
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part006
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part006
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 007
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part007
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part007
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload installer part 008
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-installer-part008
+          path: dist/chunks/installer/${{ matrix.installer_label }}.part008
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 001
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part001
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part001
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 002
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part002
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part002
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 003
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part003
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part003
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 004
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part004
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part004
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 005
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part005
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part005
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 006
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part006
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part006
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 007
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part007
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part007
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 008
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part008
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part008
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 009
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part009
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part009
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 010
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part010
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part010
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 011
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part011
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part011
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 012
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part012
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part012
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 013
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part013
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part013
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 30
+      - name: Upload fullbuild part 014
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-${{ matrix.platform }}-fullbuild-part014
+          path: dist/chunks/fullbuild/${{ matrix.fullbuild_label }}.part014
+          if-no-files-found: ignore
           compression-level: 0
           retention-days: 30
