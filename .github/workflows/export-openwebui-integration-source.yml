@@ -1,0 +1,52 @@
+name: Export AutoGenBook Open WebUI Integration Source
+
+on:
+  push:
+    branches:
+      - feature/openwebui-companion-installer
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: "1"
+
+jobs:
+  export-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unpack integration source
+        run: |
+          python tools/unpack_openwebui_bundle.py
+          python tools/patch_openwebui_build.py
+      - name: Build source inspection archive
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          root = Path('.')
+          out = Path('dist/source-inspection')
+          out.mkdir(parents=True, exist_ok=True)
+          for name in ('companion', 'build', 'installer', 'integrations'):
+              src = root / name
+              if src.exists():
+                  shutil.copytree(src, out / name, dirs_exist_ok=True)
+          for name in ('requirements.txt', 'README.md', 'main.py', 'book_builder.py', 'openrouter_llm.py', 'mcp_gateway.py'):
+              src = root / name
+              if src.exists():
+                  shutil.copy2(src, out / name)
+          shutil.make_archive('dist/AutoGenBook-OpenWebUI-Integration-Source', 'zip', out)
+          PY
+      - name: Upload source inspection artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-openwebui-integration-source
+          path: dist/AutoGenBook-OpenWebUI-Integration-Source.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
