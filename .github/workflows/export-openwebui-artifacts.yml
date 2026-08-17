@@ -1,0 +1,90 @@
+name: Export AutoGenBook Open WebUI artifacts in transferable chunks
+
+on:
+  push:
+    branches:
+      - build/openwebui-release-assets
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download completed build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 32062495097
+          path: downloaded
+      - name: Create lossless transfer archives and 300 MiB chunks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p transfer/chunks
+          tar -cf transfer/windows-build-artifact.tar -C downloaded autogenbook-openwebui-windows-x64
+          tar -cf transfer/linux-build-artifact.tar -C downloaded autogenbook-openwebui-linux-x64
+          split -b 300M -d -a 2 transfer/windows-build-artifact.tar transfer/chunks/windows.part.
+          split -b 300M -d -a 2 transfer/linux-build-artifact.tar transfer/chunks/linux.part.
+          {
+            echo "Source workflow run: 32062495097"
+            echo "Source commit: 9ce6b6ec7ac4adb7319d3a3501c50b22bc69a806"
+            echo
+            sha256sum transfer/windows-build-artifact.tar
+            sha256sum transfer/linux-build-artifact.tar
+            echo
+            sha256sum transfer/chunks/*
+          } > transfer/TRANSFER-SHA256SUMS.txt
+          ls -lh transfer/chunks transfer/TRANSFER-SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-manifest
+          path: transfer/TRANSFER-SHA256SUMS.txt
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-windows-00
+          path: transfer/chunks/windows.part.00
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-windows-01
+          path: transfer/chunks/windows.part.01
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-windows-02
+          path: transfer/chunks/windows.part.02
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-windows-03
+          path: transfer/chunks/windows.part.03
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-linux-00
+          path: transfer/chunks/linux.part.00
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-linux-01
+          path: transfer/chunks/linux.part.01
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-linux-02
+          path: transfer/chunks/linux.part.02
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-linux-03
+          path: transfer/chunks/linux.part.03
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transfer-linux-04
+          path: transfer/chunks/linux.part.04
+          compression-level: 0
