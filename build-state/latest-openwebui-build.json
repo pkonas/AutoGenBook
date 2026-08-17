@@ -1,0 +1,50 @@
+{
+  "source_sha": "bbaa6d8b05b6b13cfda59a2b1221b7f55e9abec4",
+  "generated_at": "2026-08-17T22:50:57Z",
+  "runs": [
+    {
+      "conclusion": null,
+      "created_at": "2026-08-17T22:50:53Z",
+      "head_sha": "bbaa6d8b05b6b13cfda59a2b1221b7f55e9abec4",
+      "html_url": "https://github.com/pkonas/AutoGenBook/actions/runs/32077848204",
+      "id": 32077848204,
+      "name": "Announce AutoGenBook Open WebUI Build Run",
+      "path": ".github/workflows/announce-openwebui-build.yml",
+      "status": "in_progress",
+      "updated_at": "2026-08-17T22:50:55Z"
+    },
+    {
+      "conclusion": null,
+      "created_at": "2026-08-17T22:50:53Z",
+      "head_sha": "bbaa6d8b05b6b13cfda59a2b1221b7f55e9abec4",
+      "html_url": "https://github.com/pkonas/AutoGenBook/actions/runs/32077848191",
+      "id": 32077848191,
+      "name": "Export AutoGenBook Open WebUI Integration Source",
+      "path": ".github/workflows/export-openwebui-integration-source.yml",
+      "status": "queued",
+      "updated_at": "2026-08-17T22:50:53Z"
+    },
+    {
+      "conclusion": null,
+      "created_at": "2026-08-17T22:50:53Z",
+      "head_sha": "bbaa6d8b05b6b13cfda59a2b1221b7f55e9abec4",
+      "html_url": "https://github.com/pkonas/AutoGenBook/actions/runs/32077848160",
+      "id": 32077848160,
+      "name": "Build AutoGenBook Open WebUI Windows Complete Offline",
+      "path": ".github/workflows/build-openwebui-windows-complete.yml",
+      "status": "pending",
+      "updated_at": "2026-08-17T22:50:54Z"
+    },
+    {
+      "conclusion": null,
+      "created_at": "2026-08-17T22:50:53Z",
+      "head_sha": "bbaa6d8b05b6b13cfda59a2b1221b7f55e9abec4",
+      "html_url": "https://github.com/pkonas/AutoGenBook/actions/runs/32077848186",
+      "id": 32077848186,
+      "name": "Build AutoGenBook Open WebUI Complete Offline Installer",
+      "path": ".github/workflows/build-openwebui-companion.yml",
+      "status": "pending",
+      "updated_at": "2026-08-17T22:50:54Z"
+    }
+  ]
+}
