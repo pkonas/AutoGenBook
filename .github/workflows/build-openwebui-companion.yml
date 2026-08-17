@@ -26,7 +26,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Unpack integration source
-        run: python tools/unpack_openwebui_bundle.py
+        run: |
+          python tools/unpack_openwebui_bundle.py
+          python tools/patch_openwebui_build.py
       - name: Install test dependencies
         run: python -m pip install -e "./companion[dev]"
       - name: Compile and test
@@ -60,7 +62,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Unpack integration source
-        run: python tools/unpack_openwebui_bundle.py
+        run: |
+          python tools/unpack_openwebui_bundle.py
+          python tools/patch_openwebui_build.py
       - name: Install build tools
         run: python -m pip install build
       - name: Build fully resolved wheelhouse
