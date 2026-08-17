@@ -28,6 +28,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import os
           import shutil
           root = Path('.')
           out = Path('dist/source-inspection')
@@ -40,13 +41,18 @@ jobs:
               src = root / name
               if src.exists():
                   shutil.copy2(src, out / name)
-          shutil.make_archive('dist/AutoGenBook-OpenWebUI-Integration-Source', 'zip', out)
+          for path in out.rglob('*'):
+              try:
+                  os.utime(path, (315532800, 315532800), follow_symlinks=False)
+              except OSError:
+                  pass
+          shutil.make_archive('dist/AutoGenBook-OpenWebUI-Integration-Source', 'gztar', out)
           PY
       - name: Upload source inspection artifact
         uses: actions/upload-artifact@v4
         with:
           name: autogenbook-openwebui-integration-source
-          path: dist/AutoGenBook-OpenWebUI-Integration-Source.zip
+          path: dist/AutoGenBook-OpenWebUI-Integration-Source.tar.gz
           if-no-files-found: error
           compression-level: 0
           retention-days: 7
