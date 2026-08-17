@@ -1,0 +1,318 @@
+name: Build AutoGenBook Windows Complete Offline Fast
+
+on:
+  push:
+    branches:
+      - build/windows-complete-offline-fast
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PYTHONUTF8: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PIP_NO_INPUT: "1"
+
+concurrency:
+  group: autogenbook-windows-complete-offline-fast
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Publish discoverable run ID
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch build-state \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/build-state
+          mkdir -p /tmp/build-state/build-state
+          cat > /tmp/build-state/build-state/windows-fast-latest.json <<JSON
+          {
+            "run_id": ${GITHUB_RUN_ID},
+            "run_attempt": ${GITHUB_RUN_ATTEMPT},
+            "source_sha": "${GITHUB_SHA}",
+            "workflow": "${GITHUB_WORKFLOW}",
+            "url": "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          }
+          JSON
+          cd /tmp/build-state
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-state/windows-fast-latest.json
+          git commit -m "Record Windows complete offline build ${GITHUB_RUN_ID}" || true
+          git push origin HEAD:build-state
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack and patch integration source
+        shell: bash
+        run: |
+          python tools/unpack_openwebui_bundle.py
+          python tools/patch_openwebui_build.py
+          python tools/patch_complete_offline.py
+          python -m compileall -q companion/src installer build autogenbook tools
+          python build/validate_pipe.py integrations/openwebui/autogenbook_pipe.py
+
+      - name: Set up TinyTeX
+        uses: r-lib/actions/setup-tinytex@v2
+
+      - name: Install complete TinyTeX profile
+        shell: pwsh
+        run: |
+          $packages = @(
+            'collection-basic', 'collection-latex', 'collection-latexrecommended',
+            'collection-latexextra', 'collection-fontsrecommended', 'collection-luatex',
+            'collection-langczechslovak', 'collection-mathscience', 'collection-pictures',
+            'physics', 'listingsutf8', 'xurl', 'beamer', 'babel-czech', 'hyphen-czech'
+          )
+          & tlmgr install @packages
+          if ($LASTEXITCODE -ne 0) { throw "tlmgr failed with exit code $LASTEXITCODE" }
+          $root = (& kpsewhich -var-value=TEXMFROOT).Trim()
+          if (-not $root) { throw 'TEXMFROOT was empty' }
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Set-Content -Path dist/tinytex-root.txt -Value $root -Encoding ascii
+          Write-Host "TinyTeX root: $root"
+
+      - name: Build complete Windows wheelhouse
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf dist/wheelhouse dist/wheels dist/offline-sources
+          mkdir -p dist/wheelhouse dist/wheels dist/offline-sources
+          python -m pip install build wheel
+          python -m build --wheel --outdir dist/wheels companion
+          cat requirements.txt integration/offline-requirements.txt > dist/runtime-requirements.txt
+          python -m pip wheel --wheel-dir dist/wheelhouse -r dist/runtime-requirements.txt
+          python -m pip wheel --wheel-dir dist/wheelhouse ./companion
+          cp dist/wheels/*.whl dist/wheelhouse/
+
+      - name: Download and verify Piper corresponding source directly
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, urllib.request
+          url = 'https://files.pythonhosted.org/packages/87/bd/abdbd0c11dcb0e412327475ec9fc5f5e980e9c300b96035b63539c07ee9b/piper_tts-1.6.0.tar.gz'
+          expected = '876952ba7e206957951943f24f0649415fc8c1c513bc8b7e58f2813bd01adb0a'
+          target = Path('dist/offline-sources/piper_tts-1.6.0.tar.gz')
+          request = urllib.request.Request(url, headers={'User-Agent': 'AutoGenBook-offline-builder/0.2'})
+          with urllib.request.urlopen(request, timeout=300) as response:
+              target.write_bytes(response.read())
+          actual = hashlib.sha256(target.read_bytes()).hexdigest()
+          if actual != expected:
+              target.unlink(missing_ok=True)
+              raise SystemExit(f'Piper source hash mismatch: {actual}')
+          print(f'Verified Piper source: {actual}')
+          PY
+
+      - name: Download standalone Python to a short path
+        shell: bash
+        run: |
+          rm -rf C:/agb-runtime C:/agb-stage
+          python build/build_release.py fetch-python \
+            --platform windows-x64 \
+            --output C:/agb-runtime \
+            --archive-output dist/python-windows-x64.tar.gz \
+            --metadata-output dist/python-windows-x64.json
+
+      - name: Populate runtime exclusively from wheelhouse
+        shell: bash
+        run: |
+          python build/prepare_runtime.py \
+            --runtime-root C:/agb-runtime \
+            --wheelhouse dist/wheelhouse \
+            --requirements dist/runtime-requirements.txt \
+            --resolved-output dist/resolved-packages-windows-x64.txt
+
+      - name: Build short-path installer stage
+        shell: bash
+        run: |
+          python build/build_release.py stage \
+            --repo-root . \
+            --output C:/agb-stage \
+            --platform windows-x64 \
+            --runtime-root C:/agb-runtime \
+            --wheelhouse dist/wheelhouse \
+            --commit "${{ github.sha }}" \
+            --python-metadata dist/python-windows-x64.json
+
+      - name: Copy TinyTeX natively into the stage
+        shell: pwsh
+        run: |
+          $root = (Get-Content dist/tinytex-root.txt -Raw).Trim()
+          $target = 'C:\agb-stage\tools\tinytex'
+          New-Item -ItemType Directory -Force $target | Out-Null
+          & robocopy $root $target /E /COPY:DAT /DCOPY:DAT /R:2 /W:1 /NP /NFL /NDL /NJH /NJS
+          if ($LASTEXITCODE -ge 8) { throw "Robocopy TinyTeX failed with exit code $LASTEXITCODE" }
+          if (-not (Get-ChildItem $target -Recurse -Filter lualatex.exe -ErrorAction SilentlyContinue)) {
+            throw 'The staged TinyTeX tree does not contain lualatex.exe'
+          }
+
+      - name: Vendor Pandoc, FFmpeg, Czech Piper voice and source archive
+        shell: bash
+        run: |
+          set -o pipefail
+          TINY_ROOT=$(tr -d '\r\n' < dist/tinytex-root.txt)
+          python tools/vendor_offline_tools_reuse_tinytex.py \
+            --stage C:/agb-stage \
+            --runtime-root C:/agb-runtime \
+            --tinytex-root "$TINY_ROOT" \
+            --platform windows-x64 \
+            --resolved-packages dist/resolved-packages-windows-x64.txt \
+            --third-party-source-dir dist/offline-sources \
+            2>&1 | tee dist/windows-vendor.log
+
+      - name: Verify the complete runtime with all network proxies disabled
+        shell: bash
+        env:
+          PIP_NO_INDEX: "1"
+          HTTP_PROXY: "http://127.0.0.1:9"
+          HTTPS_PROXY: "http://127.0.0.1:9"
+          ALL_PROXY: "http://127.0.0.1:9"
+          NO_PROXY: "127.0.0.1,localhost"
+        run: |
+          python tools/verify_offline_stage.py \
+            --stage C:/agb-stage \
+            --output C:/agb-stage/OFFLINE-VERIFICATION.json
+          python - <<'PY'
+          from pathlib import Path
+          from tools.vendor_offline_tools import write_hashes
+          write_hashes(Path('C:/agb-stage'))
+          PY
+
+      - name: Build native EXE installer
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          $Output = (Resolve-Path 'dist').Path
+          & 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' '/DStageDir=C:\agb-stage' "/DOutputDir=$Output" '/DAppVersion=0.2.0' 'installer/autogenbook-openwebui.iss'
+          if ($LASTEXITCODE -ne 0) { throw "Inno Setup failed with exit code $LASTEXITCODE" }
+          Move-Item 'dist/AutoGenBook-OpenWebUI-Setup-Windows-x64.exe' 'dist/AutoGenBook-OpenWebUI-Complete-Offline-Installer-windows-x64.exe'
+
+      - name: Build portable dependency-complete ZIP
+        shell: pwsh
+        run: |
+          $seven = 'C:\Program Files\7-Zip\7z.exe'
+          if (-not (Test-Path $seven)) { throw '7-Zip is missing on the runner' }
+          & $seven a -tzip -mx=7 'dist\AutoGenBook-OpenWebUI-Complete-Offline-Portable-windows-x64.zip' 'C:\agb-stage\*'
+          if ($LASTEXITCODE -ne 0) { throw "7-Zip portable build failed: $LASTEXITCODE" }
+
+      - name: Archive TinyTeX and offline assets for reproducibility
+        shell: bash
+        run: |
+          tar -czf dist/tinytex-windows-x64.tar.gz -C C:/agb-stage/tools tinytex
+          rm -rf dist/offline-assets
+          mkdir -p dist/offline-assets
+          cp -R C:/agb-stage/tools/piper dist/offline-assets/
+          cp -R C:/agb-stage/tools/third_party_sources dist/offline-assets/
+
+      - name: Build complete reproducibility package
+        shell: bash
+        run: |
+          python build/build_release.py full-build \
+            --repo-root . \
+            --stage-dir C:/agb-stage \
+            --output-dir dist \
+            --platform windows-x64 \
+            --extra dist/wheelhouse \
+            --extra dist/python-windows-x64.tar.gz \
+            --extra dist/python-windows-x64.json \
+            --extra dist/tinytex-windows-x64.tar.gz \
+            --extra dist/resolved-packages-windows-x64.txt \
+            --extra dist/runtime-requirements.txt \
+            --extra dist/offline-sources \
+            --extra dist/offline-assets \
+            --extra dist/AutoGenBook-OpenWebUI-Complete-Offline-Installer-windows-x64.exe \
+            --extra dist/AutoGenBook-OpenWebUI-Complete-Offline-Portable-windows-x64.zip
+          mv dist/AutoGenBook-OpenWebUI-Full-Build-windows-x64.zip \
+             dist/AutoGenBook-OpenWebUI-Complete-Full-Build-windows-x64.zip
+
+      - name: Split all large deliverables and collect metadata
+        shell: bash
+        run: |
+          python tools/split_artifact.py \
+            --input dist/AutoGenBook-OpenWebUI-Complete-Offline-Installer-windows-x64.exe \
+            --output-dir dist/chunks/installer --chunk-size-mib 500 \
+            --label autogenbook-win-installer
+          python tools/split_artifact.py \
+            --input dist/AutoGenBook-OpenWebUI-Complete-Offline-Portable-windows-x64.zip \
+            --output-dir dist/chunks/portable --chunk-size-mib 500 \
+            --label autogenbook-win-portable
+          python tools/split_artifact.py \
+            --input dist/AutoGenBook-OpenWebUI-Complete-Full-Build-windows-x64.zip \
+            --output-dir dist/chunks/fullbuild --chunk-size-mib 500 \
+            --label autogenbook-win-fullbuild
+          mkdir -p dist/release-metadata
+          cp dist/chunks/installer/*.json dist/chunks/installer/join-* dist/release-metadata/
+          cp dist/chunks/portable/*.json dist/chunks/portable/join-* dist/release-metadata/
+          cp dist/chunks/fullbuild/*.json dist/chunks/fullbuild/join-* dist/release-metadata/
+          cp C:/agb-stage/manifest.json dist/release-metadata/package-manifest.json
+          cp C:/agb-stage/OFFLINE-VERIFICATION.json dist/release-metadata/
+          cp C:/agb-stage/tools/toolchain.json dist/release-metadata/
+          cp C:/agb-stage/tools/THIRD_PARTY_NOTICES.md dist/release-metadata/
+          cp C:/agb-stage/SHA256SUMS.txt dist/release-metadata/
+          cp dist/resolved-packages-windows-x64.txt dist/release-metadata/
+          cp dist/runtime-requirements.txt dist/release-metadata/
+
+      - name: Upload release metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-windows-complete-release-metadata
+          path: dist/release-metadata
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+      - name: Upload diagnostic logs even after a failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-windows-complete-diagnostics
+          path: |
+            dist/windows-vendor.log
+            dist/windows-vendor-diagnostic.json
+            dist/tinytex-root.txt
+            dist/runtime-requirements.txt
+            dist/resolved-packages-windows-x64.txt
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
+
+      - name: Upload installer parts 1-4
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-windows-installer-parts
+          path: dist/chunks/installer
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+      - name: Upload portable parts 1-4
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-windows-portable-parts
+          path: dist/chunks/portable
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+      - name: Upload full-build parts 1-8
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-windows-fullbuild-parts
+          path: dist/chunks/fullbuild
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
