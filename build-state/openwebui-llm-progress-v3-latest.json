@@ -1,0 +1,10 @@
+{
+  "run_id": 32181050822,
+  "run_attempt": 1,
+  "source_sha": "0f452da58ca6ab497512bb454b388b08f265709e",
+  "patched_sha": "0f452da58ca6ab497512bb454b388b08f265709e",
+  "workflow": "Final Validate Open WebUI LLM Selection and Long Jobs",
+  "default_model": "e-infra.glm-5",
+  "result": "failure",
+  "url": "https://github.com/pkonas/AutoGenBook/actions/runs/32181050822"
+}
