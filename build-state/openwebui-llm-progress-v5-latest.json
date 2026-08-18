@@ -1,0 +1,15 @@
+{
+  "run_id": 32182265629,
+  "run_attempt": 1,
+  "source_sha": "3668f9296cf0ed55069e44c31e5d3e54adc4aa90",
+  "patched_sha": "3668f9296cf0ed55069e44c31e5d3e54adc4aa90",
+  "workflow": "Validate Open WebUI Model Combo and Multi-Day Jobs v5",
+  "default_model": "e-infra.glm-5",
+  "result": "failure",
+  "combo_contract": true,
+  "strict_request_model": true,
+  "background_jobs": true,
+  "persistent_progress": true,
+  "range_downloads": true,
+  "url": "https://github.com/pkonas/AutoGenBook/actions/runs/32182265629"
+}
