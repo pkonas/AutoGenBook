@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+# The source-export workflow watches this file so every audited integration bundle
+# can be exported as an exact, inspectable project snapshot.
+
 import base64
 import hashlib
 import io

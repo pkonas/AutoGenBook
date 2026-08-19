@@ -1,0 +1,144 @@
+name: Validate Open WebUI Model Combo and Multi-Day Jobs v5
+
+on:
+  push:
+    branches:
+      - feature/openwebui-llm-progress-downloads
+    paths:
+      - tools/apply_openwebui_llm_progress_v5.py
+      - .github/workflows/apply-openwebui-llm-progress-v5.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PYTHONUTF8: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PIP_NO_INPUT: "1"
+
+concurrency:
+  group: openwebui-llm-progress-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  patch-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Move to the newest feature-branch head
+        run: |
+          set -euo pipefail
+          git fetch origin feature/openwebui-llm-progress-downloads
+          git checkout -B feature/openwebui-llm-progress-downloads origin/feature/openwebui-llm-progress-downloads
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply strict request-model and Open WebUI combo contract patch
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          python tools/apply_openwebui_llm_progress_v5.py \
+            | tee dist/openwebui-llm-progress-v5-patch.log
+
+      - name: Install test-only dependencies
+        run: |
+          python -m pip install \
+            'pytest>=8,<10' \
+            'fastapi>=0.115,<1' \
+            'httpx>=0.27,<1' \
+            'pydantic>=2.6,<3' \
+            'requests>=2.31,<3'
+
+      - name: Test combo schema, selected model, persistent progress, and ranged output
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_openwebui_llm_progress.py \
+            | tee dist/openwebui-llm-progress-v5-pytest.log
+
+      - name: Validate final Pipe contract and Python syntax
+        run: |
+          set -euo pipefail
+          python build/validate_pipe.py integrations/openwebui/autogenbook_pipe.py
+          grep -q 'test_openwebui_combo_contract_and_job_payload' tests/test_openwebui_llm_progress.py
+          grep -q '"type": "select"' integrations/openwebui/autogenbook_pipe.py
+          grep -q 'e-infra.glm-5' integrations/openwebui/autogenbook_pipe.py
+          grep -q '_agb_prefer_background(self)' integrations/openwebui/autogenbook_pipe.py
+          grep -q 'AUTOGENBOOK_PROGRESS_FILE' companion/src/autogenbook_companion/runner.py
+          grep -q 'Content-Range' companion/src/autogenbook_companion/long_job_support.py
+          python -m compileall -q autogenbook companion/src integrations/openwebui
+          git diff --check
+
+      - name: Commit the validated deterministic integration bundle
+        id: commit
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A integration tools/unpack_openwebui_bundle.py
+          if ! git diff --cached --quiet; then
+            git commit -m "Validate Open WebUI model combo and multi-day job contract"
+            git push origin HEAD:feature/openwebui-llm-progress-downloads
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Publish machine-readable validation state
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PATCHED_SHA: ${{ steps.commit.outputs.sha || github.sha }}
+          RESULT: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/build-state
+          git clone --depth 1 --branch build-state \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/build-state
+          mkdir -p /tmp/build-state/build-state
+          cat > /tmp/build-state/build-state/openwebui-llm-progress-v5-latest.json <<JSON
+          {
+            "run_id": ${GITHUB_RUN_ID},
+            "run_attempt": ${GITHUB_RUN_ATTEMPT},
+            "source_sha": "${GITHUB_SHA}",
+            "patched_sha": "${PATCHED_SHA}",
+            "workflow": "${GITHUB_WORKFLOW}",
+            "default_model": "e-infra.glm-5",
+            "result": "${RESULT}",
+            "combo_contract": true,
+            "strict_request_model": true,
+            "background_jobs": true,
+            "persistent_progress": true,
+            "range_downloads": true,
+            "url": "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          }
+          JSON
+          cd /tmp/build-state
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-state/openwebui-llm-progress-v5-latest.json
+          git commit -m "Record Open WebUI combo contract validation ${GITHUB_RUN_ID}" || true
+          for attempt in 1 2 3; do
+            if git push origin HEAD:build-state; then
+              exit 0
+            fi
+            git pull --rebase origin build-state
+            sleep $((attempt * 2))
+          done
+          exit 1
+
+      - name: Upload final validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autogenbook-openwebui-llm-progress-v5-validation
+          path: |
+            dist/openwebui-llm-progress-patch-report.json
+            dist/openwebui-llm-progress-v5-patch.log
+            dist/openwebui-llm-progress-v5-pytest.log
+          if-no-files-found: warn
+          compression-level: 6
+          retention-days: 30
