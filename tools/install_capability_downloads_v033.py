@@ -75,9 +75,6 @@ def load_patcher():
         raise UpdateError(f"Cannot load patcher: {PATCHER_PATH}")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    # patch_source resolves validate_source from the module globals at runtime.
-    # Replace the original over-broad validator, which incorrectly rejected the
-    # names of old routes retained solely so hot reload can delete them.
     module.validate_source = relaxed_validate_source
     module.sys = sys
     return module
@@ -242,7 +239,10 @@ def self_test(patcher: Any) -> dict[str, Any]:
             and 'f"{_AGB_DOWNLOAD_PREFIX}/download-ticket"' not in patched
         ),
         "landing_page_removed": "async def _agb_download_landing" not in patched,
-        "capability_route_present": "/api/autogenbook/v033/output/" in patched,
+        "capability_route_present": (
+            '_AGB_DOWNLOAD_PREFIX = "/api/autogenbook/v033"' in patched
+            and 'f"{_AGB_DOWNLOAD_PREFIX}/output/' in patched
+        ),
         "api_key_logged": False,
     }
     if not all(result[key] for key in ("active_ticket_route_removed", "landing_page_removed", "capability_route_present")):
