@@ -2,7 +2,7 @@
 setlocal EnableExtensions DisableDelayedExpansion
 
 set "ROOT=%~dp0"
-set "UPDATER=%ROOT%tools\install_authenticated_downloads_v032.py"
+set "UPDATER=%ROOT%tools\install_capability_downloads_v033.py"
 set "DEFAULT_URL=http://127.0.0.1:8080"
 
 if not exist "%UPDATER%" (
@@ -14,7 +14,7 @@ set "PYTHON_CMD="
 where py >nul 2>nul && set "PYTHON_CMD=py -3"
 if not defined PYTHON_CMD where python >nul 2>nul && set "PYTHON_CMD=python"
 if not defined PYTHON_CMD (
-  echo ERROR: Python 3 was not found. Use the Python bundled with your existing AutoGenBook installation or install Python 3.10+.
+  echo ERROR: Python 3 was not found. Use the Python bundled with the existing AutoGenBook installation or install Python 3.10+.
   exit /b 2
 )
 
@@ -44,11 +44,13 @@ set "RC=%ERRORLEVEL%"
 if not "%RC%"=="0" (
   echo.
   echo AutoGenBook update FAILED with exit code %RC%.
-  echo Run this command from an ordinary Command Prompt and check the message above.
+  echo The complete Function generated so far, if any, is in "%ROOT%dist".
+  echo Check the message above and the Open WebUI server log.
   exit /b %RC%
 )
 
 echo.
-echo AutoGenBook Open WebUI Function 0.3.2 was prepared and updated.
-echo Restart Open WebUI Desktop. Then send: vystupy JOB_ID
+echo AutoGenBook Open WebUI capability downloads 0.3.3 were installed.
+echo Fully exit and restart Open WebUI Desktop.
+echo Then send: vystupy JOB_ID
 exit /b 0

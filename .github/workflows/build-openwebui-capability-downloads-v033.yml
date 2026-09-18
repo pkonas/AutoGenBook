@@ -1,0 +1,94 @@
+name: Build AutoGenBook Open WebUI capability downloads v0.3.3
+
+on:
+  push:
+    branches:
+      - fix/openwebui-capability-downloads-v0.3.3
+    paths:
+      - Install-AutoGenBook.cmd
+      - tools/apply_openwebui_capability_downloads_v033.py
+      - tools/install_capability_downloads_v033.py
+      - tools/build_openwebui_capability_downloads_project_v033.py
+      - tests/test_openwebui_capability_downloads_v033.py
+      - docs/openwebui-capability-downloads-v0.3.3.md
+      - .github/workflows/build-openwebui-capability-downloads-v033.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SOURCE_DATE_EPOCH: '946684800'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check pytest fastapi httpx pydantic
+
+      - name: Compile updater and build sources
+        run: |
+          python -m py_compile tools/apply_openwebui_capability_downloads_v033.py
+          python -m py_compile tools/install_capability_downloads_v033.py
+          python -m py_compile tools/build_openwebui_capability_downloads_project_v033.py
+          python -m py_compile tests/test_openwebui_capability_downloads_v033.py
+
+      - name: Validate deterministic source migration
+        run: python tools/install_capability_downloads_v033.py --self-test
+
+      - name: Test direct capability download contract
+        run: python -m pytest -q tests/test_openwebui_capability_downloads_v033.py
+
+      - name: Build complete installer project
+        run: python tools/build_openwebui_capability_downloads_project_v033.py
+
+      - name: Show release verification
+        run: |
+          cat dist/AutoGenBook-OpenWebUI-v0.3.3-FINAL-VERIFICATION.json
+          cat dist/AutoGenBook-OpenWebUI-v0.3.3-SHA256SUMS.txt
+
+      - name: Upload complete project artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3
+          path: |
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3.zip
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3.tar.gz
+            dist/AutoGenBook-OpenWebUI-v0.3.3-FINAL-VERIFICATION.json
+            dist/AutoGenBook-OpenWebUI-v0.3.3-SHA256SUMS.txt
+            dist/AutoGenBook-OpenWebUI-v0.3.3-DELIVERABLES.json
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Publish reproducible prerelease assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="autogenbook-openwebui-v0.3.3"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" \
+              dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3.zip \
+              dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3.tar.gz \
+              dist/AutoGenBook-OpenWebUI-v0.3.3-FINAL-VERIFICATION.json \
+              dist/AutoGenBook-OpenWebUI-v0.3.3-SHA256SUMS.txt \
+              dist/AutoGenBook-OpenWebUI-v0.3.3-DELIVERABLES.json \
+              --clobber
+          else
+            gh release create "$TAG" \
+              --target "$GITHUB_SHA" \
+              --title "AutoGenBook Open WebUI v0.3.3" \
+              --notes "Complete installer/build project. Replaces the 0.3.2 landing/ticket authentication flow with direct persistent HMAC capability downloads." \
+              --prerelease \
+              dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3.zip \
+              dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.3.tar.gz \
+              dist/AutoGenBook-OpenWebUI-v0.3.3-FINAL-VERIFICATION.json \
+              dist/AutoGenBook-OpenWebUI-v0.3.3-SHA256SUMS.txt \
+              dist/AutoGenBook-OpenWebUI-v0.3.3-DELIVERABLES.json
+          fi
