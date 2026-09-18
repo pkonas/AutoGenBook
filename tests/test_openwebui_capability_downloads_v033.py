@@ -86,10 +86,13 @@ def execute_helpers(patcher: Any) -> dict[str, Any]:
 
 def test_source_migration_removes_browser_ticket_flow() -> None:
     patcher = load_patcher()
-    result = patcher.self_test()
-    assert result["ticket_route_removed"] is True
-    assert result["landing_page_removed"] is True
-    assert result["capability_route_present"] is True
+    fixture = "# _agb_download_landing\n" + patcher._minimal_ticket_fixture()
+    patched = patcher.patch_source(fixture)
+    result = patcher.validate_source(patched)
+    assert result["version"] == "0.3.3"
+    assert "download-ticket" not in patched
+    assert "_agb_download_landing" not in patched
+    assert "/api/autogenbook/v033/output/" in patched
 
 
 def test_direct_capability_download_without_browser_authentication(
@@ -143,8 +146,6 @@ def test_direct_capability_download_without_browser_authentication(
     assert "companion" not in url.casefold()
 
     client = TestClient(app)
-    # No Authorization header and no cookie: the capability itself is the
-    # narrowly scoped download authority.
     response = client.get(parsed.path + "?" + parsed.query)
     assert response.status_code == 200
     assert response.content == payload
@@ -186,8 +187,6 @@ def test_direct_capability_download_without_browser_authentication(
     denied_name = client.get(wrong_name + "?" + parsed.query)
     assert denied_name.status_code == 404
 
-    # The secret is persistent, not process-random. Resetting the in-memory
-    # cache must reproduce the exact same URL.
     ns["_AGB_DOWNLOAD_SECRET_CACHE"] = None
     second_url = ns["_agb_capability_url"](
         record.id,
@@ -217,13 +216,22 @@ def test_deleted_output_revokes_capability(
         path=str(stored),
         filename="report.pdf",
         hash="",
-        meta={"name": "report.pdf", "content_type": "application/pdf", "size": stored.stat().st_size},
+        meta={
+            "name": "report.pdf",
+            "content_type": "application/pdf",
+            "size": stored.stat().st_size,
+        },
     )
     install_fake_openwebui(monkeypatch, record)
     ns = execute_helpers(patcher)
     app = FastAPI()
     assert ns["_agb_register_download_routes"](app)
-    url = ns["_agb_capability_url"](record.id, record.user_id, record.filename, origin="http://testserver")
+    url = ns["_agb_capability_url"](
+        record.id,
+        record.user_id,
+        record.filename,
+        origin="http://testserver",
+    )
     parsed = urlparse(url)
     stored.unlink()
     response = TestClient(app).get(parsed.path + "?" + parsed.query)

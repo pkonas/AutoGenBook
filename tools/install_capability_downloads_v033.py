@@ -94,7 +94,6 @@ def validate_persisted(source: str, patcher: Any) -> dict[str, Any]:
         raise UpdateError("Open WebUI did not persist Function version 0.3.3.")
     if "_agb_output_capability" in source:
         return patcher.validate_source(source)
-    # Compatibility path for the older audited direct-capability implementation.
     required = (
         "_autogenbook_output_capability",
         "openwebui-output-download.key",
@@ -118,11 +117,7 @@ def patch_source(source: str, patcher: Any) -> str:
     return patched
 
 
-def write_outputs(
-    current: str,
-    patched: str,
-    output_dir: Path,
-) -> tuple[Path, Path]:
+def write_outputs(current: str, patched: str, output_dir: Path) -> tuple[Path, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
     backup = output_dir / "AutoGenBook-OpenWebUI-Function-before-v0.3.3.py"
     if not backup.exists():
@@ -132,12 +127,7 @@ def write_outputs(
     return backup, output
 
 
-def update_api(
-    base_url: str,
-    key_file: Path,
-    output_dir: Path,
-    patcher: Any,
-) -> dict[str, Any]:
+def update_api(base_url: str, key_file: Path, output_dir: Path, patcher: Any) -> dict[str, Any]:
     if not key_file.is_file():
         raise UpdateError(f"API-key TXT file does not exist: {key_file}")
     token = normalize_key(key_file.read_text(encoding="utf-8-sig"))
@@ -169,11 +159,7 @@ def update_api(
     }
 
 
-def patch_local(
-    path: Path,
-    output_dir: Path,
-    patcher: Any,
-) -> dict[str, Any]:
+def patch_local(path: Path, output_dir: Path, patcher: Any) -> dict[str, Any]:
     if not path.is_file():
         raise UpdateError(f"Function source does not exist: {path}")
     current = path.read_text(encoding="utf-8-sig")
@@ -197,25 +183,29 @@ def patch_local(
 
 
 def self_test(patcher: Any) -> dict[str, Any]:
-    result = patcher.self_test()
-    if result.get("ticket_route_removed") is not True:
-        raise UpdateError("Patcher self-test did not remove the ticket route.")
-    if result.get("capability_route_present") is not True:
-        raise UpdateError("Patcher self-test did not create the capability route.")
-    return {
+    # The production 0.3.2 Function contains _agb_download_landing.  The small
+    # fixture intentionally keeps only the anchors needed by the migration, so
+    # add the marker as a comment to exercise the same branch deterministically.
+    fixture = "# _agb_download_landing\n" + patcher._minimal_ticket_fixture()
+    patched = patcher.patch_source(fixture)
+    validation = patcher.validate_source(patched)
+    result = {
         "version": VERSION,
         "updater_python_syntax": "passed",
-        "patcher": result,
+        "validation": validation,
+        "ticket_route_removed": "download-ticket" not in patched,
+        "landing_page_removed": "_agb_download_landing" not in patched,
+        "capability_route_present": "/api/autogenbook/v033/output/" in patched,
         "api_key_logged": False,
     }
+    if not all(result[key] for key in ("ticket_route_removed", "landing_page_removed", "capability_route_present")):
+        raise UpdateError(f"Patcher self-test failed: {result}")
+    return result
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--openwebui-url",
-        default=os.environ.get("OPENWEBUI_URL", "http://127.0.0.1:8080"),
-    )
+    parser.add_argument("--openwebui-url", default=os.environ.get("OPENWEBUI_URL", "http://127.0.0.1:8080"))
     parser.add_argument("--webui-api-key-file", type=Path)
     parser.add_argument("--function-file", type=Path)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "dist")
@@ -237,12 +227,7 @@ def main() -> int:
             if not raw:
                 raise UpdateError("The API-key TXT path is required for automatic Function update.")
             key_file = Path(raw)
-        result = update_api(
-            args.openwebui_url,
-            key_file.expanduser().resolve(),
-            output_dir,
-            patcher,
-        )
+        result = update_api(args.openwebui_url, key_file.expanduser().resolve(), output_dir, patcher)
 
     report = output_dir / f"AutoGenBook-OpenWebUI-v{VERSION}-UPDATE-REPORT.json"
     report.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
