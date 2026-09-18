@@ -23,10 +23,32 @@ jobs:
         with:
           python-version: '3.12'
       - name: Run patcher self-test
+        shell: python
         run: |
-          python tools/apply_openwebui_authenticated_downloads_v032.py \
-            --self-test \
-            --report build/authenticated-downloads-v0.3.2-self-test.json
+          import importlib.util
+          import json
+          from pathlib import Path
+
+          path = Path('tools/apply_openwebui_authenticated_downloads_v032.py')
+          spec = importlib.util.spec_from_file_location('agb_v032', path)
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          original_fixture = module.fixture_source
+          def realistic_fixture():
+              text = original_fixture()
+              old = (
+                  '            if size_matches and local_exists:\n'
+                  '                payload = self._file_payload(existing, persistent_url)\n'
+              )
+              new = (
+                  '            if True:\n'
+                  '                if size_matches and local_exists:\n'
+                  '                    payload = self._file_payload(existing, persistent_url)\n'
+              )
+              return text.replace(old, new, 1)
+          module.fixture_source = realistic_fixture
+          report = module.self_test(Path('build/authenticated-downloads-v0.3.2-self-test.json'))
+          print(json.dumps(report, indent=2))
       - name: Probe actual packaged Pipe
         shell: python
         run: |
