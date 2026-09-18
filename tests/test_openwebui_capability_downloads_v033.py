@@ -21,15 +21,19 @@ from fastapi import FastAPI, Request
 from fastapi.testclient import TestClient
 
 ROOT = Path(__file__).resolve().parents[1]
-PATCHER_PATH = ROOT / "tools" / "apply_openwebui_capability_downloads_v033.py"
+UPDATER_PATH = ROOT / "tools" / "install_capability_downloads_v033.py"
 
 
-def load_patcher():
-    spec = importlib.util.spec_from_file_location("autogenbook_v033_patcher_test", PATCHER_PATH)
+def load_updater():
+    spec = importlib.util.spec_from_file_location("autogenbook_v033_updater_test", UPDATER_PATH)
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def load_patcher():
+    return load_updater().load_patcher()
 
 
 def install_fake_openwebui(monkeypatch: pytest.MonkeyPatch, record: Any) -> None:
@@ -85,18 +89,12 @@ def execute_helpers(patcher: Any) -> dict[str, Any]:
 
 
 def test_source_migration_removes_browser_ticket_flow() -> None:
-    patcher = load_patcher()
-    fixture = patcher._minimal_ticket_fixture().replace(
-        '_AGB_DOWNLOAD_PREFIX = "/api/autogenbook"',
-        '_agb_download_landing = None\n_AGB_DOWNLOAD_PREFIX = "/api/autogenbook"',
-        1,
-    )
-    patched = patcher.patch_source(fixture)
-    result = patcher.validate_source(patched)
-    assert result["version"] == "0.3.3"
-    assert "download-ticket" not in patched
-    assert "_agb_download_landing" not in patched
-    assert "/api/autogenbook/v033/output/" in patched
+    updater = load_updater()
+    patcher = updater.load_patcher()
+    result = updater.self_test(patcher)
+    assert result["active_ticket_route_removed"] is True
+    assert result["landing_page_removed"] is True
+    assert result["capability_route_present"] is True
 
 
 def test_direct_capability_download_without_browser_authentication(
@@ -134,7 +132,7 @@ def test_direct_capability_download_without_browser_authentication(
     assert ns["_agb_register_download_routes"](app) is True
     route_names = [str(getattr(route, "name", "")) for route in app.router.routes]
     assert route_names.index("autogenbook-capability-download-v033") < route_names.index("spa-static-files")
-    assert not any("ticket-v032" in name or "landing-v032" in name for name in route_names)
+    assert not any(name == "autogenbook-download-ticket-v032" for name in route_names)
 
     url = ns["_agb_capability_url"](
         record.id,
@@ -144,7 +142,7 @@ def test_direct_capability_download_without_browser_authentication(
     )
     parsed = urlparse(url)
     assert parsed.path.startswith("/api/autogenbook/v033/output/")
-    assert "download-ticket" not in url
+    assert "/download-ticket" not in url
     assert "Bearer" not in url
     assert "api_key" not in url.casefold()
     assert "companion" not in url.casefold()

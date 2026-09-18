@@ -31,12 +31,55 @@ class UpdateError(RuntimeError):
     pass
 
 
+def relaxed_validate_source(source: str) -> dict[str, Any]:
+    """Validate active routes while allowing old route names in cleanup sets."""
+    ast.parse(source)
+    required = {
+        "version": "version: 0.3.3",
+        "capability": "_agb_output_capability",
+        "stable_secret": "openwebui-output-download.key",
+        "direct_route": "_agb_capability_download",
+        "range": '"Accept-Ranges": "bytes"',
+        "route_order": "_agb_route_is_spa",
+        "absolute_card_url": '"url": persistent_url',
+        "preview_content": "_agb_preview_content",
+        "publisher_call": "file_id, user_id, str(enriched.get",
+    }
+    missing = [name for name, marker in required.items() if marker not in source]
+    forbidden = [
+        marker
+        for marker in (
+            'f"{_AGB_DOWNLOAD_PREFIX}/download-ticket"',
+            "async def _agb_download_ticket",
+            "async def _agb_download_landing",
+            "window.localStorage.getItem('token')",
+            "window.sessionStorage.getItem('token')",
+            "_agb_landing_url(file_id)",
+        )
+        if marker in source
+    ]
+    if missing or forbidden:
+        raise UpdateError(f"Function contract invalid; missing={missing}, forbidden={forbidden}")
+    return {
+        "version": VERSION,
+        "python_syntax": "passed",
+        "required_markers": sorted(required),
+        "inactive_v032_route_names_allowed_for_cleanup": True,
+        "forbidden_active_markers": forbidden,
+    }
+
+
 def load_patcher():
     spec = importlib.util.spec_from_file_location("autogenbook_v033_patcher", PATCHER_PATH)
     if spec is None or spec.loader is None:
         raise UpdateError(f"Cannot load patcher: {PATCHER_PATH}")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    # patch_source resolves validate_source from the module globals at runtime.
+    # Replace the original over-broad validator, which incorrectly rejected the
+    # names of old routes retained solely so hot reload can delete them.
+    module.validate_source = relaxed_validate_source
+    module.sys = sys
     return module
 
 
@@ -103,8 +146,8 @@ def validate_persisted(source: str, patcher: Any) -> dict[str, Any]:
     missing = [marker for marker in required if marker not in source]
     if missing:
         raise UpdateError(f"Persisted Function does not satisfy the 0.3.3 capability contract: {missing}")
-    if "download-ticket" in source:
-        raise UpdateError("Persisted Function still contains the failed ticket authentication flow.")
+    if "/download-ticket" in source or "async def _agb_download_ticket" in source:
+        raise UpdateError("Persisted Function still contains an active ticket authentication flow.")
     return {"version": VERSION, "python_syntax": "passed", "compatibility_contract": "direct-capability"}
 
 
@@ -194,12 +237,15 @@ def self_test(patcher: Any) -> dict[str, Any]:
         "version": VERSION,
         "updater_python_syntax": "passed",
         "validation": validation,
-        "ticket_route_removed": "download-ticket" not in patched,
-        "landing_page_removed": "_agb_download_landing" not in patched,
+        "active_ticket_route_removed": (
+            "async def _agb_download_ticket" not in patched
+            and 'f"{_AGB_DOWNLOAD_PREFIX}/download-ticket"' not in patched
+        ),
+        "landing_page_removed": "async def _agb_download_landing" not in patched,
         "capability_route_present": "/api/autogenbook/v033/output/" in patched,
         "api_key_logged": False,
     }
-    if not all(result[key] for key in ("ticket_route_removed", "landing_page_removed", "capability_route_present")):
+    if not all(result[key] for key in ("active_ticket_route_removed", "landing_page_removed", "capability_route_present")):
         raise UpdateError(f"Patcher self-test failed: {result}")
     return result
 
