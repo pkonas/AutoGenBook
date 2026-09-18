@@ -1,0 +1,70 @@
+name: PR build AutoGenBook Open WebUI v0.3.1
+
+on:
+  pull_request:
+    branches:
+      - feature/openwebui-llm-progress-downloads
+    paths:
+      - 'tools/patch_openwebui_durable_outputs_v031.py'
+      - 'tools/build_openwebui_full_project_v031.py'
+      - 'integration/**'
+      - '.github/workflows/pr-build-openwebui-durable-downloads-v031.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Patch durable Open WebUI file objects
+        run: |
+          python tools/patch_openwebui_durable_outputs_v031.py \
+            --project-root . \
+            --report build/durable-output-patch-report-v0.3.1.json
+
+      - name: Build and verify complete project
+        run: |
+          python tools/build_openwebui_full_project_v031.py \
+            --project-root . \
+            --dist dist
+
+      - name: Compile patched Pipe sources
+        shell: python
+        run: |
+          import base64, pathlib, py_compile, tempfile, zipfile
+          parts = sorted(pathlib.Path('integration').glob('openwebui_bundle.part*.b64'))
+          payload = base64.b64decode(''.join(p.read_text().strip() for p in parts), validate=True)
+          with tempfile.TemporaryDirectory() as td:
+              archive = pathlib.Path(td) / 'bundle.zip'
+              archive.write_bytes(payload)
+              root = pathlib.Path(td) / 'bundle'
+              with zipfile.ZipFile(archive) as zf:
+                  zf.extractall(root)
+              candidates = []
+              for path in root.rglob('*.py'):
+                  py_compile.compile(str(path), doraise=True)
+                  text = path.read_text(encoding='utf-8-sig')
+                  if 'def _file_payload(' in text and 'PERSIST_OUTPUTS_TO_OPENWEBUI' in text:
+                      candidates.append(path)
+              assert candidates
+              assert all('"type": "file"' in p.read_text(encoding='utf-8') for p in candidates)
+              print('\n'.join(str(p) for p in candidates))
+
+      - name: Upload complete v0.3.1 project
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.1
+          path: |
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.1.zip
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.1.tar.gz
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.1-SHA256SUMS.txt
+            dist/AutoGenBook-OpenWebUI-v0.3.1-FINAL-VERIFICATION.json
+            build/durable-output-patch-report-v0.3.1.json
+          retention-days: 30
