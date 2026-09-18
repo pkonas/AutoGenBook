@@ -4,6 +4,7 @@ from __future__ import annotations
 import base64
 import io
 import json
+import shutil
 import tarfile
 from pathlib import Path
 
@@ -33,10 +34,19 @@ def main() -> int:
     missing = sorted(TARGETS - files.keys())
     if missing:
         raise RuntimeError(f"Missing bundle files: {missing}")
+
     output = ROOT / "build" / "openwebui-bundle-sources-v0.3.2.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps({"files": files}, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(output)
+
+    export_root = ROOT / "build" / "extracted-openwebui-v0.3.2"
+    if export_root.exists():
+        shutil.rmtree(export_root)
+    for relative, text in files.items():
+        destination = export_root / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(text, encoding="utf-8", newline="\n")
+    print(json.dumps({"json": str(output), "export_root": str(export_root), "files": sorted(files)}, indent=2))
     return 0
 
 
