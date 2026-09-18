@@ -1,0 +1,65 @@
+name: Test AutoGenBook authenticated downloads v0.3.2
+
+on:
+  push:
+    branches:
+      - fix/openwebui-authenticated-downloads-v0.3.2
+    paths:
+      - tools/apply_openwebui_authenticated_downloads_v032.py
+      - .github/workflows/test-openwebui-authenticated-downloads-v032.yml
+      - integration/openwebui_bundle.part*.b64
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run patcher self-test
+        run: |
+          python tools/apply_openwebui_authenticated_downloads_v032.py \
+            --self-test \
+            --report build/authenticated-downloads-v0.3.2-self-test.json
+      - name: Probe actual packaged Pipe
+        shell: python
+        run: |
+          import base64, io, json, re, tarfile
+          from pathlib import Path
+
+          parts = sorted(Path('integration').glob('openwebui_bundle.part*.b64'))
+          payload = base64.b64decode(''.join(p.read_text(encoding='ascii').strip() for p in parts), validate=True)
+          with tarfile.open(fileobj=io.BytesIO(payload), mode='r:*') as archive:
+              member = archive.getmember('integrations/openwebui/autogenbook_pipe.py')
+              text = archive.extractfile(member).read().decode('utf-8-sig')
+          version = re.search(r'^version:\s*([^\s]+)', text, re.M)
+          report = {
+              'parts': len(parts),
+              'bytes': len(payload),
+              'pipe_lines': len(text.splitlines()),
+              'pipe_version': version.group(1) if version else None,
+              'markers': {
+                  'persist_outputs': 'PERSIST_OUTPUTS_TO_OPENWEBUI' in text,
+                  'file_payload': 'def _file_payload' in text,
+                  'persistent_output_url': 'def _persistent_output_url' in text,
+                  'reviewer_profile': 'REVIEWER_PROFILE' in text,
+                  'parity_manifest': 'direct_cli_parity_request' in text,
+              },
+          }
+          Path('build').mkdir(exist_ok=True)
+          Path('build/packaged-pipe-probe-v0.3.2.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+          print(json.dumps(report, indent=2))
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoGenBook-OpenWebUI-Authenticated-Downloads-v0.3.2-Test
+          path: |
+            build/authenticated-downloads-v0.3.2-self-test.json
+            build/packaged-pipe-probe-v0.3.2.json
+          retention-days: 7
