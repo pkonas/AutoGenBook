@@ -86,7 +86,11 @@ def execute_helpers(patcher: Any) -> dict[str, Any]:
 
 def test_source_migration_removes_browser_ticket_flow() -> None:
     patcher = load_patcher()
-    fixture = "# _agb_download_landing\n" + patcher._minimal_ticket_fixture()
+    fixture = patcher._minimal_ticket_fixture().replace(
+        '_AGB_DOWNLOAD_PREFIX = "/api/autogenbook"',
+        '_agb_download_landing = None\n_AGB_DOWNLOAD_PREFIX = "/api/autogenbook"',
+        1,
+    )
     patched = patcher.patch_source(fixture)
     result = patcher.validate_source(patched)
     assert result["version"] == "0.3.3"

@@ -183,10 +183,11 @@ def patch_local(path: Path, output_dir: Path, patcher: Any) -> dict[str, Any]:
 
 
 def self_test(patcher: Any) -> dict[str, Any]:
-    # The production 0.3.2 Function contains _agb_download_landing.  The small
-    # fixture intentionally keeps only the anchors needed by the migration, so
-    # add the marker as a comment to exercise the same branch deterministically.
-    fixture = "# _agb_download_landing\n" + patcher._minimal_ticket_fixture()
+    fixture = patcher._minimal_ticket_fixture().replace(
+        '_AGB_DOWNLOAD_PREFIX = "/api/autogenbook"',
+        '_agb_download_landing = None\n_AGB_DOWNLOAD_PREFIX = "/api/autogenbook"',
+        1,
+    )
     patched = patcher.patch_source(fixture)
     validation = patcher.validate_source(patched)
     result = {
