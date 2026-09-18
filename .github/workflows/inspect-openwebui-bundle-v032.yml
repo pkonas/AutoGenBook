@@ -1,0 +1,28 @@
+name: Inspect AutoGenBook Open WebUI bundle v0.3.2
+
+on:
+  push:
+    branches:
+      - fix/openwebui-authenticated-downloads-v0.3.2
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect bundled Pipe, Companion and installer
+        run: python tools/inspect_openwebui_bundle_v032.py
+      - name: Upload diagnostic report
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoGenBook-OpenWebUI-Bundle-Inspection-v0.3.2
+          path: build/openwebui-bundle-inspection-v0.3.2.json
+          retention-days: 7
