@@ -1,0 +1,34 @@
+name: Export bundled Open WebUI sources v0.3.2
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix/openwebui-authenticated-downloads-v0.3.2
+    paths:
+      - tools/export_openwebui_bundle_sources_v032.py
+      - .github/workflows/export-openwebui-bundle-sources-v032.yml
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/export_openwebui_bundle_sources_v032.py
+      - name: Commit source snapshot to feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build/openwebui-bundle-sources-v0.3.2.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Export exact bundled sources for v0.3.2 repair"
+          git push
