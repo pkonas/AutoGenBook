@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 import base64
+import io
 import json
-import re
-import tempfile
+import tarfile
 import zipfile
 from pathlib import Path
 
@@ -24,24 +24,22 @@ TERMS = [
     "FileForm(",
     "upload_file_handler",
     "PERSIST_OUTPUTS_TO_OPENWEBUI",
-    "artifact",
+    "@app.get",
+    "@router.get",
 ]
+TEXT_SUFFIXES = (".py", ".cmd", ".ps1", ".sh", ".json", ".md", ".txt")
 
 
 def snippets(text: str, path: str) -> list[dict[str, object]]:
     lines = text.splitlines()
     found: list[dict[str, object]] = []
-    seen: set[tuple[int, str]] = set()
     for term in TERMS:
+        term_matches = 0
         for index, line in enumerate(lines):
             if term.casefold() not in line.casefold():
                 continue
-            key = (index, term)
-            if key in seen:
-                continue
-            seen.add(key)
-            start = max(0, index - 12)
-            end = min(len(lines), index + 30)
+            start = max(0, index - 10)
+            end = min(len(lines), index + 26)
             found.append(
                 {
                     "path": path,
@@ -52,7 +50,33 @@ def snippets(text: str, path: str) -> list[dict[str, object]]:
                     ),
                 }
             )
+            term_matches += 1
+            if term_matches >= 12:
+                break
     return found
+
+
+def archive_members(payload: bytes):
+    stream = io.BytesIO(payload)
+    if zipfile.is_zipfile(stream):
+        stream.seek(0)
+        with zipfile.ZipFile(stream) as archive:
+            for info in archive.infolist():
+                if not info.is_dir():
+                    yield info.filename, archive.read(info)
+        return
+    stream.seek(0)
+    if tarfile.is_tarfile(fileobj := stream):
+        fileobj.seek(0)
+        with tarfile.open(fileobj=fileobj, mode="r:*") as archive:
+            for member in archive.getmembers():
+                if not member.isfile():
+                    continue
+                handle = archive.extractfile(member)
+                if handle is not None:
+                    yield member.name, handle.read()
+        return
+    raise RuntimeError(f"Unsupported bundle format; magic={payload[:16].hex()}")
 
 
 def main() -> int:
@@ -61,23 +85,22 @@ def main() -> int:
     encoded = "".join(part.read_text(encoding="ascii").strip() for part in PARTS)
     payload = base64.b64decode(encoded, validate=True)
     results: list[dict[str, object]] = []
-    with tempfile.TemporaryDirectory(prefix="agb-v032-inspect-") as temp:
-        archive_path = Path(temp) / "bundle.zip"
-        archive_path.write_bytes(payload)
-        with zipfile.ZipFile(archive_path) as archive:
-            for info in archive.infolist():
-                if info.is_dir() or not info.filename.lower().endswith((".py", ".cmd", ".ps1", ".sh", ".json")):
-                    continue
-                try:
-                    text = archive.read(info).decode("utf-8-sig")
-                except Exception:
-                    continue
-                rows = snippets(text, info.filename)
-                if rows:
-                    results.extend(rows)
+    inventory: list[dict[str, object]] = []
+    for name, data in archive_members(payload):
+        inventory.append({"path": name, "size": len(data)})
+        if not name.lower().endswith(TEXT_SUFFIXES):
+            continue
+        try:
+            text = data.decode("utf-8-sig")
+        except Exception:
+            continue
+        results.extend(snippets(text, name))
     report = {
         "parts": len(PARTS),
+        "part_names": [part.name for part in PARTS],
         "bundle_bytes": len(payload),
+        "magic": payload[:16].hex(),
+        "inventory": inventory,
         "matches": results,
     }
     output = ROOT / "build" / "openwebui-bundle-inspection-v0.3.2.json"
