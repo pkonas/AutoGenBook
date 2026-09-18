@@ -1,0 +1,49 @@
+name: Build AutoGenBook Open WebUI authenticated downloads v0.3.2
+
+on:
+  push:
+    branches:
+      - fix/openwebui-authenticated-downloads-v0.3.2
+    paths:
+      - Install-AutoGenBook.cmd
+      - tools/apply_openwebui_authenticated_downloads_v032.py
+      - tools/install_authenticated_downloads_v032.py
+      - tools/build_openwebui_authenticated_downloads_project_v032.py
+      - docs/openwebui-authenticated-downloads-v0.3.2.md
+      - .github/workflows/build-openwebui-authenticated-downloads-v032.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile production updater
+        run: |
+          python -m py_compile tools/apply_openwebui_authenticated_downloads_v032.py
+          python -m py_compile tools/install_authenticated_downloads_v032.py
+          python tools/install_authenticated_downloads_v032.py --self-test
+      - name: Build complete installer project
+        run: python tools/build_openwebui_authenticated_downloads_project_v032.py
+      - name: Show validation
+        run: |
+          cat dist/AutoGenBook-OpenWebUI-v0.3.2-FINAL-VERIFICATION.json
+          cat dist/AutoGenBook-OpenWebUI-v0.3.2-SHA256SUMS.txt
+      - name: Upload complete deliverables
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.2
+          path: |
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.2.zip
+            dist/AutoGenBook-OpenWebUI-Full-Installer-Project-v0.3.2.tar.gz
+            dist/AutoGenBook-OpenWebUI-v0.3.2-FINAL-VERIFICATION.json
+            dist/AutoGenBook-OpenWebUI-v0.3.2-SHA256SUMS.txt
+          retention-days: 30
+          if-no-files-found: error
