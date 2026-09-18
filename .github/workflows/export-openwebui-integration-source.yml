@@ -4,10 +4,15 @@ on:
   push:
     branches:
       - feature/openwebui-companion-installer
+      - feature/openwebui-llm-progress-downloads
+    paths:
+      - .github/workflows/export-openwebui-integration-source.yml
+      - integration/openwebui_bundle.part*.b64
+      - tools/unpack_openwebui_bundle.py
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   PYTHONUTF8: "1"
@@ -20,10 +25,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Unpack integration source
+
+      - name: Unpack and validate integration source
         run: |
           python tools/unpack_openwebui_bundle.py
           python tools/patch_openwebui_build.py
+          python -m compileall -q companion/src installer build integrations/openwebui
+
       - name: Build complete source inspection archive
         run: |
           mkdir -p dist
@@ -35,11 +43,40 @@ jobs:
             --mtime='1980-01-01 UTC' \
             --sort=name \
             -czf dist/AutoGenBook-OpenWebUI-Complete-Source.tar.gz .
+          sha256sum dist/AutoGenBook-OpenWebUI-Complete-Source.tar.gz \
+            > dist/AutoGenBook-OpenWebUI-Complete-Source.sha256
+
+      - name: Publish discoverable run ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch build-state \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/build-state
+          mkdir -p /tmp/build-state/build-state
+          cat > /tmp/build-state/build-state/openwebui-source-export-latest.json <<JSON
+          {
+            "run_id": ${GITHUB_RUN_ID},
+            "run_attempt": ${GITHUB_RUN_ATTEMPT},
+            "source_sha": "${GITHUB_SHA}",
+            "workflow": "${GITHUB_WORKFLOW}",
+            "artifact": "autogenbook-openwebui-complete-source"
+          }
+          JSON
+          cd /tmp/build-state
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-state/openwebui-source-export-latest.json
+          git commit -m "Record Open WebUI source export ${GITHUB_RUN_ID}" || true
+          git push origin HEAD:build-state
+
       - name: Upload source inspection artifact
         uses: actions/upload-artifact@v4
         with:
           name: autogenbook-openwebui-complete-source
-          path: dist/AutoGenBook-OpenWebUI-Complete-Source.tar.gz
+          path: |
+            dist/AutoGenBook-OpenWebUI-Complete-Source.tar.gz
+            dist/AutoGenBook-OpenWebUI-Complete-Source.sha256
           if-no-files-found: error
           compression-level: 0
           retention-days: 7
